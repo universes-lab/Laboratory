@@ -1,0 +1,28 @@
+{
+  "datasets": {
+    "SNO_plus": {
+      "status": "available",
+      "path": "02_DATA/raw/SNO/"
+    },
+    "SuperK_atm": {
+      "status": "available",
+      "path": "02_DATA/raw/SuperK_Zenodo/"
+    },
+    "SuperK_solar": {
+      "status": "not_applicable",
+      "path": "02_DATA/processed/SuperK_solar/"
+    },
+    "KamLAND": {
+      "status": "not_available",
+      "path": "02_DATA/processed/KamLAND/"
+    },
+    "Borexino": {
+      "status": "not_available",
+      "path": "02_DATA/processed/Borexino/"
+    },
+    "JUNO": {
+      "status": "available",
+      "path": "02_DATA/raw/JUNO/"
+    }
+  }
+}
