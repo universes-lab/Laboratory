@@ -4,7 +4,7 @@ model:
   # параметры backend устанавливаются после STEP 1
 
 paths:
-  system_prompt: "Syst_Prompt.md"
+  system_prompt: "Gemma.md"
   input_dir: "Input"
   output_dir: "Output"
   logs_dir: "logs/runs"

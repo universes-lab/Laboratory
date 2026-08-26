@@ -177,10 +177,10 @@ if __name__ == "__main__":
 
     # Read system prompt
     try:
-        with open("Syst_Prompt.md", 'r', encoding='utf-8') as f:
+        with open("Gemma.md", 'r', encoding='utf-8') as f:
             system_prompt = f.read()
     except FileNotFoundError:
-        print("Error: Syst_Prompt.md not found.")
+        print("Error: Gemma.md not found.")
         exit(1)
 
     # Read user prompt from compiled_input.txt using the parsed run_id

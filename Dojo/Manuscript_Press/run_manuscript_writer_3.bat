@@ -2,15 +2,15 @@
 setlocal enabledelayedexpansion
 
 echo ============================================================
-echo  MANUSCRIPT WRITER — PRODUCTION RUN (Package 02)
+echo  MANUSCRIPT WRITER — PRODUCTION RUN (Package 03)
 echo ============================================================
 echo.
 
 set PYTHONPATH=D:\Gemini\dojo
 cd /d D:\Gemini\dojo
 
-echo [1/5] Building compiled_input for Package 02...
-python -m src.builder --package_id "02" --run_id "01_T00_02"
+echo [1/5] Building compiled_input for Package 03...
+python -m src.builder --package_id "03" --run_id "01_T00_03"
 if errorlevel 1 (
     echo ERROR: Builder failed. Check input files.
     pause
@@ -20,7 +20,7 @@ echo   ✅ compiled_input.txt created
 echo.
 
 echo [2/5] Running generator...
-python -m src.generator --run_id "01_T00_02" --temperature 0.0
+python -m src.generator --run_id "01_T00_03" --temperature 0.0
 if errorlevel 1 (
     echo ERROR: Generator failed.
     pause
@@ -32,28 +32,28 @@ echo.
 echo [3/5] Checking artifacts...
 set MISSING=0
 
-if exist logs\runs\01_T00_02\raw_output.md (
+if exist logs\runs\01_T00_03\raw_output.md (
     echo   ✅ raw_output.md exists
 ) else (
     echo   ❌ raw_output.md MISSING
     set MISSING=1
 )
 
-if exist logs\runs\01_T00_02\metadata.yaml (
+if exist logs\runs\01_T00_03\metadata.yaml (
     echo   ✅ metadata.yaml exists
 ) else (
     echo   ❌ metadata.yaml MISSING
     set MISSING=1
 )
 
-if exist logs\runs\01_T00_02\constants_check.yaml (
+if exist logs\runs\01_T00_03\constants_check.yaml (
     echo   ✅ constants_check.yaml exists
 ) else (
     echo   ❌ constants_check.yaml MISSING
     set MISSING=1
 )
 
-if exist Output\01_T00_02.manuscript.md (
+if exist Output\01_T00_03.manuscript.md (
     echo   ✅ manuscript.md exists
 ) else (
     echo   ❌ manuscript.md MISSING

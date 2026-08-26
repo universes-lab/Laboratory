@@ -3,7 +3,7 @@ import argparse
 
 def build_prompt(package_id: str, run_id: str) -> tuple[str, str]:
     # Precondition file paths
-    syst_prompt_path = "Syst_Prompt.md"
+    syst_prompt_path = "Gemma.md"
     concept_package_path = f"Input/{package_id}.CONCEPT_PACKAGE.md"
     package_prompt_path = f"Input/{package_id}.CONCEPT_PACKAGE_Prompt.md"
     
