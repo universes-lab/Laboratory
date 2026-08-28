@@ -5,6 +5,8 @@
 **Applies to:** `BEYOND_PROMPT_ENGINEERING_INTEGRATED_DRAFT.md`
 **Status of that draft:** integrated, internally consistent at the cross-reference level, **not publication-ready**
 
+**Revision 2.** Reflects the Author's post-review decisions on the four integration defects. Section 4 below is updated accordingly; nothing else on this list has changed.
+
 Nothing on this list was resolved, inferred, or worked around during Mode B. Items are grouped by what closing them requires.
 
 ---
@@ -75,16 +77,17 @@ The source admits both n = 1 and n = 2. The manuscript states the observation wi
 
 ---
 
-# 4. INTEGRATION DEFECTS — SEE CHANGE LEDGER §8
+# 4. INTEGRATION DEFECTS — AUTHOR DECISIONS APPLIED
 
-Four defects were found during assembly and preserved unrepaired. They are stated in full in `MODE_B_CHANGE_LEDGER.md` and listed here so that no one closes the file believing them handled.
+Four defects were found during assembly. Qwen returned **PASS**; the Author then ruled on each. Two are closed by manuscript amendment, one by ledger record, and two halves remain open. Full detail in `MODE_B_CHANGE_LEDGER.md` §8.
 
-| ID | Summary | Blocking? |
+| ID | Summary | Disposition |
 |---|---|---|
-| **B-1** | FINAL IV-1 specifies seven `§4.6` occurrences; the base contained five, four of which were rewritten. The package's tally or its section attributions are wrong | Not blocking — resulting text is consistent — but the discrepancy is unexplained |
-| **B-2** | FINAL IV-2 and III-3 contradict each other; §4.2.2's claim that *behavioural DNA* appears only in that paragraph **is now false** | **Blocking.** The manuscript contains a false statement about itself |
-| **B-3** | §6.2 counts Prompt v1 at "approximately six"; §5.4 C2 counts Prompt A at 5 under an explicit rule. FINAL calls them distinct; §5.2's description of Prompt A matches the C2 table item for item | **Blocking if they are the same prompt.** Depends on PB-1 |
-| **B-4** | §10.3 cites *"what §4.5 calls a selective information membrane"* — no §4 text, old or new, defines the term. Pre-existing, not created by renumbering. Separately, §6.7 does not cover the new §6.3 | Blocking for §10.3 — a live dangling reference to a definition that does not exist |
+| **B-1** | FINAL IV-1 specifies seven `§4.6` occurrences; the base contained five, four of which were rewritten. The package's tally or its section attributions are wrong | **CLOSED.** No manuscript change; recorded in the ledger only |
+| **B-2** | FINAL IV-2 and III-3 contradicted each other; §4.2.2's exclusivity claim was false | **CLOSED.** §4.2.2 amended — the claim is now about the term's function, not its frequency |
+| **B-3** | §6.2 counts Prompt v1 at "approximately six"; §5.4 C2 counts Prompt A at 5 under an explicit rule. FINAL calls them distinct; §5.2's description of Prompt A matches the C2 table item for item | **OPEN.** Deferred pending Appendix A. Identity between v1 and Prompt A is not to be inferred. **Blocking if they are the same prompt.** Depends on PB-1 |
+| **B-4a** | §10.3 cited *"what §4.5 calls a selective information membrane"* — no §4 text defines the term | **CLOSED.** §10.3 amended; the attribution is removed and the term is introduced at its point of use |
+| **B-4b** | §6.7 (*What would refute this framework*) does not cover the new §6.3 | **OPEN.** No decision was issued on this half; not repaired. §6.3 carries its own falsification routes, so nothing is unsupported, but §6.7 is incomplete with respect to it |
 
 ---
 
@@ -106,7 +109,8 @@ The distinction matters: this list contains conditions that must change before p
 
 ---
 
-**Blocking before publication:** PB-1, PB-2 (Choi), PB-3, PB-4, PB-5, B-2, B-4 (§10.3), and B-3 conditionally.
-**Requires an Author decision but does not block assembly:** PB-6, PB-7, PB-8, PB-9, B-1.
+**Blocking before publication:** PB-1, PB-2 (Choi), PB-3, PB-4, PB-5, and B-3 conditionally on PB-1.
+**Requires an Author decision but does not block assembly:** PB-6, PB-7, PB-8, PB-9, B-4b.
+**Closed since revision 1:** B-1, B-2, B-4a.
 
 The manuscript is not declared publication-ready.

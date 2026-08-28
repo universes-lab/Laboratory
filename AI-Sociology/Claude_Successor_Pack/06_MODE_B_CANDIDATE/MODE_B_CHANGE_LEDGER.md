@@ -4,7 +4,9 @@
 **Produced by:** Chief Scientific Editor (successor instance)
 **Mode:** B — SCIENTIFIC EDITING, authorized by `AUTHOR_DECISIONS_MODE_B_GATE.md`
 **Output governed:** `BEYOND_PROMPT_ENGINEERING_INTEGRATED_DRAFT.md` — 30,110 words, 134 numbered headings, §1–§12 continuous
-**Precedence chain applied:** clean Blocks 1–5 → `4.Corrections_FINAL.md` → `5.Corrections_03.md` → authorized §6.3 addition
+**Precedence chain applied:** clean Blocks 1–5 → `4.Corrections_FINAL.md` → `5.Corrections_03.md` → authorized §6.3 addition → post-review Author decisions on B-2 and B-4
+
+**Revision 2.** Qwen Mode B review returned **PASS**. The Author then issued four decisions on the integration defects, applied in this revision and recorded at §8 below. Two manuscript edits resulted (B-2, B-4); two items were closed without manuscript change (B-1, B-3). No other editorial change was made in that pass.
 
 ---
 
@@ -186,9 +188,16 @@ This is a placement note, not a claim about the theory. It is mine, not instruct
 
 ---
 
-# 8. OPEN ITEMS — PRESERVED, NOT RESOLVED
+# 8. INTEGRATION DEFECTS — AUTHOR DECISIONS APPLIED
 
-These four were found during integration. None is repaired, reinterpreted, or resolved by preference.
+These four were found during integration and were preserved unrepaired in revision 1. Qwen returned **PASS**; the Author then ruled on each. The rulings are recorded below with the original finding intact, so that what was found and what was decided remain separable.
+
+| ID | Author decision | Manuscript change |
+|---|---|---|
+| B-1 | No manuscript change; record the tally discrepancy in the ledger only | none |
+| B-2 | Replace the false exclusivity sentence in §4.2.2 | one sentence, §4.2.2 |
+| B-3 | Leave unresolved pending Appendix A; do not infer identity between Prompt v1 and Prompt A | none |
+| B-4 | Replace the false §4.5 attribution in §10.3 | one sentence, §10.3 |
 
 ## B-1. FINAL IV-1 specifies seven `§4.6` occurrences; the manuscript contained five
 
@@ -198,15 +207,25 @@ Applied: four rewritten. The intent of the instruction is unambiguous and the re
 
 Not resolved here.
 
-## B-2. FINAL IV-2 and FINAL III-3 contradict each other, and §4.2.2 is now false
+**AUTHOR DECISION (post-review).** No manuscript change. The discrepancy is recorded in this ledger only. The four rewritten occurrences stand as applied; the mismatch between the package's tally and the base text is documented here and is not carried into the manuscript or the blockers list.
+
+**Status: CLOSED — ledger record only.**
+
+## B-2. FINAL IV-2 and FINAL III-3 contradict each other, and §4.2.2 was false
 
 IV-2 orders `behavioural DNA` removed from the whole manuscript except §4.2.2. III-3's own approved replacement text for §6.4 (now §6.5) contains it: *"Earlier drafts referred to these tendencies as a model's behavioural DNA. That term is withdrawn (§4.2.2)."*
 
-Both were applied as written. The consequence is that §4.2.2's sentence — *"Behavioural DNA appears in this paper only in this paragraph, as a historical note on the project's earlier vocabulary"* — **is now untrue of the assembled manuscript.**
+Both were applied as written. The consequence was that §4.2.2's sentence — *"Behavioural DNA appears in this paper only in this paragraph, as a historical note on the project's earlier vocabulary"* — **was untrue of the assembled manuscript.**
 
-Three repairs are available and all are substantive: amend §4.2.2's sentence, amend §6.5's wording, or accept the second occurrence as a second historical note. Choosing among them is not an editorial decision within my ZOR.
+Three repairs were available and all were substantive: amend §4.2.2's sentence, amend §6.5's wording, or accept the second occurrence as a second historical note. Choosing among them was not an editorial decision within my ZOR.
 
-Not resolved here.
+**AUTHOR DECISION (post-review).** The first repair. The §4.2.2 sentence is replaced with:
+
+> *Behavioural DNA* is retained in this paper only as a historical label for withdrawn vocabulary; it is not used as a normative or explanatory term.
+
+Applied verbatim; italic emphasis on the term matches the surrounding §4.2.2 convention. §6.5's wording is untouched, and no occurrence of the term was added or removed elsewhere. The claim §4.2.2 now makes is about the term's **function** rather than its **frequency**, which is true of the assembled manuscript: three occurrences remain — two in §4.2.2, one in §6.5 — and none performs normative or explanatory work.
+
+**Status: CLOSED — manuscript amended.**
 
 ## B-3. Two counts for what may be one object: "approximately six" and 5
 
@@ -218,13 +237,25 @@ If v1 is Prompt A, the manuscript states two different numbers for the same prom
 
 Determining which requires the prompt texts, which are in the missing Appendix A. Not resolved here.
 
+**AUTHOR DECISION (post-review).** Left unresolved pending Appendix A. Identity between Prompt v1 and Prompt A is **not** to be inferred. No manuscript change: §6.2 retains *"approximately six"*, §5.4 C2 retains the count of 5 under its explicit rule, and FINAL's *"a second pair"* framing stands as written. The question is carried forward in `PUBLICATION_BLOCKERS.md` as conditional on PB-1.
+
+**Status: OPEN — deferred to Appendix A.**
+
 ## B-4. Pre-existing dangling reference at §10.3, and §6.7's coverage
 
-**§10.3** reads *"This is what §4.5 calls a selective information membrane."* No §4 text defines that term — neither the new §4.5 nor the superseded §4.6. The reference was already dangling in the canonical blocks before renumbering; IV-1 changed the number without creating a referent.
+**§10.3** read *"This is what §4.5 calls a selective information membrane."* No §4 text defines that term — neither the new §4.5 nor the superseded §4.6. The reference was already dangling in the canonical blocks before renumbering; IV-1 changed the number without creating a referent.
+
+**AUTHOR DECISION (post-review).** The attribution is removed rather than given a referent. The sentence is replaced with:
+
+> This routing function acts as a **selective information membrane**: it is the instrument by which ZOV (§9.5) and controlled blindness (§9.6) are implemented.
+
+Applied verbatim; bold emphasis on the term is retained from the original sentence, matching its first-use convention. The replacement absorbs the following sentence of the original, which stated the ZOV and controlled-blindness instrumentation separately. No new definition of the term was created in §4, and none was requested. The term is now introduced at its point of use in §10.3 and attributed to nothing.
+
+**Status: CLOSED — manuscript amended.**
 
 **§6.7** (*What would refute this framework*) enumerates refutation routes for §6.1, §6.2, §6.4 and §6.5. It does not cover the new §6.3. §6.3 carries its own falsification routes internally, so nothing is unsupported — but the section that claims to state what would refute the framework is now incomplete with respect to it.
 
-Neither is repaired.
+**No decision was issued on this half of B-4, and it is not repaired.** It was not among the four decisions applied. **Status: OPEN.**
 
 ---
 
@@ -232,9 +263,20 @@ Neither is repaired.
 
 The manuscript is **not** declared publication-ready. The remaining conditions are in `PUBLICATION_BLOCKERS.md`.
 
-The four open items above and the four Author questions VI-1…VI-4 are unresolved. No answer to any of them has been inferred, and no affected passage has been adjusted to look settled.
+Of the four integration defects, B-1 and B-2 and the §10.3 half of B-4 are closed by Author decision. B-3 and the §6.7 half of B-4 remain open. The four Author questions VI-1…VI-4 remain unresolved. No answer to any open item has been inferred, and no affected passage has been adjusted to look settled.
 
-Three decisions in this ledger are mine rather than instructed and are marked as such: the removal of the block banners (§1.1), the fencing of the title block (§1.3), and the structural note added to the §6 preamble (§7.4).
+Three decisions in this ledger are mine rather than instructed and are marked as such: the removal of the block banners (§1.1), the fencing of the title block (§1.3), and the structural note added to the §6 preamble (§7.4). Qwen's Mode B review returned PASS without reversing any of them; none has been separately ratified by the Author.
+
+## 9.1 Revision 2 — exactly what changed
+
+Two manuscript edits, both verbatim from the Author's decision text, both applied by single exact-match replacement:
+
+| Location | Operation |
+|---|---|
+| §4.2.2 | One sentence replaced (B-2) |
+| §10.3 | Two sentences replaced by one (B-4) |
+
+Post-edit verification: 134 headings, **0 dangling `§x.y` cross-references**, `behavioural DNA` at three occurrences as described above, manuscript length 30,115 words. No other text in the manuscript was touched in this pass.
 
 ---
 
