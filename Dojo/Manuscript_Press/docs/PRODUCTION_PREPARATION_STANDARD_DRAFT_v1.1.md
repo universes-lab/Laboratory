@@ -1,7 +1,7 @@
 # MANUSCRIPT_PRESS
-# PRODUCTION_PREPARATION_STANDARD — DRAFT v1
+# PRODUCTION_PREPARATION_STANDARD — DRAFT v1.1
 
-**Status:** DRAFT v1 — for Methodologist / Scientific Editor / Doc Brown / Author review  
+**Status:** DRAFT v1.1 — for Methodologist / Scientific Editor / Doc Brown / Author review  
 **Owner of draft:** Prompter  
 **Applies to:** human preparation of `SOURCE_MANUSCRIPT` + `PROMPT_MAP` before `PRODUCTION_REVISION` freeze  
 **Does not modify:** `MANUSCRIPT_PRESS ENGINEERING SPEC v3.2.2`
@@ -60,7 +60,7 @@ This document governs **how humans prepare those frozen inputs**.
 
 An **elementary prose move** is:
 
-> one or more complete paragraphs that perform one completed argumentative, explanatory, narrative, or rhetorical operation and can be rewritten as one cold transaction without requiring Gemma to guess what the move was supposed to accomplish.
+> one or more normally complete paragraphs that perform one completed argumentative, explanatory, narrative, or rhetorical operation and can be rewritten as one cold transaction without requiring Gemma to guess what the move was supposed to accomplish. A paragraph split is exceptional and is permitted only by explicit Scientific Editor + Author decision.
 
 A move is defined by **function and cadence**, not by length.
 
@@ -194,7 +194,7 @@ Production structure remains independent of reader-visible structure.
 
 For each proposed move:
 
-1. Read the preceding accepted/source context and the current paragraphs as a continuous argument.
+1. Read the preceding SOURCE context and the current paragraphs as a continuous argument.
 2. Identify the rhetorical job of the current move in one sentence.
 3. Identify where that job becomes complete.
 4. Apply the two-question BAD CUT precheck.
@@ -614,6 +614,13 @@ only when all of the following are true.
 For every SOURCE marker:
 
 - exactly one matching PROMPT_MAP entry exists;
+
+For every PROMPT_MAP entry:
+
+- exactly one matching SOURCE marker exists;
+
+And for every matched SOURCE / PROMPT_MAP pair:
+
 - `LONG_RANGE_FRAME` is non-empty and minimally sufficient;
 - `LOCAL_TRANSFORMATION` is non-empty;
 - semantic stop is explicit;
@@ -635,7 +642,8 @@ For every SOURCE marker:
 - Scientific Editor has completed the production-readiness pass;
 - all BAD CUT vetoes are resolved;
 - all substantive scientific changes intended for this revision are already in SOURCE;
-- no active Author OPEN POINT remains that would require changing this revision's SOURCE if resolved;
+- `STABLE_CONFIG` intended for this production revision has already been approved by the responsible authority;
+- no unresolved Author / editorial / process decision remains that, when resolved, would require changing any frozen component of this `PRODUCTION_REVISION`;
 - Methodologist has no unresolved process/ZOR objection;
 - Doc Brown has no frozen-SPEC compatibility objection;
 - Author approves the prepared SOURCE + PROMPT_MAP for freeze.
@@ -919,7 +927,7 @@ For freeze:
 
 # 18. STATUS
 
-**PRODUCTION_PREPARATION_STANDARD — DRAFT v1**
+**PRODUCTION_PREPARATION_STANDARD — DRAFT v1.1**
 
 Prepared by: **Prompter**
 
