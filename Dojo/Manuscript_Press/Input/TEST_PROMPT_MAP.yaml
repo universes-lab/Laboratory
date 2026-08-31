@@ -1,0 +1,143 @@
+MP:0101:
+  LONG_RANGE_FRAME: |
+    LOCATION:
+    §1.6, "The organizing question", immediately after §1.5 has stated the
+    strongest supported behavioural pattern.
+
+    FUNCTION:
+    Reframe the manuscript's observations as positions on one nesting scale
+    rather than as a catalogue of separate findings.
+
+    READER_STATE_BEFORE:
+    The reader knows the article's strongest supported operational claim but
+    has not yet been given the single organizing measurement axis.
+
+    REQUIRED_READER_STATE_AFTER:
+    The reader understands that the observations are being organized by scope,
+    without yet needing the definition of rule core.
+
+    CONSTRAINTS:
+    Do not imply that every level of the scale is empirically established.
+    Preserve the distinction between observations and the mechanism later
+    proposed to organize them.
+
+    CLOSURE:
+    The local reframing may close here.
+    Do not define rule core yet; that is the next move.
+
+  LOCAL_TRANSFORMATION: |
+    TRANSFORM:
+    Render the source as a concise transition from a list-of-findings reading
+    to a one-scale reading.
+
+    PRESERVE:
+    The scale variable is the scope over which rules determine response type.
+
+    DO_NOT_INTRODUCE:
+    No new scale levels, no causal mechanism, no stronger evidence claim.
+
+    RHETORICAL_OPERATION:
+    Reclassification / narrowing of the reader's frame.
+
+    SEMANTIC_STOP:
+    Stop once the reader understands that the observations belong to one scale.
+    Do not begin the definition of rule core.
+
+MP:0102:
+  LONG_RANGE_FRAME: |
+    LOCATION:
+    §1.6, after the scale has been introduced and before its levels are listed.
+
+    FUNCTION:
+    Supply the construct that makes the scale operational and testable.
+
+    READER_STATE_BEFORE:
+    The reader knows there is one scale but does not yet know what is supposed
+    to remain stable across that scale.
+
+    REQUIRED_READER_STATE_AFTER:
+    The reader understands that a rule core fixes response type while allowing
+    content variation, and why that distinction creates a testable claim.
+
+    CONSTRAINTS:
+    Rule core is a construct, not an observed object.
+    Preserve the developmental-not-replicative qualification.
+    Do not turn the construct into an empirical finding.
+
+    CLOSURE:
+    The construct definition may close.
+    Enumeration of nesting levels belongs to the next move.
+
+  LOCAL_TRANSFORMATION: |
+    TRANSFORM:
+    Produce a clean conceptual definition of rule core and connect it directly
+    to testability.
+
+    PRESERVE:
+    Type/content distinction.
+    Developmental rather than replicative analogy.
+    Output variability as the reason the claim remains testable.
+
+    DO_NOT_INTRODUCE:
+    No biological inheritance claim.
+    No claim that a rule core has been directly observed.
+    No enumeration of levels yet.
+
+    RHETORICAL_OPERATION:
+    Definition followed by methodological consequence.
+
+    SEMANTIC_STOP:
+    Stop only after the type/content distinction has been tied to testability.
+
+MP:0103:
+  LONG_RANGE_FRAME: |
+    LOCATION:
+    Final move of §1.6.
+
+    FUNCTION:
+    Convert the scale from an organizing device into the paper's single
+    empirical programme question.
+
+    READER_STATE_BEFORE:
+    The reader understands both the scale idea and the rule-core construct.
+
+    REQUIRED_READER_STATE_AFTER:
+    The reader knows the scale levels and their unequal evidential status,
+    and understands the exact empirical question that organizes the paper.
+
+    CONSTRAINTS:
+    Episode and conversation are supported by preserved evidence.
+    Account remains open.
+    Model family remains untested/confounded.
+    Preserve the protected central question verbatim.
+    Do not imply that the paper has answered the question at all levels.
+
+    CLOSURE:
+    §1.6 may close after explaining why this question is preferred to the older,
+    broader formulation.
+
+  LOCAL_TRANSFORMATION: |
+    TRANSFORM:
+    Present the scale compactly, preserve the unequal status of its levels,
+    lead into the protected research question, and close by explaining why
+    the question is methodologically stronger than the earlier broad framing.
+
+    PRESERVE:
+    Ordering of levels.
+    Evidential asymmetry across levels.
+    Protected question exactly as supplied.
+    The reason for preferring the question: it specifies measurement and
+    refutation.
+
+    DO_NOT_INTRODUCE:
+    No additional scale level.
+    No claim that account or model-family levels are established.
+    No new discipline claim.
+    No paraphrase or duplication of the protected question.
+
+    RHETORICAL_OPERATION:
+    Enumeration → concentration into one question → local section closure.
+
+    SEMANTIC_STOP:
+    Stop only after the reader has both the exact question and the reason it
+    replaces the broader earlier formulation.
