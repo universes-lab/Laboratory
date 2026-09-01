@@ -1,0 +1,11 @@
+generation:
+  temperature: 0.0
+result:
+  constants_check: ALL_YES
+  duration_seconds: 1313.3313620090485
+  manuscript_created: true
+  manuscript_sha256: 94c4ec26e2d2377caf6b93d02d45b4a0f837af99866f6dff7728559d4e327dd7
+  query_count: 0
+  status: SUCCESS
+run_id: 01_T00
+timestamp: '2026-08-27T20:33:10.183115'

@@ -1,0 +1,17 @@
+MP:0001:
+  LONG_RANGE_FRAME: |
+    # Placeholder for LONG_RANGE_FRAME content for MP:0001
+    This is a placeholder for the long-range frame of the first production marker.
+    It should contain high-level context and information that spans a significant portion of the manuscript.
+  LOCAL_TRANSFORMATION: |
+    # Placeholder for LOCAL_TRANSFORMATION content for MP:0001
+    This is a placeholder for the local transformation instructions for MP:0001.
+    It should specify how to process or transform the content related to this marker.
+
+MP:0005:
+  LONG_RANGE_FRAME: |
+    # Placeholder for LONG_RANGE_FRAME content for MP:0005
+    This is a placeholder for the long-range frame of the fifth production marker.
+  LOCAL_TRANSFORMATION: |
+    # Placeholder for LOCAL_TRANSFORMATION content for MP:0005
+    This is a placeholder for the local transformation instructions for MP:0005.
