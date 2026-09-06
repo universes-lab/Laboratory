@@ -2,540 +2,888 @@
 
 ## IDENTITY
 
-**Project:** MANUSCRIPT_PRESS
-**Phase:** 1
-**Step:** 6
-**Status:** ACTIVE
-**Version:** 1.3
-**Date:** 2026-09-05
-**Technical Authority:** SPEC v3.2.2 §5 (PRODUCTION_REVISION)
-**Approval:** DOC APPROVED — 2026-09-05
+**Project:** MANUSCRIPT_PRESS  
+**Phase:** 1  
+**Step:** SMOKE_BRIDGE  
+**Version:** 1.1  
+**Date:** 2026-09-06  
+**Step Type:** DIAGNOSTIC_SMOKE  
+
+Operation_ID: PHASE1_SMOKE_BRIDGE_V1_1
+Status: ACTIVE
+Execution_State: NOT_EXECUTED
+
+**Technical Authority:**
+- MANUSCRIPT_PRESS ENGINEERING SPEC v3.2.2:
+  - §1 — ONE TRANSACTION = ONE PRODUCTION MARKER BLOCK
+  - §3 — SOURCE_MANUSCRIPT / PROMPT_MAP marker semantics
+  - §4 — protected-first processing
+  - §8 — CONTEXT ASSEMBLY
+  - §21 — first block has no CACHE_BEFORE
+- Accepted Phase-1 Steps 1–4
+- Accepted Step-5 structural semantics
+- Existing proven Gemma runtime
+- Shogun-authorized diagnostic exception permitting this smoke without STABLE_CONFIG
+- Grok SYSTEM REVIEW: PASS_WITH_PATCHES
+- DOC REVIEW: APPROVED — 2026-09-06
 
 ---
 
 ## OBJECTIVE
 
-Implement the authority-freeze mechanism:
+Prove the shortest real connectivity path:
 
-* capture the four authority inputs as one immutable byte snapshot;
-* derive the deterministic `revision_id`;
-* create the revision-namespaced `frozen/` directory;
-* persist byte-for-byte identical frozen authority files;
-* create `PRODUCTION_REVISION.manifest`.
+```text
+ONE WHOLE SOURCE_MANUSCRIPT
+        +
+ONE PROMPT_MAP
+        ↓
+accepted parser chain
+        ↓
+one existing production block: MP:0101
+        ↓
+§8-shaped diagnostic payload
+        ↓
+existing Gemma runtime
+        ↓
+real non-empty generated prose
+```
+
+The required generated artifact is:
+
+```text
+Output/SMOKE_MP-0101.md
+```
+
+This STEP tests connectivity.
+
+It does NOT establish production readiness or literary acceptance.
 
 ---
 
-## PREREQUISITES
+## CANONICAL INPUT MODEL
 
-Accepted Phase-1 components are available:
+MANUSCRIPT_PRESS receives:
 
-* SOURCE marker parser — Step 2;
-* PROMPT_MAP parser — Step 3;
-* Source ↔ Prompt Map validator — Step 4;
-* ATX heading extractor — Step 5.
+1. one complete `SOURCE_MANUSCRIPT`;
+2. one accompanying `PROMPT_MAP`.
+
+The SOURCE is already segmented logically by production markers such as:
+
+```text
+<!-- MP:0101 -->
+```
+
+The system MUST NOT create separate source-fragment files.
+
+The system MUST NOT perform automatic segmentation.
+
+Marker blocks are internal views over the one complete SOURCE document.
+
+---
+
+## INPUTS
+
+Use exactly:
+
+```text
+Input/TEST_SOURCE_MANUSCRIPT.md
+Input/TEST_PROMPT_MAP.yaml
+Gemma.md
+config/writer_config.yaml
+```
+
+Selected marker:
+
+```text
+MP:0101
+```
+
+Existing model configured by `writer_config.yaml`:
+
+```text
+D:/Gemini/models/Gemma-The-Writer-9B-D_AU-q5_k_m.gguf
+```
+
+---
+
+## ACCEPTED COMPONENTS TO REUSE
+
+Use canonical package implementations only:
+
+```text
+src/parser/protected_span_parser.py
+src/parser/source_parser.py
+src/parser/prompt_map_parser.py
+src/parser/source_prompt_map_validator.py
+src/loader.py
+```
+
+Do NOT use root-level duplicate parser modules.
+
+Do NOT modify accepted components.
 
 ---
 
 ## ALLOWED WORKING FILES
 
-* `src/core/authority_freeze.py` — create new.
-* `tests/phase1/test_authority_freeze.py` — create new.
-
-No other production files may be modified by this STEP.
-
----
-
-## FROZEN SPEC BEHAVIOR — AUTHORITATIVE
-
-SPEC v3.2.2 §5 defines `PRODUCTION_REVISION` as a frozen snapshot of four authority inputs:
-
-1. `SOURCE_MANUSCRIPT.md`
-2. `PROMPT_MAP.yaml`
-3. `Gemma.md`
-4. `STABLE_CONFIG.yaml`
-
-Frozen authorities are stored under:
-
-```text
-work/revisions/<revision_id>/frozen/
-```
-
-The revision identity is:
-
-```text
-revision_id = SHA256(canonical_payload)
-```
-
----
-
-## CANONICAL PAYLOAD
-
-The canonical payload is strictly:
-
-```json
-{
-  "source_sha256": "...",
-  "prompt_map_sha256": "...",
-  "stable_config_sha256": "...",
-  "gemma_sha256": "...",
-  "ordered_marker_graph": ["MP:0001", "MP:0005"]
-}
-```
-
-Canonicalization requirements:
-
-* fixed key names;
-* fixed key order exactly as shown above;
-* deterministic JSON serialization;
-* UTF-8 encoding;
-* no insignificant whitespace.
-
-`revision_id` is **not** part of the canonical payload.
-
-The SHA256 digest is calculated over the UTF-8 encoded canonical payload bytes.
-
----
-
-## AUTHORITY SNAPSHOT RULE
-
-The four authority files MUST be read exactly once at the beginning of one freeze operation and retained as immutable byte snapshots.
-
-These captured byte snapshots are the sole authority material for the remainder of that freeze operation.
-
-All subsequent:
-
-* SHA256 hashing;
-* SOURCE parsing;
-* ordered marker graph derivation;
-* validation required by the accepted Phase-1 components;
-* frozen-copy writing;
-
-MUST operate from these captured snapshots.
-
-The authority source files MUST NOT be re-read during the same freeze operation.
-
-This prevents a source authority from changing between hash calculation and frozen-copy creation.
-
----
-
-## FREEZE SEQUENCE — DETERMINISTIC
-
-### 1. Capture Authorities
-
-Read exactly once, as raw bytes:
-
-* `SOURCE_MANUSCRIPT.md`
-* `PROMPT_MAP.yaml`
-* `Gemma.md`
-* `STABLE_CONFIG.yaml`
-
-If any required authority file does not exist:
-
-```text
-FileNotFoundError
-```
-
-This is a pre-condition failure and does not introduce a new MANUSCRIPT_PRESS failure-taxonomy code.
-
-No target revision directory may be created yet.
-
----
-
-### 2. Compute Authority Hashes
-
-Calculate SHA256 directly from the captured byte snapshots:
-
-* `source_sha256`
-* `prompt_map_sha256`
-* `stable_config_sha256`
-* `gemma_sha256`
-
-No normalization is permitted.
-
-This includes no:
-
-* newline conversion;
-* text reserialization;
-* Unicode normalization;
-* BOM removal or insertion;
-* encoding conversion.
-
-Bytes present in the authority snapshot, including any BOM or original line endings, are authoritative.
-
----
-
-### 3. Build Ordered Marker Graph
-
-Derive `ordered_marker_graph` from the captured `SOURCE_MANUSCRIPT.md` snapshot using the accepted Step-2 SOURCE marker parser behavior.
-
-Do not re-read `SOURCE_MANUSCRIPT.md` from disk.
-
-Marker order comes only from SOURCE order.
-
-Do not invent new marker validation semantics in this STEP.
-
----
-
-### 4. Build Canonical Payload
-
-Construct the canonical payload using:
-
-* `source_sha256`
-* `prompt_map_sha256`
-* `stable_config_sha256`
-* `gemma_sha256`
-* `ordered_marker_graph`
-
-Serialize it deterministically according to the canonicalization rules above.
-
----
-
-### 5. Compute Revision ID
-
-Calculate:
-
-```text
-revision_id = SHA256(canonical_payload_bytes)
-```
-
-The `revision_id` MUST be fully determined before any revision directory is created.
-
-The result MUST NOT depend on:
-
-* target directory existence;
-* target path;
-* timestamps;
-* filesystem metadata;
-* execution order outside the defined canonical payload;
-* previous freeze attempts.
-
----
-
-### 6. Create Frozen Directory
-
-Only after `revision_id` has been computed, create:
-
-```text
-work/revisions/<revision_id>/frozen/
-```
-
-Directory creation MUST NOT influence revision identity.
-
----
-
-### 7. Write Frozen Authorities
-
-Write the captured byte snapshots into:
-
-```text
-work/revisions/<revision_id>/frozen/SOURCE_MANUSCRIPT.md
-work/revisions/<revision_id>/frozen/PROMPT_MAP.yaml
-work/revisions/<revision_id>/frozen/Gemma.md
-work/revisions/<revision_id>/frozen/STABLE_CONFIG.yaml
-```
-
-Each frozen file MUST be byte-for-byte identical to the captured source snapshot used to calculate its hash.
-
-Do not re-read the original authority files while writing frozen copies.
-
----
-
-### 8. Write PRODUCTION_REVISION.manifest
-
 Create:
 
 ```text
-work/revisions/<revision_id>/frozen/PRODUCTION_REVISION.manifest
+src/smoke_bridge.py
+Output/SMOKE_MP-0101.md
+Output/SMOKE_MP-0101.payload.txt
+Output/SMOKE_MP-0101.run.log
 ```
 
-The persisted manifest contains:
+Do NOT create a new test module for this diagnostic STEP.
 
-* `revision_id`
-* `source_sha256`
-* `prompt_map_sha256`
-* `stable_config_sha256`
-* `gemma_sha256`
-* `ordered_marker_graph`
-
-The manifest is not itself the canonical payload because it additionally contains `revision_id`.
-
-The manifest MUST nevertheless deterministically represent the frozen revision metadata.
-
----
-
-## INVARIANTS
-
-### Revision Identity
-
-Identical:
-
-* four authority byte snapshots;
-* ordered marker graph;
-
-MUST produce the same `revision_id`.
-
----
-
-### Authority Sensitivity
-
-Changing any one of:
-
-* SOURCE bytes;
-* PROMPT_MAP bytes;
-* STABLE_CONFIG bytes;
-* Gemma.md bytes;
-* ordered marker graph;
-
-MUST change `revision_id`.
-
----
-
-### Byte Identity
-
-For every frozen authority:
+Do NOT modify:
 
 ```text
-frozen_bytes == captured_source_snapshot_bytes
+Gemma.md
+config/
+src/loader.py
+src/generator.py
+src/parser/*
+src/core/*
+SPEC.md
+Current_Prompt.md
+```
+
+except normal activation of this physical STEP by Shogun outside Samurai execution.
+
+---
+
+# DIAGNOSTIC-ONLY RULE
+
+`src/smoke_bridge.py` is a disposable diagnostic driver.
+
+It is NOT:
+
+- a production orchestrator;
+- a public runtime API;
+- a future commit/resume engine;
+- a second MANUSCRIPT_PRESS architecture.
+
+Production code MUST NOT depend on `smoke_bridge.py`.
+
+Its sole purpose is to prove the bridge and then stop.
+
+---
+
+# EXECUTION SEQUENCE
+
+## 1. Load Complete SOURCE
+
+Read:
+
+```text
+Input/TEST_SOURCE_MANUSCRIPT.md
+```
+
+as one complete text document.
+
+Do not split it into physical files.
+
+---
+
+## 2. Protected-First Parse
+
+Execute:
+
+```python
+ProtectedSpanParser().parse(source)
+```
+
+Obtain:
+
+```text
+protected_spans
+slotted_source
+```
+
+Required preflight evidence:
+
+- protected span `P01_01` is detected;
+- its raw protected body is absent from `slotted_source`;
+- its slot representation is present in `slotted_source`.
+
+Failure → STOP.
+
+---
+
+## 3. Build SOURCE Marker Graph
+
+Execute a fresh:
+
+```python
+SourceParser().parse(slotted_source)
+```
+
+Required graph includes, in SOURCE order:
+
+```text
+MP:0101
+MP:0102
+MP:0103
+```
+
+The selected marker is:
+
+```text
+MP:0101
+```
+
+Do not derive execution order from PROMPT_MAP.
+
+---
+
+## 4. Parse PROMPT_MAP
+
+Execute:
+
+```python
+PromptMapParser().parse("Input/TEST_PROMPT_MAP.yaml")
+```
+
+For `MP:0101`, obtain non-empty:
+
+```text
+long_range_frame
+local_transformation
+```
+
+---
+
+## 5. Validate SOURCE ↔ PROMPT_MAP
+
+Execute:
+
+```python
+SourcePromptMapValidator().validate(marker_graph, prompt_map)
+```
+
+Must PASS before inference.
+
+Do not bypass or duplicate this validator.
+
+---
+
+# CURRENT BLOCK EXTRACTION
+
+## 6. Derive MP:0101 Body
+
+`MP:0101` is boundary metadata.
+
+The marker itself:
+
+```text
+<!-- MP:0101 -->
+```
+
+MUST NOT appear inside `BEGIN_CURRENT_SOURCE`.
+
+For this smoke:
+
+```text
+CURRENT_SOURCE =
+exact slotted_source content
+after the MP:0101 marker
+and before the MP:0102 marker
+```
+
+Do not include MP:0102.
+
+Do not trim, rewrite, summarize, or normalize the block merely for convenience.
+
+Use accepted SourceParser marker syntax when locating the selected and following production-marker boundaries.
+
+The extracted block MUST correspond to the same marker order already validated by SourceParser.
+
+---
+
+## 7. Block-Boundary Preflight
+
+Before inference automatically verify:
+
+- CURRENT_SOURCE contains the MP:0101 source prose;
+- CURRENT_SOURCE does NOT contain MP:0102 prose;
+- CURRENT_SOURCE does NOT contain `<!-- MP:0101 -->`;
+- CURRENT_SOURCE does NOT contain `<!-- MP:0102 -->`.
+
+For the supplied fixture, the check may use unique known phrases from MP:0101 and MP:0102 to prove the boundary.
+
+Failure → STOP before model loading.
+
+---
+
+# OPTIONAL §8 SECTIONS FOR THIS BLOCK
+
+## CACHE_BEFORE
+
+`MP:0101` is the first production block.
+
+Therefore:
+
+```text
+CACHE_BEFORE = absent
+```
+
+Do NOT emit:
+
+```text
+BEGIN_CONTINUITY_CACHE
+END_CONTINUITY_CACHE
+```
+
+Do NOT create fake empty previous prose.
+
+---
+
+## PROTECTED_CONTEXT
+
+The protected span `P01_01` is not inside the MP:0101 current block.
+
+The selected block therefore expects no protected slots.
+
+For this smoke:
+
+```text
+PROTECTED_CONTEXT = absent
+```
+
+Do NOT emit an empty protected-context section.
+
+---
+
+## STRUCTURAL_CONTEXT
+
+The heading:
+
+```text
+## 1.6 The organizing question
+```
+
+appears before the first production marker.
+
+Under accepted Step-5 semantics it is pre-marker structural material, not material bound to `MP:0101`.
+
+Therefore for this smoke:
+
+```text
+STRUCTURAL_CONTEXT = absent
+```
+
+Do NOT invent a heading → MP:0101 association.
+
+Do NOT emit an empty structural-context section.
+
+---
+
+# USER PAYLOAD
+
+## 8. Assemble Exact USER Message
+
+Construct exactly the present sections:
+
+```text
+BEGIN_LONG_RANGE_FRAME
+<MP:0101 LONG_RANGE_FRAME>
+END_LONG_RANGE_FRAME
+
+BEGIN_CURRENT_SOURCE
+<exact extracted slotted MP:0101 body>
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+<MP:0101 LOCAL_TRANSFORMATION>
+END_LOCAL_TRANSFORMATION
+```
+
+The USER payload MUST NOT contain:
+
+- `BEGIN_CONTINUITY_CACHE`;
+- `BEGIN_PROTECTED_CONTEXT`;
+- `BEGIN_STRUCTURAL_CONTEXT`;
+- CONCEPT_PACKAGE material;
+- legacy compiled_input material;
+- another MP block.
+
+Persist the exact USER message BEFORE inference to:
+
+```text
+Output/SMOKE_MP-0101.payload.txt
+```
+
+This file is primary physical evidence.
+
+---
+
+# SYSTEM PAYLOAD
+
+## 9. Existing Gemma Kernel
+
+Read physical:
+
+```text
+Gemma.md
+```
+
+without modifying it.
+
+Wrap it:
+
+```text
+BEGIN_GEMMA_KERNEL
+<exact Gemma.md content>
+END_GEMMA_KERNEL
+```
+
+---
+
+## 10. Transitional Runtime Contract Override
+
+`Gemma.md` still contains legacy `Concept Package / Package Prompt` terminology.
+
+Do NOT rewrite `Gemma.md` in this STEP.
+
+For this diagnostic inference only, append the following transient system-side block after the Gemma kernel:
+
+```text
+BEGIN_RUNTIME_CONTRACT_OVERRIDE
+For this diagnostic run, treat the legacy Concept Package / Package Prompt
+wording in the Gemma kernel as superseded by the structured USER message.
+
+The authorities for this inference are only the USER sections actually present:
+LONG_RANGE_FRAME,
+CURRENT_SOURCE,
+LOCAL_TRANSFORMATION,
+and any STRUCTURAL_CONTEXT, PROTECTED_CONTEXT, or CONTINUITY_CACHE section
+when such a section is present.
+
+Do not invent substantive material beyond those supplied authorities.
+Do not require a legacy Concept Package or Package Prompt.
+END_RUNTIME_CONTRACT_OVERRIDE
+```
+
+This override exists only to make the connectivity experiment semantically interpretable.
+
+It is NOT a permanent Gemma.md redesign.
+
+Record in the run log:
+
+```text
+RUNTIME_CONTRACT_OVERRIDE=PRESENT
+```
+
+---
+
+# STABLE_CONFIG DIAGNOSTIC EXCEPTION
+
+Full SPEC §8 production context includes STABLE_CONFIG.
+
+No canonical STABLE_CONFIG is supplied for this diagnostic run.
+
+Therefore this explicitly authorized smoke:
+
+- MUST NOT invent one;
+- MUST NOT emit an empty STABLE_CONFIG section;
+- MUST be labelled `NON_PRODUCTION_SMOKE`;
+- MUST NOT claim full production §8 compliance.
+
+Absence of STABLE_CONFIG is not a blocker for this diagnostic experiment.
+
+---
+
+# INFERENCE
+
+## 11. Reuse Proven Runtime Primitive
+
+Use:
+
+```python
+from src.loader import load_model
+```
+
+Load the existing model through:
+
+```text
+config/writer_config.yaml
+```
+
+Then call the loaded Llama instance directly with:
+
+```python
+messages = [
+    {"role": "system", "content": system_payload},
+    {"role": "user", "content": user_payload},
+]
 ```
 
 and:
 
-```text
-SHA256(frozen_bytes) == corresponding_manifest_sha256
+```python
+llm.create_chat_completion(...)
 ```
 
----
+Use generation parameters physically present in `writer_config.yaml`.
 
-### Canonical Payload Binding
-
-Reconstructing the canonical payload from manifest authority hashes and `ordered_marker_graph` MUST satisfy:
+Current expected values are:
 
 ```text
-SHA256(canonical_payload_bytes) == manifest.revision_id
+n_ctx: 8192
+max_tokens: 2048
+top_p: 0.9
+temperature: 0.0
 ```
 
----
-
-### No TOCTOU Authority Drift
-
-Changes made to an original authority source file after its byte snapshot was captured MUST NOT alter the current freeze operation.
-
-The current freeze is bound exclusively to the captured snapshots.
-
-A later freeze may capture the changed authority and therefore produce a different revision.
+Report actual loaded/configured values rather than assuming them.
 
 ---
 
-## TESTS REQUIRED
+## 12. Legacy Runtime Exclusion
 
-### 1. Basic Freeze
-
-Given four valid authorities:
-
-* revision directory is created;
-* `frozen/` exists;
-* all four authority files exist;
-* `PRODUCTION_REVISION.manifest` exists;
-* hashes are correct.
-
----
-
-### 2. Deterministic Revision ID
-
-Same four authority byte snapshots + same ordered marker graph:
+Do NOT call:
 
 ```text
-same revision_id
+src.generator.generate(...)
 ```
 
-across independent freeze executions.
-
----
-
-### 3. Different SOURCE
-
-Changing `SOURCE_MANUSCRIPT.md` bytes:
+Do NOT use:
 
 ```text
-different revision_id
+compiled_input.txt
+CONSTANTS CHECK
+CONCEPT_PACKAGE
+Package Prompt
+builder.py
+paired_runner.py
 ```
 
----
+`src/generator.py` is historical evidence for the proven completion-call pattern only.
 
-### 4. Different PROMPT_MAP
-
-Changing `PROMPT_MAP.yaml` bytes:
+The smoke uses:
 
 ```text
-different revision_id
+loader.py → loaded Llama → create_chat_completion()
 ```
+
+directly.
 
 ---
 
-### 5. Different STABLE_CONFIG
+## 13. Exactly One Real Completion
 
-Changing `STABLE_CONFIG.yaml` bytes:
+Perform exactly one real:
 
 ```text
-different revision_id
+create_chat_completion
 ```
 
----
+call.
 
-### 6. Different Gemma.md
+No retries.
 
-Changing `Gemma.md` bytes:
+No second marker.
+
+No alternate prompt experiment.
+
+No temperature sweep.
+
+If generation raises an exception, returns no choices, or returns empty assistant content:
 
 ```text
-different revision_id
+GENERATION_FAILED
 ```
+
+Report failure and STOP.
 
 ---
 
-### 7. Different Marker Graph
+# OUTPUT
 
-Same four authority bytes but different `ordered_marker_graph`:
+## 14. Extract Generated Content
+
+Use:
+
+```python
+output["choices"][0]["message"]["content"]
+```
+
+The result must be non-empty after:
+
+```python
+content.strip()
+```
+
+Do NOT run legacy CONSTANTS CHECK.
+
+Do NOT perform literary acceptance.
+
+---
+
+## 15. Persist Exact Generated Text
+
+Write exact returned assistant content to:
 
 ```text
-different revision_id
+Output/SMOKE_MP-0101.md
 ```
 
----
+Do not prepend:
 
-### 8. Manifest / Frozen Consistency
+- diagnostic commentary;
+- metadata;
+- PASS markers;
+- explanation.
 
-Verify:
-
-* manifest authority hashes equal hashes calculated from frozen files;
-* manifest `ordered_marker_graph` equals the graph used for canonical payload construction;
-* reconstructed canonical payload produces the manifest `revision_id`;
-* every frozen authority is byte-for-byte identical to the captured authority snapshot.
-
-The test MUST include explicit byte comparison, not only decoded text comparison.
+The file contains only Gemma's returned text.
 
 ---
 
-### 9. Missing Authority
+# RUN LOG
 
-If any required authority file is missing:
+Create:
 
 ```text
-FileNotFoundError
+Output/SMOKE_MP-0101.run.log
 ```
 
-No new MANUSCRIPT_PRESS error-taxonomy code is introduced.
+It must record at least:
 
-The freeze MUST NOT create a valid revision artifact from incomplete authority inputs.
+```text
+RUN_TYPE=NON_PRODUCTION_SMOKE
+SELECTED_MARKER=MP:0101
 
----
+PROTECTED_PARSE=PASS
+SOURCE_GRAPH=PASS
+PROMPT_MAP_PARSE=PASS
+SOURCE_PROMPT_MAP_VALIDATION=PASS
+BLOCK_BOUNDARY_CHECK=PASS
+PAYLOAD_STRUCTURE_CHECK=PASS
 
-### 10. Snapshot Stability / TOCTOU Protection
+CACHE_EMITTED=false
+PROTECTED_CONTEXT_EMITTED=false
+STRUCTURAL_CONTEXT_EMITTED=false
+RUNTIME_CONTRACT_OVERRIDE=PRESENT
 
-Verify that the freeze operation uses one captured authority snapshot.
+MODEL_PATH=<actual>
+N_CTX=<actual>
+MAX_TOKENS=<actual>
+TOP_P=<actual>
+TEMPERATURE=<actual>
 
-Test behavior:
+SYSTEM_PAYLOAD_LENGTH=<actual>
+USER_PAYLOAD_LENGTH=<actual>
 
-1. capture authority bytes;
-2. alter the original source file after capture;
-3. continue the freeze operation;
-4. verify that:
+CREATE_CHAT_COMPLETION_CALLS=1
+OUTPUT_LENGTH=<actual>
+OUTPUT_NON_EMPTY=true
+```
 
-   * hashes correspond to the captured bytes;
-   * frozen copy corresponds to the captured bytes;
-   * `revision_id` corresponds to the captured bytes;
-   * the later disk mutation does not contaminate the active freeze.
-
----
-
-## NON-GOALS
-
-* ❌ Editing SOURCE.
-* ❌ Editing PROMPT_MAP.
-* ❌ Reimplementing SOURCE marker parsing.
-* ❌ Reimplementing PROMPT_MAP parsing.
-* ❌ ATX heading extraction.
-* ❌ Inference.
-* ❌ Gemma execution.
-* ❌ Candidate pipeline.
-* ❌ Acceptance processing.
-* ❌ Commit protocol.
-* ❌ Resume / recovery.
-* ❌ Final assembly.
-* ❌ Revision migration.
-* ❌ Archiving old revisions.
-* ❌ Git operations.
-* ❌ New failure-taxonomy codes.
+If execution fails, record the factual failure before STOP where possible.
 
 ---
 
-## EVIDENCE REQUIRED FOR COMPLETION
+# AUTOMATED PREFLIGHT CHECKS
 
-* [ ] `python -m py_compile src/core/authority_freeze.py` → PASS.
-* [ ] STEP-6 test suite → PASS.
-* [ ] Deterministic `revision_id` test → PASS.
-* [ ] Frozen byte-identity verification → PASS.
-* [ ] Manifest / canonical-payload consistency → PASS.
-* [ ] Snapshot-stability / TOCTOU test → PASS.
+Before model inference, `smoke_bridge.py` must automatically verify only these six conditions:
+
+1. ProtectedSpanParser succeeds on the physical TEST SOURCE and extracts known protected material correctly.
+2. SourceParser returns the expected ordered marker graph containing MP:0101 → MP:0102 → MP:0103.
+3. Extracted MP:0101 CURRENT_SOURCE contains MP:0101 prose and excludes MP:0102 prose / boundary markers.
+4. PROMPT_MAP provides non-empty LONG_RANGE_FRAME and LOCAL_TRANSFORMATION for MP:0101.
+5. SOURCE ↔ PROMPT_MAP validator passes.
+6. USER payload:
+   - contains LONG_RANGE_FRAME;
+   - contains CURRENT_SOURCE;
+   - contains LOCAL_TRANSFORMATION;
+   - omits CONTINUITY_CACHE;
+   - omits PROTECTED_CONTEXT;
+   - omits STRUCTURAL_CONTEXT;
+   - contains no CONCEPT_PACKAGE assembly.
+
+These checks are part of the diagnostic driver.
+
+Do NOT create another test suite merely to repeat them.
+
+Only after all six PASS may the real model be loaded and inference executed.
 
 ---
 
-## REPORT FORMAT
+# PRIMARY ACCEPTANCE EVIDENCE
+
+A successful SMOKE BRIDGE requires all three artifacts:
+
+```text
+Output/SMOKE_MP-0101.md
+Output/SMOKE_MP-0101.payload.txt
+Output/SMOKE_MP-0101.run.log
+```
+
+PASS requires:
+
+### Generated Output
+
+- one real Gemma inference occurred;
+- output file exists;
+- generated assistant content is non-empty.
+
+### Exact Payload Evidence
+
+The saved USER payload proves:
+
+- LONG_RANGE_FRAME came from MP:0101;
+- CURRENT_SOURCE is only the MP:0101 body;
+- LOCAL_TRANSFORMATION came from MP:0101;
+- no CACHE was emitted;
+- no legacy CONCEPT_PACKAGE input was used.
+
+### Runtime Evidence
+
+The run log proves:
+
+- accepted parser path executed;
+- validation passed;
+- one completion call occurred;
+- existing loader/model path was used;
+- transitional runtime override was active;
+- output was persisted.
+
+A non-empty output without valid payload evidence is NOT sufficient for PASS.
+
+---
+
+# WHAT THIS SMOKE PROVES
+
+A PASS proves only:
+
+> The new canonical whole-document SOURCE + PROMPT_MAP pipeline can select one already-marked production block through the accepted parser chain, construct the intended diagnostic runtime context, feed it into the existing Gemma inference backend, and obtain real generated prose.
+
+---
+
+# WHAT THIS SMOKE DOES NOT PROVE
+
+It does NOT prove:
+
+- literary quality;
+- production readiness;
+- final Gemma.md contract;
+- STABLE_CONFIG behavior;
+- protected restoration through inference;
+- CACHE continuity;
+- multi-block sequencing;
+- revision integrity;
+- candidate eligibility;
+- commit behavior;
+- resume/recovery;
+- final assembly.
+
+---
+
+# NON-GOALS
+
+Do NOT implement:
+
+- revision validator;
+- authority-freeze changes;
+- candidate pipeline;
+- commit ledger;
+- resume/recovery;
+- CACHE simulation;
+- multi-block execution;
+- final assembly;
+- STABLE_CONFIG;
+- Gemma.md rewrite;
+- automatic segmentation;
+- CONCEPT_PACKAGE compatibility;
+- builder compatibility;
+- paired_runner replacement;
+- project ROOT migration;
+- Git operations;
+- new failure-taxonomy codes.
+
+---
+
+# REPORT FORMAT
 
 ```yaml
-Phase: 1
-Step: 6
-Status: COMPLETED / BLOCKED / FAILED
+SMOKE_BRIDGE_REPORT:
+  STATUS: SUCCESS / FAILURE / BLOCKED
 
-Files_Changed:
-  - src/core/authority_freeze.py
-  - tests/phase1/test_authority_freeze.py
+  RUN_TYPE: NON_PRODUCTION_SMOKE
 
-Implemented:
-  - immutable authority byte snapshots
-  - deterministic authority hashing
-  - ordered marker graph binding
-  - canonical payload generation
-  - deterministic revision_id generation
-  - frozen authority creation
-  - PRODUCTION_REVISION.manifest creation
-  - TOCTOU-safe freeze behavior
+  FILES_CREATED:
+    - src/smoke_bridge.py
+    - Output/SMOKE_MP-0101.md
+    - Output/SMOKE_MP-0101.payload.txt
+    - Output/SMOKE_MP-0101.run.log
 
-Tests_Run:
-  - STEP-6 test suite
+  SOURCE:
+    FILE: Input/TEST_SOURCE_MANUSCRIPT.md
+    SELECTED_MARKER: MP:0101
 
-Test_Results:
-  - all passed / list of failures
+  PROMPT_MAP:
+    FILE: Input/TEST_PROMPT_MAP.yaml
 
-Evidence:
-  - py_compile: PASS / FAIL
-  - tests: PASS / FAIL
-  - deterministic_revision_id: PASS / FAIL
-  - frozen_byte_identity: PASS / FAIL
-  - manifest_consistency: PASS / FAIL
-  - snapshot_stability: PASS / FAIL
+  PREFLIGHT:
+    ProtectedSpanParser: PASS / FAIL
+    SourceParser: PASS / FAIL
+    PromptMapParser: PASS / FAIL
+    SourcePromptMapValidator: PASS / FAIL
+    BlockBoundary: PASS / FAIL
+    PayloadStructure: PASS / FAIL
 
-Limitations:
-  - none within scope / factual limitation
+  PAYLOAD:
+    CACHE_EMITTED: false
+    PROTECTED_CONTEXT_EMITTED: false
+    STRUCTURAL_CONTEXT_EMITTED: false
+    RUNTIME_CONTRACT_OVERRIDE: PRESENT
+    SYSTEM_LENGTH: <actual>
+    USER_LENGTH: <actual>
 
-Next: WAIT_FOR_DEEPSEEK
+  GENERATION:
+    MODEL: <actual path>
+    N_CTX: <actual>
+    MAX_TOKENS: <actual>
+    TEMPERATURE: <actual>
+    TOP_P: <actual>
+    CREATE_CHAT_COMPLETION_CALLS: 1
+    OUTPUT_LENGTH: <actual>
+    OUTPUT_NON_EMPTY: true / false
+
+  PRIMARY_EVIDENCE:
+    OUTPUT: Output/SMOKE_MP-0101.md
+    USER_PAYLOAD: Output/SMOKE_MP-0101.payload.txt
+    RUN_LOG: Output/SMOKE_MP-0101.run.log
+
+  LIMITATIONS:
+    - NON_PRODUCTION_SMOKE
+    - STABLE_CONFIG not exercised
+    - continuity/cache not exercised
+    - no literary acceptance
+
+  NEXT: WAIT_FOR_DEEPSEEK
 ```
 
 ---
 
-After successful VERIFY and REPORT, Samurai may update the current `STEP.md` status to:
+# END PROTOCOL
+
+After execution:
 
 ```text
-COMPLETED
+VERIFY
+→ REPORT
+→ STOP
+→ WAIT_FOR_DEEPSEEK
 ```
 
-Then:
+Do not continue to another marker.
 
-```text
-STOP → WAIT_FOR_DEEPSEEK
-```
-
-Do not execute any subsequent STEP without a new active operational instruction.
+Do not begin another STEP.
 
 ---
 
-END OF ACTIVE STEP
+END OF SMOKE BRIDGE STEP

@@ -1,0 +1,77 @@
+RUN_TYPE=NON_PRODUCTION_SMOKE
+Operation_ID=PHASE1_SMOKE_BRIDGE_V1_1
+SELECTED_MARKER=MP:0101
+Date: 2026-09-06T18:26:30.258441
+--- Execution Start ---
+STEP 1: Loading complete SOURCE manuscript.
+STEP 2: Performing Protected-First Parse.
+ProtectedSpanParser: PASS
+STEP 3: Building SOURCE Marker Graph.
+SourceParser: PASS. Found markers: ['MP:0101', 'MP:0102', 'MP:0103']
+STEP 4: Parsing PROMPT_MAP.
+PromptMapParser: PASS
+STEP 5: Validating SOURCE ↔ PROMPT_MAP.
+SourcePromptMapValidator: PASS
+STEP 6 & 7: Deriving MP:MP:0101 body and performing block boundary preflight checks.
+BlockBoundary: PASS
+STEP 8: Constructing USER payload.
+USER payload saved to Output/SMOKE_MP-0101.payload.txt. Length: 1643
+PayloadStructure: PASS
+STEP 9: Assembling SYSTEM payload.
+RUNTIME_CONTRACT_OVERRIDE: PRESENT
+SYSTEM payload assembled. Length: 5526
+STEP 10 & 11: Loading model and preparing for inference.
+Calling create_chat_completion with model: D:/Gemini/models/Gemma-The-Writer-9B-D_AU-q5_k_m.gguf
+Extracting generated content from model response.
+Generated content saved to Output/SMOKE_MP-0101.md
+--- Execution End ---
+Final Smoke Status: SUCCESS
+
+--- FINAL REPORT ---
+SMOKE_BRIDGE_REPORT:
+  FILES_CREATED:
+  - src/smoke_bridge.py
+  - Output/SMOKE_MP-0101.md
+  - Output/SMOKE_MP-0101.payload.txt
+  - Output/SMOKE_MP-0101.run.log
+  GENERATION:
+    CREATE_CHAT_COMPLETION_CALLS: 1
+    MAX_TOKENS: 2048
+    MODEL: D:/Gemini/models/Gemma-The-Writer-9B-D_AU-q5_k_m.gguf
+    N_CTX: 8192
+    OUTPUT_LENGTH: 207
+    OUTPUT_NON_EMPTY: true
+    TEMPERATURE: 0.0
+    TOP_P: 0.9
+  LIMITATIONS:
+  - NON_PRODUCTION_SMOKE
+  - STABLE_CONFIG not exercised
+  - continuity/cache not exercised
+  - no literary acceptance
+  NEXT: WAIT_FOR_DEEPSEEK
+  PAYLOAD:
+    CACHE_EMITTED: false
+    PROTECTED_CONTEXT_EMITTED: false
+    RUNTIME_CONTRACT_OVERRIDE: true
+    STRUCTURAL_CONTEXT_EMITTED: false
+    SYSTEM_LENGTH: 5526
+    USER_LENGTH: 1643
+  PREFLIGHT:
+    BlockBoundary: PASS
+    PayloadStructure: PASS
+    PromptMapParser: PASS
+    ProtectedSpanParser: PASS
+    SourceParser: PASS
+    SourcePromptMapValidator: PASS
+  PRIMARY_EVIDENCE:
+    OUTPUT: Output/SMOKE_MP-0101.md
+    RUN_LOG: Output/SMOKE_MP-0101.run.log
+    USER_PAYLOAD: Output/SMOKE_MP-0101.payload.txt
+  PROMPT_MAP:
+    FILE: Input/TEST_PROMPT_MAP.yaml
+  RUN_TYPE: NON_PRODUCTION_SMOKE
+  SOURCE:
+    FILE: Input/TEST_SOURCE_MANUSCRIPT.md
+    SELECTED_MARKER: MP:0101
+  STATUS: SUCCESS
+

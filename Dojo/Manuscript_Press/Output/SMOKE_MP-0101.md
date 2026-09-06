@@ -1,0 +1,1 @@
+Rather than viewing these observations as isolated findings, consider them as points arrayed along a single scale: the **scope** within which a set of rules dictates the nature of the behavioral response.  

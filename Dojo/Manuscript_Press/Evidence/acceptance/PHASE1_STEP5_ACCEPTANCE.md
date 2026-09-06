@@ -4,7 +4,7 @@
 **Project:** MANUSCRIPT_PRESS  
 **Phase:** 1  
 **Step:** 5  
-**Status:** CANDIDATE FOR DOC APPROVAL  
+**Status:** ACCEPTED  
 **Version:** 1.0  
 **Date:** 2026-09-04  
 **Technical Authority:** SPEC v3.2.2 (FROZEN)  
