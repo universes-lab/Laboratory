@@ -1,4 +1,4 @@
-# Laboratory (Workspace) проекта HONC
+# Laboratory (Workspace) проекта HONC (Hierarchy of Nested Continua)
 
 Это пространство для исследований, экспериментов и первичной обработки знаний.
 

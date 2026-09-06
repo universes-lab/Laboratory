@@ -5,6 +5,9 @@
 PROJECT: Coding Samurai Dojo
 ROOT: D:\Gemini\dojo
 
+# DOJO PROJECT CONTEXT
+@./Current_Prompt.md
+
 ## PURPOSE
 
 Controlled workspace for Coding Samurai tasks, project restarts,
