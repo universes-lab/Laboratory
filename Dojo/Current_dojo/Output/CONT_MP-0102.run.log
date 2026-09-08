@@ -1,0 +1,58 @@
+RUN_TYPE=NON_PRODUCTION_BENCH_CANONICAL
+Operation_ID=PHASE1_CONTINUITY_CACHE_BENCH_V1_0
+SELECTED_MARKER=MP:0102
+CACHE_SOURCE: Output/SMOKE_MP-0101.md
+Date: 2026-09-08T14:59:52.499327
+--- Execution Start ---
+STEP 1: Loading complete SOURCE manuscript.
+ERROR: Error reading file Input/TEST_SOURCE_MANUSCRIPT.md: unknown encoding: utfF-8
+--- Execution End ---
+Final Smoke Status: FAILURE
+
+--- FINAL REPORT ---
+CONTINUITY_CACHE_BENCH_REPORT:
+  BENCH_MECHANICS: FAIL
+  CACHE_SOURCE: Output/SMOKE_MP-0101.md
+  GENERATION:
+    CREATE_CHAT_COMPLETION_CALLS: 0
+    MAX_TOKENS: N/A
+    MODEL: N/A
+    NO_REPRINT_CHECK: FAIL
+    N_CTX: N/A
+    OUTPUT_EQUALS_CACHE: false
+    OUTPUT_LENGTH: N/A
+    OUTPUT_NON_EMPTY: false
+    TEMPERATURE: N/A
+    TOP_P: N/A
+  HUMAN_CONTINUITY_REVIEW: PENDING
+  LIMITATIONS:
+  - NON_PRODUCTION_BENCH
+  - CACHE source is diagnostic (SMOKE output), not production-accepted
+  - No literary acceptance
+  - No protected/structural context exercised
+  NEXT: WAIT_FOR_SHOGUN_ACTIVATION
+  PAYLOAD:
+    CACHE_BYTES: N/A
+    CACHE_DECODED_LENGTH: N/A
+    CACHE_EMITTED: false
+    CACHE_SHA256: N/A
+    PROTECTED_CONTEXT_EMITTED: false
+    RUNTIME_CONTRACT_OVERRIDE: false
+    STRUCTURAL_CONTEXT_EMITTED: false
+    SYSTEM_LENGTH: 0
+    USER_LENGTH: 0
+  PREFLIGHT:
+    BlockBoundary: FAIL
+    PayloadStructure: FAIL
+    PromptMapParser: FAIL
+    ProtectedSpanParser: FAIL
+    SourceParser: FAIL
+    SourcePromptMapValidator: FAIL
+  PRIMARY_EVIDENCE:
+    OUTPUT: N/A
+    RUN_LOG: Output/CONT_MP-0102.run.log
+    USER_PAYLOAD: Output/CONT_MP-0102.payload.txt
+  RUN_TYPE: NON_PRODUCTION_BENCH_CANONICAL
+  SELECTED_MARKER: MP:0102
+  STATUS: FAILURE
+

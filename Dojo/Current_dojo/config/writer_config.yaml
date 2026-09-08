@@ -1,0 +1,15 @@
+model:
+  path: "D:/Gemini/models/Gemma-The-Writer-9B-D_AU-q5_k_m.gguf"
+  n_ctx: 8192
+  # параметры backend устанавливаются после STEP 1
+
+paths:
+  system_prompt: "Gemma.md"
+  input_dir: "Input"
+  output_dir: "Output"
+  logs_dir: "logs/runs"
+
+generation:
+  max_tokens: 2048
+  top_p: 0.9
+  temperature: 0.0  # default

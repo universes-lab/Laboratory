@@ -1,0 +1,54 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.6, after the scale has been introduced and before its levels are listed.
+
+FUNCTION:
+Supply the construct that makes the scale operational and testable.
+
+READER_STATE_BEFORE:
+The reader knows there is one scale but does not yet know what is supposed
+to remain stable across that scale.
+
+REQUIRED_READER_STATE_AFTER:
+The reader understands that a rule core fixes response type while allowing
+content variation, and why that distinction creates a testable claim.
+
+CONSTRAINTS:
+Rule core is a construct, not an observed object.
+Preserve the developmental-not-replicative qualification.
+Do not turn the construct into an empirical finding.
+
+CLOSURE:
+The construct definition may close.
+Enumeration of nesting levels belongs to the next move.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Rather than viewing these observations as isolated findings, consider them as points arrayed along a single scale: the **scope** within which a set of rules dictates the nature of the behavioral response.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Such a set — called a *rule core* in §4.2, by analogy with a developmental rather than a replicative mechanism — fixes the *type* of response to a class of inputs while leaving the *content* of any particular response undetermined. That formulation is what makes the idea testable, since model outputs demonstrably vary across identical inputs.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce a clean conceptual definition of rule core and connect it directly
+to testability.
+
+PRESERVE:
+Type/content distinction.
+Developmental rather than replicative analogy.
+Output variability as the reason the claim remains testable.
+
+DO_NOT_INTRODUCE:
+No biological inheritance claim.
+No claim that a rule core has been directly observed.
+No enumeration of levels yet.
+
+RHETORICAL_OPERATION:
+Definition followed by methodological consequence.
+
+SEMANTIC_STOP:
+Stop only after the type/content distinction has been tied to testability.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,49 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.6, "The organizing question", immediately after В§1.5 has stated the
+strongest supported behavioural pattern.
+
+FUNCTION:
+Reframe the manuscript's observations as positions on one nesting scale
+rather than as a catalogue of separate findings.
+
+READER_STATE_BEFORE:
+The reader knows the article's strongest supported operational claim but
+has not yet been given the single organizing measurement axis.
+
+REQUIRED_READER_STATE_AFTER:
+The reader understands that the observations are being organized by scope,
+without yet needing the definition of rule core.
+
+CONSTRAINTS:
+Do not imply that every level of the scale is empirically established.
+Preserve the distinction between observations and the mechanism later
+proposed to organize them.
+
+CLOSURE:
+The local reframing may close here.
+Do not define rule core yet; that is the next move.
+END_LONG_RANGE_FRAME
+
+BEGIN_CURRENT_SOURCE
+The observations are not a list of separate findings. They are measurements along one scale: the **scope over which a set of rules determines the type of response**.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Render the source as a concise transition from a list-of-findings reading
+to a one-scale reading.
+
+PRESERVE:
+The scale variable is the scope over which rules determine response type.
+
+DO_NOT_INTRODUCE:
+No new scale levels, no causal mechanism, no stronger evidence claim.
+
+RHETORICAL_OPERATION:
+Reclassification / narrowing of the reader's frame.
+
+SEMANTIC_STOP:
+Stop once the reader understands that the observations belong to one scale.
+Do not begin the definition of rule core.
+END_LOCAL_TRANSFORMATION
