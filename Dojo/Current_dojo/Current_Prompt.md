@@ -3,16 +3,18 @@
 PROJECT: MANUSCRIPT_PRESS
 ROOT: D:\Gemini\dojo
 
-ACTIVE_MODE: DIAGNOSTICIAN
+ACTIVE_MODE: IMPLEMENTER
 
 ACTIVE OPERATION:
-CONTINUITY_INFERENCE_BLOCKER — PHASE B2 READ-ONLY LOCALIZATION.
+CONTINUITY_INFERENCE_BLOCKER — PHASE C2 TYPE FIX FOR GENERATION KNOBS.
 
 PURPOSE:
-Localize why the latest post-fix continuity bench still reports
-CREATE_CHAT_COMPLETION_CALLS: 0 without performing any new execution.
+Localize and, if supported by evidence, minimally fix the generation-knob type
+mismatch that caused:
 
-This phase is diagnostic only.
+TypeError: '<=' not supported between instances of 'str' and 'int'
+
+This phase does NOT authorize inference.
 
 The current technical route is owned by:
 - Grok — Technical Lead / Route Architect
@@ -39,96 +41,114 @@ This Current_Prompt.md defines the currently authorized execution position.
 
 ## CURRENT PHASE AUTHORIZATION
 
-PHASE B2 — READ-ONLY LOCALIZATION: AUTHORIZED
+PHASE C2 — TYPE FIX: AUTHORIZED
 
-PHASE C — CONTROLLED RERUN: LOCKED
+PHASE C3 — CONTROLLED INFERENCE RERUN: LOCKED
 
-No inference rerun is authorized.
-No code modification is authorized.
-No Git operation is authorized.
+GREEN LIGHT C3 = NO
 
-Only the read-only localization work explicitly listed below may be performed.
+C2 must end with:
 
----
+C2_FIX_REPORT
+→ STOP
+→ WAIT_FOR_GREEN_LIGHT_C3
 
-## B2 ALLOWED
-
-Read-only inspection only:
-
-- inspect `src/continuity_cache_bench.py`
-- inspect `src/loader.py`
-- inspect the proven working smoke / generator `create_chat_completion` call path
-- inspect exactly ONE physical:
-  `Output/CONT_MP-0102.run.log`
-  representing the last real invocation currently on disk
-
-Use the physical run.log as authoritative execution evidence when it conflicts
-with narrative, remembered state, or structured chat reports.
-
-The existing Samurai edit in `src/continuity_cache_bench.py` is:
-
-CANDIDATE DIFF / DIAGNOSTIC EVIDENCE
-
-It is NOT an accepted route merely because it exists on disk.
-
-Do not destroy it.
-Do not extend it.
-Do not revert it.
-Do not normalize it.
+No inference, model execution, continuity rerun, or second technical branch is
+authorized during C2.
 
 ---
 
-## B2 FORBIDDEN
+## C2 INTERNAL ORDER
+
+C2 contains two ordered parts:
+
+### C2.A — READ-ONLY LOCALIZATION
+
+Mandatory first.
+
+Inspect only the existing code/config path needed to establish:
+
+- where `config/writer_config.yaml` is loaded;
+- raw values of `generation.max_tokens`, `generation.temperature`,
+  `generation.top_p`;
+- their actual types after loading;
+- exact values/types passed to `create_chat_completion`;
+- whether `"N/A"` or another string fallback enters completion kwargs;
+- where such a value originates, if present.
+
+No edit before this localization is complete.
+
+Emit `C2_READONLY_REPORT`.
+
+### C2.B — MINIMAL TYPE FIX
+
+Authorized only if C2.A evidence shows that a type mismatch in the bench call
+path is the blocker addressed by the Sensei instruction.
+
+Allowed file:
+- `src/continuity_cache_bench.py`
+
+Allowed change:
+- minimal type normalization of generation knobs sourced from the existing
+  writer configuration before they are passed to `create_chat_completion`.
+
+Expected numeric types:
+- `max_tokens` → int
+- `temperature` → float
+- `top_p` → float
+
+Do not change `config/writer_config.yaml`.
+
+Do not add new product logic.
+
+After the minimal fix:
+- perform static/read-only verification only;
+- emit `C2_FIX_REPORT`;
+- STOP.
+
+If C2.A does NOT support the expected type-mismatch diagnosis:
+- do not force the planned fix;
+- report the evidence;
+- STOP and wait for Sensei / Grok.
+
+---
+
+## C2 ALLOWED
+
+- ReadFile / inspect `src/continuity_cache_bench.py`
+- ReadFile / inspect `config/writer_config.yaml`
+- ReadFile / compare the already proven working smoke/generator call path
+- minimal Edit of `src/continuity_cache_bench.py` only, and only after C2.A
+  supports the fix
+- static syntax/code-path verification that does NOT execute the continuity
+  bench or inference
+
+---
+
+## C2 FORBIDDEN
 
 Do NOT:
 
-- edit any file
 - run `python src/continuity_cache_bench.py`
-- run any inference
+- run inference
 - execute `load_model()` for testing
-- perform trial execution
-- perform Git operations
-- expand or revert the candidate diff
-- alter parsers
-- alter CACHE semantics
-- alter marker extraction
+- call `create_chat_completion`
+- perform any trial model execution
+- modify `loader.py`
+- modify `config/writer_config.yaml`
+- modify parsers
+- modify CACHE semantics
+- modify marker extraction
+- modify encoding policy
 - rewrite SPEC
-- proceed to Phase C
-- convert a hypothesis into an execution claim
+- rewrite IMPLEMENTATION_PLAN
+- perform Git operations
+- expand into another blocker
+- proceed to Phase C3
+- interpret the existence of Phase C3 as authorization
 
-If a new technical possibility is discovered, REPORT IT.
-Do not test it by execution.
-
----
-
-## AUTHORITATIVE QUESTIONS FOR B2
-
-From existing code and the one physical run.log, establish only:
-
-1. LAST SUCCESSFUL STAGE
-   What is the last execution stage physically supported by the run.log?
-
-2. EXACT STOP / ERROR
-   What exact error, exception, early return, condition, or abort prevented
-   `create_chat_completion` from being reached?
-
-3. LOAD_MODEL RETURN
-   Does the physical evidence show that `load_model()` actually returned,
-   or only that execution reached model-loading code?
-
-4. PREFLIGHT STATE
-   In this exact physical run, is preflight PASS or FAIL?
-   Resolve `SourcePromptMapValidator` from the log itself, not narrative.
-
-5. ZERO COMPLETION CAUSE
-   Why does the same physical run report:
-   `CREATE_CHAT_COMPLETION_CALLS: 0`?
-
-6. WORKING PATH COMPARISON
-   Compare the current bench call path with the already proven working smoke /
-   generator call pattern using read-only code inspection only.
-
-Do not solve beyond the evidence requested above.
+If a new blocker appears:
+REPORT FACT → STOP.
 
 ---
 
@@ -136,128 +156,164 @@ Do not solve beyond the evidence requested above.
 
 ### NO EXECUTION CLAIM WITHOUT EXECUTION EVIDENCE
 
-No completed-action claim may be reported without physical or directly
-observable evidence.
+Observed values/types must come from actual code/config inspection.
 
-Narrative memory is not execution evidence.
-A structured report is not authoritative when it conflicts with physical log
-evidence.
-An intended result is not an observed result.
+Do not report inferred runtime values as observed values.
+
+Do not claim a fix is effective beyond what static evidence supports.
+
+C2 may establish:
+- what the type path is;
+- what code was changed;
+- that the changed code statically supplies numeric values.
+
+C2 may NOT establish:
+- successful inference;
+- successful continuity;
+- successful output generation.
+
+Those belong to C3 only.
 
 ### NO SILENT STATE TRANSITION
 
-Every substantial diagnostic-state transition must leave an observable trace.
+Authorized C2 chain:
 
-For B2 the authorized chain is:
-
-CODE_PATH_INSPECTED
-→ WORKING_PATH_COMPARED
-→ PHYSICAL_LOG_INSPECTED
-→ EVIDENCE_CORRELATED
-→ PHASE_B2_REPORT
+C2_READONLY_INSPECTION
+→ TYPE_PATH_LOCALIZED
+→ C2_READONLY_REPORT
+→ MINIMAL_FIX_IF_SUPPORTED
+→ STATIC_FIX_VERIFICATION
+→ C2_FIX_REPORT
 → STOP
 
-No edit, rerun, inference, or Phase C action belongs to this chain.
+No inference state belongs to C2.
 
 ---
 
 ## SAMURAI DIAGNOSTIC SENSORS
 
-This is a narrow, previously unstable diagnostic area.
+This is a narrow type-path repair area.
 
-Emit SHORT telemetry after each substantial B2 transition.
+Emit SHORT telemetry in the active session after substantial transitions.
 
-These are diagnostic micro-reports, not authorization requests and not final
-conclusions.
+Do NOT create separate sensor files.
 
-Do NOT create new telemetry files during B2.
-Emit sensors only in the active session output/chat.
-
-Required sensor shape:
+Required form:
 
 SENSOR:
-  STATE: <current B2 state>
+  STATE: <current C2 state>
   OBSERVED: <literal fact only>
-  EVIDENCE: <file/code location or physical log line>
+  EVIDENCE: <file / config key / code location>
   DRIFT_CHECK: OK / STOP
-  NEXT_WITHIN_AUTHORIZED_B2: <next read-only action>
+  NEXT_WITHIN_AUTHORIZED_C2: <next authorized action>
 
-Use sensors at these points:
+Emit sensors at:
 
-1. after inspecting current bench code path
-2. after comparing working completion path
-3. after reading the one physical run.log
-4. after correlating code path with log evidence
+1. after locating config load + raw generation values/types
+2. after locating values/types passed to completion
+3. after identifying origin of any string/"N/A" value
+4. after minimal fix is applied, if authorized by evidence
+5. after static verification of the fix
 
 If `DRIFT_CHECK: STOP`:
-- do not continue;
+- stop;
 - report the mismatch;
 - wait for Sensei / Grok / Shogun.
 
-Sensors must never invent missing state.
+Sensors are observations only.
+They do not authorize C3.
 
 ---
 
 ## TEC / METSUKE CHECK
 
-Before every substantial action, confirm internally:
+Before every substantial action confirm internally:
 
 - PROJECT = MANUSCRIPT_PRESS
-- ACTIVE_MODE = DIAGNOSTICIAN
-- ACTIVE_PHASE = B2 READ-ONLY LOCALIZATION
-- PHASE C = LOCKED
-- EDIT AUTHORITY = NONE
-- INFERENCE AUTHORITY = NONE
+- ACTIVE_PHASE = C2 TYPE FIX
+- C3 INFERENCE = LOCKED
+- EDIT AUTHORITY = ONLY src/continuity_cache_bench.py
+- EDIT SCOPE = TYPE NORMALIZATION ONLY
+- MODEL EXECUTION AUTHORITY = NONE
 - GIT AUTHORITY = NONE
+- SPEC CHANGE AUTHORITY = NONE
 
-If any current instruction appears to authorize more than this frame,
-STOP and report the authority conflict instead of choosing by inference.
+After `C2_FIX_REPORT`:
+
+- C2 authority = EXHAUSTED
+- C3 authority = STILL LOCKED
+- ACTIVE POSITION = WAIT_FOR_GREEN_LIGHT_C3
+
+If any instruction conflicts with this frame:
+STOP and report the authority conflict.
 
 ---
 
-## PHASE B2 REPORTING CONTRACT
+## C2 READ-ONLY REPORTING CONTRACT
 
-Return one factual final report:
+C2_READONLY_REPORT:
+  config_loaded_from: config/writer_config.yaml
+  max_tokens:
+    raw_value: <actual>
+    raw_type: <str / int / float / other>
+    passed_to_completion: <actual>
+    passed_type: <str / int / float / other>
+  temperature:
+    raw_value: <actual>
+    raw_type: <str / int / float / other>
+    passed_to_completion: <actual>
+    passed_type: <str / int / float / other>
+  top_p:
+    raw_value: <actual>
+    raw_type: <str / int / float / other>
+    passed_to_completion: <actual>
+    passed_type: <str / int / float / other>
+  origin_of_N/A_if_present: <actual origin / none>
+  root_cause_hypothesis: <one sentence>
+  fix_required: yes / no
 
-PHASE_B2_REPORT:
-  LAST_SUCCESSFUL_STAGE: <physical evidence>
-  EXACT_STOP_OR_ERROR: <literal finding>
-  LOAD_MODEL_RETURNED: true / false / not_proven
-  PREFLIGHT:
-    ProtectedSpanParser: PASS / FAIL / not_proven
-    SourceParser: PASS / FAIL / not_proven
-    PromptMapParser: PASS / FAIL / not_proven
-    SourcePromptMapValidator: PASS / FAIL / not_proven
-    BlockBoundary: PASS / FAIL / not_proven
-    PayloadStructure: PASS / FAIL / not_proven
-  CREATE_CHAT_COMPLETION_CALLS: 0
-  ZERO_COMPLETION_CAUSE: <evidence-based localization>
-  WORKING_PATH_COMPARISON: <concise read-only finding>
-  CANDIDATE_DIFF_STATUS:
-    supported / unsupported / unresolved
-  NEW_HYPOTHESES:
-    - <if any; clearly labeled as hypothesis>
-  AUTHORITY_VIOLATIONS_OBSERVED:
-    - <if any>
-  NEXT: WAIT_FOR_DEEPSEEK_AND_GROK
+Then continue to C2.B only if the evidence supports the authorized type-fix
+path.
 
-Do not include a SUCCESS claim for continuity bench.
-Do not recommend or execute a rerun.
-Do not apply a fix.
+---
+
+## C2 FIX REPORTING CONTRACT
+
+C2_FIX_REPORT:
+  files_modified:
+    - src/continuity_cache_bench.py
+  changes:
+    max_tokens: <before> -> <after>
+    temperature: <before> -> <after>
+    top_p: <before> -> <after>
+  removal_of_N/A: yes / no / not_applicable
+  static_verification: PASS / FAIL
+  inference_executed: false
+  next: WAIT_FOR_GREEN_LIGHT_C3
+
+If no fix was justified:
+
+C2_FIX_REPORT:
+  files_modified: []
+  fix_applied: false
+  reason: <evidence-based>
+  inference_executed: false
+  next: WAIT_FOR_GROK
 
 ---
 
 ## END CONDITION
 
-After B2:
+C2 ends after the read-only localization plus the minimal supported type fix
+and static verification.
 
-VERIFY
-→ REPORT
+Then:
+
+REPORT
 → STOP
-→ WAIT_FOR_DEEPSEEK / GROK / SHOGUN.
+→ WAIT_FOR_GREEN_LIGHT_C3.
 
-Cold-session rule:
-Treat this physical Current_Prompt.md, the physical STEP.md, and the global
-Samurai constitution as current authority.
+GREEN LIGHT C3 must be explicit.
 
-Do not reconstruct authorization from prior Gemini chat history.
+Until that explicit authorization exists:
+NO INFERENCE.

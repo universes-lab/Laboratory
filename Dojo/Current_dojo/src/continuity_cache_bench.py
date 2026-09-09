@@ -41,7 +41,7 @@ def log_message(message: str, log_file_path: str):
 def read_file_content(file_path: str) -> str:
     """Reads file content, handling potential encoding issues."""
     try:
-        with open(file_path, "r", encoding="utfF-8") as f:
+        with open(file_path, "r", encoding="utf-8") as f:
             return f.read()
     except FileNotFoundError:
         raise FileNotFoundError(f"Required input file not found: {file_path}")
@@ -104,12 +104,19 @@ def run_continuity_cache_bench():
         "STRUCTURAL_CONTEXT_EMITTED": False,
         "RUNTIME_CONTRACT_OVERRIDE": False,
     }
+
+    # Read writer_config.yaml to get generation parameters
+    with open(WRITER_CONFIG_PATH, 'r', encoding='utf-8') as f:
+        writer_config = yaml.safe_load(f)
+
+    generation_config = writer_config.get('generation', {})
+
     generation_params = {
         "MODEL": "N/A",
         "N_CTX": "N/A",
-        "MAX_TOKENS": "N/A",
-        "TEMPERATURE": "N/A",
-        "TOP_P": "N/A",
+        "MAX_TOKENS": int(generation_config.get("max_tokens", 2048)),
+        "TEMPERATURE": float(generation_config.get("temperature", 0.0)),
+        "TOP_P": float(generation_config.get("top_p", 0.9)),
         "CREATE_CHAT_COMPLETION_CALLS": 0,
         "OUTPUT_LENGTH": "N/A",
         "OUTPUT_NON_EMPTY": False,
@@ -119,7 +126,7 @@ def run_continuity_cache_bench():
     generation_status = "FAILURE"
     bench_mechanics_status = "FAIL"
     smoke_status = "FAILURE"
-    
+
     cache_bytes_len = 'N/A'
     cache_sha256_hash = 'N/A'
     cache_decoded_length = 'N/A'

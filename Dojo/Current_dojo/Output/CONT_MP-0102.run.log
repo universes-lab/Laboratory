@@ -2,28 +2,52 @@ RUN_TYPE=NON_PRODUCTION_BENCH_CANONICAL
 Operation_ID=PHASE1_CONTINUITY_CACHE_BENCH_V1_0
 SELECTED_MARKER=MP:0102
 CACHE_SOURCE: Output/SMOKE_MP-0101.md
-Date: 2026-09-08T14:59:52.499327
+Date: 2026-09-09T07:54:04.661731
 --- Execution Start ---
 STEP 1: Loading complete SOURCE manuscript.
-ERROR: Error reading file Input/TEST_SOURCE_MANUSCRIPT.md: unknown encoding: utfF-8
+STEP 2: Performing Protected-First Parse.
+ProtectedSpanParser: PASS
+STEP 3: Building SOURCE Marker Graph.
+SourceParser: PASS. Found markers: ['MP:0101', 'MP:0102', 'MP:0103']
+STEP 4: Parsing PROMPT_MAP.
+PromptMapParser: PASS
+STEP 5: Validating SOURCE ↔ PROMPT_MAP.
+SourcePromptMapValidator: PASS
+STEP 6 & 7: Selecting MP:0102 and deriving CURRENT_SOURCE.
+BlockBoundary: PASS
+STEP 8: Reading CACHE_SOURCE and computing details.
+CACHE_SOURCE read: bytes=208, sha256=aafb7af3b6135429bdc9c4bc8a79243efc44d9ca081a2d0f83771a404a5b15de, decoded_len=208
+STEP 9: Constructing USER payload for MP:0102.
+USER payload saved to Output/CONT_MP-0102.payload.txt. Length: 2031
+PayloadStructure: PASS
+STEP 10: Assembling SYSTEM payload.
+RUNTIME_CONTRACT_OVERRIDE: PRESENT
+SYSTEM payload assembled. Length: 5544
+STEP 11: Loading model.
+STEP 12: Executing create_chat_completion.
+STEP 13: Extracting generated content.
+Generated content saved to Output/CONT_MP-0102.md
+STEP 14: Performing mechanical checks.
+NO_REPRINT_CHECK: PASS (Simplified check)
+Mechanical Checks: PASS
 --- Execution End ---
-Final Smoke Status: FAILURE
+Final Smoke Status: SUCCESS
 
 --- FINAL REPORT ---
 CONTINUITY_CACHE_BENCH_REPORT:
-  BENCH_MECHANICS: FAIL
+  BENCH_MECHANICS: PASS
   CACHE_SOURCE: Output/SMOKE_MP-0101.md
   GENERATION:
-    CREATE_CHAT_COMPLETION_CALLS: 0
-    MAX_TOKENS: N/A
+    CREATE_CHAT_COMPLETION_CALLS: 1
+    MAX_TOKENS: 2048
     MODEL: N/A
-    NO_REPRINT_CHECK: FAIL
+    NO_REPRINT_CHECK: PASS
     N_CTX: N/A
     OUTPUT_EQUALS_CACHE: false
-    OUTPUT_LENGTH: N/A
-    OUTPUT_NON_EMPTY: false
-    TEMPERATURE: N/A
-    TOP_P: N/A
+    OUTPUT_LENGTH: 590
+    OUTPUT_NON_EMPTY: true
+    TEMPERATURE: 0.0
+    TOP_P: 0.9
   HUMAN_CONTINUITY_REVIEW: PENDING
   LIMITATIONS:
   - NON_PRODUCTION_BENCH
@@ -32,27 +56,27 @@ CONTINUITY_CACHE_BENCH_REPORT:
   - No protected/structural context exercised
   NEXT: WAIT_FOR_SHOGUN_ACTIVATION
   PAYLOAD:
-    CACHE_BYTES: N/A
-    CACHE_DECODED_LENGTH: N/A
-    CACHE_EMITTED: false
-    CACHE_SHA256: N/A
+    CACHE_BYTES: 208
+    CACHE_DECODED_LENGTH: 208
+    CACHE_EMITTED: true
+    CACHE_SHA256: aafb7af3b6135429bdc9c4bc8a79243efc44d9ca081a2d0f83771a404a5b15de
     PROTECTED_CONTEXT_EMITTED: false
-    RUNTIME_CONTRACT_OVERRIDE: false
+    RUNTIME_CONTRACT_OVERRIDE: true
     STRUCTURAL_CONTEXT_EMITTED: false
-    SYSTEM_LENGTH: 0
-    USER_LENGTH: 0
+    SYSTEM_LENGTH: 5544
+    USER_LENGTH: 2031
   PREFLIGHT:
-    BlockBoundary: FAIL
-    PayloadStructure: FAIL
-    PromptMapParser: FAIL
-    ProtectedSpanParser: FAIL
-    SourceParser: FAIL
-    SourcePromptMapValidator: FAIL
+    BlockBoundary: PASS
+    PayloadStructure: PASS
+    PromptMapParser: PASS
+    ProtectedSpanParser: PASS
+    SourceParser: PASS
+    SourcePromptMapValidator: PASS
   PRIMARY_EVIDENCE:
-    OUTPUT: N/A
+    OUTPUT: Output/CONT_MP-0102.md
     RUN_LOG: Output/CONT_MP-0102.run.log
     USER_PAYLOAD: Output/CONT_MP-0102.payload.txt
   RUN_TYPE: NON_PRODUCTION_BENCH_CANONICAL
   SELECTED_MARKER: MP:0102
-  STATUS: FAILURE
+  STATUS: SUCCESS
 
