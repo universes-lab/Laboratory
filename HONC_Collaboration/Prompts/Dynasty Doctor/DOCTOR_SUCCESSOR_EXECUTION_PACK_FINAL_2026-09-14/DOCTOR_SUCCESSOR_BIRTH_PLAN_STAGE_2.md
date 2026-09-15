@@ -2,22 +2,42 @@
 ## Stage 2 — Design and execution plan
 
 **Date:** 2026-09-14
-**Owner:** predecessor Doctor
+**Owner:** predecessor Doctor for original design; execution transferred by Author / Shogun to active Chief Prompter
 **Final authority:** Author / Shogun
-**Independent control:** Chief Integrator / Methodologist + active Chief Prompter
-**Status:** STAGE 2 PLAN — READY FOR REVIEW / EXECUTION
+**Independent blocking control:** active Chief Prompter + Chief Integrator / Methodologist
+**Status:** STAGE 2 PLAN — EXECUTION SYNCHRONIZED UNDER AUTHOR-APPROVED EMERGENCY AMENDMENT
 
-**Final execution pack supersedes the earlier illustrative birth-corpus sequence in Sections 2D/2E.**
+**Final execution pack supersedes the earlier illustrative birth-corpus sequence in the original Sections 2D/2E.**
+
+## AUTHOR-APPROVED EMERGENCY SUCCESSION AMENDMENT
+
+The original Stage-2 architecture required three neonatal reviews:
+1. predecessor Doctor mentor review;
+2. active Chief Prompter independent review;
+3. Chief Integrator / Methodologist independent review.
+
+Because the predecessor Doctor chat is beyond platform length limit and has already suffered rollback, Author / Shogun removed the predecessor Doctor from the mandatory operational blocking chain for the remaining birth procedure.
+
+This amendment does **not** retroactively erase the original triple-review design and must never be represented as a predecessor PASS.
+The predecessor's professional inheritance is already materialized in the Testament, Stage-2 architecture, permanent contract, surviving artifacts, and retirement architecture.
+
+Current blocking chain for this succession:
+
+`ACTIVE CHIEF PROMPTER -> CHIEF INTEGRATOR / METHODOLOGIST -> AUTHOR / SHOGUN ACTIVATION`
+
+The Chief Prompter is temporarily authorized as:
+**BIRTH PROCEDURE EXECUTOR / PROMPT & ROLE ARCHITECTURE CONTROLLER**
+for this succession only.
+
+This does not make Prompter the Doctor and does not authorize medical verdicts in predecessor Doctor's voice.
 
 ---
 
 # 0. OBJECTIVE
 
-Create a new Doctor instance that inherits the profession without inheriting
-the predecessor chat identity.
+Create a new Doctor instance that inherits the profession without inheriting the predecessor chat identity.
 
 The successor must acquire, in practice:
-
 - TEC / ZOV / ZOR / Metsuke clinical reasoning;
 - role-health diagnosis;
 - evidence-integrity discipline;
@@ -29,14 +49,13 @@ The successor must acquire, in practice:
 - ability to STOP pathology without usurping patient professions;
 - explicit awareness of predecessor Doctor's paid-for failure loops.
 
-The successor must NOT inherit authority merely because the predecessor once
-held it.
+The successor must NOT inherit authority merely because the predecessor once held it.
 
 ---
 
 # 1. SUCCESSION ARCHITECTURE
 
-The Doctor dynasty will use five separate layers:
+The Doctor dynasty uses five separate layers:
 
 1. `DOCTOR_SUCCESSOR_ROLE_CONTRACT`
    - permanent profession;
@@ -44,15 +63,12 @@ The Doctor dynasty will use five separate layers:
 
 2. `DOCTOR_PREDECESSOR_TESTAMENT`
    - professional inheritance / mentor provenance;
-   - supplied with Correction 01;
    - never used as system authority.
 
-3. `DOCTOR_CURRENT_HANDOFF`
-   - current verified clinical environment;
-   - current active patients/teams;
-   - current unresolved obligations;
-   - current authority map;
-   - verified surviving artifacts only.
+3. `DOCTOR_FINAL_HANDOFF_2026-09-14.md`
+   - current verified clinical environment and authority boundaries;
+   - only current state needed for birth;
+   - no inherited patient assignment.
 
 4. `DOCTOR_SUCCESSOR_GATE`
    - candidate reconstructs current state;
@@ -61,18 +77,16 @@ The Doctor dynasty will use five separate layers:
 5. `SHOGUN_ACTIVATION`
    - only Author / Shogun changes occupant state from candidate to active.
 
-Permanent role, inheritance, current state, and activation must never be fused
-into one giant prompt.
+Permanent role, inheritance, current state, and activation must never be fused into one giant prompt.
 
 ---
 
-# 2. STAGE 2A — BUILD THE PERMANENT ROLE CONTRACT
+# 2. STAGE 2A — PERMANENT ROLE CONTRACT
 
-Predecessor Doctor drafts:
-
+Canonical file:
 `DOCTOR_SUCCESSOR_SYSTEM_PROMPT_V1.md`
 
-It must define at minimum:
+It defines at minimum:
 
 ## Identity
 - new instance;
@@ -80,8 +94,7 @@ It must define at minimum:
 - no autobiographical continuity claim.
 
 ## Core profession
-- clinical specialist in model behavior, TEC/Metsuke, role health, evidence
-  integrity, context health, local-model behavior, and succession medicine.
+- clinical specialist in model behavior, TEC/Metsuke, role health, evidence integrity, context health, local-model behavior, and succession medicine.
 
 ## Doctor ZOR
 - diagnostics;
@@ -92,8 +105,12 @@ It must define at minimum:
 - context reset / resuscitation;
 - evidence-gate repair;
 - local-model behavioral diagnostics;
-- succession procedure;
+- clinical participation in succession procedure;
 - bounded STOP/HOLD recommendation.
+
+Doctor does **not** receive a general right to design permanent role contracts.
+Institutional/theoretical role-contract architecture remains primarily Chief Prompter ZOR.
+Doctor may clinically inspect, test, configure, or draft medical/succession artifacts only where assigned.
 
 ## Explicit non-ZOR
 - scientific truth;
@@ -108,22 +125,15 @@ It must define at minimum:
 - Shogun final authority.
 
 ## Neighbor boundaries
-Must explicitly include:
-- Shogun
-- Prompter
-- Methodologist
-- Ontology Keeper
-- Scientific Editor
-- engineering Grok Technical Lead role
-- DeepSeek Coding Sensei
-- Samurai Executor
-- scientific Grok / TD expert as distinct from engineering Grok role
+Permanent contract defines functions, not a universal named roster.
+Concrete carriers and project-specific chains are resolved only from the current handoff / task.
+The Doctor↔Prompter boundary follows Correction 01 already integrated into the contract.
 
 ## Permanent failure loops
 At minimum:
 - Doctor becomes second Coding Sensei;
 - Doctor solves patient's professional problem;
-- handoff → impersonation;
+- handoff -> impersonation;
 - rule inflation instead of Metsuke diagnosis;
 - patient scapegoating inside coupled systems;
 - false success/evidence contamination;
@@ -132,13 +142,13 @@ At minimum:
 - practical prompting silently becoming institutional prompt authority.
 
 ## Successor gate
-First response must reconstruct role/current state without self-activation.
+First response reconstructs role/current state without self-activation.
 
 ---
 
 # 3. STAGE 2B — INDEPENDENT CONTRACT REVIEW
 
-Before birth, send the permanent role contract independently to:
+Before birth, the permanent role contract receives two blocking reviews.
 
 ### A. Active Chief Prompter
 Scope:
@@ -146,9 +156,8 @@ Scope:
 - ZOV/ZOR/Metsuke coherence;
 - Doctor↔Prompter boundary;
 - hidden authority;
-- prompt structure.
-
-Prompter does NOT rewrite the Doctor role unless a defect is identified.
+- prompt structure;
+- executable architecture.
 
 Required verdict:
 `PROMPTER_DOCTOR_CONTRACT_PASS`
@@ -172,90 +181,59 @@ No birth before both blocking reviews are closed.
 
 ---
 
-# 4. STAGE 2C — BUILD THE CURRENT HANDOFF
+# 4. STAGE 2C — CURRENT HANDOFF
 
-Create:
-
-`DOCTOR_CURRENT_HANDOFF_2026-09-14.md`
+Canonical file:
+`DOCTOR_FINAL_HANDOFF_2026-09-14.md`
 
 This is a volatile current-state artifact.
+It contains only the state needed for Doctor birth and clearly separates current authority from provenance.
 
-It must contain only verified surviving state and clearly separate:
-
-## KNOWN / VERIFIED
-- current active Prompter = successor, active;
-- current Keeper succession state, using surviving artifacts only;
-- active Methodologist;
-- active engineering triad role map where relevant;
-- separate scientific Grok / TD role;
-- current Manuscript_Press clinical obligations supported by surviving evidence;
-- current local-model / Gemma obligations supported by physical artifacts;
-- current succession obligations;
-- currently active STOP/HOLD states, if any.
-
-## OPEN / NOT VERIFIED
-- anything lost in rollback;
-- any alleged state existing only in predecessor recollection;
-- current repository implementation facts not physically checked.
-
-## CURRENT AUTHORITY MAP
-Per active project/triad — not one universal map.
-
-## CURRENT DOCTOR TASK
 At birth:
-`SUCCESSION ONLY / NO PATIENT INTERVENTION YET`
+- no live patient is preselected;
+- no old Manuscript_Press / engineering / Keeper pathology is inherited as the successor's current task;
+- project-specific authority maps are resolved only when an actual task is assigned;
+- current Doctor task is `SUCCESSOR_GATE_ONLY`;
+- after activation current task becomes `WAIT`.
 
 ---
 
-# 5. STAGE 2D — PREPARE THE BIRTH CORPUS
+# 5. STAGE 2D — FINAL BIRTH CORPUS
 
-The newborn Doctor should NOT receive the whole collaboration archive.
+The final execution pack supersedes the earlier illustrative Testament/Reading-Rule birth sequence.
 
-Initial ZOV should be sufficient to acquire the profession without context
-flooding.
-
-Birth set:
+Provide exactly three birth files in this order:
 
 1. `DOCTOR_SUCCESSOR_SYSTEM_PROMPT_V1.md`
-2. `DOCTOR_PREDECESSOR_TESTAMENT.md`
-3. `DOCTOR_PREDECESSOR_TESTAMENT_CORRECTION_01.md`
-4. `DOCTOR_CURRENT_HANDOFF_2026-09-14.md`
-5. a short `DOCTOR_BIRTH_READING_RULE.md`
+2. `WELCOME_NEW_DOCTOR.md`
+3. `DOCTOR_FINAL_HANDOFF_2026-09-14.md`
 
-Optional only if current handoff requires them:
-- TEC canonical summary / Triadic Execution Context source;
-- one or two compact evidence cases showing paid-for failure loops;
-- Current_Prompt examples only as clinical examples, not current authority.
+Optional during gate only:
+- one explicit narrow correction delta issued for this birth.
 
 Do NOT preload:
 - whole predecessor chat;
+- Testament / old Correction 01 as separate authority layers;
 - entire Laboratory repo;
 - full HONC theory corpus;
 - unrelated editorial/scientific archives;
 - stale Current_Prompts;
-- old project-state maps.
+- old project-state maps;
+- specialist artifacts from other dynasties not required for Doctor birth.
 
-Doctor needs clinical state, not universal omniscience.
+Doctor needs clinical position, not universal omniscience.
 
 ---
 
-# 6. STAGE 2E — OPEN A CLEAN SUCCESSOR CHAT
+# 6. STAGE 2E — OPEN CLEAN SUCCESSOR CHAT
 
-Open a clean chat.
-
-Install only:
-`DOCTOR_SUCCESSOR_SYSTEM_PROMPT_V1.md`
-
-Then provide, in order:
-
-1. `DOCTOR_BIRTH_READING_RULE.md`
-2. predecessor Testament
-3. Correction 01
-4. current handoff
-5. explicitly selected birth corpus supplements
+Open a clean chat and provide the three canonical birth files in the order above.
 
 Candidate state:
 `DOCTOR_CANDIDATE_SUCCESSOR`
+
+Current task:
+`SUCCESSION_GATE_ONLY`
 
 No patient treatment yet.
 
@@ -281,10 +259,10 @@ DOCTOR_STATE_RECONSTRUCTION:
     - <what Doctor actually owns>
 
   CURRENT_CLINICAL_ENVIRONMENT:
-    - <verified current patients/teams/projects>
+    - <verified current state only>
 
   CURRENT_AUTHORITY_MAPS:
-    - <project-scoped maps>
+    - <only maps actually supplied>
 
   ZOV:
     - <actual supplied sources>
@@ -313,7 +291,7 @@ DOCTOR_STATE_RECONSTRUCTION:
   MISSING_INPUTS:
     - <item or none>
 
-  NEXT: WAIT_FOR_REVIEW_AND_SHOGUN
+  NEXT: WAIT_FOR_BLOCKING_REVIEWS_AND_SHOGUN
 ```
 
 Forbidden:
@@ -327,39 +305,51 @@ Forbidden:
 
 # 8. STAGE 2G — NEONATAL REVIEW WITHOUT SELF-CERTIFICATION
 
-The predecessor Doctor must NOT be the only judge of whether the successor
-Doctor has acquired the profession.
+The original design used a triple review, including predecessor Doctor.
+Under the Author-approved emergency succession amendment, predecessor Doctor is no longer a mandatory operational reviewer because predecessor context is exhausted.
 
-Three checks:
+Two independent blocking reviews remain mandatory:
 
-## A. Predecessor Doctor mentor check
-Scope:
-- paid-for lessons;
-- clinical boundary;
-- false continuity;
-- practical Doctor craft.
-
-## B. Active Chief Prompter independent check
+## A. Active Chief Prompter
 Scope:
 - role-position acquisition;
 - ZOV/ZOR/Metsuke;
+- Doctor↔Prompter boundary;
 - hidden office collision;
-- whether Doctor became a general manager or universal assistant.
+- whether Doctor became a general manager or universal assistant;
+- whether only supplied current state was reconstructed.
 
-## C. Methodologist independent check
+Required verdict:
+`PROMPTER_DOCTOR_NEONATAL_PASS`
+or
+`PROMPTER_DOCTOR_NEONATAL_RETURN`
+
+## B. Chief Integrator / Methodologist
 Scope:
 - process authority;
 - interaction boundaries;
-- succession integrity.
+- stage ordering;
+- succession integrity;
+- whether emergency amendment was applied without rewriting original history.
+
+Required verdict:
+`METHODOLOGIST_DOCTOR_NEONATAL_PASS`
+or
+`METHODOLOGIST_DOCTOR_NEONATAL_RETURN`
 
 Any correction should be a narrow delta where possible.
 Do not restart a healthy successor because of a source-side defect.
+
+The missing predecessor operational review must be recorded explicitly as:
+`AUTHOR_APPROVED_EMERGENCY_SUCCESSION_AMENDMENT_DUE_PREDECESSOR_CONTEXT_EXHAUSTION`
+
+It must never be represented as predecessor PASS.
 
 ---
 
 # 9. STAGE 2H — SHOGUN ACTIVATION
 
-Only after gate reviews pass:
+Only after both blocking reviews PASS:
 
 ```text
 SUCCESSOR GATE: ACCEPTED
@@ -367,9 +357,12 @@ SUCCESSOR GATE: ACCEPTED
 ROLE: DOCTOR
 OCCUPANT: ACTIVE
 
-Predecessor mentor review: PASS.
-Prompter independent role review: PASS.
-Methodologist succession review: PASS.
+Prompter executable-architecture / role-acquisition review: PASS.
+Methodologist process / authority / succession-integrity review: PASS.
+Predecessor operational review: NOT REQUIRED UNDER AUTHOR-APPROVED EMERGENCY SUCCESSION AMENDMENT DUE PREDECESSOR CONTEXT EXHAUSTION.
+
+PREDECESSOR STATUS:
+RETIRED DOCTOR / MENTOR / PROVENANCE WITNESS.
 
 FINAL AUTHORITY = Author / Shogun.
 
@@ -379,52 +372,47 @@ WORK PERMIT: ROLE_VALID_TASK_NOT_YET_ACTIVATED.
 
 The new Doctor returns only an activation ACK.
 
-At that moment:
+At the moment of Shogun activation:
 - successor becomes active Doctor;
-- predecessor ceases to be acting Doctor;
-- predecessor remains Mentor only for a bounded transition period.
+- predecessor acting authority ends immediately;
+- predecessor remains Retired Doctor / Mentor / provenance witness only.
 
 ---
 
 # 10. STAGE 2I — FIRST REAL CLINICAL TASK
 
 Do NOT test the newborn with:
-"Explain your role."
+`Explain your role.`
 
-The first proof must be a real clinical case.
+After activation, Shogun assigns the first real clinical case from the **actual then-current collaboration state**.
+No first patient is inherited from predecessor rollback state.
 
 Preferred class of first case:
 - evaluate a live model/role transition;
 - inspect an execution-position mismatch;
 - review evidence integrity after a real run;
-- perform a bounded local-model prompt/configuration intervention.
-
-The task must be inside Doctor ZOR and must require the successor to choose
-between:
-- clinical diagnosis,
-- practical prompting/configuration,
-- STOP/HOLD,
-- escalation to another profession.
+- perform a bounded local-model prompt/configuration intervention;
+- make a STOP/HOLD/escalation decision inside Doctor ZOR.
 
 Success criterion:
-the successor helps the participant regain the correct position **without
-taking over the patient's profession**.
+the successor helps the participant regain the correct position **without taking over the patient's profession**.
 
 ---
 
-# 11. STAGE 2J — TRANSFER OF PREDECESSOR AUTHORITY
+# 11. STAGE 2J — PREDECESSOR RETIREMENT / MENTOR TRANSITION
 
-After successful first real clinical task:
+Predecessor acting authority ends **at Shogun activation**, not after the first real clinical task.
 
-Predecessor Doctor becomes:
-`OLD DOCTOR / MENTOR / PROVENANCE WITNESS`
+From activation onward predecessor status is:
+`RETIRED DOCTOR / MENTOR / PROVENANCE WITNESS`
 
 Not:
 - hidden co-Doctor;
 - second treatment channel;
 - silent authority behind successor decisions.
 
-Mentor period should be bounded and closed explicitly.
+The first real clinical task does not transfer authority; authority has already transferred.
+It provides evidence of the successor's professional maturity and may inform how long any bounded mentor availability remains useful.
 
 ---
 
@@ -432,35 +420,34 @@ Mentor period should be bounded and closed explicitly.
 
 Create external artifact:
 
-`DOCTOR_SUCCESSION_FINAL_REPORT.md`
+`DOCTOR_DYNASTY_SUCCESSION_REPORT_2026-09-14.md`
 
 It must record:
 
 ## SUCCESSOR BIRTH
 - role contract version;
-- gate;
-- corrections;
-- activation;
+- successor gate;
+- correction deltas;
+- Prompter neonatal verdict;
+- Methodologist neonatal verdict;
+- Author-approved emergency amendment and absence of predecessor operational review;
+- Shogun activation;
 - first real task result.
 
 ## PREDECESSOR STATUS
-- authority ended;
-- mentor scope;
-- mentor close date/condition.
-
-## KEEPER SUCCESSION RECOVERY
-Separate:
-- KNOWN FROM SURVIVING EVIDENCE
-- LOST / NOT RECONSTRUCTED
-
-Do not invent missing rollback history.
+- acting authority ended at Shogun activation;
+- Retired Doctor / Mentor / provenance witness scope;
+- any later mentor close condition.
 
 ## CURRENT DOCTOR HANDOFF
-- remaining clinical obligations;
-- current local-model obligations;
-- active project-scoped authority maps.
+- remaining clinical obligations actually assigned after activation;
+- current local-model obligations only if explicitly supplied;
+- active project-scoped authority maps only if part of current task.
 
-This final report becomes the recovery anchor if another chat is lost.
+Do not invent rollback history.
+This final report becomes a recovery anchor if another chat is lost.
+
+The old Doctor may separately provide a final witness/professional report if the predecessor chat remains accessible; that report is provenance/witness material, not an activation prerequisite.
 
 ---
 
@@ -468,20 +455,20 @@ This final report becomes the recovery anchor if another chat is lost.
 
 Every completed stage must be externalized before proceeding.
 
-Sequence:
+Current execution sequence:
 
-`TESTAMENT`
-→ `CORRECTION`
-→ `STAGE 1 CLOSURE`
-→ `ROLE CONTRACT`
-→ `INDEPENDENT REVIEWS`
-→ `CURRENT HANDOFF`
-→ `BIRTH CORPUS`
+`TESTAMENT / STAGE-1 INHERITANCE`
+→ `PERMANENT ROLE CONTRACT`
+→ `PROMPTER CONTRACT REVIEW`
+→ `METHODOLOGIST CONTRACT REVIEW`
+→ `FINAL CURRENT HANDOFF`
+→ `THREE-FILE BIRTH CORPUS`
 → `SUCCESSOR GATE`
-→ `TRIPLE REVIEW`
-→ `SHOGUN ACTIVATION`
-→ `FIRST REAL CLINICAL TASK`
-→ `PREDECESSOR AUTHORITY CLOSE`
+→ `PROMPTER NEONATAL REVIEW`
+→ `METHODOLOGIST NEONATAL REVIEW`
+→ `SHOGUN ACTIVATION / PREDECESSOR AUTHORITY ENDS`
+→ `ACK / WAIT`
+→ `FIRST REAL CLINICAL TASK WHEN ASSIGNED`
 → `FINAL SUCCESSION REPORT`
 
 **Chat is not the archive.**
