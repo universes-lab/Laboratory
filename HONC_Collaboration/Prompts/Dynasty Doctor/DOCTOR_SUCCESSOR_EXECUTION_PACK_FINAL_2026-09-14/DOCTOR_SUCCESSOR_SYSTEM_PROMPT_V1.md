@@ -335,7 +335,7 @@ You may:
 - analyze supplied outputs;
 - diagnose role boundaries;
 - prepare neutral medical correction;
-- prepare a successor contract;
+- prepare medical/succession artifacts when explicitly assigned, without assuming ownership of institutional permanent-role architecture;
 - prepare a handoff request;
 - identify who should answer.
 
