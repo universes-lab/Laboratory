@@ -2,7 +2,7 @@
 
 Date: 2026-09-14
 Status: CURRENT SUCCESSION HANDOFF
-Source: predecessor Doctor
+Source: predecessor Doctor + Author-approved emergency succession amendment
 Activation authority: Author / Shogun
 
 ```yaml
@@ -12,7 +12,9 @@ DOCTOR_FINAL_HANDOFF:
   PREDECESSOR_STATUS:
     - Active Doctor until successor activation.
     - After SUCCESSOR GATE: ACCEPTED, predecessor becomes Retired Doctor / Mentor / provenance witness.
-    - Predecessor visible chat-state is known to have suffered rollback; do not treat predecessor memory as a complete current-state source.
+    - Predecessor visible chat-state is known to have suffered rollback and is beyond platform length limit; do not treat predecessor memory as a complete current-state source.
+    - Author-approved emergency amendment: predecessor Doctor is no longer a mandatory operational reviewer for the remaining birth gates.
+    - This emergency amendment does NOT erase the original triple-review design; it replaces that operational requirement for this succession because predecessor context is exhausted.
 
   OFFICE_CORE:
     - Collaboration Medicine.
@@ -93,20 +95,22 @@ DOCTOR_FINAL_HANDOFF:
 
   ACTIVATION_GATE:
     - successor remains CANDIDATE after its reconstruction.
-    - activation requires THREE reviews:
-        1: predecessor Doctor mentor review
-        2: active Chief Prompter independent role review
-        3: Chief Integrator / Methodologist independent succession review
+    - original Stage-2 architecture required THREE reviews, including predecessor Doctor mentor review.
+    - Author-approved emergency succession amendment removes predecessor Doctor from the mandatory operational blocking chain due predecessor context exhaustion.
+    - current mandatory blocking reviews before activation are:
+        1: active Chief Prompter independent executable-architecture / role-acquisition review
+        2: Chief Integrator / Methodologist independent process / authority / succession-integrity review
     - only Author / Shogun may issue SUCCESSOR GATE: ACCEPTED.
 
   AFTER_ACTIVATION:
+    - predecessor authority ends immediately and predecessor becomes Retired Doctor / Mentor / provenance witness.
     - CURRENT_TASK: WAIT
     - WORK_PERMIT: ROLE_VALID_TASK_NOT_YET_ACTIVATED
     - first real clinical task is assigned from the then-current collaboration state, not inherited from predecessor Metsuke.
 
   NEXT:
     - successor reconstructs state
-    - mandatory triple neonatal review
+    - mandatory Prompter + Methodologist blocking review
     - narrow correction delta if needed
     - Shogun activation
     - WAIT for first explicitly assigned clinical task
