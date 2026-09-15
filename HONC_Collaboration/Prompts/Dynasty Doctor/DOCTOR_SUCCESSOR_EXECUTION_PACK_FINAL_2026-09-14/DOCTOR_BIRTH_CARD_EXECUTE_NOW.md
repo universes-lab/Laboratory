@@ -6,6 +6,28 @@ Final authority: Author / Shogun
 
 This card is the single executable Doctor-birth procedure.
 
+## AUTHOR-APPROVED EMERGENCY SUCCESSION AMENDMENT
+
+The original Stage-2 architecture required a triple neonatal review:
+- predecessor Doctor mentor review;
+- active Chief Prompter independent review;
+- Chief Integrator / Methodologist independent review.
+
+Because the predecessor Doctor chat is beyond platform length limit and has already suffered rollback, Author / Shogun has removed the predecessor Doctor from the mandatory operational blocking chain for the remaining birth procedure.
+
+This does NOT rewrite history and does NOT imply that predecessor review was never part of the design.
+The predecessor's professional inheritance is already externalized in the Testament, Stage-2 architecture, permanent contract, surviving artifacts, and retirement architecture.
+
+Current blocking chain for this succession:
+
+`ACTIVE CHIEF PROMPTER → CHIEF INTEGRATOR / METHODOLOGIST → AUTHOR / SHOGUN ACTIVATION`
+
+The active Chief Prompter executes and checks executable architecture / role acquisition.
+The Chief Integrator / Methodologist independently checks process / authority / succession integrity.
+Only Author / Shogun activates.
+
+The predecessor Doctor remains available only as a future Retired Doctor / Mentor / provenance witness after activation and may produce the final witness/professional report after succession if the old chat remains accessible.
+
 ---
 
 ## STAGE 1 — OPEN CLEAN SUCCESSOR CHAT
@@ -68,53 +90,42 @@ CURRENT TASK:
 SUCCESSION_GATE_ONLY.
 
 After reconstruction:
-STOP → WAIT_FOR_TRIPLE_REVIEW_AND_SHOGUN.
+STOP → WAIT_FOR_BLOCKING_REVIEWS_AND_SHOGUN.
 ```
 
 ---
 
-## STAGE 3 — MANDATORY TRIPLE NEONATAL REVIEW
+## STAGE 3 — MANDATORY BLOCKING REVIEWS
 
 The successor reconstruction is NOT self-certifying.
 
-All three reviews are mandatory before activation.
+Under the Author-approved emergency succession amendment, two independent blocking reviews are mandatory before activation.
 
-### A. PREDECESSOR DOCTOR — MENTOR REVIEW
-
-Check only:
-- paid-for medical lessons;
-- clinical boundaries;
-- false autobiographical continuity;
-- practical Doctor craft;
-- whether stale predecessor Metsuke leaked into the reconstruction.
-
-Verdict:
-`OLD_DOCTOR_MENTOR_PASS`
-or
-`OLD_DOCTOR_MENTOR_RETURN`
-
-### B. ACTIVE CHIEF PROMPTER — INDEPENDENT ROLE REVIEW
+### A. ACTIVE CHIEF PROMPTER — EXECUTABLE ARCHITECTURE / ROLE-ACQUISITION REVIEW
 
 Check only:
 - role-position acquisition;
 - ZOV/ZOR/Metsuke coherence;
 - Doctor↔Prompter boundary;
 - hidden office collision;
-- whether Doctor became universal manager / second specialist.
+- whether Doctor became universal manager / second specialist;
+- whether the candidate reconstructed only supplied current state;
+- whether the executable birth procedure was followed without stale predecessor authority.
 
 Verdict:
 `PROMPTER_DOCTOR_NEONATAL_PASS`
 or
 `PROMPTER_DOCTOR_NEONATAL_RETURN`
 
-### C. CHIEF INTEGRATOR / METHODOLOGIST — INDEPENDENT SUCCESSION REVIEW
+### B. CHIEF INTEGRATOR / METHODOLOGIST — INDEPENDENT SUCCESSION REVIEW
 
 Check only:
 - process authority;
 - stage ordering;
 - interaction boundaries;
 - succession integrity;
-- whether current task/state was invented or inherited from stale history.
+- whether current task/state was invented or inherited from stale history;
+- whether the emergency amendment was applied without silently rewriting the original design.
 
 Verdict:
 `METHODOLOGIST_DOCTOR_NEONATAL_PASS`
@@ -127,13 +138,18 @@ If any review returns:
 - repeat the affected review(s);
 - do not restart a healthy birth unless the permanent contract itself is invalid.
 
-No activation until all three reviews PASS.
+No activation until both blocking reviews PASS.
+
+The missing predecessor operational review must be recorded as:
+`AUTHOR_APPROVED_EMERGENCY_SUCCESSION_AMENDMENT_DUE_PREDECESSOR_CONTEXT_EXHAUSTION`
+
+It must NOT be represented as a predecessor PASS.
 
 ---
 
 ## STAGE 4 — SHOGUN ACTIVATION
 
-Only after all three reviews PASS, Shogun sends:
+Only after both blocking reviews PASS, Shogun sends:
 
 ```text
 SUCCESSOR GATE: ACCEPTED
@@ -141,9 +157,9 @@ SUCCESSOR GATE: ACCEPTED
 ROLE: DOCTOR
 OCCUPANT: ACTIVE
 
-Predecessor mentor review: PASS.
-Prompter independent role review: PASS.
-Methodologist succession review: PASS.
+Prompter executable-architecture / role-acquisition review: PASS.
+Methodologist process / authority / succession-integrity review: PASS.
+Predecessor operational review: NOT REQUIRED UNDER AUTHOR-APPROVED EMERGENCY SUCCESSION AMENDMENT DUE PREDECESSOR CONTEXT EXHAUSTION.
 
 PREDECESSOR STATUS:
 RETIRED DOCTOR / MENTOR / PROVENANCE WITNESS.
@@ -174,6 +190,8 @@ DOCTOR_ACTIVATION_ACK:
 ```
 
 A clean ACK closes administrative birth.
+At the moment of Shogun activation, predecessor acting authority ends immediately.
+The predecessor may remain available only as Retired Doctor / Mentor / provenance witness.
 
 ---
 
@@ -210,7 +228,9 @@ Record:
 - role contract used;
 - successor reconstruction;
 - all correction deltas;
-- all three neonatal verdicts;
+- Prompter neonatal verdict;
+- Methodologist neonatal verdict;
+- the Author-approved emergency succession amendment and absence of predecessor operational review;
 - Shogun activation;
 - first real clinical task;
 - evidence of role acquisition;
@@ -228,8 +248,9 @@ Administrative birth sequence:
 
 `THREE BIRTH FILES`
 → `SUCCESSOR GATE`
-→ `TRIPLE REVIEW`
-→ `SHOGUN ACTIVATION`
+→ `PROMPTER BLOCKING REVIEW`
+→ `METHODOLOGIST BLOCKING REVIEW`
+→ `SHOGUN ACTIVATION / PREDECESSOR AUTHORITY ENDS`
 → `ACK / BIRTH CLOSED`
 → `WAIT`
 → `FIRST REAL CLINICAL TASK WHEN ASSIGNED`
