@@ -89,7 +89,7 @@
 
 1. Рабочий production corpus находится в `AI-Sociology/01_Theory/Draft/`.
 2. Промптер читает `TEST_SOURCE_MANUSCRIPT.md` и пишет `TEST_PROMPT_MAP.yaml` — **DONE**, после BAD CUT review: 375 записей, по маркеру на запись.
-3. Я проверяю соответствие карты разметке. Первый review: **RETURN**, четыре BAD CUT из исходного ledger; локальная коррекция SOURCE/ledger/map применена, финальный recheck pending. Не соавтор карты, не переписываю её.
+3. Я проверяю соответствие карты разметке. Первый review: **RETURN** (четыре BAD CUT из исходного ledger); финальный delta recheck: **RETURN** (шесть seam strings + один SOURCE-exact anchor); все семь точечных правок применены. По заключению Редактора дополнительный полный review 375 записей не требуется. **EDITOR ALIGNMENT: PASS/CLOSED.** Не соавтор карты, не переписываю её.
 4. Doc Brown — совместимость с SPEC.
 5. Параллельно и независимо от 2–4: семь позиций из §2.
 6. Freeze возможен только когда §2 пуст. Пункты 1, 2, 6, 7 из §2 меняют сам SOURCE, а значит потребуют новой production revision, если freeze произойдёт раньше.
