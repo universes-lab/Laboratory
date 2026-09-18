@@ -1159,7 +1159,7 @@ MP:0106:
     
     CLOSURE:
     "non-claim: no new discipline is proposed" completes; "non-claim: no performance advantage is established" begins.
-    Do not begin the next move: Announce the three offered items in decreasing confidence.
+    Do not begin the next move: Present the manuscript's three offered items in decreasing order of confidence.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
@@ -1172,7 +1172,7 @@ MP:0106:
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Announce the three offered items in decreasing confidence.
+    No content belonging to the next move: Present the manuscript's three offered items in decreasing order of confidence.
     No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
     CACHE may support surface continuity only; it is not substantive authority.
     
@@ -1181,7 +1181,7 @@ MP:0106:
     
     SEMANTIC_STOP:
     Stop when this source move is complete: Non-claim: no performance advantage is established.
-    Do not anticipate or start: Announce the three offered items in decreasing confidence.
+    Do not anticipate or start: Present the manuscript's three offered items in decreasing order of confidence.
 
 MP:0107:
   LONG_RANGE_FRAME: |
@@ -1297,7 +1297,7 @@ MP:0114:
     Structural map of the paper.
     
     READER_STATE_BEFORE:
-    The preceding completed move is: Reason 2: the setting cannot be constructed deliberately.
+    The preceding completed move is: Give the two reasons for publishing at this stage.
     
     REQUIRED_READER_STATE_AFTER:
     The reader has received this move and no stronger one: Structural map of the paper.
@@ -5858,7 +5858,7 @@ MP:0215:
     
     CLOSURE:
     "establish that the three steps are sequential, not independent trials" completes; "describe the Step 1 intervention" begins.
-    Do not begin the next move: Report the content of Prompt A.
+    Do not begin the next move: Describe both Step 1 role prompts and record their shared explicit ZOR/ZOV definition.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
@@ -5871,7 +5871,7 @@ MP:0215:
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Report the content of Prompt A.
+    No content belonging to the next move: Describe both Step 1 role prompts and record their shared explicit ZOR/ZOV definition.
     No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
     CACHE may support surface continuity only; it is not substantive authority.
     
@@ -5880,7 +5880,7 @@ MP:0215:
     
     SEMANTIC_STOP:
     Stop when this source move is complete: Describe the Step 1 intervention.
-    Do not anticipate or start: Report the content of Prompt A.
+    Do not anticipate or start: Describe both Step 1 role prompts and record their shared explicit ZOR/ZOV definition.
 
 MP:0216:
   LONG_RANGE_FRAME: |
@@ -5944,7 +5944,7 @@ MP:0219:
     Describe the Step 2 minimal revision.
     
     READER_STATE_BEFORE:
-    The preceding completed move is: Record that both prompts defined ZOR and ZOV.
+    The preceding completed move is: Describe both Step 1 role prompts and record their shared explicit ZOR/ZOV definition.
     
     REQUIRED_READER_STATE_AFTER:
     The reader has received this move and no stronger one: Describe the Step 2 minimal revision.
@@ -11497,7 +11497,7 @@ MP:0342:
     CONSTRAINTS:
     SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
     No protected wording may be invented or inferred.
-    Source anchors that must not drift: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; Outcome Evidence; Procedural Evidence; It is not evidence that the arrangement outperforms a single reviewer.; §4.2.2.
+    Source anchors that must not drift: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; Outcome Evidence; Procedural Evidence; It is **not** evidence that the arrangement outperforms a single reviewer:; §4.2.2.
     OPEN SOURCE DECISION: AC-2 concerns the capitalized source forms "Outcome Evidence" and "Procedural Evidence". Preserve these exact source forms for this test revision; do not normalize them into a new term or silently demote them.
     
     CLOSURE:
@@ -11510,7 +11510,7 @@ MP:0342:
     Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
     
     PRESERVE:
-    Keep these source anchors semantically stable: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; Outcome Evidence; Procedural Evidence; It is not evidence that the arrangement outperforms a single reviewer.; §4.2.2.
+    Keep these source anchors semantically stable: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; Outcome Evidence; Procedural Evidence; It is **not** evidence that the arrangement outperforms a single reviewer:; §4.2.2.
     Keep structural passthrough outside literary rewrite authority.
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     OPEN SOURCE DECISION: AC-2 concerns the capitalized source forms "Outcome Evidence" and "Procedural Evidence". Preserve these exact source forms for this test revision; do not normalize them into a new term or silently demote them.
@@ -14833,7 +14833,7 @@ MP:0416:
     
     CLOSURE:
     "specify E3 and its outcome mapping" completes; "state E3's eliminative value and specify E4" begins.
-    Do not begin the next move: Specify E5.
+    Do not begin the next move: Specify E5, its falsification logic, and its stated running-order priority after E1.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
@@ -14846,7 +14846,7 @@ MP:0416:
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Specify E5.
+    No content belonging to the next move: Specify E5, its falsification logic, and its stated running-order priority after E1.
     No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
     CACHE may support surface continuity only; it is not substantive authority.
     
@@ -14855,7 +14855,7 @@ MP:0416:
     
     SEMANTIC_STOP:
     Stop when this source move is complete: State E3's eliminative value and specify E4.
-    Do not anticipate or start: Specify E5.
+    Do not anticipate or start: Specify E5, its falsification logic, and its stated running-order priority after E1.
 
 MP:0417:
   LONG_RANGE_FRAME: |
@@ -14920,7 +14920,7 @@ MP:0419:
     Specify E6's conditions and what it separates.
     
     READER_STATE_BEFORE:
-    The preceding completed move is: Rank E5 in the running order.
+    The preceding completed move is: Specify E5, its falsification logic, and its stated running-order priority after E1.
     
     REQUIRED_READER_STATE_AFTER:
     The reader has received this move and no stronger one: Specify E6's conditions and what it separates.
