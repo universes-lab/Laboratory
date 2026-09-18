@@ -446,7 +446,7 @@ MP:0010:
     CACHE may support surface continuity only; it is not substantive authority.
     
     RHETORICAL_OPERATION:
-    Procedural exposition
+    Classification / answer to the section question
     
     SEMANTIC_STOP:
     Stop when this source move is complete: Answer the section question: a field report with one embedded intervention.
@@ -1186,317 +1186,107 @@ MP:0106:
 MP:0107:
   LONG_RANGE_FRAME: |
     LOCATION:
-    §1.8; blocks 49–49 · "Three things, in decreasing order of confidence.…"
-    
+    §1.8, "What is offered", blocks 49–53.
+
     FUNCTION:
-    Announce the three offered items in decreasing confidence.
-    
+    Present the manuscript's three offered items in decreasing order of confidence:
+    the branch-reset procedure, the countable prompt rule, and the scale/question.
+
     READER_STATE_BEFORE:
-    The preceding completed move is: Non-claim: no performance advantage is established.
-    
+    The reader has just completed §1.7 and knows the manuscript does not claim
+    a performance advantage for the arrangements described.
+
     REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Announce the three offered items in decreasing confidence.
-    
+    The reader knows exactly what the paper offers, in the stated confidence
+    ordering, without reading any of the three items as a stronger claim than SOURCE permits.
+
     CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
+    SOURCE is the substantive ceiling.
+    Preserve "Three things, in decreasing order of confidence" as the organizing relation.
+    Preserve the procedure's independence from whether the paper's substantive claims survive.
+    Preserve the countable rule as a minimization rule with its falsification route.
+    Preserve the scale's unequal status: two levels supported, one open, one untested.
+    Preserve §10.5, §9.3, §11.4, §1.6, and §11 references.
+    Do not convert confidence ordering into a numerical ranking or evidence strength not stated in SOURCE.
+
     CLOSURE:
-    "non-claim: no performance advantage is established" completes; "announce the three offered items in decreasing confidence" begins.
-    Do not begin the next move: Offer 1: the branch-reset procedure.
+    The move closes only after all three offered items have been stated.
+    Do not begin §1.9 or supply reasons for publication; that is the next move.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Announce the three offered items in decreasing confidence.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
+    Render the announcement and all three offered items as one coherent publication-ready move.
+    Keep the internal three-part structure visible and concise.
+
     PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
+    "procedure"; "countable rule"; "scale and a question".
+    The decreasing-confidence ordering.
+    The exact limitations and section references attached to each item.
+
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Offer 1: the branch-reset procedure.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+    No fourth offering.
+    No stronger evidence claim for any item.
+    No new rationale for publication.
+    No new mechanism, evidence, or significance claim absent from SOURCE.
     CACHE may support surface continuity only; it is not substantive authority.
-    
+
     RHETORICAL_OPERATION:
-    Transition / reframing
-    
+    Structured offering / ranked enumeration.
+
     SEMANTIC_STOP:
-    Stop when this source move is complete: Announce the three offered items in decreasing confidence.
-    Do not anticipate or start: Offer 1: the branch-reset procedure.
-
-MP:0108:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §1.8; blocks 50–50 · "A **procedure**: returning a conversation to a point…"
-    
-    FUNCTION:
-    Offer 1: the branch-reset procedure.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Announce the three offered items in decreasing confidence.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Offer 1: the branch-reset procedure.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    Source anchors that must not drift: procedure; §10.5.
-    
-    CLOSURE:
-    "announce the three offered items in decreasing confidence" completes; "offer 1: the branch-reset procedure" begins.
-    Do not begin the next move: Offer 2: the countable rule.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Offer 1: the branch-reset procedure.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep these source anchors semantically stable: procedure; §10.5.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Offer 2: the countable rule.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Procedural exposition
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Offer 1: the branch-reset procedure.
-    Do not anticipate or start: Offer 2: the countable rule.
-
-MP:0109:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §1.8; blocks 51–51 · "A **countable rule**: minimize the unverifiable self…"
-    
-    FUNCTION:
-    Offer 2: the countable rule.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Offer 1: the branch-reset procedure.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Offer 2: the countable rule.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    Source anchors that must not drift: countable rule; §9.3; §11.4.
-    
-    CLOSURE:
-    "offer 1: the branch-reset procedure" completes; "offer 2: the countable rule" begins.
-    Do not begin the next move: Offer 3: the scale and the question.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Offer 2: the countable rule.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep these source anchors semantically stable: countable rule; §9.3; §11.4.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Offer 3: the scale and the question.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Bounded exposition
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Offer 2: the countable rule.
-    Do not anticipate or start: Offer 3: the scale and the question.
-
-MP:0110:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §1.8; blocks 52–53 · "A **scale and a question**: §1.6, with two levels su…"
-    
-    FUNCTION:
-    Offer 3: the scale and the question.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Offer 2: the countable rule.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Offer 3: the scale and the question.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    Source anchors that must not drift: scale and a question; §1.6; §11.
-    
-    CLOSURE:
-    "offer 2: the countable rule" completes; "offer 3: the scale and the question" begins.
-    Do not begin the next move: Announce two reasons for publishing now.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Offer 3: the scale and the question.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep these source anchors semantically stable: scale and a question; §1.6; §11.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Announce two reasons for publishing now.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Problem formulation
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Offer 3: the scale and the question.
-    Do not anticipate or start: Announce two reasons for publishing now.
+    Stop after the third offered item and its §11 reference.
+    Do not begin the two reasons for publishing now.
 
 MP:0111:
   LONG_RANGE_FRAME: |
     LOCATION:
-    §1.9; blocks 54–54 · "Two reasons.…"
-    
+    §1.9, "Why publish at this stage", blocks 54–57.
+
     FUNCTION:
-    Announce two reasons for publishing now.
-    
+    Give the two reasons for publishing at this stage.
+
     READER_STATE_BEFORE:
-    The preceding completed move is: Offer 3: the scale and the question.
-    
+    The reader knows the three things the paper offers and their decreasing confidence order.
+
     REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Announce two reasons for publishing now.
-    
+    The reader understands both publication reasons: the failures are informative,
+    and the live setting is difficult to construct deliberately.
+
     CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
+    SOURCE is the substantive ceiling.
+    Preserve that the first two interventions failed and that this failure supplied information.
+    Preserve that the paper does not yet have the conclusion a success-only record might suggest.
+    Preserve the distinction between poor conditions for controlled inference and unusually good
+    conditions for noticing what should be tested.
+    Do not turn "hard to construct deliberately" into a uniqueness or significance claim.
+
     CLOSURE:
-    "offer 3: the scale and the question" completes; "announce two reasons for publishing now" begins.
-    Do not begin the next move: Reason 1: the failures are informative.
+    Both reasons belong to one paired justification.
+    The move closes only after the second reason.
+    Do not begin the §1.10 structural map.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Announce two reasons for publishing now.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
+    Present "Two reasons" together with both reasons as one compact rationale for publication now.
+
     PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
+    Failure of the first two interventions as informative.
+    The warning that the stronger conclusion is not yet available.
+    The distinction between controlled-inference weakness and observational usefulness.
+
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Reason 1: the failures are informative.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+    No claim that the setting is unique.
+    No claim that publication is urgent or inherently important.
+    No stronger methodological conclusion than SOURCE states.
+    No §1.10 content.
     CACHE may support surface continuity only; it is not substantive authority.
-    
+
     RHETORICAL_OPERATION:
-    Structured enumeration / exposition
-    
+    Paired rationale / justification.
+
     SEMANTIC_STOP:
-    Stop when this source move is complete: Announce two reasons for publishing now.
-    Do not anticipate or start: Reason 1: the failures are informative.
-
-MP:0112:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §1.9; blocks 55–55 · "The failures are informative. The experiment in §5 b…"
-    
-    FUNCTION:
-    Reason 1: the failures are informative.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Announce two reasons for publishing now.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Reason 1: the failures are informative.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    Source anchors that must not drift: §5; §11.8.
-    
-    CLOSURE:
-    "announce two reasons for publishing now" completes; "reason 1: the failures are informative" begins.
-    Do not begin the next move: Reason 2: the setting cannot be constructed deliberately.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Reason 1: the failures are informative.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep these source anchors semantically stable: §5; §11.8.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Reason 2: the setting cannot be constructed deliberately.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Rationale / explanation
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Reason 1: the failures are informative.
-    Do not anticipate or start: Reason 2: the setting cannot be constructed deliberately.
-
-MP:0113:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §1.9; blocks 56–57 · "And the setting is hard to construct deliberately. D…"
-    
-    FUNCTION:
-    Reason 2: the setting cannot be constructed deliberately.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Reason 1: the failures are informative.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Reason 2: the setting cannot be constructed deliberately.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
-    CLOSURE:
-    "reason 1: the failures are informative" completes; "reason 2: the setting cannot be constructed deliberately" begins.
-    Do not begin the next move: Structural map of the paper.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Reason 2: the setting cannot be constructed deliberately.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Structural map of the paper.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Rationale / explanation
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Reason 2: the setting cannot be constructed deliberately.
-    Do not anticipate or start: Structural map of the paper.
+    Stop after the second publication reason.
+    Do not begin the paper-structure overview.
 
 MP:0114:
   LONG_RANGE_FRAME: |
@@ -4691,7 +4481,7 @@ MP:0184:
     CACHE may support surface continuity only; it is not substantive authority.
     
     RHETORICAL_OPERATION:
-    Structured enumeration / exposition
+    Distinction / framing
     
     SEMANTIC_STOP:
     Stop when this source move is complete: Announce two orthogonal scales.
@@ -5344,7 +5134,7 @@ MP:0199:
     CONSTRAINTS:
     SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
     Protected material P014, P015 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
-    Source anchors that must not drift: only as text; Represented social position; Represented social source; The methodological consequence is the reason this distinction is stated at all.; §5; §2.9.
+    Source anchors that must not drift: only as text; Represented social position; Represented social source; The methodological consequence is the reason this distinction is stated at all.; §5; §2.9; Divergence between actual and represented boundaries is itself an experimental variable; this paper did not vary it systematically; all its observations lie on one side of it.
     
     CLOSURE:
     "define actual versus represented boundaries" completes; "derive the two represented constructs and the methodological consequence" begins.
@@ -5356,7 +5146,7 @@ MP:0199:
     Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
     
     PRESERVE:
-    Keep these source anchors semantically stable: only as text; Represented social position; Represented social source; The methodological consequence is the reason this distinction is stated at all.; §5; §2.9.
+    Keep these source anchors semantically stable: only as text; Represented social position; Represented social source; The methodological consequence is the reason this distinction is stated at all.; §5; §2.9; Divergence between actual and represented boundaries is itself an experimental variable; this paper did not vary it systematically; all its observations lie on one side of it.
     Restore P014, P015 exactly through the protected-material mechanism.
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     
@@ -5366,7 +5156,7 @@ MP:0199:
     CACHE may support surface continuity only; it is not substantive authority.
     
     RHETORICAL_OPERATION:
-    Inference / local closure
+    Source-bounded derivation / methodological consequence
     
     SEMANTIC_STOP:
     Stop when this source move is complete: Derive the two represented constructs and the methodological consequence.
@@ -6095,137 +5885,55 @@ MP:0215:
 MP:0216:
   LONG_RANGE_FRAME: |
     LOCATION:
-    §5.2; blocks 293–293 · "The prompt to Conversation A assigned the role *Scie…"
-    
+    §5.2, Step 1 — Direct role reassignment, blocks 293–296.
+
     FUNCTION:
-    Report the content of Prompt A.
-    
+    Describe both Step 1 role prompts and record their shared explicit ZOR/ZOV definition.
+
     READER_STATE_BEFORE:
-    The preceding completed move is: Describe the Step 1 intervention.
-    
+    The reader knows that Step 1 assigned extensive new roles but has not yet been given
+    the parallel content of Prompt A and Prompt B.
+
     REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Report the content of Prompt A.
-    
+    The reader knows what each prompt asserted and required, the asymmetries between them,
+    and the one shared design property stated here: both defined ZOR and ZOV explicitly.
+
     CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
+    SOURCE is the substantive ceiling.
+    Preserve the exact role labels "Scientific Director" and "Scientific Developer".
+    Preserve Prompt A's physics/retraining, two-triad, Council, and permanent-connector claims.
+    Preserve Prompt B's prior mathematical-work, one-triad, no-editorial-return, and
+    Author-as-sole-scientific-direction claims.
+    Preserve the final shared statement about explicit ZOR and ZOV.
+    Do not evaluate either prompt here and do not import later outcome information.
+
     CLOSURE:
-    "describe the Step 1 intervention" completes; "report the content of Prompt A" begins.
-    Do not begin the next move: Report the content of Prompt B.
+    Prompt A, Prompt B, and their shared ZOR/ZOV property form one parallel intervention-description move.
+    Close before Step 2 begins.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Report the content of Prompt A.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
+    Render the two prompt descriptions as a clear parallel account, ending with their shared
+    explicit ZOR/ZOV property.
+
     PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
+    The distinct role names.
+    The different institutional and domain demands placed on A and B.
+    The fact that both prompts defined ZOR and ZOV explicitly.
+
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Report the content of Prompt B.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+    No explanation of why one prompt later succeeded or failed.
+    No confound analysis; that belongs later.
+    No equivalence claim between the two prompts.
+    No Step 2 content.
     CACHE may support surface continuity only; it is not substantive authority.
-    
+
     RHETORICAL_OPERATION:
-    Evidence presentation / bounded narrative
-    
+    Parallel intervention description / bounded comparison.
+
     SEMANTIC_STOP:
-    Stop when this source move is complete: Report the content of Prompt A.
-    Do not anticipate or start: Report the content of Prompt B.
-
-MP:0217:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §5.2; blocks 294–294 · "The prompt to Conversation B assigned the role *Scie…"
-    
-    FUNCTION:
-    Report the content of Prompt B.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Report the content of Prompt A.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Report the content of Prompt B.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
-    CLOSURE:
-    "report the content of Prompt A" completes; "report the content of Prompt B" begins.
-    Do not begin the next move: Record that both prompts defined ZOR and ZOV.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Report the content of Prompt B.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Record that both prompts defined ZOR and ZOV.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Evidence presentation / bounded narrative
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Report the content of Prompt B.
-    Do not anticipate or start: Record that both prompts defined ZOR and ZOV.
-
-MP:0218:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §5.2; blocks 295–296 · "Both prompts defined ZOR and ZOV explicitly.…"
-    
-    FUNCTION:
-    Record that both prompts defined ZOR and ZOV.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Report the content of Prompt B.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Record that both prompts defined ZOR and ZOV.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
-    CLOSURE:
-    "report the content of Prompt B" completes; "record that both prompts defined ZOR and ZOV" begins.
-    Do not begin the next move: Describe the Step 2 minimal revision.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Record that both prompts defined ZOR and ZOV.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Describe the Step 2 minimal revision.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Evidence presentation / bounded narrative
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Record that both prompts defined ZOR and ZOV.
-    Do not anticipate or start: Describe the Step 2 minimal revision.
+    Stop after stating that both prompts defined ZOR and ZOV explicitly.
+    Do not begin the minimal continuity-preserving revision.
 
 MP:0219:
   LONG_RANGE_FRAME: |
@@ -6739,7 +6447,7 @@ MP:0230:
     CONSTRAINTS:
     SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
     Protected material P021, P022 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
-    Source anchors that must not drift: Quantity of institutional fiction.; Counting rule applied.; Count; |; Degree of domain change.; Type of role..
+    Source anchors that must not drift: Quantity of institutional fiction.; Counting rule applied.; Count; Degree of domain change.; Type of role.
     OPEN SOURCE DECISION: B-3b leaves the current count unresolved. Preserve the protected count exactly; do not reconcile it with §6.2.
     
     CLOSURE:
@@ -6752,7 +6460,7 @@ MP:0230:
     Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
     
     PRESERVE:
-    Keep these source anchors semantically stable: Quantity of institutional fiction.; Counting rule applied.; Count; |; Degree of domain change.; Type of role..
+    Keep these source anchors semantically stable: Quantity of institutional fiction.; Counting rule applied.; Count; Degree of domain change.; Type of role.
     Restore P021, P022 exactly through the protected-material mechanism.
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     OPEN SOURCE DECISION: B-3b leaves the current count unresolved. Preserve the protected count exactly; do not reconcile it with §6.2.
@@ -11789,8 +11497,8 @@ MP:0342:
     CONSTRAINTS:
     SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
     No protected wording may be invented or inferred.
-    Source anchors that must not drift: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; not; §4.2.2.
-    OPEN SOURCE DECISION: AC-2 concerns capitalization that may look terminological. Preserve the current source form; do not normalize it into a new term or silently demote it.
+    Source anchors that must not drift: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; Outcome Evidence; Procedural Evidence; It is not evidence that the arrangement outperforms a single reviewer.; §4.2.2.
+    OPEN SOURCE DECISION: AC-2 concerns the capitalized source forms "Outcome Evidence" and "Procedural Evidence". Preserve these exact source forms for this test revision; do not normalize them into a new term or silently demote them.
     
     CLOSURE:
     "state the editor's-note convention" completes; "report the error classes with the procedural qualification and evidential warning" begins.
@@ -11802,10 +11510,10 @@ MP:0342:
     Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
     
     PRESERVE:
-    Keep these source anchors semantically stable: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; not; §4.2.2.
+    Keep these source anchors semantically stable: Procedural and evidential errors; Architectural errors; Ontological errors; Factual errors concerning the project's own materials; Outcome Evidence; Procedural Evidence; It is not evidence that the arrangement outperforms a single reviewer.; §4.2.2.
     Keep structural passthrough outside literary rewrite authority.
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    OPEN SOURCE DECISION: AC-2 concerns capitalization that may look terminological. Preserve the current source form; do not normalize it into a new term or silently demote it.
+    OPEN SOURCE DECISION: AC-2 concerns the capitalized source forms "Outcome Evidence" and "Procedural Evidence". Preserve these exact source forms for this test revision; do not normalize them into a new term or silently demote them.
     
     DO_NOT_INTRODUCE:
     No content belonging to the next move: Offer one explanation as hypothesis.
@@ -15152,92 +14860,56 @@ MP:0416:
 MP:0417:
   LONG_RANGE_FRAME: |
     LOCATION:
-    §11.4; blocks 815–817 · "A direct test of the paper's central operational cla…"
-    
+    §11.4, E5, blocks 815–819.
+
     FUNCTION:
-    Specify E5.
-    
+    Specify E5, its falsification logic, and its stated running-order priority after E1.
+
     READER_STATE_BEFORE:
-    The preceding completed move is: State E3's eliminative value and specify E4.
-    
+    The reader has just received E3's eliminative value and the E4 design.
+
     REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Specify E5.
-    
+    The reader understands the E5 manipulation, its outcome logic, and that the present authors
+    place it second in the experimental running order after E1.
+
     CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    Source anchors that must not drift: 0, 2, 4, 6; §6.2; §9.3; §11.3.
-    
+    SOURCE is the substantive ceiling.
+    Preserve the four unverifiable-self-claim counts: 0, 2, 4, 6.
+    Preserve that domain, task, tone, and length are held constant.
+    Preserve scoring by the criteria in §11.3.
+    Preserve the two-sided result logic: monotonic decline supports/quantifies the rule;
+    absence of that pattern falsifies the paper's usable prescription.
+    Preserve the ranking statement: second, after E1.
+    Do not introduce E6 content.
+
     CLOSURE:
-    "state E3's eliminative value and specify E4" completes; "specify E5" begins.
-    Do not begin the next move: Rank E5 in the running order.
+    The experiment design, falsification consequence, and ranking sentence are one E5 move.
+    Close before E6 begins.
 
   LOCAL_TRANSFORMATION: |
     TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Specify E5.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
-    PRESERVE:
-    Keep these source anchors semantically stable: 0, 2, 4, 6; §6.2; §9.3; §11.3.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
-    DO_NOT_INTRODUCE:
-    No content belonging to the next move: Rank E5 in the running order.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
-    CACHE may support surface continuity only; it is not substantive authority.
-    
-    RHETORICAL_OPERATION:
-    Bounded exposition
-    
-    SEMANTIC_STOP:
-    Stop when this source move is complete: Specify E5.
-    Do not anticipate or start: Rank E5 in the running order.
+    Present E5 as one complete experimental-design unit followed by its ranking in the running order.
 
-MP:0418:
-  LONG_RANGE_FRAME: |
-    LOCATION:
-    §11.4; blocks 818–819 · "The experiment the present authors would run second,…"
-    
-    FUNCTION:
-    Rank E5 in the running order.
-    
-    READER_STATE_BEFORE:
-    The preceding completed move is: Specify E5.
-    
-    REQUIRED_READER_STATE_AFTER:
-    The reader has received this move and no stronger one: Rank E5 in the running order.
-    
-    CONSTRAINTS:
-    SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
-    No protected wording may be invented or inferred.
-    No additional semantic anchor is authorized beyond the current SOURCE block.
-    
-    CLOSURE:
-    "specify E5" completes; "rank E5 in the running order" begins.
-    Do not begin the next move: Specify E6's conditions and what it separates.
-
-  LOCAL_TRANSFORMATION: |
-    TRANSFORM:
-    Produce publication-ready English for this SOURCE block while performing only: Rank E5 in the running order.
-    Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
-    
     PRESERVE:
-    Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
-    Keep structural passthrough outside literary rewrite authority.
-    Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
-    
+    0, 2, 4, 6.
+    Controlled variables: domain, task, tone, length.
+    Transition scoring under §11.3.
+    The monotonic-decline support condition and the explicit failure condition.
+    "second, after E1".
+
     DO_NOT_INTRODUCE:
-    No content belonging to the next move: Specify E6's conditions and what it separates.
-    No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+    No expected effect size.
+    No claim that E5 has been run.
+    No new priority rationale.
+    No E6 attribution conditions.
     CACHE may support surface continuity only; it is not substantive authority.
-    
+
     RHETORICAL_OPERATION:
-    Bounded exposition
-    
+    Experimental design + priority note.
+
     SEMANTIC_STOP:
-    Stop when this source move is complete: Rank E5 in the running order.
-    Do not anticipate or start: Specify E6's conditions and what it separates.
+    Stop after the sentence ranking E5 second after E1.
+    Do not begin E6.
 
 MP:0419:
   LONG_RANGE_FRAME: |
@@ -15841,7 +15513,7 @@ MP:0432:
     CONSTRAINTS:
     SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
     No protected wording may be invented or inferred.
-    Source anchors that must not drift: Task accuracy; Role fidelity; Epistemic discipline; Visibility discipline; Handoff quality; Independence.
+    Source anchors that must not drift: Eight dimensions; used informally; offered as a starting rubric; Task accuracy; Role fidelity; Epistemic discipline; Visibility discipline; Handoff quality; Independence; Correction cost; Institutional contribution.
     
     CLOSURE:
     "state the priority order under constrained resources" completes; "specify the eight role-evaluation dimensions and their consequence" begins.
@@ -15853,7 +15525,7 @@ MP:0432:
     Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
     
     PRESERVE:
-    Keep these source anchors semantically stable: Task accuracy; Role fidelity; Epistemic discipline; Visibility discipline; Handoff quality; Independence.
+    Keep these source anchors semantically stable: Eight dimensions; used informally; offered as a starting rubric; Task accuracy; Role fidelity; Epistemic discipline; Visibility discipline; Handoff quality; Independence; Correction cost; Institutional contribution.
     Keep structural passthrough outside literary rewrite authority.
     Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
     

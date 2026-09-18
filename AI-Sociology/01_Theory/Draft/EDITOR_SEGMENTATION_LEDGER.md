@@ -42,7 +42,7 @@ Nothing was added, deleted, reformulated, re-terminologized, re-cited, or re-sta
 
 | | |
 |---|---|
-| Production markers | **383**, all IDs unique |
+| Production markers | **375**, all IDs unique |
 | Protected spans | **46**, all IDs unique, none nested, BEGIN/END balanced |
 | Production markers inside protected spans | **0** |
 | Orphan mutable prose | **0** |
@@ -50,11 +50,13 @@ Nothing was added, deleted, reformulated, re-terminologized, re-cited, or re-sta
 | Density | 80.5 words/marker |
 | ATX headings | structural passthrough, unmarked |
 
-**Density check against the one validated sample.** The Methodologist's `§1.6` fixture segmented 180 words into 3 moves — 60 words/marker. This ledger runs at 80.5, i.e. **coarser than the approved sample**, not finer. §1.6 here reproduces the fixture exactly: `MP:0101`, `MP:0102`, `MP:0103` on the same three moves, with the research question protected as `P003`.
+**Density check against the one validated sample.** The Methodologist's `§1.6` fixture segmented 180 words into 3 moves — 60 words/marker. This ledger runs at 82.2, i.e. **coarser than the approved sample**, not finer. §1.6 here reproduces the fixture exactly: `MP:0101`, `MP:0102`, `MP:0103` on the same three moves, with the research question protected as `P003`.
 
 **Numbering.** Sequential from `MP:0001`, with §1.6 pinned to `MP:0101–0103` to preserve the validated fixture addresses. The sequence therefore jumps `MP:0020 → MP:0101 → MP:0104`. Gaps are permitted and carry no meaning.
 
-**Grouping rule.** Default is one move per prose paragraph; tables, block quotations and lists attach to the prose that governs them; and 127 explicit multi-paragraph merges were applied where the standard forbids a cut — claim from qualification, premise from purpose, observation from evidential warning, enumerated set from the sentence that makes the set's purpose clear.
+**Grouping rule.** Default is one move per prose paragraph; tables, block quotations and lists attach to the prose that governs them; and 135 explicit multi-paragraph merges were applied where the standard forbids a cut — claim from qualification, premise from purpose, observation from evidential warning, enumerated set from the sentence that makes the set's purpose clear.
+
+**Post-map alignment correction.** Scientific Editor review of the first complete `TEST_PROMPT_MAP.yaml` found four BAD CUT regions originating in this ledger. The approved correction merged `MP:0107–0110`, `MP:0111–0113`, `MP:0216–0218`, and `MP:0417–0418`. The graph therefore changed from 383 to **375** production markers. No manuscript prose was changed; only marker boundaries and their derived ledger/map records changed.
 
 ---
 
@@ -122,13 +124,8 @@ Nothing was added, deleted, reformulated, re-terminologized, re-cited, or re-sta
 | `MP:0104` | §1.7 | blocks 45–45 · "It does not introduce role specialization, bounded i…" | Non-claim: the paper introduces no new practice | "enumerate the scale levels, concentrate into the empirical question, justify it" completes; "non-claim: the paper introduces no new practice" begins. | — |
 | `MP:0105` | §1.7 | blocks 46–46 · "It does not propose a new discipline. The observatio…" | Non-claim: no new discipline is proposed | "non-claim: the paper introduces no new practice" completes; "non-claim: no new discipline is proposed" begins. | — |
 | `MP:0106` | §1.7 | blocks 47–48 · "It does not establish that any arrangement described…" | Non-claim: no performance advantage is established | "non-claim: no new discipline is proposed" completes; "non-claim: no performance advantage is established" begins. | — |
-| `MP:0107` | §1.8 | blocks 49–49 · "Three things, in decreasing order of confidence.…" | Announce the three offered items in decreasing confidence | "non-claim: no performance advantage is established" completes; "announce the three offered items in decreasing confidence" begins. | — |
-| `MP:0108` | §1.8 | blocks 50–50 · "A **procedure**: returning a conversation to a point…" | Offer 1: the branch-reset procedure | "announce the three offered items in decreasing confidence" completes; "offer 1: the branch-reset procedure" begins. | — |
-| `MP:0109` | §1.8 | blocks 51–51 · "A **countable rule**: minimize the unverifiable self…" | Offer 2: the countable rule | "offer 1: the branch-reset procedure" completes; "offer 2: the countable rule" begins. | — |
-| `MP:0110` | §1.8 | blocks 52–53 · "A **scale and a question**: §1.6, with two levels su…" | Offer 3: the scale and the question | "offer 2: the countable rule" completes; "offer 3: the scale and the question" begins. | — |
-| `MP:0111` | §1.9 | blocks 54–54 · "Two reasons.…" | Announce two reasons for publishing now | "offer 3: the scale and the question" completes; "announce two reasons for publishing now" begins. | — |
-| `MP:0112` | §1.9 | blocks 55–55 · "The failures are informative. The experiment in §5 b…" | Reason 1: the failures are informative | "announce two reasons for publishing now" completes; "reason 1: the failures are informative" begins. | — |
-| `MP:0113` | §1.9 | blocks 56–57 · "And the setting is hard to construct deliberately. D…" | Reason 2: the setting cannot be constructed deliberately | "reason 1: the failures are informative" completes; "reason 2: the setting cannot be constructed deliberately" begins. | — |
+| `MP:0107` | §1.8 | blocks 49–53 · "Three things, in decreasing order of confidence.…" | Present the three offered items in decreasing confidence: procedure, countable rule, scale/question | "non-claim: no performance advantage is established" completes; the complete three-item offering begins and closes only after all three items are stated. | — |
+| `MP:0111` | §1.9 | blocks 54–57 · "Two reasons.…" | Give the two reasons for publishing at this stage | the three-item offering in §1.8 completes; the paired justification for publishing now begins and closes only after both reasons are stated. | — |
 | `MP:0114` | §1.10 | blocks 58–58 · "**§2** positions the work relative to existing resea…" | Structural map of the paper | "reason 2: the setting cannot be constructed deliberately" completes; "structural map of the paper" begins. | — |
 | `MP:0115` | §1.10 | blocks 59–62 · "A reader interested only in what the evidence suppor…" | Reading paths for different readers | "structural map of the paper" completes; "reading paths for different readers" begins. | — |
 | `MP:0116` | §2.0 | blocks 63–65 · "Two classes of reference appear below.…" | Define the two reference classes and their marks | "reading paths for different readers" completes; "define the two reference classes and their marks" begins. | — |
@@ -231,9 +228,7 @@ Nothing was added, deleted, reformulated, re-terminologized, re-cited, or re-sta
 | `MP:0213` | §5.1 | blocks 288–289 · "**What was not measured.** Answer correctness, scien…" | State what was not measured | "state what was observed" completes; "state what was not measured" begins. | — |
 | `MP:0214` | §5.2 | blocks 290–291 · "The experiment consisted of **three sequential steps…" | Establish that the three steps are sequential, not independent trials | "state what was not measured" completes; "establish that the three steps are sequential, not independent trials" begins. | — |
 | `MP:0215` | §5.2 | blocks 292–292 · "Each conversation received an extensive prompt assig…" | Describe the Step 1 intervention | "establish that the three steps are sequential, not independent trials" completes; "describe the Step 1 intervention" begins. | — |
-| `MP:0216` | §5.2 | blocks 293–293 · "The prompt to Conversation A assigned the role *Scie…" | Report the content of Prompt A | "describe the Step 1 intervention" completes; "report the content of Prompt A" begins. | — |
-| `MP:0217` | §5.2 | blocks 294–294 · "The prompt to Conversation B assigned the role *Scie…" | Report the content of Prompt B | "report the content of Prompt A" completes; "report the content of Prompt B" begins. | — |
-| `MP:0218` | §5.2 | blocks 295–296 · "Both prompts defined ZOR and ZOV explicitly.…" | Record that both prompts defined ZOR and ZOV | "report the content of Prompt B" completes; "record that both prompts defined ZOR and ZOV" begins. | — |
+| `MP:0216` | §5.2 | blocks 293–296 · "The prompt to Conversation A assigned the role *Scie…" | Describe both Step 1 prompts and their shared explicit ZOR/ZOV definition | "describe the Step 1 intervention" completes; the parallel description of Prompt A, Prompt B, and their shared ZOR/ZOV property begins and closes as one comparison unit. | — |
 | `MP:0219` | §5.2 | blocks 297–298 · "The Step 1 prompts were not replaced. Four formulati…" | Describe the Step 2 minimal revision | "record that both prompts defined ZOR and ZOV" completes; "describe the Step 2 minimal revision" begins. | — |
 | `MP:0220` | §5.2 | blocks 299–299 · "After Step 2 the Claude conversation contained two c…" | State the condition that made Step 3 necessary | "describe the Step 2 minimal revision" completes; "state the condition that made Step 3 necessary" begins. | — |
 | `MP:0221` | §5.2 | blocks 300–300 · "The operator therefore used the interface's branchin…" | Describe the branch reset | "state the condition that made Step 3 necessary" completes; "describe the branch reset" begins. | — |
@@ -432,8 +427,7 @@ Nothing was added, deleted, reformulated, re-terminologized, re-cited, or re-sta
 | `MP:0414` | §11.4 | blocks 807–808 · "Querying that conversation *about* what it can see w…" | Exclude the in-frame query as a substitute | "specify E2b and its outcome mapping" completes; "exclude the in-frame query as a substitute" begins. | — |
 | `MP:0415` | §11.4 | blocks 809–810 · "The decisive test for the family-level hypothesis (§…" | Specify E3 and its outcome mapping | "exclude the in-frame query as a substitute" completes; "specify E3 and its outcome mapping" begins. | — |
 | `MP:0416` | §11.4 | blocks 811–814 · "This experiment can eliminate a level of the scale, …" | State E3's eliminative value and specify E4 | "specify E3 and its outcome mapping" completes; "state E3's eliminative value and specify E4" begins. | — |
-| `MP:0417` | §11.4 | blocks 815–817 · "A direct test of the paper's central operational cla…" | Specify E5 | "state E3's eliminative value and specify E4" completes; "specify E5" begins. | — |
-| `MP:0418` | §11.4 | blocks 818–819 · "The experiment the present authors would run second,…" | Rank E5 in the running order | "specify E5" completes; "rank E5 in the running order" begins. | — |
+| `MP:0417` | §11.4 | blocks 815–819 · "A direct test of the paper's central operational cla…" | Specify E5 and rank it second after E1 | "state E3's eliminative value and specify E4" completes; the E5 design, falsification logic, and its running-order note begin and close together. | — |
 | `MP:0419` | §11.4 | blocks 820–822 · "Identical text presented under four conditions: attr…" | Specify E6's conditions and what it separates | "rank E5 in the running order" completes; "specify E6's conditions and what it separates" begins. | — |
 | `MP:0420` | §11.4 | blocks 823–825 · "**Status of the claim.** ✓ Choi, Zhu and Li (ACL 202…" | State E6's verified status and its boundary-replication reading | "specify E6's conditions and what it separates" completes; "state E6's verified status and its boundary-replication reading" begins. | — |
 | `MP:0421` | §11.4 | blocks 826–827 · "Earlier drafts stated E6's status conditionally — bo…" | Record the resolution of the earlier conditional and specify E7 | "state E6's verified status and its boundary-replication reading" completes; "record the resolution of the earlier conditional and specify E7" begins. | — |

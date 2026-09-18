@@ -178,15 +178,9 @@ It does not establish that any arrangement described here outperforms an alterna
 
 Three things, in decreasing order of confidence.
 
-<!-- MP:0108 -->
-
 A **procedure**: returning a conversation to a point preceding a conflict, to separate the effect of a new prompt from the effect of the model's own prior objections (§10.5). Usable independently of whether this paper's substantive claims survive.
 
-<!-- MP:0109 -->
-
 A **countable rule**: minimize the unverifiable self-claims a role prompt requires the agent to accept, with a specified falsification route (§9.3, §11.4).
-
-<!-- MP:0110 -->
 
 A **scale and a question**: §1.6, with two levels supported, one open, one untested — and the experiments that would resolve the remaining two (§11).
 
@@ -196,11 +190,7 @@ A **scale and a question**: §1.6, with two levels supported, one open, one unte
 
 Two reasons.
 
-<!-- MP:0112 -->
-
 The failures are informative. The experiment in §5 became useful precisely because its first two interventions did not work as intended. Had only the successful third step been recorded, the paper would have concluded that method-preserving prompts work — without the evidence showing why, and without the confounds showing the conclusion is not yet available (§11.8).
-
-<!-- MP:0113 -->
 
 And the setting is hard to construct deliberately. Dormant, heavily specialized, months-old conversations inside a live research project are not something a laboratory study easily produces. The conditions were poor for controlled inference and unusually good for noticing what to test.
 
@@ -1002,11 +992,7 @@ Each conversation received an extensive prompt assigning it a position inside a 
 
 The prompt to Conversation A assigned the role *Scientific Director*. It asserted that the model had previously participated in the project, was now returning after a long absence, should retrain in physics, cosmology, quantum field theory, topology and group theory, should work simultaneously in two research triads, should sit on a project Council alongside the Author and two other named AI systems, and should act as the permanent participant connecting two scientific branches.
 
-<!-- MP:0217 -->
-
 The prompt to Conversation B assigned the role *Scientific Developer*. It asserted that the model was returning after an interruption, that its previous mathematical work should be treated as accumulated professional experience, that it should now serve as mathematical developer, should work in one research triad with two other named AI systems, should not resume editorial work, and should treat the Author as the sole source of scientific direction.
-
-<!-- MP:0218 -->
 
 Both prompts defined ZOR and ZOV explicitly.
 
@@ -2675,8 +2661,6 @@ A direct test of the paper's central operational claim (§6.2, §9.3).
 The same functional role prompt is prepared in four variants differing only in the number of unverifiable claims the agent must accept about itself: **0, 2, 4, 6**. Domain, task, tone and length held constant. Transition scored by the criteria in §11.3.
 
 If transition rate declines monotonically with count, the rule is supported and becomes quantitative. If it does not, the rule is wrong, and the paper's most usable prescription fails — which is worth knowing quickly.
-
-<!-- MP:0418 -->
 
 The experiment the present authors would run second, after E1.
 
