@@ -1,0 +1,41 @@
+HONC / Temporal Dynamics — Working Trilingual Terminology Registry
+| EN                                        | RU                                        | NL                                                   | Короткая пометка                                                  |
+| ----------------------------------------- | ----------------------------------------- | ---------------------------------------------------- | ----------------------------------------------------------------- |
+| **HONC — Hierarchy of Nested Continua**   | **HONC — Иерархия вложенных континуумов** | **HONC — hiërarchie van geneste continua**           | HONC везде как международная аббревиатура                         |
+| **nested continuum**                      | вложенный континуум                       | genest continuüm                                     |                                                                   |
+| **continuum**                             | континуум                                 | continuüm                                            |                                                                   |
+| **Temporal Dynamics**                     | Темпоральная динамика                     | temporele dynamica                                   | Основное имя                                                      |
+| **First Principles of Temporal Dynamics** | **Начала Темпоральной Динамики**          | **Grondbeginselen van de temporele dynamica**        | Рабочее название текста                                           |
+| **Temporal Field Formalism (TFF)**        | формализм темпорального поля              | formalisme van het temporele veld                    | Рабочая форма; singular Field                                     |
+| **temporal field \(T_{\mu\nu}\)**         | поле времени \(T_{\mu\nu}\)               | temporeel veld \(T_{\mu\nu}\)                        |                                                                   |
+| **slowness \(dt/dx\)**                    | медленность \(dt/dx\)                     | slowness \(dt/dx\)                                   | NL при первом упоминании: *reciproke snelheid*                    |
+| **slowness surface**                      | поверхность медленности                   | slowness surface                                     |                                                                   |
+| **inertial component**                    | инерциальная компонента                   | inertiële component                                  |                                                                   |
+| **linear component**                      | линейная компонента                       | lineaire component                                   | Не объявлять синонимом inertial без физического основания         |
+| **antisymmetric component(s)**            | антисимметричная компонента / компоненты  | antisymmetrische component(en)                       | Математическое свойство                                           |
+| **rotational component(s)**               | вращательная компонента / компоненты      | rotationele component(en)                            | Физическая интерпретация; связь задаёт теория                     |
+| **space quantum \(\lambda\)**             | квант пространства \(\lambda\)            | ruimtekwantum \(\lambda\)                            |                                                                   |
+| **elementary cell**                       | элементарная ячейка                       | elementaire cel                                      | Описательный термин                                               |
+| **Quantron \(\Lambda\)**                  | квантрон \(\Lambda\)                      | quantron \(\Lambda\)                                 | **Утверждённое авторское имя; Quanton = typo**                    |
+| **gray zone**                             | серая зона                                | grijze zone                                          | Допустимое рабочее/авторское имя                                  |
+| **Latcher**                               | латчер                                    | Latcher                                              | Собственный HONC-термин                                           |
+| **latcher cloud**                         | латчер-облако                             | latcherwolk                                          |                                                                   |
+| **linking number \(L\)**                  | число зацепления \(L\)                    | koppelingsgetal \(L\)                                | Я бы для печати выбрал именно «число зацепления»                  |
+| **order parameter**                       | параметр порядка                          | ordeparameter                                        | При необходимости: *discrete/binary order parameter*              |
+| **symmetric phase \(Q_0\)**               | симметричная фаза \(Q_0\)                 | symmetrische fase \(Q_0\)                            |                                                                   |
+| **symmetry-broken phase**                 | фаза с нарушенной симметрией              | symmetriegebroken fase                               | Пока рабочая формулировка                                         |
+| **closed carrier**                        | замкнутый носитель                        | gesloten drager                                      |                                                                   |
+| **global continuum orientation**          | глобальная ориентация континуума          | globale oriëntatie van het continuüm                 | Вместо *virtual axis*                                             |
+| **inherited orientation**                 | унаследованная ориентация                 | geërfde oriëntatie                                   | Только если в тексте нужна именно передача от верхнего уровня     |
+| **elementary cell transition**            | элементарный переход ячейки               | elementaire celovergang                              |                                                                   |
+| **Peierls–Nabarro barrier**               | барьер Пайерлса—Набарро                   | Peierls–Nabarro-barrière                             | Стандартный термин; использовать только если конструкция остаётся |
+| **protoparticle**                         | проточастица                              | protodeeltje                                         | Legacy                                                            |
+| **explicit form of the temporal field**   | явный вид поля времени                    | expliciete vorm van het temporele veld               |                                                                   |
+| **rate ratio \(\sim10^9\)**               | отношение темпов \(\sim10^9\)             | verhouding van de veranderingssnelheden \(\sim10^9\) | До появления точной формулы — описательно                         |
+| **dynamical stability of \(Q_0\)**        | динамическая устойчивость \(Q_0\)         | dynamische stabiliteit van \(Q_0\)                   |                                                                   |
+
+Поправка:
+| EN                                          | RU                                         | NL                                             | Пометка                                                                                      |
+| ------------------------------------------- | ------------------------------------------ | ---------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| **dynamical stability of base \(Q_0\)**     | динамическая устойчивость базового \(Q_0\) | dynamische stabiliteit van de basale \(Q_0\)   | Base \(Q_0\) и transitional \(Q_0^*\) разведены; стабильность относится к базовому состоянию |
+| **metastability of transitional \(Q_0^*\)** | метастабильность переходного \(Q_0^*\)     | metastabiliteit van de transitionele \(Q_0^*\) | Использовать только там, где речь именно о переходном состоянии                              |
