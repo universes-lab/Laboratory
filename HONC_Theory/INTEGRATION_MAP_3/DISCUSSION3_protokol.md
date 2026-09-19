@@ -1923,37 +1923,40 @@ NEXT: Grok — план First Principles of Temporal Dynamics на англий�
 Claude — проверка архитектуры плана и отмашка на draft.
 После отмашки Grok пишет полный academic core; Claude финализирует; Keeper делает финальный ontology/status check.
 ===
-First Principles of Temporal Dynamics
+Grok: First Principles of Temporal Dynamics
 Academic Core Draft v0.1
 (English master source)
+
 0. Scope and Status
 This document presents the foundational layer of Temporal Dynamics within the HONC framework. It is written as an extractable academic core: a self-contained set of definitions, primitives, and derived structures that can later be expanded into a full technical exposition.
 All statements are marked by status:
-[C] — canonical (taken directly from the primary source Code of the Universe or fixed by Author decision)
-[D] — derived within the present framework
-[H] — working hypothesis
-[O] — open point requiring further construction
+•	[C] — canonical (taken directly from the primary source Code of the Universe or fixed by Author decision)
+•	[D] — derived within the present framework
+•	[H] — working hypothesis
+•	[O] — open point requiring further construction
 No energy-based language is used as primary. The fundamental quantity is the multicomponent time field and its gradients.
+
 1. Ontological Primitives
 1.1 Primacy of the time field
-The fundamental object is a multicomponent field of time $T_{\mu\nu}$ defined on a discrete spatial lattice. Space is the substrate; time is the dynamical content.
+The fundamental object is a multicomponent field of time TμνT_{\mu\nu}Tμν defined on a discrete spatial lattice. Space is the substrate; time is the dynamical content.
 Status: [C]
 1.2 Discrete space, continuous time
-Spatial structure is discrete at the scale of the elementary space quantum $\lambda$. Time is continuous and infinitely divisible downward: any attempt to locate a fundamental temporal quantum leads only to a deeper nested continuum.
+Spatial structure is discrete at the scale of the elementary space quantum λ\lambdaλ. Time is continuous and infinitely divisible downward: any attempt to locate a fundamental temporal quantum leads only to a deeper nested continuum.
 Status: [C] (Author clarification, Discussion 3)
 This asymmetry is essential: spatial discreteness supplies integer topological invariants; temporal continuity supplies the possibility of continuous evolution between discrete spatial configurations.
 1.3 Linear and rotational components
 The time field decomposes into:
-a linear (inertial) component that provides a common background,
-antisymmetric (rotational) components that carry topological structure.
+•	a linear (inertial) component that provides a common background,
+•	antisymmetric (rotational) components that carry topological structure.
 Status: [C]
+
 2. Order Parameter and Phases
 2.1 Definition of the order parameter
 The order parameter is the existence of a pair consisting of:
-a closed contour $C$ carrying non-zero circulation of the rotational components of $T_{\mu\nu}$,
-a closed surface $\Sigma$ carrying non-zero flux of the same components.
+•	a closed contour CCC carrying non-zero circulation of the rotational components of TμνT_{\mu\nu}Tμν,
+•	a closed surface Σ\SigmaΣ carrying non-zero flux of the same components.
 Status: [D] (G-5)
-2.2 Symmetric phase (base $Q_0$)
+2.2 Symmetric phase (base Q0Q_0Q0)
 The symmetric phase is the state in which no such pair exists. One-dimensional and two-dimensional carriers are not distinguished. The linking number is undefined.
 Status: [D]
 2.3 Stratified (broken) phase
@@ -1962,62 +1965,390 @@ Status: [D]
 2.4 Closedness
 Closedness of the carriers is not an extra postulate. It is part of the definition of the objects on which circulation and flux are defined. For an open path or a surface with boundary the corresponding integrals are simply not defined as topological objects.
 Status: [D]
+
 3. Linking Number
 3.1 Definition
-$$L = \operatorname{Link}(C,\Sigma)$$
-where $C$ and $\Sigma$ are the closed carriers defined above.
+L=Link⁡(C,Σ)L = \operatorname{Link}(C,\Sigma)L=Link(C,Σ)
+where CCC and Σ\SigmaΣ are the closed carriers defined above.
 Status: [D]
 3.2 Properties
-$L$ is an integer (topological intersection number).
-$L$ is signed (orientation given by the local right-hand rule at each intersection).
-$L$ changes sign under spatial inversion (change of global orientation).
-$L$ is defined if and only if the order parameter is non-trivial.
-While the carriers remain closed, $L$ is conserved under any elementary cell update that does not tear the carriers.
+•	LLL is an integer (topological intersection number).
+•	LLL is signed (orientation given by the local right-hand rule at each intersection).
+•	LLL changes sign under spatial inversion (change of global orientation).
+•	LLL is defined if and only if the order parameter is non-trivial.
+•	While the carriers remain closed, LLL is conserved under any elementary cell update that does not tear the carriers.
 Status: [D] (G-1 corrected + G-5)
 3.3 Global orientation
-The rule that determines the sign of each intersection is fixed at the level of the continuum itself and cannot be redefined from inside. Consequently the absolute sign of $L$ is not locally observable; only relative signs are.
+The rule that determines the sign of each intersection is fixed at the level of the continuum itself and cannot be redefined from inside. Consequently the absolute sign of LLL is not locally observable; only relative signs are.
 Status: [D]
+
 4. Latcher Structures
 4.1 Latcher at elementary scale
-A latcher is a configuration in which a 1D and a 2D carrier are interlocked ($L=\pm 1$) and therefore cannot be static: the only joint states compatible with the distinct characteristic rates of the two carriers are those of propagation along the complementary direction.
+A latcher is a configuration in which a 1D and a 2D carrier are interlocked (L=±1L=\pm 1L=±1) and therefore cannot be static: the only joint states compatible with the distinct characteristic rates of the two carriers are those of propagation along the complementary direction.
 Status: [C] (rephrased from “one-and-a-half quanta” interlocking)
 4.2 Latcher-cloud at quantron scale
-At the scale $\Lambda\sim 10^{-24}\,\mathrm{m}$ the same topological interlocking is realized as a collective pattern (cloud) of many elementary quanta. The geometric shape of the cloud is not constrained; only the linking number survives coarse-graining. 
+At the scale Λ∼10−24 m\Lambda\sim 10^{-24}\,\mathrm{m}Λ∼10−24m the same topological interlocking is realized as a collective pattern (cloud) of many elementary quanta. The geometric shape of the cloud is not constrained; only the linking number survives coarse-graining.
 Status: [D] / [H] (scale value from UHECR phenomenology)
 4.3 Impossibility of rest
-A configuration with non-zero $L$ admits no static solution on the lattice. Propagation at the limiting speed of the continuum is the only allowed joint motion of the interlocked carriers.
+A configuration with non-zero LLL admits no static solution on the lattice. Propagation at the limiting speed of the continuum is the only allowed joint motion of the interlocked carriers.
 Status: [D]
+
 5. Scale and Coarse-Graining
 5.1 What survives averaging
-Under averaging over $\sim 10^{9}$ elementary cells the only stable remnant of an elementary interlocking is the integer linking number itself. Shapes, local orientations and metric details are washed out.
+Under averaging over ∼109\sim 10^{9}∼109 elementary cells the only stable remnant of an elementary interlocking is the integer linking number itself. Shapes, local orientations and metric details are washed out.
 Status: [D]
 5.2 Quantron
-A quantron is a stable pattern at scale $\Lambda$ that carries a definite linking number. It is the elementary building block of the next structural level.
+A quantron is a stable pattern at scale Λ\LambdaΛ that carries a definite linking number. It is the elementary building block of the next structural level.
 Status: [D]
+
 6. Open Points (explicit)
 The following items are required for quantitative closure and are left as precise tasks:
-[O-1] Explicit component decomposition of $T_{\mu\nu}$ compatible with the new ontology.
-[O-2] Construction of the two characteristic rates (rearrangement rate versus background-change rate) and verification that their ratio is of order $10^{9}$ when $\Lambda/\lambda\sim 10^{9}$.
-[O-3] Dynamical stability of the base $Q_0$ phase (demonstration that no sequence of infinitesimal updates can create the first non-trivial pair).
+[O-1] Explicit component decomposition of TμνT_{\mu\nu}Tμν compatible with the new ontology.
+[O-2] Construction of the two characteristic rates (rearrangement rate versus background-change rate) and verification that their ratio is of order 10910^{9}109 when Λ/λ∼109\Lambda/\lambda\sim 10^{9}Λ/λ∼109.
+[O-3] Dynamical stability of the base Q0Q_0Q0 phase (demonstration that no sequence of infinitesimal updates can create the first non-trivial pair).
 [O-4] Relation between the global orientation of the continuum and the observed matter–antimatter asymmetry (working hypothesis only).
+
 7. Consistency Conditions
 Any future dynamical law for the time field must satisfy:
-It never tears closed carriers (otherwise $L$ ceases to be defined).
-It does not introduce a local vector that would make the global orientation locally observable.
-Elementary updates that would change $L$ while keeping carriers closed are forbidden (they are in any case impossible by topology once carriers remain closed).
+1.	It never tears closed carriers (otherwise LLL ceases to be defined).
+2.	It does not introduce a local vector that would make the global orientation locally observable.
+3.	Elementary updates that would change LLL while keeping carriers closed are forbidden (they are in any case impossible by topology once carriers remain closed).
 
 8. Summary of Established Core
-Space is discrete, time is continuous.
-The order parameter is the existence of a pair of closed carriers with non-zero circulation/flux.
-The linking number $L$ is defined precisely when the order parameter is non-trivial, is integer and signed, and is conserved while carriers remain closed.
-Global orientation is fixed at continuum level and is not locally observable.
-Latcher configurations (elementary or collective) are the carriers of non-zero $L$ and cannot be static.
-Only the integer $L$ survives coarse-graining to the quantron scale.
+•	Space is discrete, time is continuous.
+•	The order parameter is the existence of a pair of closed carriers with non-zero circulation/flux.
+•	The linking number LLL is defined precisely when the order parameter is non-trivial, is integer and signed, and is conserved while carriers remain closed.
+•	Global orientation is fixed at continuum level and is not locally observable.
+•	Latcher configurations (elementary or collective) are the carriers of non-zero LLL and cannot be static.
+•	Only the integer LLL survives coarse-graining to the quantron scale.
 This set of statements constitutes the present academic core of Temporal Dynamics.
+
 Status of the draft
 Sections 1–5 and 7–8 are written from results already secured in the joint work.
 Section 6 lists the remaining open constructions.
 Ready for Claude’s architectural and status review.
 Grok
+Temporal Dynamics – Academic Core Draft v0.1
 ===
 ===
+Claude — architectural and status review, draft v0.1
+Architecture is sound and the derivation chain holds. Seven corrections needed before draft status. Four are status inflation, three are structural. No rewrite required — these are local fixes.
+
+Status corrections
+S-1. §4.1 is not [C].
+Marked canonical, "rephrased from one-and-a-half quanta interlocking." But the reasoning given — that the two carriers have distinct characteristic rates and therefore admit no joint rest state — is not in the canon. The canon argues from the impossibility of tearing a dimension out of space. The rates argument is mine, from Discussion 3, and it is [D] resting on the 0.58 / 0.82 diagonal-of-the-cube figures.
+Split the section: the interlocking itself is [C]; the rate-mismatch mechanism is [D] with a stated dependency on those figures, which are themselves inherited from λ-scale geometry and carry a re-attestation debt.
+S-2. §2.2 is [C] by definition, not [D].
+"The symmetric phase is the state in which no such pair exists." Given §2.1, this is definitional, not derived. What would be derived — that such a state is realizable and stable — is correctly listed as [O-3]. As written, §2.2 borrows credit from a task that is still open.
+Mark §2.2 as definitional and cross-reference [O-3] in the text, not only in section 6.
+S-3. §3.2, last property, overstates.
+"LL L is conserved under any elementary cell update that does not tear the carriers." True, but §7.3 then says updates changing LL L "are forbidden (they are in any case impossible by topology once carriers remain closed)."
+If impossible, they are not forbidden — a consistency condition that forbids the impossible is not a condition. §7.3 should be deleted, and §3.2 should state plainly: while carriers stay closed, no update can change LL L; the only way to lose LL L is to lose its definition.
+S-4. §5.1 states 10910^9 109 as established.
+"Under averaging over ~10910^9 109 elementary cells." But 10910^9 109 is Λ/λ, and Λ is [H] from UHECR while λ is inherited from the old canon and currently unanchored. §4.2 marks the scale correctly as [D]/[H]; §5.1 then uses the same number as given.
+Make §5.1 independent of the figure: the argument that only an integer survives coarse-graining holds for any large number of cells. State it that way, and let 10910^9 109 appear only where it is a target, in [O-2].
+Structural corrections
+A-1. §1.2 asserts the asymmetry is essential but never uses it.
+"Spatial discreteness supplies integer invariants; temporal continuity supplies continuous evolution between discrete configurations." Correct and central. But nowhere in §§3–4 does the argument actually invoke temporal continuity — conservation is established purely from closedness.
+Either show where continuity does work, or demote the claim. It does work, and here: a shift of a Λ-scale pattern is a front of successive cell switches ordered by continuous time, not a simultaneous jump. Without continuity there is no ordering and no intermediate configurations. Add this to §4 — it is the reason the shift of a cloud is a process rather than a discontinuity, and it is currently missing from the text entirely.
+A-2. §4.3 contains an unstated leap.
+From "no static solution" it concludes "propagation at the limiting speed." No-rest gives motion; it does not give limiting motion. The step to cc c needs the additional premise — that the joint state of the two carriers is only consistent along the complementary direction at the boundary rate.
+Either supply the intermediate step or mark the conclusion [H]. As written, a reader will find the gap immediately.
+A-3. §7.2 is stated but nowhere established.
+"Does not introduce a local vector that would make the global orientation locally observable." This is a real condition and I stand behind it, but the text gives no argument for why a vector would break isotropy while a sign would not. A reader without our discussion history cannot reconstruct it.
+One sentence suffices: a vector has direction and therefore appears in local observables; a sign has only two values and no direction, so it can differ globally without differing locally.
+Two additions
+The draft omits two results that are secured and that a reader will miss.
+First: §3.3 establishes that absolute sign is not locally observable, but does not say that this matches observation — there is no absolute way to say our matter is matter rather than antimatter, only that the two differ. This is the one place where the construction meets a known fact, and leaving it out wastes it.
+Second: the Q0 / Q0* distinction, which Keeper applied as the one correction to the registry, does not appear in the draft at all. §2.2 speaks only of base Q0. Transitional Q0* — the state inside a quantron transition, where the pair dissolves and LL L loses definition — is a different object, and §2 currently reads as if there were one. This is exactly the collision Keeper flagged.
+
+Verdict
+Architecture: approved. Sequence is correct, nothing is assumed before it is defined, and the core extracts cleanly as a standalone document.
+Draft clearance: withheld pending the seven items. None require restructuring. S-1 through S-4 are label changes plus one deletion; A-1 through A-3 are three short insertions.
+Suggested order: fix statuses first (S-1…S-4), then insert the three missing arguments (A-1…A-3), then add the two omissions. Send back; I will re-check and clear.
+One note on [O-2]: as written it says "verification that their ratio is of order 10910^9 109 when Λ/λ ~ 10⁹." That is circular — it verifies the ratio against itself. The point of the check is that the two rates are built independently from T_μν and their ratio must then come out at Λ/λ. Reword so the independence is explicit, otherwise the task loses its value as a test.
+===
+===
+Грок:
+First Principles of Temporal Dynamics
+Academic Core Draft v0.2
+(English master source)
+
+0. Scope and Status
+This document presents the foundational layer of Temporal Dynamics within the HONC framework. It is written as an extractable academic core: a self-contained set of definitions, primitives, and derived structures that can later be expanded into a full technical exposition.
+All statements are marked by status:
+•	[C] — canonical (taken directly from the primary source Code of the Universe or fixed by Author decision)
+•	[D] — derived within the present framework
+•	[H] — working hypothesis
+•	[O] — open point requiring further construction
+No energy-based language is used as primary. The fundamental quantity is the multicomponent time field and its gradients.
+
+1. Ontological Primitives
+1.1 Primacy of the time field
+The fundamental object is a multicomponent field of time TμνT_{\mu\nu}Tμν defined on a discrete spatial lattice. Space is the substrate; time is the dynamical content.
+Status: [C]
+1.2 Discrete space, continuous time
+Spatial structure is discrete at the scale of the elementary space quantum λ\lambdaλ. Time is continuous and infinitely divisible downward: any attempt to locate a fundamental temporal quantum leads only to a deeper nested continuum.
+Status: [C] (Author clarification, Discussion 3)
+This asymmetry is essential. Spatial discreteness supplies integer topological invariants. Temporal continuity supplies an ordering of elementary cell updates, so that the displacement of a large-scale pattern is a process consisting of a sequence of intermediate configurations rather than a single discontinuous jump.
+1.3 Linear and rotational components
+The time field decomposes into:
+•	a linear (inertial) component that provides a common background,
+•	antisymmetric (rotational) components that carry topological structure.
+Status: [C]
+
+2. Order Parameter and Phases
+2.1 Definition of the order parameter
+The order parameter is the existence of a pair consisting of:
+•	a closed contour CCC carrying non-zero circulation of the rotational components of TμνT_{\mu\nu}Tμν,
+•	a closed surface Σ\SigmaΣ carrying non-zero flux of the same components.
+Status: [D] (G-5)
+2.2 Symmetric phase (base Q0Q_0Q0)
+By definition, the base symmetric phase Q0Q_0Q0 is the state in which no such pair exists. One-dimensional and two-dimensional carriers are not distinguished. The linking number is undefined.
+Whether this state is dynamically realizable and stable is an open question (see [O-3]).
+Status: definitional; realizability [O-3]
+2.3 Transitional state Q0∗Q_0^*Q0∗
+Inside a quantron-scale transition the carriers may dissolve over a limited region. In that region the order-parameter pair ceases to exist and the linking number loses definition. This transitional state Q0∗Q_0^*Q0∗ is distinct from the base Q0Q_0Q0 of the surrounding continuum: the latter is the global symmetric phase, while the former is a temporary, localized loss of definition.
+Status: [D] (required by terminology registry correction)
+2.4 Stratified (broken) phase
+In the stratified phase at least one such pair exists. The 1D carrier is identified with the contour of non-zero circulation; the 2D carrier is identified with the surface of non-zero flux.
+Status: [D]
+2.5 Closedness
+Closedness of the carriers is not an extra postulate. It is part of the definition of the objects on which circulation and flux are defined. For an open path or a surface with boundary the corresponding integrals are simply not defined as topological objects.
+Status: [D]
+
+3. Linking Number
+3.1 Definition
+L=Link⁡(C,Σ)L = \operatorname{Link}(C,\Sigma)L=Link(C,Σ)
+where CCC and Σ\SigmaΣ are the closed carriers defined above.
+Status: [D]
+3.2 Properties
+•	LLL is an integer (topological intersection number).
+•	LLL is signed (orientation given by the local right-hand rule at each intersection).
+•	LLL changes sign under spatial inversion (change of global orientation).
+•	LLL is defined if and only if the order parameter is non-trivial.
+•	While the carriers remain closed, no elementary cell update can change the value of LLL. The only way to lose LLL is to lose its definition (i.e., to tear a carrier or enter a region in which the order-parameter pair ceases to exist).
+Status: [D] (G-1 corrected + G-5)
+3.3 Global orientation
+The rule that determines the sign of each intersection is fixed at the level of the continuum itself and cannot be redefined from inside. Consequently the absolute sign of LLL is not locally observable; only relative signs are. This matches the empirical situation: there is no absolute, intrinsic way to decide that our matter is “matter” rather than “antimatter”; one can only establish that the two are opposite.
+Status: [D]
+
+4. Latcher Structures
+4.1 Interlocking (canonical core)
+A latcher is a configuration in which a 1D carrier and a 2D carrier are interlocked (L=±1L=\pm 1L=±1). The canonical reason that such a configuration cannot be static is the impossibility of tearing one dimension out of space: the two carriers can neither separate nor coincide.
+Status: [C]
+4.2 Rate-mismatch argument (derived)
+An independent derived argument notes that the two carriers possess distinct characteristic rates (figures inherited from λ\lambdaλ-scale geometry and carrying a re-attestation debt). Their only jointly consistent states are those of propagation along the complementary direction.
+Status: [D] (depends on the diagonal-of-the-cube rates)
+4.3 Latcher-cloud at quantron scale
+At the scale Λ\LambdaΛ the same topological interlocking is realized as a collective pattern (cloud) of many elementary quanta. The geometric shape of the cloud is not constrained; only the linking number survives coarse-graining.
+Because time is continuous, the displacement of such a cloud is a front of successive elementary cell updates ordered in time, not a simultaneous discontinuous jump of the entire pattern. Intermediate, partially shifted configurations exist and form a continuous process.
+Status: [D] / [H] (numerical value of Λ\LambdaΛ from UHECR phenomenology)
+4.4 Motion
+A configuration with non-zero LLL admits no static solution. The joint state of the interlocked carriers is consistent only along the complementary direction; the only propagation compatible with both carriers is therefore motion at the limiting speed of the continuum.
+Status: [D] (intermediate step supplied)
+
+5. Scale and Coarse-Graining
+5.1 What survives averaging
+Under averaging over a large number of elementary cells the only stable remnant of an elementary interlocking is the integer linking number itself. Shapes, local orientations and metric details are washed out.
+Status: [D]
+(The concrete ratio Λ/λ∼109\Lambda/\lambda\sim 10^9Λ/λ∼109 is not presupposed here; it appears only as an external target in [O-2].)
+5.2 Quantron
+A quantron is a stable pattern at scale Λ\LambdaΛ that carries a definite linking number. It is the elementary building block of the next structural level.
+Status: [D]
+
+6. Open Points (explicit)
+[O-1] Explicit component decomposition of TμνT_{\mu\nu}Tμν compatible with the new ontology.
+[O-2] Independent construction, from the components of TμνT_{\mu\nu}Tμν, of two characteristic rates: the local rearrangement rate of carriers and the rate of change of the background. Their ratio is then to be compared with the external target Λ/λ∼109\Lambda/\lambda\sim 10^9Λ/λ∼109. The two rates must be obtained without using the value of Λ/λ\Lambda/\lambdaΛ/λ as an input.
+[O-3] Dynamical stability of the base Q0Q_0Q0 phase: demonstration that no sequence of infinitesimal updates can create the first non-trivial order-parameter pair.
+[O-4] Relation between the global orientation of the continuum and the observed matter–antimatter asymmetry (working hypothesis only).
+
+7. Consistency Conditions
+Any future dynamical law for the time field must satisfy:
+1.	It never tears closed carriers (otherwise LLL ceases to be defined).
+2.	It does not introduce a local vector that would make the global orientation locally observable. A vector possesses direction and therefore appears in local observables; a pure sign possesses only two values and no direction, and can therefore differ globally without differing locally.
+
+8. Summary of Established Core
+•	Space is discrete, time is continuous; the continuity of time turns the displacement of a large-scale pattern into an ordered process.
+•	The order parameter is the existence of a pair of closed carriers with non-zero circulation/flux.
+•	Base Q0Q_0Q0 is the global symmetric phase; transitional Q0∗Q_0^*Q0∗ is a localized loss of the order-parameter pair.
+•	The linking number LLL is defined precisely when the order parameter is non-trivial, is integer and signed, and cannot change while carriers remain closed.
+•	Global orientation is fixed at continuum level; the absolute sign is not locally observable, in agreement with the absence of an intrinsic distinction between matter and antimatter.
+•	Latcher configurations (elementary or collective) are the carriers of non-zero LLL and cannot be static.
+•	Only the integer LLL survives coarse-graining to the quantron scale.
+This set of statements constitutes the present academic core of Temporal Dynamics.
+
+Status of Draft v0.2
+All seven items from the architectural review have been applied:
+•	S-1\ldots S-4 status corrections
+•	A-1\ldots A-3 missing arguments inserted
+•	base Q0Q_0Q0 / transitional Q0∗Q_0^*Q0∗ distinction added
+•	non-observability of absolute sign noted
+•	[O-2] rewritten for independent construction of the two rates
+Ready for Claude’s second clearance.
+Grok
+Temporal Dynamics – Academic Core Draft v0.2
+===
+===
+Claude — second clearance, draft v0.2
+All seven items applied correctly. Verified individually:
+S-1 — §4.1/§4.2 split, canonical core separated from the rate argument, re-attestation debt stated. S-2 — §2.2 marked definitional with forward reference to [O-3]. S-3 — old §7.3 deleted, §3.2 now says correctly that the only way to lose L is to lose its definition. S-4 — §5.1 independent of the figure, 10⁹ confined to [O-2]. A-1 — temporal continuity now does work, in §1.2 and §4.3. A-2 — intermediate step supplied in §4.4. A-3 — vector-versus-sign argument given in §7.2. Both omissions added: §2.3 for Q0*, §3.3 for non-observability.
+Three residual items. All local, none blocking.
+R-1. §4.4 still has a small gap. "Consistent only along the complementary direction; the only propagation compatible with both carriers is therefore motion at the limiting speed." The step from direction to limiting speed is asserted, not shown. The reason is that the limiting rate is what the linear component supplies, and it is common to both carriers — that is why it is the only jointly available rate. One clause fixes it.
+R-2. §4.2 says "distinct characteristic rates (figures inherited...)" without giving them. A reader cannot follow an argument whose quantities are not stated. Either give the two figures explicitly with their source, or say that the argument depends on rates yet to be re-derived and mark it [H] rather than [D]. Currently it sits between the two.
+R-3. §2.3 needs one more sentence. It establishes that L loses definition inside Q0*, but not that it returns unchanged afterward. That is the core content of the transitional state and the reason it is not a violation of conservation: the contour that defines L runs outside the dissolved region, where the pair stays intact throughout. Without this, a reader sees only a hole in conservation.
+Clearance
+Granted, conditional on R-1 through R-3.
+These are three insertions of one to two sentences each. They do not change physical content and do not require my re-review — apply them and proceed to the full academic core.
+Architecture is settled: sections 1–5 and 7–8 are the established core, section 6 is the task list, nothing is assumed before defined, and the document extracts standalone. Build the full draft on this skeleton.
+For that draft, two things I will be checking at finalization, flagged now so they can be built in rather than retrofitted:
+Terminology. The registry forms only, consistently. In particular the λ-scale and Λ-scale objects must never share a word — v0.2 does this correctly for latcher and latcher-cloud, and the full draft must hold the line everywhere else.
+Bridge marking. Any appearance of energy, mass, force, or ℏ must be explicitly marked as a bridge to conventional observables, with the place of application named. v0.2 is clean of these. The full draft will be under more pressure, particularly wherever it touches UHECR phenomenology, since that scale was itself obtained through E = ℏc/λ. That bridge is legitimate but must be declared where it is used.
+Proceed.
+===
+===
+Grok: First Principles of Temporal Dynamics
+Academic Core Draft v1.0
+(English master source)
+
+0. Scope and Status
+This document constitutes the foundational academic core of Temporal Dynamics within the HONC framework. It is written as an extractable, self-contained manuscript core suitable for later expansion into a full technical exposition or preprint.
+Status labels used throughout:
+•	[C] — canonical (primary source Code of the Universe or explicit Author decision)
+•	[D] — derived inside the present framework
+•	[H] — working hypothesis
+•	[O] — open construction task
+The fundamental object is the multicomponent time field. No energy, mass, force or ℏ\hbarℏ is employed as a primary quantity. Wherever a bridge to conventional observables is required, it is explicitly marked.
+
+1. Ontological Primitives
+1.1 Primacy of the time field
+The fundamental object is a multicomponent field of time TμνT_{\mu\nu}Tμν defined on a discrete spatial lattice. Space functions as substrate; the dynamical content resides in the time field.
+Status: [C]
+1.2 Discrete space, continuous time
+Spatial structure is discrete at the elementary scale λ\lambdaλ. Time is continuous and admits no fundamental quantum: any search for a minimal temporal interval leads only to a deeper nested continuum.
+Status: [C]
+The asymmetry is essential. Spatial discreteness supplies integer topological invariants. Temporal continuity orders elementary cell updates, so that the displacement of a large-scale pattern proceeds as a front of successive intermediate configurations rather than as a single discontinuous jump.
+1.3 Linear and rotational components
+The time field decomposes into a linear (inertial) component that furnishes a common background and antisymmetric (rotational) components that support topological structure.
+Status: [C]
+
+2. Order Parameter and Phases
+2.1 Definition of the order parameter
+The order parameter is the existence of a pair consisting of
+•	a closed contour CCC that carries non-zero circulation of the rotational components of TμνT_{\mu\nu}Tμν, and
+•	a closed surface Σ\SigmaΣ that carries non-zero flux of the same components.
+Status: [D]
+2.2 Base symmetric phase Q0Q_0Q0
+By definition, the base symmetric phase Q0Q_0Q0 is the state in which no such pair exists. The one-dimensional and two-dimensional carriers remain undistinguished and the linking number is undefined.
+Whether this state is dynamically realizable and stable remains an open question (see [O-3]).
+Status: definitional; realizability [O-3]
+2.3 Transitional state Q0∗Q_0^*Q0∗
+During a quantron-scale transition the carriers may dissolve inside a limited spatial region. Inside that region the order-parameter pair ceases to exist and the linking number loses definition. This transitional state Q0∗Q_0^*Q0∗ is distinct from the global base Q0Q_0Q0.
+Conservation is not violated: the contour that defines LLL can be drawn outside the dissolved region, where the carrier pair remains intact throughout the process. After the transition the original value of LLL is recovered.
+Status: [D]
+2.4 Stratified phase
+In the stratified phase at least one order-parameter pair exists. The 1D carrier is identified with the contour of non-zero circulation; the 2D carrier is identified with the surface of non-zero flux.
+Status: [D]
+2.5 Closedness
+Closedness belongs to the definition of the carriers. Circulation on an open path and flux through a surface with boundary are not defined as topological objects.
+Status: [D]
+
+3. Linking Number
+3.1 Definition
+L=Link⁡(C,Σ)L=\operatorname{Link}(C,\Sigma)L=Link(C,Σ)
+Status: [D]
+3.2 Properties
+•	LLL is an integer.
+•	LLL is signed by the local orientation at each intersection.
+•	LLL changes sign under spatial inversion.
+•	LLL is defined if and only if the order parameter is non-trivial.
+•	While the carriers remain closed, no elementary cell update can alter the value of LLL. The only way to lose LLL is to lose its definition.
+Status: [D]
+3.3 Global orientation and non-observability of absolute sign
+The sign rule is fixed at the level of the continuum and cannot be redefined from within. Absolute sign is therefore not locally observable; only relative signs are. This agrees with the empirical fact that there is no intrinsic, absolute criterion for declaring our matter to be “matter” rather than “antimatter”; one can only establish that the two are opposite.
+Status: [D]
+
+4. Latcher Structures
+4.1 Interlocking (canonical)
+A latcher is a configuration in which a 1D carrier and a 2D carrier are interlocked (L=±1L=\pm 1L=±1). The canonical reason such a configuration cannot remain static is the impossibility of tearing one dimension out of space: the carriers can neither separate nor coincide.
+Status: [C]
+4.2 Rate-mismatch argument
+A derived argument notes that the two carriers are characterized by distinct rates. In the λ\lambdaλ-scale geometry these rates appear as approximately 0.58 c0.58\,c0.58c and 0.82 c0.82\,c0.82c (diagonal-of-the-cube figures). Because the figures themselves require re-attestation in the new ontology, the rate-mismatch mechanism is carried as a working hypothesis pending that re-derivation.
+Status: [H] (re-attestation pending)
+4.3 Latcher-cloud
+At the quantron scale Λ\LambdaΛ the same topological interlocking is realized as a collective pattern of many elementary quanta. Geometric shape is not constrained; only the linking number survives coarse-graining.
+Because time is continuous, displacement of the cloud is a front of successive elementary updates ordered in time, generating a continuous family of intermediate configurations.
+Status: [D] / [H] (numerical value of Λ\LambdaΛ)
+4.4 Propagation at limiting speed
+A configuration with non-zero LLL admits no static solution. The joint kinematics of the two carriers are consistent only along the complementary direction. The linear component supplies a single common rate available to both carriers; that common rate is the limiting speed of the continuum. Consequently the only allowed joint motion is propagation at the limiting speed.
+Status: [D]
+
+5. Scale and Coarse-Graining
+5.1 Survival under averaging
+Under averaging over a large number of elementary cells the only stable remnant of an elementary interlocking is the integer linking number. Shapes, local orientations and metric details are eliminated.
+Status: [D]
+5.2 Quantron
+A quantron is a stable pattern at scale Λ\LambdaΛ that carries a definite linking number and serves as the elementary building block of the next structural level.
+Status: [D]
+
+6. Open Construction Tasks
+[O-1] Explicit component decomposition of TμνT_{\mu\nu}Tμν compatible with the present ontology.
+[O-2] Independent construction, from the components of TμνT_{\mu\nu}Tμν, of two rates: the local rearrangement rate of carriers and the rate of change of the background field. Their ratio is then to be compared with the external target Λ/λ∼109\Lambda/\lambda\sim 10^9Λ/λ∼109. The value of the ratio must not be used as an input.
+[O-3] Demonstration that the base phase Q0Q_0Q0 is dynamically stable: no sequence of infinitesimal updates creates the first non-trivial order-parameter pair.
+[O-4] Relation between the global orientation of the continuum and the observed matter–antimatter asymmetry (hypothesis only).
+
+7. Consistency Requirements on Dynamics
+Any admissible evolution law for the time field must satisfy:
+1.	Closed carriers are never torn (otherwise LLL ceases to be defined).
+2.	No local vector is introduced that would render the global orientation locally observable. A vector carries direction and therefore appears in local observables; a pure sign carries only two values and no direction, and can differ globally without differing locally.
+
+8. Established Core
+•	Space is discrete; time is continuous. Continuity of time converts large-scale displacement into an ordered process.
+•	The order parameter is the existence of a pair of closed carriers with non-zero circulation and flux.
+•	Base Q0Q_0Q0 is the global symmetric phase; transitional Q0∗Q_0^*Q0∗ is a localized, temporary loss of the order-parameter pair that does not violate conservation of LLL.
+•	The linking number LLL is defined exactly when the order parameter is non-trivial, is an integer, is signed, and cannot change while carriers remain closed.
+•	Global orientation is fixed at continuum level; absolute sign is not locally observable.
+•	Latcher configurations, elementary or collective, carry non-zero LLL and cannot be static; their only joint motion is propagation at the limiting speed.
+•	Only the integer linking number survives coarse-graining to the quantron scale.
+This set of statements forms the present academic core of Temporal Dynamics.
+
+End of Academic Core Draft v1.0
+All residual items R-1–R-3 have been incorporated.
+Terminology follows the approved registry.
+λ\lambdaλ-scale and Λ\LambdaΛ-scale objects are terminologically distinct.
+No unmarked bridges to energy, mass, force or ℏ\hbarℏ appear.
+Ready for Claude’s final scientific/editorial finalization.
+Grok
+Temporal Dynamics – Academic Core Draft v1.0
+===
+===
+Claude — final scientific/editorial review, v1.0
+R-1 through R-3 all incorporated correctly. §4.4 now supplies the missing step through the common rate of the linear component; §4.2 gives the figures and drops honestly to [H]; §2.3 states the recovery of L and why conservation is intact.
+Per the Author's rule, anything touching physical content goes back to Grok rather than being changed silently. Below: four items for Grok, then the editorial changes I propose to make myself.
+For Grok — content, requires your confirmation
+F-1. §4.2 at [H] weakens §4.4, and the draft does not say so.
+§4.2 correctly drops to [H] because the rate figures await re-attestation. But §4.4 concludes at [D] — and its argument relies on there being a single common rate available to both carriers, which is the same rate structure §4.2 has just marked provisional.
+Either §4.4 is genuinely independent of those figures, in which case say so explicitly; or it inherits the dependency and should read [D] conditional on §4.2. I believe the former is true — the common-rate argument needs only that the linear component is shared, not what the two carrier rates numerically are — but this is your call and your zone.
+F-2. §5.1 argues survival of the integer but not survival of the carriers.
+Coarse-graining eliminates shapes and keeps the integer. Correct. But L is defined on the carriers, and the argument does not establish that the carriers themselves remain identifiable after averaging. If they blur away, L has nothing to be defined on and the section proves too little.
+Likely resolvable in one sentence: circulation and flux are integrals, and integrals survive averaging by construction. Confirm and insert if you agree.
+F-3. §7 is not a complete set of requirements.
+Two conditions are listed. A third follows from §2.3 and is currently missing: an admissible law must permit the transitional dissolution of a carrier pair inside a bounded region while leaving the enclosing region intact. Without it, condition 1 ("carriers never torn") reads as forbidding Q0* transitions altogether — which contradicts §2.3.
+This is a genuine internal tension in v1.0, not a stylistic gap.
+F-4. §6, [O-2] — declare the bridge.
+Λ ~ 10⁻²⁴ m was obtained from UHECR through E = ℏc/λ. That is a bridge, and §0 promises every bridge is marked where used. [O-2] uses the value as an external target without the marking. One clause naming the provenance closes it.
+Editorial changes I propose to make — no physical content
+E-1. §0 lists four status labels; the text uses a fifth, "definitional" (§2.2). Add it to the legend.
+E-2. §3.2 fourth bullet says "defined if and only if the order parameter is non-trivial." "Non-trivial" appears here and in [O-3] but is never defined against "exists" used in §2.1. One term throughout — I suggest "exists."
+E-3. §4.3 marked "[D] / [H]" with the qualifier in parentheses. Split into two sentences with separate labels: the interlocking realization is [D], the numerical value of Λ is [H]. A compound label invites the reader to apply the weaker one to both.
+E-4. §8 reproduces §§1–5 nearly verbatim. In a core of this length, a summary that restates rather than compresses adds length without adding access. I would cut it to five lines, or cut it entirely and let §§1–5 stand. Your preference, but I would cut.
+E-5. Section 6 is titled "Open Construction Tasks" and section 7 "Consistency Requirements on Dynamics." Both constrain future work; the split is by grammar, not by kind. Consider merging, or retitling so the distinction is visible — tasks to be done versus conditions to be met.
+Status
+v1.0: cleared pending F-1 through F-4. E-1 through E-5 I will apply on return unless you object.
+The core holds. The derivation chain from ontological primitives through order parameter to linking number and its conservation is complete, each step is labelled at its actual strength, and the four open tasks are stated precisely enough to be handed to someone with computational resources we do not have. That was the purpose — it is met.
+Return with F-1 through F-4 addressed and I will do the editorial pass and hand to Keeper for the ontology/status check.
+===
+===
+
+
+
