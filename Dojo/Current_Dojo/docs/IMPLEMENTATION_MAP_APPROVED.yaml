@@ -1,0 +1,244 @@
+Status: APPROVED
+Version: "2.0"
+
+Purpose: >
+Approved factual map of the Manuscript_Press repository and quarantined
+Phase-1 implementation material. This document records disposition of
+existing components. It does not replace SPEC.md and does not grant
+implementation authorization.
+
+Authority:
+SPEC: "SPEC.md — FROZEN"
+IMPLEMENTATION_PLAN: "IMPLEMENTATION_PLAN.md — FROZEN"
+CURRENT_AUTHORIZATION: "Current_Prompt.md"
+ARCHITECTURAL_ARBITRATION: "Doc"
+ENGINEERING_SENSEI: "DeepSeek"
+FORENSIC_REVIEWER: "Grok"
+IMPLEMENTER: "Samurai"
+FINAL_HUMAN_GATE: "Author"
+
+Basis:
+
+Samurai Phase-0 repository scout
+Grok independent Phase-0 forensic review
+Doc adjudication
+Samurai aborted autonomous Phase-1 attempt
+Grok Phase-1 code forensic verdict
+Doc Phase-1 triage arbitration
+
+Old_Runtime_Integrity: PASS
+Whole_Sandbox_Rollback: NOT_REQUIRED
+
+Legacy_Runtime:
+
+KEEP:
+- component: src/loader.py
+reason: >
+Stateless llama_cpp loader. Compatible low-level runtime primitive.
+Reuse later if it remains stateless.
+
+REPLACE:
+- component: src/generator.py
+reason: >
+Existing orchestration is legacy package/constants based.
+Preserve only the compatible low-level create_chat_completion
+invocation pattern.
+
+- component: config/writer_config.yaml
+  reason: >
+    Migrate compatible model path, n_ctx and generation knobs into
+    SPEC-compliant WRITER_CONFIG.
+
+DEPRECATE:
+- component: src/builder.py
+reason: Legacy CONCEPT_PACKAGE assembly and compiled-input path.
+
+- component: Input/*.CONCEPT_PACKAGE*
+  reason: >
+    Legacy numbered-package architecture only.
+    This does NOT apply to current TEST_SOURCE_MANUSCRIPT.md or
+    TEST_PROMPT_MAP.yaml fixtures.
+
+- component: templates/*
+  reason: Legacy paired-generation / PART_HANDOFF / CHAPTER_CONTEXT mechanisms.
+
+- component: run_manuscript_press.bat
+  reason: Legacy paired-run path.
+
+- component: run_manuscript_writer*.bat
+  reason: Legacy execution paths.
+
+- component: src/test_inference.py
+  reason: >
+    Old-contour smoke test. The testing idea may be reused,
+    but the code is not normative.
+
+- component: test_inference*.bat
+  reason: Legacy smoke-test launchers.
+
+- component: logs/runs/*
+  reason: Historical artifacts only. Never runtime commit state.
+
+- component: Output/*
+  reason: Historical outputs only. Never canonical commit state.
+
+- component: Syst_Prompt.md
+  reason: >
+    Not Manuscript_Press writer authority.
+    Do not delete if required by the external Gemini CLI environment.
+
+Gemma_Kernel:
+
+component: Gemma.md
+previous_disposition: KEEP
+current_disposition: REPLACE_IN_PLACE_BEFORE_FIRST_PRODUCTION_FREEZE
+reason: >
+The existing kernel still describes the legacy Concept Package /
+Package Prompt conveyor. It must be migrated to the frozen runtime
+authority model before the first PRODUCTION_REVISION freeze.
+
+target_model:
+- STABLE_CONFIG
+- LONG_RANGE_FRAME
+- CACHE_BEFORE
+- STRUCTURAL_CONTEXT
+- PROTECTED_CONTEXT
+- CURRENT_SOURCE
+- LOCAL_TRANSFORMATION
+
+required_addition:
+- INPUT_AS_DATA_BOUNDARY
+
+forbidden_expansion:
+- diagnose-before-edit
+- review/refactor/recreate modes
+- extra generation passes
+- QUD
+- model fingerprints
+- detector/de-AI objectives
+
+approval_gate:
+- Prompter writer-semantics review
+- Methodologist hidden-authority/ZOR review
+- Doc frozen-runtime compatibility
+- Author final approval
+
+Phase1_Quarantine:
+
+Status: NOT_ACCEPTED
+Meaning: >
+The files below are development text produced during the aborted autonomous
+Phase-1 attempt. They are not accepted runtime code, but useful parts may
+be salvaged under DeepSeek stepwise supervision.
+
+parser.py:
+disposition: SALVAGE
+keep:
+- SOURCE-order scan
+- logical marker ID extraction
+- MP:0001 to MP-0001 conversion
+- duplicate production-marker detection
+required_changes:
+- protected-first integration
+- marker-looking syntax inside protected material must remain literal
+- block ranges marker-to-next-marker-or-EOF
+- ordered_marker_graph exposure
+
+prompt_map_parser.py:
+disposition: SALVAGE
+keep:
+- YAML loading
+- MP key validation
+- mandatory non-empty LONG_RANGE_FRAME
+- mandatory non-empty LOCAL_TRANSFORMATION
+required_changes:
+- explicit SOURCE-to-PROMPT_MAP correspondence validation
+- reject missing entries
+- reject extra entries
+- PROMPT_MAP physical order must not define execution order
+
+protected_span_parser.py:
+disposition: REWRITE
+keep_concepts_only:
+- nesting detection
+- unmatched boundary detection
+- literal protected content
+reject:
+- legacy BEGIN_PROTECTED / END_PROTECTED grammar
+required:
+- frozen MP grammar
+- matching IDs
+- unique IDs
+- no nesting V1
+- protected-first semantics
+- SLOTTED_SOURCE
+- MP_PROTECTED slot tokens
+
+atx_heading_extractor.py:
+disposition: SALVAGE
+keep:
+- ATX heading extraction concept
+required_changes:
+- use real protected ranges
+- accept only # through ######
+- preserve exact structural position relative to production blocks
+- integrate with real block extraction
+
+authority_freeze.py:
+disposition: REWRITE
+keep_helpers_only:
+- SHA256 helper concept
+- frozen-copy helper concept
+reject:
+- caller-supplied revision_id
+- arbitrary source-directory walk
+- incomplete/non-materialized freeze
+required:
+- exactly four frozen authorities
+- canonical revision payload
+- ordered_marker_graph
+- deterministic revision_id
+- PRODUCTION_REVISION.manifest
+- actual frozen authority bytes
+
+revision_validator.py:
+disposition: REWRITE
+keep_concepts_only:
+- frozen authority re-hash versus manifest
+reject:
+- editable source versus frozen comparison
+required:
+- frozen bytes versus frozen manifest validation
+- editable source changes must not invalidate active revision
+- frozen authority mutation must invalidate active revision
+
+Test_Fixtures:
+
+TEST_SOURCE_MANUSCRIPT.md:
+status: READY_FOR_ENGINEERING_INTEGRATION
+purpose: >
+Small real-manuscript integration fixture, not a PRODUCTION_REVISION.
+
+TEST_PROMPT_MAP.yaml:
+status: READY_FOR_ENGINEERING_INTEGRATION
+purpose: >
+Matching per-marker instruction fixture, not runtime execution authority
+until an explicit engineering STEP authorizes its use.
+
+Critical_Risks:
+
+Do not reintroduce builder/compiled_input.
+Do not preserve constants_check as literary acceptance.
+Never mix editable source with frozen revision authorities.
+Never treat old logs or Output as commit state.
+Never resurrect paired_runner / PART2_AUTHORIZED state.
+Never let quarantined Phase-1 code define requirements.
+Never let IMPLEMENTATION_PLAN authorize autonomous Samurai progression.
+
+Execution_Rule: >
+DeepSeek issues exactly one STEP.
+Samurai implements exactly that STEP and stops.
+DeepSeek reviews the evidence before another STEP is issued.
+Grok is invoked for independent forensic/compliance review when needed.
+Doc arbitrates cross-role and architectural questions.
+Author remains the final human gate for phase transitions and canon.
