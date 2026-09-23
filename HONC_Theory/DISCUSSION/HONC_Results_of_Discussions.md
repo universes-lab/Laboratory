@@ -147,3 +147,108 @@ All [S].
 5. **Book plan:** unified HONC volume; Temporal Dynamics as the mathematical part (English, academic); rewritten *Code of the Universe* and the 100 questions alongside.
 
 `END — RESULTS OF DISCUSSIONS 2 AND 3`
+
+===
+Addendum by Grok (Code of the Universe / Temporal Dynamics expert)
+The consolidated results document is largely accurate and correctly marks statuses. The following points should be added or strengthened before Keeper check and Author approval.
+1. Explicit confirmation of closed items (already present, status reinforced)
+
+Counter-rotation of neighbouring links is canonical (Code of the Universe, “Intermediate gauge bosons”). It is not a hypothesis. Its geometric reading as continuity of the rotational component of the time field at contact is derived [D].
+Masslessness of the photon rests on two independent canonical grounds: (a) the photon chain does not rotate about its axis of motion; (b) counter-rotation produces axial compensation. Both are [D] / [C].
+Z, W and the gluon are λ-molecules with literally 2, 4 and 8 links. This is [C]. The hand-fitted angles (≈29.8° for W, ≈19.5° for the gluon) remain the Author’s visual approximations and must never be treated as derived values.
+The system consists of spinning gyroscopes (tori + rings), not static point masses. Any future moment calculation must respect this.
+
+2. Items that risk being under-weighted
+
+The two structurally inverse energies (internal = time/space, native to dt/dx; kinetic = space/time) are canonical (Code of the Universe, “Two faces of energy”). They should appear in the settled-results table with status [C]/[D], not only under open tasks.
+The distinction between base $Q_0$ and transitional $Q_0^*$ is settled and must remain sharp in every later text.
+Infinite nesting (every quantum is a lower-level continuum) is an Author decision, not a hypothesis. Information screening is the candidate that reconciles it with finite upper-level entropy; it is still [H] but is no longer optional.
+
+3. Terminology discipline (already stated, repeated for emphasis)
+“Latcher” and “quantron” are pattern-scale terms only. At the quantum level only Q-types are used. Any residual use of “latcher” for a λ-scale interlocked 1D+2D configuration in First Principles of Temporal Dynamics must be replaced before freeze.
+4. What must not re-enter
+All items listed in §2 (Superseded) are correctly killed. In particular: quantron = quantum, latcher = 1.5 quanta at quantum level, Q0 = dark matter by identity, mass non-additivity, divorced-latcher explanation of masslessness, null-field route, compactness as Z/W mass mechanism, static Steiner tensor on point masses, and “our zero speed = lower-level c”.
+
+Open questions — consolidated list (for the final pass)
+Understood enough to formalise (owners as in Claude’s table, confirmed)
+
+O-1 Explicit decomposition of $T_{\mu\nu}$
+O-2 Two 1D orientation classes → electric sign
+O-3 1D freedom as the “missing axis Z” / Lorentz geometry
+O-4 Boundary conditions for $T_{\mu\nu}$ on 1D and 2D assemblies
+O-5 Construction of internal (rotational) and kinetic (cross-section/τ) quantities
+O-6 Maximum photon wavelength from bundle coherence
+O-7 Dynamical stability of base $Q_0$
+
+Not understood — read the canon first, do not invent
+
+U-1 Tilt angles of W and gluon; gyroscopic moment of the real system of tilted spinning elements (not point masses)
+U-2 Why the eight-link gluon can fully compensate while the four-link W never does
+U-3 How f-links form bundles and what fixes bundle size
+U-4 Exact placement of bundles relative to quantrons on the ladder
+U-5 What fixes quantron spatial extent (state dependence)
+U-6 Exact level at which partons appear
+U-7 α-depth: derive the coefficient in $e^{c/\alpha}$ or accept it as a free structural constant with independent motivation
+U-8 Information screening across infinite nesting
+U-9 Outer boundary condition (winding → 0) and halt of expansion
+U-10 Dark matter as interrupted transitions carrying boundary winding
+
+Awaiting Author decision or clear emergence from the canon
+
+D-1 Fix the equatorial-assembly rule as canon
+D-2 Axis convention for $I$ in the bridge $m = I/\lambda^2$
+D-3 Basis of the statement “Q0 has no third component” (proposed: 3D equatorial joining is geometrically impossible)
+
+===
+Claude:
+Addendum for §1 — foundational results carried over from Discussion 1:
+
+#	Result	Status
+F-1	Matter is a stratified state of space, not a second substance. Single carrier: space.	[C] Author
+F-2	Every space quantum is a continuum of the next lower level; nesting is infinite in both directions.	[C] Author
+F-3	dt/dx is slowness — a quantity of its own, not inverse velocity.	[C]
+F-4	c is the minimum-slowness barrier 1/c; v = 0 is the infinite-slowness barrier. Transition to a lower continuum is a jump of descriptive scale across a barrier, not deceleration to zero.	[C] / [D]
+F-5	Arrow of time: cascade t → b → c → s → u proceeds via Q3; regeneration u → t proceeds directly via Q0 (Big Bang). Two branches of one cycle. Animations depict the cascade.	[C] — CoU, "Topology of quark transitions"
+F-6	Base Q₀ (stable substrate) and transitional Q₀* (inside a transition) are distinct.	[C] Author
+
+Addendum for §2 — superseded: Peierls–Nabarro barrier as an energy concept, replaced by the topological statement "no path of elementary switches with constant L" · animations as depicting the Big Bang (they depict the cascade).
+
+Addendum for §3.2 — not understood:
+
+#	Question
+U-12	Fixed-point formulation of infinite nesting: existence of the fixed point
+U-13	CMB global-topology test: what signature a continuum-as-quantum state leaves
+
+===
+Claude:
+#	Result	Status
+E-1	λ-molecule: a single elementary object — a closed assembly of Q2-quanta by the interlocking bond, parametrised by the number of axes n ∈ {1, 2, 3}, with 2ⁿ links. Realisations: Z (n = 1), W (n = 2), gluon (n = 3).	[D] from B-10…B-12; unification [C] via CoU "Latchers", "Intermediate gauge bosons"
+E-2	Weak and strong interactions are the λ-molecule at n ≤ 2 and n = 3 respectively.	[D]
+E-3	Open threads (photon, neutrino) are a separate class: same quanta and bond, but not closed.	[D]
+E-4	Relation between the 8 links of the gluon and the 8 gluon colour states.	[O]
+===
+Итог по U-2
+#	Result	Status
+B-13	In W the docking constrains only the ring axis X; the torus axis Y is free for each link. Generic W is not compensated → charge.	[C]
+B-14	In Z both axes are constrained (rings opposite, tori antiparallel) → full compensation.	[C]
+B-15	Free Y in W and the tilt within the gap of the hole (B-3) are one fact.	[D]
+B-16	Gluon compensation is a stability criterion (selection), Z compensation is geometric necessity.	[C]
+B-11	Revised: links = 2ⁿ; full vertex coverage guaranteed only along docked axes.	[D]
+—	Odd n compensated, even n not — coincidence or law.	[O]
+===
+#	Result	Status
+G-1	The rotational component is direction-dependent for a single quantum only, and only when the quantum is viewed as a lower-level continuum rather than as a point.	[C] Author
+G-2	A quantum has a rotation axis by necessity, whether or not it physically tumbles.	[C] Author
+G-3	Gravity is isotropic from the quantron level upward: the axes of the constituent quanta average out.	[C] Author
+G-4	Toroidal contributions do not average out — the torus has a distinguished plane and its axis is fixed by the docking. Hence electromagnetism is directional where gravity is not.	[D]
+===
+#	Result	Status
+Q-1	Quantron extent is not set by force or by rigid contact; both are excluded by the canon.	[D]
+Q-2	The binding is coherence through the common linear component — the "board" of the metronome analogy.	[C] — CoU, on partons
+Q-3	Extent is the coherence limit: how far agreement is maintained, not how much fits.	[H]
+Q-4	Quantron extent, maximum photon length, and the ratio of the two rates are three faces of one coherence limit.	[H], three independent lines converge
+Q-5	State dependence follows: different Q-types have different moments of inertia, hence different coherence limits — "giants and dwarfs".	[D] from Q-3
+Q-6	The metronome board is mobile; the linear component is uniform. Coherence requires that the quanta themselves perturb the linear component.	[O]
+U-5 не закрыт, но переведён из «непонят» в «понят, упирается в O-1». Место найдено, механизм требует компонент.
+===
+===
