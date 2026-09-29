@@ -1,89 +1,56 @@
-Manuscript Press
-Unseen University Press — a lightweight local manuscript-production tool for the Universes Lab workflow.
-It turns prepared drafts, editorial source material, and explicit processing instructions into clean, publication-ready text. The system is intentionally constrained: it does not invent research content or redefine conclusions, but focuses on synthesis, consistency, style, and final presentation.
-Current engine: Gemma-The-Writer-9B.
-===
+# Manuscript Press
 
-## Nested Multigenre / Multilingual Book
-### Архитектура книги как высокоуровневого контейнера текстов Manuscript Press исходит из того, что книга не обязана принадлежать одному жанру.
-Книга может быть контейнером нескольких самостоятельных типов текста:
-академического исследования, авторского повествования, хроники, диалога, экспериментального протокола, первичного документа, комментария, приложения и других форм.
-Эти слои могут быть вложены друг в друга по принципу nested narrative, но не должны терять собственную жанровую и смысловую идентичность.
-Главный принцип:
-**жанры могут быть вложены, но не должны быть смешаны.**
-Академический блок внутри художественной книги остаётся академическим блоком.
-Хроника остаётся хроникой.
-Первичный протокол остаётся первичным документом.
-Авторский текст остаётся авторским текстом.
-Книга организует их отношения, но не растворяет один тип текста в другом.
-### Extractable Academic Core
-Научные фрагменты проектируются как автономные академические ядра. Такой блок должен быть пригоден к физическому извлечению из книги без переписывания его содержательной основы.
-После добавления внешней научной оболочки — abstract, related work, references, publication metadata и необходимой редакционной доработки — он может стать самостоятельным preprint / arXiv-style text.
-Поэтому научное ядро не должно зависеть от окружающего художественного повествования для понимания собственных определений, аргументов, формул и выводов.
-Книга может рассказывать историю появления результата.
-Научный блок должен содержать сам результат.
-### Tri-Lingual Edition Principle
-Рабочая издательская архитектура предусматривает три параллельных языка:
-- English
-- Russian
-- Dutch
-При этом книга не имеет одного обязательного языка-оригинала целиком.
-Каждый самостоятельный блок имеет собственный `SOURCE_LANGUAGE`.
-Для академического научного текста:
-`SOURCE_LANGUAGE = EN`
-English является авторитетным исходником.
-Russian и Dutch являются переводными изданиями этого блока.
-Для художественного и авторского текста, утверждаемого Автором на русском:
-`SOURCE_LANGUAGE = RU`
-Russian является авторитетным исходником.
-English и Dutch являются переводными изданиями этого блока.
-Каждый перевод создаётся непосредственно с языка оригинала:
-`SOURCE → RU`
-`SOURCE → EN`
-`SOURCE → NL`
-Перевод через промежуточный язык не используется.
-### Translation Authority
-Перевод не получает права менять содержание исходного блока.
-Допустимы:
-- естественная языковая адаптация;
-- исправление машинной шероховатости;
-- грамматическая и стилистическая нормализация.
-Недопустимы без отдельного возврата к исходнику:
-- изменение утверждения;
-- усиление или ослабление научного статуса;
-- замена специального термина;
-- добавление объяснений;
-- исправление теории переводчиком.
-Формулы, специальные обозначения, структурные идентификаторы и утверждённая
-терминология сохраняются.
-Для специальных понятий проекта используется общий трёхъязычный
-terminology registry:
-`EN | RU | NL`
-### Production Structure ≠ Reader Structure
-Производственная единица Manuscript Press и читательская структура книги не обязаны совпадать. Один стабильный текстовый блок может существовать независимо от того, в какой главе, жанровом слое или языковой версии он опубликован.
-Таким образом:
-**content identity**
-не равна
-**book placement**.
-Это позволяет одному академическому ядру одновременно существовать как:
-- часть книги;
-- самостоятельный научный модуль;
-- основа будущего preprint;
-- источник переводных версий.
-### Governing Principle
-Manuscript Press не превращает все материалы в единый стиль.
-Его задача — сохранить различие голосов, жанров, уровней авторитета
-и исходных языков, одновременно собирая их в одну читаемую архитектуру.
-**One book may contain many textual worlds.  
-Their borders must remain visible.**
-===
+Local pilot engine that sends a marked-up SOURCE manuscript through Gemma-The-Writer one production block at a time and assembles `Output/FINAL.manuscript.md`.
 
-Правка:
-SPEC.md
-   ↓ что является системой
-IMPLEMENTATION_MAP_APPROVED.yaml
-   ↓ что фактически лежит перед нами и как это классифицировано
-IMPLEMENTATION_PLAN.md
-   ↓ в какой последовательности строим систему
-Current_Prompt.md
-   ↓ что Самураю разрешено делать ПРЯМО СЕЙЧАС
+It does not invent research conclusions as a design goal. First live article run proved the pipeline works and also showed assembly/control-leak defects. Those are tracked as hardening, not as a new product.
+
+Current engine: Gemma-The-Writer-9B via `llama-cpp-python`.
+Current execution authority: SPEC v3.3 PILOT_EXECUTION_PROFILE.
+Target architecture (not implemented): SPEC v3.2.2 freeze/commit machine.
+
+## ROOT
+
+```text
+E:\Gemini\Dojo\Manuscript_Press
+```
+
+## What you run
+
+```bat
+cd /d E:\Gemini\Dojo\Manuscript_Press
+set PYTHONPATH=%CD%
+python -m src.production_runner --preflight-only
+python -m src.production_runner
+```
+
+Or `run_manuscript_press.bat` after it is rewritten for this ROOT.
+
+Do not use `manuscript_press.bat` from the GitHub snapshot. That file is a historical resume of run `20260923T144611Z`.
+
+## Inputs
+
+| File | Role |
+|------|------|
+| `Input/SOURCE_MANUSCRIPT.md` | Whole manuscript + `<!-- MP:XXXX -->` + protected spans |
+| `Input/PROMPT_MAP.yaml` | Per-marker LONG_RANGE_FRAME + LOCAL_TRANSFORMATION |
+| `Gemma.md` | System kernel for Gemma |
+| `config/writer_config.yaml` | Model path, n_ctx, max_tokens, temperature, top_p |
+
+## Outputs
+
+| File | Role |
+|------|------|
+| `Output/FINAL.manuscript.md` | Pilot assembled manuscript |
+| `Output/runs/<id>/` | Per-marker payload / raw / restored / rebuilt |
+
+## What this project is not
+
+- Not the old CONCEPT_PACKAGE / `generator.py` writer
+- Not paired half-chapter resident sessions
+- Not a full SPEC v3.2.2 commit ledger
+- Not publication-ready by default
+- Not Samurai’s Current_Prompt (Gemma.md ≠ Current_Prompt.md)
+
+## Book-architecture notes
+
+Editorial ideas about nested multigenre / trilingual books live in `templates/` and older README drafts. They are product intent for later books. They are not the runtime contract of `production_runner.py`.
