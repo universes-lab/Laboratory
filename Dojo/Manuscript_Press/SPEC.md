@@ -1,317 +1,397 @@
-# MANUSCRIPT_PRESS — ENGINEERING SPEC v3.3
+# STEP.md — MANUSCRIPT_PRESS / LAUNCHERS + MARKER RANGE
 
 ```yaml
-document: SPEC.md
-version: 3.3
-status: CURRENT EXECUTION AUTHORITY
-date: 2026-09-29
-project: MANUSCRIPT_PRESS
-root: E:\Gemini\Dojo\Manuscript_Press
-execution_model: PILOT_EXECUTION_PROFILE
-target_architecture: SPEC v3.2.2 (archived as SPEC_v3.2.2.md, not implemented)
-```
+IDENTITY:
+  Project: MANUSCRIPT_PRESS
+  Phase: POST_RECONSTRUCT
+  Step: LAUNCHERS_AND_MARKER_RANGE
+  Version: 2.1
+  Status: READY_FOR_SAMURAI
+  Date: 2026-10-01
+  Step Type: EDIT
 
-This file is the technical contract of the running system.
-It does not contain Samurai work-steps, reconstruct checklists, or triad commentary.
+  Technical Authority:
+    - SPEC v3.3 (current execution contract)
+    - SPEC_v3.2.2 (target, archived, not implemented)
+    - Shogun route decision, 2026-10-01
+
+  Scope: launcher cleanup + marker range (--start-marker / --end-marker).
+  Not production run. Not hardening.
+```
 
 ---
 
-## 1. Purpose
+## OBJECTIVE
 
-Manuscript_Press takes one marked SOURCE manuscript and one aligned PROMPT_MAP, runs local Gemma once per production marker, restores protected material mechanically, and writes a pilot assembled file:
-
-`Output/FINAL.manuscript.md`
-
-The engine must not invent research conclusions as a design goal.
-
----
-
-## 2. Authority layers
-
-```yaml
-SPEC.md:                   current execution contract (this file)
-SPEC_v3.2.2.md:            frozen target architecture (freeze / commit / STABLE_CONFIG)
-Gemma.md:                  model system kernel (not a Samurai prompt)
-config/writer_config.yaml: generation knobs and model path
-Input/SOURCE_MANUSCRIPT.md: editorial source
-Input/PROMPT_MAP.yaml:     per-marker instructions
-```
-
-v3.2.2 is not treated as implemented.
-Promotion from pilot to v3.2.2 is a separate Shogun decision.
+1. Привести launcher-набор в порядок: полный прогон + resume-латание — два разных BAT.
+2. Удалить stale `run_manuscript_press.bat` из корня.
+3. В `src/production_runner.py` добавить `--end-marker ID` рядом с существующим `--start-marker`.
+4. Verify: py_compile + один контрольный inference на одну метку.
 
 ---
 
-## 3. Filesystem
+## ALLOWED WORKING FILES
 
-```text
-E:\Gemini\Dojo\Manuscript_Press\
-  SPEC.md
-  SPEC_v3.2.2.md
-  README.md
-  Gemma.md
-  config\writer_config.yaml
-  Input\SOURCE_MANUSCRIPT.md
-  Input\PROMPT_MAP.yaml
-  src\production_runner.py
-  src\loader.py
-  src\parser\
-  Output\FINAL.manuscript.md
-  Output\runs\<run_id>\
-  run_manuscript_press.bat
+**Изменить:**
+
+```
+E:\Gemini\dojo\Manuscript_Press\manuscript_press.bat
+E:\Gemini\dojo\Manuscript_Press\src\production_runner.py
 ```
 
-Canonical inputs are only `Input/`.
-Not `source/`. Not `work/revisions/`.
+**Создать:**
+
+```
+E:\Gemini\dojo\Manuscript_Press\resume_manuscript_press.bat
+```
+
+**Переместить в `Archive\historical_launchers\`:**
+
+```
+E:\Gemini\dojo\Manuscript_Press\run_manuscript_press.bat
+```
+
+**Не трогать:**
+
+```
+SPEC.md
+SPEC_v3.2.2.md
+Input\SOURCE_MANUSCRIPT.md
+Input\PROMPT_MAP.yaml
+Gemma.md
+config\writer_config.yaml
+src\loader.py
+src\parser\*
+```
 
 ---
 
-## 4. Terminology
+## DO_NOT
 
-```yaml
-SOURCE_MANUSCRIPT: whole manuscript with production markers
-PROMPT_MAP:        YAML map MP:XXXX -> LONG_RANGE_FRAME + LOCAL_TRANSFORMATION
-MARKER:            <!-- MP:XXXX -->
-BLOCK:             from a marker to the next marker or EOF
-PROTECTED_SPAN:    <!-- MP:PROTECTED id="ID":BEGIN --> ... END -->
-SLOT_TOKEN:        ⟦MP_PROTECTED:ID⟧
-SLOTTED_SOURCE:    SOURCE with protected bodies replaced by slot tokens
-CURRENT_SOURCE:    rewritable text of one block; ATX headings removed
-CACHE_BEFORE:      restored prose of the previous block in this run
-FINAL:             Output/FINAL.manuscript.md
-```
-
-One marker = one `create_chat_completion`.
+- Не добавлять `--max-markers`, `--limit`, `--single`, `--stop-after`.
+- Не переписывать `run_manuscript_press.bat` в копию `manuscript_press.bat`.
+- Не передавать аргументы в `manuscript_press.bat`.
+- Не запускать full article run (375 маркеров).
+- Не активировать 10B модель.
+- Не открывать hardening.
+- Не изменять существующую FINAL assembly logic. Разрешён только явно заданный range-mode bypass из EDIT 4e.
 
 ---
 
-## 5. Inputs
+## EDIT 1 — `manuscript_press.bat`
 
-### 5.1 SOURCE_MANUSCRIPT
-- UTF-8
-- Unique ordered markers `<!-- MP:XXXX -->`
-- Optional protected spans, unique IDs, no nesting
-- Text before the first marker is SOURCE prefix and belongs in FINAL unchanged
-
-### 5.2 PROMPT_MAP
-- Key set identical to SOURCE marker IDs
-- Each entry has non-empty LONG_RANGE_FRAME and LOCAL_TRANSFORMATION
-- Extra or missing keys → `SOURCE_PROMPT_MAP_MISMATCH`
-
-### 5.3 Gemma.md
-- SYSTEM kernel only
-- Not concatenated into USER as a second copy
-
-### 5.4 writer_config.yaml
-
-```yaml
-model:
-  path: E:/Gemini/models/Gemma-The-Writer-9B-D_AU-q5_k_m.gguf
-  n_ctx: 8192
-generation:
-  max_tokens: 2048
-  temperature: 0.0
-  top_p: 0.9
-```
-
-Default model is the 9B path above.
-The 10B file `Gemma-The-Writer-N-Restless-Quill-V2-10B-D_AU-q5_k_m.gguf` is an alternative and is not used by this SPEC.
-
----
-
-## 6. Parsers and loader
-
-Canonical package: `src/parser/`
-
-```text
-ProtectedSpanParser.parse(text) -> (spans, slotted_source)
-SourceParser.parse(slotted_source) -> list[Marker]
-PromptMapParser.parse(path) -> dict
-SourcePromptMapValidator.validate(marker_graph, prompt_map) -> True or raise
-```
-
-`src/loader.py` loads Llama from writer_config (`n_gpu_layers=-1`, `chat_format="gemma"`).
-
----
-
-## 7. Invocation
-
-Default:
-
-```text
-python -m src.production_runner
-```
-
-Preflight (no model load, no completion):
-
-```text
-python -m src.production_runner --preflight-only
-```
-
-Resume (recovery only, not default):
-
-```text
-python -m src.production_runner --start-marker MP:XXXX --prior-run-dir Output/runs/<id>
-```
-
-Launcher:
+Заменить тело целиком на:
 
 ```bat
 @echo off
 cd /d "%~dp0"
 set PYTHONPATH=%CD%
-python -m src.production_runner %*
+.venv\Scripts\python.exe -m src.production_runner
 ```
 
-Preferred filename: `run_manuscript_press.bat`.
-The same body under `manuscript_press.bat` is an alias, not a historical resume command.
+Аргументов нет. Двойной щелчок = весь граф.
 
 ---
 
-## 8. Generation contract
+## EDIT 2 — создать `resume_manuscript_press.bat`
 
-### SYSTEM
+Тело файла:
+
+```bat
+@echo off
+cd /d "%~dp0"
+set PYTHONPATH=%CD%
+if "%~1"=="" goto usage
+if "%~2"=="" goto usage
+if "%~3"=="" (
+  .venv\Scripts\python.exe -m src.production_runner --start-marker %1 --prior-run-dir %2
+  exit /b %ERRORLEVEL%
+)
+.venv\Scripts\python.exe -m src.production_runner --start-marker %1 --prior-run-dir %2 --end-marker %3
+exit /b %ERRORLEVEL%
+:usage
+echo resume_manuscript_press.bat START_MARKER PRIOR_RUN_DIR [END_MARKER]
+exit /b 2
+```
+
+---
+
+## EDIT 3 — архивировать `run_manuscript_press.bat`
+
+Переместить файл целиком:
+
+```
+E:\Gemini\dojo\Manuscript_Press\run_manuscript_press.bat
+→
+E:\Gemini\dojo\Manuscript_Press\Archive\historical_launchers\run_manuscript_press.bat
+```
+
+В рабочем корне файла быть не должно.
+
+---
+
+## EDIT 4 — `src/production_runner.py` — добавить `--end-marker ID`
+
+### a) В argparse, сразу после аргумента `--prior-run-dir`:
+
+```python
+ap.add_argument(
+    "--end-marker",
+    default=None,
+    help="Last marker id to process (inclusive). Requires --start-marker.",
+)
+```
+
+### b) После `args = ap.parse_args()`:
+
+```python
+if args.end_marker and not args.start_marker:
+    print("FATAL: --end-marker requires --start-marker", file=sys.stderr)
+    return 2
+```
+
+### c) В блоке обработки `--start-marker` (там, где определяется `start_idx`) добавить `end_idx`:
+
+```python
+end_idx: Optional[int] = None
+if args.start_marker:
+    ids = [m.marker_id for m in marker_graph]
+    if args.start_marker not in ids:
+        raise ValueError(f"--start-marker not in graph: {args.start_marker}")
+    start_idx = ids.index(args.start_marker)
+    if not args.prior_run_dir:
+        raise ValueError("--start-marker requires --prior-run-dir")
+    if args.end_marker:
+        if args.end_marker not in ids:
+            raise ValueError(f"--end-marker not in graph: {args.end_marker}")
+        end_idx = ids.index(args.end_marker)
+        if end_idx < start_idx:
+            raise ValueError(
+                f"--end-marker {args.end_marker} precedes --start-marker {args.start_marker}"
+            )
+    log(f"RESUME from {args.start_marker} (index {start_idx}) prior={args.prior_run_dir}")
+```
+
+### d) В начале итерации цикла, после существующего `if idx < start_idx: continue`:
+
+```python
+if end_idx is not None and idx > end_idx:
+    break
+```
+
+### e) После цикла, до блока `final_text = "".join(rebuilt_intervals)`:
+
+```python
+if end_idx is not None:
+    log(f"END_MARKER_REACHED: end={args.end_marker} processed_upto_idx={end_idx}")
+    log(f"completion_calls_total: {completion_calls}")
+    log("status: SUCCESS_RANGE scope: PILOT_PRODUCTION")
+    log("FINAL not written (range mode)")
+    write_text(str(run_dir / "run.log"), "\n".join(log_lines) + "\n")
+    write_text(str(run_dir / "summary.json"), json.dumps({
+        "status": "SUCCESS_RANGE",
+        "scope": "PILOT_PRODUCTION",
+        "start_marker": args.start_marker,
+        "end_marker": args.end_marker,
+        "marker_count": len(marker_graph),
+        "completion_calls_total": completion_calls,
+        "final_written": False,
+        "run_dir": str(run_dir),
+    }, indent=2))
+    return 0
+```
+
+### f) Инвариант поведения
+
+- Без `--start-marker` и без `--end-marker` — весь граф, FINAL в конце. Поведение не меняется.
+- С `--start-marker` без `--end-marker` — от START до конца графа.
+- С `--start-marker` и `--end-marker` — от START до END включительно, FINAL не пишется.
+
+---
+
+## MANDATORY_PHYSICAL_READBACK
+
+После edit — прочитать с диска и привести в отчёте:
+
+```powershell
+Get-Content E:\Gemini\dojo\Manuscript_Press\manuscript_press.bat
+Get-Content E:\Gemini\dojo\Manuscript_Press\resume_manuscript_press.bat
+Get-Content E:\Gemini\dojo\Manuscript_Press\src\production_runner.py | Select-String -Pattern "end-marker|end_marker|end_idx" -Context 2,2
+Test-Path E:\Gemini\dojo\Manuscript_Press\run_manuscript_press.bat
+Test-Path E:\Gemini\dojo\Manuscript_Press\Archive\historical_launchers\run_manuscript_press.bat
+```
+
+Привести фактические строки (номер + текст) для:
+
+- `add_argument("--end-marker"`
+- `if args.end_marker and not args.start_marker:`
+- `end_idx = ids.index(args.end_marker)`
+- `if end_idx is not None and idx > end_idx:`
+- `if end_idx is not None:`
+
+Подтвердить:
+
+- `run_manuscript_press.bat` в корне — отсутствует
+- `Archive\historical_launchers\run_manuscript_press.bat` — присутствует
+
+---
+
+## LOCAL_VERIFY
+
+### 1. py_compile
+
+```powershell
+E:\Gemini\dojo\Manuscript_Press\.venv\Scripts\python.exe -m py_compile src\production_runner.py
+```
+
+Ожидаемо: exit 0, без вывода.
+
+### 2. Preflight
+
+Не выполнять. Preflight уже подтверждён в RUN_ID `20261001T095517Z` (exit 0, marker_count=375, validator PASS, completion=0).
+
+### 3. Состояние FINAL до контрольного inference
+
+```powershell
+Test-Path E:\Gemini\dojo\Manuscript_Press\Output\FINAL.manuscript.md
+```
+
+Зафиксировать `True`/`False` до запуска.
+
+### 4. Один контрольный inference
+
+```powershell
+E:\Gemini\dojo\Manuscript_Press\.venv\Scripts\python.exe -m src.production_runner --start-marker MP:0001 --prior-run-dir Output\runs\20261001T095517Z --end-marker MP:0001
+```
+
+Ожидаемо:
+
+- `load_model: OK`
+- один `create_chat_completion`
+- обработан `MP:0001`
+- `Output\runs\<new_id>\MP-0001\restored.md` непустой
+- в `run.log` — `END_MARKER_REACHED`, `completion_calls_total: 1`
+- в `summary.json` — `completion_calls_total: 1`, `final_written: false`
+- exit 0
+
+При ошибке — STOP, traceback в отчёт, второго прогона нет.
+
+### 5. Состояние FINAL после контрольного inference
+
+```powershell
+Test-Path E:\Gemini\dojo\Manuscript_Press\Output\FINAL.manuscript.md
+```
+
+Сравнить с состоянием до inference. Если файл существовал до — подтвердить неизменность (размер и mtime). Если не существовал — подтвердить, что не появился.
+
+---
+
+## EVIDENCE
+
+В отчёт включить:
+
+- фактические строки из readback (EDIT 4: a–e + подтверждение archive)
+- содержимое `manuscript_press.bat` и `resume_manuscript_press.bat` — полностью
+- результаты `Test-Path` для обоих BAT
+- вывод `py_compile` (пусто = PASS)
+- состояние `Output\FINAL.manuscript.md` до контрольного inference
+- вывод контрольного inference:
+  - `load_model: OK`
+  - `END_MARKER_REACHED`
+  - `completion_calls_total: 1` — читается из `Output\runs\<new_id>\summary.json`
+  - путь и размер `restored.md` для `MP-0001`
+- состояние `Output\FINAL.manuscript.md` после контрольного inference
+
+---
+
+## REPORT
+
+```yaml
+STEP_LAUNCHERS_AND_MARKER_RANGE_REPORT:
+  files_modified:
+    - manuscript_press.bat
+    - src/production_runner.py
+  files_created:
+    - resume_manuscript_press.bat
+  files_archived:
+    - run_manuscript_press.bat → Archive\historical_launchers\run_manuscript_press.bat
+
+  physical_lines:
+    arg_end_marker: "<num>: <text>"
+    validation_end_requires_start: "<num>: <text>"
+    end_idx_assignment: "<num>: <text>"
+    loop_break: "<num>: <text>"
+    post_loop_block: "<num>: <text>"
+
+  bat_content:
+    manuscript_press.bat: "<full physical content>"
+    resume_manuscript_press.bat: "<full physical content>"
+
+  run_manuscript_press_in_root: absent
+  run_manuscript_press_in_archive: present
+
+  py_compile: PASS / FAIL
+
+  final_manuscript_state_before: present / absent
+  final_manuscript_state_after: present / absent
+  final_manuscript_unchanged: yes / no / n/a
+
+  range_inference:
+    executed: yes/no
+    start_marker: MP:0001
+    end_marker: MP:0001
+    prior_run_dir: Output\runs\20261001T095517Z
+    exit_code: <int>
+    load_model_called: true
+    completion_calls_total_from_summary_json: <int>
+    processed_marker_id: "MP:0001"
+    restored_md_path: "Output/runs/<new_id>/MP-0001/restored.md"
+    restored_md_size: <bytes>
+    error: none / "<traceback если был>"
+
+  second_run: none
+
+  next: STOP → WAIT_FOR_SENSEI
+```
+
+---
+
+## NON-GOALS
+
+- `--max-markers`
+- full article run (375 маркеров)
+- 10B модель
+- hardening
+- правки `SPEC.md`, `SPEC_v3.2.2.md`
+- правки Input, `Gemma.md`, `writer_config.yaml`, `loader.py`, `parser/*`
+- правки preflight / restore / cache логики
+- второй прогон контрольного inference при ошибке
+
+---
+
+## END PROTOCOL
 
 ```text
-BEGIN_GEMMA_KERNEL
-<Gemma.md>
-END_GEMMA_KERNEL
-
-BEGIN_RUNTIME_CONTRACT_OVERRIDE
-PROTECTED SLOT RULE and pilot runtime rules
-END_RUNTIME_CONTRACT_OVERRIDE
+EDIT → PY_COMPILE → ONE INFERENCE (MP:0001 → MP:0001) → REPORT → STOP → WAIT_FOR_SENSEI
 ```
 
-STABLE_CONFIG is not emitted.
+Full article run остаётся закрытым.
 
-### USER
+---
 
-```text
-BEGIN_LONG_RANGE_FRAME
-...
-END_LONG_RANGE_FRAME
-
-BEGIN_CONTINUITY_CACHE
-...
-END_CONTINUITY_CACHE
-
-BEGIN_CURRENT_SOURCE
-<rewritable text + slot tokens; no ATX headings>
-END_CURRENT_SOURCE
-
-BEGIN_LOCAL_TRANSFORMATION
-...
-END_LOCAL_TRANSFORMATION
+```yaml
+BRIGADIER_STATUS:
+  step: LAUNCHERS_AND_MARKER_RANGE
+  version: 2.1
+  status: READY_FOR_SAMURAI
+  route: LOCKED
+  scope: launcher cleanup + --end-marker
+  doctor_hold_resolved: yes (5 corrections integrated)
+  full_run: RED
+  ten_b: not activated
+  hardening: closed
+  spec_md: DO_NOT_TOUCH
+  stop: true
 ```
-
-Omit `BEGIN_CONTINUITY_CACHE` on the first block.
-Do not emit `BEGIN_STRUCTURAL_CONTEXT` or `BEGIN_PROTECTED_CONTEXT`.
-Protected bodies stay outside the model and are restored after generation.
-
-### Model call
-- `load_model(writer_config)` once per process
-- `create_chat_completion(messages, max_tokens, temperature, top_p)` with numeric types
-- empty choices or empty content → `GENERATION_FAILED` → STOP, no FINAL
-
-### Cache
-For block k > 0, CACHE_BEFORE is the restored prose of block k−1 from this run
-(or from `--prior-run-dir` when resuming).
-
-### Slots
-1. Write `raw_output.md` before checks.
-2. If found slots equal expected → use as-is.
-3. If expected is non-empty and found is empty → append missing tokens in order (pilot recovery, must be logged).
-4. Any other mismatch → `PROTECTED_MATERIAL_VIOLATION` → STOP.
-5. Restore exact protected bodies from parsed SOURCE spans.
-
-### Context window
-Estimate SYSTEM+USER against `model.n_ctx`.
-Overflow → `SEGMENTATION_TOO_LARGE_FOR_CURRENT_WRITER_CONFIGURATION`.
-No truncation. No auto-split. No dropping cache.
-
 ---
-
-## 9. Assembly
-
-1. Copy SOURCE prefix before the first marker into FINAL.
-2. For each marker in SOURCE order, rebuild the interval:
-   - ATX headings from that interval
-   - restored rewritable stream
-   - a newline before an ATX heading if the previous chunk does not end with newline
-3. Write `Output/FINAL.manuscript.md` only if every marker succeeded.
-
----
-
-## 10. Output sanitation
-
-Before restore, raw model text must not keep runtime grammar or control leakage:
-
-- `BEGIN_*` / `END_*` payload delimiters
-- phrases of the class `OPEN SOURCE DECISION`
-- placeholders of the class `[To be specified based on SOURCE analysis]`
-
-If CURRENT_SOURCE had no markdown table and raw output contains a markdown table, flag or stop that marker.
-
----
-
-## 11. Evidence
-
-```text
-Output/runs/<run_id>/
-  preflight.json
-  run.log
-  summary.json
-  MP-XXXX/
-    payload.txt
-    structure.json
-    raw_output.md
-    slotted.md
-    restored.md
-    rebuilt.md
-Output/FINAL.manuscript.md
-```
-
----
-
-## 12. Failure codes in force
-
-```text
-SOURCE_PROMPT_MAP_MISMATCH
-MARKER_GRAPH_INVALID
-PROTECTED_MARKUP_INVALID
-PROTECTED_MATERIAL_VIOLATION
-SEGMENTATION_TOO_LARGE_FOR_CURRENT_WRITER_CONFIGURATION
-GENERATION_FAILED
-```
-
----
-
-## 13. Non-goals of v3.3 execution
-
-- PRODUCTION_REVISION freeze
-- STABLE_CONFIG runtime
-- human ACCEPT / REJECT machine
-- commit ledger
-- resident literary memory between markers
-- CONCEPT_PACKAGE / paired half-chapters / generated handoff
-- automatic SOURCE or PROMPT_MAP editing
-- switching to the 10B alternative model
-- publication-ready guarantee
-
----
-
-## 14. Known gaps
-
-The first live article run proved marker traversal works.
-It also exposed:
-
-- missing SOURCE prefix in FINAL
-- heading glued to previous sentence
-- control-delimiter leakage
-- invented tables / excerpt commentary on some blocks
-
-These are hardening items. They do not reopen the architecture.
-
----
-
-END OF SPEC v3.3
+STOP.

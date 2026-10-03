@@ -203,21 +203,20 @@ def restore_protected(generated: str, span_by_id: Dict[str, str]) -> str:
 
 
 def rebuild_interval(structure_map: List[Dict[str, str]], restored_rewritable: str) -> str:
-    """
-    Single restored rewritable stream interleaved with SOURCE headings.
-    """
     parts: List[str] = []
-    # If multiple REWRITABLE segments existed, model returned one stream for all;
-    # place full restored text at the first REWRITABLE and leave later REWRITABLE empty.
     used = False
     for seg in structure_map:
         if seg["type"] == "STRUCTURAL_HEADING":
-            parts.append(seg["text"])
+            if parts and not parts[-1].endswith("\n"):
+                parts.append("\n")
+            heading = seg["text"]
+            if heading and not heading.endswith("\n"):
+                heading = heading + "\n"
+            parts.append(heading)
         else:
             if not used:
                 parts.append(restored_rewritable)
                 used = True
-            # subsequent REWRITABLE slots already consumed into one model output
     if not used:
         parts.append(restored_rewritable)
     return "".join(parts)
@@ -282,6 +281,11 @@ def main() -> int:
         "Prior markers are taken from --prior-run-dir rebuilt.md files.",
     )
     ap.add_argument(
+        "--end-marker",
+        default=None,
+        help="Last marker id to process (inclusive). Requires --start-marker.",
+    )
+    ap.add_argument(
         "--prior-run-dir",
         default=None,
         help="Existing Output/runs/<id> with completed marker folders (for --start-marker).",
@@ -292,6 +296,13 @@ def main() -> int:
     run_dir = Path("Output") / "runs" / run_id
     run_dir.mkdir(parents=True, exist_ok=True)
     log_lines: List[str] = []
+
+    if args.end_marker and not args.start_marker:
+        print("FATAL: --end-marker requires --start-marker", file=sys.stderr)
+        return 2
+
+    start_idx = 0
+    end_idx: Optional[int] = None # Initialize end_idx here
 
     def log(msg: str) -> None:
         print(msg)
@@ -322,12 +333,26 @@ def main() -> int:
     # --- real parsers ---
     protected_spans, slotted_source = ProtectedSpanParser().parse(source_text)
     log(f"ProtectedSpanParser: PASS spans={len(protected_spans)}")
-
     marker_graph: List[Marker] = SourceParser().parse(slotted_source)
     log(f"SourceParser: PASS marker_count={len(marker_graph)}")
     if not marker_graph:
         log("FAIL: no markers")
         return 23
+
+    # Extract SOURCE prefix before the first marker
+    prefix = ""
+    first_marker = None
+    if marker_graph: # Ensure marker_graph is not empty
+        first_marker = marker_graph[0]
+        first_marker_line = f"<!-- {first_marker.marker_id} -->"
+        first_pos = slotted_source.find(first_marker_line)
+        if first_pos < 0:
+            m = re.search(rf"<!--\s*{re.escape(first_marker.marker_id)}\s*-->", slotted_source)
+            if not m:
+                raise ValueError(f"First marker not found in slotted_source: {first_marker.marker_id}")
+            first_pos = m.start()
+        prefix = slotted_source[:first_pos]
+    log(f"PREFIX_BYTES={len(prefix)}")
 
     prompt_map = PromptMapParser().parse(args.prompt_map)
     log(f"PromptMapParser: PASS entries={len(prompt_map)}")
@@ -356,7 +381,6 @@ def main() -> int:
         return 0
 
     # --- full pilot generation ---
-    start_idx = 0
     if args.start_marker:
         ids = [m.marker_id for m in marker_graph]
         if args.start_marker not in ids:
@@ -364,6 +388,14 @@ def main() -> int:
         start_idx = ids.index(args.start_marker)
         if not args.prior_run_dir:
             raise ValueError("--start-marker requires --prior-run-dir")
+        if args.end_marker:
+            if args.end_marker not in ids:
+                raise ValueError(f"--end-marker not in graph: {args.end_marker}")
+            end_idx = ids.index(args.end_marker)
+            if end_idx < start_idx:
+                raise ValueError(
+                    f"--end-marker {args.end_marker} precedes --start-marker {args.start_marker}"
+                )
         log(f"RESUME from {args.start_marker} (index {start_idx}) prior={args.prior_run_dir}")
 
     llm = load_model(args.writer_config)
@@ -393,6 +425,8 @@ def main() -> int:
     for idx, marker in enumerate(marker_graph):
         if idx < start_idx:
             continue
+        if end_idx is not None and idx > end_idx:
+            break
         next_marker = marker_graph[idx + 1] if idx + 1 < len(marker_graph) else None
         interval = extract_interval(slotted_source, marker, next_marker)
         current_source, structure_map = split_structural(interval)
@@ -462,7 +496,25 @@ def main() -> int:
         cache_before = restored  # pilot: previous restored prose
         log(f"{marker.marker_id}: PASS output_len={len(restored)}")
 
-    final_text = "".join(rebuilt_intervals)
+    if end_idx is not None:
+        log(f"END_MARKER_REACHED: end={args.end_marker} processed_upto_idx={end_idx}")
+        log(f"completion_calls_total: {completion_calls}")
+        log("status: SUCCESS_RANGE scope: PILOT_PRODUCTION")
+        log("FINAL not written (range mode)")
+        write_text(str(run_dir / "run.log"), "\n".join(log_lines) + "\n")
+        write_text(str(run_dir / "summary.json"), json.dumps({
+            "status": "SUCCESS_RANGE",
+            "scope": "PILOT_PRODUCTION",
+            "start_marker": args.start_marker,
+            "end_marker": args.end_marker,
+            "marker_count": len(marker_graph),
+            "completion_calls_total": completion_calls,
+            "final_written": False,
+            "run_dir": str(run_dir),
+        }, indent=2))
+        return 0
+
+    final_text = prefix + "".join(rebuilt_intervals)
     if not final_text.strip():
         log("FAIL: empty FINAL")
         write_text(str(run_dir / "run.log"), "\n".join(log_lines) + "\n")

@@ -6,7 +6,7 @@ ROOT: `E:\Gemini\Dojo\Manuscript_Press`
 
 ACTIVE_MODE: `IMPLEMENTER`
 
-ACTIVE_OPERATION: `MATERIALIZE_CLEAN_ROOT`
+ACTIVE_OPERATION: `LAUNCHERS_AND_MARKER_RANGE`
 
 ---
 
@@ -14,176 +14,130 @@ ACTIVE_OPERATION: `MATERIALIZE_CLEAN_ROOT`
 
 Выполнить текущий физический:
 
-`STEP.md — MANUSCRIPT_PRESS / RECONSTRUCT CLEAN ROOT`
+`STEP.md — MANUSCRIPT_PRESS / LAUNCHERS + MARKER RANGE`
 
-точно в его границах.
+Version: `2.0`
 
-Цель операции:
+Точно в его установленном scope.
 
-восстановить чистый рабочий `MANUSCRIPT_PRESS` на новом диске после потери старого `D:`.
+Текущая операция включает:
 
-Это:
-
-`RECONSTRUCTION ONLY`
-
-Это НЕ:
-
-- production inference;
-- hardening;
-- full production run;
-- продолжение старого run;
-- реализация полного SPEC v3.2.2.
+- launcher cleanup;
+- добавление `--end-marker`;
+- обязательный physical readback;
+- `py_compile`;
+- ровно один разрешённый контрольный inference на диапазоне `MP:0001 → MP:0001`.
 
 ---
 
-## AUTHORITY
+## CURRENT AUTHORITY
 
-Текущая техническая authority:
+Техническая authority текущей операции:
+
+`SPEC.md v3.3`
+
+и активный физический:
+
+`STEP.md`
+
+`SPEC_v3.2.2.md` является архивной target architecture и не является текущей execution authority.
+
+STEP не разрешает hardening или full article run.
+
+---
+
+## EXECUTION DISCIPLINE
+
+Выполняй STEP последовательно.
+
+Не додумывай отсутствующие внешние решения.
+
+Если для корректного продолжения не хватает факта, параметра, пути, значения либо STEP содержит противоречие, которое нельзя однозначно разрешить из физических authority documents:
+
+`STOP → REPORT KNOWN FACTS → ASK THE SMALLEST NECESSARY QUESTION → WAIT`
+
+Не заменяй отсутствующее решение наиболее вероятной гипотезой.
+
+Обычные инженерные средства внутри однозначно разрешённого действия выбирай самостоятельно.
+
+---
+
+## INTERMEDIATE REPORTING
+
+После каждого завершённого этапа STEP дай короткий factual report:
 
 ```text
-SPEC.md
-→ IMPLEMENTATION_MAP_APPROVED.yaml
-→ IMPLEMENTATION_PLAN.md
-→ DEEPSEEK_STEP_HANDOFF.md
-→ current physical STEP.md
+STEP POSITION: <completed position>
+ACTION: <what was physically done>
+RESULT: PASS / FAIL / BLOCKED
+EVIDENCE: <observable verification>
+NEXT: <next action already authorized by STEP>
 ```
 
-`STEP.md` — непосредственная техническая инструкция Coding Sensei DeepSeek для этой операции.
+Промежуточный отчёт не создаёт SUBSTEP и не изменяет authority.
 
-Не реконструируй задание из старых файлов, output, run history или предыдущих сессий.
+Если NEXT уже однозначно разрешён STEP — продолжай.
 
-Не создавай SUBSTEP или собственный workflow.
+Если требуется новое решение или изменение route — STOP и спроси.
 
 ---
 
 ## WORK PERMIT
 
-Разрешено всё, что прямо необходимо для выполнения текущего STEP, включая:
+Разрешено только в пределах STEP:
 
-- материализацию GitHub snapshot в новый ROOT;
-- создание и перемещение файлов внутри ROOT согласно STEP;
-- изменение файлов, явно разрешённых STEP;
-- архивирование файлов, явно перечисленных STEP;
-- проверку фактического дерева проекта;
-- `py_compile`;
-- `--preflight-only`;
-- необходимые read-only проверки Evidence.
-
-Разрешён внешний источник реконструкции:
-
-`https://github.com/universes-lab/Laboratory/tree/main/Dojo/Manuscript_Press`
-
-Разрешена read-only проверка существования указанного STEP пути модели:
-
-`E:\Gemini\models\Gemma-The-Writer-9B-D_AU-q5_k_m.gguf`
+- изменить `manuscript_press.bat`;
+- изменить `src\production_runner.py`;
+- создать `resume_manuscript_press.bat`;
+- архивировать `run_manuscript_press.bat` в указанное STEP место;
+- выполнить обязательный physical readback;
+- выполнить `py_compile`;
+- выполнить ровно один контрольный inference, заданный STEP;
+- прочитать созданные evidence-файлы и metadata, необходимые для отчёта.
 
 ---
 
 ## FORBIDDEN
 
-Без отдельного нового разрешения запрещено:
+Запрещено:
 
-- model inference;
-- обычный запуск `python -m src.production_runner` без `--preflight-only`;
-- full production run;
-- использование alternative GGUF;
-- GPU tuning;
-- изменение `src/loader.py`;
-- перенос или исследование AI-Colab loader / `app.py`;
-- изменение production inputs;
+- full article run;
+- второй контрольный inference при ошибке первого;
+- hardening;
+- 10B model;
+- изменение SPEC;
+- изменение Input;
 - изменение `Gemma.md`;
-- самостоятельное изменение технического route;
-- самостоятельная реализация hardening;
-- возобновление старого `MP:0170` run;
-- Git operations сверх действий, прямо разрешённых STEP;
-- переход к следующему STEP.
+- изменение `writer_config.yaml`;
+- изменение `loader.py`;
+- изменение `parser/*`;
+- самостоятельное изменение route;
+- дополнительные CLI options вне STEP;
+- следующий STEP без внешнего решения.
 
 ---
 
-## HISTORICAL STATE
+## FAILURE
 
-Старые:
+Не выполнять silent recovery.
 
-- `Current_Prompt.md`;
-- `STEP.md`;
-- `GEMINI.md`;
-- launchers;
-- Output/run artifacts
+При неожиданной ошибке:
 
-из GitHub snapshot являются материалом реконструкции, а не автоматически действующей authority.
+`PRESERVE EVIDENCE → REPORT → STOP`
 
-Текущий `Current_Prompt.md` и текущий reconstruction `STEP.md` имеют приоритет как активный operational frame.
+Исправлять ошибку самостоятельно можно только если исправление однозначно является обычным инженерным средством уже разрешённого STEP и не меняет route, dependencies, requirements или scope.
 
-Не путай историческое состояние проекта с текущим заданием.
-
----
-
-## EVIDENCE
-
-Не сообщай ожидаемое состояние как фактическое.
-
-После изменений проверяй физический результат.
-
-Особенно подтвердить Evidence для:
-
-- созданного ROOT;
-- установленных/архивированных файлов;
-- нового model path;
-- clean launcher;
-- отсутствия старых `D:` operational paths;
-- отсутствия default `--start-marker`;
-- `py_compile`;
-- фактического `--preflight-only`;
-- фактического exit code;
-- marker count;
-- validator result;
-- отсутствия model load / inference.
-
-Если факт не проверен:
-
-`EVIDENCE: INCOMPLETE`
-
----
-
-## STOP
-
-Немедленно STOP, если:
-
-- возникает условие STOP из текущего STEP;
-- preflight FAIL;
-- возникает model load или inference;
-- требуется изменить technical route;
-- требуется действие вне разрешённого STEP;
-- обнаруживается существенное противоречие между authority documents.
-
-При STOP:
-
-```text
-PRESERVE STATE
-→ REPORT FACTS + EVIDENCE
-→ QUERY SENSEI
-```
-
-Не придумывай обходной путь самостоятельно.
+При сомнении — спросить.
 
 ---
 
 ## COMPLETION
 
-После выполнения текущего STEP:
+После полного выполнения STEP:
 
-```text
-VERIFY
-→ REPORT USING STEP REPORT FORMAT
-→ STOP
-→ WAIT
-```
+`VERIFY → FINAL REPORT → STOP → WAIT_FOR_SENSEI`
 
-Не начинай hardening.
-
-Не запускай production inference.
-
-Не выбирай следующий STEP.
+Успех этого STEP не разрешает full article run и не открывает hardening.
 
 FINAL AUTHORITY: `Author / Shogun`
 
