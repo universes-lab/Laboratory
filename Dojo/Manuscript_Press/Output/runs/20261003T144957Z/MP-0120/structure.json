@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nA substantial literature constructs systems in which several language-model agents occupy distinct roles and exchange outputs through implemented channels. ✓ CAMEL (Li et al., NeurIPS 2023), MetaGPT (Hong et al., ICLR 2024), ChatDev (Qian et al., ACL 2024), AutoGen (Wu et al., COLM 2024) and Generative Agents (Park et al., UIST 2023) are representative. Each implements actual interaction between agents in software — orchestration, message passing, tool invocation, memory. The mechanisms differ between them, and in several the roles and interaction patterns are themselves specified in prompts: CAMEL uses inception prompting, MetaGPT encodes standard operating procedures into prompt sequences, and AutoGen combines natural language with code. What these systems share is not that they avoid prompts but that the interaction they describe is also executed.\n\n✓ The Virtual Lab (Swanson et al., *Nature*) is the closest published analogue to the arrangement described here: a human researcher working with a team of LLM agents on a real scientific problem, with structured team and individual meetings. Its interaction is implemented programmatically.\n\n"
+  }
+]

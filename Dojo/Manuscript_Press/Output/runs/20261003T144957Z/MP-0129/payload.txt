@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.5; blocks 90вЂ“90 В· "A further result by the same authors bears on a diffвЂ¦"
+
+FUNCTION:
+Separate an adjacent result belonging to a different construct.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Add further negative results.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Separate an adjacent result belonging to a different construct.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§8.9; В§4.5.4.
+
+CLOSURE:
+"add further negative results" completes; "separate an adjacent result belonging to a different construct" begins.
+Do not begin the next move: Isolate the finding that matters most and what it licenses.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Moreover, additional negative findings emerge from independent studies. Huang et al. (ICLR 2024), in their work titled "*Large Language Models Cannot Self-Correct Reasoning YetcèseAndEndTagAndEndTag, report that multi-agent debate protocols did not outperform self-consistency in their comparative evaluation. Similarly, Choi, Zhu and Li (NeurIPS 2025), in their paper "*Debate or VoteastéroïdesAndEndTag, demonstrate that majority voting primarily accounts for the performance gains sæAndEndTag,typically ascribed to debate mechanisms.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A further result by the same authors bears on a different construct and is kept separate from the two axes of §8.9. ✓ Choi, Zhu and Li (ACL 2026), *When Identity Skews Debate*, report that anonymizing the source of each response substantially reduces identity bias in multi-agent debate. That manipulation concerns the declared origin of a message rather than which model implements a participant, and it is therefore discussed under represented social source (§4.5.4) rather than under carrier heterogeneity.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Separate an adjacent result belonging to a different construct.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§8.9; В§4.5.4.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Isolate the finding that matters most and what it licenses.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Contrast / differentiation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Separate an adjacent result belonging to a different construct.
+Do not anticipate or start: Isolate the finding that matters most and what it licenses.
+END_LOCAL_TRANSFORMATION

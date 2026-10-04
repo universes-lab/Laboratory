@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.5; blocks 93вЂ“93 В· "вњ“ Hong and Page (PNAS 101(46), 2004) establish a conвЂ¦"
+
+FUNCTION:
+Correct a frequently misused theorem and its critique.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Isolate the finding that matters most and what it licenses.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Correct a frequently misused theorem and its critique.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"isolate the finding that matters most and what it licenses" completes; "correct a frequently misused theorem and its critique" begins.
+Do not begin the next move: Draw the consequence for В§12.2.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The paramount finding highlighted by Zhang et al. is that model heterogeneity consistently enhances the performance of debate frameworks otherwise exhibiting subpar results. Crucially, this heterogeneity pertains to the distinct models underlying the agents, not to the functions those agents embody. This insight onderscores a distinction the literature often overlooks, a distinction explicitly developed in §8.9: heterogeneity of the *carrier* (the specific model implementing a role) is conceptually distinct from heterogeneity of the agent's *function* (the role's responsibilities and permissible information access). Zhang et al.'s work directly addresses carrier heterogeneity, implicitly licensing the independent investigation of function heterogeneity, a dimension this paper subsequently explores.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+✓ Hong and Page (PNAS 101(46), 2004) establish a conditional result: under the assumptions of their model, a randomly selected group of diverse problem solvers can outperform a group of the individually highest-performing solvers. ✓ Thompson (*Notices of the AMS* 61(9), 2014) argues that the application of that argument is fundamentally flawed. The slogan that diverse weak agents outperform homogeneous strong ones is not what the theorem states, and neither the theorem nor the dispute over it supports the arrangement described here.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Correct a frequently misused theorem and its critique.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Draw the consequence for В§12.2.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Correct a frequently misused theorem and its critique.
+Do not anticipate or start: Draw the consequence for В§12.2.
+END_LOCAL_TRANSFORMATION

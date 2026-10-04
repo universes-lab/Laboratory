@@ -1,0 +1,3 @@
+Two distinct reference classes are distinguished: **Verified** and **Provisional**. 
+
+References marked as **Verified Administrativna** have been directly retrieved and verified against their cited source, confirming the title, authors, and abstract. These carry the highest evidential weight. Conversely, **Provisional (⚠tagHelperRunner;出版年; cited_authors;title;abstract)** references were supplied by a literature searcher and lack independent source verification. They are flagged with a warning symbol (⚠) and should be treated with methodological caution, primarily employed for claims not substantiated elsewhere in the paper. 

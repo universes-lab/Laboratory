@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n**[P-A] — Protocol-supported, ancillary.** The claim describes behaviour preserved in a transcript a third party can inspect, but which was not specified as an outcome in advance, had no control condition, and was recognized as relevant only retrospectively. The evidence is inspectable; the design is not. Stronger than [R], because the primary material can be read against our interpretation; weaker than [P], because nothing about the conditions was fixed before the fact. Where an ancillary observation functions as a near-control for a designed condition, this is stated in prose rather than given a further label.\n\n"
+  }
+]

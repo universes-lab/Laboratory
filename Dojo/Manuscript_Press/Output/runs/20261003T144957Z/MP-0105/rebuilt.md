@@ -1,0 +1,1 @@
+The assertions presented within this work do not establish a novel discipline. Instead, the observations discussed pertain to the collective and hybrid levels of the machine-behaviour research program, as defined in Section 2.7. 

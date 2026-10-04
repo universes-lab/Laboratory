@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.4; blocks 81вЂ“82 В· "The paper's observation that a collaboration retainsвЂ¦"
+
+FUNCTION:
+Classify the memory observation under existing constructs.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Supply context-effect literature and connect it to two constructs.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Classify the memory observation under existing constructs.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: not a finding.
+
+CLOSURE:
+"supply context-effect literature and connect it to two constructs" completes; "classify the memory observation under existing constructs" begins.
+Do not begin the next move: Narrow what is specific to this setting.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Sensitivity to the ordering of in-context material is well-documented in the literature. Lu et al. (ACL 2022) demonstrate this effect, and Liu et al. (TACL 2024) further illustrate the degradation of information utilization when it resides mid-context. Notably, Sharma et al. (arXiv:2310.13548) highlight "sycophancy," where models preferentially align their responses with an interlocutor's stated beliefs, even at the expense of factual correctness. These findings directly relate to two key constructs within this paper. 
+
+Firstly, context imprinting (§6.1) proposes a more pronounced order effect: not mere sensitivity to example arrangement, but the persistence of an interpretive stance set by a preceding conflicting interaction. Secondly, the relayed-influence observation (§5.5), where a model seemingly accommodates attributed pressure, aligns strongly with the sycophancy literature rather than functioning independently of it. Conceptualizing this as accommodation under perceived pressure situates it within the broader framework of models adapting their outputs based on perceived interlocutor biases.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The paper's observation that a collaboration retains working knowledge which no participant retains is **not a finding**, and earlier drafts presented it as one.
+
+✓ It can be interpreted as an instance of transactive memory as described by Wegner (1987), and can be described in terms of the distributed cognition set out by Hutchins (*Cognition in the Wild*, 1995). Neither source establishes that this case is such an instance; each supplies the construct under which it can be read. ✓ The function of the project's canonical documents corresponds to what Star and Griesemer (1989) call boundary objects.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Classify the memory observation under existing constructs.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: not a finding.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Narrow what is specific to this setting.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Classify the memory observation under existing constructs.
+Do not anticipate or start: Narrow what is specific to this setting.
+END_LOCAL_TRANSFORMATION

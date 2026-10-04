@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.5; blocks 157вЂ“158 В· "Organizational vocabulary вЂ” *role*, *identity*, *resвЂ¦"
+
+FUNCTION:
+Fix the functional use of organizational vocabulary.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Fix the reference of model names.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Fix the functional use of organizational vocabulary.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: the term is the error..
+
+CLOSURE:
+"fix the reference of model names" completes; "fix the functional use of organizational vocabulary" begins.
+Do not begin the next move: Disclose the conflict of position and the composition arrangement.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+References to Claude, Grok, Qwen, DeepSeek, ChatGPT, or Gemini denote observable behavior produced by a particular commercial interface, under a specific account configuration, and at a particular date. These references pertain to outputs and not to persistent underlying model entities. Note that the specific models themselves evolved during the observation period, sometimes within ongoing conversations that retained their original identifying names.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Organizational vocabulary — *role*, *identity*, *resistance*, *colleague*, *institution*, *menom* — is used functionally. "The model resisted the role" means the visible response rejected the framing and redirected the exchange; it asserts nothing about internal states, subjective experience, or personhood. We retain this vocabulary because organizational language compactly describes stable behavioural relations, but every such term must be reducible to an observable description, and where it is not, **the term is the error.**
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Fix the functional use of organizational vocabulary.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: the term is the error..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Disclose the conflict of position and the composition arrangement.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Fix the functional use of organizational vocabulary.
+Do not anticipate or start: Disclose the conflict of position and the composition arrangement.
+END_LOCAL_TRANSFORMATION

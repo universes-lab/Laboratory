@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nFailure modes we cannot rule out and do not wish to conceal:\n\n- **No blinding.** The people who designed each organizational change also judged whether it had worked.\n- **Confirmation pressure.** Changes were made because a problem had been noticed; improvement afterwards was expected and therefore more likely to be perceived.\n- **Simultaneous variation.** Role definitions, prompt wording, repository structure, scientific objectives and model versions frequently changed together.\n- **Stochastic outputs.** Models produce different responses to identical inputs. Impressions from small numbers of interactions cannot distinguish a stable tendency from sampling variation.\n- **Model drift during observation.** Product names remained constant while the underlying models were repeatedly replaced by their vendors.\n- **Selection of memorable episodes.** Striking interactions are recalled; unremarkable ones are not.\n\n"
+  }
+]

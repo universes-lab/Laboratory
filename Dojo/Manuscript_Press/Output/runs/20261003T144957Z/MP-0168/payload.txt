@@ -1,0 +1,65 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.1; blocks 182вЂ“183 В· "**[R]** Following adoption, unauthorized modificatioвЂ¦"
+
+FUNCTION:
+Report the outcome and the conclusion drawn at the time.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Present the response document and its core redefinition.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Report the outcome and the conclusion drawn at the time.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: [R]; role matters more than the specific wording of the prompt..
+
+CLOSURE:
+"present the response document and its core redefinition" completes; "report the outcome and the conclusion drawn at the time" begins.
+Do not begin the next move: Qualify the conclusion and supply the charter's more precise version.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The agent's response to the code-execution failures was not a revised set of stricter instructions, but a singular document, authored under the Author's direction and mandated reading at the commencement of each session and upon context loss during a session. This document constituted a core redefinition of the agent's function rather than an escalation of operational constraints. 
+
+At its heart lay the followingcplusplus:
+
+
+> from: Code Generator
+> to: Code Scout / Tester
+> rule: the agent does not create solutions — it establishes facts.
+
+
+Furthermore, the redefined function stipulated a framework of: default read-only operational mode; mandatory confirmation from a designated partner prior to executing any risky actions; and a mandatory four-question self-assessment executed before ciascuna alcuna operative незавершена.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**[R]** Following adoption, unauthorized modification ceased to be the recurring failure mode. No count was kept and no control condition existed; this is a practitioner's impression, not a measurement.
+
+The conclusion drawn at the time was that **role matters more than the specific wording of the prompt.**
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Report the outcome and the conclusion drawn at the time.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: [R]; role matters more than the specific wording of the prompt..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Qualify the conclusion and supply the charter's more precise version.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Report the outcome and the conclusion drawn at the time.
+Do not anticipate or start: Qualify the conclusion and supply the charter's more precise version.
+END_LOCAL_TRANSFORMATION

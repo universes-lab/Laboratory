@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nA further limitation follows, and it concerns the boundary between conversations rather than the resumption of one.\n\nThe visible boundary of a conversation is not necessarily the boundary of the context supplied to the model. Where a platform offers saved memories or retrieval over prior conversation history, information from earlier exchanges may enter a conversation that appears empty. This is documented product behaviour on at least one platform in use here, not an anomaly.\n\nThe consequence for method is direct: a new or visually empty conversation is not evidence of context isolation. Where isolation matters to a procedure, it must either be secured by a controlled environment or recorded with the status UNVERIFIED CONTEXT INDEPENDENCE.\n\nOne episode in this project illustrates the point without establishing its mechanism: a newly opened conversation used project information that had not been supplied to it. Which product mechanism transmitted that information was not determined, and the memory settings in force at the time were not recorded. The episode is reported as an instance of the limitation, not as a discovery of a channel.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 2.11 Positioning and claimed contribution\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

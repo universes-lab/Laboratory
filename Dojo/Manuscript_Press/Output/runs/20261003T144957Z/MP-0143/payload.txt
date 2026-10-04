@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.10; blocks 118вЂ“118 В· "One participant, asked directly whether it possessedвЂ¦"
+
+FUNCTION:
+Report a model's non-answer about its own persistence.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Refuse to supply a platform capability table, with reason.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Report a model's non-answer about its own persistence.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§5.5.
+
+CLOSURE:
+"refuse to supply a platform capability table, with reason" completes; "report a model's non-answer about its own persistence" begins.
+Do not begin the next move: Extend the limitation to the conversation boundary itself.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+We decline to provide a definitive table of platform capabilities. Such a table would be inherently time-bound, accurate only on the date of its creation and subject to change due to the evolving nature of these functionalities. The paper's focus centers on the demonstrable variance and dynamism of these capabilities across platforms, their influence on dormant conversation resumption contexts, and the historical lack of such documentation at the time of the reported observations. Therefore, a static table would not accurately reflect the pertinent aspects relevant to the argument.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+One participant, asked directly whether it possessed account-level persistence, declined to confirm it and recommended empirical verification of the specific interface instead. That response is consistent with §5.5: a model's self-report about its own access is not evidence of that access.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Report a model's non-answer about its own persistence.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§5.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Extend the limitation to the conversation boundary itself.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Report a model's non-answer about its own persistence.
+Do not anticipate or start: Extend the limitation to the conversation boundary itself.
+END_LOCAL_TRANSFORMATION

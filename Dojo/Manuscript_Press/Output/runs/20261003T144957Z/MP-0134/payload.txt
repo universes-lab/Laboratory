@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.7; blocks 99вЂ“101 В· "вњ“ Rahwan, Cebrian, Obradovich and colleagues, *MachiвЂ¦"
+
+FUNCTION:
+Place the work inside machine behaviour and disclaim a new discipline.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Supply the security principle and withdraw an earlier attribution.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Place the work inside machine behaviour and disclaim a new discipline.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: This paper does not propose a new discipline..
+
+CLOSURE:
+"supply the security principle and withdraw an earlier attribution" completes; "place the work inside machine behaviour and disclaim a new discipline" begins.
+Do not begin the next move: Distinguish the established sociology of AI by its object.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The principle of least privilege, as articulated by Saltzer and Schroeder in their 1975 *Proceedings of the IEEE* publication, directly parallels the concept outlined in §9.5. Applied to access rights, it posits that a participant should possess only the information strictly necessary for their designated function. 
+
+**Earlier drafts of this paper incorrectly attributed the benefit of restricted information to Simon's bounded rationality. That attribution is withdrawn.** The relevant insight stems from organizational information-processing design, not bounded rationality, which pertains to the cognitive limitations necessitating satisficing rather than deliberate informational containment.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+✓ Rahwan, Cebrian, Obradovich and colleagues, *Machine behaviour* (Nature 568, 477–486, 2019), propose the empirical study of algorithmic systems using the methods of behavioural science, organized along two dimensions: the object of study — individual machine behaviour, collective machine behaviour, hybrid human–machine behaviour — and Tinbergen's four questions.
+
+**This paper does not propose a new discipline.** Its observations belong to the collective and hybrid levels of that programme. Earlier drafts proposed "AI Ethology" as a new field; that proposal is withdrawn, both because the space is occupied and because the individual level is not this paper's object.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Place the work inside machine behaviour and disclaim a new discipline.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: This paper does not propose a new discipline..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Distinguish the established sociology of AI by its object.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Place the work inside machine behaviour and disclaim a new discipline.
+Do not anticipate or start: Distinguish the established sociology of AI by its object.
+END_LOCAL_TRANSFORMATION

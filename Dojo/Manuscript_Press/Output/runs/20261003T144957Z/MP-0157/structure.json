@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThey do not rank claims by importance or by likely truth. An [R] observation may prove correct and consequential; a [P] observation may prove an artifact of a platform variable we could not inspect. The labels record **what kind of evidence supports the claim**, so a reader may weigh each accordingly and later work knows which statements require testing first.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 3.5 Terminology of models and of anthropomorphic description\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

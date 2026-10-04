@@ -1,0 +1,60 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.5.1; blocks 245вЂ“247 В· "Earlier formulations of this project stated the pairвЂ¦"
+
+FUNCTION:
+Correct the earlier conflated formulation and name its cost.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define ZOV and ZOR as separate boundaries.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Correct the earlier conflated formulation and name its cost.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: holding; transmitting; acting on; В§4.2.2.
+
+CLOSURE:
+"define ZOV and ZOR as separate boundaries" completes; "correct the earlier conflated formulation and name its cost" begins.
+Do not begin the next move: Enumerate the four ZOV components.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Two distinct boundaries delineate a participant's operational position, and these must be explicitly defined separately. We henceforth abbreviate them as **ZOR** (Zone of Responsibility) and **ZOV** (Zone of Visibility), consistently employing these terms throughout the subsequent discussion. 
+
+
+> **ZOV — zone of visibility.** The limits of the information and context available to a participant when forming a response or decision.
+>
+> **ZOR — zone of responsibility.** The limits of the decisions, actions and handoffs for which the participant is accountable within the process.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Earlier formulations of this project stated the pair as "what the participant sees" and "what the participant does". That is insufficient, and the insufficiency produced a documented error. Those formulations conflate three distinct operations: **holding** information, **transmitting** it, and **acting on** it. A participant may hold information it may not transmit; may be accountable for a decision while holding limited context; may be obliged to transmit a result it is not entitled to evaluate.
+
+This is the same conflation that produced the terminological failure recorded in §4.2.2, where a property of a carrier was substituted for a property of a process. The decompositions below exist to prevent it recurring.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Correct the earlier conflated formulation and name its cost.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: holding; transmitting; acting on; В§4.2.2.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Enumerate the four ZOV components.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Correct the earlier conflated formulation and name its cost.
+Do not anticipate or start: Enumerate the four ZOV components.
+END_LOCAL_TRANSFORMATION

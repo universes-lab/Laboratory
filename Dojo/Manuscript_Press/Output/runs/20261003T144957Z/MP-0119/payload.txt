@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.0; blocks 69вЂ“70 В· "A claim-level audit of the provisional set was subseвЂ¦"
+
+FUNCTION:
+Record that a claim-level source audit was performed.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Extend the marking convention to the whole paper.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Record that a claim-level source audit was performed.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+AUTHORITY NOTE: the В§2.0 source-audit paragraph still awaits Author ratification. Preserve it as current SOURCE; do not strengthen or extend it.
+
+CLOSURE:
+"extend the marking convention to the whole paper" completes; "record that a claim-level source audit was performed" begins.
+Do not begin the next move: Survey implemented multi-agent systems and the closest analogue.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+To ensure methodological rigor throughout the entire paper, this marking convention of distinguishing between **Verified** and **Provisional** bibliographic references applies universally. Consequently, any citation appearing elsewhere in the text that lacks independent verification against its original source will be flagged with the warning symbol (⚠) signifying its provisional status.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A claim-level audit of the provisional set was subsequently carried out: each claim attributed to a source was checked against the primary source rather than merely confirmed to correspond to an existing paper. Every reference in the present version has passed that check, and the ⚠ class is accordingly empty here. The convention is retained because the audit found errors that a bibliographic check alone would not have caught — one citation supporting two claims that belong to two different papers, one attribution of a proposition its source does not advance, and one lineage claim its source does not support — and because any reference added later re-enters the paper as provisional.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Record that a claim-level source audit was performed.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+AUTHORITY NOTE: the В§2.0 source-audit paragraph still awaits Author ratification. Preserve it as current SOURCE; do not strengthen or extend it.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Survey implemented multi-agent systems and the closest analogue.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Record that a claim-level source audit was performed.
+Do not anticipate or start: Survey implemented multi-agent systems and the closest analogue.
+END_LOCAL_TRANSFORMATION

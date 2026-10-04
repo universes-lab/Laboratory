@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nEarlier formulations of this project stated the pair as \"what the participant sees\" and \"what the participant does\". That is insufficient, and the insufficiency produced a documented error. Those formulations conflate three distinct operations: **holding** information, **transmitting** it, and **acting on** it. A participant may hold information it may not transmit; may be accountable for a decision while holding limited context; may be obliged to transmit a result it is not entitled to evaluate.\n\nThis is the same conflation that produced the terminological failure recorded in §4.2.2, where a property of a carrier was substituted for a property of a process. The decompositions below exist to prevent it recurring.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "### 4.5.2 ZOV — four components\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

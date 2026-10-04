@@ -1,0 +1,1 @@
+The paper's observation that a collaboration retains working knowledge unattainable by individual participants can be understood through existing constructs of **transactive memory** (Wegner, 1987) and **distributed cognition** (Hutchins, 1995). Neither source definitively asserts that this specific case exemplifies these constructs,あくまでもそれらを通じた解釈枠組みを提供脚注の使い方. 

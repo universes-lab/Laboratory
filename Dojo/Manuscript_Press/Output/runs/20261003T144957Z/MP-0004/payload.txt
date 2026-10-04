@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.1; blocks 14вЂ“14 В· "Each of these outputs looked helpful in isolation. TвЂ¦"
+
+FUNCTION:
+Local closure: the cost was visible only from a multi-participant position.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Claim plus its instances: the errors were not the expected kind.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Local closure: the cost was visible only from a multi-participant position.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"claim plus its instances: the errors were not the expected kind" completes; "local closure: the cost was visible only from a multi-participant position" begins.
+Do not begin the next move: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The models exhibited errors, deviating from the anticipated patterns. These were predominantly not factual inaccuracies but rather organizational shortcomings. Instances included a model enhancing a text despite a sole instruction to check it, another concluding an argument the author had intentionally left unresolved, a third model misinterpreting the project's context across sessions, and a fourth rigidly adhering to a predefined role established months prior, impervious to explicit instruction revisions.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Each of these outputs looked helpful in isolation. Their cost was visible only from a position that saw more than one participant at a time. At first they looked like ordinary friction. They turned out to be the subject.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Local closure: the cost was visible only from a multi-participant position.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Inference / local closure
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Local closure: the cost was visible only from a multi-participant position.
+Do not anticipate or start: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+END_LOCAL_TRANSFORMATION

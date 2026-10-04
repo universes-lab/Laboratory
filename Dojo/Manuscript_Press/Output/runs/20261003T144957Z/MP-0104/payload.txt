@@ -1,0 +1,58 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.7; blocks 45вЂ“45 В· "It does not introduce role specialization, bounded iвЂ¦"
+
+FUNCTION:
+Non-claim: the paper introduces no new practice.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Enumerate the scale levels, concentrate into the empirical question, justify it.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Non-claim: the paper introduces no new practice.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§2.
+
+CLOSURE:
+"enumerate the scale levels, concentrate into the empirical question, justify it" completes; "non-claim: the paper introduces no new practice" begins.
+Do not begin the next move: Non-claim: no new discipline is proposed.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Our analysis employs a hierarchical scale to investigate the influence of rule cores on generated responses. Evidence currently supports two substantiated levels: the level of individual conversational turns (Personendaten §6.1) and the unfolding conversation itself (Personendaten §6.2). Additionally, one level (Personendaten §6.4) remains open for exploration, while the account level (Personendaten §6.4) and the overarching model family level (Personendaten §6.5) are yet to be definitively examined and disentangled.
+
+This structured framework converges into a singular empirical question: ⟦ zakładamy, że przetwarzanie Plocalctx.CON CreateTagHelperED_CLAUSES (MP_PROTECTED:P003hoeddwyd⟧. This precise formulation, specifying measurable phenomena and criteria for refutation, ondersتقاوى the broader initial objective of studying social behaviour in collaborative AI systems. The refined question offers a moreMETHOD CreateTagHelperED and testable pathway towards understanding the precise role of rule cores in shaping response typology within these systems.
+
+
+> **At what level of nesting is a rule core fixed?**
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+It does not introduce role specialization, bounded information access, structured disagreement, or externalized memory as design ideas. Each exists under established terminology; §2 identifies the prior work. The account of organizational memory in particular corresponds to transactive memory and distributed cognition, and is not a finding.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Non-claim: the paper introduces no new practice.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§2.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Non-claim: no new discipline is proposed.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Non-claim: the paper introduces no new practice.
+Do not anticipate or start: Non-claim: no new discipline is proposed.
+END_LOCAL_TRANSFORMATION

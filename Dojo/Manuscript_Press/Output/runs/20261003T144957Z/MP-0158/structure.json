@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nReferences to *Claude*, *Grok*, *Qwen*, *DeepSeek*, *ChatGPT* or *Gemini* denote observable behaviour produced by a particular commercial interface, under a particular account configuration, at a particular date. They are not claims about persistent entities. The underlying models changed during the observation period, in some cases inside a conversation that retained its original name.\n\n"
+  }
+]

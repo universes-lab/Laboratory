@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.2; blocks 201вЂ“202 В· "*Behavioural DNA* is retained in this paper only as вЂ¦"
+
+FUNCTION:
+Fix the residual status of the withdrawn term.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Withdraw behavioural DNA and give the mechanism that contradicts it.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Fix the residual status of the withdrawn term.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"withdraw behavioural DNA and give the mechanism that contradicts it" completes; "fix the residual status of the withdrawn term" begins.
+Do not begin the next move: Introduce and define menom.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This paper abandons the term "behavioural DNA," previously employed to conceptualize the underlying mechanisms governing observed behaviors. Its withdrawal stems from an inherent conceptual contradiction. The metaphor of "replicationtagHelperRunner, implying rules directly copying themselves and transmitting unchanged, clashes with the process this work elucidates: development. Development, as described here, posits rules generating a structured output (phenotype) not explicitly present within the rules themselves (akin to genotype-to-phenotype mapping, not genotype-to-genotype). Consequently, retaining "behavioural DNA" necessitated continual disclaimers regarding biological inheritance, signifying its ineffectiveness in accurately representing the core argument.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+*Behavioural DNA* is retained in this paper only as a historical label for withdrawn vocabulary; it is not used as a normative or explanatory term.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Fix the residual status of the withdrawn term.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Introduce and define menom.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Fix the residual status of the withdrawn term.
+Do not anticipate or start: Introduce and define menom.
+END_LOCAL_TRANSFORMATION

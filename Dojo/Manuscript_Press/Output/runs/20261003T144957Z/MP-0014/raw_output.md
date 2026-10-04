@@ -1,0 +1,1 @@
+The methodological shortcomings of the approach employed to generate these observations are explicitly addressed in §10.6, where a critical self-evaluation reveals unfavorable aspects. Specifically, the evaluation highlights the absence of blinding procedures and the post-hoc definition of outcome categories based on already-examined responses. 

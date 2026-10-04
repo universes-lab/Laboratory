@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.3; blocks 78вЂ“80 В· "вњ“ Sensitivity to the ordering of in-context materialвЂ¦"
+
+FUNCTION:
+Supply context-effect literature and connect it to two constructs.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Supply the theoretical account of role-play and apply it.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Supply context-effect literature and connect it to two constructs.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§6.1; В§5.5.
+
+CLOSURE:
+"supply the theoretical account of role-play and apply it" completes; "supply context-effect literature and connect it to two constructs" begins.
+Do not begin the next move: Classify the memory observation under existing constructs.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Shanahan, McDonell, and Reynolds propose a theoretical framework for understanding language models through the lens of role-play. Instead of viewing a model as possessing a singular, persistent identity, they argue it simulates a distribution of potential characters. This framework posits that prompts act as situational cues, eliciting corresponding behavioral and epistemic stances akin to actors embodying different roles. Consequently, a prompt requesting institutional biography, lacking a coherent biographical referent within the model's simulated framework, would result in the model attempting to construct a fictional persona consistent with the institutional aspetct of the prompt. Section §5.3 empirically exemplifies this, demonstrating the model's response to such a prompt. Furthermore, the operational finding articulated in §6.2 can be interpreted as a quantifiable measure of how effectively a prompt directs the model towards embodying a specific, constructed role, thus illustrating the theoretical account in action.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+✓ Sensitivity to the ordering of in-context material is documented (Lu et al., ACL 2022), as is degraded use of information positioned mid-context (Liu et al., TACL 2024). ✓ Sharma et al. (arXiv:2310.13548) document sycophancy — model responses matching the interlocutor's stated beliefs or views in preference to truthful ones.
+
+These bear directly on two of this paper's constructs. Context imprinting (§6.1) concerns a stronger form of order effect: not sensitivity to the arrangement of examples, but persistence of an interpretive stance established by one conflictual episode. The relayed-influence observation (§5.5) is a case of accommodation under attributed pressure and should be read against the sycophancy literature rather than as independent of it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Supply context-effect literature and connect it to two constructs.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§6.1; В§5.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Classify the memory observation under existing constructs.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Literature positioning
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Supply context-effect literature and connect it to two constructs.
+Do not anticipate or start: Classify the memory observation under existing constructs.
+END_LOCAL_TRANSFORMATION

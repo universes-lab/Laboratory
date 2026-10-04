@@ -1,0 +1,1 @@
+Throughout the documentation pertaining to [R] claims, any quantitative descriptors such as "significant" or "substantial" improvements have been removed. Where these terms originally appeared in working notes, corresponding quantifiable evidence was lacking, necessitating a textual revision to accurately reflect this absence of measurable data. 

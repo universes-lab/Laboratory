@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThis is the literature that most directly constrains the paper's structural hypothesis (§8), and it cuts both ways.\n\n**For.** ✓ Du, Li, Torralba, Tenenbaum and Mordatch (arXiv:2305.14325) propose multi-agent debate as a means of improving factual accuracy and reasoning, reporting gains from iterative cross-examination among model instances. ✓ Liang et al. (EMNLP 2024) propose a debate protocol intended to counteract degeneration of thought and to encourage divergent reasoning.\n\n**Against.** ✓ Zhang, Cui, Chen, Wang, Zhang, Wang, Wu and Hu, *Stop Overvaluing Multi-Agent Debate — We Must Rethink Evaluation and Embrace Model Heterogeneity* (arXiv:2502.08788v3, June 2025), evaluate five representative debate methods across nine benchmarks and four foundation models. They report that debate frequently fails to outperform single-agent chain-of-thought or self-consistency baselines even at substantially higher inference cost, and identify weak baseline comparison and inconsistent setup as systematic problems in the existing evaluations.\n\n"
+  }
+]

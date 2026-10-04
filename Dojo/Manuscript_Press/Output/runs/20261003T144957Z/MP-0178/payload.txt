@@ -1,0 +1,61 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.3; blocks 207вЂ“207 В· "The relation to *genome* is deliberate and partial. вЂ¦"
+
+FUNCTION:
+State the partial relation to genome.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Place menom in the Author's earlier meme/memoframe series.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State the partial relation to genome.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"place menom in the Author's earlier meme/memoframe series" completes; "state the partial relation to genome" begins.
+Do not begin the next move: Deny a localized carrier and show which levels have one.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The termMessageOfMessageOfMenom (MessageOfMenom, or menom) builds upon a framework established in the Author's prior research on cultural and behavioral transmission, specifically extending the concept of Dawkins' meme. 
+
+
+| | What it is |
+|---|---|
+| **Meme** | a unit of cultural or evaluative information |
+| **Memoframe** | a structured set of related memes together with rules for interpreting a class of situations |
+| **Memocode** | behavioural programs and the rules governing their selection and activation |
+| **Menom** | the organized system comprising all three, for a given system or class of systems |
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The relation to *genome* is deliberate and partial. A genome is the organized system of an organism's hereditary information; a menom is the organized system of a system's informational and behavioural organization. Like *genome*, the term applies at two levels: to a class (the shared structure) and to an individual (the particular realization). Unlike *genome*, it asserts neither a carrier nor a mode of transmission.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State the partial relation to genome.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Deny a localized carrier and show which levels have one.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State the partial relation to genome.
+Do not anticipate or start: Deny a localized carrier and show which levels have one.
+END_LOCAL_TRANSFORMATION

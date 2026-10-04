@@ -1,0 +1,5 @@
+Literature directly pertinent to the paper's structural hypothesis (§8) presents a nuanced perspective, advocating for and against the efficacy of multi-agent debate. 
+
+**Arguments For:** Studies by Du et al. (arXiv:2305.14325) and Liang et al. (EMNLP 2024) propose multi-agent debate as a mechanism to enhance factual accuracy and reasoning. Du et al. demonstrate gains from iterative cross-examination among model instances, while Liang et al. posit that debate protocols can mitigate degeneration of thought and foster divergent reasoning. 
+
+**Conversely,** Zhang et al. (arXiv:2502.08788v3, June 2025) challenge these optimistic viewpoints. Their evaluation of five debate methods across diverse benchmarks and foundation models reveals that debate often fails to surpass single-agent baselines like chain-of-thought or self-consistency, even at a significantly higher computational cost. They attribute these shortfalls to methodological weaknesses in existing evaluations, including inconsistent setups and a lack of robust baseline comparisons. 

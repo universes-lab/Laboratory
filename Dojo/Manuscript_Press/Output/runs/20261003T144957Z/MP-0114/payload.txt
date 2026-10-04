@@ -1,0 +1,65 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.10; blocks 58вЂ“58 В· "**В§2** positions the work relative to existing reseaвЂ¦"
+
+FUNCTION:
+Structural map of the paper.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Give the two reasons for publishing at this stage.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Structural map of the paper.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§2; В§3; В§4; В§5; В§6; В§7.
+
+CLOSURE:
+"reason 2: the setting cannot be constructed deliberately" completes; "structural map of the paper" begins.
+Do not begin the next move: Reading paths for different readers.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Two key reasons compel us to publish at this stage. Firstly, the experiment's instructive failures shed crucial light on the underlying dynamics. The infatti that the initial two interventions faltered provided invaluable insight precisely because they did not succeed as expected. Had only the successful third step been observed, a premature and unsupported conclusion of method-preserving prompt efficacy would have been drawn, obscuring the necessary understanding of *why* and the presence of unconcluded confounds (§11.8). 
+
+Secondly, replicating these specific conditions in a controlled laboratory setting proves inherently difficult. The inherently dynamic and specialized nature of dormant, months-old conversations within a live research project makes for a context uniquely suited for observational learning rather than tightly controlled inference. While not ideal for deriving definitive causal conclusions, this environment uniquely enabled the identification of critical phenomena and the formulation of testable hypotheses for future work.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**§2** positions the work relative to existing research and identifies which of its concepts already exist under established terminology — most of them.
+**§3** defines the evidential labels and the known failure modes of each class.
+**§4** sets out the conceptual framework and its origin.
+**§5** is the single canonical account of the empirical material: the three-step experiment, its results, nine structural confounds, and four ancillary observations.
+**§6** derives the concepts the evidence supports, ordered by scope.
+**§7** records practitioner observations that motivated the framework but do not support it.
+**§8** states the structural hypothesis and withdraws three claims made about it in earlier drafts.
+**§9** gives design rules.
+**§10** describes the human coordinator's position, including the respect in which it is the study's principal methodological weakness.
+**§11** specifies the experiments, each mapped to the boundary of the scale it would separate.
+**§12** states limitations, ethical risks, and the conclusion.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Structural map of the paper.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§2; В§3; В§4; В§5; В§6; В§7.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Reading paths for different readers.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Structured enumeration / exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Structural map of the paper.
+Do not anticipate or start: Reading paths for different readers.
+END_LOCAL_TRANSFORMATION

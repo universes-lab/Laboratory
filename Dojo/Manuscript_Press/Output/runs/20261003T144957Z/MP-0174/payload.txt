@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.2; blocks 198вЂ“200 В· "Earlier stages of this project used *behavioural DNAвЂ¦"
+
+FUNCTION:
+Withdraw behavioural DNA and give the mechanism that contradicts it.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Draw the terminological consequence applied throughout.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Withdraw behavioural DNA and give the mechanism that contradicts it.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: replication; development.
+
+CLOSURE:
+"draw the terminological consequence applied throughout" completes; "withdraw behavioural DNA and give the mechanism that contradicts it" begins.
+Do not begin the next move: Fix the residual status of the withdrawn term.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Throughout this paper, the explicit methodological stance is that directly observable phenomena (i.e., behavior) are the primary subject of analysis. Consequently, any assertion regarding an underlying "rule core" necessitating such behavior is explicitly framed as a hypothesis ([Personendaten SOURCE_ANCHOR MECHANISM_PROPOSED]ьажypothesis) concerning an unobserved mechanism. Direct empirical evidence of said core itself cannot be provided.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Earlier stages of this project used *behavioural DNA* for the same idea, and earlier drafts of this paper retained it. It is withdrawn here, and the reason is internal rather than stylistic.
+
+The genomic metaphor carries a mechanism: **replication** — rules producing copies of rules, transmitted from one carrier to the next. The process this paper describes is **development** — rules producing a structure not itself present in the rules. Genotype to phenotype, not genotype to genotype.
+
+The metaphor therefore contradicts the construct it was chosen to illustrate. Retaining it obliged the text to disclaim biological inheritance at every use, which is a reliable sign that a term is working against its own argument.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Withdraw behavioural DNA and give the mechanism that contradicts it.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: replication; development.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Fix the residual status of the withdrawn term.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Withdraw behavioural DNA and give the mechanism that contradicts it.
+Do not anticipate or start: Fix the residual status of the withdrawn term.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,72 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.3; blocks 228вЂ“228 В· "**Scale 2 вЂ” scope of a shared premise.** What is govвЂ¦"
+
+FUNCTION:
+Define Scale 2.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define Scale 1 and tabulate its levels.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define Scale 2.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Scale 2 вЂ” scope of a shared premise..
+
+CLOSURE:
+"define Scale 1 and tabulate its levels" completes; "define Scale 2" begins.
+Do not begin the next move: Show the two scales do not collapse.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+## Scale 1: Carrier of State
+
+Scale 1 delineates the **physical location where persistence resides**. This scale defines the substrate or medium upon which the state of a delineated rule core exists and persists. To clearly articulate its operational范围, let's tabulate its defined levels:
+
+| Level | Description                               yakarta |
+|---|---|---|
+| **[P]** | The primary anchoring point of persistence. (Specific instantiation to be defined within subsequent sections per SOURCE MATERIAL CONSTRAINTS). |
+| **[P-A propOrdered by SOURCE MATERIAL CONSTRAINTS].**|  Subordinate or associated locations influencing or modulated by the primary anchoring point [P]. _(Mechanism and precise definition to be elaborated in related sections adhering to SOURCE MATERIAL CONSTRAINTS)._protoimpl. |
+| **[H propOrdered by SOURCE MATERIAL CONSTRAINTS].**| Hierarchical contexts or superiores levels impacting the persistence anchored at level P. _(Further elucidation and linkage to specific hierarchical structures within the defined framework per SOURCE MATERIAL CONSTRAINTS)._protoimpl. | 
+
+Understanding these levels within Scale 1 is crucial for comprehending the mechanisms of state maintenance and interaction within the delineated framework, as specified in subsequent sections such as §6.1 and §6.2.
+
+
+| Scope | Phenomenon | Status |
+|---|---|---|
+| Single turn | — | — |
+| Episode within a conversation | context imprinting (§6.1) | **[P]** |
+| Whole conversation | role inertia (§6.2) | **[P]** |
+| Account | account-scoped persistence (§6.4) | **[P-A]**, open |
+| Model family | family-level priors (§6.5) | **[H]**, confounded |
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Scale 2 — scope of a shared premise.** What is governed by an initial setting shared across participants: the model, the role, the interaction history, the group, or the whole research frame.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define Scale 2.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Scale 2 вЂ” scope of a shared premise..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Show the two scales do not collapse.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define Scale 2.
+Do not anticipate or start: Show the two scales do not collapse.
+END_LOCAL_TRANSFORMATION

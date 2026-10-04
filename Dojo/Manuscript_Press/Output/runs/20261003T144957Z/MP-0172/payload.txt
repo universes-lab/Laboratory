@@ -1,0 +1,63 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.1; blocks 194вЂ“195 В· "Nothing programmed the glider. It appeared. The sameвЂ¦"
+
+FUNCTION:
+Interrogate the analogy and state one asymmetry between the rows.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Tie the type/content distinction to testability via the Game of Life.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Interrogate the analogy and state one asymmetry between the rows.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: is there a compact core from which the rest unfolds without further stipulation?; execute.
+
+CLOSURE:
+"tie the type/content distinction to testability via the Game of Life" completes; "interrogate the analogy and state one asymmetry between the rows" begins.
+Do not begin the next move: Draw the terminological consequence applied throughout.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The testability of a claim hinges on the distinction between response type and content. Claiming that "models have stable traits" is inherently untestable because it doesn't specify what constitutes said stability. Conversely, stating that "type is determined, content varies," akin to Conway's Game of Life, becomes testable. Drawing an analogy of **explanation type**, not subject matter, consider this: pinpoint a class of inputs where the response type remains undefined, and thereby demonstrate the absence of a core operating at that level. The Game of Life analogy illustrates this: the underlying rules (corresponding to the "type") dictate cellular evolution, yet the emergent patterns (the "content") exhibit variability. This distinct separation of determinism and variation allows for empirical testing of the claimed rule core.  betweenstory CONFORMANCE:P006 CONFORMANCE:P006 CONFORMANCE:P006
+
+
+| | Rules | What appears | Present in the rules? |
+|---|---|---|---|
+| Game of Life | three neighbourhood rules | gliders, guns, oscillators | no |
+| A physical theory | a minimal axiom core | the derived structure | no, if the claim holds |
+| A body of knowledge | axioms and inference rules | the derivation graph | no |
+| A language model | a basic rule set | a characteristic response type | no |
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Nothing programmed the glider. It appeared. The same question can be asked of all four rows and does not depend on subject matter: **is there a compact core from which the rest unfolds without further stipulation?**
+
+One asymmetry between the rows should be stated, since it bears on how far the analogy carries. In Game of Life the rules **execute**: the glider is obtained by running the automaton, and no reader need take the author's word for it. In a theory stated as text, a chain from axioms to consequences is narrated rather than run. The analogy therefore sets a target rather than describing an achievement, and any claim of the first kind requires an executable artifact to support it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Interrogate the analogy and state one asymmetry between the rows.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: is there a compact core from which the rest unfolds without further stipulation?; execute.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Draw the terminological consequence applied throughout.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Contrast / differentiation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Interrogate the analogy and state one asymmetry between the rows.
+Do not anticipate or start: Draw the terminological consequence applied throughout.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.1; blocks 11вЂ“11 В· "The original task was to move a large body of theoreвЂ¦"
+
+FUNCTION:
+Narrative setup: the original transfer task and why models were used.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Opening reclassification: physics project became a methodology project.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Narrative setup: the original transfer task and why models were used.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"opening reclassification: physics project became a methodology project" completes; "narrative setup: the original transfer task and why models were used" begins.
+Do not begin the next move: Claim plus its instances: the errors were not the expected kind.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The genesis of this work lay in a physics-oriented project. However, an unforeseen development led to its evolution into a methodology project, a serendipitous shift that warrants documentation and reporting.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The original task was to move a large body of theoretical material — books, working notes, unfinished derivations — into an open repository, using several language models in separate, persistently specialized conversations. The models were assistants. The subject was the theory.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Narrative setup: the original transfer task and why models were used.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Claim plus its instances: the errors were not the expected kind.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Narrative setup: the original transfer task and why models were used.
+Do not anticipate or start: Claim plus its instances: the errors were not the expected kind.
+END_LOCAL_TRANSFORMATION

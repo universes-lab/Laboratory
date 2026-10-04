@@ -1,0 +1,1 @@
+Beyond the direct user interaction-centric view of externalized memory, a distinct technical sense exists: platform-level persistence, elaborated upon in §2.10. This denotes a mechanism of data storage independent of individual user sessions, operating at the level of the underlying platform rather than within a specific user's cognitive context. 

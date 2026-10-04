@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.7; blocks 164вЂ“165 В· "Calendar dates for the sessions reported here were nвЂ¦"
+
+FUNCTION:
+State that dates were not recorded and were not reconstructed.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State the quotation convention and locate final responsibility.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State that dates were not recorded and were not reconstructed.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§5.4.
+
+CLOSURE:
+"state the quotation convention and locate final responsibility" completes; "state that dates were not recorded and were not reconstructed" begins.
+Do not begin the next move: Explain the rejection of reconstruction and its reporting consequence.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Direct quotations from model responses in this manuscript are verbatim extracts taken from preserved transcripts and are marked with quotation marks. When the manuscript summarizes a model's response rather than directly quoting it, quotation marks are omitted. Ultimately, the human Author retains responsibility for all editorial decisions and the manuscript's content.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Calendar dates for the sessions reported here were not recorded contemporaneously and have not been reconstructed.
+
+The consequence is stated rather than mitigated. Model versions changed during the intervals involved; both conversations in the main experiment were resumed on versions later than those with which they had originally been conducted. Without dates the version confound (§5.4, C6) cannot be bounded — only named.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State that dates were not recorded and were not reconstructed.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§5.4.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Explain the rejection of reconstruction and its reporting consequence.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State that dates were not recorded and were not reconstructed.
+Do not anticipate or start: Explain the rejection of reconstruction and its reporting consequence.
+END_LOCAL_TRANSFORMATION

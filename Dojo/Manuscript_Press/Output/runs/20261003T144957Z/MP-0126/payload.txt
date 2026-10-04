@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.4; blocks 84вЂ“85 В· "A second and technically distinct sense of externaliвЂ¦"
+
+FUNCTION:
+Distinguish a second, technical sense of externalized memory.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Narrow what is specific to this setting.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Distinguish a second, technical sense of externalized memory.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§2.10.
+
+CLOSURE:
+"narrow what is specific to this setting" completes; "distinguish a second, technical sense of externalized memory" begins.
+Do not begin the next move: Frame the debate literature as cutting both ways, then give both sides.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Specifically within this collaborative context, and notably modest in its operation, the mechanism functions without any shared state persisting across sessions among the participants. Furthermore, these individuals remain unaware of the mechanism's própria atuação (§7.7).
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A second and technically distinct sense of externalized memory — platform-level persistence — is treated separately in §2.10.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Distinguish a second, technical sense of externalized memory.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§2.10.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Frame the debate literature as cutting both ways, then give both sides.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Contrast / differentiation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Distinguish a second, technical sense of externalized memory.
+Do not anticipate or start: Frame the debate literature as cutting both ways, then give both sides.
+END_LOCAL_TRANSFORMATION

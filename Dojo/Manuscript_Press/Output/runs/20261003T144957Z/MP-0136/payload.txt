@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.8; blocks 104вЂ“106 В· "Where this paper uses the label *AI Sociology* (В§12.вЂ¦"
+
+FUNCTION:
+State this paper's different referent and disclaim priority.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Distinguish the established sociology of AI by its object.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State this paper's different referent and disclaim priority.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: among artificial participants; В§12.7.
+
+CLOSURE:
+"distinguish the established sociology of AI by its object" completes; "state this paper's different referent and disclaim priority" begins.
+Do not begin the next move: State that the studied condition is absent from the literature.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+A distinct sociological literature specifically examines artificial intelligence (AI) as a sociotechnical system within human society. This body of work, termed the "sociology of artificial intelligence," focuses on AI's societal ramifications concerning issues like inequality, labor dynamics, power structures, and data justice. Key publications establishing this agenda include Joyce, Smith-Doerr, Alegria, Bell, Cruz, Hoffman, Noble, and Shestakofsky's *Toward a Sociology of Artificial Intelligence* (2021) in *Socius*, followed by Joyce and Cruz's continuation of this framework in a subsequent 2024 *Socius* publication. Crucially, this sociological approach employs existing sociological methodologies to analyze AI's embeddedness and consequences within human contexts.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Where this paper uses the label *AI Sociology* (§12.7), the referent is different: structural effects **among artificial participants**, and the effect on behaviour of a described organizational position. The two should not be conflated, and readers arriving from the sociological literature should expect neither inequality nor power as topics here.
+
+We adopt the label for convenience, claim no priority in it, and note that nothing in the paper depends on the name.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State this paper's different referent and disclaim priority.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: among artificial participants; В§12.7.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State that the studied condition is absent from the literature.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State this paper's different referent and disclaim priority.
+Do not anticipate or start: State that the studied condition is absent from the literature.
+END_LOCAL_TRANSFORMATION

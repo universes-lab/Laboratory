@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n✓ Shanahan, McDonell and Reynolds, *Role play with large language models* (Nature 623, 493–498, 2023), argue that a language model is better understood as simulating a distribution of possible characters than as possessing a single persistent identity.\n\nThis is the theoretical account of which §5.3 is an empirical instance. A prompt asserting institutional biography asks a model to affirm autobiographical claims that, on this account, have no referent. The paper's operational finding (§6.2) can be read as a measure of how far a prompt goes in that direction.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 2.3 Context effects: order, position, and accommodation\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

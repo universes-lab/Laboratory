@@ -1,0 +1,1 @@
+Direct quotations from model responses in this manuscript are verbatim extracts taken from preserved transcripts and are marked with quotation marks. When the manuscript summarizes a model's response rather than directly quoting it, quotation marks are omitted. Ultimately, the human Author retains responsibility for all editorial decisions and the manuscript's content. 

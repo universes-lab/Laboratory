@@ -1,0 +1,6 @@
+DIST CreateTagHelper SUBSTANTIVE CEILING SOURCE MATERIAL:
+
+Two distinct concepts, operating at different scales, necessitate clear differentiation: the **rule core** and the **menom**. This paper primarily focuses on the **rule core**, defined as the specific construct within a system that dictates the type of response generated at a particular scope or level. Section MessageOf_4.3 explicitly situates these rule cores along a measurable scale. Evidence presented throughout the work directly pertains to these rule cores.
+
+The broader term, **menom**, encompasses the encompassing informational and behavioral structures from which these rule cores are derived. Conceptualized as a totality of frames, evaluative patterns, and behavioral rules, a rule core can be understood as the active subset of a menom relevant to a given class of inputs. Employing the term "menom" acknowledges the informational richness extending beyond mere behavioral organization, a comprehensiveness necessary as the paper's material traverses both thesePersonendaten and their underlying foundations. Crucially, while evidence directly addresses rule cores, the concept of the menom broadens our understanding of the informational context within which these cores function. 
+## 4.3 The nesting question, and two scales

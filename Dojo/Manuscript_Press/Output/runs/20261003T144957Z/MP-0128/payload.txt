@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.5; blocks 89вЂ“89 В· "вњ“ Further negative results are reported elsewhere. HвЂ¦"
+
+FUNCTION:
+Add further negative results.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Frame the debate literature as cutting both ways, then give both sides.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Add further negative results.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"frame the debate literature as cutting both ways, then give both sides" completes; "add further negative results" begins.
+Do not begin the next move: Separate an adjacent result belonging to a different construct.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Literature directly pertinent to the paper's structural hypothesis (§8) presents a nuanced perspective, advocating for and against the efficacy of multi-agent debate. 
+
+**Arguments For:** Studies by Du et al. (arXiv:2305.14325) and Liang et al. (EMNLP 2024) propose multi-agent debate as a mechanism to enhance factual accuracy and reasoning. Du et al. demonstrate gains from iterative cross-examination among model instances, while Liang et al. posit that debate protocols can mitigate degeneration of thought and foster divergent reasoning. 
+
+**Conversely,** Zhang et al. (arXiv:2502.08788v3, June 2025) challenge these optimistic viewpoints. Their evaluation of five debate methods across diverse benchmarks and foundation models reveals that debate often fails to surpass single-agent baselines like chain-of-thought or self-consistency, even at a significantly higher computational cost. They attribute these shortfalls to methodological weaknesses in existing evaluations, including inconsistent setups and a lack of robust baseline comparisons.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+✓ Further negative results are reported elsewhere. Huang et al. (ICLR 2024), *Large Language Models Cannot Self-Correct Reasoning Yet*, report that multi-agent debate does not outperform self-consistency in the comparison they run. ✓ Choi, Zhu and Li (NeurIPS 2025), *Debate or Vote*, report that majority voting accounts for most of the performance gains typically attributed to debate.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Add further negative results.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Separate an adjacent result belonging to a different construct.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Add further negative results.
+Do not anticipate or start: Separate an adjacent result belonging to a different construct.
+END_LOCAL_TRANSFORMATION

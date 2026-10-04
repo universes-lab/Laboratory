@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.10; blocks 115вЂ“116 В· "A technical point with direct bearing on the confounвЂ¦"
+
+FUNCTION:
+Technical point: interfaces differ in persistence.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Two qualifications limiting how far condition 1 can be privileged.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Technical point: interfaces differ in persistence.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: change over time вЂ” in this project, within the lifetime of a single account.; В§5.4.
+
+CLOSURE:
+"two qualifications limiting how far condition 1 can be privileged" completes; "technical point: interfaces differ in persistence" begins.
+Do not begin the next move: Refuse to supply a platform capability table, with reason.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Two key limitations constrain the privile gjen of condition 1 (direct inter-model output exchange) over conditions 2 and 3 (human-mediated transfer methods). 
+
+Firstly, a model operating within a singular text channel lacks the ability to discern whether incoming text originates directly from a human or is relayed from another system. Stylistic cues indicative of authorship can be imitated, rendering reliable distinction impossible from the recipient's perspective. Consequently, relayed and direct transfer appear indistinguishable epistemically.
+
+Secondly, and fundamentally, the differentiating factor between these conditions isn't recipient epistemology, but rather **who governs the routing of information**. In a programmatic setup, transfer sequences and content are dictated by codified rules. Conversely, human relay introduces human agency: a person can withhold, reorder, obscure attribution, or delay information. This nuanced human control, operationalized in §10.3, constitutes a deliberate experimental manipulation of informational asymmetry, a capability inherently absent in default programmatic architectures.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A technical point with direct bearing on the confound in §5.4 (C9).
+
+Commercial interfaces differ in what a conversation can access on resumption: the context window alone; retrieval over prior conversation history; account-level memory; or persistent entries the model writes on its own initiative. These affordances are documented in vendor materials, differ between platforms, and **change over time — in this project, within the lifetime of a single account.**
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Technical point: interfaces differ in persistence.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: change over time вЂ” in this project, within the lifetime of a single account.; В§5.4.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Refuse to supply a platform capability table, with reason.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Technical point: interfaces differ in persistence.
+Do not anticipate or start: Refuse to supply a platform capability table, with reason.
+END_LOCAL_TRANSFORMATION

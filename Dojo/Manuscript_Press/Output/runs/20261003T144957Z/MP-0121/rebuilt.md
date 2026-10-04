@@ -1,0 +1,2 @@
+This work neither posits nor claims originality regarding role specialization, the division of cognitive labor, nor structured agent interaction as fundamental design concepts. These principles are well-established within existing literature. The distinct contributions of the present paper, differentiating it from prior work, are articulated in sections §2.9 and §2.11. 
+## 2.2 Persona, role-play, and identity claims

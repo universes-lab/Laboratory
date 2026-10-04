@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.0; blocks 66вЂ“67 В· "This distinction is not decorative. During preparatiвЂ¦"
+
+FUNCTION:
+Justify the convention from the thirteen-item episode.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define the two reference classes and their marks.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Justify the convention from the thirteen-item episode.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§12.4.1.
+
+CLOSURE:
+"define the two reference classes and their marks" completes; "justify the convention from the thirteen-item episode" begins.
+Do not begin the next move: Extend the marking convention to the whole paper.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Two distinct reference classes are distinguished: **Verified** and **Provisional**. 
+
+References marked as **Verified Administrativna** have been directly retrieved and verified against their cited source, confirming the title, authors, and abstract. These carry the highest evidential weight. Conversely, **Provisional (⚠tagHelperRunner;出版年; cited_authors;title;abstract)** references were supplied by a literature searcher and lack independent source verification. They are flagged with a warning symbol (⚠) and should be treated with methodological caution, primarily employed for claims not substantiated elsewhere in the paper.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+This distinction is not decorative. During preparation of this section, thirteen bibliographic items were requested from such a participant; five were wrong, and two of those inverted the position of the works cited, presenting papers arguing *for* a claim as evidence against it. Two arXiv identifiers supplied as multi-agent-debate literature resolve to papers in observational astrophysics and cosmology. The episode is reported in §12.4.1 because it is an instance of the failure mode that section describes.
+
+No provisional item should be cited from this paper without independent checking.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Justify the convention from the thirteen-item episode.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§12.4.1.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Extend the marking convention to the whole paper.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Rationale / explanation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Justify the convention from the thirteen-item episode.
+Do not anticipate or start: Extend the marking convention to the whole paper.
+END_LOCAL_TRANSFORMATION

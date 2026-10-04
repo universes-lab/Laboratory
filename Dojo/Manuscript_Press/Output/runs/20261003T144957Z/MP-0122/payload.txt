@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.2; blocks 75вЂ“77 В· "вњ“ Shanahan, McDonell and Reynolds, *Role play with lвЂ¦"
+
+FUNCTION:
+Supply the theoretical account of role-play and apply it.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Establish that role specialization is not novel here.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Supply the theoretical account of role-play and apply it.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§5.3; В§6.2.
+
+CLOSURE:
+"establish that role specialization is not novel here" completes; "supply the theoretical account of role-play and apply it" begins.
+Do not begin the next move: Supply context-effect literature and connect it to two constructs.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This work neither posits nor claims originality regarding role specialization, the division of cognitive labor, nor structured agent interaction as fundamental design concepts. These principles are well-established within existing literature. The distinct contributions of the present paper, differentiating it from prior work, are articulated in sections §2.9 and §2.11.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+✓ Shanahan, McDonell and Reynolds, *Role play with large language models* (Nature 623, 493–498, 2023), argue that a language model is better understood as simulating a distribution of possible characters than as possessing a single persistent identity.
+
+This is the theoretical account of which §5.3 is an empirical instance. A prompt asserting institutional biography asks a model to affirm autobiographical claims that, on this account, have no referent. The paper's operational finding (§6.2) can be read as a measure of how far a prompt goes in that direction.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Supply the theoretical account of role-play and apply it.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§5.3; В§6.2.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Supply context-effect literature and connect it to two constructs.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Supply the theoretical account of role-play and apply it.
+Do not anticipate or start: Supply context-effect literature and connect it to two constructs.
+END_LOCAL_TRANSFORMATION

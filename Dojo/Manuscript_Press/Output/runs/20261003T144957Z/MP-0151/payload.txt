@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.1; blocks 140вЂ“140 В· "**[R] вЂ” Retrospective practitioner observation.** ThвЂ¦"
+
+FUNCTION:
+Define [R].
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define [P-A].
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define [R].
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: [R] вЂ” Retrospective practitioner observation.; [R].
+
+CLOSURE:
+"define [P-A]" completes; "define [R]" begins.
+Do not begin the next move: Define [H].
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+**[P-A] — Protocol-supported, ancillary** signifies a claim derived from documented protocols, specifically instances of observed behavior explicitly recorded in transcripts within Appendix A. These transcripts encompass verbatim exchanges, intervention sequences, model specifications, interface configurations, and unaltered participant responses. While the evidence itself is inspectable, the specific conditions surrounding the observed behavior were not predetermined nor subject to a formalized control condition. The relevance of these ancillary observations was recognized retrospectively. This categorization denotes a strength level stronger than mere reasoned relevance ([RtagHelperRunner]) because the primary source material allows terceros to corroborate or contest the interpretation. However, it is considered weaker than a fully protocol-defined outcome ([PtagHelperRunner]) due to the absence of predefined experimental controls. Notably, when an ancillary observation serves as a practical near-control for a designed condition, this relationship is explicitly described in prose rather than assigned a distinct label.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**[R] — Retrospective practitioner observation.** The claim describes a pattern noticed during the collaboration and believed by the participants to have recurred. Not recorded under protocol; not counted, timed, blinded, or compared against a control. The observers were the same people who designed the interventions and had an interest in their succeeding. Read these as a field report from one team, comparable in weight to an engineering practice note, not to a measurement.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define [R].
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: [R] вЂ” Retrospective practitioner observation.; [R].
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define [H].
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define [R].
+Do not anticipate or start: Define [H].
+END_LOCAL_TRANSFORMATION

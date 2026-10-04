@@ -1,0 +1,61 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.11; blocks 125вЂ“129 В· "Four contributions are claimed.вЂ¦"
+
+FUNCTION:
+Enumerate the four claimed contributions.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State epistemic status before making any contribution claim.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Enumerate the four claimed contributions.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: 2. Conversational branch reset as a control condition; 3. Operationalization of unverifiable self-claims.; 4. Comparison of the levels at which a shared initial setting operates.; В§10.5; В§2.2; В§9.3.
+
+CLOSURE:
+"state epistemic status before making any contribution claim" completes; "enumerate the four claimed contributions" begins.
+Do not begin the next move: State the asymmetric relation to the host project.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Before outlining the specific phenomena described in this paper, it's crucial to state our epistemic stance. These emergent conditions were not part of a priori designed experiments. Rather, we encountered them incidentally during unrelated work. Consequently, our objective is not to definitively prove these phenomena's novelty within the existing literature (a broad, unsubstantiated claim beyond our capacity to verify), but rather to accurately document their occurrence and our characterization of them. Therefore, this section situates our findings within relevant prior work, highlighting points of divergence rather than asserting a priori desconocimiento.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Four contributions are claimed.
+
+**1. Reactivation of long-lived specialized human–AI conversations as an experimental condition.** The distinctive feature is not the presence of memory: persistent-memory agents are well studied, and generative agents with memory streams predate this work. It is the reuse of a conversational relationship that had actually developed — carrying accumulated role history, prior disagreements, established working method and domain vocabulary — and its continuation after the underlying model version had changed beneath it. We have not located work reporting this condition.
+
+**2. Conversational branch reset as a control condition**, separating the effect of a current prompt from the effect of accumulated interaction history within the same conversation (§10.5). A procedure rather than a finding.
+
+**3. Operationalization of unverifiable self-claims.** That role prompts fail when they assert things about the agent is not novel in itself; §2.2 makes the underlying point. What is offered is a reproducible measure — a count of such propositions in a given prompt — with a falsification route (§9.3, §11.4).
+
+**4. Comparison of the levels at which a shared initial setting operates.** The observations are measurements along one scale, and the resulting question (§1.6) organizes them into a single empirical programme rather than a list of findings.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Enumerate the four claimed contributions.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: 2. Conversational branch reset as a control condition; 3. Operationalization of unverifiable self-claims.; 4. Comparison of the levels at which a shared initial setting operates.; В§10.5; В§2.2; В§9.3.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State the asymmetric relation to the host project.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Structured enumeration / exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Enumerate the four claimed contributions.
+Do not anticipate or start: State the asymmetric relation to the host project.
+END_LOCAL_TRANSFORMATION

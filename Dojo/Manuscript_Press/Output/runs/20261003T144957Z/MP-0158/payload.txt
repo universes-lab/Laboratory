@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.5; blocks 156вЂ“156 В· "References to *Claude*, *Grok*, *Qwen*, *DeepSeek*, вЂ¦"
+
+FUNCTION:
+Fix the reference of model names.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State what the labels do not do.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Fix the reference of model names.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"state what the labels do not do" completes; "fix the reference of model names" begins.
+Do not begin the next move: Fix the functional use of organizational vocabulary.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The labels neither rank claims by their perceived importance nor by their likelihood of being true.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+References to *Claude*, *Grok*, *Qwen*, *DeepSeek*, *ChatGPT* or *Gemini* denote observable behaviour produced by a particular commercial interface, under a particular account configuration, at a particular date. They are not claims about persistent entities. The underlying models changed during the observation period, in some cases inside a conversation that retained its original name.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Fix the reference of model names.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Fix the functional use of organizational vocabulary.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Fix the reference of model names.
+Do not anticipate or start: Fix the functional use of organizational vocabulary.
+END_LOCAL_TRANSFORMATION

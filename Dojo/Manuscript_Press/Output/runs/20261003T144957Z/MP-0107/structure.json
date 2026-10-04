@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThree things, in decreasing order of confidence.\n\nA **procedure**: returning a conversation to a point preceding a conflict, to separate the effect of a new prompt from the effect of the model's own prior objections (§10.5). Usable independently of whether this paper's substantive claims survive.\n\nA **countable rule**: minimize the unverifiable self-claims a role prompt requires the agent to accept, with a specified falsification route (§9.3, §11.4).\n\nA **scale and a question**: §1.6, with two levels supported, one open, one untested — and the experiments that would resolve the remaining two (§11).\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 1.9 Why publish at this stage\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

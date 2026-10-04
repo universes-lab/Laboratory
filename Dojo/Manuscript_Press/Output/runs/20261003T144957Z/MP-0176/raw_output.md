@@ -1,0 +1,1 @@
+To clearly delineate the informational level within this discourse, a distinct term is necessary. This paper thus introduces the term **MessageOfMenom (menom)**. afficheront PROTECTED:P007 PROTECTED:P007 архивлан. 

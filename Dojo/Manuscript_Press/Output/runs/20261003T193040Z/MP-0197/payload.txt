@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.5.3; blocks 253вЂ“254 В· "**Validation duty is the component most often omitteвЂ¦"
+
+FUNCTION:
+Single out validation duty as the component whose omission is not benign.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Enumerate the five ZOR components.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Single out validation duty as the component whose omission is not benign.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Validation duty is the component most often omitted, and its omission is not benign.; В§12.4.1; В§9.5.
+
+CLOSURE:
+"enumerate the five ZOR components" completes; "single out validation duty as the component whose omission is not benign" begins.
+Do not begin the next move: Define actual versus represented boundaries.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The five core components of the Zone of Reasoning (ZOR) are:
+
+1. **Decision authority:** Defining the decisions a participant is authorized to make.
+2. **Action authority:** Specifying the actions a participant is mandated or permitted to execute.
+3. **Validation duty:** Outlining the assertions a participant is obligated to verify.
+4. **Handoff authority:** Determining the materials a participant can transmit, their status, and the recipient.
+5. **Escalation duty:** Identifying the questions a participant must direct to the Author or another designated authority rather than resolving independently.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Validation duty is the component most often omitted, and its omission is not benign.** A participant assigned a verification task without the corresponding duty — and, critically, without the ZOV to discharge it — will produce a plausible answer rather than declining. §12.4.1 documents an instance from this project's own preparation. §9.5 develops the design consequence.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Single out validation duty as the component whose omission is not benign.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Validation duty is the component most often omitted, and its omission is not benign.; В§12.4.1; В§9.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define actual versus represented boundaries.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Single out validation duty as the component whose omission is not benign.
+Do not anticipate or start: Define actual versus represented boundaries.
+END_LOCAL_TRANSFORMATION

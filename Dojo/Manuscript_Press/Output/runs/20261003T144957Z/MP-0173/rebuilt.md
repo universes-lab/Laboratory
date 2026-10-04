@@ -1,0 +1,2 @@
+Throughout this paper, the explicit methodological stance is that directly observable phenomena (i.e., behavior) are the primary subject of analysis. Consequently, any assertion regarding an underlying "rule core" necessitating such behavior is explicitly framed as a hypothesis ([Personendaten SOURCE_ANCHOR MECHANISM_PROPOSED]ьажypothesis) concerning an unobserved mechanism. Direct empirical evidence of said core itself cannot be provided. 
+### 4.2.2 Why "behavioural DNA" is withdrawn

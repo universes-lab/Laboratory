@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n✓ The principle of least privilege (Saltzer and Schroeder, *Proceedings of the IEEE* 63(9), 1975) states for access rights what §9.5 states for knowledge: a participant should hold only what its function requires.\n\nEarlier drafts of this paper attributed the benefit of restricted information to Simon's bounded rationality. **That attribution is an error and is withdrawn.** Bounded rationality concerns the limited cognitive resources of an agent, which force satisficing; the observation here is the opposite in sign — deliberate external restriction of available information improving output. The relevant lineage is organizational information-processing design, not bounded rationality.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 2.7 Machine behaviour: the containing programme\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

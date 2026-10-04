@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.9; blocks 111вЂ“114 В· "Two qualifications constrain how strongly condition вЂ¦"
+
+FUNCTION:
+Two qualifications limiting how far condition 1 can be privileged.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Locate prior work and this paper on that taxonomy.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Two qualifications limiting how far condition 1 can be privileged.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: who controls routing; В§10.3.
+
+CLOSURE:
+"locate prior work and this paper on that taxonomy" completes; "two qualifications limiting how far condition 1 can be privileged" begins.
+Do not begin the next move: Technical point: interfaces differ in persistence.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Prior multi-agent literature primarily exemplifies condition 1 of the taxonomy delineated in §4.5, involving direct inter-model output exchange. Conversely, this paper uniquely focuses on condition 4, where prompts describe model interactions and positional relationships without explicit output transfer. The experimental manipulation centers on varying these positional descriptions within geïsoleted conversations. Notably, a single ancillary observation touches upon condition 2 (human-relayed attributed transfer) albeit impurely, as acknowledged in §5.5. Condition 3 (human-relayed unattributed transfer) is not empirically addressed in this study.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Two qualifications constrain how strongly condition 1 can be privileged over conditions 2–3.
+
+First, a model receives a single text channel and cannot verify whether the text was composed by the human or relayed from another system; stylistic indicators are imitable. From the recipient's position, relayed and direct transfer are not reliably distinguishable.
+
+Second, what separates the conditions is therefore not the recipient's epistemic access but **who controls routing**. In a programmatic system, the sequence and content of transfers are determined by code. Under human relay they are determined by a person who can withhold, reorder, strip attribution, or delay. This is not a deficient substitute for automation; it is an experimental control over information asymmetry that programmatic architectures do not provide by default (§10.3).
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Two qualifications limiting how far condition 1 can be privileged.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: who controls routing; В§10.3.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Technical point: interfaces differ in persistence.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Two qualifications limiting how far condition 1 can be privileged.
+Do not anticipate or start: Technical point: interfaces differ in persistence.
+END_LOCAL_TRANSFORMATION

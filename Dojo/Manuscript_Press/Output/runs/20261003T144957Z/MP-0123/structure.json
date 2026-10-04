@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n✓ Sensitivity to the ordering of in-context material is documented (Lu et al., ACL 2022), as is degraded use of information positioned mid-context (Liu et al., TACL 2024). ✓ Sharma et al. (arXiv:2310.13548) document sycophancy — model responses matching the interlocutor's stated beliefs or views in preference to truthful ones.\n\nThese bear directly on two of this paper's constructs. Context imprinting (§6.1) concerns a stronger form of order effect: not sensitivity to the arrangement of examples, but persistence of an interpretive stance established by one conflictual episode. The relayed-influence observation (§5.5) is a case of accommodation under attributed pressure and should be read against the sycophancy literature rather than as independent of it.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 2.4 Externalized memory\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

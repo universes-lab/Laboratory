@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.4; blocks 215вЂ“218 В· "The vocabulary above was developed for human culturaвЂ¦"
+
+FUNCTION:
+Refuse the human-collective inference the vocabulary invites.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Deny transmission and state that the question stays open.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Refuse the human-collective inference the vocabulary invites.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"deny transmission and state that the question stays open" completes; "refuse the human-collective inference the vocabulary invites" begins.
+Do not begin the next move: Separate menom from rule core by scale and by evidential reach.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The concept of transmission within a model family, as pertaining to a menom, is not inherently asserted. Successive model versions within a family may not exhibit a traceable or documented lineage of transmission. Observed behavioral continuities across versions could arise from various factors like direct continuation, shared data and procedures, analogous training methodologies, or convergent development under similar conditions. Determining the precise mechanism responsible for such persistence remains inconclusive from an external perspective.
+
+Therefore, the definition of a menom within this framework does not predetermine the empirical question concerning its persistence across carriers, versions, accounts, or families (addressed in §4.3 and proposed for testing in §11). Incorporating transmission directly into the definition would render the empirical question a mere tautology.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The vocabulary above was developed for human cultural and behavioural transmission, where the informational substrate has no established physical carrier and is described in terms — the collective unconscious among them — that this paper takes no position on.
+
+Artificial systems differ in one respect that is relevant here. In artificial systems these structures are technically instantiated and are therefore, depending on the level and the access conditions, either directly inspectable or indirectly testable through controlled outputs. Training corpora, weights, context states, external memory and interaction protocols exist as recorded objects, whether or not any given one is available to a particular investigator.
+
+**It does not follow that human collective information structures exist, or that they have been given a carrier.** The claim made here is narrower: informational and behavioural structures of the kind previously described for humans can also be realized in artificial systems, and in artificial systems they are open to examination by one route or the other. Whether the human case is of the same kind is a separate question, and this paper does not answer it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Refuse the human-collective inference the vocabulary invites.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Separate menom from rule core by scale and by evidential reach.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Refuse the human-collective inference the vocabulary invites.
+Do not anticipate or start: Separate menom from rule core by scale and by evidential reach.
+END_LOCAL_TRANSFORMATION

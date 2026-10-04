@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.11; blocks 124вЂ“124 В· "**Epistemic status, stated before the claims.** We dвЂ¦"
+
+FUNCTION:
+State epistemic status before making any contribution claim.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Extend the limitation to the conversation boundary itself.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State epistemic status before making any contribution claim.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Epistemic status, stated before the claims..
+
+CLOSURE:
+"extend the limitation to the conversation boundary itself" completes; "state epistemic status before making any contribution claim" begins.
+Do not begin the next move: Enumerate the four claimed contributions.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+A further limitation arises concerning the demarcation of conversations themselves, rather than the continuation of a singular dialogue. Specifically, the apparent visual boundary of a conversation -- where one interaction ostensibly concludes and anew one begins -- does not automatically equate to a corresponding isolation of contextual input for the model. Platforms employing mechanisms like saved memories or retrospective dialogue retrieval might inadvertently introduce information from prior exchanges into a conversation看似空hlungen. This documented product behavior, observed on at least one pertinent platform, necessitates aGeplaatst qualification: a seemingly new or empty conversation should not be assumed to indicate isolated context. Consequently, when procedural reliability hinges on context isolation, such isolation must be explicitly established through a controlled environment or explicitly flagged as "UNVER_FIED CONTEXT INDEPENDENCE."
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Epistemic status, stated before the claims.** We did not design these conditions and then test them. We encountered them while doing something else, and this paper is an attempt to describe them accurately. The burden of proof is therefore not that the phenomena were previously unknown — a negative claim about the whole literature, which we could not discharge — but that they occur and that our description is accurate. This section accordingly locates the nearest existing work and identifies where the present case departs from it, rather than asserting absence.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State epistemic status before making any contribution claim.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Epistemic status, stated before the claims..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Enumerate the four claimed contributions.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State epistemic status before making any contribution claim.
+Do not anticipate or start: Enumerate the four claimed contributions.
+END_LOCAL_TRANSFORMATION

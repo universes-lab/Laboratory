@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.4; blocks 31вЂ“32 В· "Both concern claims made *to* a model about its situвЂ¦"
+
+FUNCTION:
+Anti-misreading: these concern claims made to a model.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Definition pair: the two represented constructs.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Anti-misreading: these concern claims made to a model.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"definition pair: the two represented constructs" completes; "anti-misreading: these concern claims made to a model" begins.
+Do not begin the next move: State the paper's central supported claim.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Within this framework, the variable element was not the inherent structure itself, but rather the **description** of that structure (§4.5). This distinction gives rise to the paper's two central constructs: 1) **represented social position**, a textual description of an agent's place within the organizational framework, provided irrespective of the functional existence of communication channels; and 2) **represented social source**, denoting the ascribed origin and standing of incoming messages, again derived solely from textual descriptions.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Both concern claims made *to* a model about its situation rather than the situation itself. Stating this early prevents a predictable misreading: nothing here demonstrates the behaviour of a functioning multi-agent institution. It demonstrates how descriptions of one affected behaviour.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Anti-misreading: these concern claims made to a model.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State the paper's central supported claim.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Anti-misreading: these concern claims made to a model.
+Do not anticipate or start: State the paper's central supported claim.
+END_LOCAL_TRANSFORMATION

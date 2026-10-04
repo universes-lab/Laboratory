@@ -1,0 +1,61 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.11; blocks 130вЂ“134 В· "**Relation to the host project.** The observations rвЂ¦"
+
+FUNCTION:
+State the asymmetric relation to the host project.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Enumerate the four claimed contributions.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State the asymmetric relation to the host project.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Relation to the host project.; do not depend on the host projectвЂ™s scientific validity; do depend on the host project for their existence; В§12.1.
+
+CLOSURE:
+"enumerate the four claimed contributions" completes; "state the asymmetric relation to the host project" begins.
+Do not begin the next move: Justify the labelling scheme instead of a uniform declarative register.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The authors explicitly claim four contributions:
+
+1. **Reactivating historical human-AI conversations as an experimental setup.** This contribution distinguishes itself not from the mere presence of memory in agents, but from repurposing a *developed conversational relationship*—complete with role history, past disagreements, established methods, and domain-specific vocabulary—after a model version change. They assert this specific methodology hasn't been reported elsewhere. 2. **Employing conversational branch resets as a control condition (§10.5).** This methodological contribution isolates the impact of current prompts from accumulated interaction history within the same conversation. 3. **Quantitatively operationalizing unverifiable self-claims of AI agents.** While the concept of role prompts failing when asserting agent-specific truths isn't novel (§2.2), the proposed method offers a reproducible measurement (proposition count within prompts) coupled with a falsification pathway (§9.3, §11.4). 4. **Comparing operational levels of shared initial settings.** The findings are framed as measurements along a single scale, structured into a cohesive empirical program rather than isolated observations, thereby implicitly contrasting operational strata of shared contextual understanding.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Relation to the host project.** The observations reported here were made during work on a research programme in theoretical physics, unrelated in subject matter to the methodology of AI collaboration. The programme is named in the Author’s other work and is not identified further here, because nothing in this paper depends on which programme it was.
+
+The relation is asymmetric and should be stated precisely. The observations **do not depend on the host project’s scientific validity** for their interpretation: whether that theory is correct has no bearing on whether a dormant conversation resumed its prior trajectory. But they **do depend on the host project for their existence**: no other environment produced them, the arrangement was built for its purposes, and whether the effects generalize beyond it is untested (§12.1).
+
+Where the host project appears in this paper it is as the environment in which the observations were made, not as their theoretical basis and not as a claim in need of support.
+
+---
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State the asymmetric relation to the host project.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Relation to the host project.; do not depend on the host projectвЂ™s scientific validity; do depend on the host project for their existence; В§12.1.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Justify the labelling scheme instead of a uniform declarative register.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Contrast / differentiation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State the asymmetric relation to the host project.
+Do not anticipate or start: Justify the labelling scheme instead of a uniform declarative register.
+END_LOCAL_TRANSFORMATION

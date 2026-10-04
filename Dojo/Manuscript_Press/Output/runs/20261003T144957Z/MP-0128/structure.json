@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n✓ Further negative results are reported elsewhere. Huang et al. (ICLR 2024), *Large Language Models Cannot Self-Correct Reasoning Yet*, report that multi-agent debate does not outperform self-consistency in the comparison they run. ✓ Choi, Zhu and Li (NeurIPS 2025), *Debate or Vote*, report that majority voting accounts for most of the performance gains typically attributed to debate.\n\n"
+  }
+]

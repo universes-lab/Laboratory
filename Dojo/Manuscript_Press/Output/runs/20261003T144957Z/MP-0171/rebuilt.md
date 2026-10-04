@@ -1,0 +1,10 @@
+The testability of a claim hinges on the distinction between response type and content. Claiming that "models have stable traits" is inherently untestable because it doesn't specify what constitutes said stability. Conversely, stating that "type is determined, content varies," akin to Conway's Game of Life, becomes testable. Drawing an analogy of **explanation type**, not subject matter, consider this: pinpoint a class of inputs where the response type remains undefined, and thereby demonstrate the absence of a core operating at that level. The Game of Life analogy illustrates this: the underlying rules (corresponding to the "type") dictate cellular evolution, yet the emergent patterns (the "content") exhibit variability. This distinct separation of determinism and variation allows for empirical testing of the claimed rule core.  betweenstory CONFORMANCE:P006 CONFORMANCE:P006 CONFORMANCE:P006
+
+
+| | Rules | What appears | Present in the rules? |
+|---|---|---|---|
+| Game of Life | three neighbourhood rules | gliders, guns, oscillators | no |
+| A physical theory | a minimal axiom core | the derived structure | no, if the claim holds |
+| A body of knowledge | axioms and inference rules | the derivation graph | no |
+| A language model | a basic rule set | a characteristic response type | no |
+

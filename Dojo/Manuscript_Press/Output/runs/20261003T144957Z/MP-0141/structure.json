@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nA technical point with direct bearing on the confound in §5.4 (C9).\n\nCommercial interfaces differ in what a conversation can access on resumption: the context window alone; retrieval over prior conversation history; account-level memory; or persistent entries the model writes on its own initiative. These affordances are documented in vendor materials, differ between platforms, and **change over time — in this project, within the lifetime of a single account.**\n\n"
+  }
+]

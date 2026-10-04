@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.3; blocks 22вЂ“22 В· "A field report with one designed intervention embeddвЂ¦"
+
+FUNCTION:
+Answer the section question: a field report with one embedded intervention.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Conclusion drawn at the time, stated as contemporaneous.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Answer the section question: a field report with one embedded intervention.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"conclusion drawn at the time, stated as contemporaneous" completes; "answer the section question: a field report with one embedded intervention" begins.
+Do not begin the next move: Explain how the field-report/experiment distinction is maintained.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+At the time, the prevailing conclusion was that **role matters more than the precise wording of the prompt**. This assertion necessitates qualification, as the aforementioned document itself constituted a prompt; the elucidation of this nuance resides in §4.1. Crucially, the assertion predates the experiment described in §5, an experiment specifically designed to rigorously test this hypothesis. This emphasizes that the statement reflects a formulated standpoint prior to empirical validation, a hypothesis subjected to experimental scrutiny rather than a posteriori generalization.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A field report with one designed intervention embedded in it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Answer the section question: a field report with one embedded intervention.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Explain how the field-report/experiment distinction is maintained.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Classification / answer to the section question
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Answer the section question: a field report with one embedded intervention.
+Do not anticipate or start: Explain how the field-report/experiment distinction is maintained.
+END_LOCAL_TRANSFORMATION

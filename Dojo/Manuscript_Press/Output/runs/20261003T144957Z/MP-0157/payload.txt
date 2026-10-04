@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.4; blocks 154вЂ“155 В· "They do not rank claims by importance or by likely tвЂ¦"
+
+FUNCTION:
+State what the labels do not do.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Record the removal of quantitative language from [R] claims.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State what the labels do not do.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: what kind of evidence supports the claim; [R]; [P].
+
+CLOSURE:
+"record the removal of quantitative language from [R] claims" completes; "state what the labels do not do" begins.
+Do not begin the next move: Fix the reference of model names.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Throughout the documentation pertaining to [R] claims, any quantitative descriptors such as "significant" or "substantial" improvements have been removed. Where these terms originally appeared in working notes, corresponding quantifiable evidence was lacking, necessitating a textual revision to accurately reflect this absence of measurable data.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+They do not rank claims by importance or by likely truth. An [R] observation may prove correct and consequential; a [P] observation may prove an artifact of a platform variable we could not inspect. The labels record **what kind of evidence supports the claim**, so a reader may weigh each accordingly and later work knows which statements require testing first.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State what the labels do not do.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: what kind of evidence supports the claim; [R]; [P].
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Fix the reference of model names.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State what the labels do not do.
+Do not anticipate or start: Fix the reference of model names.
+END_LOCAL_TRANSFORMATION

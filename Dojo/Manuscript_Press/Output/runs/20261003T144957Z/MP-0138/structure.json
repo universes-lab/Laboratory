@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nFour conditions should be distinguished (defined in §4.5):\n\n1. **Direct inter-model interaction** — one model receives another's output through an implemented channel.\n2. **Human-relayed attributed transfer** — a human transfers an output while preserving or declaring its source.\n3. **Human-relayed unattributed transfer** — the source is removed.\n4. **Represented structure without transfer** — the prompt describes other participants and relationships; nothing is transferred.\n\n"
+  }
+]

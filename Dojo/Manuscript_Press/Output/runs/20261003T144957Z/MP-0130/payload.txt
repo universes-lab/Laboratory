@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.5; blocks 91вЂ“92 В· "**The finding that most matters here.** вњ“ Zhang et aвЂ¦"
+
+FUNCTION:
+Isolate the finding that matters most and what it licenses.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Separate an adjacent result belonging to a different construct.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Isolate the finding that matters most and what it licenses.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: The finding that most matters here.; carrier; function; В§8.9.
+
+CLOSURE:
+"separate an adjacent result belonging to a different construct" completes; "isolate the finding that matters most and what it licenses" begins.
+Do not begin the next move: Correct a frequently misused theorem and its critique.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+DISTINCT from the axes of bias addressed in §8.9, Choi, Zhu, and Li (ACL 2026) in their work "*When Identity Skews DebateastéroïdesAndEndTagAndEndTag CONTRASTRUCTIVELY investigate a separate construct: the influence of percieved authorship on debate outcomes. They demonstrate that anonymizing the stated source of each response notably diminishes identity bias in multi-agent debate. Notably, this manipulation targets the DECLARED origin of a message, not the underlying model implementing a participant. Consequently, this finding resides under the rubric of represented social source (§4.5.4) rather than carrier heterogeneity.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**The finding that most matters here.** ✓ Zhang et al. report that *model heterogeneity* consistently improves debate frameworks that otherwise underperform. Their finding concerns heterogeneity of the models implementing the agents.
+
+This licenses a distinction the literature does not draw and which §8.9 develops: heterogeneity of **carrier** (which model implements a role) is not the same variable as heterogeneity of **function** (what the role is responsible for and permitted to see). The cited work addresses the first. This paper's arrangement varied both, without comparing them.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Isolate the finding that matters most and what it licenses.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: The finding that most matters here.; carrier; function; В§8.9.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Correct a frequently misused theorem and its critique.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Isolate the finding that matters most and what it licenses.
+Do not anticipate or start: Correct a frequently misused theorem and its critique.
+END_LOCAL_TRANSFORMATION

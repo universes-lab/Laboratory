@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4; blocks 174вЂ“175 В· "The framework in this section was not derived from tвЂ¦"
+
+FUNCTION:
+Establish that the framework preceded the experiment.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define the label AI Sociology and place it outside the constructs.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Establish that the framework preceded the experiment.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§5.
+
+CLOSURE:
+"define the label AI Sociology and place it outside the constructs" completes; "establish that the framework preceded the experiment" begins.
+Do not begin the next move: Narrate the origin failure: the code-executor incident.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+We employ the label **AI Sociology** to denote the specific perspective adopted in this work. Operationally, it signifies the study of represented social positions and represented social sources. This encompasses examining how attributions of an agent's place within a structure and declarations of a message's origin influence behavior, regardless of whether the described structure is explicitly implemented (§4.5.4).
+
+This framework is distinct from the constructs delineated in §4, which possess falsification criteria. AI Sociology, as a research direction, lacks such criteria, a point elaborated upon in §12.7. Furthermore, it onderscores a specific analytical angle and should not be conflated with the established sociology of artificial intelligence, which (§2.8) focuses on AI within human society, a domain studied through existing sociological methodologies. Our utilization of the term carries no implicit claim of primacy. Rather, it serves as a shorthand for conceptual clarity within this particular analysis.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The framework in this section was not derived from the experiment in §5. It was formulated earlier, during ordinary project work, and the experiment was designed to test part of it. This ordering matters for how the claims should be read, and is documented first.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Establish that the framework preceded the experiment.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Narrate the origin failure: the code-executor incident.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Establish that the framework preceded the experiment.
+Do not anticipate or start: Narrate the origin failure: the code-executor incident.
+END_LOCAL_TRANSFORMATION

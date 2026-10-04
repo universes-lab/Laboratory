@@ -1,0 +1,60 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.9; blocks 108вЂ“109 В· "Four conditions should be distinguished (defined in вЂ¦"
+
+FUNCTION:
+Enumerate the four conditions.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State that the studied condition is absent from the literature.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Enumerate the four conditions.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Direct inter-model interaction; Human-relayed attributed transfer; Human-relayed unattributed transfer; Represented structure without transfer; В§4.5.
+OPEN SOURCE DECISION: AC-3 concerns the current cross-reference. Do not repair or redirect the В§4.5 reference inside the writer pass.
+
+CLOSURE:
+"state that the studied condition is absent from the literature" completes; "enumerate the four conditions" begins.
+Do not begin the next move: Locate prior work and this paper on that taxonomy.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The specific condition examined in this paper lacks representation in the surveyed literature, constituting the primary departure point of this analysis.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Four conditions should be distinguished (defined in §4.5):
+
+1. **Direct inter-model interaction** — one model receives another's output through an implemented channel.
+2. **Human-relayed attributed transfer** — a human transfers an output while preserving or declaring its source.
+3. **Human-relayed unattributed transfer** — the source is removed.
+4. **Represented structure without transfer** — the prompt describes other participants and relationships; nothing is transferred.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Enumerate the four conditions.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Direct inter-model interaction; Human-relayed attributed transfer; Human-relayed unattributed transfer; Represented structure without transfer; В§4.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+OPEN SOURCE DECISION: AC-3 concerns the current cross-reference. Do not repair or redirect the В§4.5 reference inside the writer pass.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Locate prior work and this paper on that taxonomy.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Structured enumeration / exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Enumerate the four conditions.
+Do not anticipate or start: Locate prior work and this paper on that taxonomy.
+END_LOCAL_TRANSFORMATION

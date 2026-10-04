@@ -1,0 +1,58 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.9; blocks 110вЂ“110 В· "Prior multi-agent work occupies condition 1. This paвЂ¦"
+
+FUNCTION:
+Locate prior work and this paper on that taxonomy.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Enumerate the four conditions.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Locate prior work and this paper on that taxonomy.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§5.5.
+
+CLOSURE:
+"enumerate the four conditions" completes; "locate prior work and this paper on that taxonomy" begins.
+Do not begin the next move: Two qualifications limiting how far condition 1 can be privileged.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Four distinct conditions should be delineated, as defined in §4.5:
+
+1. **Direct inter-model interaction:** One model receives the output of another model through a designated communication channel.
+2. **Human-relayed attributed transfer:** A human mediates the transfer of an output while explicitly stating its originating model.
+3. **Human-relayed unattributed transfer:** The human intermediary transmits an output without disclosing the source model.
+4. **Represented structure without transfer:** The prompt describes the involvement of other models and their relationships, yet no explicit output is transferred between them.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Prior multi-agent work occupies condition 1. This paper's designed experiment manipulated condition 4 exclusively: the two conversations never exchanged material, and what was varied was the description of an organizational position. One ancillary observation falls in condition 2, impurely (§5.5). Condition 3 is not documented.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Locate prior work and this paper on that taxonomy.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§5.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Two qualifications limiting how far condition 1 can be privileged.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Literature positioning
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Locate prior work and this paper on that taxonomy.
+Do not anticipate or start: Two qualifications limiting how far condition 1 can be privileged.
+END_LOCAL_TRANSFORMATION

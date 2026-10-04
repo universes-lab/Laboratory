@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.6; blocks 96вЂ“98 В· "вњ“ The principle of least privilege (Saltzer and SchrвЂ¦"
+
+FUNCTION:
+Supply the security principle and withdraw an earlier attribution.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Draw the consequence for В§12.2.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Supply the security principle and withdraw an earlier attribution.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: That attribution is an error and is withdrawn.; В§9.5.
+
+CLOSURE:
+"draw the consequence for В§12.2" completes; "supply the security principle and withdraw an earlier attribution" begins.
+Do not begin the next move: Place the work inside machine behaviour and disclaim a new discipline.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+**Consequence for §12.2:** Due to the aforementioned negative findings, this paper refrains from citing agreement among its participants as evidence of correctness. The convergence of several models on a conclusion could plausibly arise from them independently inheriting the same underlying framing rather than indicating a robustly validated outcome.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+✓ The principle of least privilege (Saltzer and Schroeder, *Proceedings of the IEEE* 63(9), 1975) states for access rights what §9.5 states for knowledge: a participant should hold only what its function requires.
+
+Earlier drafts of this paper attributed the benefit of restricted information to Simon's bounded rationality. **That attribution is an error and is withdrawn.** Bounded rationality concerns the limited cognitive resources of an agent, which force satisficing; the observation here is the opposite in sign — deliberate external restriction of available information improving output. The relevant lineage is organizational information-processing design, not bounded rationality.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Supply the security principle and withdraw an earlier attribution.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: That attribution is an error and is withdrawn.; В§9.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Place the work inside machine behaviour and disclaim a new discipline.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Supply the security principle and withdraw an earlier attribution.
+Do not anticipate or start: Place the work inside machine behaviour and disclaim a new discipline.
+END_LOCAL_TRANSFORMATION

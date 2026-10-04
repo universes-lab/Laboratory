@@ -1,0 +1,1 @@
+At a certain stage, refining the prompt—the standard remedy—ceased to yield improvements. This wasn't due to poorly constructed prompts, but rather because the underlying limitation transcended the prompt's scope. The limiting factor had shifted beyond the prompt's reach. 

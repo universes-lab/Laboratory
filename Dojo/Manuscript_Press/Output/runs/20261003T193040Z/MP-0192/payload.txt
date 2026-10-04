@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.5.1; blocks 243вЂ“244 В· "Two boundaries define a participant's position, and вЂ¦"
+
+FUNCTION:
+Define ZOV and ZOR as separate boundaries.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Announce the merge of two earlier sections.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define ZOV and ZOR as separate boundaries.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P012 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: ZOR; ZOV; ZOV вЂ” zone of visibility.; ZOR вЂ” zone of responsibility..
+
+CLOSURE:
+"announce the merge of two earlier sections" completes; "define ZOV and ZOR as separate boundaries" begins.
+Do not begin the next move: Correct the earlier conflated formulation and name its cost.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This section combines insights previously presented in two distinct sections of earlier drafts. These sections respectively delineated the boundaries of a participant's role and the specific experimental variables manipulated. Recognizing their conceptual interconnectedness and elaborating upon the rationale outlined in §4.5.4, these distinct perspectives have been integrated into a unified framework.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Two boundaries define a participant's position, and they must be specified separately. We abbreviate them **ZOR** and **ZOV** and use the abbreviations throughout.
+
+⟦MP_PROTECTED:P012⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define ZOV and ZOR as separate boundaries.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: ZOR; ZOV; ZOV вЂ” zone of visibility.; ZOR вЂ” zone of responsibility..
+Restore P012 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Correct the earlier conflated formulation and name its cost.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define ZOV and ZOR as separate boundaries.
+Do not anticipate or start: Correct the earlier conflated formulation and name its cost.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.1; blocks 15вЂ“16 В· "The account of the projectвЂ™s early formulations in В§вЂ¦"
+
+FUNCTION:
+Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Local closure: the cost was visible only from a multi-participant position.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§1.1; В§1.2.
+
+CLOSURE:
+"local closure: the cost was visible only from a multi-participant position" completes; "editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account" begins.
+Do not begin the next move: State the standard remedy: a better prompt.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Individually, these outputs appeared beneficial. However, their drawbacks were discernible only from a broader perspective, one encompassing multiple participants' viewpoints. Initially, these shortcomings seemed like ordinary friction. Upon closer examination, they revealed themselves to be the central issue at hand.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The account of the project’s early formulations in §1.1–§1.2 was written by the participant who produced them. Where those formulations were subsequently withdrawn, the withdrawal is stated in the section that supersedes them, and the reader may compare.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§1.1; В§1.2.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State the standard remedy: a better prompt.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Inference / local closure
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+Do not anticipate or start: State the standard remedy: a better prompt.
+END_LOCAL_TRANSFORMATION

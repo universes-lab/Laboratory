@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.7; blocks 46вЂ“46 В· "It does not propose a new discipline. The observatioвЂ¦"
+
+FUNCTION:
+Non-claim: no new discipline is proposed.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Non-claim: the paper introduces no new practice.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Non-claim: no new discipline is proposed.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§2.7.
+
+CLOSURE:
+"non-claim: the paper introduces no new practice" completes; "non-claim: no new discipline is proposed" begins.
+Do not begin the next move: Non-claim: no performance advantage is established.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The paper refrains from proposing novel design concepts such as role specialization, bounded information access, structured disagreement, or externalized memory. These concepts already exist within established terminology and frameworks, as delineated in Section 2, which cites prior relevant works. The paper's treatment of organizational memory, specifically, aligns with existing understandings of transactive memory and distributed cognition and does not present a novel finding.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+It does not propose a new discipline. The observations belong to the collective and hybrid levels of the machine-behaviour research programme (§2.7).
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Non-claim: no new discipline is proposed.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§2.7.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Non-claim: no performance advantage is established.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Non-claim: no new discipline is proposed.
+Do not anticipate or start: Non-claim: no performance advantage is established.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.6; blocks 161вЂ“163 В· "Quotations attributed to model responses are verbatiвЂ¦"
+
+FUNCTION:
+State the quotation convention and locate final responsibility.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Disclose the conflict of position and the composition arrangement.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State the quotation convention and locate final responsibility.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"disclose the conflict of position and the composition arrangement" completes; "state the quotation convention and locate final responsibility" begins.
+Do not begin the next move: State that dates were not recorded and were not reconstructed.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The behavioral observations detailed in §5 pertain to the model family involved in editing this manuscript. Crucially, the editing participant lacked access to the original conversations, relying solely on the written protocol and drafts provided by the Author. Consequently, judgments regarding passages describing its own model family should be interpreted considering this inherent limitation: the editor could not independently verify the verbatim accuracy of the recorded exchanges. 
+
+Furthermore, the manuscript's composition from approved materials was undertaken by another participant from the same model family. The resulting text underwent independent review by the initial editor. This closed-loop arrangement—wherein material concerning a model family's behavior was prepared, reviewed, and assessed within that same family—necessitates explicit disclosure. The rationale is twofold: Firstly, transparency regarding this internal process avoids implicit bias. Secondly, withholding this information would inherently raise suspicion of compromised objectivity. The potential implications of this arrangement for the account's impartiality are explicitly presented to the reader for evaluation.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Quotations attributed to model responses are verbatim extracts from preserved transcripts. Where the manuscript summarizes a response rather than quoting it, no quotation marks are used.
+
+All final editorial decisions were made by the human Author, who takes responsibility for the content.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State the quotation convention and locate final responsibility.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State that dates were not recorded and were not reconstructed.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Disclosure / authority clarification
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State the quotation convention and locate final responsibility.
+Do not anticipate or start: State that dates were not recorded and were not reconstructed.
+END_LOCAL_TRANSFORMATION

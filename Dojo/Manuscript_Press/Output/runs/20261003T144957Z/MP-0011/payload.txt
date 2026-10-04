@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.3; blocks 23вЂ“23 В· "The distinction is maintained throughout by the labeвЂ¦"
+
+FUNCTION:
+Explain how the field-report/experiment distinction is maintained.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Answer the section question: a field report with one embedded intervention.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Explain how the field-report/experiment distinction is maintained.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: [P]; [P-A]; [R]; [H]; В§3.
+
+CLOSURE:
+"answer the section question: a field report with one embedded intervention" completes; "explain how the field-report/experiment distinction is maintained" begins.
+Do not begin the next move: Justify stating the proportions here rather than in limitations.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This SOURCE block describes a field report containing a singular, embedded designed intervention.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The distinction is maintained throughout by the labelling scheme in §3. Every substantive claim is marked as one of: supported by documented protocol with preserved transcripts **[P]**; an ancillary observation preserved but recognized retrospectively, without a control **[P-A]**; a retrospective practitioner observation never recorded under protocol, counted, or blinded **[R]**; or a hypothesis proposed for future testing **[H]**.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Explain how the field-report/experiment distinction is maintained.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: [P]; [P-A]; [R]; [H]; В§3.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Justify stating the proportions here rather than in limitations.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Explain how the field-report/experiment distinction is maintained.
+Do not anticipate or start: Justify stating the proportions here rather than in limitations.
+END_LOCAL_TRANSFORMATION

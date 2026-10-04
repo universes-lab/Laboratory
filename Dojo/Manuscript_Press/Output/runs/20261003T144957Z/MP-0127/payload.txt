@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.5; blocks 86вЂ“88 В· "This is the literature that most directly constrainsвЂ¦"
+
+FUNCTION:
+Frame the debate literature as cutting both ways, then give both sides.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Distinguish a second, technical sense of externalized memory.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Frame the debate literature as cutting both ways, then give both sides.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: For.; Against.; В§8.
+
+CLOSURE:
+"distinguish a second, technical sense of externalized memory" completes; "frame the debate literature as cutting both ways, then give both sides" begins.
+Do not begin the next move: Add further negative results.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Beyond the direct user interaction-centric view of externalized memory, a distinct technical sense exists: platform-level persistence, elaborated upon in §2.10. This denotes a mechanism of data storage independent of individual user sessions, operating at the level of the underlying platform rather than within a specific user's cognitive context.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+This is the literature that most directly constrains the paper's structural hypothesis (§8), and it cuts both ways.
+
+**For.** ✓ Du, Li, Torralba, Tenenbaum and Mordatch (arXiv:2305.14325) propose multi-agent debate as a means of improving factual accuracy and reasoning, reporting gains from iterative cross-examination among model instances. ✓ Liang et al. (EMNLP 2024) propose a debate protocol intended to counteract degeneration of thought and to encourage divergent reasoning.
+
+**Against.** ✓ Zhang, Cui, Chen, Wang, Zhang, Wang, Wu and Hu, *Stop Overvaluing Multi-Agent Debate — We Must Rethink Evaluation and Embrace Model Heterogeneity* (arXiv:2502.08788v3, June 2025), evaluate five representative debate methods across nine benchmarks and four foundation models. They report that debate frequently fails to outperform single-agent chain-of-thought or self-consistency baselines even at substantially higher inference cost, and identify weak baseline comparison and inconsistent setup as systematic problems in the existing evaluations.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Frame the debate literature as cutting both ways, then give both sides.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: For.; Against.; В§8.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Add further negative results.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Literature positioning
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Frame the debate literature as cutting both ways, then give both sides.
+Do not anticipate or start: Add further negative results.
+END_LOCAL_TRANSFORMATION

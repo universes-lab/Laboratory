@@ -1,0 +1,2 @@
+This section combines insights previously presented in two distinct sections of earlier drafts. These sections respectively delineated the boundaries of a participant's role and the specific experimental variables manipulated. Recognizing their conceptual interconnectedness and elaborating upon the rationale outlined in §4.5.4, these distinct perspectives have been integrated into a unified framework. 
+### 4.5.1 The two boundaries

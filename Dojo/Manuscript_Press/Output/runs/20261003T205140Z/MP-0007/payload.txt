@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.2; blocks 18вЂ“18 В· "Past a certain point this stopped producing improvemвЂ¦"
+
+FUNCTION:
+Turn: the standard remedy stopped producing improvement.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State the standard remedy: a better prompt.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Turn: the standard remedy stopped producing improvement.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"state the standard remedy: a better prompt" completes; "turn: the standard remedy stopped producing improvement" begins.
+Do not begin the next move: Narrative evidence: the incident that made the failure explicit.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The standard remedy for inconsistent model behavior is to refine the prompt. This involves crafting a prompt that is more comprehensive, precise, enriched with illustrative examples, and explicitly defined with tighter constraints.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Past a certain point this stopped producing improvement. Not because the prompts were badly written, but because the limiting factor had moved somewhere the prompt did not reach. Newer models were adopted; context windows expanded and were filled. Individual responses improved. The output of the collaboration as a whole did not.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Turn: the standard remedy stopped producing improvement.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Narrative evidence: the incident that made the failure explicit.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Transition / reframing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Turn: the standard remedy stopped producing improvement.
+Do not anticipate or start: Narrative evidence: the incident that made the failure explicit.
+END_LOCAL_TRANSFORMATION

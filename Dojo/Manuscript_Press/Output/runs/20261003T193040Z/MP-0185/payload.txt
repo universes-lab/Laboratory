@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.3; blocks 226вЂ“227 В· "**Scale 1 вЂ” carrier of state.** Where the persistencвЂ¦"
+
+FUNCTION:
+Define Scale 1 and tabulate its levels.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Announce two orthogonal scales.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define Scale 1 and tabulate its levels.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P010 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: Scale 1 вЂ” carrier of state.; [P]; [P-A]; [H]; В§6.1; В§6.2.
+
+CLOSURE:
+"announce two orthogonal scales" completes; "define Scale 1 and tabulate its levels" begins.
+Do not begin the next move: Define Scale 2.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+DIST CreateTagHelper SUBSTANTIVE CEILING SOURCE MATERIAL: Delineated from behavioral patterns, the observations in this work transition from discrete findings to quantifiable positions along a predefined scale. This scale corresponds to the operational scope of each delineated rule core.
+
+It is crucial to recognize that **two distinct and orthogonal scales** must be distinguished within this framework.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Scale 1 — carrier of state.** Where the persistence physically resides.
+
+⟦MP_PROTECTED:P010⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define Scale 1 and tabulate its levels.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Scale 1 вЂ” carrier of state.; [P]; [P-A]; [H]; В§6.1; В§6.2.
+Restore P010 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define Scale 2.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define Scale 1 and tabulate its levels.
+Do not anticipate or start: Define Scale 2.
+END_LOCAL_TRANSFORMATION

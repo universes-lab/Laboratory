@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.1; blocks 12вЂ“13 В· "The models made errors, and the errors were not the вЂ¦"
+
+FUNCTION:
+Claim plus its instances: the errors were not the expected kind.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Narrative setup: the original transfer task and why models were used.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Claim plus its instances: the errors were not the expected kind.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"narrative setup: the original transfer task and why models were used" completes; "claim plus its instances: the errors were not the expected kind" begins.
+Do not begin the next move: Local closure: the cost was visible only from a multi-participant position.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The foundational objective of this undertaking was to systematically transfer a substantial corpus of theoretical materials — encompassing books, working notes, and unfinished derivations within the realm of theoretical physics — into an accessible open repository. To achieve this, the strategy entailed employing several distinct language models in parallel, specialized conversations designed to handle specific aspects of the theoretical content. These models functioned as assistants, aiding in the methodical migration of the theoretical subject matter itself.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The models made errors, and the errors were not the kind expected. They were rarely factual. They were organizational.
+
+One improved a text when asked only to check it. Another completed an argument the author had deliberately left open. A third lost the project's context between sessions and reconstructed it wrongly, fluently. A fourth held so firmly to a role established months earlier that rewriting its instructions entirely failed to dislodge it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Claim plus its instances: the errors were not the expected kind.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Local closure: the cost was visible only from a multi-participant position.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Claim plus its instances: the errors were not the expected kind.
+Do not anticipate or start: Local closure: the cost was visible only from a multi-participant position.
+END_LOCAL_TRANSFORMATION

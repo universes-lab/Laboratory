@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n- **Context access** — which messages, documents, data and prior decisions are available to the participant.\n- **Source visibility** — whether the participant knows the actual origin of a message or only its declared attribution.\n- **Relational visibility** — whether the participant knows the roles, relationships and interaction history of other participants.\n- **Output visibility** — which results produced by others the participant sees before forming its own.\n\n"
+  }
+]

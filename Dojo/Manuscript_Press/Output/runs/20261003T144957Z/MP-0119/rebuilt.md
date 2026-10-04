@@ -1,0 +1,2 @@
+A claim-level source audit was conducted on the provisional bibliographic references. This audit entailed verifying each claim attributed to a source directly against its primary documentation, rather than solely confirming correspondence to existing bibliographic records. Consequently, all references in the present version have successfully undergone this rigorous check. 
+## 2.1 Multi-agent LLM systems with role specialization

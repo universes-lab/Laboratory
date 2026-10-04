@@ -1,0 +1,62 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.4; blocks 236вЂ“240 В· "A core may become fixed in two ways.вЂ¦"
+
+FUNCTION:
+Distinguish two origins of fixation and show the mechanism is shared.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Concentrate the scale into the empirical question and justify it.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Distinguish two origins of fixation and show the mechanism is shared.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Present before the interaction begins.; Fixed during the interaction..
+
+CLOSURE:
+"concentrate the scale into the empirical question and justify it" completes; "distinguish two origins of fixation and show the mechanism is shared" begins.
+Do not begin the next move: Announce the merge of two earlier sections.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This research program converges on a singular empirical question precisely defined by **Scale 1**:  ⟦ zakładamy, że P011 ⟧. Every observation within this framework directly addresses this question at a specific level, and each experiment proposed in §11 methodically dissects and differentiates one level of analysis from the one situated beneath it. This focused approach contrasts with a broader formulation employed in earlier drafts ("the study of social behaviour in AI systems незавершена"), which lacked the specificity to delineate measurable aspects or falsifiable propositions. By anchoring the inquiry to Scale 1, the research gains clarity and operationalizability.
+
+
+> **At what level of nesting is a rule core fixed?**
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A core may become fixed in two ways.
+
+**Present before the interaction begins.** Architecture, training, alignment procedure and system configuration are in place before any exchange occurs. Scope: in principle, every instance of that model family.
+
+**Fixed during the interaction.** A particular early episode establishes what kind of work is being done and by what standards, and later inputs are interpreted relative to it. Scope: the contour in which it occurred — an episode, a conversation, possibly an account.
+
+After fixation the mechanism is the same in both cases: the core determines the type of response to subsequent inputs. Only the moment and the scope differ. This mirrors imprinting in the ethological sense, which does not alter the genome yet produces an equally fixed response — which is why the same vocabulary is used for both here.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Distinguish two origins of fixation and show the mechanism is shared.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Present before the interaction begins.; Fixed during the interaction..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Announce the merge of two earlier sections.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Contrast / differentiation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Distinguish two origins of fixation and show the mechanism is shared.
+Do not anticipate or start: Announce the merge of two earlier sections.
+END_LOCAL_TRANSFORMATION

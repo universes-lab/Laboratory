@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nTwo qualifications constrain how strongly condition 1 can be privileged over conditions 2–3.\n\nFirst, a model receives a single text channel and cannot verify whether the text was composed by the human or relayed from another system; stylistic indicators are imitable. From the recipient's position, relayed and direct transfer are not reliably distinguishable.\n\nSecond, what separates the conditions is therefore not the recipient's epistemic access but **who controls routing**. In a programmatic system, the sequence and content of transfers are determined by code. Under human relay they are determined by a person who can withhold, reorder, strip attribution, or delay. This is not a deficient substitute for automation; it is an experimental control over information asymmetry that programmatic architectures do not provide by default (§10.3).\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 2.10 Platform persistence mechanisms\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

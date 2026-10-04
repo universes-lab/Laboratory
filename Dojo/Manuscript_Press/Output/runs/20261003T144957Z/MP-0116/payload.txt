@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.0; blocks 63вЂ“65 В· "Two classes of reference appear below.вЂ¦"
+
+FUNCTION:
+Define the two reference classes and their marks.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Reading paths for different readers.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define the two reference classes and their marks.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Verified.; Provisional..
+
+CLOSURE:
+"reading paths for different readers" completes; "define the two reference classes and their marks" begins.
+Do not begin the next move: Justify the convention from the thirteen-item episode.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This paper offers distinct reading paths tailored to different reader objectives. A reader primarily focused on the empirical evidence should consult sections §3 (defining evidential labels and failure modes), §5 (presenting the core experimental account), and §12.7 (summarizing limitations and reflecting on the evidence base). Researchers looking to directly apply the methodology outlined should delve into sections §9 and §10.5, which detail the methodological framework and its practical implementation. Conversely, individuals intending to critically evaluate or challenge the proposed framework should begin their exploration with §5.4, where the specific conceptual underpinnings and potential points of contention are addressed.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Two classes of reference appear below.
+
+**Verified.** The source page was retrieved and its title, authors and abstract checked against the citation. Marked ✓.
+
+**Provisional.** The reference was supplied by a participant assigned to literature search and has not been checked against the source. Marked ⚠ and used only for claims that do not carry weight elsewhere in the paper.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define the two reference classes and their marks.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Verified.; Provisional..
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Justify the convention from the thirteen-item episode.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define the two reference classes and their marks.
+Do not anticipate or start: Justify the convention from the thirteen-item episode.
+END_LOCAL_TRANSFORMATION

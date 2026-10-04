@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.3; blocks 24вЂ“24 В· "The proportions are stated here rather than in a limвЂ¦"
+
+FUNCTION:
+Justify stating the proportions here rather than in limitations.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Explain how the field-report/experiment distinction is maintained.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Justify stating the proportions here rather than in limitations.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"explain how the field-report/experiment distinction is maintained" completes; "justify stating the proportions here rather than in limitations" begins.
+Do not begin the next move: Quantify the protocol-supported content exactly.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The field-report/experiment distinction within this body of work is rigorously maintained through a defined labelling scheme outlined in §3. Each substantive claim asserted is explicitly categorized as one of the following:  Italijani: 
+1. **[P propOrder: **supported by documented protocol with preserved transcripts, signifying a data point directly resulting from a structured intervention; 2. **[P-A propOrder: **an ancillary observation noted retrospectively, lacking a corresponding control group; 3. **[R propOrder: **a retrospective practitioner observation not originally recorded under protocol nor subjected to counting or blinding procedures; or 4. **[H propOrder: a hypothesis proposed for future empirical investigation. 
+This clear labelling system ensures unambiguous classification of claims, thereby upholding the distinction between descriptive field observations and experimentally derived insights.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The proportions are stated here rather than in a limitations section, because the length of what follows might otherwise suggest a broader base than exists.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Justify stating the proportions here rather than in limitations.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Quantify the protocol-supported content exactly.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Justify stating the proportions here rather than in limitations.
+Do not anticipate or start: Quantify the protocol-supported content exactly.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThis paper reports work carried out inside a live research project rather than in an environment designed for the study of AI behaviour. Its claims rest on evidence of very different quality: some supported by documented protocol with preserved transcripts; some retrospective impressions formed over two years of daily work, without measurement or controls; some proposals for future investigation.\n\nPresenting these in a uniform declarative register would misrepresent the work. Every substantive claim is therefore labelled.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 3.1 The four labels\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.5; blocks 94вЂ“95 В· "**Consequence for В§12.2.** The negative results abovвЂ¦"
+
+FUNCTION:
+Draw the consequence for В§12.2.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Correct a frequently misused theorem and its critique.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Draw the consequence for В§12.2.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Consequence for В§12.2.; В§12.2.
+
+CLOSURE:
+"correct a frequently misused theorem and its critique" completes; "draw the consequence for В§12.2" begins.
+Do not begin the next move: Supply the security principle and withdraw an earlier attribution.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Hong and Page (PNAS 101(46), 2004) posit a conditional result: within their model's assumptions, a randomly chosen ensemble of diverse problem solvers can outperform a group consisting solely of the individually highest-performing solvers. However, Thompson (*Notices of the AMSastéroïdes 61(9 незавершена, 2014tagHelperRunner) contends that the application of this argument is fundamentally flawed. Thompson argues that the prevailing interpretation—namely, that diverse, comparatively weaker agents outperform homogeneous, highly capable ones—misrepresents the theorem's core claim. Thompson maintains that neither the theorem itself nor the ensuing debate concerning it substantiates the specific arrangement described in the present context.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Consequence for §12.2.** The negative results above are the reason this paper does not present agreement among its participants as evidence. Several models converging on a conclusion is compatible with each having inherited the same framing.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Draw the consequence for В§12.2.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Consequence for В§12.2.; В§12.2.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Supply the security principle and withdraw an earlier attribution.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Inference / local closure
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Draw the consequence for В§12.2.
+Do not anticipate or start: Supply the security principle and withdraw an earlier attribution.
+END_LOCAL_TRANSFORMATION

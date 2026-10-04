@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.1; blocks 73вЂ“74 В· "Role specialization, division of cognitive labour, aвЂ¦"
+
+FUNCTION:
+Establish that role specialization is not novel here.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Survey implemented multi-agent systems and the closest analogue.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Establish that role specialization is not novel here.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§2.9; В§2.11.
+
+CLOSURE:
+"survey implemented multi-agent systems and the closest analogue" completes; "establish that role specialization is not novel here" begins.
+Do not begin the next move: Supply the theoretical account of role-play and apply it.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+A substantial body of literature conceptualizes multi-agent systems within language models. These systems feature several agents, each embodying distinct roles, interacting through implemented communication channels. Notable examples include CAMEL (Li et al., NeurIPS 2023), MetaGPT (Hong et al., ICLR 2024), ChatDev (Qian et al., ACL 2024), AutoGen (Wu et al., COLM 2024), and Generative Agents (Park et al., UIST 2023). Each of these implementations exhibits genuine agent-to-agent interaction within software, encompassing orchestration, message passing, tool invocation, and memory management. While mechanisms diverge, several notably codify roles and interaction patterns directly within prompts: CAMEL utilizes inception prompting, MetaGPT embeds standard operating procedures in prompt sequences, and AutoGen blends natural language with code. A unifying characteristic of these systems is not the avoidance of prompts but the execution of the described interactions within the software itself. The closest published parallel to this framework is the Virtual Lab (Swanson et al., Nature), where a human researcher collaborates with a team of LLM agents on a genuine scientific challenge, employing structured individual and team interactions. Crucially, the Virtual Lab's interaction dynamics are also implemented programmatically.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Role specialization, division of cognitive labour, and structured agent interaction are therefore established design ideas, and this paper claims none of them as new. What distinguishes the present work is stated in §2.9 and §2.11.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Establish that role specialization is not novel here.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§2.9; В§2.11.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Supply the theoretical account of role-play and apply it.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Establish that role specialization is not novel here.
+Do not anticipate or start: Supply the theoretical account of role-play and apply it.
+END_LOCAL_TRANSFORMATION

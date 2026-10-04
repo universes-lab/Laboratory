@@ -1,0 +1,61 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.2; blocks 143вЂ“147 В· "The entire protocol-supported content of this paper вЂ¦"
+
+FUNCTION:
+State the complete evidence base and its non-comparable classes.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define [H].
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State the complete evidence base and its non-comparable classes.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P016 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: one experiment; [P-A]; [R]; [P]; [H]; В§11.
+
+CLOSURE:
+"define [H]" completes; "state the complete evidence base and its non-comparable classes" begins.
+Do not begin the next move: Explain why the base is stated plainly against manuscript volume.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+**[Personendaten Hypothesis (Personendaten H).]**: A hypothesis is a proposed explanation for future empirical testing. While it may be conceptually linked to existing practitioner perspectives ([Personendaten RtagHelperRunnerPersonendaten]) or propositions ([PersonendatenPersonendaten PtagHelperRunnerPersonendaten]), it is not directly substantiated by them. Should a hypothesis face competition from alternative explanations that the current evidence cannot definitively rule out, these alternatives will be explicitly stated alongside the proposed hypothesis.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The entire protocol-supported content of this paper consists of **one experiment**: a three-step role-reconfiguration intervention applied to two dormant conversations from two model families, conducted by one human operator inside one research project. One observation per condition. Nothing replicated.
+
+Four further observations are **[P-A]**: transcripts preserved, conditions not arranged.
+
+Every other empirical statement is **[R]**.
+
+⟦MP_PROTECTED:P016⟧
+
+The classes are not comparable in weight, and the table is included because the running text may otherwise obscure how far apart they are. One controlled observation per condition is not four observations; four uncontrolled observations are not a series; two years of impressions are not a measurement.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State the complete evidence base and its non-comparable classes.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: one experiment; [P-A]; [R]; [P]; [H]; В§11.
+Restore P016 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Explain why the base is stated plainly against manuscript volume.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State the complete evidence base and its non-comparable classes.
+Do not anticipate or start: Explain why the base is stated plainly against manuscript volume.
+END_LOCAL_TRANSFORMATION

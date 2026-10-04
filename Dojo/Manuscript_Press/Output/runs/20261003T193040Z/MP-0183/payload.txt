@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.3; blocks 224вЂ“224 В· "Once cores are distinguished from behaviour, the obsвЂ¦"
+
+FUNCTION:
+Reclassify the observations as positions on a scale.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Separate menom from rule core by scale and by evidential reach.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Reclassify the observations as positions on a scale.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: scope.
+
+CLOSURE:
+"separate menom from rule core by scale and by evidential reach" completes; "reclassify the observations as positions on a scale" begins.
+Do not begin the next move: Announce two orthogonal scales.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+DIST CreateTagHelper SUBSTANTIVE CEILING SOURCE MATERIAL:
+
+Two distinct concepts, operating at different scales, necessitate clear differentiation: the **rule core** and the **menom**. This paper primarily focuses on the **rule core**, defined as the specific construct within a system that dictates the type of response generated at a particular scope or level. Section MessageOf_4.3 explicitly situates these rule cores along a measurable scale. Evidence presented throughout the work directly pertains to these rule cores.
+
+The broader term, **menom**, encompasses the encompassing informational and behavioral structures from which these rule cores are derived. Conceptualized as a totality of frames, evaluative patterns, and behavioral rules, a rule core can be understood as the active subset of a menom relevant to a given class of inputs. Employing the term "menom" acknowledges the informational richness extending beyond mere behavioral organization, a comprehensiveness necessary as the paper's material traverses both thesePersonendaten and their underlying foundations. Crucially, while evidence directly addresses rule cores, the concept of the menom broadens our understanding of the informational context within which these cores function.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Once cores are distinguished from behaviour, the observations in this paper stop being a list of separate findings and become measurements along a scale. The scale is the **scope** over which a core operates.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Reclassify the observations as positions on a scale.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: scope.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Announce two orthogonal scales.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Transition / reframing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Reclassify the observations as positions on a scale.
+Do not anticipate or start: Announce two orthogonal scales.
+END_LOCAL_TRANSFORMATION

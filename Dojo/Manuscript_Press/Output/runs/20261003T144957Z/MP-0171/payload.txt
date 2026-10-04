@@ -1,0 +1,60 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.1; blocks 191вЂ“193 В· "The distinction is what makes the claim testable. "MвЂ¦"
+
+FUNCTION:
+Tie the type/content distinction to testability via the Game of Life.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define the rule core.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Tie the type/content distinction to testability via the Game of Life.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P006 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: explanation type.
+
+CLOSURE:
+"define the rule core" completes; "tie the type/content distinction to testability via the Game of Life" begins.
+Do not begin the next move: Interrogate the analogy and state one asymmetry between the rows.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The foundational operational element of this paper, as articulated within the project's originating charter (pre-dating the present authors' formulations), is conceptualized as a **generative pair coupled with a non-participating integrator**. This dyadic structure, consisting of one or two agents for generation (monotoprule or dialogue respectively) and a distinct third entity acting as an integrator, constitutes the minimal unit for meaningful output. The charter explicitly posits detrimental output arising from configurations exceeding this dyad without stringent coordination mechanisms. The integrator's role is specifically delineated as maintaining the overarching task frame, arbitrating divergences, and synthesizing conclusions, explicitly excluding direct argumentation, solution generation, or dialogue substitution. This designated framework serves as the core definitional element, contrasting with subsequentexpandindo CONCEPT of three debating agents. ⟦ zakładamy MATERIAL:P005 ⟧
+
+
+> A **rule core** fixes the **type** of response to a class of inputs, while leaving the **content** of any particular response undetermined.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The distinction is what makes the claim testable. "Models have stable traits" is not testable, because it does not say what is stable — and model outputs demonstrably vary across identical inputs. "Type is determined, content varies" is testable: identify a class of inputs for which the type of response is not determined, and no core operates at that level.
+
+The source of the idea is Conway's Game of Life, and the analogy is one of **explanation type**, not of subject matter:
+
+⟦MP_PROTECTED:P006⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Tie the type/content distinction to testability via the Game of Life.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: explanation type.
+Restore P006 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Interrogate the analogy and state one asymmetry between the rows.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Tie the type/content distinction to testability via the Game of Life.
+Do not anticipate or start: Interrogate the analogy and state one asymmetry between the rows.
+END_LOCAL_TRANSFORMATION

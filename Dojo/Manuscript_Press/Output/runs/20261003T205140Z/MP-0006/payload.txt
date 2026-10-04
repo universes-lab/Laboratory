@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.2; blocks 17вЂ“17 В· "The standard response to inconsistent model behaviouвЂ¦"
+
+FUNCTION:
+State the standard remedy: a better prompt.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State the standard remedy: a better prompt.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"editorial disclosure: who wrote the В§1.1вЂ“В§1.2 account" completes; "state the standard remedy: a better prompt" begins.
+Do not begin the next move: Turn: the standard remedy stopped producing improvement.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The account of the project's early formulations presented in sections §1.1 and §1.2 was authored by the individual who originally developed and documented these formulations.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The standard response to inconsistent model behaviour is a better prompt: longer, more precise, with more examples and tighter constraints.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State the standard remedy: a better prompt.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Turn: the standard remedy stopped producing improvement.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State the standard remedy: a better prompt.
+Do not anticipate or start: Turn: the standard remedy stopped producing improvement.
+END_LOCAL_TRANSFORMATION

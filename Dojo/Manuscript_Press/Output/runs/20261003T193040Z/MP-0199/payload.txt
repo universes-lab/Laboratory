@@ -1,0 +1,68 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.5.4; blocks 257вЂ“263 В· "The two need not coincide, and in the arrangement stвЂ¦"
+
+FUNCTION:
+Derive the two represented constructs and the methodological consequence.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define actual versus represented boundaries.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Derive the two represented constructs and the methodological consequence.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P014, P015 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: only as text; Represented social position; Represented social source; The methodological consequence is the reason this distinction is stated at all.; В§5; В§2.9; Divergence between actual and represented boundaries is itself an experimental variable; this paper did not vary it systematically; all its observations lie on one side of it.
+
+CLOSURE:
+"define actual versus represented boundaries" completes; "derive the two represented constructs and the methodological consequence" begins.
+Do not begin the next move: State boundary asymmetry and the perspectival nature of nesting.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+A key distinction unifying this section with the experiment centers on the concept of **actual versus represented boundaries** within the Zone of Reasoning (**Actual ZOV/ZOR and Represented ZOV/ZOR respectively**). This delineation clarifies the operational space and delineates the theoretical framework against which validation SHORTCUTS are evaluated. 
+
+
+> **Actual ZOV/ZOR** — the boundaries the system in fact enforces: what the participant can access, and what its outputs can affect.
+>
+> **Represented ZOV/ZOR** — the boundaries described to the participant in its prompt, whether or not the system enforces them.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The two need not coincide, and in the arrangement studied here they systematically did not. The organizational structure existed **only as text**: colleagues, councils and institutional positions described to participants and never implemented as channels. Every participant's actual ZOV was its context window; its represented ZOV was an institutional position within a described organization.
+
+This yields the two constructs the experiment varied, and which earlier drafts introduced separately:
+
+⟦MP_PROTECTED:P014⟧
+
+⟦MP_PROTECTED:P015⟧
+
+**The methodological consequence is the reason this distinction is stated at all.** A change in represented ZOV cannot be interpreted as a change in actual ZOV, in the participant's role, or in its menom. The experiment in §5 varied the representation while the actual boundaries were unchanged — every message passed through one human, and no access was in fact restricted or granted. A model that responds to a described organizational structure is responding to a description, and the paper's claims are correspondingly limited (§2.9).
+
+Divergence between actual and represented boundaries is itself an experimental variable, and one this paper did not vary systematically: all its observations lie on one side of it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Derive the two represented constructs and the methodological consequence.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: only as text; Represented social position; Represented social source; The methodological consequence is the reason this distinction is stated at all.; В§5; В§2.9; Divergence between actual and represented boundaries is itself an experimental variable; this paper did not vary it systematically; all its observations lie on one side of it.
+Restore P014, P015 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State boundary asymmetry and the perspectival nature of nesting.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Source-bounded derivation / methodological consequence
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Derive the two represented constructs and the methodological consequence.
+Do not anticipate or start: State boundary asymmetry and the perspectival nature of nesting.
+END_LOCAL_TRANSFORMATION

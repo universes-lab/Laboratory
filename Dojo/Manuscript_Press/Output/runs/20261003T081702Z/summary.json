@@ -1,9 +1,0 @@
-{
-  "status": "SUCCESS",
-  "scope": "PILOT_PRODUCTION",
-  "marker_count": 375,
-  "completion_calls_total": 82,
-  "final_path": "Output\\FINAL.manuscript.md",
-  "final_size": 251631,
-  "run_dir": "Output\\runs\\20261003T081702Z"
-}

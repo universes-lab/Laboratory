@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.2; blocks 19вЂ“19 В· "The incident that made this explicit had nothing to вЂ¦"
+
+FUNCTION:
+Narrative evidence: the incident that made the failure explicit.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Turn: the standard remedy stopped producing improvement.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Narrative evidence: the incident that made the failure explicit.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§4.1.
+
+CLOSURE:
+"turn: the standard remedy stopped producing improvement" completes; "narrative evidence: the incident that made the failure explicit" begins.
+Do not begin the next move: Conclusion drawn at the time, stated as contemporaneous.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+At a certain stage, refining the prompt—the standard remedy—ceased to yield improvements. This wasn't due to poorly constructed prompts, but rather because the underlying limitation transcended the prompt's scope. The limiting factor had shifted beyond the prompt's reach.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The incident that made this explicit had nothing to do with role-play or organizational design. An agent responsible for executing code worked largely by trial and error; one episode ended with the deletion of a working codebase together with its archives (§4.1). What changed the behaviour afterwards was not a stricter instruction set. It was a short document redefining what kind of agent was acting — written by the agent itself, and re-read at the start of every session.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Narrative evidence: the incident that made the failure explicit.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§4.1.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Conclusion drawn at the time, stated as contemporaneous.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Narrative evidence: the incident that made the failure explicit.
+Do not anticipate or start: Conclusion drawn at the time, stated as contemporaneous.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.0; blocks 68вЂ“68 В· "The marking applies throughout the paper, not only tвЂ¦"
+
+FUNCTION:
+Extend the marking convention to the whole paper.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Justify the convention from the thirteen-item episode.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Extend the marking convention to the whole paper.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"justify the convention from the thirteen-item episode" completes; "extend the marking convention to the whole paper" begins.
+Do not begin the next move: Record that a claim-level source audit was performed.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The convention of distinguishing between **Verified** and **Provisional** bibliographic references is crucial due to a specific episode during this section's preparation. Thirteen bibliographic items were sourced from an external participant, resulting in inaccuracies: five were outright incorrect, and two misinterpreted the direction of cited arguments, citing papers supporting a claim as evidence against it. Furthermore, two arXiv identifiers intended for multi-agent-debate literature pointed to unrelated papers in observational astrophysics and cosmology. This instance, detailed in §12.4.1, exemplifies the fallibility of solely relying on intermediary bibliographic sourcing. Consequently, flagging provisional references with a warning symbol (⚠) and mandating independent verification underscores the methodological necessity of heightened scrutiny for such citations.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The marking applies throughout the paper, not only to this section. Any reference cited elsewhere that has not been checked against its source carries the same mark at the point of use.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Extend the marking convention to the whole paper.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Record that a claim-level source audit was performed.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Extend the marking convention to the whole paper.
+Do not anticipate or start: Record that a claim-level source audit was performed.
+END_LOCAL_TRANSFORMATION

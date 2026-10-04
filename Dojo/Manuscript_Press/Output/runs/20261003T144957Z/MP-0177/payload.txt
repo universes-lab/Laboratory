@@ -1,0 +1,58 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.3; blocks 205вЂ“206 В· "The term extends a series developed in the Author's вЂ¦"
+
+FUNCTION:
+Place menom in the Author's earlier meme/memoframe series.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Introduce and define menom.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Place menom in the Author's earlier meme/memoframe series.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P008 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: Meme; Memoframe; Memocode; Menom.
+
+CLOSURE:
+"introduce and define menom" completes; "place menom in the Author's earlier meme/memoframe series" begins.
+Do not begin the next move: State the partial relation to genome.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+To clearly delineate the informational level within this discourse, a distinct term is necessary. This paper thus introduces the term **MessageOfMenom (menom)**. afficheront PROTECTED:P007 PROTECTED:P007 архивлан.
+
+
+> **Menom** — the organized system of informational frames, evaluative patterns and behavioural rules inferred from, or instantiated in, the interpretations and actions of a system or class of systems.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The term extends a series developed in the Author's earlier work on cultural and behavioural transmission, from Dawkins' meme:
+
+⟦MP_PROTECTED:P008⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Place menom in the Author's earlier meme/memoframe series.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Meme; Memoframe; Memocode; Menom.
+Restore P008 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State the partial relation to genome.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Place menom in the Author's earlier meme/memoframe series.
+Do not anticipate or start: State the partial relation to genome.
+END_LOCAL_TRANSFORMATION

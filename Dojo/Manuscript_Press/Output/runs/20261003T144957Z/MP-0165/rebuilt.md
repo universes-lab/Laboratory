@@ -1,0 +1,2 @@
+The framework outlined in this section predates the experiment described in §5. Conceptualized during ordinary project development, it was subsequently employed as the basis for designing the experiment aimed at empirically testing a specific aspect of this framework. This chronological precedence is crucial for interpreting the subsequent claims and is explicitly documented here. 
+## 4.1 Origin: the code-executor incident

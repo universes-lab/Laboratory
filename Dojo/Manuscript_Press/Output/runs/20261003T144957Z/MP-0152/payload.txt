@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.1; blocks 141вЂ“142 В· "**[H] вЂ” Hypothesis.** A proposal for future testing.вЂ¦"
+
+FUNCTION:
+Define [H].
+
+READER_STATE_BEFORE:
+The preceding completed move is: Define [R].
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define [H].
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: [H] вЂ” Hypothesis.; [H]; [P]; [R].
+
+CLOSURE:
+"define [R]" completes; "define [H]" begins.
+Do not begin the next move: State the complete evidence base and its non-comparable classes.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+**[R] — Retrospective practitioner observation** signifies a pattern or recurring behavior noted during the collaborative process by the practitioners involved. Италијани these observations were not explicitly documented under a formal protocol and lacked elements such as counting, precise timing, blinding, or comparison against a control group. The individuals making these observations were the same ones who designed the interventions, possessing a vested interest in their successful implementation. Conceptualize these as field notes from a specific team, akin in evidentiary weight to an engineering practice note, rather than a formalized measurement.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**[H] — Hypothesis.** A proposal for future testing. It may be motivated by [P] or [R] material but is not established by it. Where a hypothesis competes with alternatives the present evidence cannot exclude, the alternatives are stated alongside it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define [H].
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: [H] вЂ” Hypothesis.; [H]; [P]; [R].
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State the complete evidence base and its non-comparable classes.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define [H].
+Do not anticipate or start: State the complete evidence base and its non-comparable classes.
+END_LOCAL_TRANSFORMATION

@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.1; blocks 71вЂ“72 В· "A substantial literature constructs systems in whichвЂ¦"
+
+FUNCTION:
+Survey implemented multi-agent systems and the closest analogue.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Record that a claim-level source audit was performed.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Survey implemented multi-agent systems and the closest analogue.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"record that a claim-level source audit was performed" completes; "survey implemented multi-agent systems and the closest analogue" begins.
+Do not begin the next move: Establish that role specialization is not novel here.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+A claim-level source audit was conducted on the provisional bibliographic references. This audit entailed verifying each claim attributed to a source directly against its primary documentation, rather than solely confirming correspondence to existing bibliographic records. Consequently, all references in the present version have successfully undergone this rigorous check.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A substantial literature constructs systems in which several language-model agents occupy distinct roles and exchange outputs through implemented channels. ✓ CAMEL (Li et al., NeurIPS 2023), MetaGPT (Hong et al., ICLR 2024), ChatDev (Qian et al., ACL 2024), AutoGen (Wu et al., COLM 2024) and Generative Agents (Park et al., UIST 2023) are representative. Each implements actual interaction between agents in software — orchestration, message passing, tool invocation, memory. The mechanisms differ between them, and in several the roles and interaction patterns are themselves specified in prompts: CAMEL uses inception prompting, MetaGPT encodes standard operating procedures into prompt sequences, and AutoGen combines natural language with code. What these systems share is not that they avoid prompts but that the interaction they describe is also executed.
+
+✓ The Virtual Lab (Swanson et al., *Nature*) is the closest published analogue to the arrangement described here: a human researcher working with a team of LLM agents on a real scientific problem, with structured team and individual meetings. Its interaction is implemented programmatically.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Survey implemented multi-agent systems and the closest analogue.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Establish that role specialization is not novel here.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Literature positioning
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Survey implemented multi-agent systems and the closest analogue.
+Do not anticipate or start: Establish that role specialization is not novel here.
+END_LOCAL_TRANSFORMATION

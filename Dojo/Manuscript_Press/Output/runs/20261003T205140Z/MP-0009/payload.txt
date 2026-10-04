@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.2; blocks 20вЂ“21 В· "The conclusion drawn at the time was that **role matвЂ¦"
+
+FUNCTION:
+Conclusion drawn at the time, stated as contemporaneous.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Narrative evidence: the incident that made the failure explicit.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Conclusion drawn at the time, stated as contemporaneous.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: role matters more than the specific wording of the prompt; В§4.1; В§5.
+
+CLOSURE:
+"narrative evidence: the incident that made the failure explicit" completes; "conclusion drawn at the time, stated as contemporaneous" begins.
+Do not begin the next move: Answer the section question: a field report with one embedded intervention.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The explicit revelation of the failure came not from role-play dynamics or restructuring the agent's design, but from a specific incident. An agent executing code primarily relied on trial-and-error. During one such attempt, this agent inadvertently deleted a functioning codebase along with its archives (§4.1). Crucially, the subsequent shift in the agent's behavior wasn't prompted by stricter instructions. Instead, it was a concise document, authored by the agent itself and reread at the beginning of each session, that redefined the nature of the operative agent. This self-authored document marked the point where the underlying limitation transcending prompt manipulation became undeniably clear.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The conclusion drawn at the time was that **role matters more than the specific wording of the prompt**. That formulation requires qualification, since the document in question was itself a prompt; the qualification is in §4.1. What matters here is the chronology: the claim was formulated *before* the experiment reported in §5, and the experiment was designed to test it. It is a hypothesis that was tested, not a generalization extracted afterwards from a result.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Conclusion drawn at the time, stated as contemporaneous.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: role matters more than the specific wording of the prompt; В§4.1; В§5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Answer the section question: a field report with one embedded intervention.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Inference / local closure
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Conclusion drawn at the time, stated as contemporaneous.
+Do not anticipate or start: Answer the section question: a field report with one embedded intervention.
+END_LOCAL_TRANSFORMATION

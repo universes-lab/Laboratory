@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.1; blocks 184вЂ“188 В· "That formulation requires immediate qualification, bвЂ¦"
+
+FUNCTION:
+Qualify the conclusion and supply the charter's more precise version.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Report the outcome and the conclusion drawn at the time.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Qualify the conclusion and supply the charter's more precise version.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: a generative pair plus a non-participating integrator; В§5; В§8.
+
+CLOSURE:
+"report the outcome and the conclusion drawn at the time" completes; "qualify the conclusion and supply the charter's more precise version" begins.
+Do not begin the next move: Define the rule core.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Following the implementation of the redefined function outlined in the singular response document, unauthorized modifications no longer constituted the primary operational failure mode. This constituted a practitioner's observation rather than a quantified result due to the absence of specific tracking or a control condition. The conclusion reached at the time was that the codified role itself held greater significance than the precise wording of programmatic instructions: role precedence over explicit phrasing.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+That formulation requires immediate qualification, because the document in question *is* a prompt. The distinction claimed is narrower: what changed behaviour was not an extension of the instruction list but a redefinition of what kind of agent was acting, restated by the agent in its own operational language. Whether "role" versus "prompt" is the correct cut is precisely what §5 was designed to test.
+
+A second early document, the project's collaboration charter, records a position this paper partly revises. It states that a pair of agents is the minimal generative unit — one agent produces monologue, two produce dialogue, three or more produce noise without strict coordination — and assigns the third participant a different function entirely: it does not argue, does not generate solutions first, and does not substitute for the dialogue. Its role is to hold the task frame, fix divergences, and integrate conclusions.
+
+This is more precise than the formulation the present authors used subsequently, and §8 adopts it: the structural unit is not three debating agents but **a generative pair plus a non-participating integrator**.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Qualify the conclusion and supply the charter's more precise version.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: a generative pair plus a non-participating integrator; В§5; В§8.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define the rule core.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Qualify the conclusion and supply the charter's more precise version.
+Do not anticipate or start: Define the rule core.
+END_LOCAL_TRANSFORMATION

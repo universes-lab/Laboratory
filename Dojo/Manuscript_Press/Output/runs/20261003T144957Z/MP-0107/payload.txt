@@ -1,0 +1,68 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.8, "What is offered", blocks 49вЂ“53.
+
+FUNCTION:
+Present the manuscript's three offered items in decreasing order of confidence:
+the branch-reset procedure, the countable prompt rule, and the scale/question.
+
+READER_STATE_BEFORE:
+The reader has just completed В§1.7 and knows the manuscript does not claim
+a performance advantage for the arrangements described.
+
+REQUIRED_READER_STATE_AFTER:
+The reader knows exactly what the paper offers, in the stated confidence
+ordering, without reading any of the three items as a stronger claim than SOURCE permits.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling.
+Preserve "Three things, in decreasing order of confidence" as the organizing relation.
+Preserve the procedure's independence from whether the paper's substantive claims survive.
+Preserve the countable rule as a minimization rule with its falsification route.
+Preserve the scale's unequal status: two levels supported, one open, one untested.
+Preserve В§10.5, В§9.3, В§11.4, В§1.6, and В§11 references.
+Do not convert confidence ordering into a numerical ranking or evidence strength not stated in SOURCE.
+
+CLOSURE:
+The move closes only after all three offered items have been stated.
+Do not begin В§1.9 or supply reasons for publication; that is the next move.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The provided analysis does not demonstrate that any of the described arrangements exhibit superior performance to alternatives. Specifically, no comparative benchmark experiments were conducted with alternative configurations. Consequently, a performance advantage for the described arrangements cannot be established.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Three things, in decreasing order of confidence.
+
+A **procedure**: returning a conversation to a point preceding a conflict, to separate the effect of a new prompt from the effect of the model's own prior objections (§10.5). Usable independently of whether this paper's substantive claims survive.
+
+A **countable rule**: minimize the unverifiable self-claims a role prompt requires the agent to accept, with a specified falsification route (§9.3, §11.4).
+
+A **scale and a question**: §1.6, with two levels supported, one open, one untested — and the experiments that would resolve the remaining two (§11).
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Render the announcement and all three offered items as one coherent publication-ready move.
+Keep the internal three-part structure visible and concise.
+
+PRESERVE:
+"procedure"; "countable rule"; "scale and a question".
+The decreasing-confidence ordering.
+The exact limitations and section references attached to each item.
+
+DO_NOT_INTRODUCE:
+No fourth offering.
+No stronger evidence claim for any item.
+No new rationale for publication.
+No new mechanism, evidence, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Structured offering / ranked enumeration.
+
+SEMANTIC_STOP:
+Stop after the third offered item and its В§11 reference.
+Do not begin the two reasons for publishing now.
+END_LOCAL_TRANSFORMATION

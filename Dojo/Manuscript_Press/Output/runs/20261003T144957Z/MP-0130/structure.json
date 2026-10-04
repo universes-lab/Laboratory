@@ -1,0 +1,6 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\n**The finding that most matters here.** ✓ Zhang et al. report that *model heterogeneity* consistently improves debate frameworks that otherwise underperform. Their finding concerns heterogeneity of the models implementing the agents.\n\nThis licenses a distinction the literature does not draw and which §8.9 develops: heterogeneity of **carrier** (which model implements a role) is not the same variable as heterogeneity of **function** (what the role is responsible for and permitted to see). The cited work addresses the first. This paper's arrangement varied both, without comparing them.\n\n"
+  }
+]

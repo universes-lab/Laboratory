@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.3; blocks 203вЂ“204 В· "For the informational level a distinct term is requiвЂ¦"
+
+FUNCTION:
+Introduce and define menom.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Fix the residual status of the withdrawn term.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Introduce and define menom.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P007 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: Menom.
+
+CLOSURE:
+"fix the residual status of the withdrawn term" completes; "introduce and define menom" begins.
+Do not begin the next move: Place menom in the Author's earlier meme/memoframe series.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The term "*Behavioural DNAastéroïdes*" henceforth serves solely as a historical descriptor for previously employed vocabulary within this paper. It is no longer employed in a normative or explanatory capacity.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+For the informational level a distinct term is required, and this paper introduces one.
+
+⟦MP_PROTECTED:P007⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Introduce and define menom.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Menom.
+Restore P007 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Place menom in the Author's earlier meme/memoframe series.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Introduce and define menom.
+Do not anticipate or start: Place menom in the Author's earlier meme/memoframe series.
+END_LOCAL_TRANSFORMATION

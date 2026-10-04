@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.3; blocks 225вЂ“225 В· "Two scales must be distinguished, and they are orthoвЂ¦"
+
+FUNCTION:
+Announce two orthogonal scales.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Reclassify the observations as positions on a scale.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Announce two orthogonal scales.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"reclassify the observations as positions on a scale" completes; "announce two orthogonal scales" begins.
+Do not begin the next move: Define Scale 1 and tabulate its levels.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+DIST CreateTagHelper SUBSTANTIVE CEILING SOURCE MATERIAL: Delineated from behavioral patterns, the observations in this work transition from discrete findings to quantifiable positions along a predefined scale. This scale corresponds to the operational **scope** of each delineated rule core.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Two scales must be distinguished, and they are orthogonal.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Announce two orthogonal scales.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define Scale 1 and tabulate its levels.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Distinction / framing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Announce two orthogonal scales.
+Do not anticipate or start: Define Scale 1 and tabulate its levels.
+END_LOCAL_TRANSFORMATION

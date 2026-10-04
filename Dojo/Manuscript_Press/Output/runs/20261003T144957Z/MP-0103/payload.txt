@@ -1,0 +1,67 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+Final move of В§1.6.
+
+FUNCTION:
+Convert the scale from an organizing device into the paper's single
+empirical programme question.
+
+READER_STATE_BEFORE:
+The reader understands both the scale idea and the rule-core construct.
+
+REQUIRED_READER_STATE_AFTER:
+The reader knows the scale levels and their unequal evidential status,
+and understands the exact empirical question that organizes the paper.
+
+CONSTRAINTS:
+Episode and conversation are supported by preserved evidence.
+Account remains open.
+Model family remains untested/confounded.
+Preserve the protected central question verbatim.
+Do not imply that the paper has answered the question at all levels.
+
+CLOSURE:
+В§1.6 may close after explaining why this question is preferred to the older,
+broader formulation.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+A rule core, operating analogously to a developmental mechanism rather than a replicative one, defines a fixed RESPONSE TYPE for a class of inputs within a model. Crucially, it does這款 FIX the RESPONSE TYPE while leaving the specific CONTENT of each generated response OPEN to variation. This distinction is inherently testable because it logically predicts OUTPUT VARIABILITY across identical inputs despite the invariant RESPONSE TYPE dictated by the rule core. Observing this variability directly supports the claim of a rule core's influence on response typology.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The scale runs from the single turn upward through the episode, the conversation, the account, and the model family. Two levels are supported here by preserved evidence: the episode (§6.1) and the conversation (§6.2). One is open (§6.4). One is untested and confounded (§6.5).
+
+The programme therefore has one empirical question:
+
+⟦MP_PROTECTED:P003⟧
+
+We prefer this to the broader formulations used in earlier drafts — the study of social behaviour in collaborative AI systems — because it specifies what would be measured and what would refute it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Present the scale compactly, preserve the unequal status of its levels,
+lead into the protected research question, and close by explaining why
+the question is methodologically stronger than the earlier broad framing.
+
+PRESERVE:
+Ordering of levels.
+Evidential asymmetry across levels.
+Protected question exactly as supplied.
+The reason for preferring the question: it specifies measurement and
+refutation.
+
+DO_NOT_INTRODUCE:
+No additional scale level.
+No claim that account or model-family levels are established.
+No new discipline claim.
+No paraphrase or duplication of the protected question.
+
+RHETORICAL_OPERATION:
+Enumeration в†’ concentration into one question в†’ local section closure.
+
+SEMANTIC_STOP:
+Stop only after the reader has both the exact question and the reason it
+replaces the broader earlier formulation.
+END_LOCAL_TRANSFORMATION

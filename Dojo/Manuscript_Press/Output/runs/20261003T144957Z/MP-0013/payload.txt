@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.3; blocks 25вЂ“25 В· "The entire protocol-supported content consists of **вЂ¦"
+
+FUNCTION:
+Quantify the protocol-supported content exactly.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Justify stating the proportions here rather than in limitations.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Quantify the protocol-supported content exactly.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: one experiment; [R]; [H].
+
+CLOSURE:
+"justify stating the proportions here rather than in limitations" completes; "quantify the protocol-supported content exactly" begins.
+Do not begin the next move: Forward pointer to the unfavourable self-evaluation in В§10.6.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The proportions are explicitly stated in this section rather than within a limitations apartado to avoid implicitly inflating the perceived breadth of the supporting evidence. Placing them here directly contextualizes their scope within the subsequent discussion, preventing any misinterpretation of the underlying methodological basis.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The entire protocol-supported content consists of **one experiment**: a three-step role-reconfiguration intervention applied to two dormant conversations from two model families, conducted by one human operator inside one live research project, with one observation per condition and no replication. Four further observations were preserved but not designed. Everything else — the conceptual framework, the practitioner observations, the structural hypothesis, the design rules — is **[R]** or **[H]**.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Quantify the protocol-supported content exactly.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: one experiment; [R]; [H].
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Forward pointer to the unfavourable self-evaluation in В§10.6.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Procedural exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Quantify the protocol-supported content exactly.
+Do not anticipate or start: Forward pointer to the unfavourable self-evaluation in В§10.6.
+END_LOCAL_TRANSFORMATION

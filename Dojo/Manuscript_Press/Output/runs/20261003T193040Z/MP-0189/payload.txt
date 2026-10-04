@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.3; blocks 231вЂ“235 В· "This gives the research programme a single empiricalвЂ¦"
+
+FUNCTION:
+Concentrate the scale into the empirical question and justify it.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Locate this paper's measurements on Scale 1.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Concentrate the scale into the empirical question and justify it.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P011 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: At what level of nesting is a rule core fixed?; В§11.
+
+CLOSURE:
+"locate this paper's measurements on Scale 1" completes; "concentrate the scale into the empirical question and justify it" begins.
+Do not begin the next move: Distinguish two origins of fixation and show the mechanism is shared.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This paper's measurements are situated on **Scale 1**. The cited source explicitly states this, differentiating Scale 1 from Scale 2, which pertains to premises shared across participants rather than individual states.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+This gives the research programme a single empirical question:
+
+⟦MP_PROTECTED:P011⟧
+
+Every observation reported here answers it at one level, and every experiment proposed in §11 separates one level from the level beneath it.
+
+We prefer this formulation to the broader one used in earlier drafts ("the study of social behaviour in AI systems"), which specifies neither what would be measured nor what would refute it.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Concentrate the scale into the empirical question and justify it.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: At what level of nesting is a rule core fixed?; В§11.
+Restore P011 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Distinguish two origins of fixation and show the mechanism is shared.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Rationale / explanation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Concentrate the scale into the empirical question and justify it.
+Do not anticipate or start: Distinguish two origins of fixation and show the mechanism is shared.
+END_LOCAL_TRANSFORMATION

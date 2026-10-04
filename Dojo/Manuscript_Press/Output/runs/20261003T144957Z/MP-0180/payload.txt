@@ -1,0 +1,68 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.3; blocks 212вЂ“214 В· "*It does not assert transmission.* Successive versioвЂ¦"
+
+FUNCTION:
+Deny transmission and state that the question stays open.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Deny a localized carrier and show which levels have one.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Deny transmission and state that the question stays open.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: The definition therefore does not settle the paper's empirical question in advance.; В§4.3; В§11.
+
+CLOSURE:
+"deny a localized carrier and show which levels have one" completes; "deny transmission and state that the question stays open" begins.
+Do not begin the next move: Refuse the human-collective inference the vocabulary invites.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The term "menom" explicitly ¬asserts the existence of a localized carrier. Unlike a biological genome, which inherently implies a cellular carrier and mode of transmission (heredity), a menom attributed to a model family is not a structure residing within its constituent models. Instead, it's a regularity discerned from their outputs. Consequently, no specific physical location or entity embodying a menom has been identified. 
+
+Crucially, the notion of a carrier varies across different hierarchical levels:
+
+
+| Level | Carrier |
+|---|---|
+| Menom of a conversation | context window plus platform persistence — localized and, in principle, inspectable (§2.10) |
+| Menom of a model version | weights — localized, not inspectable in commercial deployment |
+| Menom of a model family | none identified; a regularity inferred from outputs |
+| Menom of a human population | none established |
+
+
+Out of the four delineated levels, two possess identified carriers. The present paper's empirical observations pertain to the first level, while an untested hypothesis concerning the third level is proposed (§6.5).
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+*It does not assert transmission.* Successive versions of a model family do not necessarily provide an identifiable or publicly documented line of transmission. Persistence of a behavioural pattern across versions therefore does not by itself establish inheritance; it may result from direct continuation, shared data and procedures, comparable tuning policies, or convergence under similar developmental conditions. Which of these obtains is not determinable from outside.
+
+**The definition therefore does not settle the paper's empirical question in advance.** Whether a menom persists across carriers, versions, accounts or families is what §4.3 asks and §11 proposes to test. Building persistence into the definition would make the question a tautology.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Deny transmission and state that the question stays open.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: The definition therefore does not settle the paper's empirical question in advance.; В§4.3; В§11.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Refuse the human-collective inference the vocabulary invites.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Deny transmission and state that the question stays open.
+Do not anticipate or start: Refuse the human-collective inference the vocabulary invites.
+END_LOCAL_TRANSFORMATION

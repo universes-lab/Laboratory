@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.5.3; blocks 252вЂ“252 В· "- **Decision authority** вЂ” which decisions the partiвЂ¦"
+
+FUNCTION:
+Enumerate the five ZOR components.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Restrict ZOV to availability and locate the experiment's manipulation.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Enumerate the five ZOR components.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Decision authority; Action authority; Validation duty; Handoff authority; Escalation duty.
+
+CLOSURE:
+"restrict ZOV to availability and locate the experiment's manipulation" completes; "enumerate the five ZOR components" begins.
+Do not begin the next move: Single out validation duty as the component whose omission is not benign.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The Zone of Visibility (ZOV) fundamentally governs the *availability* of information to a participant. Crucially, it does not imply that the participant correctly interprets this accessible information nor that they are authorized to disseminate it. 
+
+Specifically, the experiment described in §5 manipulated relational visibility as its primary factor and source visibility secondarily (§5.5). The manipulation held the other two ZOV components—context access and output visibility—constant.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+- **Decision authority** — which decisions the participant is entitled to make.
+- **Action authority** — which actions it may or must perform.
+- **Validation duty** — which claims it is obliged to verify.
+- **Handoff authority** — what material it transmits, in what status, and to whom.
+- **Escalation duty** — which questions it must return to the Author or another responsible participant rather than resolve on its own.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Enumerate the five ZOR components.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Decision authority; Action authority; Validation duty; Handoff authority; Escalation duty.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Single out validation duty as the component whose omission is not benign.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Structured enumeration / exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Enumerate the five ZOR components.
+Do not anticipate or start: Single out validation duty as the component whose omission is not benign.
+END_LOCAL_TRANSFORMATION

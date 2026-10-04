@@ -1,0 +1,2 @@
+Reconstruction of session dates from memory was rejected because it would have superficially enhanced the record's authority without substantively improving its reliability. The authors deemed it inappropriate to employ reconstructed dates in a publication that explicitly distinguishes preserved evidence from recollection, thus upholding methodological clarity. This decision aligns with the reporting requirements outlined in §11.2, which prioritize the explicit presentation of dates upfront to emphasize their evidentiary status. 
+## 3.8 The label "AI Sociology"

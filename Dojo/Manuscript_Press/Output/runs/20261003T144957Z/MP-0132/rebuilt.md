@@ -1,0 +1,2 @@
+**Consequence for §12.2:** Due to the aforementioned negative findings, this paper refrains from citing agreement among its participants as evidence of correctness. The convergence of several models on a conclusion could plausibly arise from them independently inheriting the same underlying framing rather than indicating a robustly validated outcome. 
+## 2.6 Organizational design and information boundaries

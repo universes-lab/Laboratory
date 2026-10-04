@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.4; blocks 83вЂ“83 В· "What is specific to the present setting, and modest,вЂ¦"
+
+FUNCTION:
+Narrow what is specific to this setting.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Classify the memory observation under existing constructs.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Narrow what is specific to this setting.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§7.7.
+
+CLOSURE:
+"classify the memory observation under existing constructs" completes; "narrow what is specific to this setting" begins.
+Do not begin the next move: Distinguish a second, technical sense of externalized memory.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The paper's observation that a collaboration retains working knowledge unattainable by individual participants can be understood through existing constructs of **transactive memory** (Wegner, 1987) and **distributed cognition** (Hutchins, 1995). Neither source definitively asserts that this specific case exemplifies these constructs,あくまでもそれらを通じた解釈枠組みを提供脚注の使い方.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+What is specific to the present setting, and modest, is that the mechanism operates in a collaboration whose members have no cross-session state and no awareness that it is operating (§7.7).
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Narrow what is specific to this setting.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§7.7.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Distinguish a second, technical sense of externalized memory.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Narrow what is specific to this setting.
+Do not anticipate or start: Distinguish a second, technical sense of externalized memory.
+END_LOCAL_TRANSFORMATION

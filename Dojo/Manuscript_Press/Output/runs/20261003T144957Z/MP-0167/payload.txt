@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.1; blocks 178вЂ“181 В· "The response was not a longer or stricter instructioвЂ¦"
+
+FUNCTION:
+Present the response document and its core redefinition.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Narrate the origin failure: the code-executor incident.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Present the response document and its core redefinition.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P004 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"narrate the origin failure: the code-executor incident" completes; "present the response document and its core redefinition" begins.
+Do not begin the next move: Report the outcome and the conclusion drawn at the time.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The project's central assertion stemmed from a critical failure within the code-execution component. The agent designated for executing code primarily relied on a trial-and-error methodology. Consequently, malfunctions accumulated over several weeks. One culminating incident resulted in the irreversible deletion of the operational codebase, along with all associated archives. Italijanian archival records **[R]** document this event.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The response was not a longer or stricter instruction set. It was a single document, composed by the agent itself under the Author's direction and made required reading at the start of every session and whenever context was lost during one.
+
+Its core is a redefinition of function rather than an intensification of constraint:
+
+⟦MP_PROTECTED:P004⟧
+
+Supporting structure: read-only operation by default; mandatory confirmation from a designated partner before any risky action; and a four-question self-check to be run before acting at all.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Present the response document and its core redefinition.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Restore P004 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Report the outcome and the conclusion drawn at the time.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Present the response document and its core redefinition.
+Do not anticipate or start: Report the outcome and the conclusion drawn at the time.
+END_LOCAL_TRANSFORMATION

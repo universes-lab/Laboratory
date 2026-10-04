@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nA claim-level audit of the provisional set was subsequently carried out: each claim attributed to a source was checked against the primary source rather than merely confirmed to correspond to an existing paper. Every reference in the present version has passed that check, and the ⚠ class is accordingly empty here. The convention is retained because the audit found errors that a bibliographic check alone would not have caught — one citation supporting two claims that belong to two different papers, one attribution of a proposition its source does not advance, and one lineage claim its source does not support — and because any reference added later re-enters the paper as provisional.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 2.1 Multi-agent LLM systems with role specialization\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

@@ -1,0 +1,59 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§2.10; blocks 119вЂ“123 В· "A further limitation follows, and it concerns the boвЂ¦"
+
+FUNCTION:
+Extend the limitation to the conversation boundary itself.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Report a model's non-answer about its own persistence.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Extend the limitation to the conversation boundary itself.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"report a model's non-answer about its own persistence" completes; "extend the limitation to the conversation boundary itself" begins.
+Do not begin the next move: State epistemic status before making any contribution claim.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+When directly questioned about possessing account-level persistence, one participant neither confirmed nor denied this capability. Instead, it advised empirical verification of the specific interface rather than relying on a direct assertion. This non-committal stance aligns with the principle outlined in §5.5: a model's self-reported access to a feature should not be construed as definitive evidence of said access.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A further limitation follows, and it concerns the boundary between conversations rather than the resumption of one.
+
+The visible boundary of a conversation is not necessarily the boundary of the context supplied to the model. Where a platform offers saved memories or retrieval over prior conversation history, information from earlier exchanges may enter a conversation that appears empty. This is documented product behaviour on at least one platform in use here, not an anomaly.
+
+The consequence for method is direct: a new or visually empty conversation is not evidence of context isolation. Where isolation matters to a procedure, it must either be secured by a controlled environment or recorded with the status UNVERIFIED CONTEXT INDEPENDENCE.
+
+One episode in this project illustrates the point without establishing its mechanism: a newly opened conversation used project information that had not been supplied to it. Which product mechanism transmitted that information was not determined, and the memory settings in force at the time were not recorded. The episode is reported as an instance of the limitation, not as a discovery of a channel.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Extend the limitation to the conversation boundary itself.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State epistemic status before making any contribution claim.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Qualification / epistemic narrowing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Extend the limitation to the conversation boundary itself.
+Do not anticipate or start: State epistemic status before making any contribution claim.
+END_LOCAL_TRANSFORMATION

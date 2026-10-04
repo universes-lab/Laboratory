@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3.3; blocks 152вЂ“153 В· "Quantitative language has been removed from [R] claiвЂ¦"
+
+FUNCTION:
+Record the removal of quantitative language from [R] claims.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Enumerate the known failure modes of the [R] class.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Record the removal of quantitative language from [R] claims.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: [R].
+
+CLOSURE:
+"enumerate the known failure modes of the [R] class" completes; "record the removal of quantitative language from [R] claims" begins.
+Do not begin the next move: State what the labels do not do.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The documented failure modes of the [R] class, acknowledged and explicitly stated, include:
+
+1. **No Blinding:** The individuals responsible for implementing organizational changes also evaluated their perceived effectiveness, introducing potential bias. 2. **Confirmation Pressure:** Changes were implemented due to pre-existing problem identification, biasing the perception of subsequent improvement. 3. **Simultaneous Variation:** Multiple factors (role definitions, prompt wording, repository structure, scientific objectives, and model versions) frequently underwent concurrent modifications, obscuring the individual impact of each. 4. **Stochastic Outputs:** The inherent randomness of models can produce varying outputs for identical inputs. Consequently, interpretations based on limited interactions risk mistaking sampling variation for a stable trend. 5. **Model Drift During Observation:** Underlying models were repeatedly updated by vendors while product names remained constant, necessitating vigilance against attributing observed changes solely to the interventions under study. 6. **Selection of Memorable Episodes:** Notably impactful interactions are more readily recalled, potentially overlooking commonplace ones and skewing the perceived pattern of outcomes.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Quantitative language has been removed from [R] claims throughout. Where the original working notes recorded a "significant" or "substantial" improvement, no measurement existed, and the wording now reflects that.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Record the removal of quantitative language from [R] claims.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: [R].
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: State what the labels do not do.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Evidence presentation / bounded narrative
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Record the removal of quantitative language from [R] claims.
+Do not anticipate or start: State what the labels do not do.
+END_LOCAL_TRANSFORMATION

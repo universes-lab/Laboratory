@@ -1,0 +1,55 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§3; blocks 135вЂ“137 В· "This paper reports work carried out inside a live reвЂ¦"
+
+FUNCTION:
+Justify the labelling scheme instead of a uniform declarative register.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State the asymmetric relation to the host project.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Justify the labelling scheme instead of a uniform declarative register.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+"state the asymmetric relation to the host project" completes; "justify the labelling scheme instead of a uniform declarative register" begins.
+Do not begin the next move: Define [P].
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The observations presented in this work are inherently tied to the host theoretical physics research project, yet their interpretation remains independent of the project's scientific validity. Crucially, these findings **rely on the host project's existence for their generation**: the specific experimental setup and conversational context arose from that environment. Their interpretation, however, is not validated or invalidated by the correctness of the host theory itself. The host project serves as the stage upon which these observations were made, not as a theoretical foundation requiring substantiation. Conversely, the methodological insights derived hold irrespective of the host theory's veracity.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+This paper reports work carried out inside a live research project rather than in an environment designed for the study of AI behaviour. Its claims rest on evidence of very different quality: some supported by documented protocol with preserved transcripts; some retrospective impressions formed over two years of daily work, without measurement or controls; some proposals for future investigation.
+
+Presenting these in a uniform declarative register would misrepresent the work. Every substantive claim is therefore labelled.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Justify the labelling scheme instead of a uniform declarative register.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define [P].
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Rationale / explanation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Justify the labelling scheme instead of a uniform declarative register.
+Do not anticipate or start: Define [P].
+END_LOCAL_TRANSFORMATION

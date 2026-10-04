@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nA core may become fixed in two ways.\n\n**Present before the interaction begins.** Architecture, training, alignment procedure and system configuration are in place before any exchange occurs. Scope: in principle, every instance of that model family.\n\n**Fixed during the interaction.** A particular early episode establishes what kind of work is being done and by what standards, and later inputs are interpreted relative to it. Scope: the contour in which it occurred — an episode, a conversation, possibly an account.\n\nAfter fixation the mechanism is the same in both cases: the core determines the type of response to subsequent inputs. Only the moment and the scope differ. This mirrors imprinting in the ethological sense, which does not alter the genome yet produces an equally fixed response — which is why the same vocabulary is used for both here.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 4.5 Boundaries: ZOR, ZOV, and the represented case\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

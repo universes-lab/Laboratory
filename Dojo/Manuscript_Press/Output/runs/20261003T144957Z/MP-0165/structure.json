@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThe framework in this section was not derived from the experiment in §5. It was formulated earlier, during ordinary project work, and the experiment was designed to test part of it. This ordering matters for how the claims should be read, and is documented first.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 4.1 Origin: the code-executor incident\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

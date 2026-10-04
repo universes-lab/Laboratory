@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nTwo reasons.\n\nThe failures are informative. The experiment in §5 became useful precisely because its first two interventions did not work as intended. Had only the successful third step been recorded, the paper would have concluded that method-preserving prompts work — without the evidence showing why, and without the confounds showing the conclusion is not yet available (§11.8).\n\nAnd the setting is hard to construct deliberately. Dormant, heavily specialized, months-old conversations inside a live research project are not something a laboratory study easily produces. The conditions were poor for controlled inference and unusually good for noticing what to test.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 1.10 Structure\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

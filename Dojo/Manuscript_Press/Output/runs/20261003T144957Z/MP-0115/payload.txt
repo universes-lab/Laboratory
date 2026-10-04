@@ -1,0 +1,63 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.10; blocks 59вЂ“62 В· "A reader interested only in what the evidence supporвЂ¦"
+
+FUNCTION:
+Reading paths for different readers.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Structural map of the paper.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Reading paths for different readers.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§3; В§5; В§12.7; В§9; В§10.5; В§5.4.
+
+CLOSURE:
+"structural map of the paper" completes; "reading paths for different readers" begins.
+Do not begin the next move: Define the two reference classes and their marks.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This paper unfolds as follows:
+
+- **§2** situates the work within existing research, delineating which concepts align with established terminology (predominantly aligning).
+- **§3** defines the evidential labels and characterizes the recognized failure modes for each conceptual category.
+- **§4** establishes the conceptual framework and traces its genesis.
+- **§5** presents the cornerstone empirical account: a three-step experiment detailing its outcomes, nine identified structural confounds, and four ancillary observations.
+- **§6** logically derives the concepts substantiated by the evidence, ordered according to their scope of implication.
+- **§7** documents practitioner observations that inspired the framework yet lack direct evidential support for it. 
+- Subsequent sections (§8-§12) elaborate on the structural hypothesis, methodological considerations, experimental design, and concluding limitations and ethical reflections.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+A reader interested only in what the evidence supports may read §3, §5 and §12.7. A reader intending to reuse the method may read §9 and §10.5. A reader intending to disagree should begin with §5.4.
+
+---
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Reading paths for different readers.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§3; В§5; В§12.7; В§9; В§10.5; В§5.4.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Define the two reference classes and their marks.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Structured enumeration / exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Reading paths for different readers.
+Do not anticipate or start: Define the two reference classes and their marks.
+END_LOCAL_TRANSFORMATION

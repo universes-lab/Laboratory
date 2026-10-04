@@ -1,0 +1,1 @@
+Specifically within this collaborative context, and notably modest in its operation, the mechanism functions without any shared state persisting across sessions among the participants. Furthermore, these individuals remain unaware of the mechanism's própria atuação (§7.7). 

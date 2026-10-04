@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.1; blocks 189вЂ“190 В· "The operative construct of this paper:вЂ¦"
+
+FUNCTION:
+Define the rule core.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Qualify the conclusion and supply the charter's more precise version.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Define the rule core.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P005 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+Source anchors that must not drift: rule core; type; content.
+
+CLOSURE:
+"qualify the conclusion and supply the charter's more precise version" completes; "define the rule core" begins.
+Do not begin the next move: Tie the type/content distinction to testability via the Game of Life.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The earlier conclusion that codified role precedence over explicit phrasing in programmatic instructions requires qualification. While the redefined function demonstrably mitigated unauthorized modifications, the shift in behavior stemmed not from altering the instruction list itself, but from restructuring the operative AGENT TYPE as redefined within the prompt itself. This distinction aligns with the core question §5 aimed to address: the delineation between role-based influence and direct instruction modification.
+
+A more precise articulation of the operative structural unit originates from the project's collaboration charter, predating the present authors' subsequent formulations. This charter posits that the fundamental generative unit is **a generative pair plus a non-participating integrator (as adopted in §8)**. Specifically, it delineates a minimal dyad for generation (one agent for monologue, two for dialogue), posits detrimental output beyond that dyad without strict coordination, and assigns a distinct role to a third participant: maintaining the task frame, resolving divergences, and integrating conclusions, rather than direct argumentation, solution generation, or dialogue substitution. This framework provides a clearer definition than theTagMode CONCEPT of three debating agents employed subsequently.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The operative construct of this paper:
+
+⟦MP_PROTECTED:P005⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Define the rule core.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: rule core; type; content.
+Restore P005 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Tie the type/content distinction to testability via the Game of Life.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Define the rule core.
+Do not anticipate or start: Tie the type/content distinction to testability via the Game of Life.
+END_LOCAL_TRANSFORMATION

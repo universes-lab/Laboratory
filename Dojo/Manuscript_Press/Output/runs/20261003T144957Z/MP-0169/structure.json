@@ -1,0 +1,22 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThat formulation requires immediate qualification, because the document in question *is* a prompt. The distinction claimed is narrower: what changed behaviour was not an extension of the instruction list but a redefinition of what kind of agent was acting, restated by the agent in its own operational language. Whether \"role\" versus \"prompt\" is the correct cut is precisely what §5 was designed to test.\n\nA second early document, the project's collaboration charter, records a position this paper partly revises. It states that a pair of agents is the minimal generative unit — one agent produces monologue, two produce dialogue, three or more produce noise without strict coordination — and assigns the third participant a different function entirely: it does not argue, does not generate solutions first, and does not substitute for the dialogue. Its role is to hold the task frame, fix divergences, and integrate conclusions.\n\nThis is more precise than the formulation the present authors used subsequently, and §8 adopts it: the structural unit is not three debating agents but **a generative pair plus a non-participating integrator**.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 4.2 Rule cores, menoms, and what they determine\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "### 4.2.1 The rule core\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

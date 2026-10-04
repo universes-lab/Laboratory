@@ -1,0 +1,69 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.9, "Why publish at this stage", blocks 54вЂ“57.
+
+FUNCTION:
+Give the two reasons for publishing at this stage.
+
+READER_STATE_BEFORE:
+The reader knows the three things the paper offers and their decreasing confidence order.
+
+REQUIRED_READER_STATE_AFTER:
+The reader understands both publication reasons: the failures are informative,
+and the live setting is difficult to construct deliberately.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling.
+Preserve that the first two interventions failed and that this failure supplied information.
+Preserve that the paper does not yet have the conclusion a success-only record might suggest.
+Preserve the distinction between poor conditions for controlled inference and unusually good
+conditions for noticing what should be tested.
+Do not turn "hard to construct deliberately" into a uniqueness or significance claim.
+
+CLOSURE:
+Both reasons belong to one paired justification.
+The move closes only after the second reason.
+Do not begin the В§1.10 structural map.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This manuscript offers three distinct elements, delineated in decreasing order of confidence:
+
+1. **A procedure**: A method for returning a conversation to a state preceding a conflict (§10.5). This procedure isolates the influence of a novel prompt from any retroactive impact of the model's prior objections. Notably, its utility subsists irrespective of the paper's broader substantive claims holding or not. 
+
+2. **A countable rule**: A mechanism to minimize unverifiable self-assertions inherent in role-prompt formulations, coupled with a defined falsification pathway (§9.3, §11.4).
+
+3. **A scale and a question**: Introduced in §1.6, this element proposes a structured framework with two substantiated levels, one currently open, and one avenue yet to be empirically tested (§11). Experiments outlined in §11 hold the key to resolving the standing uncertainties regarding the remaining two levels.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+Two reasons.
+
+The failures are informative. The experiment in §5 became useful precisely because its first two interventions did not work as intended. Had only the successful third step been recorded, the paper would have concluded that method-preserving prompts work — without the evidence showing why, and without the confounds showing the conclusion is not yet available (§11.8).
+
+And the setting is hard to construct deliberately. Dormant, heavily specialized, months-old conversations inside a live research project are not something a laboratory study easily produces. The conditions were poor for controlled inference and unusually good for noticing what to test.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Present "Two reasons" together with both reasons as one compact rationale for publication now.
+
+PRESERVE:
+Failure of the first two interventions as informative.
+The warning that the stronger conclusion is not yet available.
+The distinction between controlled-inference weakness and observational usefulness.
+
+DO_NOT_INTRODUCE:
+No claim that the setting is unique.
+No claim that publication is urgent or inherently important.
+No stronger methodological conclusion than SOURCE states.
+No В§1.10 content.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Paired rationale / justification.
+
+SEMANTIC_STOP:
+Stop after the second publication reason.
+Do not begin the paper-structure overview.
+END_LOCAL_TRANSFORMATION

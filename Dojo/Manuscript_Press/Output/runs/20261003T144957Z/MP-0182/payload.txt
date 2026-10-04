@@ -1,0 +1,61 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.5; blocks 219вЂ“223 В· "The two terms operate at different scales and shouldвЂ¦"
+
+FUNCTION:
+Separate menom from rule core by scale and by evidential reach.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Refuse the human-collective inference the vocabulary invites.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Separate menom from rule core by scale and by evidential reach.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: rule core; menom; В§4.3.
+
+CLOSURE:
+"refuse the human-collective inference the vocabulary invites" completes; "separate menom from rule core by scale and by evidential reach" begins.
+Do not begin the next move: Reclassify the observations as positions on a scale.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The vocabulary introduced thus far, conceptualized within the framework of human cultural and behavioral transmission, employs terms like the "collective unconscious." However, it's crucial to explicitly state that this paper neither asserts nor presupposes the existence of such structures in humans nor attributes a defined physical carrier to them. 
+
+The explicit focus shifts to artificial systems. These systems instantiate informational and behavioral structures analogous to those described in the human context, and crucially, these instantiations within artificial systems are subject to direct or indirect examination through empirically verifiable means like examining training corpora, weights, context states, and interaction protocols. **The parallel drawn to human informational structures does not imply their confirmation in humans. Rather, it highlights the conceptual framework's applicability to artificial systems while leaving the nature of human informational structures an open question explicitly unanswered within this discourse.**
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The two terms operate at different scales and should not be substituted for one another.
+
+A **rule core** is what fixes the type of response within one system, at one level of scope. It is the construct this paper's observations concern, and it is what §4.3 locates on a scale.
+
+A **menom** is the organized whole from which such cores are drawn — frames, evaluative patterns and behavioural rules together. A rule core may be understood as the operative subset of a menom active for a given class of inputs.
+
+Where this paper reports evidence, it reports evidence about rule cores. *Menom* is the wider term, introduced because the narrower one does not cover the informational content that accompanies behavioural organization, and because the paper's material spans both.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Separate menom from rule core by scale and by evidential reach.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: rule core; menom; В§4.3.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Reclassify the observations as positions on a scale.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Contrast / differentiation
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Separate menom from rule core by scale and by evidential reach.
+Do not anticipate or start: Reclassify the observations as positions on a scale.
+END_LOCAL_TRANSFORMATION

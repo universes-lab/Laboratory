@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.3; blocks 230вЂ“230 В· "The measurements reported in this paper lie on **ScaвЂ¦"
+
+FUNCTION:
+Locate this paper's measurements on Scale 1.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Show the two scales do not collapse.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Locate this paper's measurements on Scale 1.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Scale 1.
+
+CLOSURE:
+"show the two scales do not collapse" completes; "locate this paper's measurements on Scale 1" begins.
+Do not begin the next move: Concentrate the scale into the empirical question and justify it.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Crucially, the two delineated scales remain distinct. Within a hybrid arrangement, where one level might be instantiated by a model and another by a human, the foundational assumption anchoring the interaction (the frame-level premise discussed in §12.4) is uniquely carried by the coordinator. Notably, this shared initial framing, inherited by all participants, does not correspond to any position on Scale 1. Consequently, it exists independently of the framework represented on that scale.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The measurements reported in this paper lie on **Scale 1**. Scale 2 is used where a phenomenon concerns a premise shared across participants rather than state held by one.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Locate this paper's measurements on Scale 1.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Scale 1.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Concentrate the scale into the empirical question and justify it.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Locate this paper's measurements on Scale 1.
+Do not anticipate or start: Concentrate the scale into the empirical question and justify it.
+END_LOCAL_TRANSFORMATION

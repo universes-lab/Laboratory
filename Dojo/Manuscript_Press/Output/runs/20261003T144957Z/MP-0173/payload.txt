@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§4.2.1; blocks 196вЂ“197 В· "**Terminological consequence, applied throughout.** вЂ¦"
+
+FUNCTION:
+Draw the terminological consequence applied throughout.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Interrogate the analogy and state one asymmetry between the rows.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Draw the terminological consequence applied throughout.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: Terminological consequence, applied throughout.; [H].
+
+CLOSURE:
+"interrogate the analogy and state one asymmetry between the rows" completes; "draw the terminological consequence applied throughout" begins.
+Do not begin the next move: Withdraw behavioural DNA and give the mechanism that contradicts it.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The analogy drawn across these rows hinges on the concept of a fundamental core dictating emergent phenomena. However, a key asymmetry exists in their executability. Regarding Conway's Game of Life, the glider's emergence is demonstrably verifiable through executing the automaton's defined rules. Conversely, in theoretical frameworks, axiomatic systems, bodies of knowledge, and even language models described as possessing a core rule set, the derivation of phenomena like structured derivations or characteristic response types is narrated rather than directly executable. The analogy thus proposes a target of demonstrable core-driven generation akin to the Game of Life, implying that asserting such a core in other domains necessitates a corresponding executable artifact for validation.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+**Terminological consequence, applied throughout.** A rule core is not observable. Behaviour is. This paper reports behaviour. Any statement about a core is a hypothesis about an unobserved mechanism and is marked **[H]**.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Draw the terminological consequence applied throughout.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: Terminological consequence, applied throughout.; [H].
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Withdraw behavioural DNA and give the mechanism that contradicts it.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Inference / local closure
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Draw the terminological consequence applied throughout.
+Do not anticipate or start: Withdraw behavioural DNA and give the mechanism that contradicts it.
+END_LOCAL_TRANSFORMATION
