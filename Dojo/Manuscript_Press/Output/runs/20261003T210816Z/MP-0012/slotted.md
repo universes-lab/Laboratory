@@ -1,0 +1,1 @@
+The proportions are explicitly stated in this section rather than within a limitations apartado to avoid implicitly inflating the perceived breadth of the supporting evidence. Placing them here directly contextualizes their scope within the subsequent discussion, preventing any misinterpretation of the underlying methodological basis. 

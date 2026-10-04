@@ -1,0 +1,2 @@
+To explicitly clarify, this analysis focuses on claims *posited within a model regarding its own situatedness*, rather than directly examining the operational behavior of a functioning multi-agent institution. The emphasis is on how textual descriptions implicitly convey such situatedness claims to a model, and the ensuing effects on represented social constructs. 
+## 1.5 What the evidence supports

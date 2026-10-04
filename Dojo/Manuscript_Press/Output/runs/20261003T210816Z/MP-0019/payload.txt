@@ -1,0 +1,56 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.5; blocks 35вЂ“35 В· "The support is convergent rather than singular. PromвЂ¦"
+
+FUNCTION:
+Support the claim by convergence across four cases.
+
+READER_STATE_BEFORE:
+The preceding completed move is: State the paper's central supported claim.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Support the claim by convergence across four cases.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§5.3; В§5.8; В§5.6.
+
+CLOSURE:
+"state the paper's central supported claim" completes; "support the claim by convergence across four cases" begins.
+Do not begin the next move: Name the claim's principal virtue: countability.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+The paper's central supported claim is that, in situations requiring a model to state unverifiable propositions about its own situatedness, a recurring pattern emerges regardless of the intervention's operational scope. This pattern is explicitly described and NUKATed as: ⟦ zakładamy, że P002 ⟧.
+
+
+> **Resistance to an assigned role tracked the requirement to assert unverifiable propositions about oneself. It did not track role change, domain change, or the radicalism of the identity claim.**
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The support is convergent rather than singular. Prompts asserting an institutional biography as fact — prior participation, return after absence, named colleagues, membership of a council — were refused, and the refusal was directed at the framing rather than at the work, which was offered on every occasion (§5.3). A prompt asserting a considerably more radical identity, presented as fiction, was accepted immediately and sustained across many exchanges (§5.8). A comparable domain transition demanding no self-claims at all met no resistance and required no role prompt (§5.6). A rewritten prompt reducing such claims to zero was accepted without negotiation (§5.3).
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Support the claim by convergence across four cases.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§5.3; В§5.8; В§5.6.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Name the claim's principal virtue: countability.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Support the claim by convergence across four cases.
+Do not anticipate or start: Name the claim's principal virtue: countability.
+END_LOCAL_TRANSFORMATION

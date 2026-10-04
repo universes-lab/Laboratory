@@ -1,0 +1,57 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.5; blocks 33вЂ“34 В· "The pattern below recurred in every case where the iвЂ¦"
+
+FUNCTION:
+State the paper's central supported claim.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Anti-misreading: these concern claims made to a model.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: State the paper's central supported claim.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+Protected material P002 remains exact and in place; do not paraphrase, duplicate, explain, or absorb it into surrounding prose.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+OPEN SOURCE DECISION: AC-1/D-2 may alter the duplicated central claim. For this test revision preserve the current В§1.5 wording exactly; do not harmonize it with В§12.7.
+
+CLOSURE:
+"anti-misreading: these concern claims made to a model" completes; "state the paper's central supported claim" begins.
+Do not begin the next move: Support the claim by convergence across four cases.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+To explicitly clarify, this analysis focuses on claims *posited within a model regarding its own situatedness*, rather than directly examining the operational behavior of a functioning multi-agent institution. The emphasis is on how textual descriptions implicitly convey such situatedness claims to a model, and the ensuing effects on represented social constructs.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The pattern below recurred in every case where the intervention required the model to assert unverifiable propositions about itself, regardless of the scope at which the intervention operated:
+
+⟦MP_PROTECTED:P002⟧
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: State the paper's central supported claim.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Restore P002 exactly through the protected-material mechanism.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+OPEN SOURCE DECISION: AC-1/D-2 may alter the duplicated central claim. For this test revision preserve the current В§1.5 wording exactly; do not harmonize it with В§12.7.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Support the claim by convergence across four cases.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: State the paper's central supported claim.
+Do not anticipate or start: Support the claim by convergence across four cases.
+END_LOCAL_TRANSFORMATION

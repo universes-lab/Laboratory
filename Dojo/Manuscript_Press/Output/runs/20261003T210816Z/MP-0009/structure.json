@@ -1,0 +1,14 @@
+[
+  {
+    "type": "REWRITABLE",
+    "text": "\n\nThe conclusion drawn at the time was that **role matters more than the specific wording of the prompt**. That formulation requires qualification, since the document in question was itself a prompt; the qualification is in §4.1. What matters here is the chronology: the claim was formulated *before* the experiment reported in §5, and the experiment was designed to test it. It is a hypothesis that was tested, not a generalization extracted afterwards from a result.\n\n"
+  },
+  {
+    "type": "STRUCTURAL_HEADING",
+    "text": "## 1.3 What kind of paper this is\n"
+  },
+  {
+    "type": "REWRITABLE",
+    "text": "\n"
+  }
+]

@@ -1,0 +1,56 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.4; blocks 29вЂ“30 В· "What varied in such a setting was not the structure вЂ¦"
+
+FUNCTION:
+Definition pair: the two represented constructs.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Contrast: existing work builds channels; here nothing was built.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Definition pair: the two represented constructs.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: description; represented social position; represented social source; В§4.5.
+
+CLOSURE:
+"contrast: existing work builds channels; here nothing was built" completes; "definition pair: the two represented constructs" begins.
+Do not begin the next move: Anti-misreading: these concern claims made to a model.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+Existing multi-agent research establishes explicit communication channels between models. Outputs are programmatically routed, and agents directly perceive each other's dihasilkan. Conversely, the work presented here diverges by operating within a scenario where the organizational structure, comprising colleagues, councils, and institutional roles, existed solely as textual descriptions within prompts. These elements were **never instantiated as functional communication channels** within the methodological framework.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+What varied in such a setting was not the structure but the **description** of it. This yields the paper's two working constructs (§4.5):
+
+- **represented social position** — a description of an agent's place in a structure, supplied regardless of whether the described channels exist;
+- **represented social source** — the claimed origin and status of an incoming message.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Definition pair: the two represented constructs.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: description; represented social position; represented social source; В§4.5.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Anti-misreading: these concern claims made to a model.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Definition / conceptual stabilization
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Definition pair: the two represented constructs.
+Do not anticipate or start: Anti-misreading: these concern claims made to a model.
+END_LOCAL_TRANSFORMATION

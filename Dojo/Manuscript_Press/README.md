@@ -1,3 +1,6 @@
+cd E:\Gemini\Dojo\Manuscript_Press
+.venv\Scripts\python.exe -m src.production_runner --start-marker MP:0199 --prior-run-dir Output\runs\<новый_каталог>
+
 # Manuscript Press
 
 Local pilot engine that sends a marked-up SOURCE manuscript through Gemma-The-Writer one production block at a time and assembles `Output/FINAL.manuscript.md`.

@@ -101,6 +101,34 @@ def estimate_tokens(text: str) -> int:
     return max(1, (len(text) + 3) // 4)
 
 
+def detect_dominant_repetition(text: str, min_seq_len: int = 8, threshold: float = 0.5) -> Optional[str]:
+    """
+    Return the repeated substring if a single sequence of length >= min_seq_len
+    occupies more than `threshold` of the whole text. Otherwise return None.
+    """
+    if not text:
+        return None
+    n = len(text)
+    if n < min_seq_len * 2:
+        return None
+    best_seq: Optional[str] = None
+    best_cover = 0
+    for i in range(0, n - min_seq_len, min_seq_len):
+        seq = text[i:i + min_seq_len]
+        if len(seq) < min_seq_len:
+            continue
+        count = text.count(seq)
+        cover = count * len(seq)
+        if cover > best_cover:
+            best_cover = cover
+            best_seq = seq
+    if best_seq is None:
+        return None
+    if best_cover / n > threshold:
+        return best_seq
+    return None
+
+
 def extract_interval(slotted_source: str, marker: Marker, next_marker: Optional[Marker]) -> str:
     current_line = f"<!-- {marker.marker_id} -->"
     start = slotted_source.find(current_line)
@@ -476,6 +504,32 @@ def main() -> int:
         if generated is None:
             raise ValueError(f"Empty generated content for {marker.marker_id}")
         generated = str(generated)
+
+        rep_seq = detect_dominant_repetition(generated)
+        if rep_seq is not None:
+            log(f"{marker.marker_id}: REPETITION_DETECTED seq_len={len(rep_seq)}")
+            response_retry = llm.create_chat_completion(
+                messages=[
+                    {"role": "system", "content": system_payload},
+                    {"role": "user", "content": user_payload},
+                ],
+                max_tokens=384,
+                temperature=writer["temperature"],
+                top_p=writer["top_p"],
+            )
+            completion_calls += 1
+            generated_retry = response_retry["choices"][0]["message"]["content"] if response_retry.get("choices") else None
+            if generated_retry is None:
+                raise ValueError(f"GENERATION_FAILED on retry: {marker.marker_id}")
+            generated_retry = str(generated_retry)
+            rep_seq_retry = detect_dominant_repetition(generated_retry)
+            if rep_seq_retry is not None:
+                raise ValueError(
+                    f"REPETITION_UNRECOVERABLE: {marker.marker_id} "
+                    f"initial_seq_len={len(rep_seq)} retry_seq_len={len(rep_seq_retry)}"
+                )
+            generated = generated_retry
+
         # Always persist raw model text before slot checks (forensics).
         write_text(str(marker_dir / "raw_output.md"), generated)
 

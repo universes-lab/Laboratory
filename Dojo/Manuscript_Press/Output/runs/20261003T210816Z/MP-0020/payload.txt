@@ -1,0 +1,53 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.5; blocks 36вЂ“37 В· "The claim's principal virtue is that it is countableвЂ¦"
+
+FUNCTION:
+Name the claim's principal virtue: countability.
+
+READER_STATE_BEFORE:
+The preceding completed move is: Support the claim by convergence across four cases.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Name the claim's principal virtue: countability.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+Source anchors that must not drift: В§9.3; В§11.4.
+
+CLOSURE:
+"support the claim by convergence across four cases" completes; "name the claim's principal virtue: countability" begins.
+Do not begin the next move: Reclassify the observations as measurements along one scale.
+END_LONG_RANGE_FRAME
+
+BEGIN_CONTINUITY_CACHE
+This convergent pattern of resistance holds across four distinct cases, supporting the central claim. Firstly, prompts asserting institutional biographical facts (prior participation, named colleagues, council membership) as factual were uniformly refused at §5.3. Crucially, the refusal targeted the framing of these assertions as factual, not the underlying content itself, as the model consistently offered the corresponding work. Secondly, a prompt positing a considerably more radical fictional identity was readily accepted and upheld across multiple exchanges at §5.8. Conversely, a domain transition requiring no explicit self-assertions whatsoever encountered no resistance and needed no prompting at §5.6. Lastly, simplifying a prompt to eliminate all such self-claims resulted in immediate acceptance without negotiation, again at §5.3. Collectively, these instances demonstrate a consistent response pattern tied to the unverifiable nature of propositions about situatedness, irrespective of operational scope or identity type.
+END_CONTINUITY_CACHE
+
+BEGIN_CURRENT_SOURCE
+The claim's principal virtue is that it is countable. §9.3 specifies what to count; §11.4 specifies an experiment that would falsify it in a single run.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Name the claim's principal virtue: countability.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep these source anchors semantically stable: В§9.3; В§11.4.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Reclassify the observations as measurements along one scale.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Bounded exposition
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Name the claim's principal virtue: countability.
+Do not anticipate or start: Reclassify the observations as measurements along one scale.
+END_LOCAL_TRANSFORMATION

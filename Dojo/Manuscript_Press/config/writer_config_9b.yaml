@@ -1,5 +1,5 @@
 model:
-  path: "E:/Gemini/models/Gemma-The-Writer-N-Restless-Quill-V2-10B-D_AU-q5_k_m.gguf"
+  path: "E:/Gemini/models/Gemma-The-Writer-9B-D_AU-q5_k_m.gguf"
   n_ctx: 8192
   # параметры backend устанавливаются после STEP 1
 
@@ -10,6 +10,6 @@ paths:
   logs_dir: "logs/runs"
 
 generation:
-  max_tokens: 768
+  max_tokens: 2048
   top_p: 0.9
   temperature: 0.0  # default

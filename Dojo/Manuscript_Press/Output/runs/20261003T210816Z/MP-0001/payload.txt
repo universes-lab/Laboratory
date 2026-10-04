@@ -1,0 +1,49 @@
+BEGIN_LONG_RANGE_FRAME
+LOCATION:
+В§1.1; blocks 10вЂ“10 В· "This work began as a physics project and became a meвЂ¦"
+
+FUNCTION:
+Opening reclassification: physics project became a methodology project.
+
+READER_STATE_BEFORE:
+This is the first rewritable move after the protected opening material.
+
+REQUIRED_READER_STATE_AFTER:
+The reader has received this move and no stronger one: Opening reclassification: physics project became a methodology project.
+
+CONSTRAINTS:
+SOURCE is the substantive ceiling. Preserve evidential status, quantities, section references, named actors, explicit limitations, negations, and technical terminology.
+No protected wording may be invented or inferred.
+No additional semantic anchor is authorized beyond the current SOURCE block.
+
+CLOSURE:
+First rewritable move after the protected title block.
+Do not begin the next move: Narrative setup: the original transfer task and why models were used.
+END_LONG_RANGE_FRAME
+
+BEGIN_CURRENT_SOURCE
+This work began as a physics project and became a methodology project by accident. The accident is the reason it is worth reporting.
+END_CURRENT_SOURCE
+
+BEGIN_LOCAL_TRANSFORMATION
+TRANSFORM:
+Produce publication-ready English for this SOURCE block while performing only: Opening reclassification: physics project became a methodology project.
+Improve clarity, cadence, and paragraph flow without altering factual, conceptual, causal, chronological, quantitative, or epistemic content.
+
+PRESERVE:
+Keep all source-supplied concepts, actors, references, quantities, evidential labels, and qualifications.
+Keep structural passthrough outside literary rewrite authority.
+Retain every qualification needed to prevent the local claim from reading more strongly than SOURCE permits.
+
+DO_NOT_INTRODUCE:
+No content belonging to the next move: Narrative setup: the original transfer task and why models were used.
+No new evidence, mechanism, causal bridge, generalization, terminology, literature claim, motive, evaluation, or significance claim absent from SOURCE.
+CACHE may support surface continuity only; it is not substantive authority.
+
+RHETORICAL_OPERATION:
+Transition / reframing
+
+SEMANTIC_STOP:
+Stop when this source move is complete: Opening reclassification: physics project became a methodology project.
+Do not anticipate or start: Narrative setup: the original transfer task and why models were used.
+END_LOCAL_TRANSFORMATION
