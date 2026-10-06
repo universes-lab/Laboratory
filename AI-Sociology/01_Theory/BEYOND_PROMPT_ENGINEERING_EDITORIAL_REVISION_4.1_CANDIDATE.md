@@ -1911,7 +1911,8 @@ It is NOT that the structural hypothesis of §8 fails. Participants may have det
 The earlier formulation — "the structural hypothesis of §8 is not supported" — is withdrawn as too strong.
 
 ### Priority
-Under constrained resources, the priority order is as follows:  E7 and E5 take precedence due to their low cost and direct relevance to the paper's core claims. Next come E1 and E2b, which are single-run experiments.  E8 follows, as it is the sole experiment capable of substantiating the paper's structural hypothesis rather than behavioral claims, and can be executed on text fragments without requiring new accounts. Finally, E2, E3, and E4, representing substantial commitments, are executed last.
+
+Under constrained resources, the priority order is **E7, E5, E1, E8, E2b, E2, E3, E4**. E7 and E5 are cheap and bear on the paper's central claims. E1 and E2b are single runs. E8 is the only experiment that could establish the paper's structural hypothesis rather than one of its behavioural claims, and is executable on text fragments without new accounts. E2, E3 and E4 are the substantial commitments.
 
 ## 11.5 Evaluating a collaborative role
 
