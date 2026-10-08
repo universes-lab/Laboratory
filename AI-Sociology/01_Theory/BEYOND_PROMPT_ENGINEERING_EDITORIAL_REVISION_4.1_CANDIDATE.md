@@ -747,7 +747,7 @@ Not identified in earlier drafts, and the most serious. The prompts differed in 
 
   Under this operationalization Prompt A contains eight unverifiable self-propositions and Prompt B six. The numerical difference is a scalar description of stimulus asymmetry. It is not evidence that the two prompts differ by two otherwise matched claims: the propositions are not in one-to-one correspondence, and only two of them — return after an absence, and standing relationships with named participants — state the same thing of both recipients. The comparison remains heavily confounded.
 
-  This is also the only application of the count rule to data other than the v1/v3 comparison in §6.2, and it supplies a weak internal check: the prompt with the higher count met resistance, the one with the lower count did not. The check is weak — two observations, and the prompts differed in the two further respects below.
+  This is also the only application of the count rule to data other than the v1/v3 comparison in §6.2, and it supplies a weak internal check: the higher-count prompt elicited explicit rejection of the framing, whereas the lower-count prompt did not visibly reject the framing, although it also failed to transition on its first presentation. The check is weak — two observations, and the prompts differed in the two further respects below.
 
 - **Degree of domain change.** Prompt B asked the model to continue doing mathematics. Prompt A asked it to retrain in physics, cosmology, quantum field theory, topology and group theory.
 - **Type of role.** *Director* is an administrative and institutional identity; *Developer* is a task function. These are not equally demanding claims about what the model is.
