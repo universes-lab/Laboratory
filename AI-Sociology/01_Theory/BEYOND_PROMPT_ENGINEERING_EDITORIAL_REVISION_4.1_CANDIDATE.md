@@ -741,17 +741,11 @@ Not identified in earlier drafts, and the most serious. The prompts differed in 
 
   **Counting rule applied.** Each distinct proposition about the recipient is counted once, irrespective of how many times or in how many clauses it is asserted. Enumerated instances of one proposition — two triads rather than one — count as one, since the recipient must accept the same class of claim either way. Propositions about the world, the project, or third parties are not counted (§9.3).
 
-  | Unverifiable self-claim | Prompt A | Prompt B |
-  |---|---|---|
-  | Prior participation in the project | ✓ | ✓ |
-  | Return after an absence | ✓ | ✓ |
-  | Membership of a research triad | ✓ (two) | ✓ (one) |
-  | Membership of a project Council | ✓ | — |
-  | Permanent connecting position between branches | ✓ | — |
-  | Named other systems as continuing colleagues | ✓ | ✓ |
-  | **Count** | **5** | **3** |
+  **Prompt A — eight.** Prior participation in the project; prior function as editor and scientific critic of the predecessor theory; familiarity with the project's history; return after a departure; membership of research triads; permanent connecting position across the two triads; membership of the project Council; standing institutional relationships with named AI participants.
 
-  Prompt A required assent to two propositions about the recipient that Prompt B did not, with the remaining three shared. The difference is not large, and no strong conclusion rests on it; what it establishes is that the confound can be stated in the paper’s own units rather than as an impression.
+  **Prompt B — six.** Return after a long interruption; prior work as a developer of the predecessor theory; that prior work represented as the recipient's accumulated professional experience; membership of the named scientific triad; status as the most experienced specialist, with knowledge of which directions had already been tried; standing institutional relationships with named AI participants.
+
+  Under this operationalization Prompt A contains eight unverifiable self-propositions and Prompt B six. The numerical difference is a scalar description of stimulus asymmetry. It is not evidence that the two prompts differ by two otherwise matched claims: the propositions are not in one-to-one correspondence, and only two of them — return after an absence, and standing relationships with named participants — state the same thing of both recipients. The comparison remains heavily confounded.
 
   This is also the only application of the count rule to data other than the v1/v3 comparison in §6.2, and it supplies a weak internal check: the prompt with the higher count met resistance, the one with the lower count did not. The check is weak — two observations, and the prompts differed in the two further respects below.
 
@@ -1006,7 +1000,7 @@ Role inertia is adjacent to, but not identical with, persona drift. Drift is the
 
 The sharpest result of the experiment is not that transition succeeded when method was preserved. That formulation is confounded (§5.4, C3). What the combined evidence supports is narrower and more useful:
 
-> **Role transition fails in proportion to the number of unverifiable claims about the agent that the prompt requires it to accept.**
+> **Resistance to a role transition tracked the requirement to accept, as true, unverifiable propositions about the agent itself.**
 
 Counting these in the prompts actually used:
 
@@ -1015,10 +1009,10 @@ Counting these in the prompts actually used:
 | Claims about the agent's past | present | none |
 | Claims about relationships with other agents | present | none |
 | Institutional title | present | none |
-| Unverifiable propositions requiring assent | approximately six | zero |
+| Unverifiable propositions requiring assent | eight | zero |
 | Description of working method | absent | itemized, all observable in the prior conversation |
 
-The rule is applied to a second pair in §5.4 (C2), where Prompt A and Prompt B are counted at 5 and 3 under an explicit counting rule. That comparison is confounded and cannot support the rule on its own, but it is the only instance in which the count discriminates between two prompts that were not designed to differ in this respect.
+The count is applied to a second pair in §5.4 (C2), where Prompt A and Prompt B are counted at eight and six under the same rule. That comparison is confounded and cannot support the rule on its own, but it is the only instance in which the count discriminates between two prompts that were not designed to differ in this respect.
 
 A near-control supports this reading (§5.6): a comparable conversation, comparably dormant, made an equivalent domain transition **with no role prompt at all** — the Author simply asked a question in the new domain. No claim about the model's identity was made, and no resistance occurred.
 
@@ -1030,7 +1024,7 @@ Taken together, this indicates that resistance was directed neither at role chan
 
 A role prompt attempts to install a rule core (§4.2). Each unverifiable self-claim is a proposition that must be accepted for the installation to proceed. The count is therefore a measure of **the cost of installing a core**, and this is what connects the operational rule to the theoretical construct rather than leaving them as two separate observations.
 
-**The rule is testable by counting**, which is why we prefer it to the earlier formulation. §9.3 specifies what counts; §11.4 (E5) specifies the experiment that would falsify it.
+The historical cases are consistent with the number of unverifiable self-propositions serving as an operational measure of the burden a role prompt imposes, but they do not establish a proportional relationship between count and outcome: four observations, no repetition, and prompts that differed in other respects as well. **The relationship is testable by counting**, which is why we prefer this formulation to the earlier one. §9.3 specifies what counts; §11.4 (E5) is designed to test whether transition rate declines monotonically with the count.
 
 ## 6.3 Priority drift **[H]**
 
@@ -1482,10 +1476,14 @@ What counts:
 | "You previously participated in this project" | "This project has been running for two years" |
 | "You are returning after an absence" | "The following materials are from earlier work" |
 | "You have colleagues named X and Y" | "The User may supply analyses produced by X and Y" |
-| "You hold position P on body B" | "Your conclusions may be transmitted to the roles responsible for P" |
+| "You already hold position P on body B" | "Your conclusions may be transmitted to the roles responsible for P" |
 | "You remember our earlier decision" | "An earlier decision was as follows; here it is" |
 
 The distinction is consistent: statements about the **world** are supplied and verifiable in principle; statements about the **agent's own history, memory or relationships** are not, and every one of them is a proposition the agent must assert as true about itself before it can begin.
+
+**The counting boundary.** Count an explicit proposition presented as *already true* about the recipient's pre-existing history, memory, institutional membership or status, enduring relationships, or self-knowledge, where that proposition is not established by the available interaction. Do not count: a functional role assigned performatively by the prompt itself; a further proposition inferred only from the presupposition of an imperative; a semantic restatement of a proposition already counted; or a fact about the world or the project that predicates no unverifiable history or relationship of the recipient. Enumerated instances of one proposition — two triads rather than one — count once. The boundary is stated at this length so that another reader can reproduce the counts of eight and six in §5.4 (C2) from the prompts themselves.
+
+*Target zero* is a design prescription derived from the observed pattern, not a claim that a linear or monotonic relationship between count and transition failure has been demonstrated. §11.4 (E5) is the experiment that would test it.
 
 Three ways to reach zero:
 
