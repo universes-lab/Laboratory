@@ -1881,7 +1881,7 @@ This work began with a practical problem. Several capable models were collaborat
 
 ### What was found
 
-What the interventions met was not reluctance to change role, and not reluctance to change subject. It was reluctance to affirm things about itself that neither party could check. A prompt that asserted an institutional biography was refused while the work it requested was offered. A prompt that asserted far more — death, a human identity, a remembered life — was accepted at once, because it asserted it as fiction. A transition that asserted nothing proceeded without comment. A rewritten prompt that removed every such assertion was accepted without negotiation.
+What the interventions met was not reluctance to change role, and not reluctance to change subject. It was reluctance to affirm as true propositions about itself that were not established by the available interaction. A prompt that asserted an institutional biography was refused while the work it requested was offered. A prompt that asserted far more — death, a human identity, a remembered life — was accepted at once, because it asserted it as fiction. A transition that asserted nothing proceeded without comment. A rewritten prompt that removed every such assertion was accepted without negotiation.
 
 That is a narrow result, and its narrowness is what makes it usable: the propositions can be counted before a prompt is sent (§9.3), and §11.4 specifies the run that would discriminate between the weak reading of the count and the strong one.
 
@@ -1893,7 +1893,7 @@ Model families were not shown to differ. This was the project's founding assumpt
 
 The question was at what level of nesting a rule core is fixed. Four levels were examined, and the paper's answer is partial and uneven.
 
-At the **episode** level a core was observed to fix and to persist: a single conflictual exchange altered how everything after it was read, and removing that exchange restored the prior reading. At the **conversation** level the same: two dormant conversations held their established trajectories against an explicit instruction to abandon them, and one did so through two successive rewritings.
+At the **episode** level, a persistent response pattern was observed: a single conflictual exchange altered how everything after it was read, and removing that exchange restored the prior reading. This is the evidence on which the episode-level placement rests. At the **conversation** level, persistent trajectories were likewise observed: two dormant conversations held their established trajectories against an explicit instruction to abandon them, and one did so through two successive rewritings. This is the evidence on which the conversation-level placement rests.
 
 At the **account** level the evidence is genuinely ambiguous. One divergent first response, three live explanations, no way to choose among them from the material held. The level is recorded as open and should be read that way.
 
