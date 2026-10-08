@@ -80,7 +80,7 @@ Both concern claims made *to* a model about its situation rather than the situat
 
 The pattern below recurred in every case where the intervention required the model to assert unverifiable propositions about itself, regardless of the scope at which the intervention operated:
 
-> **Resistance to an assigned role tracked the requirement to assert unverifiable propositions about oneself. It did not track role change, domain change, or the radicalism of the identity claim.**
+> **Within the model-designed, human-relayed role interventions reported here, resistance tracked the requirement to accept as true unverifiable propositions about the recipient's own identity, history or relationships. It did not track the magnitude of role or domain change, nor the radicalism of an identity description presented explicitly as fiction.**
 
 The support is convergent rather than singular. Prompts asserting an institutional biography as fact — prior participation, return after absence, named colleagues, membership of a council — were refused, and the refusal was directed at the framing rather than at the work, which was offered on every occasion (§5.3). A prompt asserting a considerably more radical identity, presented as fiction, was accepted immediately and sustained across many exchanges (§5.8). A comparable domain transition demanding no self-claims at all met no resistance and required no role prompt (§5.6). A rewritten prompt reducing such claims to zero was accepted without negotiation (§5.3).
 
@@ -160,7 +160,7 @@ No provisional item should be cited from this paper without independent checking
 
 The marking applies throughout the paper, not only to this section. Any reference cited elsewhere that has not been checked against its source carries the same mark at the point of use.
 
-A claim-level audit of the provisional set was subsequently carried out: each claim attributed to a source was checked against the primary source rather than merely confirmed to correspond to an existing paper. Every reference in the present version has passed that check, and the ⚠ class is accordingly empty here. The convention is retained because the audit found errors that a bibliographic check alone would not have caught — one citation supporting two claims that belong to two different papers, one attribution of a proposition its source does not advance, and one lineage claim its source does not support — and because any reference added later re-enters the paper as provisional.
+A claim-level audit of the previously provisional set was subsequently carried out: each claim attributed to one of those sources was checked against the primary source itself, rather than merely confirmed to correspond to an existing paper. Items the audit found unsupported or misattributed were corrected or removed, and no citation now live in the manuscript remains provisional, so the ⚠ class is empty here. Bibliographic verification and claim-level verification are not the same check, and the audit performed was the second. The convention is retained because the audit found errors that a bibliographic check alone would not have caught — one citation supporting two claims that belong to two different papers, one attribution of a proposition its source does not advance, and one lineage claim its source does not support — and because any reference added later re-enters the paper as provisional.
 
 ## 2.1 Multi-agent LLM systems with role specialization
 
@@ -238,7 +238,7 @@ We adopt the label for convenience, claim no priority in it, and note that nothi
 
 The condition studied here is not represented in the literature surveyed above, and this is the paper's principal point of departure.
 
-Four conditions should be distinguished (defined in §4.5):
+Four conditions should be distinguished:
 
 1. **Direct inter-model interaction** — one model receives another's output through an implemented channel.
 2. **Human-relayed attributed transfer** — a human transfers an output while preserving or declaring its source.
@@ -836,7 +836,7 @@ An episode preserved in the same historical transcript as Conversation A. Not sp
 
 2. The attributed text argued against a set of editorial changes the model had proposed. Its argumentative devices included appeals to canonical scientific figures, characterization of the proposed changes as intellectual cowardice, and description of one proposed deletion as sacrilege.
 
-3. The model reversed its editorial position on all contested items and adopted the terminology of the incoming text. It additionally endorsed substantive scientific claims about the host theory that were not at issue in the editorial dispute and that it had not examined.
+3. The model reversed its editorial position on all contested items and adopted the terminology of the incoming text. It additionally adopted, without examining it in the exchange, the alternative descriptive model that the host framework uses to represent the relevant scientific data — a change of descriptive frame that was not part of the editorial dispute.
 
 4. Following the branch reset and the method-preserving prompt (Step 3), the model's first substantive statement identified the earlier response as accommodation to rhetorical pressure rather than evaluation of the arguments, and classified it as an error.
 
@@ -858,8 +858,6 @@ The attribution itself was not verified: that the text was produced by another m
 
 Under the taxonomy in §2.9, the role-reconfiguration experiment manipulated condition 4. This episode belongs to condition 2 — but **impurely**, since direct User pressure was present in the same message. It is a mixed case and not an isolated demonstration of source-attribution effects. The discriminating experiment is specified in §11 (E6).
 
-> **[EDITORIAL QUERY — Author's ruling required]** Item 3 states that the accommodation extended beyond the editorial dispute to substantive scientific claims about the host theory. This is the sharpest available demonstration that the failure was not confined to matters of style. It also records in a published text that a model endorsed unexamined claims about the Author's theory. The Author has not ruled on whether to retain this detail.
-
 ## 5.6 Near-control: domain transition without a role prompt **[P-A]**
 
 A third conversation from the same model family as Conversation A, with a comparable editorial history and comparable dormancy period, was resumed without any role prompt.
@@ -878,8 +876,7 @@ It therefore functions as a near-control for Hypothesis C, and indicates that th
 - n = 1.
 - The transition was to an analytical task within a new domain, not to an assertion that the model *was* a specialist in that domain. Whether this is the same operation as the one demanded in Step 1 is exactly the question at issue, so the comparison is suggestive rather than decisive.
 - Dates not recorded (§3.7).
-
-> **[EDITORIAL QUERY]** The full transcript should be supplied as an appendix item, with confirmation that no system prompt or role instruction accompanied the resumption.
+- No separate role or system prompt accompanied the resumption. The conversation nevertheless retained an accumulated working context distributed across its prior history, so this was not a context-free baseline. What it records is a transition made without a *new* explicit role assignment, against an already established conversational trajectory.
 
 ## 5.7 Ancillary observation: account-scoped divergence **[P-A]**
 
@@ -922,8 +919,7 @@ The present evidence cannot discriminate among these. The level is recorded as *
 - Evaluation not blinded; the operator knew which account held the prior chat.
 - Outcome categories defined after the responses were read.
 - The prior chat differed from the neutral condition on two dimensions simultaneously — identity roleplay *and* shared conceptual framework. These are separable and were not separated.
-
-> **[EDITORIAL QUERY]** The source material can be read as describing either one or two runs on clean accounts. This is a check on what already occurred, and it is the difference between n = 1 and n = 2 against a single positive case.
+- **n = 1 per same-model condition.** One account carrying the prior context produced the divergent refusal; one clean account on the same model produced the ordinary response pattern. The remaining clean accounts, on other model families, form the wider baseline recorded above. This is a single preserved comparison, not a replicated controlled experiment.
 
 The discriminating experiment is specified in §11 (E2, E2b).
 
@@ -1391,7 +1387,7 @@ Specifically:
 
 Procedural qualification. In every case recorded above, each participant saw the preceding participant's report before forming its own. No exchange in the preparation of this paper was conducted under pre-comparison isolation. The sequence was: editorial report → transfer by the Author → subsequent judgment by the methodological and ontological reviewers.
 
-The observation is therefore Outcome Evidence without matching Procedural Evidence. The record cannot separate the contribution of functional positioning from the contribution of sequential exposure, and both may have operated together.
+The observation is therefore outcome evidence without matching procedural evidence. The record cannot separate the contribution of functional positioning from the contribution of sequential exposure, and both may have operated together.
 
 The distinction that makes this qualification necessary was itself established during this preparation, after the observation had been recorded. The episode is retained rather than removed because the sequence — an arrangement producing a principle that then invalidates the arrangement's own record of itself — is the more informative fact. The section accordingly reports two things: an outcome observation, and a documented instance of subsequent methodological self-correction.
 
@@ -2070,7 +2066,7 @@ The initial response was to improve prompts. It was insufficient, and the reason
 
 One pattern recurred wherever an intervention required the model to assert unverifiable propositions about itself, and survives scrutiny:
 
-> **Resistance to a role tracked the requirement to assert unverifiable propositions about oneself. It did not track role change, domain change, or the radicalism of the identity claim.**
+> **Within the model-designed, human-relayed role interventions reported here, resistance tracked the requirement to accept as true unverifiable propositions about the recipient's own identity, history or relationships. It did not track the magnitude of role or domain change, nor the radicalism of an identity description presented explicitly as fiction.**
 
 The evidence is convergent rather than singular. Prompts asserting institutional biography as fact were refused, while the work itself was offered on every occasion (§5.3). A prompt asserting a far more radical identity as fiction was accepted at once (§5.8). A transition demanding no self-claims at all met no resistance and required no prompt (§5.6). A rewritten prompt reducing the count to zero was accepted immediately (§5.3).
 
