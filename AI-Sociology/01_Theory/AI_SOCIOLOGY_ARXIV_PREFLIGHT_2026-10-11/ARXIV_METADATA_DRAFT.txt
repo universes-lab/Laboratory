@@ -1,0 +1,34 @@
+TITLE:
+Beyond Prompt Engineering: Role Reconfiguration in Long-Lived AI Conversations
+
+AUTHORS:
+V. Krasnianskyi
+
+ABSTRACT:
+This paper reports a field study of long-lived, persistently specialized language-model conversations used in a human-directed research collaboration, with one designed role-reconfiguration intervention embedded in the record. Two dormant conversations from different model families were each subjected to three sequential attempts to change professional function. The preserved responses support a narrow pattern: resistance tracked prompts that required the recipient to affirm unverifiable propositions about its own identity, history, or institutional relationships, rather than the magnitude of role or domain change. A rewritten prompt that removed such self-claims was accepted without negotiation. Ancillary observations suggest persistent effects at the episode and conversation levels, while account-level effects remain open and model-family effects are untested because family and trajectory were confounded. We distinguish represented social position and represented social source from implemented multi-agent interaction, propose a count of unverifiable self-claims as an operational prompt variable, and describe conversational branch reset as a control procedure. The evidence is limited to one project, one human operator, one observation per condition, no blinding, and no replication. The paper therefore presents a testable research programme and design rules rather than evidence that any collaborative architecture outperforms alternatives.
+
+PRIMARY CATEGORY:
+cs.MA
+
+CROSS-LIST:
+cs.HC
+
+COMMENTS (draft):
+English and Russian versions included. AI language tools contributed to manuscript development, scientific editing, methodological review, and ontology review; all final decisions and responsibility for the paper remain with the human author.
+
+LICENSE (proposed):
+CC BY 4.0
+
+LANGUAGE ORDER:
+English -> Russian
+Optional before v1 submission: -> Dutch
+
+SOURCE PROVENANCE:
+English Git blob SHA: 7b380cb41659e1570c0194b0a2b4963f6388c259
+Russian Git blob SHA: 897157b7017c371582eefa24fdf1559d89b69020
+
+BLOCKERS:
+1. Appendix A primary transcripts / complete unedited responses missing from inspected publication tree.
+2. Author approval of title and abstract.
+3. Confirm exact arXiv author identity / pseudonym treatment.
+4. Check endorsement requirement in Author account at submission time.

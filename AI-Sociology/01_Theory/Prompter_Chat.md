@@ -296,7 +296,7 @@ RUSSIAN_VERSION_TREATMENT — same arXiv item, after English
 AI_CONTRIBUTION_DISCLOSURE — оставить существующий блок, AI не authors
 BLOCKERS — Appendix A; approval title/abstract; точное author metadata; возможный endorsement
 После твоего одобрения title/abstract и получения первичных материалов Appendix A я уже могу переходить к настоящей технической сборке: .tex → XeLaTeX → PDF → проверка таблиц/cross-references → source ZIP → финальная arXiv-card. 
-(zip-файл будет залит в Laboratory\AI-Sociology\01_Theory)
+(zip-файл будет распакован и залит в Laboratory\AI-Sociology\01_Theory\AI_SOCIOLOGY_ARXIV_PREFLIGHT_2026-10-11)
 === 
 Ответ Редактора:
 Принято. Читаю книгу целиком, прежде чем что-либо говорить о ней.
