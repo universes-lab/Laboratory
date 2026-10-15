@@ -158,7 +158,7 @@ name is a joke that the text plays on roughly seventy times.
 
 Author decision after translation review: **retain the proper name Miss Dushnila in both translations.**
 The earlier rendered forms **Miss Killjoy** / **Miss Spelbreker** were replaced globally
-(70 occurrences in each edition). This preserves the identity of the same literary character
+(69 occurrences in each current publication edition). This preserves the identity of the same literary character
 across RU / EN / NL. Where needed in publication front matter, the slang meaning may be
 explained once as a translator's gloss rather than replacing the name.
 
