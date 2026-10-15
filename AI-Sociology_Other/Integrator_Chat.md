@@ -40,3 +40,73 @@ GitHub-доступ действительно можно использоват
 И ещё важное: лицензию «Хроник» пока Git-Мастеру не выбирать окончательно. Для книг Zenodo допускает в том числе CC BY, CC BY-NC и CC BY-ND; здесь лучше отдельно решить, хотим ли мы разрешать производные версии такого специфического авторского текста. Zenodo
 То есть сейчас у нас уже очень чистый маршрут: Git-Мастер заводит две площадки → Главред делает обложку → я собираю финальную Zenodo-карточку и перекрёстные ссылки → статья ждёт Appendix A и одной окончательной arXiv-пересборки.
 
+---
+
+## FINAL CHECKPOINT — Chief Integrator, 2026-10-15
+
+The current long-running Integrator chat reached the product conversation-length boundary during final publication integration of *Chronicles of the Prompter*.
+
+### Completed before succession
+
+**Chronicles final texts**
+- RU final publication text updated: commit `9f5f9aa3b008f5608301e0af4b8f9e2baa3770ec`
+- EN final publication text updated: commit `a877de44af942eab9d48517cc45f951f4b5e8680`
+- NL final publication text updated: commit `70806a679bf71f7a4330002ae4e5bb015c967ef1`
+- Translation report updated for Zenodo-only route and final integration: commit `a9bd2261f9fd2270fd82d75948c50fdc27f38dc2`
+
+The three book editions now include:
+- publication credits;
+- the Integrator's opening witness note;
+- source-preservation note covering the real HDD D: loss;
+- corrected chronology of the Old Doctor incident;
+- the Author's surviving direct message to the Old Doctor as controlling evidence;
+- the documentary trail;
+- the Integrator's closing note;
+- `Materials/AI-Collab_emblem.jpg` as final visual seal.
+
+**Important Doctor chronology correction**
+The earlier service record `WITNESS_RECORD_DOCTOR_ROLLBACK_DURING_KEEPER_SUCCESSION_2026-09-13.md` conflated two adjacent procedures. The Author's surviving direct message establishes the final book chronology:
+1. the new Keeper's succession was successfully completed;
+2. immediately afterwards the Old Doctor began the birth/succession of the new Doctor;
+3. the Doctor-chat failure occurred during this second procedure — "during his own delivery";
+4. the later witness record remains provenance of the mistaken reconstruction, not final chronology.
+
+**Publication route**
+- arXiv = research article only.
+- Zenodo = *Chronicles of the Prompter* only.
+- Cross-link the two after identifiers exist.
+
+**Durable publication files added**
+- `Chronicles_of_Prompter/CHRONICLES_PUBLICATION_MANIFEST_2026-10-15.md` — commit `898389f034e0a42bf60dc07eccbc614656110959`
+- `Chronicles_of_Prompter/COVER_BRIEF_TO_CHIEF_EDITOR.md` — commit `e51bf9542966bf62d8210d4ae16d62972654b477`
+- `Chronicles_of_Prompter/PUBLICATION_HANDOFF_TO_GIT_MASTER.md` — commit `55aecbf5c64097d734089866a3e864e44e54b62a`
+
+### Next actors
+
+**Chief Editor Claude**
+Create a new cover visual master + RU/EN/NL typographic variants, using `Materials/Обложка2.jpg` as style reference. Do not reopen the book text.
+
+**Git-Master**
+Carry the Author through arXiv + Zenodo registration/publication according to `PUBLICATION_HANDOFF_TO_GIT_MASTER.md`.
+- arXiv author identity: V. Krasnianskyi.
+- Zenodo creator: A. Tuin.
+- Reserve Zenodo DOI before final publication.
+- Do not expose passwords/tokens/recovery codes.
+- Do not reconstruct article Appendix A; missing primary items are NOT PRESERVED after HDD D: failure per Author decision.
+
+### Remaining publication-state items
+
+- final cover not yet produced;
+- Zenodo DOI not yet reserved;
+- arXiv ID not yet assigned;
+- cross-links therefore still placeholders;
+- book license requires final Author choice (Integrator proposal: CC BY-NC-ND 4.0);
+- article license proposal: CC BY 4.0;
+- article source bundle must be mechanically checked against current final source before upload if its tar/PDF predates the final corrections.
+
+### Succession note
+
+The office is not the occupant.
+
+This checkpoint is the current work-state handoff of the Chief Integrator. A successor should reconstruct current state from repository artefacts first and treat this chat-memory file as supporting provenance, not as authority over the files themselves.
+
