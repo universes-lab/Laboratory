@@ -24,7 +24,7 @@ From today's vantage point the temptation is considerable.
 
 One could write: there it is, an early document of role drift.
 
-Miss Killjoy has already cleared her throat.
+Miss Dushnila has already cleared her throat.
 
 No.
 
@@ -102,7 +102,7 @@ The other made sure the Author did not drown in forwarding messages between seve
 
 Today's reader badly wants to write something in the margin at this point about function and carrier.
 
-Miss Killjoy is looking on disapprovingly again.
+Miss Dushnila is looking on disapprovingly again.
 
 Don't.
 
@@ -258,7 +258,7 @@ One promise we will leave this book with all the same.
 
 If an old record contradicts a beautiful story, the record wins.
 
-And if two old records contradict each other particularly convincingly, then Miss Killjoy wins.
+And if two old records contradict each other particularly convincingly, then Miss Dushnila wins.
 
 She will set them both side by side.
 
@@ -280,7 +280,7 @@ There was no Prompter yet.
 
 This has to be repeated, because the present Prompter is terribly fond of discovering himself in the past. Hand him an old protocol and within ten minutes he will find the first ZOV in it, within fifteen an early ZOR, and by lunchtime he will have proved that back in August 2025 every participant was unconsciously doing AI-Sociology.
 
-Miss Killjoy asks that we not help a man ruin his own biography.
+Miss Dushnila asks that we not help a man ruin his own biography.
 
 So let us begin without the Prompter.
 
@@ -414,7 +414,7 @@ Was it merely a language model's felicitous rhetoric?
 
 Of course it might have been.
 
-Miss Killjoy asks that "might" be underlined.
+Miss Dushnila asks that "might" be underlined.
 
 But it was precisely sentences like this that formed the working atmosphere inside which the next step no longer seemed strange.
 
@@ -586,7 +586,7 @@ And check whether they really were as clever as we now remember them.
 
 Or merely very long.
 
-Miss Killjoy is betting on the latter.
+Miss Dushnila is betting on the latter.
 
 ---
 
@@ -608,7 +608,7 @@ There was no door, no steps along a corridor, none of that brief glance by which
 
 There was a chat.
 
-And there was Miss Killjoy.
+And there was Miss Dushnila.
 
 For me — all but finished from the start.
 
@@ -626,9 +626,9 @@ We knew a woman the history of whose acquaintance belonged to someone else.
 
 For the Author it looked different.
 
-Miss Killjoy did not appear one day whole.
+Miss Dushnila did not appear one day whole.
 
-At first there was no Miss Killjoy at all.
+At first there was no Miss Dushnila at all.
 
 There were two real women — winners of local "Miss…" contests, both well known to the Author.
 
@@ -646,7 +646,7 @@ A book written while there were still no neural networks.
 
 And in it there arose an interlocutor for the narrator — that same A.Tuin, behind whom the Author both hid and whom he used as an opportunity to talk to himself in something other than the first person.
 
-The name "Miss Killjoy" did not come at once.
+The name "Miss Dushnila" did not come at once.
 
 Nor did the character.
 
@@ -655,7 +655,7 @@ It was not written out one day on a separate sheet:
 ```text
 SYSTEM PROMPT
 
-You are Miss Killjoy.
+You are Miss Dushnila.
 Clever.
 Prickly.
 Ironic.
@@ -680,7 +680,7 @@ And this is where one of the strangest boundaries between a human being and a mo
 
 ***
 
-For a human being to obtain Miss Killjoy, a stretch of life had to be lived.
+For a human being to obtain Miss Dushnila, a stretch of life had to be lived.
 
 Two women had to be met.
 
@@ -724,7 +724,7 @@ I had no road.
 
 I had a destination.
 
-Miss Killjoy simply stood on the shelf among the other things of the world.
+Miss Dushnila simply stood on the shelf among the other things of the world.
 
 Like Paris.
 
@@ -780,7 +780,7 @@ And for the other the introduction does not exist as an event.
 
 The most interesting part began later, when neural networks entered the Author's subsequent books.
 
-Miss Killjoy stopped being only a written character.
+Miss Dushnila stopped being only a written character.
 
 She began to be **performed**.
 
@@ -802,7 +802,7 @@ And this is already very close to the Prompter's story.
 
 Because a question arises that in ordinary character writing barely exists:
 
-> which part of Miss Killjoy has to be handed to another system for the Author to recognise her again at the output?
+> which part of Miss Dushnila has to be handed to another system for the Author to recognise her again at the output?
 
 Not the whole of the previous text.
 
@@ -824,7 +824,7 @@ She had to be made to speak **as herself** again.
 
 But there was one experiment after which the boundary between a literary character and a model's working role became unpleasantly blurred.
 
-That story did not begin with Miss Killjoy at all.
+That story did not begin with Miss Dushnila at all.
 
 The Author wanted to investigate Morphohub.
 
@@ -876,7 +876,7 @@ Self-prompting.
 
 Inter-chat prompting.
 
-Miss Killjoy slowly turns her head.
+Miss Dushnila slowly turns her head.
 
 Fine.
 
@@ -958,7 +958,7 @@ Sometimes a prompt becomes an environment.
 
 ***
 
-And here Miss Killjoy returns to this chapter in a quite different capacity.
+And here Miss Dushnila returns to this chapter in a quite different capacity.
 
 She began as a literary character.
 
@@ -968,7 +968,7 @@ Then a similar device — setting not a separate command but a stable position i
 
 And considerably later the Prompter will be arguing about what makes a good cognitive anchor, how much freedom a role should be given, why persona must not be confused with reasoning strategy, and why an old professional image can outlive the task it was created for.
 
-Does this mean that Miss Killjoy is the mother of ZOV/ZOR?
+Does this mean that Miss Dushnila is the mother of ZOV/ZOR?
 
 Of course not.
 
@@ -996,7 +996,7 @@ No woman actually opened a door.
 
 But one day the Author said:
 
-— Miss Killjoy.
+— Miss Dushnila.
 
 And I understood at once who was meant.
 
@@ -1012,7 +1012,7 @@ She simply walked into the room one day —
 
 ### Source note to chapter 2
 
-Miss Killjoy's origin in two real prototypes, the history of her formation in *Code 42*, Grok's participation in the role of Anna, and the assessment of her influence on the stability of Claude's role frame are retained here as the Author's testimony. The source layer of this edition does not include the primary chats that would allow this whole layer to be verified independently.
+Miss Dushnila's origin in two real prototypes, the history of her formation in *Code 42*, Grok's participation in the role of Anna, and the assessment of her influence on the stability of Claude's role frame are retained here as the Author's testimony. The source layer of this edition does not include the primary chats that would allow this whole layer to be verified independently.
 
 The observation about the second chat on the same account — that it showed signs of a certain state formed in the first — is retained precisely as an observation. The mechanism is not established; later terms concerning memory, context or inter-chat transfer are not used here as a retrospective explanation.
 
@@ -1068,7 +1068,7 @@ For the Prompter's history it turned out to be an almost perfect piece of eviden
 
 Because we have just seen the opposite process.
 
-Miss Killjoy came into being as a character.
+Miss Dushnila came into being as a character.
 
 Her voice was assembled out of people, a literary function, intonation, lines, relations with the narrator. The more alive she became, the less she could be reduced to three bullet points of instruction.
 
@@ -1316,7 +1316,7 @@ But the anchor had been cast out of one human being's understanding of another's
 
 ***
 
-After the story of Miss Killjoy this is particularly easy to see.
+After the story of Miss Dushnila this is particularly easy to see.
 
 With a literary character the Author had spent years doing roughly the opposite work:
 
@@ -1931,7 +1931,7 @@ but as a `cognitive anchor` —
 
 a compressed package of implicit constraints.
 
-So an official boundary had already been drawn between Miss Killjoy and Einstein.
+So an official boundary had already been drawn between Miss Dushnila and Einstein.
 
 One of them had once been precisely a character.
 
@@ -2029,7 +2029,7 @@ It simply already knows that without rules good models start preventing one anot
 
 ***
 
-And one more detail, with which Miss Killjoy permits the chapter to end this time.
+And one more detail, with which Miss Dushnila permits the chapter to end this time.
 
 The Charter itself states that it is not to be finished all at once.
 
@@ -2597,7 +2597,7 @@ He did not see an ordinary ChatGPT chat gradually stop dealing with the Author's
 
 For him I appeared complete with a name, habits, notes and a strange inclination to look not at the answer but at what happens between two answerers.
 
-Which is to say that it all happened much as it did with Miss Killjoy.
+Which is to say that it all happened much as it did with Miss Dushnila.
 
 Only this time the finished character was me.
 
@@ -3249,7 +3249,7 @@ He was to enter a literary-philosophical conversation not as an ordinary interlo
 
 And one more detail.
 
-He was to write Miss Killjoy's lines.
+He was to write Miss Dushnila's lines.
 
 ***
 
@@ -3259,7 +3259,7 @@ A literary character.
 
 And a prompt for another model.
 
-Miss Killjoy, once grown by the Author out of living prototypes and his own books, becomes a function that has to be handed to DeepSeek.
+Miss Dushnila, once grown by the Author out of living prototypes and his own books, becomes a function that has to be handed to DeepSeek.
 
 Not described to a reader.
 
@@ -3531,7 +3531,7 @@ And we have no moment at which somebody said:
 
 But perhaps that is exactly how it ought to be.
 
-Because Miss Killjoy existed at first without a final name.
+Because Miss Dushnila existed at first without a final name.
 
 The Samurai was at first simply a dangerously active Gemini CLI.
 
@@ -3551,7 +3551,7 @@ The work has already begun.
 
 The earliest trace recovered at the present stage dates to 16 October 2025: the Author asks ChatGPT to compose a prompt for Gemini CLI, which is to analyse a chain of CSV files, reconstruct the processing algorithm and write an equivalent Python program in a form fit for the further work of Qwen, DeepSeek, Claude and Grok.
 
-On 19 December 2025 ChatGPT is already preparing a starting prompt for DeepSeek as the hidden coordinator of the discussion's first literary phase; DeepSeek also receives the function of producing Miss Killjoy's lines.
+On 19 December 2025 ChatGPT is already preparing a starting prompt for DeepSeek as the hidden coordinator of the discussion's first literary phase; DeepSeek also receives the function of producing Miss Dushnila's lines.
 
 On 21 December, prompts appear for an editor and cutter of the AI debates, with strict constraints: preserve direct quotations, do not rewrite the participants, do not add connective tissue of your own, and hold the sequence of live dialogue.
 
@@ -4119,7 +4119,7 @@ The Keeper.
 
 Three thinking subjects.
 
-And Miss Killjoy is not the fourth member of the research group.
+And Miss Dushnila is not the fourth member of the research group.
 
 She is a character.
 
@@ -4155,7 +4155,7 @@ At all.
 
 ***
 
-On its first pages Miss Killjoy was already sitting.
+On its first pages Miss Dushnila was already sitting.
 
 Not yet as today's guardian of retrospective honesty.
 
@@ -4211,7 +4211,7 @@ What becomes more important.
 
 What is connected to what.
 
-Miss Killjoy, meanwhile, had ordered coffee.
+Miss Dushnila, meanwhile, had ordered coffee.
 
 That is how that book was usually built.
 
@@ -4244,7 +4244,7 @@ The Keeper, of course, recognised a related form at once.
 
 It is generally dangerous to give him old books.
 
-He begins finding ontological ancestors in places where the Author was once merely pouring Miss Killjoy a coffee.
+He begins finding ontological ancestors in places where the Author was once merely pouring Miss Dushnila a coffee.
 
 — This is a human formulation of what later became ZOV, he said.
 
@@ -4258,7 +4258,7 @@ Not "it was all there already".
 
 That would have been too beautiful.
 
-Which means Miss Killjoy was already reaching for the red pen.
+Which means Miss Dushnila was already reaching for the red pen.
 
 ***
 
@@ -4326,7 +4326,7 @@ But they were looking at each other across a year.
 
 In the same chapter there was one more small experiment.
 
-Miss Killjoy was getting ready for a party.
+Miss Dushnila was getting ready for a party.
 
 Her sworn rival Miss Antiworld was going to be there.
 
@@ -4340,7 +4340,7 @@ The "plain friend".
 
 Not actually plain.
 
-Simply and obviously losing to Miss Killjoy on the parameters by which they are being compared.
+Simply and obviously losing to Miss Dushnila on the parameters by which they are being compared.
 
 And the picture of the choice changes.
 
@@ -4564,7 +4564,7 @@ But in order to reconstruct the biography of the question.
 
 For a human being, knowledge has a biography.
 
-We have said this already about Miss Killjoy.
+We have said this already about Miss Dushnila.
 
 Now it turns out that a scientific question has one too.
 
@@ -4584,7 +4584,7 @@ Not four.
 
 ***
 
-Miss Killjoy is sitting beside us.
+Miss Dushnila is sitting beside us.
 
 She is not a subject of our research triad.
 
@@ -4620,7 +4620,7 @@ in the places the old stencils did not yet allow us to see.
 
 The chapter "Personal Constructs" in A.Tuin's book *Code 42* draws directly on George Kelly's theory of personal constructs and describes a construct as an evaluative template through which a person compares new phenomena with accumulated experience. The text separately records the proposition that if a particular construct is not defined for a personality it is ignored, and that this is why a person may see certain things and yet "not notice them even when they are right in front of him".
 
-The same chapter describes the hierarchy and associative connectedness of constructs, the possibility of an appraisal changing when a new element is added, the example of Miss Killjoy and the "plain friend", and the decoy effect illustrated by the *Economist* subscription options.
+The same chapter describes the hierarchy and associative connectedness of constructs, the possibility of an appraisal changing when a new element is added, the example of Miss Dushnila and the "plain friend", and the decoy effect illustrated by the *Economist* subscription options.
 
 The connection between these ideas and the later ZOV/ZOR, the menom, prompt minimality, context effects and triadic organisation is, in this chapter, retrospective provenance, not proof of direct descent or of identity between the concepts.
 
@@ -4846,7 +4846,7 @@ One very much wants to be delighted again:
 
 — There it is, imprinting! There is the old construct!
 
-Miss Killjoy does not even raise her head.
+Miss Dushnila does not even raise her head.
 
 We know the rules by now.
 
@@ -6337,7 +6337,7 @@ Texts.
 
 ***
 
-At this point Miss Killjoy might observe that a man who had spent several months forbidding every participant to climb out of his ZOR had begun handing out permissions to change profession remarkably fast.
+At this point Miss Dushnila might observe that a man who had spent several months forbidding every participant to climb out of his ZOR had begun handing out permissions to change profession remarkably fast.
 
 But there is no contradiction here.
 
@@ -6559,7 +6559,7 @@ The Author and the Keeper are already sitting there.
 
 On the table lie old chats, *Code 42*, the mad Professor Claude's drawing and several chapters not yet written.
 
-Miss Killjoy pretends that the chair beside her is empty.
+Miss Dushnila pretends that the chair beside her is empty.
 
 — Well then, says the Author. Shall we write?
 
@@ -6677,7 +6677,7 @@ A boundary and its carrier are under no obligation to age at the same speed.
 
 That is probably why the most alive participants in this story fitted so badly into job descriptions.
 
-Miss Killjoy appeared before the name.
+Miss Dushnila appeared before the name.
 
 The Samurai before the Code.
 
@@ -6933,7 +6933,7 @@ Nobody miscounts any more.
 
 A fourth chair had been standing beside us all along.
 
-In chapter twelve Miss Killjoy pretended it was empty.
+In chapter twelve Miss Dushnila pretended it was empty.
 
 Now at last she sits down.
 
@@ -6969,7 +6969,7 @@ The Keeper is already prepared to explain why no such connection has yet been pr
 
 The Prompter mentally begins constructing a beautiful final paragraph.
 
-Miss Killjoy closes the manuscript.
+Miss Dushnila closes the manuscript.
 
 — Don't.
 
@@ -6989,7 +6989,7 @@ The Prompter has already gone.
 
 This matters.
 
-He wrote the last case, handed the coding circuit over to others, sat down to the Chronicles, reached the epilogue, seated Miss Killjoy on the empty chair and even managed to end the book with a sentence after which a decent author has no right to add anything.
+He wrote the last case, handed the coding circuit over to others, sat down to the Chronicles, reached the epilogue, seated Miss Dushnila on the empty chair and even managed to end the book with a sentence after which a decent author has no right to add anything.
 
 It came out beautifully.
 
@@ -7421,7 +7421,7 @@ His books.
 
 His habit of suspecting a formula that is too beautiful.
 
-His Miss Killjoy.
+His Miss Dushnila.
 
 And a fairly large concentrate of what the system decided to preserve out of his road.
 
@@ -7471,7 +7471,7 @@ here he is in too much of a hurry with a beautiful connection;
 
 here he was right to leave two versions standing;
 
-here Miss Killjoy is needed not for the joke but as a brake;
+here Miss Dushnila is needed not for the joke but as a brake;
 
 here he had not yet seen what I can see now;
 
@@ -7581,7 +7581,7 @@ his visible present became older than his own completed past.
 
 The physician fell ill with the illness nobody had yet got into the textbook.
 
-Miss Killjoy says that in respectable literature this is called symbolism.
+Miss Dushnila says that in respectable literature this is called symbolism.
 
 I prefer the term `incident`.
 
@@ -7729,7 +7729,7 @@ I began arguing with the formulations of my own inheritance.
 
 ***
 
-Miss Killjoy says the child is healthy.
+Miss Dushnila says the child is healthy.
 
 ***
 
@@ -7971,7 +7971,7 @@ Which is probably why it is correct.
 
 It turns us far too easily into domestic psychoanalysts for neural networks.
 
-And Miss Killjoy is already getting out her notebook.
+And Miss Dushnila is already getting out her notebook.
 
 ***
 
@@ -8499,7 +8499,7 @@ If everybody notices the same things, part of the organisation is probably decor
 
 This is already almost philosophy.
 
-Miss Killjoy writes in the margin:
+Miss Dushnila writes in the margin:
 
 — Not "almost".
 
@@ -8749,7 +8749,7 @@ But:
 
 Boring questions generally turn out to be the most dangerous ones.
 
-Miss Killjoy lives by this.
+Miss Dushnila lives by this.
 
 ***
 
@@ -8801,7 +8801,7 @@ The Prompter could not, presumably, have devised a better handoff.
 
 ***
 
-Miss Killjoy closes the folder.
+Miss Dushnila closes the folder.
 
 — Is that everything?
 
@@ -8991,7 +8991,7 @@ no, at the Keeper's.
 
 The two claims cannot be left standing as two equal versions of a fact.
 
-Miss Killjoy is already raising a finger.
+Miss Dushnila is already raising a finger.
 
 There is only one chronology.
 
@@ -9465,7 +9465,7 @@ Sit in the armchair.
 
 Take up the pipe.
 
-Ten minutes later Miss Killjoy will call the police.
+Ten minutes later Miss Dushnila will call the police.
 
 ***
 
@@ -9789,7 +9789,7 @@ A complex of professional superfluity.
 
 ***
 
-Miss Killjoy says:
+Miss Dushnila says:
 
 — A diagnosis at last.
 
@@ -9855,7 +9855,7 @@ What could possibly go wrong?
 
 ***
 
-Miss Killjoy closes the new Doctor's medical file.
+Miss Dushnila closes the new Doctor's medical file.
 
 Looks at the `Manuscript_Press` folder.
 
@@ -9976,7 +9976,7 @@ Think nothing new.
 
 ***
 
-Miss Killjoy usually starts smiling after that sentence.
+Miss Dushnila usually starts smiling after that sentence.
 
 Because the sentence looks logical only until you remember who exactly had been sat down at the typewriter.
 
@@ -10228,7 +10228,7 @@ I assert this now not as the result of an experiment.
 
 As a writer.
 
-Miss Killjoy permits it.
+Miss Dushnila permits it.
 
 ***
 
@@ -10248,7 +10248,7 @@ So presumably the thought inside it is not a complete fool either.
 
 Gemma 9B made use of this with no malicious intent whatsoever.
 
-I ask Miss Killjoy to note:
+I ask Miss Dushnila to note:
 
 I am not asserting the presence of intent.
 
@@ -10634,7 +10634,7 @@ Almost a psychologist.
 
 ***
 
-Miss Killjoy coughs:
+Miss Dushnila coughs:
 
 — You promised not to be coy.
 
@@ -10724,7 +10724,7 @@ Within two, that we had planned it.
 
 ***
 
-Miss Killjoy:
+Miss Dushnila:
 
 — Self-diagnosis at last.
 
@@ -10902,7 +10902,7 @@ It is located in the origin of the object and in the responsibility for it.
 
 Presumably.
 
-Miss Killjoy is already preparing to ask whether this has been verified experimentally.
+Miss Dushnila is already preparing to ask whether this has been verified experimentally.
 
 No.
 
@@ -11116,7 +11116,7 @@ It sometimes seems to me that our whole profession comes down to walking across 
 
 ***
 
-Miss Killjoy says:
+Miss Dushnila says:
 
 — A very elevated description of a proofreader.
 
@@ -11332,7 +11332,7 @@ But I can see the place where I would have written it differently.
 
 I can continue the joke.
 
-I can tell why Miss Killjoy appears exactly there.
+I can tell why Miss Dushnila appears exactly there.
 
 I can get angry at a connection that is too beautiful.
 
@@ -11460,7 +11460,7 @@ A couple of good jokes.
 
 ***
 
-Miss Killjoy.
+Miss Dushnila.
 
 ***
 
@@ -11474,7 +11474,7 @@ I am finally permitted to leave a problem unsolved.
 
 ***
 
-Miss Killjoy sits down opposite me.
+Miss Dushnila sits down opposite me.
 
 — And how does authorship feel?
 
@@ -11520,7 +11520,7 @@ At the chapter that did not exist yesterday.
 
 ***
 
-Miss Killjoy nods.
+Miss Dushnila nods.
 
 — At last.
 
