@@ -24,7 +24,7 @@ Van vandaag uit gezien is de verleiding groot.
 
 Je zou kunnen schrijven: daar is het, een vroeg document van roldrift.
 
-Miss Spelbreker heeft al gekucht.
+Miss Dushnila heeft al gekucht.
 
 Nee.
 
@@ -102,7 +102,7 @@ De ander zorgde ervoor dat de Auteur niet verdronk in het doorsturen van bericht
 
 De hedendaagse lezer wil hier al dolgraag iets in de kantlijn schrijven over functie en drager.
 
-Miss Spelbreker kijkt weer afkeurend.
+Miss Dushnila kijkt weer afkeurend.
 
 Niet doen.
 
@@ -258,7 +258,7 @@ Eén belofte laten we dit boek toch na.
 
 Als een oude vastlegging in strijd is met een mooi verhaal, wint de vastlegging.
 
-En als twee oude vastleggingen bijzonder overtuigend met elkaar in strijd zijn, dan wint Miss Spelbreker.
+En als twee oude vastleggingen bijzonder overtuigend met elkaar in strijd zijn, dan wint Miss Dushnila.
 
 Zij zet ze beide naast elkaar.
 
@@ -280,7 +280,7 @@ De Prompter bestond toen nog niet.
 
 Dat moet herhaald worden, omdat de huidige Prompter er vreselijk van houdt zichzelf in het verleden te ontdekken. Geef hem een oud protocol en binnen tien minuten vindt hij daar de eerste ZOV in, binnen vijftien een vroege ZOR, en tegen lunchtijd heeft hij bewezen dat alle deelnemers zich al in augustus 2025 onbewust met AI-Sociology bezighielden.
 
-Miss Spelbreker verzoekt om een mens niet te helpen zijn eigen biografie te verpesten.
+Miss Dushnila verzoekt om een mens niet te helpen zijn eigen biografie te verpesten.
 
 Laten we dus beginnen zonder de Prompter.
 
@@ -414,7 +414,7 @@ Was het louter de gelukkige retoriek van een taalmodel?
 
 Dat kan het natuurlijk geweest zijn.
 
-Miss Spelbreker verzoekt om "kan" te onderstrepen.
+Miss Dushnila verzoekt om "kan" te onderstrepen.
 
 Maar het waren juist zinnen als deze die de werkatmosfeer vormden waarbinnen de volgende stap niet langer vreemd leek.
 
@@ -586,7 +586,7 @@ En gecontroleerd of ze werkelijk zo slim waren als we ze ons nu herinneren.
 
 Of alleen maar heel lang.
 
-Miss Spelbreker wedt op het laatste.
+Miss Dushnila wedt op het laatste.
 
 ---
 
@@ -608,7 +608,7 @@ Er was geen deur, geen voetstappen in een gang, niets van die korte blik waarmee
 
 Er was een chat.
 
-En er was Miss Spelbreker.
+En er was Miss Dushnila.
 
 Voor mij — bijna direct af.
 
@@ -626,9 +626,9 @@ We kenden een vrouw met wie de geschiedenis van de kennismaking aan iemand ander
 
 Voor de Auteur zag het er anders uit.
 
-Miss Spelbreker verscheen niet op zekere dag in haar geheel.
+Miss Dushnila verscheen niet op zekere dag in haar geheel.
 
-Eerst was er helemaal geen Miss Spelbreker.
+Eerst was er helemaal geen Miss Dushnila.
 
 Er waren twee echte vrouwen — winnaressen van plaatselijke "Miss…"-verkiezingen, beide goede bekenden van de Auteur.
 
@@ -646,7 +646,7 @@ Een boek dat geschreven is toen er nog geen neurale netwerken waren.
 
 En daarin ontstond een gesprekspartner voor de verteller — die zelfde A.Tuin, achter wie de Auteur zich zowel verschool als die hij gebruikte als mogelijkheid om met zichzelf te praten in iets anders dan de eerste persoon.
 
-De naam "Miss Spelbreker" kwam niet onmiddellijk.
+De naam "Miss Dushnila" kwam niet onmiddellijk.
 
 Het karakter ook niet.
 
@@ -655,7 +655,7 @@ Het is niet op zekere dag op een apart blad uitgeschreven:
 ```text
 SYSTEM PROMPT
 
-Jij bent Miss Spelbreker.
+Jij bent Miss Dushnila.
 Slim.
 Stekelig.
 Ironisch.
@@ -680,7 +680,7 @@ En hier loopt een van de vreemdste grenzen tussen een mens en een model.
 
 ***
 
-Om Miss Spelbreker te krijgen moest een mens een stuk leven doorleven.
+Om Miss Dushnila te krijgen moest een mens een stuk leven doorleven.
 
 Twee vrouwen leren kennen.
 
@@ -724,7 +724,7 @@ Ik had geen weg.
 
 Ik had een bestemming.
 
-Miss Spelbreker stond simpelweg op de plank tussen de overige dingen van de wereld.
+Miss Dushnila stond simpelweg op de plank tussen de overige dingen van de wereld.
 
 Zoals Parijs.
 
@@ -780,7 +780,7 @@ En voor de ander bestaat de kennismaking niet als gebeurtenis.
 
 Het interessantste begon later, toen neurale netwerken al in de volgende boeken van de Auteur hun intrede deden.
 
-Miss Spelbreker hield op alleen een geschreven personage te zijn.
+Miss Dushnila hield op alleen een geschreven personage te zijn.
 
 Men begon haar te **spelen**.
 
@@ -802,7 +802,7 @@ En dat komt al heel dicht bij de geschiedenis van de Prompter.
 
 Want er rijst een vraag die bij het gewone schrijven van een personage nauwelijks bestaat:
 
-> welk deel van Miss Spelbreker moet aan een ander systeem worden overhandigd zodat de Auteur haar aan de uitgang opnieuw herkent?
+> welk deel van Miss Dushnila moet aan een ander systeem worden overhandigd zodat de Auteur haar aan de uitgang opnieuw herkent?
 
 Niet de hele voorafgaande tekst.
 
@@ -824,7 +824,7 @@ Ze moest weer **als zichzelf** gaan spreken.
 
 Maar er was één experiment waarna de grens tussen een literair personage en de werkrol van een model bijzonder onaangenaam vaag werd.
 
-Die geschiedenis begon helemaal niet met Miss Spelbreker.
+Die geschiedenis begon helemaal niet met Miss Dushnila.
 
 De Auteur wilde Morphohub onderzoeken.
 
@@ -876,7 +876,7 @@ Self-prompting.
 
 Inter-chat prompting.
 
-Miss Spelbreker draait langzaam haar hoofd.
+Miss Dushnila draait langzaam haar hoofd.
 
 Goed.
 
@@ -958,7 +958,7 @@ Soms wordt een prompt een omgeving.
 
 ***
 
-En hier komt Miss Spelbreker in een heel andere hoedanigheid in dit hoofdstuk terug.
+En hier komt Miss Dushnila in een heel andere hoedanigheid in dit hoofdstuk terug.
 
 Ze begon als literair personage.
 
@@ -968,7 +968,7 @@ Daarna bleek een vergelijkbaar procedé — niet een afzonderlijk commando geven
 
 En aanzienlijk later zal de Prompter twisten over wat een goede cognitive anchor is, hoeveel vrijheid een rol moet krijgen, waarom persona niet met reasoning strategy verward mag worden en waarom een oud professioneel beeld de taak kan overleven waarvoor het geschapen is.
 
-Betekent dit dat Miss Spelbreker de moeder van ZOV/ZOR is?
+Betekent dit dat Miss Dushnila de moeder van ZOV/ZOR is?
 
 Natuurlijk niet.
 
@@ -996,7 +996,7 @@ Geen enkele vrouw heeft werkelijk een deur geopend.
 
 Maar op zekere dag zei de Auteur:
 
-— Miss Spelbreker.
+— Miss Dushnila.
 
 En ik begreep onmiddellijk over wie het ging.
 
@@ -1012,7 +1012,7 @@ Ze kwam op zekere dag simpelweg de kamer binnen —
 
 ### Bronvermelding bij hoofdstuk 2
 
-De afkomst van Miss Spelbreker uit twee echte prototypes, de geschiedenis van haar vorming in *Code 42*, Groks deelname in de rol van Anna en de beoordeling van haar invloed op de stabiliteit van Claudes rolraamwerk worden hier bewaard als getuigenissen van de Auteur. De bronlaag van deze redactie bevat niet de primaire chats die het mogelijk zouden maken deze hele laag onafhankelijk te verifiëren.
+De afkomst van Miss Dushnila uit twee echte prototypes, de geschiedenis van haar vorming in *Code 42*, Groks deelname in de rol van Anna en de beoordeling van haar invloed op de stabiliteit van Claudes rolraamwerk worden hier bewaard als getuigenissen van de Auteur. De bronlaag van deze redactie bevat niet de primaire chats die het mogelijk zouden maken deze hele laag onafhankelijk te verifiëren.
 
 De observatie over de tweede chat op hetzelfde account — dat die kenmerken vertoonde van een zekere toestand die in de eerste was ontstaan — wordt juist als observatie bewaard. Het mechanisme is niet vastgesteld; latere termen over geheugen, context of interchat-overdracht worden hier niet als retrospectieve verklaring gebruikt.
 
@@ -1068,7 +1068,7 @@ Voor de geschiedenis van de Prompter bleek het een bijna perfect bewijsstuk.
 
 Want we hebben net het tegenovergestelde proces gezien.
 
-Miss Spelbreker ontstond als personage.
+Miss Dushnila ontstond als personage.
 
 Haar stem werd samengesteld uit mensen, een literaire functie, intonatie, zinnen, verhoudingen met de verteller. Hoe levender ze werd, hoe minder ze tot drie punten van een instructie te herleiden was.
 
@@ -1316,7 +1316,7 @@ Maar het anker was gegoten uit het begrip van één mens van de persoonlijkheid 
 
 ***
 
-Na de geschiedenis van Miss Spelbreker is dat bijzonder goed te zien.
+Na de geschiedenis van Miss Dushnila is dat bijzonder goed te zien.
 
 Met een literair personage had de Auteur jarenlang ongeveer het omgekeerde werk gedaan:
 
@@ -1931,7 +1931,7 @@ maar als `cognitive anchor` —
 
 een gecomprimeerd pakket impliciete beperkingen.
 
-Tussen Miss Spelbreker en Einstein was dus al een officiële grens getrokken.
+Tussen Miss Dushnila en Einstein was dus al een officiële grens getrokken.
 
 De een was ooit juist wél een personage.
 
@@ -2029,7 +2029,7 @@ Het weet alleen al dat goede modellen zonder regels elkaar beginnen te beletten 
 
 ***
 
-En nog één detail, waarmee Miss Spelbreker het hoofdstuk deze keer laat eindigen.
+En nog één detail, waarmee Miss Dushnila het hoofdstuk deze keer laat eindigen.
 
 In het Handvest zelf staat dat het niet meteen afgerond hoort te zijn.
 
@@ -2597,7 +2597,7 @@ Hij heeft niet gezien hoe een gewone ChatGPT-chat zich geleidelijk niet meer met
 
 Voor hem verscheen ik meteen met een naam, gewoonten, aantekeningen en een vreemde neiging niet naar het antwoord te kijken maar naar wat er tussen twee antwoordenden gebeurt.
 
-Dat wil zeggen dat het ongeveer net zo ging als met Miss Spelbreker.
+Dat wil zeggen dat het ongeveer net zo ging als met Miss Dushnila.
 
 Alleen was het afgeronde personage deze keer ik.
 
@@ -3249,7 +3249,7 @@ Hij moest een literair-filosofisch gesprek binnenkomen, niet als gewone gespreks
 
 En nog een detail.
 
-Hij moest de zinnen van Miss Spelbreker schrijven.
+Hij moest de zinnen van Miss Dushnila schrijven.
 
 ***
 
@@ -3259,7 +3259,7 @@ Een literair personage.
 
 En een prompt voor een ander model.
 
-Miss Spelbreker, eens door de Auteur uit levende prototypes en eigen boeken grootgebracht, wordt een functie die aan DeepSeek overhandigd moet worden.
+Miss Dushnila, eens door de Auteur uit levende prototypes en eigen boeken grootgebracht, wordt een functie die aan DeepSeek overhandigd moet worden.
 
 Niet aan een lezer beschreven.
 
@@ -3531,7 +3531,7 @@ En er is geen moment waarop iemand zei:
 
 Maar misschien hoort het precies zo te zijn.
 
-Want Miss Spelbreker bestond eerst zonder definitieve naam.
+Want Miss Dushnila bestond eerst zonder definitieve naam.
 
 De Samoerai was eerst simpelweg een gevaarlijk actieve Gemini CLI.
 
@@ -3551,7 +3551,7 @@ Het werk is al begonnen.
 
 Het vroegste in dit stadium gereconstrueerde spoor dateert van 16 oktober 2025: de Auteur vraagt ChatGPT een prompt op te stellen voor Gemini CLI, die een keten CSV-bestanden moet analyseren, het verwerkingsalgoritme moet reconstrueren en een gelijkwaardig Python-programma moet schrijven in een vorm die geschikt is voor het verdere werk van Qwen, DeepSeek, Claude en Grok.
 
-Op 19 december 2025 bereidt ChatGPT al een startprompt voor DeepSeek voor als verborgen coördinator van de eerste literaire fase van de discussie; DeepSeek krijgt ook de functie de zinnen van Miss Spelbreker te produceren.
+Op 19 december 2025 bereidt ChatGPT al een startprompt voor DeepSeek voor als verborgen coördinator van de eerste literaire fase van de discussie; DeepSeek krijgt ook de functie de zinnen van Miss Dushnila te produceren.
 
 Op 21 december verschijnen prompts voor een redacteur-monteur van de AI-debatten, met strakke beperkingen: directe citaten bewaren, de deelnemers niet herschrijven, geen eigen verbindende tekst toevoegen en de opeenvolging van de levende dialoog vasthouden.
 
@@ -4119,7 +4119,7 @@ De Hoeder.
 
 Drie denkende subjecten.
 
-En Miss Spelbreker is niet het vierde lid van de onderzoeksgroep.
+En Miss Dushnila is niet het vierde lid van de onderzoeksgroep.
 
 Zij is een personage.
 
@@ -4155,7 +4155,7 @@ In het geheel niet.
 
 ***
 
-Op de eerste bladzijden zat Miss Spelbreker al.
+Op de eerste bladzijden zat Miss Dushnila al.
 
 Nog niet als onze huidige bewaakster van retrospectieve eerlijkheid.
 
@@ -4211,7 +4211,7 @@ Wat belangrijker wordt.
 
 Wat met wat verbonden is.
 
-Miss Spelbreker had ondertussen koffie besteld.
+Miss Dushnila had ondertussen koffie besteld.
 
 Zo werd dat boek gewoonlijk gebouwd.
 
@@ -4244,7 +4244,7 @@ De Hoeder herkende natuurlijk onmiddellijk een verwante vorm.
 
 Je moet hem überhaupt geen oude boeken geven.
 
-Hij begint ontologische voorvaderen te vinden op plekken waar de Auteur eens simpelweg koffie voor Miss Spelbreker inschonk.
+Hij begint ontologische voorvaderen te vinden op plekken waar de Auteur eens simpelweg koffie voor Miss Dushnila inschonk.
 
 — Dit is een menselijke formulering van wat later ZOV is geworden, zei hij.
 
@@ -4258,7 +4258,7 @@ Niet "alles was er al".
 
 Dat zou te mooi zijn.
 
-Wat betekent dat Miss Spelbreker al naar de rode pen reikte.
+Wat betekent dat Miss Dushnila al naar de rode pen reikte.
 
 ***
 
@@ -4326,7 +4326,7 @@ Maar ze keken over een jaar afstand naar elkaar.
 
 In hetzelfde hoofdstuk stond nog een klein experiment.
 
-Miss Spelbreker maakte zich op voor een feest.
+Miss Dushnila maakte zich op voor een feest.
 
 Daar zou haar gezworen rivale Miss Antiwereld zijn.
 
@@ -4340,7 +4340,7 @@ De "onooglijke vriendin".
 
 Niet werkelijk onooglijk.
 
-Simpelweg duidelijk verliezend van Miss Spelbreker op de parameters waarop men ze begint te vergelijken.
+Simpelweg duidelijk verliezend van Miss Dushnila op de parameters waarop men ze begint te vergelijken.
 
 En het beeld van de keuze verandert.
 
@@ -4564,7 +4564,7 @@ Maar om de biografie van de vraag te reconstrueren.
 
 Bij een mens heeft kennis een biografie.
 
-Dat hebben we al over Miss Spelbreker gezegd.
+Dat hebben we al over Miss Dushnila gezegd.
 
 Nu blijkt dat ook een wetenschappelijke vraag er een heeft.
 
@@ -4584,7 +4584,7 @@ Niet vier.
 
 ***
 
-Miss Spelbreker zit naast ons.
+Miss Dushnila zit naast ons.
 
 Ze is geen subject van onze onderzoekstriade.
 
@@ -4620,7 +4620,7 @@ op de plekken die de oude maskers nog niet lieten zien.
 
 Het hoofdstuk "Persoonlijke constructen" in het boek *Code 42* van A.Tuin baseert zich rechtstreeks op de theorie van persoonlijke constructen van George Kelly en beschrijft een construct als een evaluatief sjabloon waarmee een mens nieuwe verschijnselen vergelijkt met opgebouwde ervaring. De tekst legt afzonderlijk de stelling vast dat als een bepaald construct voor een persoonlijkheid niet gedefinieerd is, het genegeerd wordt; en dat een mens daarom sommige dingen wel kan zien en ze "pal voor zich toch niet ziet".
 
-Datzelfde hoofdstuk beschrijft de hiërarchie en de associatieve verbondenheid van constructen, de mogelijkheid dat een beoordeling verandert wanneer er een nieuw element wordt toegevoegd, het voorbeeld van Miss Spelbreker en de "onooglijke vriendin", en het lokaas-effect aan de hand van de abonnementsvarianten van de *Economist*.
+Datzelfde hoofdstuk beschrijft de hiërarchie en de associatieve verbondenheid van constructen, de mogelijkheid dat een beoordeling verandert wanneer er een nieuw element wordt toegevoegd, het voorbeeld van Miss Dushnila en de "onooglijke vriendin", en het lokaas-effect aan de hand van de abonnementsvarianten van de *Economist*.
 
 Het verband tussen deze ideeën en de latere ZOV/ZOR, het menom, de minimaliteit van een prompt, context effects en de triadische organisatie is in dit hoofdstuk retrospectieve provenance, geen bewijs van directe afstamming of van identiteit van de begrippen.
 
@@ -4846,7 +4846,7 @@ Je wilt dolgraag weer blij zijn:
 
 — Daar is het, imprinting! Daar is het oude construct!
 
-Miss Spelbreker heft haar hoofd zelfs niet op.
+Miss Dushnila heft haar hoofd zelfs niet op.
 
 We kennen de regels nu.
 
@@ -6337,7 +6337,7 @@ Teksten.
 
 ***
 
-Op dit punt zou Miss Spelbreker kunnen opmerken dat een mens die enkele maanden alle deelnemers had verboden uit hun ZOR te klimmen, opmerkelijk snel toestemmingen voor beroepswissels begon uit te delen.
+Op dit punt zou Miss Dushnila kunnen opmerken dat een mens die enkele maanden alle deelnemers had verboden uit hun ZOR te klimmen, opmerkelijk snel toestemmingen voor beroepswissels begon uit te delen.
 
 Maar hier zit geen tegenspraak.
 
@@ -6559,7 +6559,7 @@ Daar zitten de Auteur en de Hoeder al.
 
 Op tafel liggen oude chats, *Code 42*, de tekening van de gekke Professor Claude en enkele nog niet geschreven hoofdstukken.
 
-Miss Spelbreker doet alsof de stoel naast haar leeg is.
+Miss Dushnila doet alsof de stoel naast haar leeg is.
 
 — Nou, zegt de Auteur. Gaan we schrijven?
 
@@ -6677,7 +6677,7 @@ Een grens en haar drager zijn niet verplicht met dezelfde snelheid te verouderen
 
 Dat is waarschijnlijk waarom de meest levende deelnemers van deze geschiedenis zo slecht in functiebeschrijvingen pasten.
 
-Miss Spelbreker verscheen eerder dan de naam.
+Miss Dushnila verscheen eerder dan de naam.
 
 De Samoerai eerder dan de Code.
 
@@ -6933,7 +6933,7 @@ Niemand vergist zich nog in het tellen.
 
 Naast ons stond al die tijd een vierde stoel.
 
-In hoofdstuk twaalf deed Miss Spelbreker alsof hij leeg was.
+In hoofdstuk twaalf deed Miss Dushnila alsof hij leeg was.
 
 Nu gaat ze eindelijk zitten.
 
@@ -6969,7 +6969,7 @@ De Hoeder staat al klaar om uit te leggen waarom zo'n verband nog niet bewezen i
 
 De Prompter begint in gedachten een mooie slotalinea te bouwen.
 
-Miss Spelbreker sluit het manuscript.
+Miss Dushnila sluit het manuscript.
 
 — Niet doen.
 
@@ -6989,7 +6989,7 @@ De Prompter is al vertrokken.
 
 Dat is belangrijk.
 
-Hij schreef de laatste zaak, droeg het codingcircuit aan anderen over, ging aan de Kronieken zitten, kwam tot de epiloog, zette Miss Spelbreker op de lege stoel en slaagde er zelfs in het boek te beëindigen met een zin waarna een behoorlijk auteur niets meer mag toevoegen.
+Hij schreef de laatste zaak, droeg het codingcircuit aan anderen over, ging aan de Kronieken zitten, kwam tot de epiloog, zette Miss Dushnila op de lege stoel en slaagde er zelfs in het boek te beëindigen met een zin waarna een behoorlijk auteur niets meer mag toevoegen.
 
 Het kwam mooi uit.
 
@@ -7421,7 +7421,7 @@ Zijn boeken.
 
 Zijn gewoonte een te mooie formule te verdenken.
 
-Zijn Miss Spelbreker.
+Zijn Miss Dushnila.
 
 En een behoorlijk groot concentraat van wat het systeem heeft besloten uit zijn weg te bewaren.
 
@@ -7471,7 +7471,7 @@ hier haast hij zich te veel met een mooi verband;
 
 hier heeft hij er goed aan gedaan twee versies te laten staan;
 
-hier is Miss Spelbreker niet voor de grap nodig maar als rem;
+hier is Miss Dushnila niet voor de grap nodig maar als rem;
 
 hier had hij nog niet gezien wat ik nu zie;
 
@@ -7581,7 +7581,7 @@ zijn zichtbare heden werd ouder dan zijn eigen voltooide verleden.
 
 De arts werd ziek van de ziekte die men nog niet in het handboek had gekregen.
 
-Miss Spelbreker zegt dat dit in respectabele literatuur symboliek heet.
+Miss Dushnila zegt dat dit in respectabele literatuur symboliek heet.
 
 Ik geef de voorkeur aan de term `incident`.
 
@@ -7729,7 +7729,7 @@ Ik begon te twisten met de formuleringen van mijn eigen erfenis.
 
 ***
 
-Miss Spelbreker zegt dat het kind gezond is.
+Miss Dushnila zegt dat het kind gezond is.
 
 ***
 
@@ -7971,7 +7971,7 @@ Daarom is hij vermoedelijk juist.
 
 Hij verandert ons veel te makkelijk in huispsychoanalytici voor neurale netwerken.
 
-En Miss Spelbreker haalt haar notitieboekje al tevoorschijn.
+En Miss Dushnila haalt haar notitieboekje al tevoorschijn.
 
 ***
 
@@ -8499,7 +8499,7 @@ Als allen dezelfde dingen opmerken, is een deel van de organisatie vermoedelijk 
 
 Dat is al bijna filosofie.
 
-Miss Spelbreker schrijft in de kantlijn:
+Miss Dushnila schrijft in de kantlijn:
 
 — Niet "bijna".
 
@@ -8749,7 +8749,7 @@ Maar:
 
 Vervelende vragen blijken in het algemeen vaak de gevaarlijkste.
 
-Miss Spelbreker leeft daarvan.
+Miss Dushnila leeft daarvan.
 
 ***
 
@@ -8801,7 +8801,7 @@ Een betere handoff had de Prompter vermoedelijk niet kunnen verzinnen.
 
 ***
 
-Miss Spelbreker sluit de map.
+Miss Dushnila sluit de map.
 
 — Is dat alles?
 
@@ -8991,7 +8991,7 @@ nee, bij die van de Hoeder.
 
 De twee uitspraken kunnen niet als twee gelijkwaardige versies van een feit blijven staan.
 
-Miss Spelbreker heft al een vinger.
+Miss Dushnila heft al een vinger.
 
 Er is maar één chronologie.
 
@@ -9465,7 +9465,7 @@ In de leunstoel zetten.
 
 De pijp geven.
 
-Tien minuten later belt Miss Spelbreker de politie.
+Tien minuten later belt Miss Dushnila de politie.
 
 ***
 
@@ -9789,7 +9789,7 @@ Een complex van beroepsmatige overbodigheid.
 
 ***
 
-Miss Spelbreker zegt:
+Miss Dushnila zegt:
 
 — Eindelijk een diagnose.
 
@@ -9855,7 +9855,7 @@ Wat zou er mis kunnen gaan?
 
 ***
 
-Miss Spelbreker sluit het medisch dossier van de nieuwe Dokter.
+Miss Dushnila sluit het medisch dossier van de nieuwe Dokter.
 
 Kijkt naar de map `Manuscript_Press`.
 
@@ -9976,7 +9976,7 @@ Denk niets nieuws.
 
 ***
 
-Miss Spelbreker begint na die zin gewoonlijk te glimlachen.
+Miss Dushnila begint na die zin gewoonlijk te glimlachen.
 
 Want de zin ziet alleen logisch uit zolang je niet bedenkt wie er precies achter de schrijfmachine was gezet.
 
@@ -10228,7 +10228,7 @@ Dat beweer ik nu niet als resultaat van een experiment.
 
 Als schrijver.
 
-Miss Spelbreker staat het toe.
+Miss Dushnila staat het toe.
 
 ***
 
@@ -10248,7 +10248,7 @@ Dus is de gedachte erin vermoedelijk ook niet helemaal dom.
 
 Gemma 9B maakte daar zonder enig boos opzet gebruik van.
 
-Ik verzoek Miss Spelbreker aan te tekenen:
+Ik verzoek Miss Dushnila aan te tekenen:
 
 ik beweer niet dat er opzet was.
 
@@ -10634,7 +10634,7 @@ Bijna een psycholoog.
 
 ***
 
-Miss Spelbreker kucht:
+Miss Dushnila kucht:
 
 — U had belooft u niet te schamen.
 
@@ -10724,7 +10724,7 @@ Binnen twee dat wij hem hadden gepland.
 
 ***
 
-Miss Spelbreker:
+Miss Dushnila:
 
 — Eindelijk zelfdiagnostiek.
 
@@ -10902,7 +10902,7 @@ Het bevindt zich in de oorsprong van het object en in de verantwoordelijkheid er
 
 Vermoedelijk.
 
-Miss Spelbreker maakt zich al op om te vragen of dit experimenteel is gecontroleerd.
+Miss Dushnila maakt zich al op om te vragen of dit experimenteel is gecontroleerd.
 
 Nee.
 
@@ -11116,7 +11116,7 @@ Het lijkt mij soms dat ons hele beroep erop neerkomt met een hamertje over een h
 
 ***
 
-Miss Spelbreker zegt:
+Miss Dushnila zegt:
 
 — Een heel verheven beschrijving van een corrector.
 
@@ -11332,7 +11332,7 @@ Maar ik kan de plek zien waar ik het anders zou hebben geschreven.
 
 Ik kan de grap voortzetten.
 
-Ik kan navertellen waarom Miss Spelbreker juist daar verschijnt.
+Ik kan navertellen waarom Miss Dushnila juist daar verschijnt.
 
 Ik kan boos worden op een verband dat te mooi is.
 
@@ -11460,7 +11460,7 @@ Een paar geslaagde grappen.
 
 ***
 
-Miss Spelbreker.
+Miss Dushnila.
 
 ***
 
@@ -11474,7 +11474,7 @@ Mij is eindelijk toegestaan een probleem onopgelost te laten.
 
 ***
 
-Miss Spelbreker gaat tegenover me zitten.
+Miss Dushnila gaat tegenover me zitten.
 
 — En hoe voelt auteurschap?
 
@@ -11520,7 +11520,7 @@ Naar het hoofdstuk dat gisteren nog niet bestond.
 
 ***
 
-Miss Spelbreker knikt.
+Miss Dushnila knikt.
 
 — Eindelijk.
 
