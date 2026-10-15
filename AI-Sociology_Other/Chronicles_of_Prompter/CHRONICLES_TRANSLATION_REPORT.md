@@ -156,19 +156,13 @@ into scientific prose" argue for translating, because a transliterated
 not a technical role name like Prompter — she is a literary character whose
 name is a joke that the text plays on roughly seventy times.
 
-I produced both translations with the name rendered, and recommend keeping it
-rendered:
+Author decision after translation review: **retain the proper name Miss Dushnila in both translations.**
+The earlier rendered forms **Miss Killjoy** / **Miss Spelbreker** were replaced globally
+(70 occurrences in each edition). This preserves the identity of the same literary character
+across RU / EN / NL. Where needed in publication front matter, the slang meaning may be
+explained once as a translator's gloss rather than replacing the name.
 
-| | option A (used) | option B |
-|---|---|---|
-| EN | **Miss Killjoy** | Miss Dushnila |
-| NL | **Miss Spelbreker** | Miss Dushnila |
-
-`Мисс Антимира` follows it: **Miss Antiworld** / **Miss Antiwereld**.
-
-Switching to option B is one global find-and-replace in each file (70
-occurrences each) and costs nothing but the joke. Option A is the Author's call
-to confirm or overturn, not mine.
+`Мисс Антимира` remains **Miss Antiworld** / **Miss Antiwereld**.
 
 ### FLAG 2 — ВПК/ТД
 
