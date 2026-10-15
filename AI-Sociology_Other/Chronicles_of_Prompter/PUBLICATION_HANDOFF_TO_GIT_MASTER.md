@@ -80,7 +80,7 @@ Before publishing:
 3. return the reserved DOI to the Author / Integrator;
 4. do **not** press Publish until the final cover and PDF package are present;
 5. add the documentary supplements and parallel-work links listed in `CHRONICLES_PUBLICATION_MANIFEST_2026-10-15.md`;
-6. retain the two original Russian DOCX files as primary artefacts; mechanical MD/PDF reading copies may be added, but must not replace the originals;
+6. retain the two original Russian DOCX files as primary artefacts; include the already prepared mechanical reading copies `Materials/Morphohub_Experiment_1_RU.md` and `Materials/Antiprompt_Experiment_2_RU.md`; PDF reading copies may be generated, but must not replace the originals;
 7. keep the publication disclosure distinguishing the Prompter as authorial AI voice from A.Tuin as human curator/publication authority.
 
 License for the book is **not yet authorized**. The Integrator's proposal is CC BY-NC-ND 4.0; ask the Author for the final choice before Publish.
