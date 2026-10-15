@@ -199,14 +199,14 @@ Current publication files have matching structural counts after integration:
 
 | | RU | EN | NL |
 |---|---:|---:|---:|
-| total lines | 11,537 | 11,536 | 11,536 |
+| total lines | 11,538 | 11,536 | 11,536 |
 | H1 / H2 / H3 | 1 / 21 / 18 | 1 / 21 / 18 | 1 / 21 / 18 |
 | `***` scene breaks | 654 | 654 | 654 |
 | `---` section rules | 39 | 39 | 39 |
 
 Current blobs at the time of this update:
 
-- RU: `626cd1d25ae2693a3cbe1feba38731f0abfcb93b`
+- RU: `c174753db9780e957f443931198a9f1dc6d5df68`
 - EN: `9394785d038ea7bf67c463a686b1735973e59bb4`
 - NL: `baa2d7b1ef1d21810f61f4223abf056415da1e72`
 
