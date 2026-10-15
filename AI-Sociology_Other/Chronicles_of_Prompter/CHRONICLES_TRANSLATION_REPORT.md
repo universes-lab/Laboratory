@@ -183,16 +183,44 @@ avoid, so I did not take it.
 
 ---
 
-## Note for the arXiv submission
+## Final publication-integration update — 15 October 2026
 
-The multilingual policy the Integrator cited requires the full English version
-to come first, then the other languages. `Chronicles_of_the_Prompter_EN.md` is
-complete and is the file for that first position; the Dutch follows it.
+After the translation report was originally closed, the Author assigned the final publication integration to the Chief Integrator. The following changes were then made **in parallel to RU / EN / NL**, without reopening the literary edit of the book:
 
-Both files are Markdown with the Russian source's structure intact, which means
-the frontispiece is still a relative image reference
-(`Materials/Chronicles_Frontispiece_Claude.png`) and will need the image beside
-it, or a conversion pass, before typesetting. That is production, not
-translation, and belongs to the Integrator.
+- a publication credits page and the Integrator's witness note were inserted before the frontispiece;
+- the Author's decision to retain the proper name **Miss Dushnila** in EN and NL was applied;
+- the chronology of the Old Doctor incident was corrected: the Keeper's succession had already been completed, and the Doctor-chat failure occurred during the immediately following procedure for the birth of the new Doctor;
+- the earlier witness record is retained as provenance of a mistaken later reconstruction, not as the final chronology;
+- the loss of primary local material in the real HDD D: failure is explicitly disclosed; missing dialogue is not reconstructed;
+- a documentary trail was added, linking the two Morphohub / Antiprompt companion artefacts and their online editions;
+- the Chief Integrator's closing note and the AI-Collaboration emblem were added after the book's documentary apparatus.
 
-**STOP.**
+Current publication files have matching structural counts after integration:
+
+| | RU | EN | NL |
+|---|---:|---:|---:|
+| total lines | 11,536 | 11,536 | 11,536 |
+| H1 / H2 / H3 | 1 / 21 / 18 | 1 / 21 / 18 | 1 / 21 / 18 |
+| `***` scene breaks | 654 | 654 | 654 |
+| `---` section rules | 39 | 39 | 39 |
+
+Current blobs at the time of this update:
+
+- RU: `0a5388cbce1bfa3073641162a3c949e0784a435e`
+- EN: `9394785d038ea7bf67c463a686b1735973e59bb4`
+- NL: `baa2d7b1ef1d21810f61f4223abf056415da1e72`
+
+The earlier line-for-line translation QA counts in this report describe the pre-publication translation pass. They remain useful provenance for the translated body, but the final publication files now include additional Integrator-authored front and back matter and a corrected documentary note.
+
+### Publication route
+
+The Author's final publication decision is:
+
+- **arXiv:** the research article *Beyond Prompt Engineering: Role Reconfiguration in Long-Lived AI Conversations*;
+- **Zenodo:** *Chronicles of the Prompter* as a multilingual documentary book;
+- mutual cross-references will be added after the permanent identifiers are assigned.
+
+The Chronicles are therefore **not** being prepared as an arXiv book submission.
+
+**STATUS: TRANSLATION CLOSED / PUBLICATION INTEGRATION COMPLETE.**
+
