@@ -189,7 +189,7 @@ After the translation report was originally closed, the Author assigned the fina
 
 - a publication credits page and the Integrator's witness note were inserted before the frontispiece;
 - the Author's decision to retain the proper name **Miss Dushnila** in EN and NL was applied;
-- the chronology of the Old Doctor incident was corrected: the Keeper's succession had already been completed, and the Doctor-chat failure occurred during the immediately following procedure for the birth of the new Doctor;
+- the chronology of the Old Doctor incident was corrected: the Keeper's succession had already been completed, and the Doctor-chat failure occurred during the immediately following procedure for the birth of the new Doctor; the Russian canonical edition now also preserves the Author's surviving direct message verbatim, matching the documentary content already carried by the EN/NL editions;
 - the earlier witness record is retained as provenance of a mistaken later reconstruction, not as the final chronology;
 - the loss of primary local material in the real HDD D: failure is explicitly disclosed; missing dialogue is not reconstructed;
 - a documentary trail was added, linking the two Morphohub / Antiprompt companion artefacts and their online editions;
@@ -199,14 +199,14 @@ Current publication files have matching structural counts after integration:
 
 | | RU | EN | NL |
 |---|---:|---:|---:|
-| total lines | 11,536 | 11,536 | 11,536 |
+| total lines | 11,537 | 11,536 | 11,536 |
 | H1 / H2 / H3 | 1 / 21 / 18 | 1 / 21 / 18 | 1 / 21 / 18 |
 | `***` scene breaks | 654 | 654 | 654 |
 | `---` section rules | 39 | 39 | 39 |
 
 Current blobs at the time of this update:
 
-- RU: `0a5388cbce1bfa3073641162a3c949e0784a435e`
+- RU: `626cd1d25ae2693a3cbe1feba38731f0abfcb93b`
 - EN: `9394785d038ea7bf67c463a686b1735973e59bb4`
 - NL: `baa2d7b1ef1d21810f61f4223abf056415da1e72`
 
