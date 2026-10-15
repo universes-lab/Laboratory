@@ -63,7 +63,7 @@ Public package should contain, at minimum:
 6. `Materials/AI-Collab_emblem.jpg`;
 7. documentary supplement 1 — `Materials/Внутри морфохаба - экспериментальный онлайн-спектакль.docx`;
 8. documentary supplement 2 — `Materials/Внутри морфохаба - Продолжение. Эксперимент №2.docx`;
-9. optional mechanical Markdown/PDF reading copies of those two DOCX files, with the DOCX originals retained as authoritative artefacts;
+9. mechanical Markdown reading copies: `Materials/Morphohub_Experiment_1_RU.md` and `Materials/Antiprompt_Experiment_2_RU.md`; keep the DOCX originals as authoritative artefacts; PDF reading copies may also be generated mechanically;
 10. `CHRONICLES_TRANSLATION_REPORT.md` as provenance / production documentation.
 
 ## Documentary / parallel works
