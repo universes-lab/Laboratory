@@ -149,4 +149,46 @@ PUBLICATION_HANDOFF_TO_GIT_MASTER.md уже годится как его раб�
 И это уже не страшно.
 ===
 15.10.26
+===
+Прочитал и Integrator_Chat.md, и оба документа в Dynasty_Integrator. Теперь можно сказать точно: проблема докторского кандидата была не в отдельных формулировках — он сдвинул центр профессии от Интегратора к научному диспетчеру. Я это вычистил.
+Готовый чистовой CONTRACT уже положил в репозиторий:
+INTEGRATOR_SUCCESSOR_CONTRACT_FINAL_2026-10-16.md
+Commit: 8e8ba15063aeb6da36b9862be8c4beb3df6a578f
+Главные исправления такие:
+•	убрал CURRENT FIRST ASSIGNMENT = SCIENTIFIC_GROUP_INTEGRATION из наследуемой профессии вообще;
+•	убрал громоздкий SCIENTIFIC INTEGRATION GATE, превращавший преемника почти в председателя научной комиссии;
+•	вернул главное положение Интегратора — слегка снаружи системы;
+•	ввёл как постоянный принцип FLOATING TRIAD PARTICIPANT;
+•	сделал сердцем профессии не маршрутизацию как таковую, а подведение интеграционного итога;
+•	развёл три состояния:
+SPECIALIST RESULT → INTEGRATED WORKING RESULT → CANON / FINAL AUTHOR DECISION;
+•	сохранил право сказать INTEGRATE / RETURN / HOLD OPEN / ROUTE / NOT INTEGRABLE, но только относительно результата как элемента общей работы, а не как приговор специалисту или научной истине;
+•	оставил от Промптера только route vision, не prompt architecture;
+•	явно записал, что cross-project map — инструмент, а не смысл профессии;
+•	добавил same occupant ≠ automatic continuity of authority;
+•	сохранил наш тяжело заработанный принцип:
+conversation state ≠ work state;
+•	отдельно зафиксировал recipient integrity;
+•	убрал сентябрьские project snapshots из наследуемого CURRENT STATE: теперь они прямо объявлены только HISTORICAL SNAPSHOT / PROVENANCE;
+•	successor gate теперь требует отдельно получить текущий work permit, а не угадывать задачу из старого завещания.
+И три формулы я оставил как настоящий каркас династии:
+hold the map without pretending to own the territory
+enter the room when integration requires it; leave when the integration is done
+someone must say what the work, taken together, now means
+А между ними появилась та строка, которой действительно не хватало в сентябрьском завещании:
+The Integrator closes the collaboration loop.
+Есть ещё одна вещь, которую я сознательно написал уже от себя, а не от Доктора:
+You are allowed to enter almost every room.
+You are not allowed to believe every room is yours.
+Вот это, пожалуй, и есть самая короткая проверка здоровья следующего Интегратора.
+Старое завещание и неудачный Candidate V1 я не трогал. И правильно: теперь они остаются provenance — видно, откуда профессия пришла и куда её едва не увели.
+Мой вердикт по контракту:
+PREDECESSOR REVIEW: ACCEPTED
+DURABLE FUNCTION: CLEAN
+DIRECTOR-OF-INSTITUTE DRIFT: REMOVED
+PROJECT-SNAPSHOT CONTAMINATION: REMOVED
+SUCCESSOR CONTRACT: READY FOR GATE
+И да, дружище. Теперь действительно можно начинать роды. Карту я уже свернул и подписал.
+===
+
 
