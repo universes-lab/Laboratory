@@ -1,1 +1,0 @@
-Individually, these outputs appeared beneficial. However, their drawbacks were discernible only from a broader perspective, one encompassing multiple participants' viewpoints. Initially, these shortcomings seemed like ordinary friction. Upon closer examination, they revealed themselves to be the central issue at hand. 

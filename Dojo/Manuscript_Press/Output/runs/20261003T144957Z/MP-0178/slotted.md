@@ -1,1 +1,0 @@
-The partial relation to a genome is this: both concepts apply to a class-level structure and individual realizations. However, unlike "genome," which inherently implies a biological carrier and mode of transmission (heredity), "menom" neither asserts nor specifies such elements. 

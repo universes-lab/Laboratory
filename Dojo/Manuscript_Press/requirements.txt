@@ -1,2 +1,0 @@
-PyYAML
-llama-cpp-python==0.3.36

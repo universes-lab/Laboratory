@@ -1,1 +1,0 @@
-This paper's measurements are situated on **Scale 1**. The cited source explicitly states this, differentiating Scale 1 from Scale 2, which pertains to premises shared across participants rather than individual states. 

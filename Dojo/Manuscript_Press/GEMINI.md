@@ -1,6 +1,0 @@
-﻿# PROJECT CONTEXT — MANUSCRIPT_PRESS
-
-PROJECT: MANUSCRIPT_PRESS
-ROOT: E:\Gemini\Dojo\Manuscript_Press
-
-@./Current_Prompt.md

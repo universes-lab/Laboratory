@@ -1,1 +1,0 @@
-The standard remedy for inconsistent model behavior is to refine the prompt. This involves crafting a prompt that is more comprehensive, precise, enriched with illustrative examples, and explicitly defined with tighter constraints. 
