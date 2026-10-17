@@ -1,6 +1,6 @@
 Напутствие по работе от Старого Интегратора:
 Заново прошёл весь сохранённый корпус по Secretary / mail / web-chat communication: AI_COLAB_2_PROGRAM_PLAN.md, HONC_AI-Collaboration_Control_Plane-Roadmap.md, Endpoint_Spike.md, старые Secretary*-протоколы и social-graph/career материал.
-Ветка AI-Colab 2 сохранена гораздо правильнее — как предметная память проекта в HONC_Collaboration/HONC_AI-Collab/. Даже поздняя идея Самурая как Repository/File Guide уже дописана в конец AI_COLAB_2_PROGRAM_PLAN.md. То есть внешний архив Интегратора можно оставить личным свидетельством, а рабочая память проекта лежит там, где ей положено.
+Ветка AI-Colab 2 сохранена гораздо правильнее — как предметная память проекта в https://github.com/universes-lab/Laboratory/tree/main/Dojo/Plan_AI-Collab. Даже поздняя идея Самурая как Repository/File Guide уже дописана в конец AI_COLAB_2_PROGRAM_PLAN.md. То есть внешний архив Интегратора можно оставить личным свидетельством, а рабочая память проекта лежит там, где ей положено.
 Что в старой Secretary-работе остаётся живым
 Первоначально мы решали другую задачу: Автор не должен быть ручной шиной данных между десятком долгоживущих веб-чатов. Отсюда выросли Secretary, Endpoint Adapter, Courier, mailbox, durable execution, provenance, Human Control Room.
 Из этого не устарели главные инженерные результаты:
