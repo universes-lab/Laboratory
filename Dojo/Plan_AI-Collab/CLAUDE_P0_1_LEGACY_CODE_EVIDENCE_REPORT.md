@@ -18,8 +18,8 @@
 | 2 | app2.py | 36054 | 758 | 8210783b32986e80 | STATIC_ANALYZED |
 | 3 | app2_isolated.py | 33777 | 699 | d0fa29b203b79ad0 | STATIC_ANALYZED |
 | 4 | app3.py | 36063 | 757 | 659977fe9847bc81 | STATIC_ANALYZED |
-| 5 | docs/architecture/ARCHITECTURE_MAP.md | 33693 | 626 | 8e689c53edb5dacc | DOCUMENT_READ |
-| 5b | ARCHITECTURE_MAP.md (корень) | см. прим. | — | не зафиксирован отдельно | DOCUMENT_READ |
+| 5 | docs/architecture/ARCHITECTURE_MAP.md **(ИСПРАВЛЕНО в v2)** | 53107 | 916 | e8c7118be165edbc | DOCUMENT_READ |
+| 5b | ~~ARCHITECTURE_MAP.md (корень)~~ | — | — | **не существует**: HF stat корня = missing; в v1 ошибочно показан отдельным файлом (это была первая часть чтения) | — |
 | 6 | core/gateway.py | 5483 | 129 | 361f2e98dc48c319 | CODE_READ |
 | 7 | tests/test_gateway_hil.py | 15308 | 293 | 2af9e3f1eeaa9a30 | CODE_READ |
 | 8 | core/gemini_cli_executor.py | 4495 | 126 | 1a6b22944231dea6 | CODE_READ |
@@ -34,7 +34,7 @@
 | 17 | doctor_ws_module.py | 8982 | 236 | 390bdcdcc1d92691 | CODE_READ |
 
 Примечания к паспортам:
-- Строка 5b: корневой MAP читался (≈19.4 КБ), но отдельный хэш не сохранён; рабочий файл `src/ARCHITECTURE_MAP.md` (53107 B) — объединённая копия, её хэш **не является** паспортом ни одного репозиторного файла. Для сверки с E: использовать только файл №5, корневой MAP — перечитать при необходимости.
+- **ERRATA (v2):** в v1 строка 5 указывала 33693 B / 8e689c53… — это был только второй фрагмент чтения; строка 5b описывала несуществующий корневой файл. Единственный MAP — `docs/architecture/ARCHITECTURE_MAP.md`, **53107 B == HF stat**, SHA-256 собранного из двух чтений текста = e8c7118be165edbc… (сборка: 19414 + 33693 B; совпадение размера с stat подтверждает полноту, но хэш — собранного текста, не единым чтением). Выводы отчёта о расхождении «документация ↔ код» этим не затронуты (читался весь текст).
 - Файлы №1–4: `claim_supported` = импорты, маршруты, запуск, различия между вариантами (по AST и чтению). `claims_not_verified` = любое поведение при запуске, работоспособность импортов, наличие зависимостей.
 - №12: первоначально читался частями (truncated при первом чтении, затем перечитан целиком, size == stat).
 - Список содержимого репозитория (TREE-уровень, не VERBATIM): корень также содержит app_echo.py, start_server.py, ws_minimal.py, scripts/run_uvicorn_*.py, множество verify_*/test_* скриптов, `.bak`/`.diag_bak`, `legacy/`, `debug_ws/`, скелет `projects/Bestihi.ru`; `core/` содержит adapters/, llm_integrations/, session/ (папок dal/fsm/eventbus нет).
