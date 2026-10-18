@@ -1,9 +1,11 @@
 # WEB_SEAT_WS0_OBSERVATION_CONTRACT
 
-STATUS: **PROPOSED / NOT_EXECUTED** · v0.1 · 2026-10-18 · Developer Claude
+STATUS: **PROPOSED / NOT_EXECUTED** · v0.2 · 2026-10-18 (v0.1 сохранена как `WEB_SEAT_WS0_OBSERVATION_CONTRACT_v0.1.md`) · Developer Claude
 ОСНОВАНИЕ: Integrator Handoff after P0.2; `CLAUDE_WEB_SEAT_FEASIBILITY_PLAN` v1.1 (ступень WS-0); согласованные D1–D8.
 НЕ ЯВЛЯЕТСЯ: разрешением на запуск, проектом fixture/драйвера/интерфейса, выбором хоста, браузера или хранилища. Форматы данных ниже — **логические**; конкретная сериализация и стек не выбираются.
 Метки: **[MUST]** обязательное требование контракта · **[NOTE]** пояснение · **[OPEN]** не решено.
+
+**Правки v0.2 (по техническому чтению DeepSeek):** (1) новое правило 7a — внутренняя несогласованность снимка; (2) правило 5 уточнено — что значит «пересчёт по одному пути»; (3) вектор V18; (4) `N` для `tail_fps` занесён в [OPEN] с рекомендацией зафиксировать до серии. Различие позиций — в §2.1 (7a).
 
 ---
 
@@ -60,9 +62,10 @@ STATUS: **PROPOSED / NOT_EXECUTED** · v0.1 · 2026-10-18 · Developer Claude
 2. `SESSION ∈ {EXPIRED, CHALLENGE}` или обнаружено двойное владение или режим автоматизации запрещает наблюдение → `NEEDS_HUMAN`.
 3. Беседа не открывается при `SESSION=AUTHENTICATED` → `LOST`.
 4. `conv_id_post ≠ conv_id_pre` → `MISMATCH`.
-5. `extraction_path_post ≠ extraction_path_pre` (DOM против API) при отсутствии пересчёта по одному пути → `AMBIGUOUS` (`PATHS_NOT_COMPARABLE`). [NOTE: хэши сопоставимы только внутри одного пути и одной версии нормализации.]
+5. `extraction_path_post ≠ extraction_path_pre` или `fp_version_post ≠ fp_version_pre` → `AMBIGUOUS` (`PATHS_NOT_COMPARABLE`), **если** для post не сделан дополнительный снимок тем же путём и той же версией, что в pre. «Пересчёт по одному пути» = post-снимок получен по пути pre; цепочки сравниваются только внутри одного пути и одной версии нормализации (снимок по другому пути может быть приложен как справочный, но в вердикте не участвует).
 6. `history_complete_post = false` → `AMBIGUOUS` (`HISTORY_INCOMPLETE`).
 7. Цепочка хэшей первых `n_pre` сообщений «после» ≠ `chain_pre` → `MISMATCH` (`PREFIX_CHANGED`; причина подсказкой, не выводом: правка/регенерация/удаление/другая беседа).
+7a. Цепочка первых `n_pre` совпала, но `tail_fps` (отпечатки/длины) расходятся с pre при тех же `n`, пути и `fp_version` → `AMBIGUOUS` (`SNAPSHOT_INCONSISTENT`). [NOTE: при совпавшей цепочке отпечатки сообщений совпадать обязаны; расхождение указывает на дефект снятия снимка или нормализации, а не на подмену беседы. DeepSeek предлагал `MISMATCH`; я сохраняю `AMBIGUOUS`, чтобы не выдавать дефект инструмента за тревогу о подмене; позиция оставлена на решение Интегратора.]
 8. Есть неразрешённая отправка (`send_status` ∈ {`INTENDED`, `AMBIGUOUS`}) → `AMBIGUOUS` (`SEND_UNRESOLVED`).
 9. Есть дельта (`n_post > n_pre`): если каждое новое сообщение атрибутировано (ответ на `send_nonce`, либо записанное человеческое действие) → `RECOVERED`, `delta=true`; иначе → `AMBIGUOUS` (`UNATTRIBUTED_DELTA`).
 10. Иначе → `RECOVERED`, `delta=false`.
@@ -101,6 +104,7 @@ STATUS: **PROPOSED / NOT_EXECUTED** · v0.1 · 2026-10-18 · Developer Claude
 | `evidence_refs` | ✔ | ✔ | ссылки на сырые артефакты (хранятся отдельно, зона L1) |
 
 [MUST] `norm(text)`: правило нормализации (Unicode NFC, единые переводы строк, обрезка краевых пробелов; прочее — по версии) зафиксировано и версионировано (`fp_version`); изменение правила = новая версия, сравнение между версиями запрещено.
+[OPEN] `N` для `tail_fps` (рекомендуется малое, например 3) фиксируется до серии WS-1; для бумажных векторов не нужен.
 [OPEN] Как именно извлекается «последний полный текст» из DOM/API — относится к WS-1+ и намеренно не указано.
 
 ---
@@ -162,6 +166,7 @@ STATUS: **PROPOSED / NOT_EXECUTED** · v0.1 · 2026-10-18 · Developer Claude
 | V15 | Метка модели изменилась, остальное идентично | `RECOVERED`, delta=false, `flags=model_label_changed` | 10 |
 | V16 | Транспорт потерян, сессия жива, всё идентично после переподключения | `RECOVERED`, delta=false | 10 |
 | V17 | Нет pre-снимка (не был сделан) | `AMBIGUOUS` (`NO_EVIDENCE`) | 1 |
+| V18 | Цепочка совпала, но `tail_fps` расходятся при тех же `n`, пути, `fp_version` | `AMBIGUOUS` (`SNAPSHOT_INCONSISTENT`) | 7a |
 
 ---
 
