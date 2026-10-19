@@ -1,0 +1,121 @@
+{
+ "spec": "fp_version=1",
+ "norm": "NFC; CRLF/CR->LF; strip only U+0020,U+0009,U+000A at both ends",
+ "text_hash": "hex(SHA256(UTF8(norm(text))))",
+ "msg_fp": "hex(SHA256(UTF8(role+U+001F+text_hash)))",
+ "chain": "H0=''; Hi=hex(SHA256(UTF8(H(i-1)+U+001F+msg_fp_i)))",
+ "message_cases": [
+  {
+   "role": "user",
+   "text": "hello",
+   "norm": "hello",
+   "text_hash": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+   "msg_fp": "46ed8eef1429c0969f98a83975db28e6ef02babc73a510630d5a1a45b2164a00"
+  },
+  {
+   "role": "user",
+   "text": "  hello  \r\n",
+   "norm": "hello",
+   "text_hash": "2cf24dba5fb0a30e26e83b2ac5b9e29e1b161e5c1fa7425e73043362938b9824",
+   "msg_fp": "46ed8eef1429c0969f98a83975db28e6ef02babc73a510630d5a1a45b2164a00"
+  },
+  {
+   "role": "assistant",
+   "text": "café",
+   "norm": "café",
+   "text_hash": "850f7dc43910ff890f8879c0ed26fe697c93a067ad93a7d50f466a7028a9bf4e",
+   "msg_fp": "b3a906aa267b07b4f98d3013434a0c0ae0b67a115918373bc6888fb5ec38dbb9"
+  },
+  {
+   "role": "assistant",
+   "text": "café",
+   "norm": "café",
+   "text_hash": "850f7dc43910ff890f8879c0ed26fe697c93a067ad93a7d50f466a7028a9bf4e",
+   "msg_fp": "b3a906aa267b07b4f98d3013434a0c0ae0b67a115918373bc6888fb5ec38dbb9"
+  },
+  {
+   "role": "user",
+   "text": "Привет, мир",
+   "norm": "Привет, мир",
+   "text_hash": "2a2e76364df5ab8f0441d9c88bf7688f7f565f0f6b92a877cc94263e123021e3",
+   "msg_fp": "0cede723d541dc24d1ca47173acd99c79065767983de521a67dc990d4934d25b"
+  },
+  {
+   "role": "user",
+   "text": "line1\r\nline2\rline3",
+   "norm": "line1\nline2\nline3",
+   "text_hash": "6bb6a5ad9b9c43a7cb535e636578716b64ac42edea814a4cad102ba404946837",
+   "msg_fp": "6a38660ec621ec499e2bdf304a490d018f0503cfb25f526f2337887c1b4f4bf4"
+  },
+  {
+   "role": "assistant",
+   "text": "",
+   "norm": "",
+   "text_hash": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+   "msg_fp": "4863d45415958b161101c287f84652d32711c3108aac59f85514438f5ee13360"
+  },
+  {
+   "role": "user",
+   "text": "CANARY-7f3a-ALPHA",
+   "norm": "CANARY-7f3a-ALPHA",
+   "text_hash": "d1ff3c00679793e52437a11f7af60ccd263db7d6e10110de464377a88b444d7f",
+   "msg_fp": "f8a302780b784fcc0a72ae62208aead9ac758f023856853df221d61f0909fff9"
+  }
+ ],
+ "chain_cases": [
+  {
+   "id": "conv_a_seed",
+   "messages": [
+    {
+     "role": "user",
+     "text": "u1 CANARY-a1 synthetic question one"
+    },
+    {
+     "role": "assistant",
+     "text": "a1 CANARY-a2 synthetic answer one"
+    },
+    {
+     "role": "user",
+     "text": "u2 CANARY-a3 synthetic question two"
+    },
+    {
+     "role": "assistant",
+     "text": "a2 CANARY-a4 synthetic answer two"
+    }
+   ],
+   "chain": [
+    "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+    "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+    "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+    "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+   ]
+  },
+  {
+   "id": "conv_b_seed",
+   "messages": [
+    {
+     "role": "user",
+     "text": "u1 CANARY-b1 synthetic question one"
+    },
+    {
+     "role": "assistant",
+     "text": "a1 CANARY-b2 synthetic answer one"
+    },
+    {
+     "role": "user",
+     "text": "u2 CANARY-b3 synthetic question two"
+    },
+    {
+     "role": "assistant",
+     "text": "a2 CANARY-b4 synthetic answer two"
+    }
+   ],
+   "chain": [
+    "af4def6959778a5989e1e7b9c664041c2462859ed316d3092fd5f39a83874f71",
+    "6d6f881aaec7df28bce998ea18de9b41343fca0cbbd22c425005785d162adcdd",
+    "f180b8b5dd6c27403906f2405159c098ed9d807c9d362ffd79488da153983f23",
+    "8b90fb115b1f95e61bf97ba8625aea49507e95107abafbf1d3f05aecbbfdd546"
+   ]
+  }
+ ]
+}
