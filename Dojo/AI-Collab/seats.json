@@ -1,0 +1,20 @@
+{
+  "seats": [
+    {
+      "seat_id": "seat-01",
+      "binding_id": "binding-01",
+      "provider": "fixture",
+      "conv_id": "conv_a",
+      "url": "http://127.0.0.1:5999/conv_a",
+      "profile_id": "profile-placeholder-01"
+    },
+    {
+      "seat_id": "seat-02",
+      "binding_id": "binding-02",
+      "provider": "fixture",
+      "conv_id": "conv_b",
+      "url": "http://127.0.0.1:5999/conv_b",
+      "profile_id": "profile-placeholder-02"
+    }
+  ]
+}

@@ -1,0 +1,47 @@
+{
+  "conversations": {
+    "conv_a": {
+      "conv_id": "conv_a",
+      "messages": [
+        {
+          "role": "user",
+          "content": "A-user-1"
+        },
+        {
+          "role": "assistant",
+          "content": "A-assistant-1"
+        },
+        {
+          "role": "user",
+          "content": "A-user-2"
+        },
+        {
+          "role": "assistant",
+          "content": "A-assistant-2"
+        }
+      ]
+    },
+    "conv_b": {
+      "conv_id": "conv_b",
+      "messages": [
+        {
+          "role": "user",
+          "content": "B-user-1"
+        },
+        {
+          "role": "assistant",
+          "content": "B-assistant-1"
+        },
+        {
+          "role": "user",
+          "content": "B-user-2"
+        },
+        {
+          "role": "assistant",
+          "content": "B-assistant-2"
+        }
+      ]
+    }
+  },
+  "switch_conv_a_to_b": false
+}
