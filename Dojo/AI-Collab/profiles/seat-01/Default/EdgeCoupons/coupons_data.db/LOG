@@ -1,5 +1,0 @@
-2026/10/19-21:38:19.671 474 Creating DB E:\Gemini\Dojo\AI-Collab\profiles\seat-01\Default\EdgeCoupons/coupons_data.db since it was missing.
-2026/10/19-21:38:20.719 474 Reusing MANIFEST E:\Gemini\Dojo\AI-Collab\profiles\seat-01\Default\EdgeCoupons/coupons_data.db/MANIFEST-000001
-2026/10/19-21:38:54.310 128c Level-0 table #5: started
-2026/10/19-21:38:54.394 128c Level-0 table #5: 683273 bytes OK
-2026/10/19-21:38:54.502 128c Delete type=0 #3
