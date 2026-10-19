@@ -1,0 +1,55 @@
+<div style="display: flex; height: 100%; font-family: sans-serif">
+  <div style="flex: 1; padding: 15px; border-right: 1px solid #e0e0e0">
+    <h4 style="color: #2c5282; margin-bottom: 10px">📊 СЕО - Проект</h4>
+    <div id="ceo-info" style="font-size: 12px; line-height: 1.4">
+      Загрузка информации о проекте...
+    </div>
+  </div>
+
+  <div style="flex: 1; padding: 15px; border-right: 1px solid #e0e0e0">
+    <h4 style="color: #2d3748; margin-bottom: 10px">🎯 ШЕФ - Задачи</h4>
+    <div id="chief-info" style="font-size: 12px; line-height: 1.4">
+      Загрузка текущих задач...
+    </div>
+  </div>
+
+  <div style="flex: 1; padding: 15px">
+    <h4 style="color: #c53030; margin-bottom: 10px">🏥 ДОКТОР - Состав</h4>
+    <div id="doctor-info" style="font-size: 12px; line-height: 1.4">
+      Загрузка состава лаборатории...
+    </div>
+  </div>
+</div>
+
+<script>
+  // Динамическая загрузка данных для каждой колонки
+  async function loadDefaultInfo() {
+    try {
+      // Загрузка информации СЕО
+      const ceoResponse = await fetch('/api/info/ceo_summary');
+      if (ceoResponse.ok) {
+        document.getElementById('ceo-info').innerHTML =
+          await ceoResponse.text();
+      }
+
+      // Загрузка информации Шефа
+      const chiefResponse = await fetch('/api/info/chief_tasks');
+      if (chiefResponse.ok) {
+        document.getElementById('chief-info').innerHTML =
+          await chiefResponse.text();
+      }
+
+      // Загрузка информации Доктора
+      const doctorResponse = await fetch('/api/info/doctor');
+      if (doctorResponse.ok) {
+        document.getElementById('doctor-info').innerHTML =
+          await doctorResponse.text();
+      }
+    } catch (error) {
+      console.error('Ошибка загрузки информации:', error);
+    }
+  }
+
+  // Загрузить данные при отображении
+  document.addEventListener('DOMContentLoaded', loadDefaultInfo);
+</script>

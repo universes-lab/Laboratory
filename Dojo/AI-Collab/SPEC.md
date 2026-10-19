@@ -1,302 +1,234 @@
-SPEC.md — BUILD 001 / STEP 2 — SEATS REGISTRY
+SPEC.md — BUILD 001 / STEP 3 — OPEN SEATS IN BROWSER
 yaml
 
-IDENTITY:
-  Project: AI-Collab
-  Build: 001
-  Step: 2
-  Name: SEATS_REGISTRY
-  Version: 1.0
-  Status: READY_FOR_SAMURAI
-  Date: 2026-10-19
-  Type: FIXTURE (data + checker, no browser)
-
-  Technical Authority:
-    - Grok BUILD 001 / STEP 2 (2026-10-19)
-    - WS1A_EXPERIMENT_PACKAGE.md §5 (read-only, scope limited)
-    - Prior STEP 1 (FIXTURE_SERVER) — accepted, server on 127.0.0.1:5999
-
-  Scope: реестр кресел (seats.json) + checker (seats_check.py).
-  Нет браузера, нет Playwright, нет запуска страниц.
+BUILD: 001
+STEP: 3
+NAME: OPEN_SEATS_IN_BROWSER
+VERSION: 1.0
+STATUS: READY_FOR_SAMURAI
+DATE: 2026-10-19
 
 OBJECTIVE
 
-Создать в E:\Gemini\Dojo\AI-Collab\:
-
-    seats.json — реестр двух кресел с постоянными связями на fixture-сервер STEP 1.
-
-    seats_check.py — программа проверки реестра.
-
-ALLOWED WORKING FILES
-
-Создать в E:\Gemini\Dojo\AI-Collab\:
+Открыть два кресла (seat-01 и seat-02) в двух независимых процессах Microsoft Edge, каждый в пустом профиле. Без драйвера, без Playwright, без Selenium, без вердиктов. Собрать PID в open_seats.json.
+FILES
 text
 
-seats.json
-seats_check.py
+CREATE:  E:\Gemini\Dojo\AI-Collab\open_seats.py
+CREATE:  E:\Gemini\Dojo\AI-Collab\open_seats.json     (создаётся при запуске)
+CREATE:  E:\Gemini\Dojo\AI-Collab\profiles\seat-01\   (пустой каталог)
+CREATE:  E:\Gemini\Dojo\AI-Collab\profiles\seat-02\   (пустой каталог)
 
-Не трогать:
+DO NOT TOUCH:
+  E:\Gemini\AI-Colab\
+  E:\Gemini\Dojo\AI-Collab\fixture_server.py
+  E:\Gemini\Dojo\AI-Collab\truth.json
+  E:\Gemini\Dojo\AI-Collab\seats.json
+  E:\Gemini\Dojo\AI-Collab\seats_check.py
+  E:\Gemini\Dojo\Manuscript_Press\
+  профиль Автора (любой существующий профиль Edge)
+
+DO NOT
 text
 
-fixture_server.py           # от STEP 1, не менять
-truth.json                  # от STEP 1, не менять
-README.md                   # если есть
-E:\Gemini\AI-Colab\         # старый сервер, ЗАПРЕЩЁН
-E:\Gemini\Dojo\Manuscript_Press\
-рабочие профили браузера
+❌ Не запускать Playwright / Selenium / любой драйвер.
+❌ Не использовать профиль Автора.
+❌ Не обращаться к E:\Gemini\AI-Colab\.
+❌ Не копировать static/ или templates/.
+❌ Не выносить вердикт RECOVERED / MISMATCH / любой.
+❌ Не менять conv_id (conv_a / conv_b).
+❌ Не подменять порт 5999, если fixture не запущен.
+❌ Не убивать браузеры после запуска.
+❌ Не писать в truth.json.
 
-Не создавать:
+WHAT TO CREATE
+Файл open_seats.py
+
+Один файл, Python 3, только stdlib (os, sys, json, subprocess, urllib.request, pathlib).
+Файл open_seats.json (создаётся при запуске)
 text
-
-браузерные профили
-static/ / templates/
-харнесс
-кресла как объекты в коде (это будущий SEAT)
-
-DO_NOT
-
-    ❌ браузер / Playwright / Selenium / любой headless browser
-
-    ❌ открытие страниц по HTTP
-
-    ❌ копирование static/ / templates/
-
-    ❌ запуск E:\Gemini\AI-Colab\
-
-    ❌ создание профилей браузера (даже пустых)
-
-    ❌ изменение fixture_server.py / truth.json
-
-    ❌ изменение Manuscript_Press
-
-    ❌ внешние сетевые адреса
-
-    ❌ подключение к http://127.0.0.1:5999/conv_a из кода проверки
-
-    ❌ вывод seat_id из URL
-
-IMPLEMENTATION
-1. Файл seats.json
-
-Путь: E:\Gemini\Dojo\AI-Collab\seats.json
-
-Структура:
-json
 
 {
-  "seats": [
-    {
-      "seat_id": "seat-01",
-      "binding_id": "binding-01",
-      "provider": "fixture",
-      "conv_id": "conv_a",
-      "url": "http://127.0.0.1:5999/conv_a",
-      "profile_id": "profile-placeholder-01"
-    },
-    {
-      "seat_id": "seat-02",
-      "binding_id": "binding-02",
-      "provider": "fixture",
-      "conv_id": "conv_b",
-      "url": "http://127.0.0.1:5999/conv_b",
-      "profile_id": "profile-placeholder-02"
-    }
-  ]
+  "seat-01": {
+    "pid": <int>,
+    "url": "http://127.0.0.1:5999/conv_a",
+    "profile_dir": "E:\\Gemini\\Dojo\\AI-Collab\\profiles\\seat-01"
+  },
+  "seat-02": {
+    "pid": <int>,
+    "url": "http://127.0.0.1:5999/conv_b",
+    "profile_dir": "E:\\Gemini\\Dojo\\AI-Collab\\profiles\\seat-02"
+  }
 }
 
-Требования к полям:
-Поле	Значение	Примечание
-seat_id	"seat-01", "seat-02"	не выводится из URL
-binding_id	"binding-01", "binding-02"	отдельный идентификатор привязки
-provider	"fixture"	соответствует fixture-серверу STEP 1
-conv_id	"conv_a" / "conv_b"	логический ID беседы, не URL
-url	http://127.0.0.1:5999/conv_a / .../conv_b	адрес fixture-сервера
-profile_id	строка-заглушка	профиль не создаётся
+Каталоги профилей
+text
 
-Запрещено:
+E:\Gemini\Dojo\AI-Collab\profiles\seat-01\
+E:\Gemini\Dojo\AI-Collab\profiles\seat-02\
 
-    seat_id равен URL или его части.
+Пустые. Если не существуют — создать. Если существуют — использовать как есть, не чистить.
+EXECUTION FLOW OF open_seats.py
 
-    conv_id равен URL или его части.
+Шаг 1. Проверить, что fixture-сервер отвечает:
+text
 
-    Дубли seat_id.
+GET http://127.0.0.1:5999/health
 
-    Дубли conv_id между креслами (каждое кресло — своя беседа).
+Ожидаемый ответ: {"ok": true}.
 
-2. Файл seats_check.py
+Если не отвечает или ответ не {"ok": true}:
+text
 
-Язык: Python 3, stdlib only (json, sys).
+FATAL: fixture not running on 127.0.0.1:5999
 
-Путь: E:\Gemini\Dojo\AI-Collab\seats_check.py
+STOP, exit 1. Не подменять порт.
 
-Поведение:
+Шаг 2. Проверить, что Edge доступен:
+text
 
-    Прочитать seats.json из текущего каталога (os.path.dirname(os.path.abspath(__file__))).
+where msedge
 
-    Распарсить JSON.
+или
+text
 
-    Печатать для каждого кресла:
-    text
+where microsoft-edge
 
-    seat_id=<...> conv_id=<...>
+или эквивалент в PATH. Если не найден — попробовать стандартные пути Windows:
+text
 
-    В порядке появления в файле.
+C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe
+C:\Program Files\Microsoft\Edge\Application\msedge.exe
 
-    Проверить:
+Если ни один не найден:
+text
 
-        ровно 2 кресла в реестре;
+FATAL: Microsoft Edge not found
 
-        seat-01 и seat-02 — разные seat_id;
+STOP, exit 1.
 
-        conv_id у кресел разные;
+Шаг 3. Создать каталоги профилей (если нет):
+text
 
-        conv_id не равен url и не является его подстрокой/частью пути (проверка: conv_id not in url);
+E:\Gemini\Dojo\AI-Collab\profiles\seat-01\
+E:\Gemini\Dojo\AI-Collab\profiles\seat-02\
 
-        seat_id не равен url и не является его подстрокой (проверка: seat_id not in url);
+Шаг 4. Запустить два процесса Edge:
+text
 
-        у каждого кресла есть profile_id (непустая строка).
+msedge --user-data-dir=E:\Gemini\Dojo\AI-Collab\profiles\seat-01 http://127.0.0.1:5999/conv_a
+msedge --user-data-dir=E:\Gemini\Dojo\AI-Collab\profiles\seat-02 http://127.0.0.1:5999/conv_b
 
-    Если все проверки прошли:
-    text
+Требования:
+text
 
-    SEATS: PASS
+Запуск через subprocess.Popen.
+Не ждать завершения (не subprocess.run, не wait).
+Не убивать процессы после.
+Сохранить PID каждого.
 
-    exit code 0.
+Шаг 5. Записать open_seats.json с двумя записями: pid, url, profile_dir.
 
-    Если любая проверка провалилась:
-    text
+Шаг 6. Напечатать:
+text
 
-    SEATS: FAIL — <причина>
+OPEN: PASS
 
-    exit code 1.
-
-Запрещено:
-
-    делать HTTP-запросы к url;
-
-    импортировать requests, urllib, http.client и подобное;
-
-    открывать браузер;
-
-    читать truth.json / fixture_server.py;
-
-    лезть в E:\Gemini\AI-Colab\.
-
-LOCAL_VERIFY
-powershell
+Exit 0.
+LOCAL VERIFY
+text
 
 cd E:\Gemini\Dojo\AI-Collab
-python seats_check.py
+python open_seats.py
 
 Ожидаемо:
 text
 
-seat_id=seat-01 conv_id=conv_a
-seat_id=seat-02 conv_id=conv_b
-SEATS: PASS
+exit code 0
+stdout: OPEN: PASS
+open_seats.json создан, два разных pid
+два процесса Edge живы (не убивать)
 
-Exit code 0.
+Проверка PID после запуска:
+text
 
-Если FAIL — STOP, отчёт с причиной.
+type open_seats.json
+tasklist | findstr msedge
+
+Оба PID из open_seats.json должны присутствовать в tasklist.
+STOP CONDITIONS
+text
+
+Если fixture не отвечает на 127.0.0.1:5999/health → STOP, exit 1.
+Если Edge не найден → STOP, exit 1.
+Если процесс Edge упал сразу после запуска (PID отсутствует в tasklist через 2 секунды) → STOP, exit 1.
+Если попытка открыть не тот URL (не conv_a / conv_b) → STOP.
+Если попытка использовать профиль Автора → STOP.
+Если попытка запустить Playwright / Selenium → STOP.
+
 REPORT
 yaml
 
-BUILD_001_STEP_2_REPORT:
+BUILD_001_STEP_3_REPORT:
   files_created:
-    - E:\Gemini\Dojo\AI-Collab\seats.json
-    - E:\Gemini\Dojo\AI-Collab\seats_check.py
+    - E:\Gemini\Dojo\AI-Collab\open_seats.py
+    - E:\Gemini\Dojo\AI-Collab\open_seats.json
+    - E:\Gemini\Dojo\AI-Collab\profiles\seat-01\
+    - E:\Gemini\Dojo\AI-Collab\profiles\seat-02\
 
-  seats_json:
-    path: E:\Gemini\Dojo\AI-Collab\seats.json
+  fixture_check:
+    url: http://127.0.0.1:5999/health
+    response: <actual>
+    ok: yes/no
+
+  edge_check:
+    path: <actual msedge path>
+    found: yes/no
+
+  processes:
+    seat-01:
+      pid: <int>
+      alive_after_start: yes/no
+    seat-02:
+      pid: <int>
+      alive_after_start: yes/no
+    pids_distinct: yes/no
+
+  open_seats_json:
+    path: E:\Gemini\Dojo\AI-Collab\open_seats.json
     schema_ok: yes/no
-    seat_count: 2
-    seat_ids: ["seat-01", "seat-02"]
-    conv_ids: ["conv_a", "conv_b"]
-    urls:
-      - "http://127.0.0.1:5999/conv_a"
-      - "http://127.0.0.1:5999/conv_b"
-    profile_ids: ["profile-placeholder-01", "profile-placeholder-02"]
-    seat_ids_not_derived_from_url: yes
-    conv_ids_not_derived_from_url: yes
+    two_entries: yes/no
 
-  seats_check:
-    command: python seats_check.py
-    exit_code: <int>
-    output_lines:
-      - "seat_id=seat-01 conv_id=conv_a"
-      - "seat_id=seat-02 conv_id=conv_b"
-      - "SEATS: PASS" / "SEATS: FAIL — <reason>"
+  stdout_line: "OPEN: PASS"
+  exit_code: <int>
 
   forbidden_checks:
-    no_browser: yes
     no_playwright: yes
-    no_http_requests_to_fixture: yes
-    no_static_templates_copy: yes
-    no_old_server_access: yes
-    no_profile_creation: yes
+    no_selenium: yes
+    no_driver: yes
+    no_author_profile: yes
+    no_old_ai_colab: yes
+    no_static_templates: yes
+    no_verdict: yes
+    no_conv_id_change: yes
+    no_port_substitution: yes
+    browsers_not_killed: yes
 
-  next: STOP → WAIT_FOR_GROK_OR_SHOGUN
+  next: STOP → WAIT_FOR_SENSEI
 
 NON-GOALS
+text
 
-    браузер
-
-    Playwright / Selenium
-
-    открытие страниц
-
-    копирование static/ / templates/
-
-    запуск AI-Colab
-
-    создание профилей браузера
-
-    HTTP-запросы к fixture-серверу
-
-    кресла как объекты в коде (SEAT — будущее)
-
-    харнесс
-
-    изменение fixture_server.py / truth.json
-
-STOP CONDITIONS
-
-    любая попытка открыть браузер → STOP
-
-    любая попытка HTTP-запроса к fixture → STOP
-
-    любой доступ к E:\Gemini\AI-Colab\ → STOP
-
-    любая попытка создать профиль → STOP
-
-    seats_check.py вернул FAIL → STOP, отчёт с причиной
+❌ вердикт RECOVERED / MISMATCH / любой
+❌ закрытие браузеров
+❌ смена conv_id
+❌ Playwright / Selenium
+❌ копирование static / templates
+❌ работа с E:\Gemini\AI-Colab\
+❌ изменение fixture_server.py / truth.json / seats.json / seats_check.py
 
 END PROTOCOL
 text
 
-CREATE seats.json → CREATE seats_check.py → RUN seats_check.py → REPORT → STOP → WAIT_FOR_GROK_OR_SHOGUN
+CHECK FIXTURE → CHECK EDGE → CREATE PROFILES → LAUNCH 2 EDGE PROCESSES → WRITE open_seats.json → PRINT "OPEN: PASS" → STOP → WAIT_FOR_SENSEI
 
-yaml
-
-BRIGADIER_STATUS:
-  build: 001
-  step: 2
-  status: READY_FOR_SAMURAI
-  scope: seats registry + checker (no browser, no http, no profiles)
-  prior_step_1: ACCEPTED
-  next: SHOGUN_DELIVERS_TO_SAMURAI
-  stop: true
-
-Шёгун, SPEC для STEP 2 готов. Копируй Самураю.
-
-Ключевое:
-
-    seats.json — две записи, поля seat_id, binding_id, provider, conv_id, url, profile_id.
-
-    seat_id и conv_id не выводятся из URL.
-
-    seats_check.py — читает JSON, печатает оба кресла, проверяет различия, печатает SEATS: PASS.
-
-    Без HTTP, без браузера, без профилей.
-
-STOP.

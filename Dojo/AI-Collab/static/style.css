@@ -1,0 +1,466 @@
+/* ===== БАЗОВЫЕ СТИЛИ ===== */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Times New Roman', Times, serif;
+  background-color: #ffffff;
+  color: #222222;
+  height: 100vh;
+  overflow: hidden;
+}
+
+.app-container {
+  display: grid;
+  grid-template-rows: auto 1fr 1fr 1fr; /* Шапка, визуализация, чат, управление */
+  height: 100vh;
+  gap: 4px;
+  padding: 4px;
+  background-color: #f0f2f5;
+}
+
+/* ===== I. ВЕРХНИЙ ФРЕЙМ ===== */
+.top-frame {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: linear-gradient(135deg, #2c3e50, #4a6491);
+  color: white;
+  padding: 10px 15px;
+  border-radius: 4px;
+}
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropbtn {
+  background-color: rgba(255, 255, 255, 0.15);
+  color: white;
+  padding: 10px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.2s;
+}
+
+.dropbtn:hover {
+  background-color: rgba(255, 255, 255, 0.25);
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 180px;
+  box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+  border-radius: 4px;
+  text-align: left;
+}
+
+.dropdown-content a {
+  color: #333;
+  padding: 10px 14px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #eee;
+}
+
+.dropdown-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Выравнивание меню "Модели" по правому краю */
+.models-dropdown .dropdown-content {
+  right: 0;
+  left: auto;
+}
+
+.central-title {
+  display: flex;
+  align-items: center;
+  gap: 15px;
+  font-size: 1.6em;
+  font-weight: bold;
+}
+
+.dept-icon-small {
+  height: 32px;
+  width: auto;
+  opacity: 0.9;
+}
+
+.lab-title {
+  margin: 0 10px;
+}
+
+/* ===== II. ОСНОВНОЙ ФРЕЙМ (Как на New.jpg) ===== */
+.main-visualization-frame {
+  display: grid;
+  grid-template-columns: 200px 1fr 200px; /* Узкие фиксированные панели */
+  gap: 4px;
+  min-height: 0; /* Критично для работы flex/scroll внутри */
+}
+
+.side-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Маленький отступ между кнопками */
+  padding: 12px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  overflow: hidden; /* Убираем прокрутку */
+  height: 100%; /* Растягиваем по высоте */
+}
+
+/* Общие стили для ВСЕХ кнопок на панелях */
+.side-panel button {
+  border: none;
+  border-radius: 4px;
+  padding: 10px 6px;
+  cursor: pointer;
+  font-family: inherit;
+  font-size: 0.95em;
+  text-align: center;
+  transition: all 0.2s ease;
+  width: 100%;
+}
+
+.role-btn {
+  font-weight: bold;
+  margin-bottom: 5px;
+}
+
+.role-btn.chief {
+  background: linear-gradient(to right, #4a6fa5, #2e4a7a);
+  color: white;
+}
+
+.role-btn.ceo {
+  background: linear-gradient(to right, #2d8f4a, #1a5c2e);
+  color: white;
+}
+
+.dept-btn {
+  font-weight: bold;
+  margin-top: 5px;
+  cursor: pointer;
+  background-color: #e9ecef;
+  color: #495057;
+  border: 1px solid #ced4da !important;
+}
+
+.dept-a {
+  border-left: 4px solid #0d47a1 !important;
+}
+.dept-b {
+  border-left: 4px solid #4a148c !important;
+}
+.dept-c {
+  border-left: 4px solid #1b5e20 !important;
+}
+.dept-d {
+  border-left: 4px solid #e65100 !important;
+}
+
+.model-btn-pair {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+  margin-bottom: 8px;
+}
+
+.model-btn {
+  background-color: white;
+  border: 1px solid #bdc3c7 !important;
+  color: #2c3e50;
+}
+.model-btn:hover {
+  background-color: #e9ecef;
+  border-color: #4a6fa5 !important;
+}
+
+.action-btn {
+  margin-top: auto; /* Прижимаем к низу панели */
+  background-color: #6c757d;
+  color: white;
+  font-weight: bold;
+}
+.action-btn:hover {
+  background-color: #5a6268;
+}
+
+.visualization-area {
+  background-color: white;
+  border-radius: 4px;
+  border: 1px dashed #bdc3c7;
+  /* Заголовок и текст убраны, как на макете */
+}
+
+/* ===== III. ФРЕЙМ ЧАТА ===== */
+.chat-frame {
+  display: flex;
+  flex-direction: column;
+  background-color: white;
+  border-radius: 4px;
+  padding: 12px;
+  min-height: 0;
+}
+
+.chat-frame h3 {
+  margin-bottom: 10px;
+  color: #2c3e50;
+  padding-bottom: 8px;
+  border-bottom: 1px solid #eee;
+}
+
+.chat-log {
+  flex-grow: 1;
+  overflow-y: auto;
+  padding: 10px;
+  background-color: #f8f9fa;
+  border-radius: 4px;
+  font-size: 0.95em;
+}
+
+.system-msg {
+  color: #7f8c8d;
+  font-style: italic;
+  text-align: center;
+  padding: 10px;
+}
+
+/* ===== IV. ТРОЙНОЙ ФРЕЙМ ПОЛЬЗОВАТЕЛЯ (Компактный) ===== */
+.user-control-frame {
+  display: grid;
+  grid-template-columns: 1fr 2fr 1fr;
+  gap: 4px;
+  min-height: 0;
+}
+
+.directory-box {
+  background-color: white;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid #dee2e6;
+}
+
+.directory-box h4 {
+  margin-bottom: 10px;
+  color: #495057;
+  font-size: 1em;
+}
+
+.file-list {
+  flex-grow: 1;
+  overflow-y: auto;
+  border: 1px solid #eee;
+  border-radius: 4px;
+  padding: 8px;
+  background-color: #f8f9fa;
+  font-size: 0.9em;
+  min-height: 60px;
+}
+
+/* КОМПАКТНЫЙ КОНТЕЙНЕР ВВОДА (ядро изменений) */
+.input-container-compact {
+  background-color: white;
+  border-radius: 4px;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  gap: 8px; /* Отступ между строкой меню и строкой ввода */
+  border: 1px solid #dee2e6;
+  height: 100%;
+}
+
+.mention-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+
+.mention-menu {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.mention-btn {
+  width: 100%;
+  padding: 8px 10px;
+  background-color: #95a5a6;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9em;
+  text-align: center;
+}
+.mention-btn:hover {
+  background-color: #7f8c8d;
+}
+
+.mention-content {
+  display: none;
+  position: absolute;
+  bottom: 100%; /* Выпадает ВВЕРХ */
+  left: 0;
+  background-color: white;
+  min-width: 100%;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  border: 1px solid #ddd;
+  z-index: 1000;
+  margin-bottom: 4px;
+}
+
+.mention-content a {
+  color: #333;
+  padding: 8px 12px;
+  text-decoration: none;
+  display: block;
+  border-bottom: 1px solid #f1f1f1;
+  font-size: 0.9em;
+}
+.mention-content a:hover {
+  background-color: #f1f1f1;
+}
+
+.mention-menu:hover .mention-content {
+  display: block;
+}
+
+/* Строка ввода и кнопки */
+.input-row {
+  display: grid;
+  grid-template-columns: 1fr auto; /* Поле растягивается, кнопка - по размеру */
+  gap: 8px;
+  align-items: stretch; /* Растягиваем оба элемента по высоте */
+  flex-grow: 1;
+}
+
+textarea#userInput {
+  padding: 10px;
+  border: 1px solid #ced4da;
+  border-radius: 4px;
+  resize: none;
+  font-family: inherit;
+  font-size: 1em;
+  line-height: 1.4;
+  min-height: 60px;
+  height: 100%;
+}
+
+.send-btn {
+  padding: 0 24px;
+  background: linear-gradient(to right, #4a6fa5, #2e4a7a);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: bold;
+  white-space: nowrap;
+  min-width: 100px;
+}
+.send-btn:hover {
+  background: linear-gradient(to right, #3a5a8a, #253a62);
+} /* ===== Soul Layer Analysis Enhancements ===== */
+.analysis-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.analysis-card {
+  background: #fff;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+  border-left: 5px solid #3498db;
+  transition: transform 0.2s;
+}
+
+.analysis-card:hover {
+  transform: translateY(-2px);
+}
+
+.analysis-card h4 {
+  margin-bottom: 10px;
+  font-size: 0.9em;
+  color: #7f8c8d;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.score-container {
+  position: relative;
+  height: 10px;
+  background: #ecf0f1;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.score-bar {
+  height: 100%;
+  background: linear-gradient(to right, #e74c3c, #f1c40f, #2ecc71);
+  width: 0%; /* Will be set by JS */
+  transition: width 1s ease-out;
+}
+
+.score-badge {
+  font-size: 24px;
+  font-weight: bold;
+  color: #2c3e50;
+}
+
+.issue-item {
+  padding: 5px 0;
+  border-bottom: 1px solid #f1f1f1;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.issue-item:last-child {
+  border-bottom: none;
+}
+
+.issue-icon {
+  color: #e67e22;
+}
+
+/* Modal refinements */
+#soulModal .modal-content {
+  background-color: #f4f7f6;
+  margin: 5% auto;
+  padding: 30px;
+  border-radius: 12px;
+  max-width: 800px;
+  border: none;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+}
+
+#soulModal .close {
+  font-size: 28px;
+  font-weight: bold;
+  color: #95a5a6;
+}
+
+#soulModal .close:hover {
+  color: #2c3e50;
+}

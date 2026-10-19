@@ -32,8 +32,6 @@ def check_seats_registry():
 
     seat_ids = set()
     conv_ids = set()
-    seat_id_not_in_url = True
-    conv_id_not_in_url = True
     profile_id_valid = True
 
     for i, seat in enumerate(seats):
@@ -61,29 +59,25 @@ def check_seats_registry():
             sys.exit(1)
         conv_ids.add(conv_id)
 
-        # Check if conv_id is in URL
-        if conv_id in url:
-            conv_id_not_in_url = False
-            print(f"SEATS: FAIL — conv_id '{conv_id}' is present in url '{url}'", file=sys.stderr)
-            # Do not exit immediately, allow other checks to run and report all failures
+        # --- Modified checks based on instructions --- 
+        # Check if conv_id is exactly equal to URL
+        if conv_id == url:
+            print(f"SEATS: FAIL — conv_id '{conv_id}' is equal to url '{url}'", file=sys.stderr)
+            sys.exit(1)
 
-        # Check if seat_id is in URL
-        if seat_id in url:
-            seat_id_not_in_url = False
-            print(f"SEATS: FAIL — seat_id '{seat_id}' is present in url '{url}'", file=sys.stderr)
-            # Do not exit immediately
+        # Check if seat_id is exactly equal to URL
+        if seat_id == url:
+            print(f"SEATS: FAIL — seat_id '{seat_id}' is equal to url '{url}'", file=sys.stderr)
+            sys.exit(1)
+        # --- End of modified checks ---
 
         # Check profile_id validity
         if not isinstance(profile_id, str) or not profile_id:
             profile_id_valid = False
             print(f"SEATS: FAIL — Invalid or empty profile_id for seat '{seat_id}'", file=sys.stderr)
-            # Do not exit immediately
+            # Do not exit immediately, allow other checks to run and report all failures
 
-    # Final check for seat_id not derived from URL and conv_id not derived from URL
-    if not seat_id_not_in_url:
-        sys.exit(1)
-    if not conv_id_not_in_url:
-        sys.exit(1)
+    # Final check for profile_id validity
     if not profile_id_valid:
         sys.exit(1)
 

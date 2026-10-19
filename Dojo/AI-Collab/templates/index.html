@@ -1,0 +1,823 @@
+<!doctype html>
+<html lang="ru">
+  <head>
+    <meta charset="UTF-8" />
+    <title>AI-Colab Laboratory</title>
+    <style>
+      * {
+        box-sizing: border-box;
+        margin: 0;
+        padding: 0;
+      }
+      body {
+        font-family: 'Times New Roman', serif;
+        background: #fff;
+        color: #222;
+        height: 100vh;
+        overflow: hidden;
+        font-size: 13px;
+      }
+      .app-container {
+        display: grid;
+        grid-template-rows: auto auto 2fr 0.7fr;
+        height: 100vh;
+        gap: 3px;
+        padding: 3px;
+        background: #f0f2f5;
+      }
+
+      /* ВЕРХНИЙ ФРЕЙМ */
+      .top-frame {
+        display: grid;
+        grid-template-columns: 170px 1fr 170px;
+        align-items: center;
+        background: linear-gradient(135deg, #2c3e50, #4a6491);
+        color: #fff;
+        padding: 4px 10px;
+        border-radius: 3px;
+        gap: 10px;
+      }
+      .top-left-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        justify-content: flex-start;
+      }
+      .top-right-group {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        justify-content: flex-end;
+      }
+      .central-title {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        font-size: 16px;
+        font-weight: bold;
+      }
+      .dept-icon-small {
+        width: 24px;
+        height: 24px;
+        border-radius: 3px;
+        object-fit: contain;
+      }
+      .role-btn-top {
+        padding: 4px 12px;
+        border-radius: 3px;
+        border: none;
+        font-weight: bold;
+        font-size: 13px;
+        cursor: pointer;
+        color: #fff;
+        background: linear-gradient(135deg, #2c3e50, #4a6491);
+      }
+      .role-btn-top:hover {
+        background: linear-gradient(135deg, #1a252f, #3a4d71);
+      }
+
+      /* Новые стили для кнопок ШЕФ/СЕО в нижнем блоке ввода */
+      .mention-btn.chief-active {
+        background: linear-gradient(to right, #4a6fa5, #2e4a7a);
+        color: #fff;
+      }
+      .mention-btn.ceo-active {
+        background: linear-gradient(to right, #2d8f4a, #1a5c2e);
+        color: #fff;
+      }
+      .mention-btn.inactive {
+        background: #95a5a6;
+        color: #ccc;
+        opacity: 0.7;
+      }
+
+      .dropdown {
+        position: relative;
+        display: inline-block;
+        font-size: 12px;
+      }
+      .dropbtn {
+        background: rgba(255, 255, 255, 0.18);
+        color: #fff;
+        padding: 4px 10px;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 12px;
+      }
+      .dropbtn:hover {
+        background: rgba(255, 255, 255, 0.28);
+      }
+      /* Новый класс для кнопок в нижнем фрейме */
+      .dropbtn-bottom {
+        padding: 6px 16px; /* Ширина как у send-btn */
+        background: #95a5a6;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 11px;
+        text-align: center;
+        white-space: nowrap;
+        width: 100%; /* Чтобы заполнить grid-ячейку */
+      }
+      .dropbtn-bottom:hover {
+        background: #7f8c8d;
+      }
+
+      .dropdown-content {
+        display: none;
+        position: absolute;
+        background: #f9f9f9;
+        min-width: 160px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2);
+        border-radius: 3px;
+        z-index: 1000;
+      }
+      .dropdown-content a {
+        color: #333;
+        padding: 8px 12px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid #eee;
+        font-size: 12px;
+      }
+      .dropdown-content a:hover {
+        background: #f1f1f1;
+      }
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+
+      /* Выравнивание меню "Проекты" по правому краю */
+      .dropdown-projects .dropdown-content {
+        right: 0;
+        left: auto;
+        text-align: right;
+      }
+
+      /* ОСНОВНОЙ ФРЕЙМ */
+      .main-visualization-frame {
+        display: grid;
+        grid-template-columns: 170px 1fr 170px;
+        gap: 3px;
+        min-height: 0;
+      }
+      .side-panel {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        padding: 8px;
+        background: #f8f9fa;
+        border-radius: 3px;
+      }
+      .side-panel button {
+        border: none;
+        border-radius: 3px;
+        padding: 6px 5px;
+        cursor: pointer;
+        font-family: inherit;
+        font-size: 11px;
+        text-align: center;
+        transition: all 0.2s;
+        width: 100%;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+      }
+
+      .dept-btn {
+        font-weight: bold;
+        margin-top: 4px;
+        background: #e9ecef;
+        color: #495057;
+        border: 1px solid #ced4da !important;
+      }
+      .dept-btn:hover {
+        background: #d8dce0;
+        border-color: #adb5bd !important;
+      }
+      .dept-a {
+        border-left: 3px solid #0d47a1 !important;
+      }
+      .dept-b {
+        border-left: 3px solid #1b5e20 !important;
+      }
+      .dept-c {
+        border-left: 3px solid #4a148c !important;
+      }
+      .dept-d {
+        border-left: 3px solid #e65100 !important;
+      }
+      .model-btn-pair {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 4px;
+        margin-bottom: 5px;
+      }
+      .model-btn {
+        background: #fff;
+        border: 1px solid #bdc3c7 !important;
+        color: #2c3e50;
+        padding: 5px 3px;
+        font-size: 12px;
+      }
+      .model-btn:hover {
+        background: #e9ecef;
+        border-color: #4a6fa5 !important;
+      }
+      .action-btn {
+        background: #6c757d;
+        color: #fff;
+        font-weight: bold;
+        font-size: 12px;
+      }
+      .action-btn:hover {
+        background: #5a6268;
+      }
+      .visualization-area {
+        background: #fff;
+        border-radius: 3px;
+        border: 1px dashed #bdc3c7;
+        overflow-y: auto;
+        padding: 10px;
+      }
+
+      /* Центральная колонка с информ-окном */
+      .center-column {
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        min-height: 0;
+        position: relative;
+      }
+
+      /* Оба окна занимают всю область */
+      .info-window,
+      .gcb-window {
+        flex: 1;
+        background: #fff;
+        border-radius: 3px;
+        border: 1px solid #bdc3c7;
+        overflow-y: auto;
+        padding: 10px;
+        min-height: 0;
+      }
+
+      /* Управление видимостью */
+      .gcb-window {
+        display: none; /* По умолчанию скрыто */
+      }
+
+      .info-window.active {
+        display: block;
+      }
+
+      .gcb-window.active {
+        display: block;
+      }
+
+      .info-window:not(.active) {
+        display: none;
+      }
+
+      .gcb-queue-container h3 {
+        font-size: 14px;
+        margin-bottom: 8px;
+        border-bottom: 2px solid #2c3e50;
+        padding-bottom: 4px;
+      }
+      .gcb-item {
+        background: #f8f9fa;
+        border: 1px solid #dee2e6;
+        border-radius: 4px;
+        padding: 8px;
+        margin-bottom: 6px;
+        font-family: monospace;
+        font-size: 11px;
+        position: relative;
+      }
+      .gcb-status {
+        float: right;
+        font-weight: bold;
+        text-transform: uppercase;
+        font-size: 10px;
+        padding: 2px 5px;
+        border-radius: 3px;
+      }
+      .status-pending {
+        background: #ffeeba;
+        color: #856404;
+      }
+      .status-executing {
+        background: #bee5eb;
+        color: #0c5460;
+      }
+      .status-completed {
+        background: #c3e6cb;
+        color: #155724;
+      }
+      .status-failed {
+        background: #f5c6cb;
+        color: #721c24;
+      }
+      .gcb-cmd {
+        color: #0056b3;
+        font-weight: bold;
+      }
+      .gcb-output {
+        margin-top: 5px;
+        background: #000;
+        color: #0f0;
+        padding: 5px;
+        max-height: 100px;
+        overflow-y: auto;
+        white-space: pre-wrap;
+      }
+      .exec-btn {
+        margin-top: 5px;
+        padding: 2px 8px;
+        background: #2c3e50;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+      }
+      .exec-btn:hover {
+        background: #1a252f;
+      }
+
+      .soul-btn {
+        margin-top: 4px;
+        background: linear-gradient(to right, #8e44ad, #c0392b);
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        padding: 2px 8px;
+        font-size: 10px;
+        cursor: pointer;
+        font-weight: bold;
+      }
+      .soul-btn:hover {
+        opacity: 0.9;
+      }
+
+      /* MODAL STYLES */
+      .modal {
+        display: none;
+        position: fixed;
+        z-index: 2000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+      }
+      .modal-content {
+        background-color: #fefefe;
+        margin: 5% auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 60%;
+        border-radius: 8px;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        max-height: 80vh;
+        overflow-y: auto;
+      }
+      .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+        cursor: pointer;
+      }
+      .close:hover {
+        color: #000;
+      }
+      .analysis-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 15px;
+        margin-top: 15px;
+      }
+      .analysis-card {
+        background: #f1f3f5;
+        padding: 10px;
+        border-radius: 4px;
+        border-left: 4px solid #8e44ad;
+      }
+      .analysis-card h4 {
+        margin-bottom: 5px;
+        font-size: 12px;
+        color: #2c3e50;
+      }
+      .score-badge {
+        font-size: 24px;
+        font-weight: bold;
+        color: #8e44ad;
+        text-align: center;
+      }
+
+      /* ДВА ОКНА ЧАТА */
+      .dual-chat-frame {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 3px;
+        min-height: 0;
+      }
+      .chat-window {
+        display: flex;
+        flex-direction: column;
+        background: #fff;
+        border-radius: 3px;
+        padding: 8px;
+        min-height: 0;
+      }
+      .chat-window h3 {
+        margin-bottom: 5px;
+        color: #2c3e50;
+        padding-bottom: 5px;
+        border-bottom: 1px solid #eee;
+        text-align: center;
+        font-size: 13px;
+      }
+      .chat-log {
+        flex-grow: 1;
+        overflow-y: auto;
+        padding: 8px;
+        background: #f8f9fa;
+        border-radius: 3px;
+        font-size: 12px;
+        word-break: break-word;
+        overflow-wrap: anywhere;
+      }
+      .system-msg {
+        color: #7f8c8d;
+        font-style: italic;
+        text-align: center;
+        padding: 5px;
+      }
+
+      /* НИЖНИЙ ТРОЙНОЙ ФРЕЙМ */
+      .user-control-frame {
+        display: grid;
+        grid-template-columns: 1fr 2fr 1fr;
+        gap: 3px;
+        min-height: 0;
+      }
+      .directory-box {
+        background: #fff;
+        border-radius: 3px;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        border: 1px solid #dee2e6;
+      }
+      .directory-box h4 {
+        margin-bottom: 4px;
+        color: #495057;
+        font-size: 12px;
+      }
+      .file-list {
+        flex-grow: 1;
+        overflow-y: auto;
+        border: 1px solid #eee;
+        border-radius: 3px;
+        padding: 4px;
+        background: #f8f9fa;
+        font-size: 11px;
+        min-height: 40px;
+      }
+      .input-container-dual {
+        background: #fff;
+        border-radius: 3px;
+        padding: 6px;
+        display: flex;
+        flex-direction: column;
+        gap: 4px;
+        border: 1px solid #dee2e6;
+        height: 100%;
+      }
+      .mention-row {
+        display: grid;
+        grid-template-columns: auto 1fr 1fr auto; /* Проекты (auto), ШЕФ (1fr), СЕО (1fr), Модели (auto) */
+        gap: 4px;
+        width: 100%;
+      }
+      .mention-menu {
+        position: relative;
+        display: inline-block;
+        width: 100%;
+      }
+      .mention-btn {
+        width: 100%;
+        padding: 6px 16px; /* Такая же ширина как у .dropbtn-bottom и .send-btn */
+        background: #95a5a6;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-size: 11px;
+        text-align: center;
+        white-space: nowrap;
+      }
+      .mention-btn:hover {
+        background: #7f8c8d;
+      }
+      .mention-content {
+        display: none;
+        position: absolute;
+        bottom: 100%;
+        left: 0;
+        background: #fff;
+        min-width: 100%;
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.15);
+        border-radius: 3px;
+        border: 1px solid #ddd;
+        z-index: 1000;
+        margin-bottom: 3px;
+      }
+      .mention-content a {
+        color: #333;
+        padding: 5px 8px;
+        text-decoration: none;
+        display: block;
+        border-bottom: 1px solid #f1f1f1;
+        font-size: 11px;
+      }
+      .mention-content a:hover {
+        background: #f1f1f1;
+      }
+      .mention-menu:hover .mention-content {
+        display: block;
+      }
+
+      .input-row-dual {
+        display: grid;
+        grid-template-columns: auto 1fr auto;
+        gap: 4px;
+        align-items: stretch;
+        flex-grow: 1;
+      }
+      textarea#userInput {
+        padding: 6px;
+        border: 1px solid #ced4da;
+        border-radius: 3px;
+        resize: none;
+        font-family: inherit;
+        font-size: 12px;
+        line-height: 1.3;
+        min-height: 45px;
+        height: 100%;
+      }
+      .send-btn {
+        padding: 0 16px;
+        color: #fff;
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+        white-space: nowrap;
+        font-size: 11px;
+      }
+      .send-left {
+        background: linear-gradient(to right, #4a6fa5, #2e4a7a);
+      }
+      .send-left:hover {
+        background: linear-gradient(to right, #3a5a8a, #253a62);
+      }
+      .send-right {
+        background: linear-gradient(to right, #2d8f4a, #1a5c2e);
+      }
+      .send-right:hover {
+        background: linear-gradient(to right, #247039, #144a24);
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-container">
+      <!-- ВЕРХ -->
+      <div class="top-frame">
+        <div class="top-left-group">
+          <button class="role-btn-top gemini-top">></button>
+          <button class="role-btn-top gemini-top">Аудит</button>
+          <button class="role-btn-top chief-top">ШЕФ</button>
+        </div>
+
+        <div class="central-title">
+          <img src="A.png" alt="A" class="dept-icon-small" />
+          <img src="B.png" alt="B" class="dept-icon-small" />
+          <span>AI-Colab Laboratory</span>
+          <span
+            id="current-project-name"
+            style="font-size: 14px; color: #bdc3c7; margin-left: 8px"
+          ></span>
+          <img src="C.png" alt="C" class="dept-icon-small" />
+          <img src="D.png" alt="D" class="dept-icon-small" />
+        </div>
+        <div class="top-right-group">
+          <button class="role-btn-top ceo-top">СЕО</button>
+          <button class="role-btn-top doctor-top">Симпозиум</button>
+        </div>
+      </div>
+
+      <!-- СРЕДНИЙ ФРЕЙМ -->
+      <div class="main-visualization-frame">
+        <!-- Левая панель -->
+        <div class="side-panel">
+          <button class="action-btn">Оперативка</button>
+
+          <button class="dept-btn dept-a">Отдел А Аналитика</button>
+          <button class="dept-btn dept-b">Отдел B Локализация</button>
+          <button class="dept-btn dept-c">Отдел C Критика</button>
+          <button class="dept-btn dept-d">Отдел D Интеграция</button>
+
+          <button class="action-btn">Парный батл</button>
+        </div>
+
+        <!-- Центр: Универсальное информ-окно -->
+        <div class="center-column">
+          <!-- Основное информ-окно (активно по умолчанию) -->
+          <div id="info-panel" class="info-window active">
+            <!-- Контент загружается динамически -->
+            <div style="padding: 15px; text-align: center; color: #7f8c8d">
+              <p>AI-Colab Information Panel</p>
+              <p style="font-size: 11px">
+                Выберите действие для отображения информации
+              </p>
+            </div>
+          </div>
+
+          <!-- Окно GCB (скрыто по умолчанию, активируется при вызове консоли) -->
+          <div id="gcb-window" class="gcb-window">
+            <div class="gcb-queue-container">
+              <div id="gcbQueue"></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Правая панель -->
+        <div class="side-panel">
+          <button class="action-btn">Конференция</button>
+
+          <div class="model-btn-pair">
+            <button class="model-btn" data-model="flick">Флик</button>
+            <button class="model-btn" data-model="flock">Флок</button>
+          </div>
+          <div class="model-btn-pair">
+            <button class="model-btn" data-model="click">Клик</button>
+            <button class="model-btn" data-model="clack">Клак</button>
+          </div>
+          <div class="model-btn-pair">
+            <button class="model-btn" data-model="check">Чек</button>
+            <button class="model-btn" data-model="chock">Чок</button>
+          </div>
+          <div class="model-btn-pair">
+            <button class="model-btn" data-model="link">Линк</button>
+            <button class="model-btn" data-model="sync">Синх</button>
+          </div>
+
+          <button class="action-btn">Персональный батл</button>
+        </div>
+      </div>
+
+      <!-- ДВА ЧАТА -->
+      <div class="dual-chat-frame">
+        <div class="chat-window">
+          <h3>Отдел</h3>
+          <div class="chat-log">
+            <p class="system-msg">Выберите отдел</p>
+          </div>
+        </div>
+        <div class="chat-window">
+          <h3>Модель</h3>
+          <div class="chat-log">
+            <p class="system-msg">Выберите модель</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- НИЖНИЙ ФРЕЙМ -->
+      <div class="user-control-frame">
+        <div class="directory-box">
+          <h4>📁 Текущие рабочие материалы</h4>
+          <div class="file-list"></div>
+        </div>
+
+        <div class="input-container-dual">
+          <div class="mention-row" style="margin-bottom: 4px">
+            <!-- Проекты -->
+            <div class="dropdown">
+              <button class="dropbtn-bottom" id="projectsBtn">Проекты ▼</button>
+              <div class="dropdown-content">
+                <a href="#">Открыть проект</a>
+                <a href="#">Сохранить проект</a>
+                <a href="#">Закрыть проект</a>
+              </div>
+            </div>
+
+            <!-- ШЕФ -->
+            <div class="mention-menu">
+              <button class="mention-btn" id="mentionChiefBtn">ШЕФ ▼</button>
+              <div class="mention-content">
+                <a href="#" data-role="Аналитика">Аналитика</a>
+                <a href="#" data-role="Локализация">Локализация</a>
+                <a href="#" data-role="Критика">Критика</a>
+                <a href="#" data-role="Интеграция">Интеграция</a>
+              </div>
+            </div>
+
+            <!-- СЕО -->
+            <div class="mention-menu">
+              <button class="mention-btn" id="mentionCeoBtn">СЕО ▼</button>
+              <div class="mention-content">
+                <a href="#" data-role="flick">Флик</a>
+                <a href="#" data-role="flock">Флок</a>
+                <a href="#" data-role="click">Клик</a>
+                <a href="#" data-role="clack">Клак</a>
+                <a href="#" data-role="check">Чек</a>
+                <a href="#" data-role="chock">Чок</a>
+                <a href="#" data-role="link">Линк</a>
+                <a href="#" data-role="sync">Синх</a>
+              </div>
+            </div>
+
+            <!-- Модели -->
+            <div class="dropdown">
+              <button class="dropbtn-bottom" id="modelsBtn">Модели ▼</button>
+              <div class="dropdown-content">
+                <a href="#" id="updateOpenRouterModelsBtn">Обновить модели</a>
+                <a href="#" data-action="remap-models">Переназначить модели</a>
+                <a href="#">Переписать промпты</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="input-row-dual">
+            <button class="send-btn send-left" id="sendBtnLeft">
+              Отправить
+            </button>
+            <textarea id="userInput" placeholder="Введите запрос..."></textarea>
+            <button class="send-btn send-right" id="sendBtnRight">
+              Отправить
+            </button>
+          </div>
+        </div>
+
+        <div class="directory-box">
+          <h4>📊 Результаты работы</h4>
+          <div class="file-list"></div>
+        </div>
+      </div>
+
+      <!-- Modal for Soul Layer Analysis -->
+      <div id="soulModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeModal">&times;</span>
+          <h2 id="modalTitle">✨ Soul Layer: Анализ качества</h2>
+          <div id="modalBody">
+            <!-- Content will be injected by JS -->
+          </div>
+        </div>
+      </div>
+
+      <!-- Modal for Model Remapping -->
+      <div id="remapModelModal" class="modal">
+        <div class="modal-content">
+          <span class="close" id="closeRemapModal">&times;</span>
+          <h2>🔗 Переназначить модель OpenRouter</h2>
+          <div style="padding: 10px 0">
+            <label for="friendlyNameSelect">Дружелюбное имя:</label>
+            <select
+              id="friendlyNameSelect"
+              style="width: 100%; padding: 8px; margin-bottom: 10px"
+            ></select>
+
+            <label for="availableModelsSelect">Назначить модель:</label>
+            <select
+              id="availableModelsSelect"
+              style="width: 100%; padding: 8px; margin-bottom: 10px"
+            ></select>
+
+            <button
+              id="confirmRemapBtn"
+              style="
+                padding: 10px 15px;
+                background: #28a745;
+                color: white;
+                border: none;
+                border-radius: 4px;
+                cursor: pointer;
+              "
+            >
+              Переназначить
+            </button>
+            <p id="remapStatus" style="margin-top: 10px; font-weight: bold"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script src="chat.js"></script>
+  </body>
+</html>

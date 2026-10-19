@@ -1,0 +1,12 @@
+{
+  "seat-01": {
+    "pid": 7948,
+    "url": "http://127.0.0.1:5999/conv_a",
+    "profile_dir": "E:\\Gemini\\Dojo\\AI-Collab\\profiles\\seat-01"
+  },
+  "seat-02": {
+    "pid": 7976,
+    "url": "http://127.0.0.1:5999/conv_b",
+    "profile_dir": "E:\\Gemini\\Dojo\\AI-Collab\\profiles\\seat-02"
+  }
+}
