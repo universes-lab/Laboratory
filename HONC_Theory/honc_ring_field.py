@@ -141,8 +141,19 @@ def chamber_nulls(S, ymax=1.2, rmax=1.0, starts=400, seed=1):
     return found
 
 
+def moment(S):
+    """Полный магнитный момент колец m = 1/2 * sum r x dl (I = 1), единицы I*R^2."""
+    mid, dl = S
+    return 0.5 * np.cross(mid, dl).sum(0)
+
+
 if __name__ == '__main__':
     import sys
+    if len(sys.argv) > 1 and sys.argv[1] == 'moment':
+        for N, beta in [(8, 0), (8, 30), (8, 61.56), (8, 63.49), (8, 65), (8, 66.54), (4, 0), (4, 25), (4, 50), (2, 0)]:
+            m = moment(segments(build(N, beta)))
+            print(f"N={N} beta={beta}: m = ({m[0]:+.4f}, {m[1]:+.4f}, {m[2]:+.4f}), |m| = {np.linalg.norm(m):.4f}")
+        sys.exit(0)
     if len(sys.argv) > 1 and sys.argv[1] == 'chamber':
         beta = float(sys.argv[2]) if len(sys.argv) > 2 else 65.0
         S = segments(build(8, beta), n=1500)
