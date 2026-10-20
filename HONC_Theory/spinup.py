@@ -33,6 +33,6 @@ for bf in [float(x) for x in (sys.argv[1:] or ['30', '61.56', '63.49', '65', '66
     dB = h.field(S1, [[0, 0, 0]])[0, 1] - B0
     Lb = angular_impulse(ball_pts, ball_w, S0, S1)
     Ls = angular_impulse(shell_pts, shell_w, S0, S1)
-    # omega = L / I ; ball I = 2/5 m, shell I = 2/3 m (m = 1)
+    # omega = L / I ; ball I = 2/5 m R^2, shell I = 2/3 m r^2 (m = 1, r = 0.99)
     print(f"beta_f={bf}: dB_y(0)={dB:.3f} | ball: L_y={Lb:+.4f}, omega={Lb/0.4:+.4f}, Larmor -dB/2={-dB/2:+.4f} "
-          f"| shell r=0.99: L_y={Ls:+.4f}, omega={Ls/(2/3):+.4f}", flush=True)
+          f"| shell r=0.99: L_y={Ls:+.4f}, omega={Ls/((2/3)*0.99**2):+.4f}", flush=True)
