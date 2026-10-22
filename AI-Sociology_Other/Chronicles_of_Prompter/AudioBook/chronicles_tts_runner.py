@@ -4,8 +4,6 @@ from __future__ import annotations
 import argparse
 import hashlib
 import re
-import shutil
-import subprocess
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -25,13 +23,14 @@ VOICE_IDS = {
 }
 
 PROCESS_IDS = {"NONE", "ARCHIVE_RADIO"}
-MUSIC_IDS = {"NONE"}
+MUSIC_IDS = {"NONE", "PART_BOUNDARY"}
+LANG_MAP = {"RU": "Russian", "EN": "English", "AUTO": None}
 
 DEFAULT_MODEL = Path(
     r"E:\Gemini\Unseen_University_Workshops\OmniVoice.git\models\OmniVoice"
 )
-
-ARCHIVE_FILTER = "highpass=f=300,lowpass=f=3400"
+DEFAULT_EDITORIAL = Path("editorial/CHRONICLES_TTS_PILOT_FM_PRO.txt")
+DEFAULT_OUTPUT = Path("renders_pilot")
 
 
 @dataclass(frozen=True)
@@ -42,10 +41,11 @@ class VoiceSpec:
 
 
 @dataclass(frozen=True)
-class Segment:
-    seg_id: str
+class Block:
+    block_id: str
     voice: str
     rate: float
+    lang: str
     pause_before_ms: int
     pause_after_ms: int
     delivery: str
@@ -58,9 +58,11 @@ def die(message: str) -> None:
     raise SystemExit(f"ERROR: {message}")
 
 
-def run(cmd: list[str]) -> None:
-    print("  >", " ".join(f'"{x}"' if " " in x else x for x in cmd))
-    subprocess.run(cmd, check=True)
+def read_text_fallback(path: Path) -> str:
+    try:
+        return path.read_text(encoding="utf-8-sig")
+    except UnicodeDecodeError:
+        return path.read_text(encoding="cp1251")
 
 
 def parse_casting(path: Path, book_root: Path) -> dict[str, VoiceSpec]:
@@ -89,7 +91,7 @@ def parse_casting(path: Path, book_root: Path) -> dict[str, VoiceSpec]:
         audio = None
         text = None
 
-    for raw in path.read_text(encoding="utf-8-sig").splitlines():
+    for raw in read_text_fallback(path).splitlines():
         line = raw.strip()
         if not line:
             flush()
@@ -108,12 +110,44 @@ def parse_casting(path: Path, book_root: Path) -> dict[str, VoiceSpec]:
     return result
 
 
-def parse_segments(path: Path) -> list[Segment]:
+def clean_body_lines(lines: list[str]) -> str:
+    # Preserve paragraph structure; remove only outer blank lines and
+    # collapse 3+ consecutive blank lines to a normal paragraph break.
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    while lines and not lines[-1].strip():
+        lines.pop()
+
+    out: list[str] = []
+    blank = False
+    for raw in lines:
+        line = raw.rstrip()
+        if not line.strip():
+            if not blank:
+                out.append("")
+            blank = True
+        else:
+            out.append(line.strip())
+            blank = False
+
+    text = "\n".join(out).strip()
+
+    # [[EN]] is editorial metadata, not spoken text. We deliberately keep
+    # the English words themselves inside the large block for this pilot.
+    text = text.replace("[[EN]]", "").replace("[[/EN]]", "")
+
+    if "[[" in text or "]]" in text:
+        die("Unknown [[...]] service marker remains in spoken text")
+
+    return text
+
+
+def parse_blocks(path: Path) -> list[Block]:
     if not path.is_file():
         die(f"Editorial file not found: {path}")
 
-    lines = path.read_text(encoding="utf-8-sig").splitlines()
-    segments: list[Segment] = []
+    lines = read_text_fallback(path).splitlines()
+    blocks: list[Block] = []
     seen: set[str] = set()
     i = 0
 
@@ -125,32 +159,34 @@ def parse_segments(path: Path) -> list[Segment]:
         m = re.fullmatch(r"@SEG\s+(\S+)", lines[i].strip())
         if not m:
             die(f"Expected @SEG at line {i + 1}: {lines[i]}")
-        seg_id = m.group(1)
-        if seg_id in seen:
-            die(f"Duplicate segment ID: {seg_id}")
-        seen.add(seg_id)
+
+        block_id = m.group(1)
+        if block_id in seen:
+            die(f"Duplicate block ID: {block_id}")
+        seen.add(block_id)
         i += 1
 
         meta: dict[str, str] = {}
-        while i < len(lines) and lines[i].strip().startswith("@"):
-            line = lines[i].strip()
-            if line == "@END":
-                die(f"{seg_id}: @END before text")
-            key, _, value = line.partition(" ")
+        while i < len(lines):
+            stripped = lines[i].strip()
+            if not stripped:
+                i += 1
+                break
+            if not stripped.startswith("@"):
+                die(f"{block_id}: expected metadata before text at line {i + 1}")
+            if stripped == "@END":
+                die(f"{block_id}: @END before text")
+            key, _, value = stripped.partition(" ")
             meta[key] = value.strip()
             i += 1
 
-        while i < len(lines) and not lines[i].strip():
-            i += 1
-
-        text_lines: list[str] = []
+        body_lines: list[str] = []
         while i < len(lines) and lines[i].strip() != "@END":
-            if lines[i].strip():
-                text_lines.append(lines[i].strip())
+            body_lines.append(lines[i])
             i += 1
 
         if i >= len(lines):
-            die(f"{seg_id}: missing @END")
+            die(f"{block_id}: missing @END")
         i += 1
 
         required = {
@@ -161,35 +197,36 @@ def parse_segments(path: Path) -> list[Segment]:
             "@DELIVERY",
             "@PROCESS",
             "@MUSIC",
+            "@LANG",
         }
         missing = required - meta.keys()
         if missing:
-            die(f"{seg_id}: missing metadata: {', '.join(sorted(missing))}")
+            die(f"{block_id}: missing metadata: {', '.join(sorted(missing))}")
 
         voice = meta["@VOICE"]
         process = meta["@PROCESS"]
         music = meta["@MUSIC"]
+        lang = meta["@LANG"].upper()
 
         if voice not in VOICE_IDS:
-            die(f"{seg_id}: unknown voice {voice}")
+            die(f"{block_id}: unknown voice {voice}")
         if process not in PROCESS_IDS:
-            die(f"{seg_id}: unsupported PROCESS {process}")
+            die(f"{block_id}: unsupported PROCESS {process}")
         if music not in MUSIC_IDS:
-            die(
-                f"{seg_id}: MUSIC={music} is not supported by this pilot runner; "
-                "mix music in a separate production stage"
-            )
+            die(f"{block_id}: unsupported MUSIC {music}")
+        if lang not in LANG_MAP:
+            die(f"{block_id}: unsupported LANG {lang}")
 
-        # O-4: multi-line text inside one SEG is joined by one space.
-        spoken_text = " ".join(text_lines).strip()
+        spoken_text = clean_body_lines(body_lines)
         if not spoken_text:
-            die(f"{seg_id}: empty spoken text")
+            die(f"{block_id}: empty spoken text")
 
-        segments.append(
-            Segment(
-                seg_id=seg_id,
+        blocks.append(
+            Block(
+                block_id=block_id,
                 voice=voice,
                 rate=float(meta["@RATE"]),
+                lang=lang,
                 pause_before_ms=int(meta["@PAUSE_BEFORE"]),
                 pause_after_ms=int(meta["@PAUSE_AFTER"]),
                 delivery=meta["@DELIVERY"],
@@ -199,9 +236,9 @@ def parse_segments(path: Path) -> list[Segment]:
             )
         )
 
-    if not segments:
-        die("No segments found")
-    return segments
+    if not blocks:
+        die("No voice blocks found")
+    return blocks
 
 
 def voice_fingerprint(spec: VoiceSpec) -> str:
@@ -224,10 +261,7 @@ def build_voice_prompt(
     spec: VoiceSpec,
     cache_dir: Path,
 ) -> VoiceClonePrompt:
-    try:
-        ref_text = spec.ref_text_file.read_text(encoding="utf-8-sig").strip()
-    except UnicodeDecodeError:
-        ref_text = spec.ref_text_file.read_text(encoding="cp1251").strip()
+    ref_text = read_text_fallback(spec.ref_text_file).strip()
     if not ref_text:
         die(f"Empty reference text: {spec.ref_text_file}")
 
@@ -248,111 +282,16 @@ def build_voice_prompt(
     return prompt
 
 
-def ffmpeg_path() -> str:
-    found = shutil.which("ffmpeg")
-    if found:
-        return found
-
-    fallback = Path(r"E:\Samurai_Software\ffmpeg\bin\ffmpeg.exe")
-    if fallback.is_file():
-        return str(fallback)
-
-    die("ffmpeg not found in PATH or E:\\Samurai_Software\\ffmpeg\\bin")
-    return ""
-
-
-def make_silence(ffmpeg: str, path: Path, milliseconds: int) -> None:
-    if milliseconds <= 0 or path.is_file():
-        return
-
-    seconds = milliseconds / 1000.0
-    run(
-        [
-            ffmpeg,
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-y",
-            "-f",
-            "lavfi",
-            "-i",
-            "anullsrc=r=24000:cl=mono",
-            "-t",
-            f"{seconds:.3f}",
-            "-c:a",
-            "pcm_s16le",
-            str(path),
-        ]
-    )
-
-
-def process_archive(ffmpeg: str, src: Path, dst: Path, force: bool) -> Path:
-    if dst.is_file() and not force:
-        return dst
-
-    run(
-        [
-            ffmpeg,
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-y",
-            "-i",
-            str(src),
-            "-af",
-            ARCHIVE_FILTER,
-            "-ar",
-            "24000",
-            "-ac",
-            "1",
-            "-c:a",
-            "pcm_s16le",
-            str(dst),
-        ]
-    )
-    return dst
-
-
-def write_concat_file(
-    segments: list[Segment],
-    segment_audio: dict[str, Path],
-    silence_dir: Path,
-    concat_file: Path,
-    ffmpeg: str,
-) -> None:
-    pause_values = {
-        ms
-        for seg in segments
-        for ms in (seg.pause_before_ms, seg.pause_after_ms)
-        if ms > 0
-    }
-
-    for ms in sorted(pause_values):
-        make_silence(ffmpeg, silence_dir / f"silence_{ms:04d}ms.wav", ms)
-
-    def q(path: Path) -> str:
-        return str(path.resolve()).replace("\\", "/").replace("'", "'\\''")
-
-    out: list[str] = []
-    for seg in segments:
-        if seg.pause_before_ms > 0:
-            out.append(
-                f"file '{q(silence_dir / f'silence_{seg.pause_before_ms:04d}ms.wav')}'"
-            )
-
-        out.append(f"file '{q(segment_audio[seg.seg_id])}'")
-
-        if seg.pause_after_ms > 0:
-            out.append(
-                f"file '{q(silence_dir / f'silence_{seg.pause_after_ms:04d}ms.wav')}'"
-            )
-
-    concat_file.write_text("\n".join(out) + "\n", encoding="utf-8")
+def parse_only(value: str | None) -> set[str] | None:
+    if not value:
+        return None
+    ids = {x.strip() for x in value.split(",") if x.strip()}
+    return ids or None
 
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Render the Chronicles of the Prompter OmniVoice pilot."
+        description="Render large voice blocks for Chronicles of the Prompter with OmniVoice."
     )
     parser.add_argument(
         "--book-root",
@@ -363,19 +302,26 @@ def main() -> None:
     parser.add_argument(
         "--editorial",
         type=Path,
-        default=Path("editorial/CHRONICLES_TTS_PILOT_PRO_CH01.txt"),
+        default=DEFAULT_EDITORIAL,
+        help="Pilot markup file relative to AudioBook.",
     )
     parser.add_argument("--model", type=Path, default=DEFAULT_MODEL)
     parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Re-render existing segment WAV files.",
+        "--output",
+        type=Path,
+        default=DEFAULT_OUTPUT,
+        help="Output directory relative to AudioBook.",
     )
     parser.add_argument(
-        "--limit",
-        type=int,
-        default=7,
-        help="Render only the first N segments. Default: 7. Use 0 for all segments.",
+        "--only",
+        type=str,
+        default=None,
+        help="Comma-separated block IDs, e.g. FM_001,FM_003,PRO_002,PRO_017.",
+    )
+    parser.add_argument(
+        "--force",
+        action="store_true",
+        help="Re-render WAV files that already exist.",
     )
     args = parser.parse_args()
 
@@ -385,40 +331,43 @@ def main() -> None:
         if args.editorial.is_absolute()
         else (book_root / args.editorial).resolve()
     )
+    output_dir = (
+        args.output.resolve()
+        if args.output.is_absolute()
+        else (book_root / args.output).resolve()
+    )
+    cache_dir = book_root / ".tts_cache" / "voice_prompts"
     casting_file = book_root / "CASTING.md"
 
-    raw_dir = book_root / "renders_raw"
-    processed_dir = book_root / "renders_processed"
-    final_dir = book_root / "final"
-    cache_dir = book_root / ".tts_cache" / "voice_prompts"
-    silence_dir = book_root / ".tts_cache" / "silence"
-
-    for d in (raw_dir, processed_dir, final_dir, cache_dir, silence_dir):
-        d.mkdir(parents=True, exist_ok=True)
+    output_dir.mkdir(parents=True, exist_ok=True)
+    cache_dir.mkdir(parents=True, exist_ok=True)
 
     casting = parse_casting(casting_file, book_root)
-    segments = parse_segments(editorial)
+    blocks = parse_blocks(editorial)
 
-    if args.limit < 0:
-        die("--limit must be 0 or a positive integer")
-    if args.limit > 0:
-        segments = segments[: args.limit]
+    requested = parse_only(args.only)
+    if requested is not None:
+        known = {b.block_id for b in blocks}
+        missing = requested - known
+        if missing:
+            die(f"Unknown --only block IDs: {', '.join(sorted(missing))}")
+        blocks = [b for b in blocks if b.block_id in requested]
 
-    used_voices = list(dict.fromkeys(seg.voice for seg in segments))
+    used_voices = list(dict.fromkeys(b.voice for b in blocks))
     missing_voices = [v for v in used_voices if v not in casting]
     if missing_voices:
         die(f"Missing CASTING.md voices: {', '.join(missing_voices)}")
 
     print(f"Book root : {book_root}")
     print(f"Editorial : {editorial}")
-    print(f"Segments  : {len(segments)}")
+    print(f"Blocks    : {len(blocks)}")
     print(f"Voices    : {', '.join(used_voices)}")
+    print(f"Output    : {output_dir}")
     print(f"Model     : {args.model}")
     print()
 
     if not args.model.is_dir():
         die(f"Model directory not found: {args.model}")
-
     if not torch.cuda.is_available():
         die("CUDA is not available")
 
@@ -441,100 +390,38 @@ def main() -> None:
         )
 
     print()
-    ffmpeg = ffmpeg_path()
-    segment_audio: dict[str, Path] = {}
+    for index, block in enumerate(blocks, start=1):
+        wav_path = output_dir / f"{block.block_id}.wav"
 
-    for index, seg in enumerate(segments, start=1):
-        raw_path = raw_dir / f"{seg.seg_id}.wav"
-
-        force_render = args.force or args.limit > 0
-
-        if raw_path.is_file() and not force_render:
+        if wav_path.is_file() and not args.force:
             print(
-                f"[{index:03d}/{len(segments):03d}] {seg.seg_id} "
-                f"{seg.voice} rate={seg.rate:.2f} SKIP"
+                f"[{index:02d}/{len(blocks):02d}] {block.block_id} "
+                f"{block.voice} lang={block.lang} rate={block.rate:.2f} SKIP"
             )
-        else:
-            print(
-                f"[{index:03d}/{len(segments):03d}] {seg.seg_id} "
-                f"{seg.voice} rate={seg.rate:.2f}"
-            )
+            continue
 
-            word_count = len(seg.text.split())
-            base_words_per_second = 2.3
-            target_duration = max(
-                1.0,
-                word_count / (base_words_per_second * seg.rate),
-            )
-            print(
-                f"    words={word_count} target_duration={target_duration:.2f}s"
-            )
+        print(
+            f"[{index:02d}/{len(blocks):02d}] {block.block_id} "
+            f"{block.voice} lang={block.lang} rate={block.rate:.2f} "
+            f"delivery={block.delivery} process={block.process}"
+        )
 
-            audio = model.generate(
-                text=seg.text,
-                language="Russian",
-                voice_clone_prompt=prompts[seg.voice],
-                duration=target_duration,
-                normalize_text=False,
-                postprocess_output=True,
-            )[0]
+        audio = model.generate(
+            text=block.text,
+            language=LANG_MAP[block.lang],
+            voice_clone_prompt=prompts[block.voice],
+            speed=block.rate,
+            normalize_text=False,
+            postprocess_output=True,
+        )[0]
 
-            sf.write(raw_path, audio, model.sampling_rate, subtype="PCM_16")
-
-        if seg.process == "ARCHIVE_RADIO":
-            processed_path = processed_dir / f"{seg.seg_id}.wav"
-            segment_audio[seg.seg_id] = process_archive(
-                ffmpeg=ffmpeg,
-                src=raw_path,
-                dst=processed_path,
-                force=force_render,
-            )
-        else:
-            segment_audio[seg.seg_id] = raw_path
-
-    if args.limit > 0:
-        concat_name = f"test_first_{len(segments):03d}_concat.txt"
-        final_name = f"CHRONICLES_TTS_TEST_FIRST_{len(segments):03d}.wav"
-    else:
-        concat_name = "pilot_concat.txt"
-        final_name = "CHRONICLES_TTS_PILOT_PRO_CH01.wav"
-
-    concat_file = book_root / ".tts_cache" / concat_name
-    write_concat_file(
-        segments=segments,
-        segment_audio=segment_audio,
-        silence_dir=silence_dir,
-        concat_file=concat_file,
-        ffmpeg=ffmpeg,
-    )
-
-    final_wav = final_dir / final_name
-    run(
-        [
-            ffmpeg,
-            "-hide_banner",
-            "-loglevel",
-            "error",
-            "-y",
-            "-f",
-            "concat",
-            "-safe",
-            "0",
-            "-i",
-            str(concat_file),
-            "-ar",
-            "24000",
-            "-ac",
-            "1",
-            "-c:a",
-            "pcm_s16le",
-            str(final_wav),
-        ]
-    )
+        sf.write(wav_path, audio, model.sampling_rate, subtype="PCM_16")
+        print(f"    -> {wav_path.name}")
 
     print()
     print("DONE")
-    print(f"Final pilot: {final_wav}")
+    print(f"Rendered blocks: {output_dir}")
+    print("NOTE: PAUSE / PROCESS / MUSIC metadata were NOT applied; montage stays separate.")
 
 
 if __name__ == "__main__":
