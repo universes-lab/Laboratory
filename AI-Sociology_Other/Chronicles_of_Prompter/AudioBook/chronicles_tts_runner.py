@@ -21,7 +21,6 @@ VOICE_IDS = {
     "KEEPER",
     "ARCHIVE",
 }
-
 PROCESS_IDS = {"NONE", "ARCHIVE_RADIO"}
 MUSIC_IDS = {"NONE", "PART_BOUNDARY"}
 LANG_MAP = {"RU": "Russian", "EN": "English", "AUTO": None}
@@ -30,6 +29,7 @@ DEFAULT_MODEL = Path(
     r"E:\Gemini\Unseen_University_Workshops\OmniVoice.git\models\OmniVoice"
 )
 DEFAULT_EDITORIAL = Path("editorial/CHRONICLES_TTS_PILOT_FM_PRO.txt")
+DEFAULT_STRESS = Path("editorial/CHRONICLES_TTS_RU_STRESS_OVERRIDES.txt")
 DEFAULT_OUTPUT = Path("renders_pilot")
 
 
@@ -38,6 +38,19 @@ class VoiceSpec:
     voice_id: str
     ref_audio: Path
     ref_text_file: Path
+
+
+@dataclass(frozen=True)
+class StressOverride:
+    word: str
+    tts: str
+    scope: str
+
+
+@dataclass(frozen=True)
+class Take:
+    take_id: str
+    text: str
 
 
 @dataclass(frozen=True)
@@ -51,7 +64,7 @@ class Block:
     delivery: str
     process: str
     music: str
-    text: str
+    takes: tuple[Take, ...]
 
 
 def die(message: str) -> None:
@@ -65,16 +78,43 @@ def read_text_fallback(path: Path) -> str:
         return path.read_text(encoding="cp1251")
 
 
+def clean_body_lines(lines: list[str]) -> str:
+    lines = list(lines)
+    while lines and not lines[0].strip():
+        lines.pop(0)
+    while lines and not lines[-1].strip():
+        lines.pop()
+
+    out: list[str] = []
+    blank = False
+    for raw in lines:
+        line = raw.rstrip()
+        if not line.strip():
+            if not blank:
+                out.append("")
+            blank = True
+        else:
+            out.append(line.strip())
+            blank = False
+
+    text = "\n".join(out).strip()
+    text = text.replace("[[EN]]", "").replace("[[/EN]]", "")
+
+    if "[[" in text or "]]" in text:
+        die("Unknown [[...]] service marker remains in spoken text")
+    return text
+
+
 def parse_casting(path: Path, book_root: Path) -> dict[str, VoiceSpec]:
     if not path.is_file():
         die(f"CASTING.md not found: {path}")
 
     result: dict[str, VoiceSpec] = {}
-    current: str | None = None
-    audio: str | None = None
-    text: str | None = None
+    current = None
+    audio = None
+    text = None
 
-    def flush() -> None:
+    def flush():
         nonlocal current, audio, text
         if current is None:
             return
@@ -82,14 +122,13 @@ def parse_casting(path: Path, book_root: Path) -> dict[str, VoiceSpec]:
             die(f"Unknown VOICE_ID in CASTING.md: {current}")
         if not audio or not text:
             die(f"Incomplete CASTING.md entry for {current}")
+
         result[current] = VoiceSpec(
             voice_id=current,
             ref_audio=(book_root / audio).resolve(),
             ref_text_file=(book_root / text).resolve(),
         )
-        current = None
-        audio = None
-        text = None
+        current = audio = text = None
 
     for raw in read_text_fallback(path).splitlines():
         line = raw.strip()
@@ -110,36 +149,66 @@ def parse_casting(path: Path, book_root: Path) -> dict[str, VoiceSpec]:
     return result
 
 
-def clean_body_lines(lines: list[str]) -> str:
-    # Preserve paragraph structure; remove only outer blank lines and
-    # collapse 3+ consecutive blank lines to a normal paragraph break.
-    while lines and not lines[0].strip():
-        lines.pop(0)
-    while lines and not lines[-1].strip():
-        lines.pop()
+def parse_stress_overrides(path: Path) -> list[StressOverride]:
+    if not path.is_file():
+        return []
 
-    out: list[str] = []
-    blank = False
-    for raw in lines:
-        line = raw.rstrip()
-        if not line.strip():
-            if not blank:
-                out.append("")
-            blank = True
-        else:
-            out.append(line.strip())
-            blank = False
+    result: list[StressOverride] = []
+    current: dict[str, str] = {}
 
-    text = "\n".join(out).strip()
+    def flush():
+        nonlocal current
+        if current.get("@WORD") and current.get("@TTS"):
+            result.append(
+                StressOverride(
+                    word=current["@WORD"],
+                    tts=current["@TTS"],
+                    scope=current.get("@SCOPE", "ALL"),
+                )
+            )
+        current = {}
 
-    # [[EN]] is editorial metadata, not spoken text. We deliberately keep
-    # the English words themselves inside the large block for this pilot.
-    text = text.replace("[[EN]]", "").replace("[[/EN]]", "")
+    for raw in read_text_fallback(path).splitlines():
+        line = raw.strip()
 
-    if "[[" in text or "]]" in text:
-        die("Unknown [[...]] service marker remains in spoken text")
+        if not line:
+            flush()
+            continue
+        if line.startswith("#"):
+            continue
+        if line.startswith("@"):
+            key, _, value = line.partition(" ")
+            current[key] = value.strip()
 
-    return text
+    flush()
+    return result
+
+
+def apply_stress_overrides(
+    text: str,
+    block_id: str,
+    overrides: list[StressOverride],
+) -> str:
+    result = text
+
+    for item in overrides:
+        if item.scope != "ALL" and item.scope != block_id:
+            continue
+
+        pattern = re.compile(
+            rf"(?<![\wА-Яа-яЁё]){re.escape(item.word)}(?![\wА-Яа-яЁё])",
+            re.IGNORECASE,
+        )
+
+        def repl(match):
+            source = match.group(0)
+            if source[:1].isupper():
+                return item.tts[:1].upper() + item.tts[1:]
+            return item.tts
+
+        result = pattern.sub(repl, result)
+
+    return result
 
 
 def parse_blocks(path: Path) -> list[Block]:
@@ -148,7 +217,8 @@ def parse_blocks(path: Path) -> list[Block]:
 
     lines = read_text_fallback(path).splitlines()
     blocks: list[Block] = []
-    seen: set[str] = set()
+    seen_blocks: set[str] = set()
+    seen_takes: set[str] = set()
     i = 0
 
     while i < len(lines):
@@ -161,33 +231,24 @@ def parse_blocks(path: Path) -> list[Block]:
             die(f"Expected @SEG at line {i + 1}: {lines[i]}")
 
         block_id = m.group(1)
-        if block_id in seen:
+        if block_id in seen_blocks:
             die(f"Duplicate block ID: {block_id}")
-        seen.add(block_id)
+        seen_blocks.add(block_id)
         i += 1
 
         meta: dict[str, str] = {}
+
         while i < len(lines):
             stripped = lines[i].strip()
             if not stripped:
                 i += 1
                 break
             if not stripped.startswith("@"):
-                die(f"{block_id}: expected metadata before text at line {i + 1}")
-            if stripped == "@END":
-                die(f"{block_id}: @END before text")
+                die(f"{block_id}: expected metadata before body at line {i + 1}")
+
             key, _, value = stripped.partition(" ")
             meta[key] = value.strip()
             i += 1
-
-        body_lines: list[str] = []
-        while i < len(lines) and lines[i].strip() != "@END":
-            body_lines.append(lines[i])
-            i += 1
-
-        if i >= len(lines):
-            die(f"{block_id}: missing @END")
-        i += 1
 
         required = {
             "@VOICE",
@@ -217,9 +278,77 @@ def parse_blocks(path: Path) -> list[Block]:
         if lang not in LANG_MAP:
             die(f"{block_id}: unsupported LANG {lang}")
 
-        spoken_text = clean_body_lines(body_lines)
-        if not spoken_text:
-            die(f"{block_id}: empty spoken text")
+        declared_takes = int(meta.get("@TAKES", "1"))
+        takes: list[Take] = []
+
+        if declared_takes == 1:
+            body_lines: list[str] = []
+
+            while i < len(lines) and lines[i].strip() != "@END":
+                if lines[i].strip().startswith("@TAKE"):
+                    die(
+                        f"{block_id}: @TAKES 1 but explicit @TAKE found "
+                        f"at line {i + 1}"
+                    )
+                body_lines.append(lines[i])
+                i += 1
+
+            if i >= len(lines):
+                die(f"{block_id}: missing @END")
+            i += 1
+
+            text = clean_body_lines(body_lines)
+            if not text:
+                die(f"{block_id}: empty spoken text")
+
+            takes.append(Take(take_id=block_id, text=text))
+
+        else:
+            while i < len(lines):
+                stripped = lines[i].strip()
+
+                if not stripped:
+                    i += 1
+                    continue
+
+                if stripped == "@END":
+                    i += 1
+                    break
+
+                m_take = re.fullmatch(r"@TAKE\s+(\S+)(?:\s+#.*)?", stripped)
+                if not m_take:
+                    die(
+                        f"{block_id}: expected @TAKE or @END at line {i + 1}: "
+                        f"{lines[i]}"
+                    )
+
+                take_id = m_take.group(1)
+                if take_id in seen_takes:
+                    die(f"Duplicate take ID: {take_id}")
+                seen_takes.add(take_id)
+                i += 1
+
+                body_lines = []
+
+                while i < len(lines) and lines[i].strip() != "@END_TAKE":
+                    body_lines.append(lines[i])
+                    i += 1
+
+                if i >= len(lines):
+                    die(f"{take_id}: missing @END_TAKE")
+                i += 1
+
+                text = clean_body_lines(body_lines)
+                if not text:
+                    die(f"{take_id}: empty spoken text")
+
+                takes.append(Take(take_id=take_id, text=text))
+
+            if len(takes) != declared_takes:
+                die(
+                    f"{block_id}: @TAKES says {declared_takes}, "
+                    f"but parsed {len(takes)}"
+                )
 
         blocks.append(
             Block(
@@ -232,7 +361,7 @@ def parse_blocks(path: Path) -> list[Block]:
                 delivery=meta["@DELIVERY"],
                 process=process,
                 music=music,
-                text=spoken_text,
+                takes=tuple(takes),
             )
         )
 
@@ -291,79 +420,73 @@ def parse_only(value: str | None) -> set[str] | None:
 
 def main() -> None:
     parser = argparse.ArgumentParser(
-        description="Render large voice blocks for Chronicles of the Prompter with OmniVoice."
+        description="Render Chronicles Pilot voice blocks/takes with OmniVoice."
     )
-    parser.add_argument(
-        "--book-root",
-        type=Path,
-        default=Path.cwd(),
-        help="AudioBook directory. Default: current directory.",
-    )
-    parser.add_argument(
-        "--editorial",
-        type=Path,
-        default=DEFAULT_EDITORIAL,
-        help="Pilot markup file relative to AudioBook.",
-    )
+    parser.add_argument("--book-root", type=Path, default=Path.cwd())
+    parser.add_argument("--editorial", type=Path, default=DEFAULT_EDITORIAL)
+    parser.add_argument("--stress", type=Path, default=DEFAULT_STRESS)
     parser.add_argument("--model", type=Path, default=DEFAULT_MODEL)
-    parser.add_argument(
-        "--output",
-        type=Path,
-        default=DEFAULT_OUTPUT,
-        help="Output directory relative to AudioBook.",
-    )
+    parser.add_argument("--output", type=Path, default=DEFAULT_OUTPUT)
     parser.add_argument(
         "--only",
         type=str,
         default=None,
-        help="Comma-separated block IDs, e.g. FM_001,FM_003,PRO_002,PRO_017.",
+        help="Comma-separated parent block IDs, e.g. FM_003,PRO_002,PRO_017.",
     )
-    parser.add_argument(
-        "--force",
-        action="store_true",
-        help="Re-render WAV files that already exist.",
-    )
+    parser.add_argument("--force", action="store_true")
     args = parser.parse_args()
 
     book_root = args.book_root.resolve()
+
     editorial = (
         args.editorial.resolve()
         if args.editorial.is_absolute()
         else (book_root / args.editorial).resolve()
+    )
+    stress_file = (
+        args.stress.resolve()
+        if args.stress.is_absolute()
+        else (book_root / args.stress).resolve()
     )
     output_dir = (
         args.output.resolve()
         if args.output.is_absolute()
         else (book_root / args.output).resolve()
     )
-    cache_dir = book_root / ".tts_cache" / "voice_prompts"
+
     casting_file = book_root / "CASTING.md"
+    cache_dir = book_root / ".tts_cache" / "voice_prompts"
 
     output_dir.mkdir(parents=True, exist_ok=True)
     cache_dir.mkdir(parents=True, exist_ok=True)
 
     casting = parse_casting(casting_file, book_root)
+    stress_overrides = parse_stress_overrides(stress_file)
     blocks = parse_blocks(editorial)
 
-    requested = parse_only(args.only)
-    if requested is not None:
-        known = {b.block_id for b in blocks}
-        missing = requested - known
-        if missing:
-            die(f"Unknown --only block IDs: {', '.join(sorted(missing))}")
-        blocks = [b for b in blocks if b.block_id in requested]
+    only = parse_only(args.only)
+    if only is not None:
+        known = {block.block_id for block in blocks}
+        unknown = sorted(only - known)
+        if unknown:
+            die(f"Unknown --only block ID(s): {', '.join(unknown)}")
+        blocks = [block for block in blocks if block.block_id in only]
 
-    used_voices = list(dict.fromkeys(b.voice for b in blocks))
+    used_voices = list(dict.fromkeys(block.voice for block in blocks))
     missing_voices = [v for v in used_voices if v not in casting]
     if missing_voices:
         die(f"Missing CASTING.md voices: {', '.join(missing_voices)}")
 
-    print(f"Book root : {book_root}")
-    print(f"Editorial : {editorial}")
-    print(f"Blocks    : {len(blocks)}")
-    print(f"Voices    : {', '.join(used_voices)}")
-    print(f"Output    : {output_dir}")
-    print(f"Model     : {args.model}")
+    total_takes = sum(len(block.takes) for block in blocks)
+
+    print(f"Book root  : {book_root}")
+    print(f"Editorial  : {editorial}")
+    print(f"Stress     : {stress_file}")
+    print(f"Blocks     : {len(blocks)}")
+    print(f"Takes      : {total_takes}")
+    print(f"Voices     : {', '.join(used_voices)}")
+    print(f"Output     : {output_dir}")
+    print(f"Model      : {args.model}")
     print()
 
     if not args.model.is_dir():
@@ -390,38 +513,55 @@ def main() -> None:
         )
 
     print()
-    for index, block in enumerate(blocks, start=1):
-        wav_path = output_dir / f"{block.block_id}.wav"
+    index = 0
 
-        if wav_path.is_file() and not args.force:
-            print(
-                f"[{index:02d}/{len(blocks):02d}] {block.block_id} "
-                f"{block.voice} lang={block.lang} rate={block.rate:.2f} SKIP"
+    for block in blocks:
+        block_dir = output_dir / block.block_id
+        block_dir.mkdir(parents=True, exist_ok=True)
+        language = LANG_MAP[block.lang]
+
+        for take in block.takes:
+            index += 1
+            wav_path = block_dir / f"{take.take_id}.wav"
+
+            if wav_path.is_file() and not args.force:
+                print(
+                    f"[{index:03d}/{total_takes:03d}] {take.take_id} "
+                    f"{block.voice} rate={block.rate:.2f} lang={block.lang} SKIP"
+                )
+                continue
+
+            synthesis_text = apply_stress_overrides(
+                take.text,
+                block.block_id,
+                stress_overrides,
             )
-            continue
 
-        print(
-            f"[{index:02d}/{len(blocks):02d}] {block.block_id} "
-            f"{block.voice} lang={block.lang} rate={block.rate:.2f} "
-            f"delivery={block.delivery} process={block.process}"
-        )
+            print(
+                f"[{index:03d}/{total_takes:03d}] {take.take_id} "
+                f"{block.voice} rate={block.rate:.2f} lang={block.lang}"
+            )
 
-        audio = model.generate(
-            text=block.text,
-            language=LANG_MAP[block.lang],
-            voice_clone_prompt=prompts[block.voice],
-            speed=block.rate,
-            normalize_text=False,
-            postprocess_output=True,
-        )[0]
+            audio = model.generate(
+                text=synthesis_text,
+                language=language,
+                voice_clone_prompt=prompts[block.voice],
+                speed=block.rate,
+                normalize_text=False,
+                postprocess_output=True,
+            )[0]
 
-        sf.write(wav_path, audio, model.sampling_rate, subtype="PCM_16")
-        print(f"    -> {wav_path.name}")
+            sf.write(
+                wav_path,
+                audio,
+                model.sampling_rate,
+                subtype="PCM_16",
+            )
 
     print()
     print("DONE")
-    print(f"Rendered blocks: {output_dir}")
-    print("NOTE: PAUSE / PROCESS / MUSIC metadata were NOT applied; montage stays separate.")
+    print(f"Rendered takes: {total_takes}")
+    print(f"Output: {output_dir}")
 
 
 if __name__ == "__main__":
