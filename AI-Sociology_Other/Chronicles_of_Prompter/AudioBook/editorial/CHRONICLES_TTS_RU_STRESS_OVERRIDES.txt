@@ -1,47 +1,39 @@
-# CHRONICLES_TTS_RU_STRESS_OVERRIDES — Front Matter + Prologue
-# CORRECTION 03 §3-§5. Production pronunciation metadata only.
-# The canonical book is unchanged; U+0301 is ignored by the canon gate.
-# Targeted, not exhaustive (§4): only genuine heteronyms that actually
-# occur in this scope. No render has been heard, so every STATUS is
-# UNTESTED and awaits the Author's ear.
+# CHRONICLES_TTS_RU_STRESS_OVERRIDES — ВСЯ КНИГА
+# CORRECTION 03 §3-§5 + PILOT ACCEPTED: stress correction is an OPTIONAL
+# corrective tool, applied only where meaning changes or a term becomes
+# unrecognizable. Ordinary TTS imperfection is not polished.
 #
-# @SCOPE is a PROPOSED field, not in the correction. Russian stress is
-# context-dependent, so a word-level override is unsafe for any word
-# whose stress varies. "стоит" below is the proof: two occurrences in
-# this pilot alone take opposite stress. ALL = safe everywhere in scope.
+# Four entries. Each is a true heteronym that actually occurs, and for
+# each the opposite reading was checked across the whole book and does
+# not occur — so a word-level override is safe everywhere.
+#
+# DELIBERATELY EXCLUDED: «стоит» (13 occurrences). It genuinely takes
+# both stresses in this book — «Один участник стои́т у доски» (стр.48)
+# against «мысль ещё сто́ит переделать» (стр.168) — so a word-level
+# override would break one reading or the other. Per-occurrence scoping
+# is production effort the accepted decision says not to spend; the
+# Author can replace an individual spot by ear if it distracts.
 
 @WORD начал
 @TTS на́чал
 @STATUS UNTESTED
-@SCOPE ALL
-@NOTE на́чал — прошедшее время. Риск: нача́л. FM_004 стр.36, PRO_002 стр.52
+@OCCURS 33
+@NOTE на́чал — прошедшее время. Риск: нача́л.
 
 @WORD потом
 @TTS пото́м
 @STATUS UNTESTED
-@SCOPE ALL
-@NOTE пото́м — наречие «затем». Риск: по́том (от «пот»). PRO_002 стр.52, PRO_012 стр.210
+@OCCURS 112
+@NOTE пото́м — «затем». Риск: по́том (от «пот»). Проверено: контекстов со значением «пот» в книге нет.
 
 @WORD правило
 @TTS пра́вило
 @STATUS UNTESTED
-@SCOPE ALL
-@NOTE пра́вило — норма. Риск: прави́ло (инструмент). FM_003 стр.30
+@OCCURS 16
+@NOTE пра́вило — норма. Риск: прави́ло (инструмент).
 
 @WORD уже
 @TTS уже́
 @STATUS UNTESTED
-@SCOPE ALL
-@NOTE уже́ — «к этому времени». Риск: у́же (сравн. от «узкий»). 10 вхождений, все одного значения
-
-@WORD стоит
-@TTS стои́т
-@STATUS UNTESTED
-@SCOPE PRO_002
-@NOTE стои́т — «стоит у доски», стр.48. СМ. СЛЕДУЮЩУЮ ЗАПИСЬ: в PRO_010 у того же слова ДРУГОЕ ударение
-
-@WORD стоит
-@TTS сто́ит
-@STATUS UNTESTED
-@SCOPE PRO_010
-@NOTE сто́ит — «мысль ещё стоит переделать», стр.168. Противоположно PRO_002
+@OCCURS 209
+@NOTE уже́ — «к этому времени». Риск: у́же (сравн. от «узкий»). Проверено: сравнительных контекстов в книге нет.
