@@ -1,0 +1,313 @@
+**
+(main.tex
+LaTeX2e <2021-11-15> patch level 1
+L3 programming layer <2022-02-24> (article.cls
+Document Class: article 2021/10/04 v1.4n Standard LaTeX document class
+(size11.clo
+File: size11.clo 2021/10/04 v1.4n Standard LaTeX file (size option)
+)
+\c@part=\count181
+\c@section=\count182
+\c@subsection=\count183
+\c@subsubsection=\count184
+\c@paragraph=\count185
+\c@subparagraph=\count186
+\c@figure=\count187
+\c@table=\count188
+\abovecaptionskip=\skip47
+\belowcaptionskip=\skip48
+\bibindent=\dimen138
+) (geometry.sty
+Package: geometry 2020/01/02 v5.9 Page Geometry
+ (keyval.sty
+Package: keyval 2014/10/28 v1.15 key=value parser (DPC)
+\KV@toks@=\toks16
+) (ifvtex.sty
+Package: ifvtex 2019/10/25 v1.7 ifvtex legacy package. Use iftex instead.
+ (iftex.sty
+Package: iftex 2022/02/03 v1.0f TeX engine tests
+))
+\Gm@cnth=\count189
+\Gm@cntv=\count190
+\c@Gm@tempcnt=\count191
+\Gm@bindingoffset=\dimen139
+\Gm@wd@mp=\dimen140
+\Gm@odd@mp=\dimen141
+\Gm@even@mp=\dimen142
+\Gm@layoutwidth=\dimen143
+\Gm@layoutheight=\dimen144
+\Gm@layouthoffset=\dimen145
+\Gm@layoutvoffset=\dimen146
+\Gm@dimlist=\toks17
+) (preamble
+(fontspec.sty (xparse.sty (expl3.sty
+Package: expl3 2022-02-24 L3 programming layer (loader) 
+ (l3backend-xetex.def
+File: l3backend-xetex.def 2022-02-07 L3 backend support: XeTeX
+\c__kernel_sys_dvipdfmx_version_int=\count192
+\l__color_backend_stack_int=\count193
+\g__color_backend_stack_int=\count194
+\g__graphics_track_int=\count195
+\l__pdf_internal_box=\box50
+\g__pdf_backend_object_int=\count196
+\g__pdf_backend_annotation_int=\count197
+\g__pdf_backend_link_int=\count198
+))
+Package: xparse 2022-01-12 L3 Experimental document command parser
+)
+Package: fontspec 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTeX
+
+(fontspec-xetex.sty
+Package: fontspec-xetex 2022/01/15 v2.8a Font selection for XeLaTeX and LuaLaTe
+X
+\l__fontspec_script_int=\count199
+\l__fontspec_language_int=\count266
+\l__fontspec_strnum_int=\count267
+\l__fontspec_tmp_int=\count268
+\l__fontspec_tmpa_int=\count269
+\l__fontspec_tmpb_int=\count270
+\l__fontspec_tmpc_int=\count271
+\l__fontspec_em_int=\count272
+\l__fontspec_emdef_int=\count273
+\l__fontspec_strong_int=\count274
+\l__fontspec_strongdef_int=\count275
+\l__fontspec_tmpa_dim=\dimen147
+\l__fontspec_tmpb_dim=\dimen148
+\l__fontspec_tmpc_dim=\dimen149
+ (fontenc.sty
+Package: fontenc 2021/04/29 v2.0v Standard LaTeX package
+) (fontspec.cfg))) (polyglossia.sty
+Package: polyglossia 2021/04/12 v1.53 Modern multilingual typesetting with XeLa
+TeX and LuaLaTeX
+
+(etoolbox.sty
+Package: etoolbox 2020/10/05 v2.5k e-TeX tools for LaTeX (JAW)
+\etb@tempcnta=\count276
+) (makecmds.sty
+Package: makecmds 2009/09/03 v1.0a extra command making commands
+) (xkeyval.sty
+Package: xkeyval 2020/11/20 v2.8 package option processing (HA)
+ (xkeyval (xkvutils
+\XKV@toks=\toks18
+\XKV@tempa@toks=\toks19
+)
+\XKV@depth=\count277
+File: xkeyval.tex 2014/12/03 v2.7a key=value parser (HA)
+)) (l3keys2e.sty
+Package: l3keys2e 2022-01-12 LaTeX2e option processing using LaTeX3 keys
+)
+
+LaTeX hooks Warning: Generic hook 'file/after/tracklang.sty' is deprecated.
+(hooks)              Use hook 'file/tracklang.sty/after' instead.
+
+
+LaTeX hooks Warning: Generic hook 'package/after/bidi' is deprecated.
+(hooks)              Use hook 'package/bidi/after' instead.
+
+
+LaTeX hooks Warning: Generic hook 'package/after/luabidi' is deprecated.
+(hooks)              Use hook 'package/luabidi/after' instead.
+
+\xpg@normalclass=\XeTeXcharclass1
+(gloss-latex.ldf
+File: gloss-latex.ldf polyglossia: module for default language
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+)
+Package polyglossia Info: Default language is latex.
+) (gloss-english.ldf
+File: gloss-english.ldf polyglossia: module for english
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/script}  =>  {latin}
+>  {english/lcscript}  =>  {latin}
+>  {english/scripttag}  =>  {}
+>  {english/language}  =>  {English}
+>  {english/langtag}  =>  {ENG}
+>  {english/bcp47}  =>  {en-US}
+>  {english/hyphennames}  =>  {english,american,usenglish,USenglish}
+>  {english/direction}  =>  {LR}
+>  {english/hyphenmins}  =>  {2,3}
+>  {english/frenchspacing}  =>  {false}
+>  {english/indentfirst}  =>  {false}
+>  {english/fontsetup}  =>  {true}
+>  {english/envname}  =>  {english}
+>  {english/babelname}  =>  {english}
+>  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+Package polyglossia Info: Option: English, variant=american.
+)
+Package polyglossia Info: Default language is english.
+ (gloss-russian.ldf
+File: gloss-russian.ldf polyglossia: module for russian
+
+(xpg-cyrillicnumbers.sty
+Package: xpg-cyrillicnumbers 2019/11/15 v0.2 Formatting of Cyrillic alphabetic 
+numbers
+)
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/script}  =>  {latin}
+>  {english/lcscript}  =>  {latin}
+>  {english/scripttag}  =>  {}
+>  {english/language}  =>  {English}
+>  {english/langtag}  =>  {ENG}
+>  {english/bcp47}  =>  {en-US}
+>  {english/hyphennames}  =>  {english,american,usenglish,USenglish}
+>  {english/direction}  =>  {LR}
+>  {english/hyphenmins}  =>  {2,3}
+>  {english/frenchspacing}  =>  {false}
+>  {english/indentfirst}  =>  {false}
+>  {english/fontsetup}  =>  {true}
+>  {english/envname}  =>  {english}
+>  {english/babelname}  =>  {american}
+>  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {russian/script}  =>  {Cyrillic}
+>  {russian/lcscript}  =>  {cyrillic}
+>  {russian/scripttag}  =>  {cyrl}
+>  {russian/language}  =>  {Russian}
+>  {russian/langtag}  =>  {RUS}
+>  {russian/bcp47}  =>  {ru}
+>  {russian/hyphennames}  =>  {russian}
+>  {russian/direction}  =>  {LR}
+>  {russian/hyphenmins}  =>  {2,2}
+>  {russian/frenchspacing}  =>  {true}
+>  {russian/indentfirst}  =>  {true}
+>  {russian/fontsetup}  =>  {true}
+>  {russian/envname}  =>  {russian}
+>  {russian/babelname}  =>  {russian}
+>  {russian/localnumeral}  =>  {russiannumerals}
+>  {russian/Localnumeral}  =>  {Russiannumerals}.
+Package polyglossia Info: Option: Russian, numerals=arabic.
+ (babelsh.def
+File: babelsh.def 2019/09/30 Babel common definitions for shorthands
+ Taken verbatim from babel files (2019/09/27 v3.34)
+)
+Package polyglossia Info: Making " an active character on input line 97.
+) (gloss-dutch.ldf
+File: gloss-dutch.ldf polyglossia: module for dutch
+The property list \polyglossia@langsetup contains the pairs (without outer
+braces):
+>  {latex/script}  =>  {latin}
+>  {latex/lcscript}  =>  {latin}
+>  {latex/scripttag}  =>  {}
+>  {latex/language}  =>  {Latex}
+>  {latex/langtag}  =>  {ENG}
+>  {latex/bcp47}  =>  {}
+>  {latex/hyphennames}  =>  {english}
+>  {latex/direction}  =>  {LR}
+>  {latex/hyphenmins}  =>  {2,3}
+>  {latex/frenchspacing}  =>  {false}
+>  {latex/indentfirst}  =>  {false}
+>  {latex/fontsetup}  =>  {true}
+>  {latex/envname}  =>  {latex}
+>  {latex/babelname}  =>  {latex}
+>  {latex/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {latex/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/script}  =>  {latin}
+>  {english/lcscript}  =>  {latin}
+>  {english/scripttag}  =>  {}
+>  {english/language}  =>  {English}
+>  {english/langtag}  =>  {ENG}
+>  {english/bcp47}  =>  {en-US}
+>  {english/hyphennames}  =>  {english,american,usenglish,USenglish}
+>  {english/direction}  =>  {LR}
+>  {english/hyphenmins}  =>  {2,3}
+>  {english/frenchspacing}  =>  {false}
+>  {english/indentfirst}  =>  {false}
+>  {english/fontsetup}  =>  {true}
+>  {english/envname}  =>  {english}
+>  {english/babelname}  =>  {american}
+>  {english/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {english/Localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {russian/script}  =>  {Cyrillic}
+>  {russian/lcscript}  =>  {cyrillic}
+>  {russian/scripttag}  =>  {cyrl}
+>  {russian/language}  =>  {Russian}
+>  {russian/langtag}  =>  {RUS}
+>  {russian/bcp47}  =>  {ru}
+>  {russian/hyphennames}  =>  {russian}
+>  {russian/direction}  =>  {LR}
+>  {russian/hyphenmins}  =>  {2,2}
+>  {russian/frenchspacing}  =>  {true}
+>  {russian/indentfirst}  =>  {true}
+>  {russian/fontsetup}  =>  {true}
+>  {russian/envname}  =>  {russian}
+>  {russian/babelname}  =>  {russian}
+>  {russian/localnumeral}  =>  {russiannumerals}
+>  {russian/Localnumeral}  =>  {Russiannumerals}
+>  {dutch/script}  =>  {latin}
+>  {dutch/lcscript}  =>  {latin}
+>  {dutch/scripttag}  =>  {}
+>  {dutch/language}  =>  {Dutch}
+>  {dutch/langtag}  =>  {NLD}
+>  {dutch/bcp47}  =>  {nl}
+>  {dutch/hyphennames}  =>  {dutch}
+>  {dutch/direction}  =>  {LR}
+>  {dutch/hyphenmins}  =>  {2,2}
+>  {dutch/frenchspacing}  =>  {true}
+>  {dutch/indentfirst}  =>  {false}
+>  {dutch/fontsetup}  =>  {true}
+>  {dutch/envname}  =>  {dutch}
+>  {dutch/babelname}  =>  {dutch}
+>  {dutch/localnumeral}  =>  {polyglossia@C@localnumeral}
+>  {dutch/Localnumeral}  =>  {polyglossia@C@localnumeral}.
+)
+
+! Package fontspec Error: The font "times" cannot be found.
+
+For immediate help type H <return>.
+ ...                                              
+                                                  
+l.70   }{}
+          %
+No pages of output.
