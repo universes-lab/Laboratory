@@ -48,6 +48,28 @@
 \ifdefined\rudone\else\pickru{DejaVu Serif}\fi
 \ifdefined\rudone\else\pickru{FreeSerif}\fi
 
+% Final local Windows fallback for Tectonic/XeTeX builds. Tectonic may not
+% expose the TeX Live font families above by name, while the standard Windows
+% Times New Roman files are present and carry Cyrillic. This is a local build
+% fallback only; it does not affect article prose.
+\ifdefined\rudone\else
+  \IfFileExists{C:/Windows/Fonts/times.ttf}{%
+    \newfontfamily\russianfont[
+      Path=C:/Windows/Fonts/,
+      BoldFont=timesbd.ttf,
+      ItalicFont=timesi.ttf,
+      BoldItalicFont=timesbi.ttf
+    ]{times.ttf}%
+    \newfontfamily\cyrillicfont[
+      Path=C:/Windows/Fonts/,
+      BoldFont=timesbd.ttf,
+      ItalicFont=timesi.ttf,
+      BoldItalicFont=timesbi.ttf
+    ]{times.ttf}%
+    \global\let\rudone\relax
+  }{}%
+\fi
+
 \usepackage{amssymb}
 \usepackage{tabularx}
 \usepackage{xltabular}
