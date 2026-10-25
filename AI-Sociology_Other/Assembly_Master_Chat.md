@@ -1439,5 +1439,26 @@ Beyond_Prompt_Engineering__Role_Reconfiguration_in_Long-Lived_AI_Conversations_E
 `Appendix A` пока **не будем ложно объявлять найденным**: утраченные первичные материалы остаются `NOT PRESERVED`, как уже принято.
 
 После получения этого PDF — сразу идём в твой Zenodo draft `23617891`, без нового редакционного круга.
+===
+Готово. Исправил **сам на репо** и перепроверил, что правка действительно там.
+
+Что изменено: если Tectonic не видит `Libertinus / Liberation / DejaVu / FreeSerif`, он теперь берёт для русской части **Times New Roman напрямую из `C:\Windows\Fonts`** и явно создаёт `\russianfont` + `\cyrillicfont`.
+
+Коммит:
+
+```text
+4609a0617d8de126d7ba4439872b090458425fc3
+```
+
+Теперь у себя просто подтяни изменение:
+
+```powershell
+git pull
+```
+
+И снова запускай Tectonic из `zenodo_build`.
+
+Если ошибка `polyglossia ... current latin font does not contain Cyrillic` исчезнет — больше шрифты не трогаем. Предупреждения про absolute Windows font path для нашего **локального Zenodo PDF** допустимы; нам важен готовый бинарник `Beyond_Prompt_Engineering__Role_Reconfiguration_in_Long-Lived_AI_Conversations_EN-RU-NL.pdf`.
+
 ---
 END OF CURRENT LOG
