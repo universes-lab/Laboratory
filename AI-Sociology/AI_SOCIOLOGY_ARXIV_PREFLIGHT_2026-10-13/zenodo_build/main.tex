@@ -1,0 +1,93 @@
+% ===========================================================================
+% AI-Sociology — arXiv source bundle, top-level file
+%
+% COMPILE WITH XeLaTeX:
+%     xelatex main && bibtex main && xelatex main && xelatex main
+%
+% Source provenance (verified by git hash-object before conversion):
+%   English master  BEYOND_PROMPT_ENGINEERING_CHIEF_EDITOR_FINAL_CANDIDATE.md
+%                   blob 7b380cb41659e1570c0194b0a2b4963f6388c259
+%   Russian master  BEYOND_PROMPT_ENGINEERING_CHIEF_EDITOR_FINAL_RU.md
+%                   blob 897157b7017c371582eefa24fdf1559d89b69020
+%
+% The .tex editions are technical conversions of those masters. No prose was
+% reformulated, reordered, added or removed; the conversion is verified by a
+% word-stream round-trip against each master.
+%
+% Edition order follows PACKAGE_LAYOUT.md:
+%   English -> Appendix A -> Russian -> (Dutch, only if Author includes it)
+% ===========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% --- release switches ------------------------------------------------------
+% B2/B3: flip to \ApprovedMetadatatrue when the Author approves title+abstract.
+\newif\ifApprovedMetadata  \ApprovedMetadatafalse
+% B1: flip to \AppendixAReadytrue when the primary transcripts are supplied.
+\newif\ifAppendixAReady    \AppendixAReadyfalse
+% Dutch edition in the same arXiv item: Author decision, non-blocking.
+% Set TRUE in this internal proof so the Author can review all three editions
+% in one PDF. For an English+Russian arXiv v1, set \IncludeDutchfalse.
+\newif\ifIncludeDutch      \IncludeDutchtrue
+
+\usepackage[a4paper,margin=28mm]{geometry}
+\input{preamble}
+\input{metadata}
+
+\hypersetup{pdftitle={\PaperTitle},pdfauthor={\PaperAuthor}}
+
+\begin{document}
+
+% --- title page ------------------------------------------------------------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\LARGE\bfseries \PaperTitle \par}
+\vspace{1.4cm}
+{\large \PaperAuthor \par}
+\vspace{2cm}
+\DraftBanner
+\begin{abstract}
+\noindent \PaperAbstract
+\end{abstract}
+\vfill
+{\small Amsterdam, July 2026\par}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+% ===========================================================================
+% 1. ENGLISH EDITION  (frozen master, technical conversion only)
+% ===========================================================================
+\input{article_en}
+
+% ===========================================================================
+% 2. APPENDIX A — primary evidence belonging to the English edition
+% ===========================================================================
+\clearpage
+\input{appendix_a}
+
+% ===========================================================================
+% 3. RUSSIAN EDITION  (approved translation sibling)
+% ===========================================================================
+\clearpage
+\input{article_ru}
+
+% ===========================================================================
+% 4. DUTCH EDITION  (sibling; included only on Author decision)
+% ===========================================================================
+\ifIncludeDutch
+  \clearpage
+  \input{article_nl}
+\fi
+
+% ===========================================================================
+% REFERENCES
+% ===========================================================================
+\clearpage
+\phantomsection
+\addcontentsline{toc}{section}{References}
+\bibliography{references}
+
+\end{document}

@@ -1,0 +1,117 @@
+% ---------------------------------------------------------------------------
+% AI-Sociology arXiv package — shared preamble
+% Engine: XeLaTeX (required: Cyrillic in article_ru.tex, Unicode glyphs)
+% This file carries no article prose.
+% ---------------------------------------------------------------------------
+
+\usepackage{fontspec}
+
+% --- fonts -----------------------------------------------------------------
+% Font cascade: first available wins. Every candidate covers Latin and
+% Cyrillic, so the package compiles on a minimal TeX Live as well as on the
+% arXiv build host.
+\newcommand{\pickmain}[1]{\IfFontExistsTF{#1}{\setmainfont{#1}\global\let\pickdone\relax}{}}
+\newcommand{\pickmono}[1]{\IfFontExistsTF{#1}{\setmonofont{#1}[Scale=MatchLowercase]\global\let\monodone\relax}{}}
+
+% Candidates are ordered by typographic preference AMONG fonts that carry both
+% Latin and Cyrillic. TeX Gyre Termes is last because some TeX Live builds ship
+% it without Cyrillic coverage (verified locally: 17 missing glyphs), which
+% would silently drop the entire Russian edition from the PDF.
+\ifdefined\pickdone\else\pickmain{Libertinus Serif}\fi
+\ifdefined\pickdone\else\pickmain{Liberation Serif}\fi
+\ifdefined\pickdone\else\pickmain{DejaVu Serif}\fi
+\ifdefined\pickdone\else\pickmain{FreeSerif}\fi
+\ifdefined\pickdone\else\pickmain{TeX Gyre Termes}\fi
+
+\ifdefined\monodone\else\pickmono{DejaVu Sans Mono}\fi
+\ifdefined\monodone\else\pickmono{Liberation Mono}\fi
+\ifdefined\monodone\else\pickmono{Latin Modern Mono}\fi
+
+% --- languages -------------------------------------------------------------
+% English is the main language; the Russian and Dutch editions are wrapped in
+% their own language environments so that hyphenation and spacing follow the
+% edition rather than the host document.
+% NOTE: a minimal TeX Live without texlive-lang-cyrillic / -european loads no
+% Russian or Dutch hyphenation patterns and warns accordingly. The arXiv build
+% host carries the full set, so those editions hyphenate correctly there; the
+% only local symptom is additional overfull boxes inside those two editions.
+\usepackage{polyglossia}
+\setmainlanguage{english}
+\setotherlanguage{russian}
+\setotherlanguage{dutch}
+
+% Second guard: bind the Russian edition to a family verified to carry
+% Cyrillic, so the Russian text survives even if the main font does not.
+\newcommand{\pickru}[1]{\IfFontExistsTF{#1}{\newfontfamily\russianfont{#1}\global\let\rudone\relax}{}}
+\ifdefined\rudone\else\pickru{Libertinus Serif}\fi
+\ifdefined\rudone\else\pickru{Liberation Serif}\fi
+\ifdefined\rudone\else\pickru{DejaVu Serif}\fi
+\ifdefined\rudone\else\pickru{FreeSerif}\fi
+
+\usepackage{amssymb}
+\usepackage{tabularx}
+\usepackage{xltabular}
+\usepackage{booktabs}
+\usepackage{longtable}
+\usepackage{microtype}
+\usepackage[hidelinks,unicode]{hyperref}
+
+% --- glyph macros ----------------------------------------------------------
+% The frozen masters use these characters. They are routed through macros so
+% the printed character never depends on one particular font being installed
+% (verified locally: DejaVu Serif carries neither U+2713 nor U+26A0).
+% Semantics are unchanged; only the glyph shape is normalised.
+\newcommand{\gcheck}{\checkmark}                      % ✓ verified reference
+\newcommand{\gwarn}{\ensuremath{\triangle}}           % ⚠ provisional reference
+\newcommand{\gharr}{\ensuremath{\leftrightarrow}}     % ↔
+\newcommand{\grarr}{\ensuremath{\rightarrow}}         % →
+\newcommand{\gtimes}{\ensuremath{\times}}             % ×
+\newcommand{\gsect}{\S}                               % §
+
+% --- section cross-references ---------------------------------------------
+% \secref{4.5.4} prints "§4.5.4" exactly as the frozen text does, and links to
+% that section when the label exists in the current edition. All 294 uses in
+% the English master resolve; none is dangling.
+\newcommand{\EditionPrefix}{en}
+\makeatletter
+\newcommand{\secref}[1]{%
+  \edef\sr@target{sec:\EditionPrefix:#1}%
+  \ifcsname r@\sr@target\endcsname
+    \expandafter\hyperref\expandafter[\sr@target]{\S#1}%
+  \else
+    \S#1%
+  \fi}
+\makeatother
+
+% --- structures used by the converted editions -----------------------------
+\newcounter{dummysec}
+
+% Front-matter contributor block: the frozen masters carry this as a
+% preformatted block. Content is reproduced word for word; only the
+% typesetting is changed.
+% \obeylines turns each source newline into a line break, so the block needs
+% no explicit \\ and the preformatted layout of the master is preserved.
+\newenvironment{frontmatterblock}
+  {\par\medskip\begingroup\small\raggedright
+   \setlength{\parindent}{0pt}\setlength{\parskip}{0pt}
+   \obeylines\obeyspaces}
+  {\endgroup\par\medskip}
+
+% Starred sectioning is used throughout, because the section numbers are part
+% of the frozen text (and the English master has no §8.4). Automatic numbering
+% would silently renumber and break the printed numbers that the article's own
+% 294 cross-references depend on.
+\setcounter{secnumdepth}{0}
+\setcounter{tocdepth}{2}
+
+% Tables in these editions are prose-heavy; allow a little more tolerance than
+% the default so that narrow cells do not produce spurious overfull boxes.
+% A small global emergency stretch absorbs the few lines whose long hyphenated
+% compounds and identifiers cannot otherwise be broken. Typographic only.
+\emergencystretch=3em
+\setlength{\tabcolsep}{4pt}
+\renewcommand{\arraystretch}{1.12}
+
+% --- bibliography ----------------------------------------------------------
+\usepackage[numbers,sort&compress]{natbib}
+\bibliographystyle{plainnat}

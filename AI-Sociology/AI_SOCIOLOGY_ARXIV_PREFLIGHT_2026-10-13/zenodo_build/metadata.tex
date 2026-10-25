@@ -1,0 +1,54 @@
+% ---------------------------------------------------------------------------
+% Title / author / abstract — PUBLICATION BLOCKER B2 / B3
+%
+% The frozen English master contains NO title heading and NO abstract. The
+% text below is the Chief Integrator's proposal from
+% AI_SOCIOLOGY_ARXIV_PREFLIGHT_2026-10-11, reproduced here unchanged. It is
+% NOT Author-approved and is therefore not editorial content of this package.
+%
+% TO RELEASE: set \ApprovedMetadatatrue in main.tex. That single line is the
+% only change required; the draft banner disappears and the title page becomes
+% submission-ready. Nothing else in the package depends on approval.
+% ---------------------------------------------------------------------------
+
+\newcommand{\PaperTitle}{Beyond Prompt Engineering: Role Reconfiguration in
+Long-Lived AI Conversations}
+
+% B3: the printed manuscript front matter carries "V. Krasnianskyi (A'Tuin)".
+% The Integrator proposes "V. Krasnianskyi" for arXiv metadata. The printed
+% author line below follows the frozen manuscript; the metadata form is an
+% Author decision and is not settled here.
+\newcommand{\PaperAuthor}{V. Krasnianskyi}
+
+\newcommand{\PaperAbstract}{%
+This paper reports a field study of long-lived, persistently specialized
+language-model conversations used in a human-directed research collaboration,
+with one designed role-reconfiguration intervention embedded in the record.
+Two dormant conversations from different model families were each subjected to
+three sequential attempts to change professional function. The preserved
+responses support a narrow pattern: resistance tracked prompts that required
+the recipient to affirm unverifiable propositions about its own identity,
+history, or institutional relationships, rather than the magnitude of role or
+domain change. A rewritten prompt that removed such self-claims was accepted
+without negotiation. Ancillary observations suggest persistent effects at the
+episode and conversation levels, while account-level effects remain open and
+model-family effects are untested because family and trajectory were
+confounded. We distinguish represented social position and represented social
+source from implemented multi-agent interaction, propose a count of
+unverifiable self-claims as an operational prompt variable, and describe
+conversational branch reset as a control procedure. The evidence is limited to
+one project, one human operator, one observation per condition, no blinding,
+and no replication. The paper therefore presents a testable research programme
+and design rules rather than evidence that any collaborative architecture
+outperforms alternatives.}
+
+\newcommand{\DraftBanner}{%
+  \ifApprovedMetadata\else
+    \begin{center}\small\fbox{\parbox{0.86\linewidth}{\centering
+      \textbf{INTERNAL PROOF COPY — NOT FOR SUBMISSION}\\[2pt]
+      Title and abstract are the Integrator's proposal and are pending Author
+      approval (blocker B2). Appendix A primary evidence is not yet supplied
+      (blocker B1). Set \texttt{\textbackslash ApprovedMetadatatrue} in
+      \texttt{main.tex} once both are released.}}\end{center}
+    \medskip
+  \fi}
