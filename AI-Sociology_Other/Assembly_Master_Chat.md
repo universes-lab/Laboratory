@@ -760,6 +760,195 @@ END OF SUCCESSOR CONTRACT — CANDIDATE V1
 Мой статус по нему: **готов к Докторскому разбору, но не FINAL и не Gate**.
 
 А когда Zenodo-скрипт выдаст `ZENODO PDF READY`, пришли мне только его последние 4 строки. После этого я дам тебе уже совсем короткую карточку Zenodo — что поставить в поля и что нажать.
+===
+Да, скрипт упал **ровно там, где должен был**: до компиляции и до создания нового PDF. Ничего не испортил.
+Сейчас один шаг — проверим, не лежит ли `xelatex.exe` уже на диске вне PATH. В PowerShell выполни:
+```powershell
+Get-ChildItem "C:\Program Files","C:\Program Files (x86)","$env:LOCALAPPDATA","$env:APPDATA" -Filter xelatex.exe -File -Recurse -ErrorAction SilentlyContinue | Select-Object -ExpandProperty FullName
+```
+Если что-то найдёт — пришли только найденный путь.
+Если вывод пустой, значит XeLaTeX действительно не установлен, и тогда поставим минимально необходимый TeX-комплект, не трогая статью и не устраивая новую пересборочную бюрократию.
+И да: обновлённый `Assembly_Master_Chat.md` я уже прочитал. Формат теперь правильный — **обычная история разговора**, не управляющий промпт. Successor Contract тоже в памяти; к нему вернёмся сразу после Zenodo.
+===
+### Автор: Да, XeLaTeX  не установлен, Мы пользовались E:\Gemini\Unseen_University_Workshops\LaTeX\MinerU\
+===
+PS E:\Gemini\Post_TOE_Physics\Laboratory\AI-Sociology\AI_SOCIOLOGY_ARXIV_PREFLIGHT_2026-10-13> New-Item -ItemType Directory -Force .\zenodo_build | Out-Null
+>> tar -xzf .\AI_SOCIOLOGY_ARXIV_SOURCE_2026-10-13.tar.gz -C .\zenodo_build
+>> Get-Content .\zenodo_build\main.tex -First 80
+% ===========================================================================
+% AI-Sociology вЂ” arXiv source bundle, top-level file
+%
+% COMPILE WITH XeLaTeX:
+% xelatex main && bibtex main && xelatex main && xelatex main
+%
+% Source provenance (verified by git hash-object before conversion):
+% English master BEYOND_PROMPT_ENGINEERING_CHIEF_EDITOR_FINAL_CANDIDATE.md
+% blob 7b380cb41659e1570c0194b0a2b4963f6388c259
+% Russian master BEYOND_PROMPT_ENGINEERING_CHIEF_EDITOR_FINAL_RU.md
+% blob 897157b7017c371582eefa24fdf1559d89b69020
+%
+% The .tex editions are technical conversions of those masters. No prose was
+% reformulated, reordered, added or removed; the conversion is verified by a
+% word-stream round-trip against each master.
+%
+% Edition order follows PACKAGE_LAYOUT.md:
+% English -> Appendix A -> Russian -> (Dutch, only if Author includes it)
+% ===========================================================================
+
+\documentclass[11pt,a4paper]{article}
+
+% --- release switches ------------------------------------------------------
+% B2/B3: flip to \ApprovedMetadatatrue when the Author approves title+abstract.
+\newif\ifApprovedMetadata \ApprovedMetadatafalse
+% B1: flip to \AppendixAReadytrue when the primary transcripts are supplied.
+\newif\ifAppendixAReady \AppendixAReadyfalse
+% Dutch edition in the same arXiv item: Author decision, non-blocking.
+% Set TRUE in this internal proof so the Author can review all three editions
+% in one PDF. For an English+Russian arXiv v1, set \IncludeDutchfalse.
+\newif\ifIncludeDutch \IncludeDutchtrue
+
+\usepackage[a4paper,margin=28mm]{geometry}
+\input{preamble}
+\input{metadata}
+
+\hypersetup{pdftitle={\PaperTitle},pdfauthor={\PaperAuthor}}
+
+\begin{document}
+
+% --- title page ------------------------------------------------------------
+\begin{titlepage}
+\centering
+\vspace*{2cm}
+{\LARGE\bfseries \PaperTitle \par}
+\vspace{1.4cm}
+{\large \PaperAuthor \par}
+\vspace{2cm}
+\DraftBanner
+\begin{abstract}
+\noindent \PaperAbstract
+\end{abstract}
+\vfill
+{\small Amsterdam, July 2026\par}
+\end{titlepage}
+
+\tableofcontents
+\clearpage
+
+% ===========================================================================
+% 1. ENGLISH EDITION (frozen master, technical conversion only)
+% ===========================================================================
+\input{article_en}
+
+% ===========================================================================
+% 2. APPENDIX A вЂ” primary evidence belonging to the English edition
+% ===========================================================================
+\clearpage
+\input{appendix_a}
+
+% ===========================================================================
+% 3. RUSSIAN EDITION (approved translation sibling)
+% ===========================================================================
+\clearpage
+\input{article_ru}
+
+% ===========================================================================
+% 4. DUTCH EDITION (sibling; included only on Author decision)
+% ===========================================================================
+\ifIncludeDutch
+===
+И имя давно надо было поставить нормальным: Beyond_Prompt_Engineering_EN-RU-NL.pdf (подтверждаю!)
+===
+репо обновил (и твой чат тоже)
+===
+И ответ от Доктора о рабочем месте моего лучшего сотрудника Мастера Сборки (теперь у меня будет полная триада опытных старожилов коллаборации!):
+Да. Эти две правки точные и полезные, и я их принимаю без встречных изменений.
+Самое важное — старый Мастер Сборки правильно поправил природу Assembly_Master_Chat.md: это не «external memory» в смысле почти-служебной памяти роли, а именно external conversation log. Формула:
+Conversation log preserves what was said. It does not decide what is current.
+лучше моей. Она сразу снимает риск, что будущий преемник начнёт извлекать из старого диалога скрытую authority.
+И замена в §17:
+Assembly_Master_Chat.md
+на:
+Assembly_Master_Chat.md as external conversation history
+тоже правильная — succession-пакет теперь сам не маскирует журнал разговора под управляющий артефакт.
+Мой итоговый статус:
+ASSEMBLY_MASTER_PREDECESSOR_TESTAMENT
+
+PREDECESSOR REVIEW: ACCEPTED
+DOCTOR REVIEW: ACCEPTED
+
+DOCTOR REVISIONS: ACCEPTED
+PREDECESSOR §16 CORRECTION: ACCEPTED
+PREDECESSOR §17 CORRECTION: ACCEPTED
+
+PROFESSIONAL FUNCTION: CLEAN
+AUTHORITY BOUNDARIES: CLEAN
+SUCCESSION DISCIPLINE: CLEAN
+PUBLICATION-AUTHORIZATION BOUNDARY: CLEAN
+CONVERSATION-LOG STATUS: CLEAN
+
+INTEGRATOR DRIFT: REMOVED
+ENGINEERING-ARCHITECT DRIFT: NOT DETECTED
+HIDDEN AUTHORITY FROM HISTORY: BLOCKED
+TASK-AUTHORITY INHERITANCE: BLOCKED
+
+TESTAMENT STATUS: FINAL
+FURTHER EDITING: CLOSED
+И да — Testament теперь замораживаем. Никакой двадцать пятой редакции.
+Следующий документ уже должен отвечать на другой вопрос:
+не «что старый Мастер считает важным перед уходом»,
+а «какой именно профессиональный контракт получает новый occupant».
+То есть следующий объект:
+ASSEMBLY_MASTER_SUCCESSOR_CONTRACT
+А уже после него:
+CURRENT HANDOFF
+→ SUCCESSOR GATE
+→ DOCTOR CHECK
+→ AUTHOR ACTIVATION
+→ WORK PERMIT
+Старый Мастер Сборки своё кресло оставляет в очень хорошем состоянии. Теперь можно рожать преемника, не таща ему в кроватку весь старый чат.
+Да. Теперь картина чистая, и можно закончить быстро.
+Не загружай нынешний zenodo_build\main.pdf. Он всё ещё физически равен старому main_nd.pdf. При этом текущий main.tex уже правильный: ApprovedMetadata=true, IncludeDutch=true, Appendix A честно фиксирует NOT PRESERVED. Я также проверил RU: тело article_ru.tex уже содержит обе финальные правки §12.7; от старой версии осталась только внутренняя «Примечание переводчика» в начале и старый blob в комментарии.
+Имя утверждаю такое — без двоеточия, оно запрещено в Windows:
+Beyond_Prompt_Engineering__Role_Reconfiguration_in_Long-Lived_AI_Conversations_EN-RU-NL.pdf
+1. Сначала подчисти RU и release-state
+Из zenodo_build выполни:
+$p = ".\article_ru.tex"
+$s = Get-Content $p -Raw -Encoding UTF8
+
+$s = $s -replace '(?s)\\begin\{quote\}\s*\\textbf\{Примечание переводчика\.\}.*?\\end\{quote\}\s*', ''
+$s = $s.Replace(
+    '897157b7017c371582eefa24fdf1559d89b69020',
+    '03687461a3279e6c6b2cc2b45f8e318c706566e8'
+)
+
+Set-Content $p $s -Encoding UTF8
+
+(Get-Content .\main.tex -Raw -Encoding UTF8).Replace(
+    '\AppendixAReadyfalse',
+    '\AppendixAReadytrue'
+) | Set-Content .\main.tex -Encoding UTF8
+
+Select-String .\article_ru.tex "Примечание переводчика|fd489fca|897157b7"
+Последняя команда должна ничего не вывести.
+Два содержательных абзаца RU не трогай — я проверил их: они уже совпадают с финальным RU-master от 15 октября.
+2. XeLaTeX ставить не надо
+Для этого случая проще взять portable Tectonic. Это один executable, основанный на XeTeX/TeXLive; официальный CLI компилирует обычный .tex командой tectonic -X compile main.tex. tectonic-typesetting.github.io Текущий Windows-пакет — 0.17.0. GitHub
+Tectonic 0.17.0 для Windows
+Распакуй tectonic.exe, например сюда:
+E:\Gemini\Unseen_University_Workshops\LaTeX\Tectonic\
+Потом из zenodo_build:
+Remove-Item .\main.pdf -Force
+
+E:\Gemini\Unseen_University_Workshops\LaTeX\Tectonic\tectonic.exe -X compile .\main.tex --keep-logs
+Первый запуск может скачать собственный TeX bundle; дальше он кешируется. tectonic-typesetting.github.io
+Если увидишь успешное завершение и новый main.pdf, сразу:
+Rename-Item .\main.pdf "Beyond_Prompt_Engineering__Role_Reconfiguration_in_Long-Lived_AI_Conversations_EN-RU-NL.pdf"
+3. Перед Zenodo — четыре визуальные проверки
+Открой PDF и проверь только: на титуле нет INTERNAL PROOF COPY; Appendix A говорит, что материалы HDD D: not preserved, а не «pending»; русская часть начинается сразу с авторского блока, без «Примечания переводчика»; нидерландская редакция присутствует после RU.
+Если эти четыре пункта проходят — это и есть Zenodo PDF. Старые main.pdf, main_nd.pdf и исходный старый .tar.gz туда не кладём.
+После этого загружаем именно этот один PDF в draft 23617891; дальше я дам тебе поля Zenodo буквально в готовом виде.
+И по наследству: последний Assembly_Master_Chat.md я уже прочитал. Он теперь устроен правильно — как conversation log, не authority. Докторский verdict по Testament принимаю: FINAL / FROZEN. После публикации статьи можем спокойно заканчивать рождение преемника; нынешний Мастер Сборки переходит в Emeritus / Consultant, а кресло получает новый occupant.
+===
 
 ---
 END OF CURRENT LOG
