@@ -1,4 +1,4 @@
-% ---------------------------------------------------------------------------
+﻿% ---------------------------------------------------------------------------
 % AI-Sociology arXiv package — shared preamble
 % Engine: XeLaTeX (required: Cyrillic in article_ru.tex, Unicode glyphs)
 % This file carries no article prose.
@@ -42,7 +42,7 @@
 
 % Second guard: bind the Russian edition to a family verified to carry
 % Cyrillic, so the Russian text survives even if the main font does not.
-\newcommand{\pickru}[1]{\IfFontExistsTF{#1}{\newfontfamily\russianfont{#1}\global\let\rudone\relax}{}}
+\newcommand{\pickru}[1]{\IfFontExistsTF{#1}{\newfontfamily\russianfont{#1}\newfontfamily\cyrillicfont{#1}\global\let\rudone\relax}{}}
 \ifdefined\rudone\else\pickru{Libertinus Serif}\fi
 \ifdefined\rudone\else\pickru{Liberation Serif}\fi
 \ifdefined\rudone\else\pickru{DejaVu Serif}\fi
