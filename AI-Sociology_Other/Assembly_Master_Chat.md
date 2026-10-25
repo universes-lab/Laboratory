@@ -1459,6 +1459,21 @@ git pull
 И снова запускай Tectonic из `zenodo_build`.
 
 Если ошибка `polyglossia ... current latin font does not contain Cyrillic` исчезнет — больше шрифты не трогаем. Предупреждения про absolute Windows font path для нашего **локального Zenodo PDF** допустимы; нам важен готовый бинарник `Beyond_Prompt_Engineering__Role_Reconfiguration_in_Long-Lived_AI_Conversations_EN-RU-NL.pdf`.
+===
+Идём строго по одному шагу.
 
+Сейчас причина ясна: **твой локальный `zenodo_build\preamble.tex` старый**, без уже добавленного Windows-fallback для кириллицы. В репозитории правильная версия уже есть.
+
+**Шаг 1 — заменить только один файл из репозитория.** Выполни из корня `AI_SOCIOLOGY_ARXIV_PREFLIGHT_2026-10-13`:
+
+```powershell
+Invoke-WebRequest `
+  "https://raw.githubusercontent.com/universes-lab/Laboratory/main/AI-Sociology/AI_SOCIOLOGY_ARXIV_PREFLIGHT_2026-10-13/zenodo_build/preamble.tex" `
+  -OutFile ".\zenodo_build\preamble.tex"
+```
+
+Больше пока ничего не запускай.
+
+После выполнения просто напиши **«готово»** — следующим сообщением дам ровно одну проверочную команду.
 ---
 END OF CURRENT LOG
