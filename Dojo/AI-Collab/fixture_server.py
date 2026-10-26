@@ -18,6 +18,7 @@ PORT = 5999
 TRUTH_FILE = "truth.json"
 CONV_A_ID = "conv_a"
 CONV_B_ID = "conv_b"
+FIXTURE_HEALTH_URL = f"http://{HOST}:{PORT}/health"
 SELF_TEST_CMD = "--self-test"
 
 # --- Initial Data ---
@@ -84,7 +85,7 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
     sys_version = ""
 
     def __init__(self, *args, **kwargs):
-        super().__init__(*args, directory=os.getcwd(), **kwargs)
+        super().__init__(*args, **kwargs)
         self.truth_data = load_truth_data()
 
     def do_GET(self):
@@ -93,18 +94,22 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
         path = url_parts.path
         query = parse_qs(url_parts.query)
 
+        print(f"Received request for path: {path} with query: {query}", file=sys.stderr) # Debugging line
+
         if path == "/conv_a":
-            conversation = self.truth_data["conversations"].get(CONV_A_ID if not self.truth_data["switch_conv_a_to_b"] else CONV_B_ID)
+            # Logic for conv_a: depends on switch_conv_a_to_b flag
+            conversation_to_serve = self.truth_data["conversations"].get(CONV_A_ID if not self.truth_data["switch_conv_a_to_b"] else CONV_B_ID)
             if query.get("format") == ["html"]:
-                self._serve_conversation_html(conversation)
+                self._serve_conversation_html(conversation_to_serve)
             else:
-                self._serve_conversation_json(conversation)
+                self._serve_conversation_json(conversation_to_serve)
         elif path == "/conv_b":
-            conversation = self.truth_data["conversations"].get(CONV_B_ID)
+            # Logic for conv_b: always serves conv_b
+            conversation_to_serve = self.truth_data["conversations"].get(CONV_B_ID)
             if query.get("format") == ["html"]:
-                self._serve_conversation_html(conversation)
+                self._serve_conversation_html(conversation_to_serve)
             else:
-                self._serve_conversation_json(conversation)
+                self._serve_conversation_json(conversation_to_serve)
         elif path.startswith("/switch"):
             self.handle_switch()
         elif path == "/health":
@@ -112,6 +117,7 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
         elif path in ["/truth", "/truth.json"]:
             self.send_error(404, "Not Found")
         else:
+            # Fallback for other paths, should ideally lead to 404 if not in routes
             super().do_GET()
 
     def _serve_conversation_html(self, conversation):
@@ -119,10 +125,6 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
         if not conversation:
             self.send_error(500, "Conversation data missing.")
             return
-
-        self.send_response(200)
-        self.send_header("Content-type", "text/html")
-        self.end_headers()
 
         html_content = f"""<!DOCTYPE html>
 <html>
@@ -152,7 +154,12 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
 </body>
 </html>
 """
-        self.wfile.write(html_content.encode("utf-8"))
+        response_data = html_content.encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-type", "text/html; charset=utf-8")
+        self.send_header("Content-Length", str(len(response_data)))
+        self.end_headers()
+        self.wfile.write(response_data)
 
     def _serve_conversation_json(self, conversation):
         """Helper to serve conversation data as JSON."""
@@ -160,14 +167,16 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
             self.send_error(500, "Conversation data missing.")
             return
 
-        self.send_response(200)
-        self.send_header("Content-type", "application/json")
-        self.end_headers()
-        response = {
+        response_dict = {
             "conv_id": conversation["conv_id"],
             "messages": conversation["messages"]
         }
-        self.wfile.write(json.dumps(response).encode("utf-8"))
+        response_data = json.dumps(response_dict).encode("utf-8")
+        self.send_response(200)
+        self.send_header("Content-type", "application/json")
+        self.send_header("Content-Length", str(len(response_data)))
+        self.end_headers()
+        self.wfile.write(response_data)
 
     def handle_switch(self):
         query_params = urlparse(self.path).query
@@ -184,14 +193,16 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
             if new_value is not None:
                 self.truth_data["switch_conv_a_to_b"] = new_value
                 if save_truth_data(self.truth_data):
-                    response = {
+                    response_dict = {
                         "ok": True,
                         "switch_conv_a_to_b": new_value
                     }
+                    response_data = json.dumps(response_dict).encode("utf-8")
                     self.send_response(200)
                     self.send_header("Content-type", "application/json")
+                    self.send_header("Content-Length", str(len(response_data)))
                     self.end_headers()
-                    self.wfile.write(json.dumps(response).encode("utf-8"))
+                    self.wfile.write(response_data)
                     return
                 else:
                     self.send_error(500, "Failed to persist switch state.")
@@ -202,10 +213,12 @@ class FixtureHandler(http.server.SimpleHTTPRequestHandler):
         self.send_error(400, "Missing or invalid 'value' parameter for switch. Expected format: /switch?value=true|false")
 
     def handle_health(self):
+        response_data = json.dumps({"ok": True}).encode("utf-8")
         self.send_response(200)
         self.send_header("Content-type", "application/json")
+        self.send_header("Content-Length", str(len(response_data)))
         self.end_headers()
-        self.wfile.write(json.dumps({"ok": True}).encode("utf-8"))
+        self.wfile.write(response_data)
 
 # --- Server Startup ---
 class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
@@ -237,7 +250,7 @@ class ThreadedTCPServer(socketserver.ThreadingMixIn, socketserver.TCPServer):
     def shutdown(self):
         """Set the shutdown event and call the parent shutdown."""
         self.shutdown_event.set()
-        super().shutdown()
+        super().shutdown() # This should unblock the serve_forever loop
 
 def start_server(host=HOST, port=PORT):
     """Starts the fixture server and returns the server instance and thread."""
@@ -359,6 +372,7 @@ def run_self_test():
                 if 'text/html' not in resp_a_html.getheader('Content-Type'):
                     test_results.append(f"GET {conv_a_html_url} did not return text/html. Got: {resp_a_html.getheader('Content-Type')}")
                     exit_code = 1
+                # Check for expected HTML content marker
                 html_data_a = resp_a_html.read()
                 if b'<div class="conv-header">conv_a</div>' not in html_data_a:
                      test_results.append(f"GET {conv_a_html_url} (HTML) missing expected header for conv_a.")

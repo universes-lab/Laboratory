@@ -6,10 +6,10 @@ import urllib.error
 from urllib.parse import urlparse, parse_qs # Import for path parsing
 
 # Updated CHECKS to reflect the actual content and routes
-# The root check now expects 'AI-Collab - Fixture Server' from index.html title
+# The root check now expects '<title>AI-Colab Laboratory</title>' from index.html.
 # Fixture routes now check for HTML content markers.
 CHECKS = [
-    ("http://127.0.0.1:8000/",              b"AI-Collab - Fixture Server"), # Updated expected marker for root
+    ("http://127.0.0.1:8000/",              b"<title>AI-Colab Laboratory</title>"), # Marker fixed as per instruction
     ("http://127.0.0.1:8000/chat.js",       b"DOMContentLoaded"),
     ("http://127.0.0.1:8000/seats_test.js", b"seatsTestBtn"),
     ("http://127.0.0.1:8000/A.png",         None), # Checking for presence, content not specified
@@ -22,7 +22,6 @@ CHECKS = [
 
 def check(url, expect):
     try:
-        # urlparse is useful if we need to handle paths vs queries separately, but here urlopen handles it.
         req = urllib.request.Request(url, headers={'Accept': '*/*'}) # Generic accept header
         with urllib.request.urlopen(req, timeout=5) as r:
             data = r.read()

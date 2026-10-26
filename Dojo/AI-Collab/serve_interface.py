@@ -36,12 +36,10 @@ class Handler(http.server.BaseHTTPRequestHandler):
     sys_version = ""
 
     def __init__(self, *args, **kwargs):
-        # SimpleHTTPRequestHandler serves from current directory by default.
-        # Removing explicit directory argument to rely on default behavior.
         super().__init__(*args, **kwargs)
 
     def do_GET(self):
-        path = selfI.path.split("?", 1)[0] # Ignore query parameters for routing
+        path = self.path.split("?", 1)[0] # Corrected: self.path
 
         if path not in ROUTES:
             self.send_error(404, "Not Found")
@@ -73,7 +71,6 @@ class Handler(http.server.BaseHTTPRequestHandler):
 
 class TCPServer(socketserver.TCPServer):
     allow_reuse_address = True
-
 
 def run():
     try:
