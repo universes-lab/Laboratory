@@ -247,10 +247,10 @@ M_2=\frac I3,\qquad A_2=0.
 - Историческая конструкция 64 вариантов не имеет в первоисточнике полного набора координат, поэтому её высокая пространственная симметрия **не доказана**.
 
 **Проверяемые основания:**
-- \`HONC_Theory/HONC_GreyZone_Isotropy_2026-10-28.md\`, разделы 0–7;
-- \`HONC_Theory/TRIAD_BRIEF_2026-10-23.md\`, §§34–36;
-- \`HONC_Theory/iso_check.py\`, \`HONC_Theory/honc_ring_field.py\`;
-- \`HONC_Theory/HONC_RoadMap2.md\`, историческое К13;
-- первоисточники: \`Architecture_of_Typical_Universes/Sources/Library/Canon/Code_of_the_Universe.md\`, \`Quantron_Model.md\` в репозитории \`universes-lab/HONC\`.
+- `HONC_Theory/HONC_GreyZone_Isotropy_2026-10-28.md`, разделы 0–7;
+- `HONC_Theory/TRIAD_BRIEF_2026-10-23.md`, §§34–36;
+- `HONC_Theory/iso_check.py`, `HONC_Theory/honc_ring_field.py`;
+- `HONC_Theory/HONC_RoadMap2.md`, историческое К13;
+- первоисточники: `Architecture_of_Typical_Universes/Sources/Library/Canon/Code_of_the_Universe.md`, `Quantron_Model.md` в репозитории `universes-lab/HONC`.
 
 **Редакторские границы:** не менять существующую главу 3 и канон; новые выводы по партону не вводить; при следующей научной ревизии уточнять факты по источникам, сохраняя различие между математической изотропией ориентаций и изотропией физического поля.
