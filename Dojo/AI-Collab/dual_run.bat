@@ -47,4 +47,3 @@ echo.
 echo Both servers started in separate windows.
 echo Close those windows to stop the servers.
 echo.
-pause
