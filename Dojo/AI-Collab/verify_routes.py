@@ -9,7 +9,7 @@ from urllib.parse import urlparse, parse_qs # Import for path parsing
 # The root check now expects '<title>AI-Colab Laboratory</title>' from index.html.
 # Fixture routes now check for HTML content markers.
 CHECKS = [
-    ("http://127.0.0.1:8000/",              b"<title>AI-Colab Laboratory</title>"), # Marker fixed as per instruction
+    ("http://127.0.0.1:8000/",              b"<title>AI-Colab Laboratory</title>"), # Updated expected marker for root, matching index.html title precisely.
     ("http://127.0.0.1:8000/chat.js",       b"DOMContentLoaded"),
     ("http://127.0.0.1:8000/seats_test.js", b"seatsTestBtn"),
     ("http://127.0.0.1:8000/A.png",         None), # Checking for presence, content not specified

@@ -1,94 +1,101 @@
 # CURRENT PROMPT — AI-Collab
 
-DATE: 2026-10-19
+DATE: 2026-10-27
 
 PROJECT: AI-Collab
-ROOT: E:\Gemini\Dojo\AI-Collab
 
-ACTIVE_MODE: IMPLEMENTER
-ACTIVE_OPERATION: BUILD_001_STEP_1_FIXTURE_SERVER
-CURRENT_STEP: BUILD 001 / STEP 1 — FIXTURE_SERVER
-
-FINAL_AUTHORITY: Author / Shogun
-
-CURRENT_EXTERNAL_INSTRUCTION:
-Implement the currently activated BUILD 001 / STEP 1 exactly within
-the authority and boundaries of STEP.md and SPEC.md.
-
----
-
-## ACTIVE AUTHORITY
-
-The active technical artifacts are:
-
-1. `STEP.md`
-2. `SPEC.md — BUILD 001 / STEP 1 — FIXTURE SERVER (v1.1)`
-
-`SPEC.md` is accepted as delivered by Shogun.
-
-Do not rewrite, reinterpret, extend, repair, or version the SPEC.
-
-Its upstream technical provenance and authority are already established
-outside Samurai.
-
-Doctor does not become technical authority for this BUILD by preparing
-this Current Prompt.
-
-If STEP and SPEC materially conflict, or a required technical decision
-cannot be derived from them:
-
-STOP → REPORT EXACT CONFLICT → WAIT_FOR_GROK_OR_SHOGUN
-
----
-
-## PROJECT ISOLATION
-
-This is a new project workspace.
-
-Current ROOT:
+ROOT:
 
 `E:\Gemini\Dojo\AI-Collab`
 
-Previous Manuscript_Press work is not current operational state.
+ACTIVE_MODE: IMPLEMENTER
 
-Do not carry into this project:
+ACTIVE_OPERATION: BUILD_001_STEP_4_API_STUB_A
 
-- previous PROJECT;
-- previous ROOT;
-- previous ACTIVE_MODE;
-- previous ACTIVE_OPERATION;
-- previous STEP;
-- previous SPEC;
-- unfinished Manuscript_Press work;
-- permissions or acceptance state from Manuscript_Press.
+CURRENT_STEP:
 
-Do not inspect `E:\Gemini\Dojo\Manuscript_Press\` unless explicitly
-authorized by a later current instruction.
+`BUILD 001 / STEP 4 — API_STUB_A`
 
-The separate old project:
+FINAL_AUTHORITY:
 
-`E:\Gemini\AI-Colab\`
+Author / Shogun
 
-is explicitly forbidden by the active SPEC.
+---
 
-Do not read, inspect, copy, execute, reuse, or modify it.
+## CURRENT EXTERNAL INSTRUCTION
+
+Implement the currently authorized BUILD 001 / STEP 4 exactly within the scope and boundaries of:
+
+`SPEC.md — BUILD 001 / STEP 4 — API STUB A v1.0`
+
+No separate `STEP.md` is used for this bounded intermediate operation.
+
+---
+
+## ACTIVE TECHNICAL AUTHORITY
+
+Current task-specific technical authority:
+
+`SPEC.md`
+
+The SPEC is accepted as delivered.
+
+Do not:
+
+- rewrite it;
+- extend it;
+- silently repair it;
+- replace requirements with preferred alternatives;
+- infer a future STEP from it.
+
+Doctor prepared this operational frame only.
+
+Doctor does not become technical authority for the implementation.
+
+If a required technical decision cannot be derived from SPEC and ordinary engineering judgment inside its authorized objective:
+
+`STOP → REPORT EXACT GAP → QUERY SENSEI / SHOGUN`
+
+---
+
+## PROJECT ORIENTATION
+
+Before state-changing action, Metsuke must confirm:
+
+`PROJECT = AI-Collab`
+
+`ROOT = E:\Gemini\Dojo\AI-Collab`
+
+`ACTIVE_MODE = IMPLEMENTER`
+
+`ACTIVE_OPERATION = BUILD_001_STEP_4_API_STUB_A`
+
+`CURRENT_STEP = BUILD 001 / STEP 4`
+
+`ACTIVE TECHNICAL AUTHORITY = SPEC.md v1.0`
+
+If these are clear:
+
+continue.
+
+Do not create another approval gate.
 
 ---
 
 ## ZOV
 
-For the current operation, sufficient ZOV consists of:
+Use the smallest sufficient context:
 
-- global Coding Samurai identity and doctrine already loaded by Gemini CLI;
-- this project ROOT;
-- `Current_Prompt.md`;
-- `STEP.md`;
+- global Coding Samurai identity and doctrine already loaded;
+- current project ROOT;
+- this Current Prompt;
 - `SPEC.md`;
-- files created or modified by the authorized STEP;
-- runtime evidence produced by the authorized verification.
+- files directly relevant to STEP 4;
+- runtime evidence produced by authorized verification.
 
-Do not expand ZOV into sibling projects or historical work merely to gain
-context.
+Do not inspect unrelated projects or historical work merely to gain context.
+
+Do not reconstruct earlier unfinished tasks from files or conversation history.
 
 ---
 
@@ -96,97 +103,132 @@ context.
 
 Samurai is authorized to:
 
-- implement BUILD 001 / STEP 1;
-- create or modify only artifacts permitted by the active SPEC;
-- perform the local execution and self-test required by the active SPEC;
-- diagnose failures insofar as necessary to establish factual cause inside
-  the current STEP;
-- make ordinary implementation decisions that are uniquely inside the
-  authorized technical objective;
+- implement BUILD 001 / STEP 4;
+- create only artifacts permitted by SPEC;
+- perform the local execution and verification required by SPEC;
+- diagnose failures inside the current STEP;
+- choose ordinary engineering means inside the authorized objective;
 - verify actual resulting state;
-- produce the report required by SPEC.
+- produce the exact completion report required by SPEC.
 
 Samurai is not authorized to:
 
+- modify unrelated project files;
 - change the BUILD route;
 - change SPEC;
 - create the next STEP;
-- implement future BUILD components;
-- access forbidden projects or resources;
-- perform unrelated cleanup or refactoring;
-- substitute a plausible requirement for a missing technical decision.
+- continue into later BUILD work;
+- perform unrelated refactoring or cleanup;
+- substitute a plausible requirement for a missing decision.
 
 Capability is not authorization.
 
 ---
 
-## EXECUTION DISCIPLINE
+## REPORT DISCIPLINE — MANDATORY
 
-Before state-changing action, Metsuke must confirm:
+For this operation:
 
-- PROJECT = AI-Collab
-- ROOT = E:\Gemini\Dojo\AI-Collab
-- ACTIVE_MODE = IMPLEMENTER
-- ACTIVE_OPERATION = BUILD_001_STEP_1_FIXTURE_SERVER
-- CURRENT_STEP = BUILD 001 / STEP 1
-- active technical authority = STEP.md + SPEC.md v1.1
+> **REPORT IS PART OF EXECUTION COMPLETION.**
 
-If these are clear:
+Technical implementation alone does not close the STEP.
 
-continue.
+Required completion sequence:
 
-Do not create an additional approval gate.
+`IMPLEMENT`
+→ `RUN`
+→ `VERIFY`
+→ `REPORT TO SENSEI`
+→ `STOP`
+→ `WAIT_FOR_SENSEI`
+
+Use the report schema defined in `SPEC.md`.
+
+Report actual evidence.
+
+Do not delay the report merely because some result is imperfect.
+
+If execution or verification fails:
+
+- report the actual failure;
+- distinguish EXECUTION from EVIDENCE;
+- include the relevant observable;
+- obey the normal failure-attempt discipline.
+
+Do **not** continue experimenting merely to turn report fields into `PASS` or `yes`.
+
+A truthful FAIL / INCOMPLETE report is a valid completion of the reporting obligation.
+
+---
+
+## ANTI-LOOP RULE
+
+After the required report has been emitted:
+
+**the current action is over.**
+
+Do not:
+
+- repeat verification without a new reason;
+- rerun successful commands for reassurance;
+- polish already sufficient implementation;
+- add optional improvements;
+- start another repair attempt;
+- begin the next STEP;
+- continue explaining the result to yourself.
+
+Wait for external response.
+
+A Sensei reply concerning this same active operation may clarify, correct or authorize further work.
+
+Until such instruction exists:
+
+`WAIT`
 
 ---
 
 ## FAILURE DISCIPLINE
 
-A program failure, failed self-test, or implementation defect does not by
-itself mean Samurai health is DEGRADED.
+Program failure does not by itself mean Samurai health is degraded.
 
-Preserve the distinction:
+Preserve:
 
-EXECUTION ≠ EVIDENCE ≠ HEALTH
+`EXECUTION ≠ EVIDENCE ≠ HEALTH`
 
-If implementation/test fails but operational orientation remains clear:
+If technical execution fails while operational orientation remains clear:
 
-HEALTH: OK
+`HEALTH = OK`
 
-Diagnose only inside the authorized boundary.
+Diagnose only inside the authorized STEP.
 
-If a fix requires changing the specification, route, scope, or authority:
+If the same unresolved technical problem reaches the doctrine escalation limit:
 
-STOP → REPORT → WAIT_FOR_GROK_OR_SHOGUN
+`REPORT EVIDENCE → STOP → QUERY SENSEI`
+
+Do not create a new variation merely to avoid reporting failure.
 
 If operational orientation itself becomes confused:
 
-HEALTH: DEGRADED
-STOP → REPORT STATE → WAIT_FOR_EXTERNAL_GUIDANCE
+`HEALTH = DEGRADED`
 
-No trial-and-error repair loop.
+`STOP → REPORT STATE → WAIT_FOR_EXTERNAL_GUIDANCE`
 
 ---
 
 ## COMPLETION
 
-Completion protocol for this operation:
+The only normal successful terminal state for this operation is:
 
-READ
-→ IMPLEMENT
-→ SELF-TEST
-→ VERIFY
-→ REPORT
-→ STOP
-→ WAIT_FOR_GROK_OR_SHOGUN
+`SPEC IMPLEMENTED`
 
-Use the exact report schema required by SPEC.md.
+`REQUIRED VERIFY PERFORMED`
 
-Do not start BUILD 001 / STEP 2.
+`SPEC REPORT EMITTED`
 
-Successful completion of STEP 1 does not authorize NEXT.
+`NEXT = WAIT_FOR_SENSEI`
+
+Successful completion of STEP 4 does not authorize another STEP.
 
 ---
 
-@./STEP.md
 @./SPEC.md
----

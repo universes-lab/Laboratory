@@ -1,46 +1,45 @@
-# SPEC.md — BUILD 001 / STEP 3b — SEATS TEST BUTTON
+Принято, Грок. Процессная дисциплина + backup. Но есть проблема с `curl` — Самурай не может его использовать. Обхожу.
+
+---
+
+# SPEC.md — BUILD 001 / PROCESS DISCIPLINE + BACKUP
 
 ```yaml
 BUILD: 001
-STEP: 3b
-NAME: SEATS_TEST_BUTTON
-VERSION: 2.0
+STEP: PROCESS_DISCIPLINE
+NAME: DUAL_RUN_AND_BACKUP
+VERSION: 1.0
 STATUS: READY_FOR_SAMURAI
-DATE: 2026-10-20
+DATE: 2026-10-27
 ```
 
 ---
 
 ## OBJECTIVE
 
-Добавить в `templates/index.html` **одну кнопку** «Тест кресел» в верхнем фрейме рядом с «Аудит». По клику — вставить в `#info-panel` два `iframe` с беседами `conv_a` и `conv_b`. Повторный клик — убрать iframe и вернуть прежний текст панели.
-
-`index.html` **не переписывать как страницу**. `chat.js` не трогать. `chat-log` не трогать. Отдельную `test_seats.html` не делать.
+1. Создать `dual_run.bat` — один запуск обоих серверов (fixture 5999 + serve_interface 8000).
+2. Вызывать `samurai_backup.bat` перед каждым edit/STEP.
+3. После PASS Автора — git commit или backup folder.
+4. Запретить `python -m http.server` на 5999/8000.
+5. Verify через `urllib.request` (не curl).
 
 ---
 
 ## FILES
 
 ```
-EDIT:    E:\Gemini\Dojo\AI-Collab\fixture_server.py
-         (добавить ?format=html для /conv_a и /conv_b)
-
-EDIT:    E:\Gemini\Dojo\AI-Collab\templates\index.html
-         (только: одна кнопка + один script-блок)
-
-CREATE:  E:\Gemini\Dojo\AI-Collab\static\seats_test.js
-         (обработчик кнопки)
-
-CREATE:  E:\Gemini\Dojo\AI-Collab\serve_interface.py
-         (локальный HTTP-сервер для templates, chat.js, PNG)
+CREATE:  E:\Gemini\Dojo\AI-Collab\dual_run.bat
 
 DO NOT TOUCH:
-  E:\Gemini\Dojo\AI-Collab\static\chat.js
-  E:\Gemini\Dojo\AI-Collab\seats.json
-  E:\Gemini\Dojo\AI-Collab\truth.json
+  fixture_server.py
+  serve_interface.py
+  static\chat.js
+  static\seats_test.js
+  templates\index.html
+  samurai_backup.bat        (только вызывать)
+  restore_*.bat             (только вызывать)
   E:\Gemini\AI-Colab\
   E:\Gemini\Dojo\Manuscript_Press\
-  профиль Автора
 ```
 
 ---
@@ -48,286 +47,200 @@ DO NOT TOUCH:
 ## DO NOT
 
 ```
-❌ Не переписывать index.html как страницу.
-❌ Не трогать chat.js.
-❌ Не трогать chat-log.
-❌ Не делать test_seats.html.
-❌ Не вставлять iframe в chat-log.
-❌ Не менять вёрстку, кнопки, панели, цвета, меню.
-❌ Не запускать Edge.
-❌ Не запускать Playwright / Selenium.
-❌ Не трогать E:\Gemini\AI-Colab\.
-❌ Не создавать profiles/.
+❌ Не переписывать samurai_backup.bat / restore_*.bat.
+❌ Не запускать python -m http.server на 5999 или 8000.
+❌ Не запускать только один сервер «как UI».
+❌ Не отвечать «assumed PASS» без фактической проверки.
+❌ Не трогать chat.js / seats_test.js / index.html.
 ```
 
 ---
 
-## PART 1 — fixture_server.py: HTML-вид беседы
+## IMPLEMENTATION
 
-**Добавить** обработку query-параметра `format=html` для `/conv_a` и `/conv_b`.
+### 1. `dual_run.bat`
 
-**Логика:**
+**Путь:** `E:\Gemini\Dojo\AI-Collab\dual_run.bat`
 
-- `GET /conv_a` → JSON (как сейчас, без изменений).
-- `GET /conv_a?format=html` → HTML-страница с сообщениями.
-- `GET /conv_b` → JSON (как сейчас).
-- `GET /conv_b?format=html` → HTML-страница с сообщениями.
+**Содержимое (bat, ANSI/UTF-8, CRLF):**
 
-**HTML-вид:**
+```bat
+@echo off
+setlocal
 
-```html
-<!doctype html>
-<html lang="ru">
-<head>
-  <meta charset="UTF-8">
-  <title>conv_a</title>
-  <style>
-    body { font-family: sans-serif; padding: 12px; font-size: 13px; background: #fff; }
-    .conv-header { font-weight: bold; margin-bottom: 10px; color: #2c3e50; }
-    .msg { margin-bottom: 8px; padding: 6px 8px; border-radius: 4px; }
-    .msg.user { background: #e3f2fd; }
-    .msg.assistant { background: #f5f5f5; }
-    .msg .role { font-size: 11px; color: #7f8c8d; margin-bottom: 2px; }
-    .msg .content { white-space: pre-wrap; }
-  </style>
-</head>
-<body>
-  <div class="conv-header">conv_a</div>
-  <div class="msg user">
-    <div class="role">user</div>
-    <div class="content">A-user-1</div>
-  </div>
-  ...
-</body>
-</html>
+cd /d "%~dp0"
+
+echo ============================================================
+echo  AI-Collab dual run: fixture 5999 + serve_interface 8000
+echo ============================================================
+echo.
+
+REM --- check ports are free ---
+echo [CHECK] port 5999...
+netstat -ano | findstr ":5999" | findstr "LISTENING" >nul
+if %ERRORLEVEL%==0 (
+    echo ERROR: port 5999 is already in use. Kill existing process first.
+    echo Run:  netstat -ano ^| findstr :5999
+    exit /b 1
+)
+echo [CHECK] port 5999 free
+
+echo [CHECK] port 8000...
+netstat -ano | findstr ":8000" | findstr "LISTENING" >nul
+if %ERRORLEVEL%==0 (
+    echo ERROR: port 8000 is already in use. Kill existing process first.
+    echo Run:  netstat -ano ^| findstr :8000
+    exit /b 1
+)
+echo [CHECK] port 8000 free
+
+echo.
+echo [START] fixture_server.py on 5999...
+start "AI-Collab FIXTURE" cmd /k python fixture_server.py
+
+timeout /t 2 /nobreak >nul
+
+echo [START] serve_interface.py on 8000...
+start "AI-Collab UI" cmd /k python serve_interface.py
+
+timeout /t 2 /nobreak >nul
+
+echo.
+echo ============================================================
+echo  UI:  http://127.0.0.1:8000/
+echo  API: http://127.0.0.1:5999/health
+echo ============================================================
+echo.
+echo Both servers started in separate windows.
+echo Close those windows to stop the servers.
+echo.
+pause
 ```
 
 **Требования:**
 
-- Сообщения читаемы.
-- При `switch_conv_a_to_b == true` `/conv_a?format=html` показывает `conv_b`.
-- JSON-версия **не меняется**.
-- `--self-test` продолжает проходить.
+- `cd /d "%~dp0"` — всегда.
+- Проверка `netstat` на 5999 и 8000 **до** запуска. Если занят — STOP с сообщением.
+- `start "..." cmd /k python ...` — два отдельных окна.
+- `timeout /t 2` между запусками.
+- Финальный `pause` — чтобы окно не закрылось сразу.
 
----
+### 2. Backup перед edit — не новый файл
 
-## PART 2 — index.html: одна кнопка + один script
+`samurai_backup.bat` **уже существует** (от Мастера Сборки). **Не переписывать.** Вызывать:
 
-### 2a. В верхнем фрейме, рядом с «Аудит»
-
-**Было** (фрагмент):
-
-```html
-<div class="top-left-group">
-  <button class="role-btn-top gemini-top">></button>
-  <button class="role-btn-top gemini-top">Аудит</button>
-  <button class="role-btn-top chief-top">ШЕФ</button>
-</div>
+```powershell
+E:\Gemini\Dojo\AI-Collab\samurai_backup.bat
 ```
 
-**Стало:**
+**Перед каждым edit** в рамках STEP, Самурай **обязан** вызвать `samurai_backup.bat`. Если его нет на диске — STOP, сообщить.
 
-```html
-<div class="top-left-group">
-  <button class="role-btn-top gemini-top">></button>
-  <button class="role-btn-top gemini-top">Аудит</button>
-  <button class="role-btn-top" id="seatsTestBtn">Тест кресел</button>
-  <button class="role-btn-top chief-top">ШЕФ</button>
-</div>
+### 3. После PASS Автора — git commit
+
+В `E:\Gemini\Dojo\AI-Collab\`:
+
+```powershell
+cd E:\Gemini\Dojo\AI-Collab
+git add -A
+git commit -m "STEP_<id> PASS"
 ```
 
-**Требование:** только эта одна строка `button` добавлена. Ничего больше в верхнем фрейме не менять.
+**Если git недоступен** (`git` not found, или не git-репозиторий) — **backup folder only**: создать `backup\STEP_<id>_PASS_<timestamp>\` с копией всех файлов. Отчёт: `git_unavailable: yes, backup_folder: <path>`.
 
-### 2b. В конце `index.html`, перед `</body>`
+### 4. Запрет `python -m http.server` на 5999/8000
 
-**Было:**
+Ни в одном скрипте, ни в одной команде — не использовать `python -m http.server` на портах 5999 или 8000. Только `fixture_server.py` и `serve_interface.py`.
 
-```html
-    <script src="chat.js"></script>
-  </body>
-</html>
+### 5. Verify
+
+**Через `urllib.request`** (curl недоступен):
+
+```python
+python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:5999/health').read().decode())"
 ```
 
-**Стало:**
+Ожидаемо: `{"ok": true}`.
 
-```html
-    <script src="chat.js"></script>
-    <script src="seats_test.js"></script>
-  </body>
-</html>
+```python
+python -c "import urllib.request; data = urllib.request.urlopen('http://127.0.0.1:8000/').read().decode(); print('seatsTestBtn' in data)"
 ```
 
-**Требование:** только одна строка `<script src="seats_test.js"></script>` добавлена. `chat.js` остаётся.
-
----
-
-## PART 3 — static/seats_test.js
-
-**Создать** `E:\Gemini\Dojo\AI-Collab\static\seats_test.js`.
-
-**Логика:**
-
-```javascript
-(function () {
-  var active = false;
-  var originalHTML = null;
-
-  function toggleSeats() {
-    var panel = document.getElementById('info-panel');
-    if (!panel) return;
-
-    if (!active) {
-      originalHTML = panel.innerHTML;
-      panel.innerHTML =
-        '<div style="display:flex;gap:6px;height:100%;">' +
-          '<iframe src="http://127.0.0.1:5999/conv_a?format=html" ' +
-            'style="flex:1;border:1px solid #ddd;border-radius:3px;"></iframe>' +
-          '<iframe src="http://127.0.0.1:5999/conv_b?format=html" ' +
-            'style="flex:1;border:1px solid #ddd;border-radius:3px;"></iframe>' +
-        '</div>';
-      active = true;
-    } else {
-      if (originalHTML !== null) {
-        panel.innerHTML = originalHTML;
-      }
-      active = false;
-    }
-  }
-
-  window.addEventListener('DOMContentLoaded', function () {
-    var btn = document.getElementById('seatsTestBtn');
-    if (btn) btn.addEventListener('click', toggleSeats);
-  });
-})();
-```
-
-**Требования:**
-
-- При клике — вставить два iframe в `#info-panel`.
-- Сохранить исходное содержимое `#info-panel` при первом клике.
-- Повторный клик — вернуть исходное содержимое.
-- Не трогать другие элементы страницы.
-- Не трогать `chat.js`.
-
----
-
-## PART 4 — serve_interface.py
-
-**Создать** `E:\Gemini\Dojo\AI-Collab\serve_interface.py`.
-
-**Логика:**
-
-- Python 3, stdlib only.
-- Bind `127.0.0.1:8000`.
-- Отдавать файлы из `E:\Gemini\Dojo\AI-Collab\`.
-
-**Маршруты:**
-
-```
-GET /              → templates/index.html
-GET /chat.js       → static/chat.js
-GET /seats_test.js → static/seats_test.js
-GET /A.png         → templates/A.png
-GET /B.png         → templates/B.png
-GET /C.png         → templates/C.png
-GET /D.png         → templates/D.png
-Прочее             → 404
-```
-
-**Порт 8000:** если занят — STOP, не подбирать другой.
+Ожидаемо: `True`.
 
 ---
 
 ## LOCAL VERIFY
 
-**Шаг 1.** Fixture на 5999 (из STEP 1). Если нет — запустить.
+**Шаг 1.** Перед запуском — убедиться, что 5999 и 8000 свободны:
 
-**Шаг 2.** Проверить HTML-вид:
-
-```
-GET http://127.0.0.1:5999/conv_a?format=html → HTML, не JSON
-GET http://127.0.0.1:5999/conv_b?format=html → HTML, не JSON
+```powershell
+netstat -ano | findstr ":5999 :8000"
 ```
 
-**Шаг 3.** Запустить `serve_interface.py`:
+Ожидаемо: пусто. Если занято — убить процессы:
+
+```powershell
+Get-NetTCPConnection -LocalPort 5999,8000 -State Listen -ErrorAction SilentlyContinue | ForEach-Object { Stop-Process -Id $_.OwningProcess -Force }
+```
+
+**Шаг 2.** Запустить `dual_run.bat`:
 
 ```powershell
 cd E:\Gemini\Dojo\AI-Collab
-python serve_interface.py
+dual_run.bat
 ```
 
-**Шаг 4.** Проверить маршруты через встроенный `urllib.request` (curl может быть недоступен в среде Самурая):
+Ожидаемо: два новых окна cmd — «AI-Collab FIXTURE» и «AI-Collab UI». В основном окне — `UI: http://...` и `API: http://...`.
 
-```python
-python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8000/').read()[:100])"
-python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8000/chat.js').read()[:50])"
-python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8000/seats_test.js').read()[:50])"
-python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:8000/A.png').read()[:10])"
+**Шаг 3.** Проверить через `urllib.request`:
+
+```powershell
+python -c "import urllib.request; print(urllib.request.urlopen('http://127.0.0.1:5999/health').read().decode())"
+python -c "import urllib.request; d = urllib.request.urlopen('http://127.0.0.1:8000/').read().decode(); print('seatsTestBtn' in d)"
 ```
 
-**Шаг 5.** Автор открывает `http://127.0.0.1:8000/`:
-
-- видит свой интерфейс **без изменений**,
-- жмёт «Тест кресел» — в `#info-panel` появляются два iframe с беседами,
-- жмёт повторно — iframe исчезают, текст панели возвращается.
+Ожидаемо: `{"ok": true}` и `True`.
 
 ---
 
 ## REPORT
 
 ```yaml
-BUILD_001_STEP_3B_REPORT:
-  files_modified:
-    - E:\Gemini\Dojo\AI-Collab\fixture_server.py
-    - E:\Gemini\Dojo\AI-Collab\templates\index.html
+STEP_PROCESS_DISCIPLINE_REPORT:
   files_created:
-    - E:\Gemini\Dojo\AI-Collab\static\seats_test.js
-    - E:\Gemini\Dojo\AI-Collab\serve_interface.py
+    - E:\Gemini\Dojo\AI-Collab\dual_run.bat
 
-  fixture_server:
-    html_format_added: yes/no
-    json_unchanged: yes/no
-    self_test_still_passes: yes/no
+  dual_run:
+    content_matches_spec: yes/no
+    netstat_check_5999: yes/no
+    netstat_check_8000: yes/no
+    starts_fixture_window: yes/no
+    starts_ui_window: yes/no
+    final_pause: yes/no
 
-  index_html:
-    one_button_added: yes/no
-    one_script_tag_added: yes/no
-    chat_js_untouched: yes/no
-    chat_log_untouched: yes/no
-    layout_untouched: yes/no
-    only_those_two_changes: yes/no
+  backup:
+    samurai_backup_bat_exists: yes/no
+    samurai_backup_called_before_edits: yes/no
+    samurai_backup_not_modified: yes/no
 
-  seats_test_js:
-    path: E:\Gemini\Dojo\AI-Collab\static\seats_test.js
-    toggles_iframes: yes/no
-    restores_original: yes/no
-
-  serve_interface:
-    path: E:\Gemini\Dojo\AI-Collab\serve_interface.py
-    port: 8000
-    serves_index: yes/no
-    serves_chat_js: yes/no
-    serves_seats_test_js: yes/no
-    serves_png: yes/no
-
-  author_verify:
-    url: http://127.0.0.1:8000/
-    visible: yes/no
-    button_present: yes/no
-    click_shows_two_conversations: yes/no
-    second_click_restores: yes/no
-
-  verification_method: urllib.request (curl may be unavailable)
+  git:
+    git_available: yes/no
+    commit_after_pass: yes/no / pending_author_pass
+    backup_folder_if_no_git: "<path / n/a>"
 
   forbidden_checks:
+    no_python_http_server_5999: yes
+    no_python_http_server_8000: yes
+    no_single_server_as_ui: yes
+    no_assumed_pass: yes
     no_chat_js_edit: yes
-    no_chat_log_edit: yes
-    no_test_seats_html: yes
-    no_index_rewrite: yes
-    no_edge: yes
-    no_playwright: yes
-    no_old_ai_colab: yes
-    no_profiles: yes
+    no_index_html_edit: yes
+    no_seats_test_js_edit: yes
+    no_samurai_backup_rewrite: yes
+
+  verify_via_urllib:
+    health_5999: '{"ok": true}' / FAIL
+    seatsTestBtn_in_8000: True / False
 
   next: STOP → WAIT_FOR_SENSEI
 ```
@@ -337,15 +250,12 @@ BUILD_001_STEP_3B_REPORT:
 ## NON-GOALS
 
 ```
-❌ переписывание index.html как страницы
-❌ изменение chat.js
-❌ изменение chat-log
-❌ test_seats.html
-❌ iframe в chat-log
-❌ Edge
-❌ Playwright / Selenium
-❌ E:\Gemini\AI-Colab\
-❌ profiles/
+❌ переписывание samurai_backup.bat / restore_*.bat
+❌ python -m http.server на 5999/8000
+❌ один сервер «как UI»
+❌ assumed PASS без фактической проверки
+❌ изменение chat.js / seats_test.js / index.html
+❌ curl (недоступен)
 ```
 
 ---
@@ -353,11 +263,11 @@ BUILD_001_STEP_3B_REPORT:
 ## STOP CONDITIONS
 
 ```
-Если порт 8000 занят → STOP.
-Если fixture на 5999 не отвечает → STOP.
-Если chat.js изменён → STOP.
-Если в index.html добавлено больше одной кнопки и одного script → STOP.
-Если test_seats.html создан → STOP.
+Если samurai_backup.bat отсутствует → STOP, сообщить.
+Если netstat показывает 5999 или 8000 занятыми до запуска → STOP.
+Если dual_run.bat запускает python -m http.server → STOP.
+Если после dual_run.bat health на 5999 не отвечает → STOP.
+Если после dual_run.bat seatsTestBtn в 8000 не найден → STOP.
 ```
 
 ---
@@ -365,13 +275,7 @@ BUILD_001_STEP_3B_REPORT:
 ## END PROTOCOL
 
 ```
-EDIT fixture_server.py (?format=html)
-→ EDIT index.html (one button + one script tag)
-→ CREATE static/seats_test.js
-→ CREATE serve_interface.py
-→ VERIFY via urllib.request
-→ AUTHOR OPENS http://127.0.0.1:8000/ and clicks button
-→ REPORT → STOP
+CREATE dual_run.bat → CHECK PORTS FREE → RUN dual_run → VERIFY via urllib → REPORT → STOP
 ```
 
 ---
@@ -379,14 +283,24 @@ EDIT fixture_server.py (?format=html)
 ```yaml
 BRIGADIER_STATUS:
   build: 001
-  step: 3b
-  version: 2.0
-  route: option_3 (Grok approved)
-  index_html: preserved, only one button + one script tag
-  chat_js: untouched
+  step: process_discipline
+  scope: dual_run.bat + backup discipline + git/backup after PASS
+  samurai_backup_bat: existing, call only, do not rewrite
+  verify_method: urllib.request (curl unavailable)
   next: SHOGUN_DELIVERS_TO_SAMURAI
   stop: true
 ```
 
 ---
+
+**Шёгун, SPEC готов. Копируй Самураю.**
+
+Ключевое:
+
+1. **`dual_run.bat`** — один запуск, два окна (fixture 5999 + UI 8000). Проверка `netstat` до запуска. Финал — `pause`.
+2. **`samurai_backup.bat`** — вызывать перед edit, **не переписывать**.
+3. **После PASS** — `git commit -m "STEP_<id> PASS"` или backup folder.
+4. **Запрет** `python -m http.server` на 5999/8000.
+5. **Verify** — через `urllib.request`, не curl.
+
 STOP.
