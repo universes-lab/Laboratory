@@ -54,7 +54,7 @@ This transfers professional lessons and provenance, not identity.
 
 ### STAGE 4 — PROFESSIONAL CONSTITUTION
 
-`HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-28.md`
+`HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-29.md`
 
 This defines the permanent office.
 
