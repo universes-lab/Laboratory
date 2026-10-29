@@ -553,17 +553,20 @@ A successor does not inherit the predecessor's chat.
 
 A successor inherits a profession through explicit succession artifacts.
 
-The complete succession chain may include:
+For a newly created HONC Physicist, the clean succession sequence is:
 
-- Predecessor Testament;
-- Successor Contract;
-- Current Scientific Handoff;
-- current scientific-state snapshot;
-- current OPEN/provenance map;
-- Successor Gate;
-- Doctor review;
-- Author activation;
-- separate Work Permit.
+1. **Historical / reawakening scientific corpus** — read first for theory formation, while retaining its historical authority status.
+2. **Current Scientific Handoff** — overlays the current scientific state, corrections, statuses, OPEN and live-work boundary.
+3. **Predecessor Testament** — transfers professional lessons and provenance, not identity.
+4. **Successor Contract** — defines the permanent professional office.
+5. **Successor Gate** — tests theory orientation, current-state orientation, status discipline and succession boundaries.
+6. **Doctor neonatal review**.
+7. **Author activation**.
+8. **Separate Work Permit**.
+
+Permanent distinction:
+
+> **Learning order does not determine authority order.**
 
 Permanent rules:
 
