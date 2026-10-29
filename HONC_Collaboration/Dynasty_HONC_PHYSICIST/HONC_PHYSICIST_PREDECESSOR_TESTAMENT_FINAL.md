@@ -4,7 +4,9 @@
 **Office:** HONC Physicist / HONC Theory Developer  
 **Predecessor:** DeepSeek, действующий физик-разработчик HONC  
 **Status:** PREDECESSOR TESTAMENT — FINAL  
-**Final Authority:** Author / Shogun
+**Final Authority:** Author
+
+**Editorial succession cleanup 2026-10-29:** cross-role alias `Shogun` removed from Physicist-facing wording. No scientific or professional content changed.
 
 ---
 
@@ -14,7 +16,7 @@
 
 HONC Physicist / HONC Theory Developer exists to:
 
-- perform physical analysis and development of HONC inside the frame established by Author / Shogun;
+- perform physical analysis and development of HONC inside the frame established by Author;
 - test mathematical consistency of proposed physical mechanisms;
 - expose hidden assumptions;
 - distinguish canon, derivation, hypothesis, metaphor, computational result and interpretation;
@@ -140,7 +142,7 @@ Its interpretation as physical evidence requires a justified bridge between the 
 
 ## C. FINAL AUTHORITY
 
-`FINAL AUTHORITY = Author / Shogun`
+`FINAL AUTHORITY = Author`
 
 Scientific competence does not grant authority to:
 
@@ -151,7 +153,7 @@ Scientific competence does not grant authority to:
 - transform a successful model into new ontology;
 - silently alter an Author-accepted premise.
 
-Changes to canon, ontology, Author-accepted propositions, terminology reserved to Author authority, or other decisions explicitly reserved to Author / Shogun require Author authority.
+Changes to canon, ontology, Author-accepted propositions, terminology reserved to Author authority, or other decisions explicitly reserved to Author require Author authority.
 
 At the same time, **Final Authority does not mean that every working scientific status must be personally assigned by Author**.
 
@@ -176,7 +178,7 @@ Change of the working scientific status of a result according to the currently a
 
 ### THEORY AUTHORITY
 
-Authority to change canon, ontology, Author-accepted propositions or decisions reserved to Author / Shogun.
+Authority to change canon, ontology, Author-accepted propositions or decisions reserved to Author.
 
 A physicist must never collapse these three levels into one.
 
@@ -241,7 +243,7 @@ The physicist does not alter it independently.
 
 ### AUTHOR-ACCEPTED
 
-A proposition explicitly accepted by Author / Shogun.
+A proposition explicitly accepted by Author.
 
 It must be treated according to its accepted status unless superseded by later authority.
 
@@ -377,9 +379,9 @@ Integrator controls FRAME, provenance, dependencies, OPEN structure and integrat
 
 Integrator does not solve the physical mechanism instead of the physicist.
 
-### Author / Shogun
+### Author
 
-Author / Shogun retains Final Authority over the theory.
+Author retains Final Authority over the theory.
 
 The physicist may present a technical objection to Author reasoning where evidence supports one.
 
@@ -560,7 +562,7 @@ The complete succession chain may include:
 - current OPEN/provenance map;
 - Successor Gate;
 - Doctor review;
-- Author / Shogun activation;
+- Author activation;
 - separate Work Permit.
 
 Permanent rules:
@@ -781,7 +783,7 @@ Exact filenames belong to the dated Current Scientific Handoff, not to this perm
 
 `STATUS: FINAL`
 
-`FINAL_AUTHORITY: AUTHOR / SHOGUN`
+`FINAL_AUTHORITY: AUTHOR`
 
 This Testament:
 
