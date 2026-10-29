@@ -2,7 +2,20 @@
 
 **Assembled 2026-10-28; snapshot of 2026-10-04 reawakening package.**
 **Authority:** HISTORICAL / REAWAKENING BASELINE, **not** current canon, live task frame, successor work permit or an Author-approved book draft.
-**Source hierarchy:** current Author decisions and their provenance take priority; use latest HONC triad status records for current [К]/[Д]/[Г]/[О]/[С]. The authoritative first-edition manuscript source lives separately at `universes-lab/HONC/Architecture_of_Typical_Universes/Sources/Library/Canon/`. The seven documents below are preserved unchanged *inside their respective sections*; only this cover and boundaries were added.
+**Source hierarchy:** current Author decisions and their provenance take priority; use latest HONC triad status records for current [К]/[Д]/[Г]/[О]/[С].
+
+## SUCCESSION / BIRTH USE — 2026-10-29
+
+**Learning role:** PRIMARY FORMATIVE SCIENTIFIC CORPUS for a newly created HONC Physicist. During succession, this package is read **first** so the candidate encounters the theory, its native language, historical reasoning, and scientific texture before governance documents.
+
+**Authority role:** HISTORICAL / REAWAKENING BASELINE ONLY. Reading it first does **not** make it the highest authority. Current Author decisions and the accepted Current Scientific Handoff override historical states where they differ.
+
+Permanent distinction:
+
+> **LEARNING ORDER ≠ AUTHORITY ORDER**
+
+The package may shape scientific orientation; it may not by itself establish current tasking, current OPEN, current status, or a work permit.
+ The authoritative first-edition manuscript source lives separately at `universes-lab/HONC/Architecture_of_Typical_Universes/Sources/Library/Canon/`. The seven documents below are preserved unchanged *inside their respective sections*; only this cover and boundaries were added.
 
 ## Editorial migration flags — not contents of the new edition
 
