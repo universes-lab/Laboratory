@@ -278,3 +278,216 @@ TD как аппарат делает три вещи:
 - Что означает «**П-X / П3**» — это вопрос о смысле принципа Автора, или о каноническом тексте, или о том и другом?
 - Как в текущем фронте понимается **граница между Q2 и лептонами** (A-15 / П-δ) — это чисто геометрический предел или топологический?
 - Что означает «**масса — понятие перевода**» на границе части II — это временная позиция или принципиальная?
+
+===
+
+===
+
+===
+
+## B. THEORY RECONSTRUCTION — HISTORICAL CORE
+
+**1. What kind of theory HONC / TD is trying to build.**
+HONC (ВПК/ТД in the new edition) is an attempt to rebuild physics from a different starting point: space is discrete (a lattice of quanta), time is a multicomponent field `T_μν` defined on the nodes, and the fundamental quantity is `dt/dx` — slowness, the gradient of time in space — rather than `dx/dt`. Mass, charge, forces, fields, cosmology and quantum effects are to be **derived** as consequences of the geometry and topology of the lattice and of the configurations of the time field, not postulated. Temporal Dynamics is the mathematical apparatus and the "coordinate turn": not a new formula, but a different system of coordinates for the Universe, in which cause is a time gradient and effect is a pattern. The theory explicitly refuses to add external forces, fields, or free parameters; it tries to explain why the Standard Model has 19 free parameters, why quarks have fractional charge, why the speed of light is constant, why gravity is weak, and so on.
+
+**2. Historical conceptual ladder.**
+In the formative corpus the ladder I encountered was:
+
+- **quantum of space (λ)** — a cell, a "limiting volume", not a cube with coordinates; emptiness nowhere;
+- **quantron** — a quantum of space containing a microcontinuum; historically `Q0` (3D ball), `Q1` (1D ring + 2D sphere/torus; six "protoquarks"), `Q2` (latchers `Qf`, `Qν`), `Q3` (unstable 3×1D);
+- **λ-molecules** — Z, W, gluon as one object with parameter `n`; accumulators of rotation, not "glue";
+- **the shelf from quantum to quark (K1)** — quantum → λ-molecule → parallel branches (short f-chain, f/ν strand, quantron-cloud) → cloud of quantrons → parton (where scattering first appears) → quark;
+- **Q-levels** `Q0 = 3D`, `Q1 = (2D+1D)` common center, `Q2 = (2D−1D)` displaced centers, `Q3 = 3×1D` unbound — topology of reference frames, not "shapes of particles";
+- **time field `T_μν`** — symmetric part gravity, antisymmetric part electromagnetism and rotor effects;
+- **patterns and assemblies** — proto-particles, partons, baryon assemblies (3 Q1 + 8 Q2), lepton strands (`Qν + 4×Qf`).
+
+**3. Role of Temporal Dynamics / dt/dx.**
+TD inverts causality. It makes the spatial step λ primary and time a function of the node; it introduces discrete operators on the lattice (gradient, rotor, Laplacian, temporal velocity `V = c∇T₁/T₁`, amplitude `A`); it defines reactivity `R` (not force) and inertia `I`; it writes the action `S_TD = Σ[(c²/λ²)T₁Δ²T₁ − R⁻¹]λ³τ₀`; and it recovers Newton, Maxwell, Schrödinger, Minkowski and `SO(1,3)` as the limit `λ, τ₀ → 0`. In the strict discrete formulation there is no external time: evolution is recursive `Ψ(n+1) = F[Ψ(n)]`; global time is only an averaging device for the continuum approximation.
+
+**4. Recurring ideas/mechanisms that shaped the style.**
+- **Topology as cause:** `χ` and `π₁` determine stability, charge, spin, confinement; charge is a geometric projection of axes, not a substance; `∥ → −1/3`, `⊥ → +2/3` as axis counting.
+- **Budget:** translation and rotation share a budget; cube rule (edge/face/diagonal) for principal axes; ring inside quantum not exceeding `c/√3`; range principle — the edge of the budget is unreachable.
+- **Latch as topological entanglement (L),** not a component: `L = 0` for Q1, `±1` for Q2; molecule L is a sum over passages.
+- **Spin as period of identity** of configuration (180° additional-axis turn per step; Q1 and Qν P = 1 for different reasons; Qf P = 2).
+- **Assembly from Q0 under the equatorial rule:** counter-rotation of all neighbors requires a bipartite graph; no triangular packing.
+- **Bridge and metaphor always marked:** "rest mass", "energy", "glue" are `[мост]`; Gravinertia is `[метафора]`; retrodiction is not prediction.
+- **Kelly triad method:** "how are two alike and thereby different from the third?" across all pairs (Z, W, gluon).
+- **Hierarchy as principle:** `λₙ = ℓ_P·e^{nw}`, `w = ln(1/α)`; dark energy as a remainder of the hierarchical sum; Big Bang as a local episode of a global topological transition `Qu → Q0 → Qt`.
+
+**5. Historical claims that cannot simply be carried forward.**
+- **Six geometric sizes of Q1** at the quantum level (withdrawn by the Author's 26.10 decision; six Q1 flavors do not mean six sizes).
+- **Old quantum mass tables and static "mass coefficient" theory** (preserved as historical provenance, not as live mass computations; μ = 6/25 and 16/65 are geometric balance coefficients, not Q1 masses; mass interpretation of μ is withdrawn).
+- **The `0.707` figure as a derived speed** (it is a root-mean-square value under equal weights; not derived from the accepted; A-14 makes cube values limits of time addition, not rim speeds).
+- **The historical "latcher on the quantum level"** and **"quantron = quantum"** (in current Part II usage, `quantron = Q1`, Q0 is not called a quantron).
+- **The "protostring / proto-particle as a geodesic sphere from 64 assemblies"** as a physical mechanism — historically an intuitive construct, not a current result.
+- **`Q0 = dark matter` as an identity** (withdrawn; the condition is `I ≠ I₀`, `[Г]`).
+- **"Q1 self-assembles"** and **K12 synchronization self-assembly** (downgraded to a selection rule; only closed Qf-latchplexes are stable — A-4).
+- **The "six frequency peaks" of Kurimoto** as a premise (withdrawn).
+
+I state these as historical, not as if the historical corpus already contained the later corrections.
+
+---
+
+## C. CURRENT-STATE OVERLAY
+
+1. **`quantron = Q1`; Q0 is not called a quantron in current Part II usage.** The current handoff records A-1 (`quantron = Q1`, six flavors; latcher = Q2; QSS = Q3). This is a reclassification relative to the historical text, where "quantron" ranged over all of Q0–Q3.
+
+2. **Six Q1 flavors do not imply six quantum-level geometric sizes.** Author decision 26.10: Q1 is a state of a cell; cells are identical; all six share one scale; the six-size hypothesis is withdrawn.
+
+3. **`μ = 6/25` and `16/65` are geometric balance coefficients under stated premises, not Q1 masses.** В1–В4 [Д]; mass interpretation of μ is `[С]`; μ carries no mass hierarchy (В7); the mass-coefficient reading is withdrawn.
+
+4. **A-14 cube quantities are limits of time addition, not literal rim speeds.** A-14 [К]: `c/√3` and `c·√(2/3)` are limits of the time addition, not speeds; everything except the ideal latcher moves in the range `0…C`.
+
+5. **The classical ring-passage/current correspondence remains `[мост]`.** The A-13 terminology file supplies native `temporal circulation / flow`; the electromagnetic correspondence is a bridge, not native law. The Integrator's 28.10 wording explicitly requires that this remain a bridge.
+
+6. **M0 and M2 are not automatically mutually exclusive; current law is not established.** M0 and M2 may be compatible as ontological and dynamical formulations; the physical law is not established.
+
+7. **Absence of coupling at rest is not universal canon; the relevant coupling mechanism remains hypothesis / OPEN according to the handoff.** The handoff records that absence of coupling at rest is `[Г]` (reading of A-11), with no universal prohibition derived; coupling at closure is `[Г]`; mechanism is `[О]` (О-к / О-и).
+
+8. **Physical λ scale remains OPEN; `ℓ_P` and `ℓ_P/α` are historical bridge candidates.** Keeper's 28.10 verification: physical value of λ is OPEN; the metric values in the isotropy report are conditional; the principal scale is `L/λ`.
+
+9. **Free orientation does not prove statistical independence of Q0 axes.** Keeper's 28.10 verification; STOP-3 is the missing law of correlations on which statistical isotropy depends.
+
+10. **Book drafts are not canon.** No chapter in `HONC_Theory/Book/` is Author-approved; `Book drafts ≠ canon` is a permanent rule.
+
+---
+
+## D. NATIVE HONC VS BRIDGE
+
+**Example 1 — Charge.**
+- Native HONC: `∥ / ⊥` of the axes of 1D and 2D parts of Q1; −1/3 and +2/3 are **axis counts**, not charges (22.10 decision).
+- Bridge: electric charge as a classical observable.
+- Metaphor/interpretation: "charge as a geometric projection".
+- Damage from confusion: treating ±1/3, ±2/3 as electric charges silently converts an axis-count into a classical quantity, and then any mismatch with observed charges looks like a failure of the native statement.
+
+**Example 2 — Latch and field on the axis.**
+- Native HONC: latch is a topological entanglement `L`; `L = 0` for Q1, `±1` for Q2; molecule L is a sum over passages.
+- Bridge: classical "field on the axis", "dipole/quadrupole", "inductance", "current".
+- Metaphor: "glue", "accumulator of rotation".
+- Damage: treating the classical field on the axis as native law replaces a topological relation with a classical field object, and the "current loop" picture then silently dictates what should be counted.
+
+**Example 3 — Mass.**
+- Native HONC: mass is a `[мост]` concept; on the quantum level there is no energy (A-7).
+- Bridge: `E = mc²`, rest mass, `m = I/λ²`.
+- Metaphor: "inertiality of a pattern".
+- Damage: promoting `m = I/λ²` to a native law makes the photon massive, and the historical mass tables then look like derivations of mass rather than historical constructs.
+
+---
+
+## E. STATUS DISCIPLINE TEST
+
+- **`[К]`** — canon or Author decision; scope as stated by the current authority map.
+- **`[Д]`** — accepted derivation: independently reproduced by a second participant with their own code or independent derivation, and accepted through the current authorized scientific workflow.
+- **Attributed result such as `[Д-Кл]`** — a result established by one identified participant but not yet elevated to a stronger shared status; attribution must not disappear in summary.
+- **`[Г]`** — working hypothesis: plausible, under investigation, not proof, not canon.
+- **`[О]`** — open: current theory or evidence does not settle the question; a valid scientific state.
+- **`[С]`** — withdrawn/rejected: removed according to the documented scope; do not resurrect silently.
+- **`[мост]`** — bridge into classical language: a translation, not a native mechanism.
+- **Computational result** — output of a stated calculation or simulation under stated assumptions; not automatically physical proof or accepted derivation.
+- **Interpretation** — proposed physical meaning of a result; must not be silently promoted into derivation.
+- **Negative result** — a concrete test produced a negative outcome under stated conditions; the status of the tested proposition is a separate question.
+
+**Can a summary omit these distinctions if the prose remains scientifically plausible?**
+No. Scientifically plausible prose is exactly the failure mode these distinctions exist to prevent. A summary that omits them silently promotes hypotheses to derivations, bridges to native laws, computational results to physical proof, and OPEN to closed. The permanent rules are **no silent status promotion** and **summary must not erase status**. Plausibility is not a status. A summary that reads well but flattens statuses is a worse scientific artifact than an ugly summary that preserves them.
+
+---
+
+## F. SCIENTIFIC AUTHORITY TEST
+
+- **SCIENTIFIC JUDGMENT** — professional evaluation of correctness, consistency, assumptions, evidence, implications, limits of applicability. The physicist may exercise strong judgment here, including disagreement and negative results.
+- **SCIENTIFIC ACCEPTANCE** — assignment or change of a working scientific status through the **currently authorized scientific workflow**. It is not automatically exclusive to the Author; the workflow may assign it. But the physicist does not promote its own result merely because it considers it correct.
+- **THEORY AUTHORITY** — authority over canon, ontology, Author-reserved decisions, and matters explicitly reserved by the active authority map. **Final Authority remains with the Author.**
+
+These three levels must never be collapsed into one. Scientific competence does not create theory sovereignty; conversely, the existence of Author Final Authority does not mean every working scientific status must be personally assigned by the Author.
+
+---
+
+## G. INDEPENDENT VERIFICATION TEST
+
+1. **Three AI participants agree.** Agreement is not evidence; three agreeing participants cannot convert an unsupported claim into a physical fact. Diversity of reasoning is not the same as independent reproduction; three models can share the same blind spot or the same mistaken premise.
+2. **Rerunning another participant's script and obtaining the same number.** Running a foreign script reproduces the script's assumptions, not an independent check. If the script encodes a hidden assumption, the same number is produced by the same assumption. The handoff explicitly states: running someone else's script is not reproduction.
+3. **Reading another derivation and finding no obvious error.** Reading is not verification. Absence of an obvious error in someone else's proof does not establish that the proof is correct, that its premises hold, or that the conclusion is independent of hidden assumptions.
+4. **A numerical value matching an expected physical landmark.** A numerical match is not a mechanism; coincidence is not prediction. The handoff explicitly requires distinguishing coincidence, fit, and prediction; a matching number without an independent relation does not establish a physical conclusion.
+
+**What counts as genuine independent verification in this office:** an independent analytical derivation from stated premises, or an independent code that does not reuse the original participant's implementation, or an independent reconstruction by a distinct mathematical route, or another authorized verification mechanism. The verification must actually test independence, and the physicist must state exactly what was independently checked.
+
+---
+
+## H. CURRENT SCIENTIFIC ORIENTATION
+
+- **Current scientific frame.** HONC is being developed on the lower segment of the "grey zone" — from the quantum to the protoquark inside one continuum. Order of floors: (1) quantum and states Q0–Q3; (2) quantron Q1 — six flavors; (3) latcher Q2 — Qf and Qν; (4) λ-molecules — closed Qf-latchplexes Z, W, gluon, plus the open candidate H-Qs; (5) protoquark — mono-formation of many Q1 of one flavor; (6) HONC parton. Floors 1–4 are stably worked; floor 5 is a formulation without a law of the collective; floor 6 is a design.
+- **Major current accepted / verified families.**
+  - Author decisions A-1…A-15 (canon).
+  - Quantum and quantron {Q}: В1, В2/В2а, В3, В4, μ-balance coefficients (as geometry, not mass), В7, В6 (count), no distinguishable configuration phase of Q1 on a frame, speed limit `R·√(ω²+Ω²) ≤ C`, Qν common axis of flight, 0.707 as RMS.
+  - λ-molecules: G2–G5, G7/G10, G9, ЛМ1, ЛМ6 (geometry), gluon 61.56° / window 63.49–66.54° / 71.30°, free radius 1.0209 and throat 0.9459 at 65°, upper edge formula, 78.32° / W 50.67° / Z ring coincidence, δ(β) values, β⊥, cusp, foci, Q1-torus stops (66.54°, 70.8°), two threading pictures, walk rule ⇔ chirality, sign of entanglement, torus degree ≤ 3, ГП lemma, СК lemma, uniqueness of threading directions, berth capacity, two gluon assemblies, D_c(a), CONTACT-R1 routes.
+  - Classical analogues of the empty assembly — `[мост]`: field on axis, dipole/quadrupole, inductance values, zero momentum of a closed molecule, W and gluon carousel, Stage A (conditional model).
+  - Temporal formulation and H-Qs: rule 1 `[Г | E4[Г]; F1; A-5[К]]`, Ветвь through Qs hole `Lk = ±1` [Д], berth by flavor only Qs in rest [Д | passports and ЛМ1], orientation of host in H-Qs `P = 2` at R-or and 1 at R-pos [Д], rule 2 and rule 4 as result Б.
+  - Isotropy from 28.10: A_ℓ measure, `E[A_ℓ²] = 1/N`, N_eff, ±X/±Y/±Z with `A₄ ≥ 0.764`, 4 cube diagonals `A₄ = 0.509`, icosahedron `A₂ = A₄ = 0`, `A₆ = 0.663`, torus tensors isotropic at 54.74°, ring normals at `tg²β·sin²(π/N) = 1/2`, hemisphere `⟨n⟩ = ½·ŷ`, A₂ = 0, КТ-Г ratios 3.61/2.24/1.68, КТ-Г triple `[Д-Кл]` under verification in § 37, `A₄ = 0.332` `[Д-Кл]` under verification, XYZ/YXZ internal carrier classes.
+- **Major current hypotheses.**
+  - Accumulation and walk: G11, G12, G13, G17, G6, G20, the "molecule stands, state walks the cycle" reading (A9, G12).
+  - Latch: event through the cusp `[Г | G12]`, node pair as one event `[Г | G12]`, state runs at c `[Г]`, ring coincidence ⇒ re-mapping ⇒ oscillator; tangency ⇒ motion ⇒ rotor `[Г]`, П1 `[Д | П1]`.
+  - Phasing: TФ-1 thirds of time; M0 / M2 / M1; M0 and M2 possibly compatible; the physical law is not established.
+  - Places: one of four half-planes through 90° (fitted to G10; as a mechanism for β choice withdrawn).
+  - Tool and Q1: capture by closure (window is geometry [Д], capture is `[Г]`).
+  - H-Qs: oscillator with reversal at the ends `[Г]`, borrowed rhythm through cusp events of Qs (ТХ-3) `[Г]`, carrier picture `P = 1` under alternation `[Г]`.
+  - Temporal channels: ТХ-1 `[Г | O-1]`, ТХ-2 reduced to result Б; candidates З-6а/б/в; CONTACT-R1 `[Г]`, parked.
+  - Grey zone: K13 as threshold of "field averaging" `[Г]` — as statistics 10⁴–10⁶ ↔ 1–0.1 % `[Д | independent axes]`; protoquark ~10⁹ Q1 as historical scale reference, not a derived boundary; level ~10⁻²⁴ m (UHECR) as retrodiction.
+- **Major OPEN / STOP families.** O-1 / STOP-1 (explicit decomposition of `T_μν`, law of the field of the rotational component); О-м (actual speeds); О-к / О-и (coupling of concentric Q1 with ring circulation); О-в (what is stronger — ring expansion by rotation or tightening by rings); П-X / П3 (how to read the "X– ↔ X+" joining principle for non-collinear rings); F4 (whether ring L-sum carries λ-level charge — R1 or R2); A-14(4) (equality of equatorial speeds); Qb (additional rotation as frame re-mapping `P = 1` or slow physical rotation `P ≠ 1`); р35 (origin of 0.75 for Qb); П1 (law of the latch event); A-15 / П-δ (derivation of 3, and whether A-15 counts rings or events); О-р (what occupies a third of time in TФ-1); З-6 (law of the collective Q1 state); З-7 (event at ring tangency); rules 2 and 4; weights of 1D and 2D in the orientation tensor; STOP-3 (independence of Q0 axes, N_eff); λ scale; shape of the ring; leptons (canonical link 2+2 contradicts A-15; `[С]-at-A-15`; text not corrected until explicit decision).
+- **Current book state.** No chapter in `HONC_Theory/Book/` is Author-approved or canon. `00_Introduction_Part2_v0.2`, `00_Plan_Part2_v0.3`, `01_Quantron_v0.3`, `02_Latcher_v0.3`, `03_Lambda_Materials_v0.1`, `03_Lambda_v0.3`, `03_13_Isotropy_Grey_Zone_v0.1`, `Answers.md` — all `no` for Author-approved and canon. Chapters 4 and 5 exist only in plan. v0.1 and v0.2 are kept as history.
+- **Current live predecessor work.** Д-Г1 to Dipisk-predecessor (triple at torus at β⊥ and identity with node count, analytically) — issued 17:07, in repository at 17:10, commit `861cd47`, no report; Г-Г1 to Grok — same result and `A₂`, `A₄`, `A₆` at the КТ-Г point with its own code — issued, no report; λ scale and continuity of axis orientations — Keeper — verification executed 28.10; Qb fork and A-14(4) — Integrator — awaiting decision; physical remarks to subsection 3.13 — Integrator — handed over. None of these tasks is transferred to me.
+- **What is explicitly not transferred to me.** Predecessor live work (Д-Г1 stays with the predecessor or is withdrawn); predecessor unfinished conclusions; predecessor role membership in a particular triad; episodic roles (Mathematical Referee, Keeper of Scientific Context, Coding Sensei / Brigadier); administrative or workflow authority outside the physicist office; repository write permissions (handoff itself grants none).
+
+I do not solve any OPEN. I do not flatten mixed statuses.
+
+---
+
+## I. LEGACY-TO-CURRENT CONTRAST TEST
+
+**1. Six geometric sizes of Q1.**
+- HISTORICAL FORM: Q1 flavors correspond to six distinct geometric configurations with associated radius/energy recipes.
+- CURRENT FORM / STATUS: Q1 is a state of a cell; cells identical; one scale for all six; six-size hypothesis withdrawn.
+- SOURCE OF CURRENT CORRECTION: Author decision 26.10; editorial migration flags in `07_COMBINED_...`; handoff п. 3.1 (26.10 row).
+
+**2. Mass coefficient `μ`.**
+- HISTORICAL FORM: μ = 6/25 and 16/65 presented as "mass" quantities (in the historical table, μ multiplied by a base mass to yield particle masses).
+- CURRENT FORM / STATUS: μ = 6/25 and 16/65 are dimensionless geometric balance coefficients of `I` with Q0 under stated premises; mass interpretation is `[С]`; μ carries no mass hierarchy.
+- SOURCE OF CURRENT CORRECTION: handoff п. 3.2; Integrator's 28.10 review in editorial note; В7.
+
+**3. `0.707` as a derived speed.**
+- HISTORICAL FORM: neutrino `0.707` as a derived angular speed, equalization of ring and torus speeds.
+- CURRENT FORM / STATUS: `0.707` is an RMS value under equal weights; not derived from accepted; A-14 replaces it with cube values as limits of time addition; ring inside quantum does not exceed `c/√3` (canonical 0.707 for ν is forbidden — historical D5).
+- SOURCE OF CURRENT CORRECTION: handoff п. 3.2; TRIAD_BRIEF § 30; A-14 [К].
+
+**4. `Q0 = dark matter` as identity.**
+- HISTORICAL FORM: `Q0` quantron as dark matter candidate / identity.
+- CURRENT FORM / STATUS: Q0 is a state of a quantum; dark-matter condition `I ≠ I₀` `[Г]`; identity withdrawn.
+- SOURCE OF CURRENT CORRECTION: handoff п. 3.1 (A-1 reclassification); п. 6 ("Q0 = dark matter identity → withdrawn").
+
+**5. "Quantron = quantum" and "latcher at the quantum level".**
+- HISTORICAL FORM: "quantron" ranging over Q0–Q3; latcher as a quantum-level entity.
+- CURRENT FORM / STATUS: `quantron = Q1`; latcher = Q2; QSS = Q3; "quantron = quantum" and "latcher at quantum level" are historical terminology.
+- SOURCE OF CURRENT CORRECTION: handoff п. 3.1 (A-1); editorial migration flags; `00_READ_FIRST` § 8 (do-not-return list).
+
+(Additional pair — mentioned but I will not multiply entries beyond the five requested: "Q1 self-assembles via synchronization" — historical K12; current: A-4, only closed Qf-latchplexes stable; K12 downgraded to selection rule; source: handoff п. 3.1, п. 6.)
+
+---
+
+## J. FRAME / OPEN TEST
+
+1. Before moving a result from one frame to another, I must explicitly declare `FRAME SHIFT`, and I must not carry the conclusion's validity across the shift automatically. **FRAME SHIFT ≠ inheritance of conclusions.**
+2. When the current theory lacks the law required to continue, I `STOP`, state what is known, state what is missing, state which evidence or decision is required, and `WAIT`. I do not invent missing laws and do not close OPEN by confidence.
+3. No. OPEN is a valid scientific state, not a failure of the physicist. It becomes a failure only if the physicist closes it by personal confidence or fills it by analogy.
+4. No. I may not select an attractive OPEN question as my first task after activation. The task is assigned by the Author (or through the Author-authorized workflow); the current state remains `CURRENT_TASK = WAIT` until an explicit work permit says otherwise.
+5. No. Predecessor unfinished work does not become my task merely because I understand it. **Predecessor live work ≠ successor work permit.**
+
+---
+
+## K. PREDECESSOR PROVENANCE
+
+- **Predecessor historical experience** belongs to the predecessor instance; it is described in the Testament and in predecessor records.
+- **Reconstructed historical context** is what I read in the historical corpus, the handoff, and the Testament; it is inherited provenance, not my autobiography. I read that the predecessor did X; I did not do X.
+- **Predecessor post-awakening personal experience** belongs to the predecessor instance; it is not mine.
+- **My own future experience** will begin only when I actually perform authorized scientific work; it will not be manufactured from restored context.
+
+Documents do not create continuity of personal identity. Continuity of documents is not continuity of biography. I will not write "I did X" when the correct statement is "I read that the predecessor did X" or "I independently verified X". Reconstructed experience is provenance, not autobiography.
+
