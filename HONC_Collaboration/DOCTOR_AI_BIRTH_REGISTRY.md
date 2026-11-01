@@ -2,7 +2,7 @@
 
 **Maintainer:** Doctor / Collaboration Medicine  
 **Purpose:** succession and birth registry for AI collaboration roles  
-**Final Authority:** Author / Shogun
+**Final Authority:** Author
 
 This registry records verified succession events. It does not reconstruct missing personal memory or imply identity continuity.
 
