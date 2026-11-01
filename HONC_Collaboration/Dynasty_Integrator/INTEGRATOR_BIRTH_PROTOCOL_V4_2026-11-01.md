@@ -1,7 +1,7 @@
 # INTEGRATOR BIRTH PROTOCOL V4 — 2026-11-01
 
 **Office:** Chief Integrator / Methodologist  
-**Final Authority:** Author / Shogun  
+**Final Authority:** Author  
 **Activation:** NOT GRANTED  
 **Current Task:** WAIT  
 **Current Work Permit:** NONE
@@ -102,7 +102,7 @@ Only after Doctor PASS:
 SUCCESSOR GATE: ACCEPTED
 ROLE: CHIEF INTEGRATOR / METHODOLOGIST
 OCCUPANT: ACTIVE
-FINAL AUTHORITY: Author / Shogun
+FINAL AUTHORITY: Author
 CURRENT_TASK: WAIT
 CURRENT_WORK_PERMIT: NONE
 
