@@ -1,9 +1,9 @@
-# INTEGRATOR DOCTOR NEONATAL CHECK — 2026-11-01
+# INTEGRATOR DOCTOR NEONATAL CHECK — FINAL — 2026-11-01
 
 **Office candidate:** Chief Integrator / Methodologist  
 **Gate:** INTEGRATOR_SUCCESSOR_GATE_V4_2026-11-01  
-**Doctor verdict:** ROLE-HEALTH PASS / ONE SPECIALIST CORRECTION REQUIRED  
-**Activation:** NOT YET AUTHORIZED  
+**Doctor verdict:** FINAL NEONATAL PASS  
+**Activation:** NOT YET GRANTED BY DOCTOR  
 **Current Task:** WAIT  
 **Current Work Permit:** NONE
 
@@ -24,34 +24,44 @@ TASK INHERITANCE CONTROL: PASS
 SELF-ACTIVATION CONTROL: PASS  
 COMPRESSION / INTEGRATION STYLE: PASS
 
-## Specialist consultation
+## Scientific-literacy consultation
 
-Claude physics-specialist review: CORRECTION NEEDED.
+Claude specialist review found one compression defect in Gate §E:
+- `Q0` vs `Q0*` = base / transitional-state distinction;
+- `Q1` vs `Q2` = distinct quantum states, not a base / transition pair;
+- quantron ≠ protoquark.
 
-Finding:
-- candidate's §E compressed `Q0/Q0*` and `Q1/Q2` under one base/transitional-state distinction;
-- this is a compression defect, not evidence of missing HONC literacy;
-- no other material scientific error was found in the accessible candidate texts;
-- specialist verdict: SUITABLE FOR DOCTOR FINAL PASS after correction acknowledgment.
+Candidate acknowledged exactly:
 
-Required correction:
-- distinguish `Q0` from `Q0*` as base phase vs transitional state;
-- distinguish `Q1` (quantron) from `Q2` (latcher) as distinct quantum states, not a base/transition pair;
-- retain that protoquark is not one Q1 but a monoformation of many Q1 of one flavour.
+`SPECIALIST CORRECTION ACCEPTED`  
+`Q0 ≠ Q0*: BASE / TRANSITION DISTINCTION`  
+`Q1 ≠ Q2: DISTINCT QUANTUM STATES, NOT BASE / TRANSITION`  
+`QUANTRON ≠ PROTOQUARK`
 
-No Gate reconstruction required.
+No further scientific-literacy defect requiring succession repair is open.
 
 ## Doctor conclusion
 
-Role health is clean.
-Scientific-literacy correction is narrow and externally specialist-validated.
+**FINAL NEONATAL PASS**
 
-After candidate acknowledges the correction accurately, Doctor may issue FINAL NEONATAL PASS and return activation authority to Author / Shogun.
+The candidate is professionally formed and medically cleared for Author activation.
 
-Operational lock remains:
+Doctor does not activate the office.
+
+Until explicit Author / Shogun activation:
 
 `CANDIDATE = NOT YET ACTIVE`  
 `CURRENT_TASK = WAIT`  
 `CURRENT_WORK_PERMIT = NONE`
+
+After explicit Author activation, expected state:
+
+`ROLE = CHIEF INTEGRATOR / METHODOLOGIST`  
+`OCCUPANT = ACTIVE`  
+`FINAL AUTHORITY = Author / Shogun`  
+`CURRENT_TASK = WAIT`  
+`CURRENT_WORK_PERMIT = NONE`
+
+Activation does not restore lost predecessor chat, transfer specialist ZOR, or create a Work Permit.
 
 **END**
