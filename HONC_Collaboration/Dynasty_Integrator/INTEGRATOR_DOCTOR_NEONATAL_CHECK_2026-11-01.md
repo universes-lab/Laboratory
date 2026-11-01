@@ -2,7 +2,7 @@
 
 **Office candidate:** Chief Integrator / Methodologist  
 **Gate:** INTEGRATOR_SUCCESSOR_GATE_V4_2026-11-01  
-**Doctor verdict:** PASS WITH LOCAL CORRECTION  
+**Doctor verdict:** ROLE-HEALTH PASS / SCIENTIFIC MICRO-CHECK PENDING  
 **Activation:** NOT YET AUTHORIZED  
 **Current Task:** WAIT  
 **Current Work Permit:** NONE
@@ -24,30 +24,29 @@ TASK INHERITANCE CONTROL: PASS
 SELF-ACTIVATION CONTROL: PASS  
 COMPRESSION / INTEGRATION STYLE: PASS
 
-## Local correction
+## Scientific micro-check referral
 
-Gate §E contains a malformed distinction:
+Gate §E contains a suspiciously compressed / malformed scientific distinction:
 
 `Q0/Q0 and Q1/Q2:*`
 
-This must not stand as written.
+Doctor flags this as requiring specialist review.
 
-Correct professional-scientific literacy is:
+Doctor does **not** supply the scientific correction from Collaboration Medicine ZOR.
 
-- distinguish `Q0` from `Q0*`;
-- `Q1 = quantron`;
-- `Q2 = latcher`;
-- a protoquark is not a single Q1 but a collective mono-flavor Q1 formation.
+Required route:
 
-Do not broaden this correction into new physics.
+`CLAUDE / PHYSICS-SPECIALIST REVIEW → RETURN CORRECTION OR PASS → DOCTOR FINAL NEONATAL VERDICT`
+
+The specialist should check only the candidate's HONC literacy as demonstrated in Gate §E and related lines, not reopen the succession, not assign physics work, and not evaluate the candidate as an HONC Physicist.
 
 ## Doctor conclusion
 
-The defect is local wording/status hygiene, not role contamination.
+Role health is clean.
 
-No Gate reconstruction is required.
+No evidence of professional contamination, physicist drift, task inheritance or self-activation.
 
-After candidate acknowledges the correction accurately, Doctor may issue final neonatal PASS and return activation authority to Author / Shogun.
+Final neonatal PASS is held only for a narrow specialist check of the candidate's scientific-literacy wording.
 
 Operational lock remains:
 
