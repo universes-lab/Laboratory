@@ -33,3 +33,20 @@ Any activation statement or candidate reply produced from the contaminated formu
 No other role, ZOV, ZOR, Work Permit or scientific status is changed by this correction.
 
 **END**
+
+
+## Acceptance
+
+New Integrator acknowledgment:
+
+`AUTHORITY VOCABULARY CORRECTION ACCEPTED`
+
+Active state remains:
+
+`ROLE = CHIEF INTEGRATOR / METHODOLOGIST`  
+`OCCUPANT = ACTIVE`  
+`FINAL AUTHORITY = Author`  
+`CURRENT_TASK = WAIT`  
+`CURRENT_WORK_PERMIT = NONE`
+
+**CORRECTION CLOSED**
