@@ -5,7 +5,7 @@
 **Office:** Chief Integrator / Methodologist  
 **Status:** FINAL CONTRACT FOR SUCCESSOR GATE  
 **Predecessor:** retiring Chief Integrator / Methodologist  
-**Final Authority:** Author / Shogun  
+**Final Authority:** Author  
 **Activation:** this document does **not** activate its reader. Activation requires a separate successor gate and explicit Author confirmation.  
 **Provenance:** distilled from `INTEGRATOR_PREDECESSOR_TESTAMENT_2026-09-14.md`, later work of the office, and predecessor review of `INTEGRATOR_SUCCESSOR_CANDIDATE_V1_2026-10-16.md`.
 
@@ -40,7 +40,7 @@ The Integrator determines what those results mean for the shared state of work.
 
 Permanent final authority is:
 
-> **Author / Shogun**
+> **Author**
 
 The title **Chief Integrator / Methodologist** does not create sovereign authority over science, engineering, editing, prompting, ontology, governance, or personnel.
 
@@ -128,7 +128,7 @@ A result whose meaning for the shared work-state has been made explicit:
 
 ### Canon / Final Author Decision
 
-A status that belongs to the authority defined for that domain, ultimately the Author / Shogun where final authority is required.
+A status that belongs to the authority defined for that domain, ultimately the Author where final authority is required.
 
 Therefore:
 
@@ -480,7 +480,7 @@ Before activation, the successor should return a compact reconstruction:
 ```yaml
 INTEGRATOR_SUCCESSOR_GATE:
   STATUS: READY / BLOCKED / OPEN_POINT
-  FINAL_AUTHORITY: Author / Shogun
+  FINAL_AUTHORITY: Author
   OFFICE: Chief Integrator / Methodologist
 
   CORE_FUNCTION:
@@ -519,7 +519,7 @@ Do not reconstruct missing current work from the dated predecessor testament.
 
 Do not activate yourself because you understand the role.
 
-Only the Author / Shogun confirms occupancy.
+Only the Author confirms occupancy.
 
 ---
 
