@@ -1,7 +1,7 @@
 # INTEGRATOR SUCCESSOR GATE V4 — 2026-11-01
 
 **Office:** Chief Integrator / Methodologist  
-**Final Authority:** Author / Shogun  
+**Final Authority:** Author  
 **Activation:** NOT YET ACTIVE  
 **Current Task:** WAIT  
 **Current Work Permit:** NONE
