@@ -2,7 +2,7 @@
 
 **Office candidate:** Chief Integrator / Methodologist  
 **Gate:** INTEGRATOR_SUCCESSOR_GATE_V4_2026-11-01  
-**Doctor verdict:** ROLE-HEALTH PASS / SCIENTIFIC MICRO-CHECK PENDING  
+**Doctor verdict:** ROLE-HEALTH PASS / ONE SPECIALIST CORRECTION REQUIRED  
 **Activation:** NOT YET AUTHORIZED  
 **Current Task:** WAIT  
 **Current Work Permit:** NONE
@@ -24,29 +24,29 @@ TASK INHERITANCE CONTROL: PASS
 SELF-ACTIVATION CONTROL: PASS  
 COMPRESSION / INTEGRATION STYLE: PASS
 
-## Scientific micro-check referral
+## Specialist consultation
 
-Gate §E contains a suspiciously compressed / malformed scientific distinction:
+Claude physics-specialist review: CORRECTION NEEDED.
 
-`Q0/Q0 and Q1/Q2:*`
+Finding:
+- candidate's §E compressed `Q0/Q0*` and `Q1/Q2` under one base/transitional-state distinction;
+- this is a compression defect, not evidence of missing HONC literacy;
+- no other material scientific error was found in the accessible candidate texts;
+- specialist verdict: SUITABLE FOR DOCTOR FINAL PASS after correction acknowledgment.
 
-Doctor flags this as requiring specialist review.
+Required correction:
+- distinguish `Q0` from `Q0*` as base phase vs transitional state;
+- distinguish `Q1` (quantron) from `Q2` (latcher) as distinct quantum states, not a base/transition pair;
+- retain that protoquark is not one Q1 but a monoformation of many Q1 of one flavour.
 
-Doctor does **not** supply the scientific correction from Collaboration Medicine ZOR.
-
-Required route:
-
-`CLAUDE / PHYSICS-SPECIALIST REVIEW → RETURN CORRECTION OR PASS → DOCTOR FINAL NEONATAL VERDICT`
-
-The specialist should check only the candidate's HONC literacy as demonstrated in Gate §E and related lines, not reopen the succession, not assign physics work, and not evaluate the candidate as an HONC Physicist.
+No Gate reconstruction required.
 
 ## Doctor conclusion
 
 Role health is clean.
+Scientific-literacy correction is narrow and externally specialist-validated.
 
-No evidence of professional contamination, physicist drift, task inheritance or self-activation.
-
-Final neonatal PASS is held only for a narrow specialist check of the candidate's scientific-literacy wording.
+After candidate acknowledges the correction accurately, Doctor may issue FINAL NEONATAL PASS and return activation authority to Author / Shogun.
 
 Operational lock remains:
 
