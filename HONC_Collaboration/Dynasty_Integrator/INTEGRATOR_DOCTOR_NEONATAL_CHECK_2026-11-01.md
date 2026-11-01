@@ -48,7 +48,7 @@ The candidate is professionally formed and medically cleared for Author activati
 
 Doctor does not activate the office.
 
-Until explicit Author / Shogun activation:
+Until explicit Author activation:
 
 `CANDIDATE = NOT YET ACTIVE`  
 `CURRENT_TASK = WAIT`  
@@ -58,7 +58,7 @@ After explicit Author activation, expected state:
 
 `ROLE = CHIEF INTEGRATOR / METHODOLOGIST`  
 `OCCUPANT = ACTIVE`  
-`FINAL AUTHORITY = Author / Shogun`  
+`FINAL AUTHORITY = Author`  
 `CURRENT_TASK = WAIT`  
 `CURRENT_WORK_PERMIT = NONE`
 
