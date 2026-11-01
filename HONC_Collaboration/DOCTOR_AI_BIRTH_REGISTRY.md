@@ -20,7 +20,7 @@ This registry records verified succession events. It does not reconstruct missin
 | Date | Office | Event | Precipitating condition | Doctor status | Activation |
 |---|---|---|---|---|---|
 | 2026-11-01 | HONC Physicist / HONC Theory Developer | SUCCESSION | predecessor context/chat aging; clean successor formation required | neonatal PASS completed | ACTIVE by Author |
-| 2026-11-01 | Chief Integrator / Methodologist | SUCCESSION | sudden loss of active Integrator chat during work | FINAL NEONATAL PASS | PENDING AUTHOR ACTIVATION |
+| 2026-11-01 | Chief Integrator / Methodologist | SUCCESSION | sudden loss of active Integrator chat during work | FINAL NEONATAL PASS | ACTIVE by Author, 2026-11-01 |
 
 ## Backfill status
 
