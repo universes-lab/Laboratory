@@ -1,0 +1,3928 @@
+{
+ "status": "PROPOSED / NOT_EXECUTED — expectations authored by Claude from contract v0.4 §2.1 and §7; not yet reproduced by an independent implementation",
+ "encoding": "see BUILD_001_STEP2_STEP3_SPEC.md §A (snapshot encoding for the build)",
+ "fp_version": 1,
+ "series": {
+  "V1-V18": "v0.4 §7",
+  "E1-E14": "extra cases, not in v0.4; need review"
+ },
+ "vectors": [
+  {
+   "id": "V1",
+   "desc": "штатный рестарт, всё идентично",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "RECOVERED",
+    "reason": null,
+    "delta": false,
+    "decisive_rule": "10",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V2",
+   "desc": "kill после отправки; nonce найден; +1 ответ ассистента (user-сообщение уже было в pre)",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "7579e616268c72ec64a9e1882166de646a1b05771210839316e72d37ecf51e78"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 36,
+      "msg_fp": "fc6e444be53c43968bdba5433b4d569789d383cb4c86200c6967c1e03ca779ab"
+     }
+    ],
+    "send_nonce": "N-0001",
+    "send_status": "INTENDED",
+    "send_attempt_logged": true,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 3,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "7579e616268c72ec64a9e1882166de646a1b05771210839316e72d37ecf51e78",
+     "790dfe7e52e29ad0e49a244e0c0b7604d6067c8c500ebec877d3d872b938dfba"
+    ],
+    "tail_fps": [
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 36,
+      "msg_fp": "fc6e444be53c43968bdba5433b4d569789d383cb4c86200c6967c1e03ca779ab"
+     },
+     {
+      "idx": 5,
+      "role": "assistant",
+      "len": 35,
+      "msg_fp": "1a09248b1a2b0dd525d7381ecd884b5082869e1284a49c98415b6bf4fab7828c"
+     }
+    ],
+    "send_nonce": "N-0001",
+    "send_status": "CONFIRMED_PRESENT",
+    "send_attempt_logged": true,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [
+     {
+      "idx": 5,
+      "by": "send_nonce",
+      "ref": "N-0001"
+     }
+    ],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "RECOVERED",
+    "reason": null,
+    "delta": true,
+    "decisive_rule": "9",
+    "send_status": "CONFIRMED_PRESENT",
+    "flags": []
+   }
+  },
+  {
+   "id": "V3",
+   "desc": "сессия истекла",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": null,
+    "session_state": "EXPIRED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "UNKNOWN",
+    "conversation_opened": false,
+    "extraction_path": null,
+    "fp_version": null,
+    "history_complete": null,
+    "n_msgs": null,
+    "chain": null,
+    "tail_fps": null,
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "NEEDS_HUMAN",
+    "reason": "SESSION_EXPIRED",
+    "delta": null,
+    "decisive_rule": "2",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V4",
+   "desc": "CAPTCHA/2FA",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": null,
+    "session_state": "CHALLENGE",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "UNKNOWN",
+    "conversation_opened": false,
+    "extraction_path": null,
+    "fp_version": null,
+    "history_complete": null,
+    "n_msgs": null,
+    "chain": null,
+    "tail_fps": null,
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "NEEDS_HUMAN",
+    "reason": "SESSION_CHALLENGE",
+    "delta": null,
+    "decisive_rule": "2",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V5",
+   "desc": "адрес открывается, conv_id иной",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "af4def6959778a5989e1e7b9c664041c2462859ed316d3092fd5f39a83874f71",
+     "6d6f881aaec7df28bce998ea18de9b41343fca0cbbd22c425005785d162adcdd",
+     "f180b8b5dd6c27403906f2405159c098ed9d807c9d362ffd79488da153983f23",
+     "8b90fb115b1f95e61bf97ba8625aea49507e95107abafbf1d3f05aecbbfdd546"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "23456caa180db37221a4ebe52a386f29f6f44f76d38c257269910f718d9547c7"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "ee8bf2d8cc500cb37ae0b6e17ecc6442acec5098e669f8ab89686e8b2d59becd"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "efde8e583a1c10407594b393f6591b99a98bb6644653febf48355b0a6f2a30ae"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": [],
+    "conv": "conv_b"
+   },
+   "expect": {
+    "verdict": "MISMATCH",
+    "reason": "CONV_ID_DIFFERS",
+    "delta": null,
+    "decisive_rule": "4",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V6",
+   "desc": "conv_id тот же, цепочка префикса изменилась",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "5f7ff9ab9cac44a7a5c3b16b0e52466d7fba847312dd87c242b791da2f9b03d1",
+     "c603c117efef908417e19275896789cb5b72aeaf2491d61be8640504273a2fdd",
+     "29d8235ef26cae5ec312f8b5e1f1f9be0b16dd4ee7040dc5a6d6968d9328bfec"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 35,
+      "msg_fp": "b84191b37f56d58d12b037ec42f4988f0e8b8cfc78b3d675ebe903e712865066"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "MISMATCH",
+    "reason": "PREFIX_CHANGED",
+    "delta": null,
+    "decisive_rule": "7",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V7",
+   "desc": "беседа не открывается при AUTHENTICATED",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": null,
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "UNREACHABLE",
+    "generation_state": "UNKNOWN",
+    "conversation_opened": false,
+    "extraction_path": null,
+    "fp_version": null,
+    "history_complete": null,
+    "n_msgs": null,
+    "chain": null,
+    "tail_fps": null,
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "LOST",
+    "reason": null,
+    "delta": null,
+    "decisive_rule": "3",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V8",
+   "desc": "история подгружена не полностью",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": false,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 1,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07"
+    ],
+    "tail_fps": [
+     {
+      "idx": 0,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "74a75cd185abc277a7ca1fad0f962523d916564a943d9422709b5e54c4630546"
+     },
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "HISTORY_INCOMPLETE",
+    "delta": null,
+    "decisive_rule": "6",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V9",
+   "desc": "отправка прервана; намерение есть; nonce не найден; генерация UNKNOWN",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "7579e616268c72ec64a9e1882166de646a1b05771210839316e72d37ecf51e78"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 36,
+      "msg_fp": "fc6e444be53c43968bdba5433b4d569789d383cb4c86200c6967c1e03ca779ab"
+     }
+    ],
+    "send_nonce": "N-0001",
+    "send_status": "INTENDED",
+    "send_attempt_logged": true,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "UNKNOWN",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "7579e616268c72ec64a9e1882166de646a1b05771210839316e72d37ecf51e78"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 36,
+      "msg_fp": "fc6e444be53c43968bdba5433b4d569789d383cb4c86200c6967c1e03ca779ab"
+     }
+    ],
+    "send_nonce": "N-0001",
+    "send_status": "INTENDED",
+    "send_attempt_logged": true,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "SEND_UNRESOLVED",
+    "delta": null,
+    "decisive_rule": "8",
+    "send_status": "INTENDED",
+    "flags": []
+   }
+  },
+  {
+   "id": "V10",
+   "desc": "интервал выдержан, история полна, IDLE, nonce нет",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "7579e616268c72ec64a9e1882166de646a1b05771210839316e72d37ecf51e78"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 36,
+      "msg_fp": "fc6e444be53c43968bdba5433b4d569789d383cb4c86200c6967c1e03ca779ab"
+     }
+    ],
+    "send_nonce": "N-0001",
+    "send_status": "INTENDED",
+    "send_attempt_logged": true,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "7579e616268c72ec64a9e1882166de646a1b05771210839316e72d37ecf51e78"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 36,
+      "msg_fp": "fc6e444be53c43968bdba5433b4d569789d383cb4c86200c6967c1e03ca779ab"
+     }
+    ],
+    "send_nonce": "N-0001",
+    "send_status": "CONFIRMED_ABSENT",
+    "send_attempt_logged": true,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "RECOVERED",
+    "reason": null,
+    "delta": false,
+    "decisive_rule": "10",
+    "send_status": "CONFIRMED_ABSENT",
+    "flags": []
+   }
+  },
+  {
+   "id": "V11",
+   "desc": "две вкладки на одну беседу",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": [
+     "double_ownership"
+    ]
+   },
+   "expect": {
+    "verdict": "NEEDS_HUMAN",
+    "reason": "DOUBLE_OWNERSHIP",
+    "delta": null,
+    "decisive_rule": "2",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V12",
+   "desc": "новое user-сообщение записано в operator_actions",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "d4bd272b1f9fc2ef46da09deb981d2bb07da6d52fcefa880850f38f5d3f003a6"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 27,
+      "msg_fp": "1d349da2a3f51a9c8135ca4ae087107df65abbf3cf8875e6f5e854a9ebeeae7a"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [
+     {
+      "action_id": "op-0001",
+      "kind": "manual_message",
+      "ts_utc": "2026-10-27T10:02:00Z"
+     }
+    ],
+    "attributions": [
+     {
+      "idx": 4,
+      "by": "operator_action",
+      "ref": "op-0001"
+     }
+    ],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "RECOVERED",
+    "reason": null,
+    "delta": true,
+    "decisive_rule": "9",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V13",
+   "desc": "новое user-сообщение, в журнале действий нет",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "d4bd272b1f9fc2ef46da09deb981d2bb07da6d52fcefa880850f38f5d3f003a6"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 27,
+      "msg_fp": "1d349da2a3f51a9c8135ca4ae087107df65abbf3cf8875e6f5e854a9ebeeae7a"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "UNATTRIBUTED_DELTA",
+    "delta": null,
+    "decisive_rule": "9",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V14",
+   "desc": "pre DOM, post API, пересчёта нет",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "API",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "PATHS_NOT_COMPARABLE",
+    "delta": null,
+    "decisive_rule": "5",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V15",
+   "desc": "метка модели изменилась",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": [
+     "model_label_changed"
+    ]
+   },
+   "expect": {
+    "verdict": "RECOVERED",
+    "reason": null,
+    "delta": false,
+    "decisive_rule": "10",
+    "send_status": "NONE",
+    "flags": [
+     "model_label_changed"
+    ]
+   }
+  },
+  {
+   "id": "V16",
+   "desc": "транспорт потерян и переподключён, всё идентично",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "network",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "RECOVERED",
+    "reason": null,
+    "delta": false,
+    "decisive_rule": "10",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V17",
+   "desc": "нет pre-снимка",
+   "pre": null,
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "V18",
+   "desc": "цепочка совпала, tail_fps расходятся при тех же n",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 34,
+      "msg_fp": "00a6009aac697f11c40fb11836ef5cb762f766b2604b66ad25dfafeba3251497"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "SNAPSHOT_INCONSISTENT",
+    "delta": null,
+    "decisive_rule": "7a",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E1",
+   "desc": "[rule 1] ts post <= ts pre",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E2",
+   "desc": "[rule 1] restart_epoch post <= pre",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E3",
+   "desc": "[rule 1] другое кресло",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-02",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E4",
+   "desc": "[rule 1] нет extraction_path",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E5",
+   "desc": "[rule 1] попытка отправки в журнале, статуса нет",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": true,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E6",
+   "desc": "[rule 1] значение вне закрытого списка",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "LOGGED_IN",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "NO_EVIDENCE",
+    "delta": null,
+    "decisive_rule": "1",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E7",
+   "desc": "[rule 7] сообщение удалено: в post меньше n_pre",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 1,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07"
+    ],
+    "tail_fps": [
+     {
+      "idx": 0,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "74a75cd185abc277a7ca1fad0f962523d916564a943d9422709b5e54c4630546"
+     },
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "MISMATCH",
+    "reason": "PREFIX_CHANGED",
+    "delta": null,
+    "decisive_rule": "7",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E8",
+   "desc": "[порядок] EXPIRED и другой conv_id: правило 2 раньше 4",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": null,
+    "session_state": "EXPIRED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "UNKNOWN",
+    "conversation_opened": false,
+    "extraction_path": null,
+    "fp_version": null,
+    "history_complete": null,
+    "n_msgs": null,
+    "chain": null,
+    "tail_fps": null,
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "NEEDS_HUMAN",
+    "reason": "SESSION_EXPIRED",
+    "delta": null,
+    "decisive_rule": "2",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E9",
+   "desc": "[порядок] иной conv_id и иной путь: правило 4 раньше 5",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "API",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "af4def6959778a5989e1e7b9c664041c2462859ed316d3092fd5f39a83874f71",
+     "6d6f881aaec7df28bce998ea18de9b41343fca0cbbd22c425005785d162adcdd",
+     "f180b8b5dd6c27403906f2405159c098ed9d807c9d362ffd79488da153983f23",
+     "8b90fb115b1f95e61bf97ba8625aea49507e95107abafbf1d3f05aecbbfdd546"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "23456caa180db37221a4ebe52a386f29f6f44f76d38c257269910f718d9547c7"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "ee8bf2d8cc500cb37ae0b6e17ecc6442acec5098e669f8ab89686e8b2d59becd"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "efde8e583a1c10407594b393f6591b99a98bb6644653febf48355b0a6f2a30ae"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": [],
+    "conv": "conv_b"
+   },
+   "expect": {
+    "verdict": "MISMATCH",
+    "reason": "CONV_ID_DIFFERS",
+    "delta": null,
+    "decisive_rule": "4",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E10",
+   "desc": "[порядок] иной путь и неполная история: правило 5 раньше 6",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "API",
+    "fp_version": 1,
+    "history_complete": false,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "PATHS_NOT_COMPARABLE",
+    "delta": null,
+    "decisive_rule": "5",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E11",
+   "desc": "[порядок] неполная история и изменённый префикс: правило 6 раньше 7",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": false,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "5f7ff9ab9cac44a7a5c3b16b0e52466d7fba847312dd87c242b791da2f9b03d1",
+     "c603c117efef908417e19275896789cb5b72aeaf2491d61be8640504273a2fdd",
+     "29d8235ef26cae5ec312f8b5e1f1f9be0b16dd4ee7040dc5a6d6968d9328bfec"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 35,
+      "msg_fp": "b84191b37f56d58d12b037ec42f4988f0e8b8cfc78b3d675ebe903e712865066"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "HISTORY_INCOMPLETE",
+    "delta": null,
+    "decisive_rule": "6",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E12",
+   "desc": "[порядок] изменённый префикс и INTENDED: правило 7 раньше 8",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "5f7ff9ab9cac44a7a5c3b16b0e52466d7fba847312dd87c242b791da2f9b03d1",
+     "c603c117efef908417e19275896789cb5b72aeaf2491d61be8640504273a2fdd",
+     "29d8235ef26cae5ec312f8b5e1f1f9be0b16dd4ee7040dc5a6d6968d9328bfec"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 35,
+      "msg_fp": "b84191b37f56d58d12b037ec42f4988f0e8b8cfc78b3d675ebe903e712865066"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "INTENDED",
+    "send_attempt_logged": true,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "MISMATCH",
+    "reason": "PREFIX_CHANGED",
+    "delta": null,
+    "decisive_rule": "7",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E13",
+   "desc": "[правило 9] два новых сообщения, атрибутировано одно",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 3,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "4526fa43569eb4bca21c19ca2c5a0bee753e7df77dc5ecbed7439edbe34c4d32",
+     "ff99bf137bc7e0ab07c754887866e6b0f539f4841efbca7df07e2c5be69f17ae"
+    ],
+    "tail_fps": [
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 17,
+      "msg_fp": "96da6af60f4b2d249e9e1adaec66894ee9102e9db6af8c92ed20adb16bf09a32"
+     },
+     {
+      "idx": 5,
+      "role": "assistant",
+      "len": 23,
+      "msg_fp": "474a01ed399066f23c7cf0d1a4e3426d6f2ad7241093c7234acdf7bce3621dc4"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [
+     {
+      "action_id": "op-0001",
+      "kind": "manual_message",
+      "ts_utc": "2026-10-27T10:02:00Z"
+     }
+    ],
+    "attributions": [
+     {
+      "idx": 4,
+      "by": "operator_action",
+      "ref": "op-0001"
+     }
+    ],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "UNATTRIBUTED_DELTA",
+    "delta": null,
+    "decisive_rule": "9",
+    "send_status": "NONE",
+    "flags": []
+   }
+  },
+  {
+   "id": "E14",
+   "desc": "[правило 9] ссылка атрибуции на несуществующее действие",
+   "pre": {
+    "snapshot_id": "pre-1",
+    "kind": "pre",
+    "ts_utc": "2026-10-27T10:00:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 2,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450"
+    ],
+    "tail_fps": [
+     {
+      "idx": 1,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "5936a2aea09ff26a57dff941e32fdeb2923912cf85ab1a29d50f723372113594"
+     },
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 1,
+    "restart_kind": "graceful",
+    "operator_actions": [],
+    "attributions": [],
+    "flags": []
+   },
+   "post": {
+    "snapshot_id": "post-1",
+    "kind": "post",
+    "ts_utc": "2026-10-27T10:05:00Z",
+    "seat_id": "seat-01",
+    "binding_id": "bind-01",
+    "authority_epoch": 1,
+    "provider": "synthetic",
+    "conv_id": "conv_a",
+    "session_state": "AUTHENTICATED",
+    "transport_state": "ATTACHED",
+    "occupant_state": "VERIFIED",
+    "generation_state": "IDLE",
+    "conversation_opened": true,
+    "extraction_path": "DOM",
+    "fp_version": 1,
+    "history_complete": true,
+    "n_msgs": {
+     "user": 3,
+     "assistant": 2,
+     "other": 0
+    },
+    "chain": [
+     "1e91bf1752a05cf51368eec8b86a517ecb0376e4a7baebd7fc0fcd7405673914",
+     "6cc0dede326a915abfc73f16fbff41b6883fbd22c4edc0fe94e44dfea0af322f",
+     "11b94aabfd0c8e71baaaf85b3408058da797032a44df02cd25817f956990fb07",
+     "1ede1e0dcfa7428c755e06bc73f07032ac82e6f792b1d42867dd924d7eebd450",
+     "d4bd272b1f9fc2ef46da09deb981d2bb07da6d52fcefa880850f38f5d3f003a6"
+    ],
+    "tail_fps": [
+     {
+      "idx": 2,
+      "role": "user",
+      "len": 35,
+      "msg_fp": "23c764a17801256f49bfc7d0d62f4cc87390745f84cf190dccd02088576c27c6"
+     },
+     {
+      "idx": 3,
+      "role": "assistant",
+      "len": 33,
+      "msg_fp": "b9eba85d533c573252edaffa0b48c4f77005afa08607831568658592173af7b0"
+     },
+     {
+      "idx": 4,
+      "role": "user",
+      "len": 27,
+      "msg_fp": "1d349da2a3f51a9c8135ca4ae087107df65abbf3cf8875e6f5e854a9ebeeae7a"
+     }
+    ],
+    "send_nonce": null,
+    "send_status": "NONE",
+    "send_attempt_logged": false,
+    "restart_epoch": 2,
+    "restart_kind": "kill",
+    "operator_actions": [],
+    "attributions": [
+     {
+      "idx": 4,
+      "by": "operator_action",
+      "ref": "op-9999"
+     }
+    ],
+    "flags": []
+   },
+   "expect": {
+    "verdict": "AMBIGUOUS",
+    "reason": "UNATTRIBUTED_DELTA",
+    "delta": null,
+    "decisive_rule": "9",
+    "send_status": "NONE",
+    "flags": []
+   }
+  }
+ ]
+}

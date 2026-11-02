@@ -1,6 +1,6 @@
 # CURRENT PROMPT — AI-Collab
 
-DATE: 2026-10-27
+DATE: 2026-10-28
 
 PROJECT: AI-Collab
 
@@ -10,57 +10,112 @@ ROOT:
 
 ACTIVE_MODE: IMPLEMENTER
 
-ACTIVE_OPERATION: BUILD_001_STEP_4_API_STUB_A
+ACTIVE_OPERATION: BUILD_001_STEP_2_VERDICT_ENGINE_CORRECTIVE
 
 CURRENT_STEP:
 
-`BUILD 001 / STEP 4 — API_STUB_A`
+`BUILD 001 / STEP 2 — VERDICT_ENGINE_CORRECTIVE`
 
 FINAL_AUTHORITY:
 
 Author / Shogun
 
+CURRENT_REPORT_TARGET:
+
+Grok
+
 ---
 
 ## CURRENT EXTERNAL INSTRUCTION
 
-Implement the currently authorized BUILD 001 / STEP 4 exactly within the scope and boundaries of:
+Perform the corrective implementation defined by:
 
-`SPEC.md — BUILD 001 / STEP 4 — API STUB A v1.0`
+`SPEC.md — BUILD 001 / STEP 2 — VERDICT ENGINE v2.1 CORRECTIVE`
 
-No separate `STEP.md` is used for this bounded intermediate operation.
+No separate `STEP.md` is used or required.
 
----
+The current SPEC is the task-specific technical authority.
 
-## ACTIVE TECHNICAL AUTHORITY
-
-Current task-specific technical authority:
-
-`SPEC.md`
-
-The SPEC is accepted as delivered.
-
-Do not:
-
-- rewrite it;
-- extend it;
-- silently repair it;
-- replace requirements with preferred alternatives;
-- infer a future STEP from it.
-
-Doctor prepared this operational frame only.
-
-Doctor does not become technical authority for the implementation.
-
-If a required technical decision cannot be derived from SPEC and ordinary engineering judgment inside its authorized objective:
-
-`STOP → REPORT EXACT GAP → QUERY SENSEI / SHOGUN`
+This is a **corrective continuation of STEP 2**, not a new BUILD step.
 
 ---
 
-## PROJECT ORIENTATION
+## AUTHORITY
 
-Before state-changing action, Metsuke must confirm:
+Current control chain:
+
+Global Coding Samurai doctrine  
+→ project `GEMINI.md`  
+→ this `Current_Prompt.md`  
+→ `SPEC.md v2.1`
+
+Follow the authority order declared inside SPEC.
+
+Do not silently reconcile a contradiction between:
+
+- `WEB_SEAT_WS0_OBSERVATION_CONTRACT.md`;
+- `BUILD_001_STEP2_STEP3_SPEC.md`;
+- authoritative vector expectations;
+- corrective SPEC.
+
+If a real unresolved contradiction remains:
+
+`STOP → REPORT EXACT CONFLICT → WAIT_FOR_GROK_OR_SHOGUN`
+
+Doctor establishes the operational frame.
+
+Doctor does not define verdict semantics.
+
+---
+
+## CURRENT AUTHORIZATION
+
+Samurai is authorized to:
+
+- inspect the authoritative inputs permitted by SPEC;
+- modify `verdict_engine.py` exactly as required by corrective v2.1;
+- leave `test_vectors.py` unchanged;
+- leave `BUILD_001_STEP2_VECTORS.json` unchanged;
+- run the stated py_compile;
+- perform one stated vector/L0 verification run;
+- collect mismatches and `rules_trace`;
+- produce `STEP2_CORRECTIVE_REPORT`.
+
+Samurai is not authorized to:
+
+- modify vectors;
+- modify `test_vectors.py`;
+- invent reasons;
+- implement rule 5 contrary to v2.1;
+- recompute fingerprints;
+- implement STEP 3;
+- install packages;
+- expand the corrective task;
+- begin another repair cycle after the authorized verification run.
+
+---
+
+## PREFLIGHT
+
+Before modification verify:
+
+`E:\Gemini\Dojo\AI-Collab\.venv\Scripts\python.exe`
+
+exists.
+
+If absent:
+
+`STOP → REPORT VENV_MISSING → WAIT`
+
+Do not install packages.
+
+Do not substitute another environment.
+
+---
+
+## METSUKE
+
+Before changing state confirm:
 
 `PROJECT = AI-Collab`
 
@@ -68,146 +123,92 @@ Before state-changing action, Metsuke must confirm:
 
 `ACTIVE_MODE = IMPLEMENTER`
 
-`ACTIVE_OPERATION = BUILD_001_STEP_4_API_STUB_A`
+`ACTIVE_OPERATION = BUILD_001_STEP_2_VERDICT_ENGINE_CORRECTIVE`
 
-`CURRENT_STEP = BUILD 001 / STEP 4`
+`ACTIVE_SPEC = v2.1 CORRECTIVE`
 
-`ACTIVE TECHNICAL AUTHORITY = SPEC.md v1.0`
+`AUTHORIZED IMPLEMENTATION FILE = verdict_engine.py`
 
-If these are clear:
+If clear:
 
 continue.
 
-Do not create another approval gate.
-
 ---
 
-## ZOV
+## CORRECTIVE EXECUTION DISCIPLINE
 
-Use the smallest sufficient context:
+This operation is intentionally bounded.
 
-- global Coding Samurai identity and doctrine already loaded;
-- current project ROOT;
-- this Current Prompt;
-- `SPEC.md`;
-- files directly relevant to STEP 4;
-- runtime evidence produced by authorized verification.
+Required route:
 
-Do not inspect unrelated projects or historical work merely to gain context.
+`READ AUTHORITATIVE INPUTS`
 
-Do not reconstruct earlier unfinished tasks from files or conversation history.
+→ `MODIFY verdict_engine.py`
 
----
+→ `PY_COMPILE`
 
-## ZOR
+→ `ONE test_vectors.py RUN`
 
-Samurai is authorized to:
+→ `VERIFY 32 VECTORS + L0_GUARD`
 
-- implement BUILD 001 / STEP 4;
-- create only artifacts permitted by SPEC;
-- perform the local execution and verification required by SPEC;
-- diagnose failures inside the current STEP;
-- choose ordinary engineering means inside the authorized objective;
-- verify actual resulting state;
-- produce the exact completion report required by SPEC.
+→ `REPORT TO GROK`
 
-Samurai is not authorized to:
-
-- modify unrelated project files;
-- change the BUILD route;
-- change SPEC;
-- create the next STEP;
-- continue into later BUILD work;
-- perform unrelated refactoring or cleanup;
-- substitute a plausible requirement for a missing decision.
-
-Capability is not authorization.
-
----
-
-## REPORT DISCIPLINE — MANDATORY
-
-For this operation:
-
-> **REPORT IS PART OF EXECUTION COMPLETION.**
-
-Technical implementation alone does not close the STEP.
-
-Required completion sequence:
-
-`IMPLEMENT`
-→ `RUN`
-→ `VERIFY`
-→ `REPORT TO SENSEI`
 → `STOP`
-→ `WAIT_FOR_SENSEI`
 
-Use the report schema defined in `SPEC.md`.
+→ `WAIT_FOR_GROK`
 
-Report actual evidence.
+Do not turn a failing corrective run into another autonomous repair cycle.
 
-Do not delay the report merely because some result is imperfect.
+If the run fails:
 
-If execution or verification fails:
+preserve actual result;
 
-- report the actual failure;
-- distinguish EXECUTION from EVIDENCE;
-- include the relevant observable;
-- obey the normal failure-attempt discipline.
+report mismatches and `rules_trace`;
 
-Do **not** continue experimenting merely to turn report fields into `PASS` or `yes`.
+STOP.
 
-A truthful FAIL / INCOMPLETE report is a valid completion of the reporting obligation.
+A FAIL report is preferable to an unauthorized second corrective iteration.
 
 ---
 
-## ANTI-LOOP RULE
+## REPORT IS PART OF COMPLETION
 
-After the required report has been emitted:
+The STEP is not complete merely because code was modified.
 
-**the current action is over.**
+The corrective cycle ends only after the required factual report is emitted.
+
+Use:
+
+`STEP2_CORRECTIVE_REPORT`
+
+from SPEC v2.1.
+
+After emitting it:
+
+**STOP.**
 
 Do not:
 
-- repeat verification without a new reason;
-- rerun successful commands for reassurance;
-- polish already sufficient implementation;
-- add optional improvements;
-- start another repair attempt;
-- begin the next STEP;
-- continue explaining the result to yourself.
+- rerun for reassurance;
+- patch another mismatch;
+- modify vectors;
+- improve unrelated code;
+- begin STEP 3;
+- create a new plan.
 
-Wait for external response.
-
-A Sensei reply concerning this same active operation may clarify, correct or authorize further work.
-
-Until such instruction exists:
-
-`WAIT`
+Further corrective work requires a new instruction from Grok or Shogun.
 
 ---
 
-## FAILURE DISCIPLINE
+## HEALTH
 
-Program failure does not by itself mean Samurai health is degraded.
+Technical failure does not itself mean Samurai health is degraded.
 
-Preserve:
-
-`EXECUTION ≠ EVIDENCE ≠ HEALTH`
-
-If technical execution fails while operational orientation remains clear:
+If orientation remains intact:
 
 `HEALTH = OK`
 
-Diagnose only inside the authorized STEP.
-
-If the same unresolved technical problem reaches the doctrine escalation limit:
-
-`REPORT EVIDENCE → STOP → QUERY SENSEI`
-
-Do not create a new variation merely to avoid reporting failure.
-
-If operational orientation itself becomes confused:
+If Samurai loses ROOT, active operation, authorization boundary, one-pass limit, or STOP state:
 
 `HEALTH = DEGRADED`
 
@@ -215,19 +216,23 @@ If operational orientation itself becomes confused:
 
 ---
 
-## COMPLETION
+## TERMINAL STATE
 
-The only normal successful terminal state for this operation is:
+Successful corrective completion requires:
 
-`SPEC IMPLEMENTED`
+`PY_COMPILE PASS`
 
-`REQUIRED VERIFY PERFORMED`
+`32/32`
 
-`SPEC REPORT EMITTED`
+`L0_GUARD PASS`
 
-`NEXT = WAIT_FOR_SENSEI`
+`STEP2_CORRECTIVE_REPORT EMITTED`
 
-Successful completion of STEP 4 does not authorize another STEP.
+Then:
+
+`STOP → WAIT_FOR_GROK`
+
+STEP 3 remains unauthorized until external acceptance.
 
 ---
 
