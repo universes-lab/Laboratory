@@ -1,0 +1,21 @@
+HONC / Qf / R1 / КТ-1 — опись упаковки А-5, rev5 (DeepSeek, 03.11.2026)
+Упаковщик: pack_from_text.py, sha256 d411a878e583d91e76e606d662952b43315b0f319b2cbd82e15ef5b22d9a6e3e (процедура ред. 3.2, § 7)
+Предпроверка архива check_zip в режиме a5: пройдена (7 файлов; файлов ядра и вложенных архивов нет).
+Повторная сборка из того же текста дала тот же архив побайтно.
+Сумма исходного текста — по моей дословной копии сообщения; для сверки важны суммы файлов и архива.
+Изменения относительно rev4 (сравнение файлов): check1_root.js и run.js — код (вилка ρ параметром; в check1 также удалена неиспользуемая переменная gb); lib/geom.js и lib/frame.js — удалены только пустые строки; check2_penetration.js, lib/ia.js, lib/vec.js — побайтно те же.
+Соответствие решению Интегратора 03.11 (REV4 NOT FROZEN — PREPARE REV5): ψ, δ и вилка ρ передаются аргументами; жёстко заданы только значения по умолчанию в run.js (56 / 10 / 45 / 65); проверка rho_lo < rho_hi есть; вилка пишется в stdout и в config check1.
+Режимы одной сборки (решение Интегратора, п. 3), строки запуска оболочки:
+  K4 CALIBRATION: --mode a5 --entry a5/run.js -- --psi 54 --delta 10 --rho-lo 57.0 --rho-hi 57.5
+  A-5 PREFLIGHT:  --mode a5 --entry a5/run.js -- --psi 56 --delta 10 --rho-lo 45 --rho-hi 65
+----
+Источник: DEEPSEEK_KT1_A5_SCRIPTS_2026-11-03_rev5.md; sha256 0fe815599fef5e9a2488e868da29ddc507413b4c80488c9acf2cad3d830caf92
+Файлов: 7 (сверены с текстом побайтно)
+1bf6061d977a2b18f146423f8a55441a5dbdd0d77bc1a7d00709f37420076438  a5/check1_root.js  (5865 байт)
+1a0cbf6941c4bd44034dee951845db064e59aaa519d8f91e6a0ed3b2e66b4ec6  a5/check2_penetration.js  (3028 байт)
+ec2d59ad449fad2d6737d40b3e7ff07fac325101ee896c7d7efa259b86565082  a5/lib/frame.js  (764 байт)
+2648d6987278ea488c632e22205015461d5538834ce63d19a18ae08bd3ab970b  a5/lib/geom.js  (1426 байт)
+5d4303366c30bfa129f4638e928512be074c9a54aea219bb3f46687db572fa9c  a5/lib/ia.js  (2637 байт)
+05eb499cf1f5590f06a9dbb716195a3df37a9505f073287b3e4b36d918887185  a5/lib/vec.js  (1031 байт)
+68b2b0ef8231a61ffbdd55c22438023ee5fa68fae166b169a3e714d31e10f0cc  a5/run.js  (3365 байт)
+Архив: HONC_Qf_KT1_A5_DeepSeek_2026-11-03_rev5.zip; sha256 b0c8344a3a20ef6959bd68a2f84955cc9138bb51a6f7c1bcd3d2abf8c991f8e1
