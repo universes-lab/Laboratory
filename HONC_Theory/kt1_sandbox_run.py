@@ -12,10 +12,17 @@
 #  4. Д-3: sha256 ядра сравнивается с зашитым эталоном замороженной сборки;
 #  5. node-check — без ядра;
 #  6. полные stdout / stderr, код выхода, точная команда, версии среды, суммы исходников до и после.
+# Адресные поправки Интегратора 03.11 («SANDBOX REV3 — ACCEPTED WITH TWO TARGETED CORRECTIONS»):
+#  7. статус оболочки (runner_status) и статус испытуемого скрипта (test_status) разделены; код выхода оболочки
+#     сообщает о провале испытания (таблица EXIT ниже);
+#  8. stdout + stderr пишутся в журнал потоком, общий предел объёма; work/ — отдельная tmpfs с квотой байт и файлов;
+#     при превышении прогон прерывается, статус OUTPUT_LIMIT / WORK_LIMIT, протокол помечен неполным, усечённый
+#     файл вывода получает в имени .TRUNCATED.
 #
 #   kt1_sandbox_run.py --mode {a5,d3-check,d3-selftest,d3-run} --label L --archive A.zip --sha SHA
-#                      [--lang node|python] [--entry путь] [--kernel K.zip] [--timeout с] [--mem ГиБ] [-- аргументы…]
-import argparse, datetime, hashlib, io, json, os, re, shutil, stat, subprocess, sys, time, zipfile
+#                      [--lang node|python] [--entry путь] [--kernel K.zip] [--timeout с] [--mem ГиБ]
+#                      [--max-output МиБ] [--work-quota МиБ] [--work-files N] [-- аргументы…]
+import argparse, datetime, hashlib, io, json, os, re, shutil, signal, stat, subprocess, sys, threading, time, zipfile
 
 FROZEN_KERNEL_SHA = 'ecb35112d85911c810d70942f3655ddc25ed19c9047befff2cb7dfbf6ea268ea'   # запись заморозки 03.11
 KERNEL_NAMES = re.compile(r'(^|/)(kt1\.js|wp[0-4]_[a-z0-9_]+\.js|registry_S3\.json|WP[0-4]_[A-Za-z_]+\.md)$|HONC_Qf_KT1_Kernel', re.I)
@@ -24,6 +31,11 @@ HERE = os.path.dirname(os.path.realpath(__file__))
 RUNS_ROOT = '/var/tmp/kt1-runs'        # вне папок сессии (те закрыты 0700 для root): nobody должен пройти к src и work
 NOBODY = 65534
 TMPFS = 256 << 20                      # предел /tmp и /dev/shm внутри песочницы
+# Код выхода оболочки: 0 — испытание завершилось с кодом 0; 1 — испытуемый скрипт завершился с ненулевым кодом;
+# 2 — отказ до запуска; 3 — превышен предел (время, вывод, work/) — протокол неполный; 4 — ошибка самой оболочки.
+EXIT = {'EXIT_0': 0, 'EXIT_NONZERO': 1, 'REFUSED': 2, 'TIMEOUT': 3, 'OUTPUT_LIMIT': 3, 'WORK_LIMIT': 3, 'RUNNER_ERROR': 4}
+SEVERITY = ['EXIT_0', 'EXIT_NONZERO', 'TIMEOUT', 'WORK_LIMIT', 'OUTPUT_LIMIT']        # итог по нескольким запускам — худший
+FULL_BYTES, FULL_FILES = 1 << 20, 16   # work/ считается исчерпанной, если свободно меньше 1 МиБ или меньше 16 файлов
 NODE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(shutil.which('node'))))      # /opt/node22
 PYTHON = os.path.realpath('/usr/bin/python3')                                              # без /etc/alternatives
 SAFE = re.compile(r'^[A-Za-z0-9._-]+$')
@@ -96,6 +108,69 @@ def new_run_dir(label):
     work = os.path.join(run, 'work'); os.makedirs(work); os.chown(work, NOBODY, NOBODY); os.chmod(work, 0o700)
     return run, ts
 
+def mount_work(work, quota_bytes, max_files):
+    """work/ — отдельная tmpfs с жёсткой квотой байт и файлов (inode), владелец nobody."""
+    subprocess.run(['mount', '-t', 'tmpfs', '-o', f'size={quota_bytes},nr_inodes={max_files},mode=0700,uid={NOBODY},gid={NOBODY},nosuid,nodev',
+                    'tmpfs', work], check=True, capture_output=True)
+
+def work_full(work):
+    s = os.statvfs(work)
+    return s.f_bavail * s.f_frsize < FULL_BYTES or s.f_favail < FULL_FILES
+
+def nobody_procs():
+    """Процессы пользователя nobody (65534) в контейнере — только из песочниц этой оболочки."""
+    n = 0
+    for d in os.listdir('/proc'):
+        if d.isdigit():
+            try:
+                with open(f'/proc/{d}/status') as f:
+                    if any(l.startswith('Uid:') and l.split()[1] == str(NOBODY) for l in f): n += 1
+            except OSError: pass
+    return n
+
+def wait_nobody(seconds=10):
+    """Дождаться, пока ядро снимет пространства PID прежних песочниц; вернуть остаток."""
+    for _ in range(int(seconds * 10)):
+        if nobody_procs() == 0: return 0
+        time.sleep(0.1)
+    return nobody_procs()
+
+def execute(cmd, so, se, work, timeout, max_output):
+    """Запуск: stdout и stderr — потоком в файлы журнала, общий предел объёма; сторож квоты work/ и срока.
+    Превышение — немедленное прерывание всей песочницы (SIGKILL группе bubblewrap; --die-with-parent добивает остальное)."""
+    p = subprocess.Popen(cmd, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
+    st = {'written': 0, 'reason': None, 'dropped': {'stdout': 0, 'stderr': 0}}
+    lock = threading.Lock()
+    def kill(reason):
+        with lock:
+            if st['reason'] is None: st['reason'] = reason
+        try: os.killpg(p.pid, signal.SIGKILL)
+        except ProcessLookupError: pass
+    def pump(pipe, path, name):
+        with open(path, 'wb') as f:
+            while True:
+                chunk = pipe.read1(1 << 16)
+                if not chunk: break
+                with lock:
+                    take = max(0, min(len(chunk), max_output - st['written']))
+                    st['written'] += take; st['dropped'][name] += len(chunk) - take
+                if take: f.write(chunk[:take])
+                if take < len(chunk): kill('OUTPUT_LIMIT')
+    th = [threading.Thread(target=pump, args=(p.stdout, so, 'stdout')), threading.Thread(target=pump, args=(p.stderr, se, 'stderr'))]
+    for t in th: t.start()
+    t0 = time.time()
+    while p.poll() is None:
+        if work_full(work): kill('WORK_LIMIT')
+        if time.time() - t0 > timeout + 30: kill('TIMEOUT')     # запасной срок снаружи песочницы, сверх timeout внутри
+        time.sleep(0.05)
+    for t in th: t.join(60)
+    dt = time.time() - t0
+    st['leftover'] = wait_nobody()
+    if st['reason'] is None and work_full(work): st['reason'] = 'WORK_LIMIT'
+    if st['reason'] is None and p.returncode in (124, 137) and dt >= timeout: st['reason'] = 'TIMEOUT'
+    status = st['reason'] or ('EXIT_0' if p.returncode == 0 else 'EXIT_NONZERO')
+    return p.returncode, dt, status, st['dropped'], st['leftover']
+
 def bwrap(run, lang, extra_binds, env, inner, mem_gib, timeout):
     cmd = ['setpriv', f'--reuid={NOBODY}', f'--regid={NOBODY}', '--clear-groups', '--no-new-privs', '--bounding-set=-all',
            'bwrap', '--unshare-all', '--die-with-parent', '--new-session', '--cap-drop', 'ALL', '--clearenv']
@@ -118,25 +193,40 @@ def main():
     ap.add_argument('--label', required=True); ap.add_argument('--archive', required=True); ap.add_argument('--sha', required=True)
     ap.add_argument('--lang', choices=['node', 'python'], default='node'); ap.add_argument('--entry')
     ap.add_argument('--kernel'); ap.add_argument('--timeout', type=int, default=1800); ap.add_argument('--mem', type=int, default=8)
+    ap.add_argument('--max-output', type=int, default=64, help='МиБ: общий предел stdout + stderr на весь прогон (все запуски)')
+    ap.add_argument('--work-quota', type=int, default=512, help='МиБ: квота work/')
+    ap.add_argument('--work-files', type=int, default=20000, help='квота числа файлов и папок в work/')
     ap.add_argument('args', nargs='*')
     a = ap.parse_args()
     if not SAFE.match(a.label): sys.exit('ОТКАЗ: метка прогона — только [A-Za-z0-9._-]')
     run, ts = new_run_dir(a.label)
-    log = os.path.join(run, 'log')
+    log, work = os.path.join(run, 'log'), os.path.join(run, 'work')
     rec = {'label': a.label, 'mode': a.mode, 'date_utc': ts, 'archive': os.path.basename(a.archive),
-           'runner_sha256': fsha(os.path.realpath(__file__)), 'argv': sys.argv[1:]}
-    def finish(code, why=None):
-        if why: rec['refused'] = why
-        rec['exit_code'] = code
+           'runner_sha256': fsha(os.path.realpath(__file__)), 'argv': sys.argv[1:],
+           'limits': {'timeout_s': a.timeout, 'address_space_gib': a.mem, 'output_bytes': a.max_output << 20,
+                      'work_bytes': a.work_quota << 20, 'work_files': a.work_files, 'nproc': 256, 'nofile': 512,
+                      'file_bytes': 256 << 20, 'tmp_bytes': TMPFS, 'dev_shm_bytes': TMPFS}}
+    mounted = False
+    def finish(runner_status, test_status, why=None):
+        rec['runner_status'] = runner_status; rec['test_status'] = test_status
+        rec['protocol_complete'] = runner_status == 'COMPLETED' and test_status in ('EXIT_0', 'EXIT_NONZERO')
+        if why: rec['refused' if runner_status == 'REFUSED' else 'runner_error'] = why
+        code = EXIT[test_status] if runner_status == 'COMPLETED' else EXIT[runner_status]
+        rec['runner_exit_code'] = code
         with open(os.path.join(log, 'summary.json'), 'w') as f: json.dump(rec, f, ensure_ascii=False, indent=1)
         outzip = run + '-out.zip'
         with zipfile.ZipFile(outzip, 'w', zipfile.ZIP_DEFLATED) as z:
             for base in ('log', 'work'):
                 for d, ds, fs in os.walk(os.path.join(run, base)):
                     for fn in sorted(fs): p = os.path.join(d, fn); z.write(p, os.path.relpath(p, run))
+        if mounted:                                     # копия work/ на диск рядом, затем tmpfs снимается
+            shutil.copytree(work, os.path.join(run, 'work.saved'), symlinks=True)
+            subprocess.run(['umount', work], check=False)
         print(json.dumps({**rec, 'run_dir': run, 'out_zip': outzip, 'out_zip_sha256': fsha(outzip)}, ensure_ascii=False, indent=1))
-        sys.exit(0 if why is None else 2)
+        sys.exit(code)
     try:
+        for f in [a.archive] + ([a.kernel] if a.kernel else []):
+            if not os.path.isfile(f): raise Refuse(f'файл не найден: {f}')
         got = fsha(a.archive); rec['archive_sha256'] = got
         if got != a.sha: raise Refuse(f'контрольная сумма архива {got} не совпадает с зафиксированной {a.sha}')
         files = check_zip(a.archive, allow_kernel_names=False)
@@ -172,24 +262,33 @@ def main():
                 env['KT1_READ'] = '/sandbox'; env['KT1_WRITE'] = '/sandbox/work'
                 inner = [PYTHON, '-I', '/sandbox/guard/py_guard.py', a.entry, *a.args]
             jobs.append((a.lang, inner))
-        rec['runs'] = []
+        mount_work(work, a.work_quota << 20, a.work_files); mounted = True
+        rec['runs'] = []; budget = a.max_output << 20         # предел вывода — общий на весь прогон
         for k, (lang, inner) in enumerate(jobs):
             cmd = bwrap(run, lang, binds, env, inner, a.mem, a.timeout)
-            t0 = time.time()
-            p = subprocess.run(cmd, capture_output=True)
-            dt = time.time() - t0
             so, se = os.path.join(log, f'stdout_{k:03d}.txt'), os.path.join(log, f'stderr_{k:03d}.txt')
-            open(so, 'wb').write(p.stdout); open(se, 'wb').write(p.stderr)
-            rec['runs'].append({'command': cmd, 'exit_code': p.returncode, 'seconds': round(dt, 3), 'stdout': os.path.basename(so),
-                                'stdout_sha256': sha(p.stdout), 'stderr': os.path.basename(se), 'stderr_sha256': sha(p.stderr)})
+            if wait_nobody(): raise RuntimeError('перед запуском уже есть процессы nobody — песочница не изолирована от прежних прогонов')
+            rc, dt, status, dropped, left = execute(cmd, so, se, work, a.timeout, budget)
+            r = {'command': cmd, 'exit_code': rc, 'seconds': round(dt, 3), 'test_status': status, 'leftover_processes': left}
+            for name, path in (('stdout', so), ('stderr', se)):
+                if dropped[name]:                         # усечённый вывод не выдаётся за полный: метка в имени файла и в журнале
+                    cut = path[:-4] + '.TRUNCATED.txt'; os.rename(path, cut); path = cut
+                r[name] = os.path.basename(path); r[f'{name}_sha256'] = fsha(path); r[f'{name}_bytes'] = os.path.getsize(path)
+                r[f'{name}_truncated'] = bool(dropped[name]); r[f'{name}_bytes_dropped_at_least'] = dropped[name]
+            rec['runs'].append(r); budget -= r['stdout_bytes'] + r['stderr_bytes']
+            if status in ('TIMEOUT', 'OUTPUT_LIMIT', 'WORK_LIMIT'): break   # прогон прерван; дальнейшие запуски не делаются
+        rec['jobs_planned'] = len(jobs); rec['jobs_run'] = len(rec['runs'])
         rec['src_after'] = tree(os.path.join(run, 'src'))
         rec['src_unchanged'] = rec['src_after'] == rec['src_before']
         if 'kernel_before' in rec: rec['kernel_unchanged'] = tree(os.path.join(run, 'kernel')) == rec['kernel_before']
-        rec['work_files'] = tree(os.path.join(run, 'work'))
-        rec['work_bytes'] = sum(os.path.getsize(os.path.join(d, f)) for d, ds, fs in os.walk(os.path.join(run, 'work')) for f in fs)
-        finish(max((r['exit_code'] for r in rec['runs']), default=0))
+        rec['work_files'] = tree(work)
+        rec['work_bytes'] = sum(os.path.getsize(os.path.join(d, f)) for d, ds, fs in os.walk(work) for f in fs)
+        worst = max((r['test_status'] for r in rec['runs']), key=SEVERITY.index, default='EXIT_0')
+        finish('COMPLETED', worst)
     except Refuse as e:
-        finish(None, str(e))
+        finish('REFUSED', 'NOT_RUN', str(e))
+    except Exception as e:                                # ошибка самой оболочки: журнал пишется, код 4
+        finish('RUNNER_ERROR', 'NOT_RUN', f'{type(e).__name__}: {e}')
 
 if __name__ == '__main__':
     main()

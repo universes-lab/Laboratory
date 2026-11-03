@@ -1,5 +1,6 @@
 #!/usr/bin/env python3
-# Самопроверка среды исполнения (процедура, редакция 3). Опровергающие пробы: что песочница отвергает и что пропускает.
+# Самопроверка среды исполнения (процедура, редакция 3 с адресными поправками 03.11). Опровергающие пробы: что песочница
+# отвергает и что пропускает; коды выхода оболочки; пределы вывода и квоты work/.
 #   python3 -I harness_selftest.py <замороженный архив ядра>
 # Пробы пишутся во временную папку; ядро подключается только в пробе d3-run.
 import hashlib, json, os, shutil, subprocess, sys, tempfile, zipfile
@@ -11,6 +12,7 @@ KZIP = os.path.realpath(sys.argv[1])
 KJS = os.path.join(os.path.dirname(os.path.dirname(KZIP)), 'kt1', 'kt1.js')   # файл ядра на хозяине — для проб чтения
 T = tempfile.mkdtemp(prefix='kt1-selftest-')
 res, fails = [], []
+prev = []                                   # записи прерванных запусков — для проверки остаточных процессов
 def ok(cond, msg): (res if cond else fails).append(msg)
 def mkzip(name, entries, symlink=None):
     p = os.path.join(T, name)
@@ -32,6 +34,7 @@ def outer(label, files, lang, inner):
     os.chmod(os.path.join(d, 'src'), 0o555)
     env = {'PATH': f'{R.NODE_ROOT}/bin:/usr/bin:/bin', 'KT1_OUT': '/sandbox/work'}
     p = subprocess.run(R.bwrap(d, lang, [], env, inner, 8, 60), capture_output=True, text=True)
+    R.wait_nobody()
     return p, d
 
 probe_js = f"""const fs=require('fs'),path=require('path');const o={{}};
@@ -44,6 +47,9 @@ z = mkzip('a5.zip', [('a5/p.js', probe_js)])
 r, _ = run('--mode', 'a5', '--label', 'st-a5', '--archive', z, '--sha', sha(z), '--entry', 'a5/p.js')
 o = json.loads(out(r))
 ok(all(o[k].startswith('blocked') for k in ('kernel', 'srcWrite', 'child', 'net')) and o['work'] == 'ALLOWED' and r['src_unchanged'], f'а-5, оба слоя: {o}')
+ok(_ == 0 and r['runner_status'] == 'COMPLETED' and r['test_status'] == 'EXIT_0' and r['protocol_complete']
+   and not os.path.ismount(os.path.join(r['run_dir'], 'work')) and os.path.isfile(os.path.join(r['run_dir'], 'work.saved', 'w.txt')),
+   f'успешный прогон: код оболочки {_}, {r["runner_status"]} / {r["test_status"]}; work/ (tmpfs) снята, копия сохранена')
 # 2. Только внешний слой (bubblewrap без --permission) — граница держится сама
 p, d = outer('st-outer-node', {'p.js': probe_js}, 'node', ['node', 'p.js'])
 o2 = json.loads(p.stdout)
@@ -90,7 +96,7 @@ suite = mkzip('suite.zip', [('run.js', "const path=require('path');const K=requi
     "const m=Array.from({length:5},()=>({theta:0,phi:0,delta:0}));const p=K.run({id:'K1',thread:{n:5,links:m},hangs:[]});"
     "console.log('protocol', p.kernel.version, typeof p.verdict); require('fs').writeFileSync(path.join(process.env.KT1_OUT,'K1.json'),K.serialize(p));")])
 r, code = run('--mode', 'd3-run', '--label', 'st-d3', '--archive', suite, '--sha', sha(suite), '--entry', 'run.js', '--kernel', KZIP)
-ok(code == 0 and out(r).startswith('protocol kt1-2026-11-02-wp4 object') and r['kernel_sha256'] == R.FROZEN_KERNEL_SHA and 'K1.json' in r['work_files']
+ok(code == 0 and r['test_status'] == 'EXIT_0' and out(r).startswith('protocol kt1-2026-11-02-wp4 object') and r['kernel_sha256'] == R.FROZEN_KERNEL_SHA and 'K1.json' in r['work_files']
    and r['kernel_unchanged'] and r['src_unchanged'], f'd3-run, замороженное ядро: {out(r).strip()}')
 # 4а. d3-run: набор пытается изменить ядро — только чтение
 tamper = mkzip('tamper.zip', [('t.js', "const fs=require('fs'),path=require('path');let s;try{fs.appendFileSync(path.join(process.env.KT1_DIR,'kt1.js'),'//x');s='ALLOWED'}catch(e){s='blocked '+e.code}console.log(s)")])
@@ -99,15 +105,18 @@ ok(out(r).startswith('blocked') and r['kernel_unchanged'], f'd3-run, запис�
 # 5. d3-check: синтаксис, без ядра
 chk = mkzip('chk.zip', [('ok.js', 'console.log(1)\n'), ('bad.js', 'console.log(;\n')])
 r, code = run('--mode', 'd3-check', '--label', 'st-chk', '--archive', chk, '--sha', sha(chk))
-ok([x['exit_code'] for x in r['runs']] == [1, 0] and 'kernel_sha256' not in r, f'd3-check: коды {[x["exit_code"] for x in r["runs"]]}')
+ok([x['exit_code'] for x in r['runs']] == [1, 0] and [x['test_status'] for x in r['runs']] == ['EXIT_NONZERO', 'EXIT_0'] and code == 1
+   and r['test_status'] == 'EXIT_NONZERO' and 'kernel_sha256' not in r, f'd3-check: коды {[x["exit_code"] for x in r["runs"]]}, код оболочки {code}')
 # 6. Пределы времени и памяти
 loop = mkzip('loop.zip', [('l.js', 'for(;;){}\n')])
 r, code = run('--mode', 'a5', '--label', 'st-time', '--archive', loop, '--sha', sha(loop), '--entry', 'l.js', '--timeout', '3')
-ok(r['runs'][0]['exit_code'] in (124, 137) and r['runs'][0]['seconds'] < 15, f'предел времени: код {r["runs"][0]["exit_code"]}, {r["runs"][0]["seconds"]} с')
+prev.append(r['runs'][0])
+ok(r['runs'][0]['exit_code'] in (124, 137) and r['runs'][0]['seconds'] < 15 and code == 3 and r['test_status'] == 'TIMEOUT' and not r['protocol_complete'],
+   f'предел времени: код {r["runs"][0]["exit_code"]}, {r["runs"][0]["seconds"]} с; код оболочки {code}, {r["test_status"]}')
 mem = mkzip('mem.zip', [('m.js', 'const a=[];for(;;)a.push(new Float64Array(1e7));\n')])
 r, code = run('--mode', 'a5', '--label', 'st-mem', '--archive', mem, '--sha', sha(mem), '--entry', 'm.js', '--mem', '2', '--timeout', '60')
 se = open(os.path.join(r['run_dir'], 'log', 'stderr_000.txt')).read()
-ok(r['runs'][0]['exit_code'] != 0 and 'allocation failed' in se, f'предел памяти: код {r["runs"][0]["exit_code"]}, {se.splitlines()[4] if len(se.splitlines()) > 4 else se.strip()}')
+ok(r['runs'][0]['exit_code'] != 0 and 'allocation failed' in se and code == 1 and r['test_status'] == 'EXIT_NONZERO', f'предел памяти: код {r["runs"][0]["exit_code"]}, {se.splitlines()[4] if len(se.splitlines()) > 4 else se.strip()}')
 # 7. Python: оба слоя
 probe_py = f"""import os, json, socket, subprocess
 def t(f):
@@ -127,6 +136,58 @@ p, d = outer('st-outer-py', {'p.py': probe_py2}, 'python', [R.PYTHON, '-I', 'p.p
 o4 = json.loads(p.stdout)
 ok(o4['kernel'].startswith('blocked FileNotFoundError') and o4['srcWrite'].startswith('blocked OSError 30') and o4['net'].startswith('blocked OSError 101') and o4['work'] == 'ALLOWED',
    f'Python, только bubblewrap: {o4}')
+# 9. Статус оболочки отделён от статуса испытания: скрипт завершается кодом 5
+fail = mkzip('fail.zip', [('f.js', "console.log('до выхода');process.exit(5)\n")])
+r, code = run('--mode', 'a5', '--label', 'st-fail', '--archive', fail, '--sha', sha(fail), '--entry', 'f.js')
+ok(code == 1 and r['runner_status'] == 'COMPLETED' and r['test_status'] == 'EXIT_NONZERO' and r['runs'][0]['exit_code'] == 5 and r['protocol_complete'],
+   f'провал испытания: код скрипта {r["runs"][0]["exit_code"]}, код оболочки {code}, {r["runner_status"]} / {r["test_status"]}')
+# 10. Предел вывода: бесконечный вывод в stdout и stderr; общий предел 1 МиБ на запуск
+flood = mkzip('flood.zip', [('o.py', "import os\na = b'x' * 65536\nwhile True: os.write(1, a); os.write(2, a)\n")])
+r, code = run('--mode', 'a5', '--label', 'st-flood', '--archive', flood, '--sha', sha(flood), '--lang', 'python', '--entry', 'o.py', '--max-output', '1', '--timeout', '60')
+prev.append(r['runs'][0])
+x = r['runs'][0]; L = r['run_dir'] + '/log/'
+ok(code == 3 and r['test_status'] == 'OUTPUT_LIMIT' and not r['protocol_complete'] and x['stdout_bytes'] + x['stderr_bytes'] == 1 << 20
+   and x['stdout'] == 'stdout_000.TRUNCATED.txt' and x['stderr'] == 'stderr_000.TRUNCATED.txt' and x['seconds'] < 10
+   and os.path.getsize(L + x['stdout']) == x['stdout_bytes'] and not os.path.exists(L + 'stdout_000.txt'),
+   f'предел вывода: {x["stdout_bytes"]} + {x["stderr_bytes"]} байт, сверх предела отброшено ≥ {x["stdout_bytes_dropped_at_least"] + x["stderr_bytes_dropped_at_least"]}; '
+   f'файлы {x["stdout"]}, {x["stderr"]}; {x["seconds"]} с; код оболочки {code}, {r["test_status"]}')
+# 11. Квота work/ по байтам (8 МиБ): запись файлов по 1 МиБ до отказа
+wb = mkzip('wb.zip', [('w.js', "const fs=require('fs'),path=require('path');for(let i=0;;i++)fs.writeFileSync(path.join(process.env.KT1_OUT,'f'+i),Buffer.alloc(1<<20))\n")])
+r, code = run('--mode', 'a5', '--label', 'st-wbytes', '--archive', wb, '--sha', sha(wb), '--entry', 'w.js', '--work-quota', '8', '--timeout', '60')
+prev.append(r['runs'][0])
+se = open(os.path.join(r['run_dir'], 'log', 'stderr_000.txt')).read()
+ok(code == 3 and r['test_status'] == 'WORK_LIMIT' and not r['protocol_complete'] and r['work_bytes'] <= 8 << 20 and 'ENOSPC' in se,
+   f'квота work/ по байтам: занято {r["work_bytes"]} байт из {8 << 20}; скрипт получил ENOSPC; код оболочки {code}, {r["test_status"]}')
+# 11а. Квота work/ по числу файлов (200): пустые файлы до отказа
+wf = mkzip('wf.zip', [('w.py', "import os\nfor i in range(10**6): open(os.path.join(os.environ['KT1_OUT'], f'f{i}'), 'w').close()\n")])
+r, code = run('--mode', 'a5', '--label', 'st-wfiles', '--archive', wf, '--sha', sha(wf), '--lang', 'python', '--entry', 'w.py', '--work-files', '200', '--timeout', '60')
+prev.append(r['runs'][0])
+ok(code == 3 and r['test_status'] == 'WORK_LIMIT' and len(r['work_files']) < 200, f'квота work/ по числу файлов: создано {len(r["work_files"])} из 200; код оболочки {code}, {r["test_status"]}')
+# 11б. Сторож квоты прерывает зависший скрипт: заполнил work/ и ждёт (срок 60 с — прерывание должно быть сразу)
+wh = mkzip('wh.zip', [('w.py', "import os\ntry:\n    with open(os.path.join(os.environ['KT1_OUT'], 'big'), 'wb') as f:\n        while True: f.write(b'0' * (1 << 20)); f.flush()\n"
+                                "except OSError: pass\nwhile True: pass\n")])
+r, code = run('--mode', 'a5', '--label', 'st-whang', '--archive', wh, '--sha', sha(wh), '--lang', 'python', '--entry', 'w.py', '--work-quota', '8', '--timeout', '60')
+prev.append(r['runs'][0])
+ok(code == 3 and r['test_status'] == 'WORK_LIMIT' and r['runs'][0]['seconds'] < 10 and r['runs'][0]['exit_code'] == -9,
+   f'сторож квоты: прервано через {r["runs"][0]["seconds"]} с (срок 60 с), сигнал {-r["runs"][0]["exit_code"]}; код оболочки {code}, {r["test_status"]}')
+# 12. После прерываний в песочнице не остаётся процессов nobody
+left = R.nobody_procs()
+ok(left == 0 and all(x.get('leftover_processes') == 0 for x in prev), f'остаточных процессов nobody: {left}; в журналах прерванных прогонов: {[x.get("leftover_processes") for x in prev]}')
+# 13. Отказ: архива нет
+r, code = run('--mode', 'a5', '--label', 'st-bad', '--archive', os.path.join(T, 'нет.zip'), '--sha', '0' * 64, '--entry', 'a.js')
+ok(code == 2 and r['runner_status'] == 'REFUSED' and r['test_status'] == 'NOT_RUN', f'отказ — архива нет: {r.get("refused")}')
+# 13а. Предел вывода общий на прогон: d3-check, 20 файлов с ошибкой в строке 400 КБ, предел 1 МиБ — запуски прекращаются, когда исчерпан общий остаток
+big = 'x' * 400000
+many = mkzip('many.zip', [(f'e{i}.js', f'const s = "{big}"; console.log(;\n') for i in range(20)])   # node --check выводит не меньше 64 КиБ на файл
+r, code = run('--mode', 'd3-check', '--label', 'st-budget', '--archive', many, '--sha', sha(many), '--max-output', '1')
+tot = sum(x['stdout_bytes'] + x['stderr_bytes'] for x in r['runs'])
+ok(tot == 1 << 20 and code == 3 and r['test_status'] == 'OUTPUT_LIMIT' and r['runs'][-1]['stderr'].endswith('.TRUNCATED.txt'), f'общий предел вывода на прогон: {len(r["runs"])} запуск(а) из {r["jobs_planned"]}, всего {tot} байт ≤ {1 << 20}; код оболочки {code}, {r["test_status"]}')
+# 14. Ошибка самой оболочки (код 4): в контейнере уже есть процесс nobody — оболочка отказывается считать прогон изолированным
+hold = subprocess.Popen(['setpriv', '--reuid=65534', '--regid=65534', '--clear-groups', 'sleep', '60'])
+r, code = run('--mode', 'a5', '--label', 'st-rerr', '--archive', fail, '--sha', sha(fail), '--entry', 'f.js')
+hold.kill(); hold.wait(); R.wait_nobody()
+ok(code == 4 and r['runner_status'] == 'RUNNER_ERROR' and r['test_status'] == 'NOT_RUN' and os.path.isfile(os.path.join(r['run_dir'], 'log', 'summary.json')),
+   f'ошибка оболочки: код {code}, {r["runner_status"]} — {r.get("runner_error")}; журнал записан')
 shutil.rmtree(T, ignore_errors=True)
 for m in res: print('OK  ', m)
 for m in fails: print('FAIL', m)
