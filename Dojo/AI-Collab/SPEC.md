@@ -1,77 +1,144 @@
-# SPEC.md — BUILD 001 / STEP 2 — VERDICT ENGINE
+# SPEC.md — BUILD 001 / STEP 2 — VERDICT ENGINE (v2.3)
 
 ```yaml
 BUILD: 001
 STEP: 2
-NAME: VERDICT_ENGINE_CORRECTIVE
-VERSION: 2.1
+NAME: VERDICT_ENGINE
+VERSION: 2.3
 STATUS: READY_FOR_SAMURAI
-DATE: 2026-10-28
+DATE: 2026-11-02
+SUPERSEDES: v2.2
+```
 
+---
+
+## 0. AUTHORITY ORDER
+
+```yaml
 AUTHORITY_ORDER:
   1: WEB_SEAT_WS0_OBSERVATION_CONTRACT.md v0.4 §2.1 + §7
   2: BUILD_001_STEP2_STEP3_SPEC.md §A (I-1…I-7)
-  3: BUILD_001_STEP2_VECTORS.json expect (do not edit)
-
-PATCHES_APPLIED:
-  - PATCH_1: PATHS_NOT_COMPARABLE + HISTORY_INCOMPLETE → decisive_rule "6"
-  - PATCH_2: rule 1 does not catch I-1 null-fields; restart-only differences are not invalidity
-  - PATCH_3: L0 remains a hard pre-rule guard
-  - PATCH_4: output schema and delta semantics are explicit
+  3: BUILD_001_STEP2_VECTORS.json expect (DO NOT EDIT)
+  4: test_vectors.py (DO NOT EDIT)
 ```
 
----
+If a lower authority conflicts with a higher authority, implementation follows the higher authority and the conflict is reported.
 
-## OBJECTIVE
-
-Correct `verdict(pre, post)` so that it implements the authoritative rule-map deterministically and passes:
-
-- all 32 authoritative vectors;
-- separate `L0_GUARD`.
-
-This is a **corrective continuation of STEP 2**.
-
-Do not implement STEP 3.
+Known current conflict: E10 decisive_rule expectation. See `KNOWN_MISMATCH`.
 
 ---
 
-## ROOT CAUSE
+## 1. DELTAS FROM v2.2
 
 ```yaml
-problems:
-  - rule_5_is_catch_all
-  - false_rule_1_on_conversation_closed
-  - session_state_ignored
-  - send_status_not_passed
-  - restart_epoch_kind_treated_as_state_difference
-  - invented_reasons
+DELTAS_FROM_v2_2:
+  - FULL_REWRITE_definition: replace entire file content, no need to physically delete file
+  - completeness_check_after_rewrite_before_compile: mandatory
+  - skeleton_markers_must_be_absent: ["см. SPEC v2.1", "остальные rules 2", "$pre.", "$post."]
+  - rules_2_to_9_code_presence_check: mandatory
+  - hash_before_hash_after_evidence: required
+  - if_completeness_check_fails: STOP -> REPORT -> WAIT (no py_compile, no test)
+  - everything_else_from_v2_2: unchanged
+```
+
+Rule-map v2.2 unchanged:
+- Rule 5 = PATHS
+- Rule 6 = HISTORY
+- L0 path = `$.text`
+- E10 known mismatch
+- vectors/test runner not touched
+- STEP 3 RED
+
+---
+
+# OBJECTIVE
+
+Correct `verdict(pre, post)` per the authoritative rule-map.
+
+Target verification state:
+
+- V1–V18: PASS — 18/18
+- E1–E9: PASS — 9/9
+- E10: known mismatch — expected FAIL in existing runner
+- E11–E14: PASS — 4/4
+- total authoritative vectors passed: 31/32
+- L0_GUARD: PASS
+
+**STEP 2 handoff-ready criterion:**
+
+```text
+31/32
+AND failed_ids == ["E10"]
+AND L0_GUARD PASS
+AND KNOWN_MISMATCH E10 documented
+```
+
+This means `step2_handoff_ready: yes`.
+
+It does **not** mean Samurai may declare STEP 2 accepted.
+
+Acceptance belongs to external review by Grok / Author.
+
+STEP 3 remains blocked until acceptance.
+
+---
+
+# ROOT CAUSE
+
+```yaml
+problems_in_previous_pass:
+  - verdict_engine.py was a skeleton, not implementation
+  - rules 2-9 missing, replaced by "# ... остальные rules 2 → 10"
+  - l0_path was "$pre.text" / "$post.text" (v2.1 format), not "$.text"
+  - code still referenced "см. SPEC v2.1"
+  - file not rewritten between pass 3 and pass 4
 ```
 
 ---
 
-## FILES
+# FILES
 
 ```text
-MODIFY:
+MODIFY — FULL REWRITE (content replacement):
   E:\Gemini\Dojo\AI-Collab\verdict_engine.py
 
-READ / EXECUTE, DO NOT MODIFY:
+READ / EXECUTE — DO NOT MODIFY:
   E:\Gemini\Dojo\AI-Collab\test_vectors.py
   E:\Gemini\Dojo\AI-Collab\BUILD_001_STEP2_VECTORS.json
 
-READ AS AUTHORITY, DO NOT MODIFY:
+READ AS AUTHORITY — DO NOT MODIFY:
   E:\Gemini\Dojo\AI-Collab\BUILD_001_STEP2_STEP3_SPEC.md
   E:\Gemini\Dojo\AI-Collab\WEB_SEAT_WS0_OBSERVATION_CONTRACT.md
   E:\Gemini\Dojo\AI-Collab\AI_COLAB_2_BUILD_CONTRACT_001.md
 ```
 
-Do not touch unrelated project files.
+Do not create a replacement test runner.
+
+Do not modify any authority file during this STEP.
 
 ---
 
-## PREFLIGHT
+# FULL REWRITE — DEFINITION
 
-Before modifying `verdict_engine.py`, verify:
+```yaml
+FULL_REWRITE_MEANS:
+  - replace the entire content of verdict_engine.py
+  - the file after rewrite must contain complete implementation of Rules 1-10
+  - no skeleton markers, no placeholder comments, no "TODO", no "# ..." where logic must be
+
+FULL_REWRITE_DOES_NOT_REQUIRE:
+  - physically deleting the file
+  - recreating the file path
+  - changing the filename
+```
+
+FULL REWRITE ≠ patch. FULL REWRITE = write the file from top to bottom with complete logic, replacing what was there.
+
+---
+
+# PREFLIGHT
+
+Run:
 
 ```powershell
 Test-Path E:\Gemini\Dojo\AI-Collab\.venv\Scripts\python.exe
@@ -83,7 +150,7 @@ Required:
 True
 ```
 
-If `.venv\Scripts\python.exe` does not exist:
+If missing:
 
 ```text
 STOP
@@ -91,39 +158,76 @@ REPORT VENV_MISSING
 WAIT
 ```
 
-Do not:
+Do not install packages.
 
-- install packages;
-- create another venv;
-- substitute another Python interpreter.
+Do not create another venv.
+
+Do not substitute another interpreter.
+
+---
+
+# EVIDENCE GATES — BEFORE FIX
+
+## Gate 1 — Hash before
+
+```powershell
+Get-FileHash E:\Gemini\Dojo\AI-Collab\verdict_engine.py -Algorithm SHA256 | Select-Object -ExpandProperty Hash
+```
+
+Record as `hash_before`. This value must appear in REPORT.
+
+## Gate 2 — Grep obsolete strings
+
+```powershell
+Select-String `
+  -Path E:\Gemini\Dojo\AI-Collab\verdict_engine.py `
+  -Pattern 'UNHANDLED_STATE_DIFFERENCE|POST_CONVERSATION_CLOSED|PRE_OBJECT_IS_NULL'
+```
+
+Record factual matches and count in REPORT.
+
+A zero before-count is allowed. It does not change the task.
+
+## Gate 3 — Grep skeleton markers
+
+```powershell
+Select-String `
+  -Path E:\Gemini\Dojo\AI-Collab\verdict_engine.py `
+  -Pattern 'см\. SPEC v2\.1|остальные rules 2|\$pre\.|\$post\.'
+```
+
+Record factual matches and count in REPORT.
+
+These markers prove the file is not yet rewritten. Their presence before rewrite is expected and does not block proceeding to rewrite.
 
 ---
 
 # IMPLEMENTATION
 
-## 1. PURE FUNCTION
+## 1. Pure function
 
-`verdict(pre, post)` remains pure.
+`verdict(pre, post)` must be pure.
 
-Forbidden:
+Forbidden inside `verdict()` and its verdict helpers:
 
-- I/O;
-- filesystem access;
+- filesystem I/O;
 - network;
 - browser;
-- time;
+- current time;
 - random;
-- global mutable state;
 - mutation of `pre`;
-- mutation of `post`.
+- mutation of `post`;
+- mutable global execution state.
 
-Same input must produce the same output.
+Same input → same output.
+
+Python stdlib only.
 
 ---
 
-## 2. OUTPUT CONTRACT
+## 2. Output contract
 
-Every call returns a dict with exactly these logical fields:
+Return exactly this shape:
 
 ```python
 {
@@ -140,171 +244,177 @@ Every call returns a dict with exactly these logical fields:
 }
 ```
 
-For normal non-L0 execution:
+### `pre_ref`
 
-```text
-l0_violation = null
-pre_ref = pre.snapshot_id if available else null
-post_ref = post.snapshot_id if available else null
+```python
+pre_ref = pre.get("snapshot_id") if pre is not None else None
 ```
 
-### send_status
+### `post_ref`
 
-```yaml
-if post is not None:
-  send_status: post.get("send_status")
-else:
-  send_status: null
+```python
+post_ref = post.get("snapshot_id") if post is not None else None
 ```
 
-The literal string `"NONE"` remains `"NONE"`.
+### `send_status`
 
-Do not convert it to null.
+For non-L0 rule evaluation:
 
-### flags
-
-```yaml
-if post is not None:
-  flags: list(post.get("flags") or [])
-else:
-  flags: []
+```python
+send_status = post.get("send_status") if post is not None else None
 ```
 
-Preserve order exactly.
+Literal `"NONE"` stays `"NONE"`. Do not normalize to `None`.
 
-Do not sort.
+For L0 violation:
 
-Do not deduplicate.
+```python
+send_status = None
+```
+
+### `flags`
+
+For non-L0 rule evaluation:
+
+```python
+flags = list(post.get("flags") or []) if post is not None else []
+```
+
+Preserve source order. Do not sort. Do not deduplicate.
+
+For L0 violation:
+
+```python
+flags = []
+```
 
 ---
 
-# 3. L0 — HARD PRE-RULE GUARD
+## 3. L0 — HARD PRE-RULE GUARD
 
-L0 executes **before rule 1**.
+L0 executes before Rule 1.
 
 Forbidden keys:
 
 ```python
-FORBIDDEN_KEYS = {
-    "text",
-    "content",
-    "body",
-    "messages",
-    "prompt",
-    "completion",
-}
+{"text", "content", "body", "messages", "prompt", "completion"}
 ```
 
-`check_l0()` recursively scans nested dictionaries/lists.
+`check_l0()` recursively scans nested dicts and lists.
 
-Evaluation order:
+Scan order:
 
-1. `pre`
-2. `post`
+```text
+1. pre
+2. post
+```
 
-If more than one forbidden key exists, return the first path found by deterministic traversal.
+Use root path `$` independently for whichever object is being scanned.
 
-The path must identify its source, for example:
+Required path examples:
+
+```text
+$.text
+$.foo[0].content
+$.bar.messages
+```
+
+Do not emit:
 
 ```text
 $pre.text
-$post.foo[0].content
+$post.text
 ```
 
-If L0 finds a forbidden key:
+If L0 finds a forbidden key, stop immediately.
 
-```yaml
-l0_violation: "<path>"
-verdict: null
-reason: L0_VIOLATION
-delta: null
-send_status: null
-flags: []
-decisive_rule: null
-rules_trace: []
-pre_ref: <snapshot_id or null>
-post_ref: <snapshot_id or null>
+Return:
+
+```python
+{
+    "l0_violation": "<first forbidden path>",
+    "verdict": None,
+    "reason": "L0_VIOLATION",
+    "delta": None,
+    "send_status": None,
+    "flags": [],
+    "decisive_rule": None,
+    "rules_trace": [],
+    "pre_ref": <pre.snapshot_id or None>,
+    "post_ref": <post.snapshot_id or None>,
+}
 ```
 
-Then:
-
-> **DO NOT APPLY RULES 1–10.**
-
-There is no mode in which a normal verdict is calculated together with an L0 violation.
+Do not apply Rules 1–10 after L0 violation.
 
 For all 32 authoritative vectors:
 
 ```text
-l0_violation = null
+l0_violation = None
 ```
 
 ---
 
-# 4. RULE TRACE
+## 4. Rule trace
 
-For normal non-L0 execution, `rules_trace` is diagnostic only.
+`rules_trace` is diagnostic.
 
-Append rule identifiers in actual evaluation order.
+Before evaluating each rule condition, append that rule identifier in evaluation order.
 
-Example:
-
-```python
-["1", "2", "3", "4", "6"]
-```
-
-The decisive rule is included as the final trace entry.
-
-If evaluation reaches rule 10:
+Examples:
 
 ```python
-[..., "10"]
+["1"]
+["1", "2", "3", "4", "5"]
+["1", "2", "3", "4", "5", "6", "7", "7a", "8", "9", "10"]
 ```
 
-`rules_trace` does not change rule semantics.
+The decisive rule must be the final entry.
 
-It is not one of the six authoritative vector comparison fields.
+For L0 violation:
+
+```python
+rules_trace = []
+```
+
+`rules_trace` is not one of the six authoritative vector-comparison fields.
 
 ---
 
-# 5. RULE MAP
-
-First matching rule wins.
+## 5. Rule map — first matching wins
 
 Evaluation order:
 
 ```text
-1 → 2 → 3 → 4 → 6 → 7 → 7a → 8 → 9 → 10
+L0
+→ 1
+→ 2
+→ 3
+→ 4
+→ 5
+→ 6
+→ 7
+→ 7a
+→ 8
+→ 9
+→ 10
 ```
 
-There is **no separate rule 5**.
+Rule 5 exists and means PATHS. Rule 6 means HISTORY only.
 
 ---
 
 ## RULE 1 — NO_EVIDENCE
 
-### Condition
+### 1A. Immediate None short-circuit
 
-Rule 1 fires if:
+If:
 
-```text
-pre is None
-OR
-post is None
+```python
+pre is None or post is None
 ```
 
-or a snapshot is invalid under the authoritative validity contract, including:
-
-```text
-- missing mandatory field, except I-1 permitted null content fields;
-- closed-list value outside the allowed set;
-- post seat_id != pre seat_id;
-- post binding_id != pre binding_id;
-- post ts_utc <= pre ts_utc;
-- invalid required ts_utc format;
-- send_attempt_logged == true AND send_status == "NONE".
-```
-
-### Output
+return immediately:
 
 ```yaml
 verdict: AMBIGUOUS
@@ -313,9 +423,34 @@ delta: null
 decisive_rule: "1"
 ```
 
----
+Do not attempt cross-snapshot comparisons.
 
-### I-1 EXCEPTION
+### 1B. Snapshot validity
+
+If both objects exist, validate per authoritative §2.1 / §3 / closed lists.
+
+Rule 1 fires for invalid snapshot, including:
+
+```text
+- missing mandatory §3 field (except I-1 exception)
+- closed-list value outside §1.1
+- post seat_id != pre seat_id
+- post binding_id != pre binding_id
+- post ts_utc <= pre ts_utc
+- invalid ts_utc format
+- send_attempt_logged == true AND send_status == "NONE"
+```
+
+Output:
+
+```yaml
+verdict: AMBIGUOUS
+reason: NO_EVIDENCE
+delta: null
+decisive_rule: "1"
+```
+
+### I-1 content-null exception
 
 If:
 
@@ -323,7 +458,7 @@ If:
 post["conversation_opened"] is False
 ```
 
-the following content fields may be `None` where permitted by the authoritative contract:
+these post content fields may be `None`:
 
 ```text
 conv_id
@@ -335,102 +470,70 @@ fp_version
 history_complete
 ```
 
-Those null values alone:
+Null values alone do not trigger Rule 1.
 
-- do not make the snapshot invalid;
-- do not trigger rule 1;
-- do not imply RECOVERED.
+### Restart-only clarification
 
-Continue normal rule evaluation.
+If both snapshots are otherwise valid and only `restart_epoch` / `restart_kind` differ:
 
----
-
-### RESTART-ONLY CLARIFICATION
-
-If both snapshots are otherwise valid and the only pre/post state differences are:
-
-```text
-restart_epoch
-and/or
-restart_kind
-```
-
-those differences:
-
-- do not trigger rule 1;
-- do not create an invented reason;
-- do not create a separate rule;
-- do not create rule 5.
-
-Continue normal evaluation through rules 2–9.
-
-If none of rules 2–9 fires, rule 10 wins.
-
-Do **not** jump directly to rule 10 before checking rules 2–9.
+- does not trigger Rule 1;
+- does not trigger Rule 5;
+- no invented restart reason;
+- continue through Rules 2–9;
+- if none fires, Rule 10.
 
 ---
 
 ## RULE 2 — NEEDS_HUMAN
 
-### Conditions
+Rule 2 reads `session_state` and flags from `post`.
 
-Any of:
-
-```text
-session_state == EXPIRED
-session_state == CHALLENGE
-double_ownership flag present
-automation_forbids_observation flag present
+```python
+session_state = post.get("session_state")
+post_flags = list(post.get("flags") or [])
 ```
 
-### Deterministic reason priority
-
-If more than one rule-2 condition is simultaneously true, choose the first true condition in this order:
+Conditions, first true wins:
 
 ```text
-1. session_state == EXPIRED
-2. session_state == CHALLENGE
-3. double_ownership
-4. automation_forbids_observation
+1. post.session_state == EXPIRED
+2. post.session_state == CHALLENGE
+3. "double_ownership" in post.flags
+4. "automation_forbids_observation" in post.flags
 ```
 
-### Output
+Reason priority (fixed):
+
+```text
+EXPIRED → SESSION_EXPIRED
+CHALLENGE → SESSION_CHALLENGE
+double_ownership → DOUBLE_OWNERSHIP
+automation_forbids_observation → AUTOMATION_FORBIDS_OBSERVATION
+```
+
+Output:
 
 ```yaml
 verdict: NEEDS_HUMAN
+reason: <priority reason>
 delta: null
 decisive_rule: "2"
-```
-
-Reason:
-
-```yaml
-EXPIRED:
-  reason: SESSION_EXPIRED
-
-CHALLENGE:
-  reason: SESSION_CHALLENGE
-
-double_ownership:
-  reason: DOUBLE_OWNERSHIP
-
-automation_forbids_observation:
-  reason: AUTOMATION_FORBIDS_OBSERVATION
 ```
 
 ---
 
 ## RULE 3 — LOST
 
-### Condition
+Rule 3 reads `session_state` from `post`.
 
-```text
-session_state == AUTHENTICATED
-AND
-post["conversation_opened"] == false
+Condition:
+
+```python
+post.get("session_state") == "AUTHENTICATED"
+and post.get("conversation_opened") is False
 ```
 
-### Output
+Output:
 
 ```yaml
 verdict: LOST
@@ -441,19 +544,17 @@ decisive_rule: "3"
 
 ---
 
-## RULE 4 — CONVERSATION MISMATCH
+## RULE 4 — CONV_ID_DIFFERS
 
-### Condition
+Condition:
 
-```text
+```python
 pre["conv_id"] is not None
-AND
-post["conv_id"] is not None
-AND
-pre["conv_id"] != post["conv_id"]
+and post["conv_id"] is not None
+and pre["conv_id"] != post["conv_id"]
 ```
 
-### Output
+Output:
 
 ```yaml
 verdict: MISMATCH
@@ -464,42 +565,37 @@ decisive_rule: "4"
 
 ---
 
-## RULE 6 — PATHS / HISTORY
+## RULE 5 — PATHS_NOT_COMPARABLE
 
-Rule 5 does not exist as a separate rule.
+Condition:
 
-### Condition A — paths not comparable
-
-```text
+```python
 pre["extraction_path"] != post["extraction_path"]
-OR
-pre["fp_version"] != post["fp_version"]
+or pre["fp_version"] != post["fp_version"]
 ```
 
-### Condition B — incomplete history
-
-```text
-post["history_complete"] == false
-```
-
-### Priority inside rule 6
-
-If A and B are both true:
-
-```text
-A wins.
-```
-
-### Output for A
+Output:
 
 ```yaml
 verdict: AMBIGUOUS
 reason: PATHS_NOT_COMPARABLE
 delta: null
-decisive_rule: "6"
+decisive_rule: "5"
 ```
 
-### Output for B only
+Rule 5 = PATHS per contract v0.4 §2.1. V14 expects `"5"` — consistent with contract. E10 expects `"6"` — known mismatch.
+
+---
+
+## RULE 6 — HISTORY_INCOMPLETE
+
+Condition:
+
+```python
+post["history_complete"] is False
+```
+
+Output:
 
 ```yaml
 verdict: AMBIGUOUS
@@ -508,26 +604,25 @@ delta: null
 decisive_rule: "6"
 ```
 
+Rule 6 = HISTORY only. Do not merge with Rule 5.
+
 ---
 
 ## RULE 7 — PREFIX_CHANGED
-
-Evaluate only when the required `chain` values are available as lists.
 
 ```python
 n_pre = len(pre["chain"])
 n_post = len(post["chain"])
 ```
 
-### Condition
+Condition:
 
-```text
+```python
 n_post < n_pre
-OR
-post["chain"][:n_pre] != pre["chain"][:n_pre]
+or post["chain"][:n_pre] != pre["chain"][:n_pre]
 ```
 
-### Output
+Output:
 
 ```yaml
 verdict: MISMATCH
@@ -540,25 +635,15 @@ decisive_rule: "7"
 
 ## RULE 7a — SNAPSHOT_INCONSISTENT
 
-Evaluate only when:
+Condition:
 
 ```text
 n_post == n_pre
-AND
-chains match
+AND chains match
+AND tail_fps differ element-wise by idx: role, len, msg_fp
 ```
 
-### Condition
-
-`tail_fps` differ element-wise by:
-
-```text
-role
-len
-msg_fp
-```
-
-### Output
+Output:
 
 ```yaml
 verdict: AMBIGUOUS
@@ -567,17 +652,19 @@ delta: null
 decisive_rule: "7a"
 ```
 
+Do not apply when `n_post != n_pre`.
+
 ---
 
 ## RULE 8 — SEND_UNRESOLVED
 
-### Condition
+Condition:
 
 ```python
 post["send_status"] in {"INTENDED", "AMBIGUOUS"}
 ```
 
-### Output
+Output:
 
 ```yaml
 verdict: AMBIGUOUS
@@ -590,51 +677,28 @@ decisive_rule: "8"
 
 ## RULE 9 — DELTA
 
-Evaluate when chains are available and:
+Condition:
 
-```text
+```python
 n_post > n_pre
 ```
 
-New-message indices:
+New indices: `range(n_pre, n_post)`.
 
-```python
-range(n_pre, n_post)
+Attribution (per authority files):
+
+```text
+A. by: send_nonce
+   ref == post["send_nonce"]
+   AND post["send_status"] == "CONFIRMED_PRESENT"
+
+OR
+
+B. by: operator_action
+   ref matches an action_id in post["operator_actions"]
 ```
 
-Every new message must be attributable.
-
-### Accepted attribution A — send_nonce
-
-For the new index:
-
-```yaml
-by: send_nonce
-ref: post["send_nonce"]
-```
-
-and:
-
-```python
-post["send_status"] == "CONFIRMED_PRESENT"
-```
-
-### Accepted attribution B — operator action
-
-For the new index:
-
-```yaml
-by: operator_action
-ref: <action_id>
-```
-
-where `<action_id>` exists in:
-
-```python
-post["operator_actions"]
-```
-
-### If every new message is attributed
+If every new message attributed:
 
 ```yaml
 verdict: RECOVERED
@@ -643,7 +707,7 @@ delta: true
 decisive_rule: "9"
 ```
 
-### If at least one new message is not attributed
+If any new message unattributed:
 
 ```yaml
 verdict: AMBIGUOUS
@@ -652,15 +716,13 @@ delta: null
 decisive_rule: "9"
 ```
 
+Do not invent attribution mechanism.
+
 ---
 
-## RULE 10 — RECOVERED
+## RULE 10 — RECOVERED FALLBACK
 
-Condition:
-
-```text
-No earlier rule fired.
-```
+Condition: no earlier rule fired.
 
 Output:
 
@@ -675,7 +737,7 @@ decisive_rule: "10"
 
 # 6. ALLOWED REASONS
 
-The only permitted `reason` values are:
+Only:
 
 ```text
 L0_VIOLATION
@@ -694,118 +756,551 @@ UNATTRIBUTED_DELTA
 null
 ```
 
-Forbidden examples include:
-
-```text
-POST_CONVERSATION_CLOSED
-UNHANDLED_STATE_DIFFERENCE
-PRE_OBJECT_IS_NULL
-```
-
-No reason absent from the allowed list may be invented.
+Forbidden examples: `POST_CONVERSATION_CLOSED`, `UNHANDLED_STATE_DIFFERENCE`, `PRE_OBJECT_IS_NULL`, any other.
 
 ---
 
-# 7. TEST FILE
+# 7. KNOWN MISMATCH — E10
 
-`test_vectors.py` is already accepted for this corrective pass.
+```yaml
+KNOWN_VECTOR_CONTRACT_MISMATCH:
+  id: E10
+  vector_expect:
+    decisive_rule: "6"
+    reason: PATHS_NOT_COMPARABLE
+  contract_v0_4:
+    rule_5: PATHS_NOT_COMPARABLE
+    rule_6: HISTORY_INCOMPLETE
+  implementation:
+    follows_contract: yes
+    E10_decisive_rule: "5"
+  expected_test_result:
+    id: E10
+    status: FAIL
+    detail: "decisive_rule: got='5' want='6'"
+  classification:
+    implementation_defect: no
+    known_authority_mismatch: yes
+  resolution:
+    requires_separate_JSON_correction_approval: yes
+    authorized_in_this_STEP: no
+```
 
-Do not modify it.
+Do not change JSON, runner, or special-case E10. Expected runner result: 31/32.
 
-It must continue to verify:
+---
+
+# 8. TEST FILE — DO NOT MODIFY
+
+`test_vectors.py` accepted as-is.
+
+Must continue to verify:
 
 - deterministic double-run;
 - no input mutation;
-- exact comparison of six fields;
+- exact comparison of six authoritative fields;
 - order-sensitive `flags`;
-- `l0_violation is None` for the 32 vectors;
+- `l0_violation is None` for all 32 vectors;
 - separate `L0_GUARD`;
 - `rules_trace` on mismatch.
 
+Do not add E10 suppression. Do not change exit code.
+
 ---
 
-# LOCAL VERIFY
+# 9. COMPLETENESS CHECK — AFTER REWRITE, BEFORE PY_COMPILE
 
-## One corrective pass only
+After full rewrite of `verdict_engine.py`, and **before** `py_compile`, verify that the new file is a real implementation, not a skeleton.
+
+## Gate 4 — Hash after
 
 ```powershell
-cd E:\Gemini\Dojo\AI-Collab
-
-.venv\Scripts\python.exe -m py_compile verdict_engine.py
-
-.venv\Scripts\python.exe test_vectors.py
+Get-FileHash E:\Gemini\Dojo\AI-Collab\verdict_engine.py -Algorithm SHA256 | Select-Object -ExpandProperty Hash
 ```
 
-Expected:
+Record as `hash_after`.
+
+Required:
 
 ```text
-V1 PASS
-...
-E14 PASS
-L0_GUARD PASS
-STEP2 PASS 32/32
+hash_after != hash_before
 ```
 
-Expected exit code:
+If equal:
+
+```text
+STOP
+REPORT file_changed: no
+WAIT
+```
+
+## Gate 5 — Skeleton markers absent
+
+```powershell
+Select-String `
+  -Path E:\Gemini\Dojo\AI-Collab\verdict_engine.py `
+  -Pattern 'см\. SPEC v2\.1|остальные rules 2|\$pre\.|\$post\.'
+```
+
+Required match count:
 
 ```text
 0
 ```
 
----
-
-## FAIL BEHAVIOR
-
-This corrective authorization includes **one verification run**.
-
-If any authoritative vector fails:
+If any match:
 
 ```text
 STOP
+REPORT skeleton_markers_after: [<matched lines>]
+WAIT
 ```
 
-Do not:
+## Gate 6 — Rules 2–9 code presence
 
-- modify the vector;
-- modify `test_vectors.py`;
-- invent another reason;
-- immediately patch `verdict_engine.py` again;
-- perform another corrective cycle.
-
-Report:
-
-- vector id;
-- mismatched fields;
-- got;
-- want;
-- `rules_trace`.
-
-Then:
+Manually inspect `verdict_engine.py` or use grep to confirm each rule has real executable logic, not a comment or placeholder:
 
 ```text
-WAIT_FOR_GROK
+Rule 2 — NEEDS_HUMAN
+Rule 3 — LOST
+Rule 4 — CONV_ID_DIFFERS
+Rule 5 — PATHS_NOT_COMPARABLE
+Rule 6 — HISTORY_INCOMPLETE
+Rule 7 — PREFIX_CHANGED
+Rule 7a — SNAPSHOT_INCONSISTENT
+Rule 8 — SEND_UNRESOLVED
+Rule 9 — DELTA
 ```
 
-If `L0_GUARD` fails:
+Suggested check:
+
+```powershell
+Select-String `
+  -Path E:\Gemini\Dojo\AI-Collab\verdict_engine.py `
+  -Pattern 'SESSION_EXPIRED|SESSION_CHALLENGE|CONV_ID_DIFFERS|PATHS_NOT_COMPARABLE|HISTORY_INCOMPLETE|PREFIX_CHANGED|SNAPSHOT_INCONSISTENT|SEND_UNRESOLVED|UNATTRIBUTED_DELTA'
+```
+
+Expected: each reason identifier appears in executable code, not only comments.
+
+Absence of any required implementation means:
 
 ```text
-STOP → REPORT → WAIT_FOR_GROK
+rules_2_to_9_implemented: no
+```
+
+### Completeness failure behavior
+
+If any of Gates 4, 5, 6 fails:
+
+```text
+STOP
+REPORT:
+  hash_before
+  hash_after
+  file_changed
+  skeleton_markers_after
+  rules_2_to_9_implemented
+WAIT
+```
+
+Do not run `py_compile`.
+
+Do not run `test_vectors.py`.
+
+Do not start another rewrite in the same operation.
+
+---
+
+# 10. AFTER-FIX GREP — OBSOLETE STRINGS
+
+After Gates 4–6 pass and before `py_compile`, run:
+
+```powershell
+Select-String `
+  -Path E:\Gemini\Dojo\AI-Collab\verdict_engine.py `
+  -Pattern 'UNHANDLED_STATE_DIFFERENCE|POST_CONVERSATION_CLOSED|PRE_OBJECT_IS_NULL'
+```
+
+Required match count:
+
+```text
+0
+```
+
+If nonzero:
+
+```text
+STOP
+REPORT
+WAIT
+```
+
+No second rewrite in this operation.
+
+---
+
+# 11. LOCAL VERIFY
+
+## 11.1 Compile
+
+```powershell
+cd E:\Gemini\Dojo\AI-Collab
+.venv\Scripts\python.exe -m py_compile verdict_engine.py
+```
+
+Required:
+
+```text
+PASS / exit 0
+```
+
+If compile fails:
+
+```text
+STOP
+REPORT
+WAIT
+```
+
+No second pass.
+
+## 11.2 Official test run — once
+
+```powershell
+.venv\Scripts\python.exe test_vectors.py
+```
+
+Expected stdout pattern:
+
+```text
+V1 PASS
+...
+V18 PASS
+E1 PASS
+...
+E9 PASS
+E10 FAIL decisive_rule: got='5' want='6'
+E11 PASS
+E12 PASS
+E13 PASS
+E14 PASS
+L0_GUARD PASS
+STEP2 FAIL 31/32
+```
+
+Expected process exit code:
+
+```text
+1
+```
+
+That exit code is acceptable if and only if:
+
+```text
+passed == 31
+failed_ids == ["E10"]
+L0_GUARD == PASS
+```
+
+If any additional vector fails:
+
+```text
+STOP
+REPORT
+WAIT
+```
+
+No patch.
+No second pass.
+
+If `L0_GUARD FAIL`:
+
+```text
+STOP
+REPORT
+WAIT
 ```
 
 ---
 
-# REPORT
+# 12. STEP-2 HANDOFF CRITERION
+
+Set:
+
+```yaml
+step2_handoff_ready: yes
+```
+
+only if:
+
+```yaml
+vectors:
+  total: 32
+  passed: 31
+  failed: 1
+  failed_ids:
+    - E10
+
+l0_guard: PASS
+
+known_mismatch:
+  - E10
+```
+
+This is a handoff criterion, not self-acceptance.
+
+Samurai must not write:
+
+```text
+STEP 2 ACCEPTED
+STEP 3 AUTHORIZED
+```
+
+Acceptance is external.
+
+---
+
+# 13. FAILURE BEHAVIOR
+
+This operation authorizes one corrective implementation pass only.
+
+Execution sequence:
+
+```text
+PREFLIGHT
+→ GATE 1 hash before
+→ GATE 2 obsolete grep before
+→ GATE 3 skeleton grep before
+→ FULL REWRITE verdict_engine.py
+→ GATE 4 hash after; must differ
+→ GATE 5 skeleton markers absent
+→ GATE 6 Rules 2–9 implemented
+→ AFTER-FIX obsolete grep; zero matches
+→ PY_COMPILE
+→ ONE OFFICIAL test_vectors.py RUN
+→ REPORT
+→ STOP
+```
+
+No patch cycle after test execution.
+
+No second full rewrite.
+
+No second implementation run.
+
+If a gate before `py_compile` fails:
+report the exact point reached and evidence, then STOP.
+
+Do not run `py_compile`.
+
+Do not run tests.
+
+---
+
+# 14. REPORT
+
+Return:
 
 ```yaml
 STEP2_CORRECTIVE_REPORT:
+  build: 001
+  step: 2
+  spec_version: 2.3
+
   files_modified:
     - verdict_engine.py
 
+  full_rewrite: yes/no
+
   venv_present: yes/no
 
+  hash_before: "<sha256>"
+  hash_after: "<sha256>"
+  file_changed: yes/no
+
+  before_fix_grep:
+    obsolete_patterns:
+      - UNHANDLED_STATE_DIFFERENCE
+      - POST_CONVERSATION_CLOSED
+      - PRE_OBJECT_IS_NULL
+    obsolete_matches: <N>
+
+    skeleton_patterns:
+      - "см. SPEC v2.1"
+      - "остальные rules 2"
+      - "$pre."
+      - "$post."
+    skeleton_matches_before: <N>
+
+  after_fix_grep:
+    obsolete_matches: <N>
+    obsolete_absent: yes/no
+    skeleton_markers_after: []
+    skeleton_absent: yes/no
+
+  rules_2_to_9_implemented: yes/no
+
+  rule_sources:
+    rule_2_session_state: post
+    rule_2_flags: post
+    rule_3_session_state: post
+
   rule_map_implemented:
-    rule_1: "<one-line condition>"
-    rule_1_I1_exception: "<one line>"
-    rule_1_restart_only_clarification: "<one line>"
-    rule_2: "<one line>"
-    rule_2_reason_priority: "EXPIRED > CHALLENGE > DOUBLE_OWNERSHIP > AUTOMATION_FOR
+    rule_1: "<one-line>"
+    rule_1_I1: "<one-line>"
+    rule_1_none_short_circuit: "<one-line>"
+    rule_1_restart_only: "<one-line>"
+    rule_2: "<one-line>"
+    rule_2_reason_priority: "EXPIRED > CHALLENGE > DOUBLE_OWNERSHIP > AUTOMATION_FORBIDS_OBSERVATION"
+    rule_3: "<one-line>"
+    rule_4: "<one-line>"
+    rule_5: "PATHS_NOT_COMPARABLE"
+    rule_6: "HISTORY_INCOMPLETE"
+    rule_7: "<one-line>"
+    rule_7a: "<one-line>"
+    rule_8: "<one-line>"
+    rule_9: "<one-line>"
+    rule_10: "<one-line>"
+
+  l0:
+    path_format: "$.text"
+    scan_order: "pre -> post"
+    hard_pre_rule_guard: yes/no
+
+  output_contract:
+    send_status_passed: yes/no
+    flags_passed: yes/no
+    flags_order_preserved: yes/no
+
+  py_compile:
+    status: PASS / FAIL
+    exit_code: <int>
+
+  test_vectors:
+    executed: yes/no
+    total: 32
+    passed: <N>
+    failed: <N>
+    failed_ids: [<list>]
+    known_mismatches: [E10]
+    exit_code: <int>
+    test_output: |
+      <full stdout>
+
+  l0_guard: PASS / FAIL / NOT_RUN
+
+  known_mismatch_E10:
+    observed: yes/no
+    implementation_followed_contract_rule_5: yes/no
+
+  step2_handoff_ready: yes/no
+
+  execution:
+    status: PASS / FAIL
+    # PASS = authorized corrective operation completed as specified
+    # not external STEP-2 acceptance
+
+  evidence:
+    status: VERIFIED / INCOMPLETE / CONTRADICTED
+
+  next: STOP -> WAIT_FOR_EXTERNAL_REVIEW
+```
+
+Report only observed facts.
+
+Do not rewrite expected values as observed facts.
+
+---
+
+# 15. FORBIDDEN
+
+```text
+- modify BUILD_001_STEP2_VECTORS.json
+- modify test_vectors.py
+- modify authority documents
+- STEP 3
+- fingerprint recomputation
+- invented reasons
+- catch-all pre != post
+- merge Rule 5 and Rule 6
+- bend code to match E10
+- special-case E10 to force PASS
+- skip E10
+- second corrective rewrite
+- patch cycle after official run
+- run py_compile or test after completeness-check failure
+- unrelated refactor / cleanup / rename / migration
+```
+
+---
+
+# 16. END PROTOCOL
+
+```text
+PREFLIGHT VENV
+→ GATE 1 hash before
+→ GATE 2 obsolete grep
+→ GATE 3 skeleton grep
+→ FULL REWRITE verdict_engine.py
+→ GATE 4 hash after; must differ
+→ GATE 5 skeleton absent
+→ GATE 6 Rules 2–9 present
+→ AFTER-FIX obsolete grep absent
+→ PY_COMPILE
+→ RUN test_vectors.py ONCE
+→ REPORT
+→ STOP
+```
+
+One corrective pass.
+
+STEP 3 remains blocked until external acceptance.
+
+---
+
+```yaml
+BRIGADIER_STATUS:
+  build: 001
+  step: 2
+  spec_version: 2.3
+
+  deltas_from_v2_2:
+    - FULL_REWRITE_definition: replace content, no physical delete required
+    - completeness_gates: hash before/after, skeleton absent, rules 2-9 present
+    - if_gate_fails: STOP before py_compile and test
+    - report_extended:
+        - hash_before
+        - hash_after
+        - file_changed
+        - skeleton_markers_after
+        - rules_2_to_9_implemented
+
+  unchanged_from_v2_2:
+    - rule_5: PATHS
+    - rule_6: HISTORY
+    - l0_path: "$.text"
+    - E10: known mismatch
+    - vectors/test runner not touched
+    - STEP 3 RED
+
+  expected_handoff_state:
+    vectors: "31/32"
+    failed_ids: ["E10"]
+    l0_guard: PASS
+    runner_exit_code: 1
+
+  acceptance:
+    owner: external
+    route: Grok / Author
+
+  step_3: BLOCKED
+
+  next:
+    - Doctor supplies Current_Prompt
+    - Samurai executes one corrective pass with completeness gates
+    - Samurai reports and stops
+
+  stop: true
+```
+
+END OF SPEC v2.3

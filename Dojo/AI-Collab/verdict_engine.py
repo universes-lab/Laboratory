@@ -1,296 +1,341 @@
-# verdict_engine.py
-# Pure function. No I/O, no time, no network, no global state.
+# verdict_engine.py – pure function per WEB_SEAT_WS0_OBSERVATION_CONTRACT v0.4 §2.1
+# Implements SPEC v2.3 rule map
 
 from typing import Any, Optional, Dict, List
 import json
 from copy import deepcopy
+from datetime import datetime, timezone
 
 VERDICTS = {"RECOVERED", "AMBIGUOUS", "LOST", "NEEDS_HUMAN", "MISMATCH"}
 
 FORBIDDEN_KEYS = {"text", "content", "body", "messages", "prompt", "completion"}
 
+# Allowed reasons as per SPEC v2.3 #6
+ALLOWED_REASONS = {
+    "L0_VIOLATION",
+    "NO_EVIDENCE",
+    "SESSION_EXPIRED",
+    "SESSION_CHALLENGE",
+    "DOUBLE_OWNERSHIP",
+    "AUTOMATION_FORBIDS_OBSERVATION",
+    "CONV_ID_DIFFERS",
+    "PATHS_NOT_COMPARABLE",
+    "HISTORY_INCOMPLETE",
+    "PREFIX_CHANGED",
+    "SNAPSHOT_INCONSISTENT",
+    "SEND_UNRESOLVED",
+    "UNATTRIBUTED_DELTA",
+    None,
+}
 
-def check_l0(obj: Any, path: str = "$") -> List[str]:
-    """
-    Recursively scan obj for forbidden keys.
-    Returns list of paths where forbidden key found, or empty list.
-    """
-    if obj is None:
-        return []
-
+def check_l0(obj: Any, source: str, path: str = "") -> Optional[str]:
+    """Return first forbidden key path, or None."""
     if isinstance(obj, dict):
-        paths = []
-        for key, value in obj.items():
-            if key in FORBIDDEN_KEYS:
-                paths.append(f"{path}.{key}")
-            paths.extend(check_l0(value, f"{path}.{key}"))
-        return paths
+        for k, v in obj.items():
+            if k in FORBIDDEN_KEYS:
+                # SPEC v2.3: L0 path format = $.text
+                return f"{source}{path}.{k}"
+            sub = check_l0(v, source, f"{path}.{k}")
+            if sub:
+                return sub
     elif isinstance(obj, list):
-        paths = []
-        for i, item in enumerate(obj):
-            paths.extend(check_l0(item, f"{path}[{i}]"))
-        return paths
-    else:
-        return []
+        for i, v in enumerate(obj):
+            sub = check_l0(v, source, f"{path}[{i}]")
+            if sub:
+                return sub
+    return None
 
-
-def verdict(pre: Optional[Dict], post: Optional[Dict]) -> Dict:
-    """
-    Returns:
-      {
-        "verdict": <one of VERDICTS or None on L0 violation>,
-        "reason": <str or None>,
-        "delta": <bool or None>,
-        "send_status": <str or None>,
-        "flags": <list>,
-        "decisive_rule": <str or None>,
-        "rules_trace": <list of str>,
-        "pre_ref": <snapshot_id or None>,
-        "post_ref": <snapshot_id or None>,
-        "l0_violation": <str or None>   # path if L0 key found
-      }
-
-    Pure: no mutation of pre/post; same input -> same output.
-    """
-    # --- L0 Guard ---
-    l0_violations_pre = check_l0(pre)
-    l0_violations_post = check_l0(post)
-    l0_violations = l0_violations_pre + l0_violations_post
-
-    if l0_violations:
-        # Per SPEC, use first violation path, verdict null, reason "L0_VIOLATION"
-        violation_path = l0_violations[0]
-        return {
-            "verdict": None,
-            "reason": "L0_VIOLATION",
-            "delta": None,
-            "send_status": None,
-            "flags": [],
-            "decisive_rule": None,
-            "rules_trace": [],
-            "pre_ref": pre.get("snapshot_id") if isinstance(pre, dict) else None,
-            "post_ref": post.get("snapshot_id") if isinstance(post, dict) else None,
-            "l0_violation": violation_path
-        }
-
-    # --- Initializing result structure ---
-    result = {
-        "verdict": None,
-        "reason": None,
+def _empty_result(pre, post, l0_path=None):
+    """Helper to create a result dict, primarily for L0 violation."""
+    return {
+        "verdict": None if l0_path else None,
+        "reason": "L0_VIOLATION" if l0_path else None,
         "delta": None,
         "send_status": None,
         "flags": [],
         "decisive_rule": None,
         "rules_trace": [],
-        "pre_ref": pre.get("snapshot_id") if isinstance(pre, dict) else None,
-        "post_ref": post.get("snapshot_id") if isinstance(post, dict) else None,
-        "l0_violation": None # L0 already checked
+        "pre_ref": (pre or {}).get("snapshot_id") if isinstance(pre, dict) else None,
+        "post_ref": (post or {}).get("snapshot_id") if isinstance(post, dict) else None,
+        "l0_violation": l0_path,
     }
 
-    # --- Rule Interpretations from §A of BUILD_001_STEP2_STEP3_SPEC.md ---
-    # I-1: post["conversation_opened"] == False -> content fields can be None, rule 1 doesn't fail on their absence.
-    # I-2: chain prefix check. len(post["chain"]) < n_pre -> rule 7 (PREFIX_CHANGED).
-    # I-3: rule 7a applies only if n_post == n_pre.
-    # I-4: fingerprints not recomputed.
-    # I-5: delta attribution via attributions (by=send_nonce / by=operator_action).
-    # I-6: flags double_ownership, automation_forbids_observation, model_label_changed, ui_variant_changed pass through.
-    # I-7: invalidity by §2.1 item 1 + closed lists §1.1 + send_attempt_logged=true with send_status=NONE + ts format YYYY-MM-DDTHH:MM:SSZ.
+def _result(pre, post, verdict, reason, delta, decisive_rule, trace):
+    """Helper to construct the standard result dictionary."""
+    post_dict = post if isinstance(post, dict) else {}
+    return {
+        "verdict": verdict,
+        "reason": reason,
+        "delta": delta,
+        "send_status": post_dict.get("send_status") if post is not None else None,
+        "flags": list(post_dict.get("flags") or []),
+        "decisive_rule": decisive_rule,
+        "rules_trace": trace,
+        "pre_ref": (pre or {}).get("snapshot_id") if isinstance(pre, dict) else None,
+        "post_ref": (post or {}).get("snapshot_id") if isinstance(post, dict) else None,
+        "l0_violation": None, # L0 is a separate pre-check
+    }
 
-    # --- Rules 1-10 (apply in order, first match wins) ---
-    # Rule 1: Conversation state changes
-    pre_conv_opened = pre.get("conversation_opened") if isinstance(pre, dict) else None
-    post_conv_opened = post.get("conversation_opened") if isinstance(post, dict) else None
-    
-    if post_conv_opened is False and pre_conv_opened is not False: # Rule 1 condition
-        result["verdict"] = "RECOVERED"
-        result["reason"] = "POST_CONVERSATION_CLOSED"
-        result["decisive_rule"] = "1"
-        result["rules_trace"].append("1: POST_CONVERSATION_CLOSED")
-        return result
+def is_valid_timestamp(ts_str: Optional[str]) -> bool:
+    """Checks if a string conforms to YYYY-MM-DDTHH:MM:SSZ format."""
+    if not isinstance(ts_str, str) or not ts_str.endswith('Z'):
+        return False
+    try:
+        datetime.strptime(ts_str[:-1], '%Y-%m-%dT%H:%M:%S')
+        return True
+    except ValueError:
+        return False
 
-    # Rule 2: State is LOST
-    if post is None and pre is not None:
-        result["verdict"] = "LOST"
-        result["reason"] = "POST_OBJECT_IS_NULL"
-        result["decisive_rule"] = "2"
-        result["rules_trace"].append("2: POST_OBJECT_IS_NULL")
-        return result
+def verdict(pre: Optional[Dict], post: Optional[Dict]) -> Dict:
+    """
+    Determines the verdict based on pre and post snapshots according to SPEC v2.3 rules.
+    Pure function: no side effects, deterministic.
+    """
+    # --- L0 Guard ---
+    l0_violation_path = check_l0(pre, "$pre") # Scan pre first
+    if not l0_violation_path:
+        l0_violation_path = check_l0(post, "$post") # Then scan post
 
-    # Rule 3: State is AMBIGUOUS
-    if post is not None and pre is None: # This implies initial state is ambiguous (e.g., post exists but pre doesn't)
-        result["verdict"] = "AMBIGUOUS"
-        result["reason"] = "PRE_OBJECT_IS_NULL"
-        result["decisive_rule"] = "3"
-        result["rules_trace"].append("3: PRE_OBJECT_IS_NULL")
-        return result
+    if l0_violation_path:
+        return _empty_result(pre, post, l0_path=l0_violation_path)
 
-    # Rule 4: State is MISMATCH (general structural difference, not covered by specific rules)
-    # This rule implies a significant structural difference that doesn't fall into other categories.
-    # For now, we'll use it as a catch-all if post differs from pre and no other rule applies.
-    # This might need refinement based on SPEC §2.1 for actual structural comparison.
-    # A simple check for deep equality will be used as a proxy.
-    if pre != post:
-        # Placeholder for structural mismatch analysis. For now, assume if not caught by other rules, it's MISMATCH.
-        # This might be too broad. Refinement needed if SPEC details structural diffs.
-        pass # Deferring specific structural comparison logic.
+    # --- Initialize result ---
+    result = _empty_result(pre, post) # Creates base structure with pre/post_ref, no L0 violation
 
-    # Rule 5: State is NEEDS_HUMAN
-    # This rule typically involves conditions that require manual intervention or more complex logic not automatable by the function.
-    # Examples could be specific error codes, or states indicating an unrecoverable automated process.
-    # For now, we'll use a placeholder logic if no other rule matches and there's a difference.
-    if pre != post and not result["verdict"]: # If different and no verdict yet
-        result["verdict"] = "NEEDS_HUMAN"
-        result["reason"] = "UNHANDLED_STATE_DIFFERENCE"
-        result["decisive_rule"] = "5"
-        result["rules_trace"].append("5: UNHANDLED_STATE_DIFFERENCE")
-        return result
-
-    # Rule 6: Delta calculation and attributions (I-5)
-    # This rule focuses on whether a change (delta) occurred and how it was attributed.
-    # Delta is true if pre != post.
-    # Attribution logic is complex and might need more SPEC details.
-    # For now, just setting delta based on object inequality.
-    is_delta = (pre != post)
-    result["delta"] = is_delta
-
-    # Rule 7: Chain prefix check (I-2)
+    # --- Safely extract data for rule checks ---
     pre_chain = pre.get("chain") if isinstance(pre, dict) else []
     post_chain = post.get("chain") if isinstance(post, dict) else []
+    pre_conv_opened = pre.get("conversation_opened") if isinstance(pre, dict) else None
+    post_conv_opened = post.get("conversation_opened") if isinstance(post, dict) else None
+    pre_session_state = pre.get("session_state") if isinstance(pre, dict) else None
+    post_session_state = post.get("session_state") if isinstance(post, dict) else None
+    pre_conv_id = pre.get("conv_id") if isinstance(pre, dict) else None
+    post_conv_id = post.get("conv_id") if isinstance(post, dict) else None
+    pre_extraction_path = pre.get("extraction_path") if isinstance(pre, dict) else None
+    post_extraction_path = post.get("extraction_path") if isinstance(post, dict) else None
+    pre_fp_version = pre.get("fp_version") if isinstance(pre, dict) else None
+    post_fp_version = post.get("fp_version") if isinstance(post, dict) else None
+    pre_history_complete = pre.get("history_complete") if isinstance(pre, dict) else None
+    post_history_complete = post.get("history_complete") if isinstance(post, dict) else None
+    pre_restart_epoch = pre.get("restart_epoch") if isinstance(pre, dict) else None
+    post_restart_epoch = post.get("restart_epoch") if isinstance(post, dict) else None
+    pre_restart_kind = pre.get("restart_kind") if isinstance(pre, dict) else None
+    post_restart_kind = post.get("restart_kind") if isinstance(post, dict) else None
+    pre_send_attempt_logged = pre.get("send_attempt_logged") if isinstance(pre, dict) else False
+    post_send_attempt_logged = post.get("send_attempt_logged") if isinstance(post, dict) else False
+    pre_send_status = pre.get("send_status") if isinstance(pre, dict) else None
+    post_send_status = post.get("send_status") if isinstance(post, dict) else None
+    pre_operator_actions = pre.get("operator_actions") if isinstance(pre, dict) else []
+    post_operator_actions = post.get("operator_actions") if isinstance(post, dict) else []
+    post_flags = list(post.get("flags") or []) if isinstance(post, dict) else []
+    pre_flags = list(pre.get("flags") or []) if isinstance(pre, dict) else []
+
+    # --- Rule 1: NO_EVIDENCE ---    
+    is_pre_none = pre is None
+    is_post_none = post is None
+
+    # Check snapshot validity (excluding I-1 exception for null content fields)
+    snapshot_invalid = False
+    invalidity_reason = None
+
+    # SPEC §2.1 / §3 / closed lists check
+    allowed_extraction_paths = {"DOM", "API", "MANUAL"}
+    allowed_session_states = {"AUTHENTICATED", "CHALLENGE", "EXPIRED", "LOGGED_OUT", "UNKNOWN"}
+    allowed_transport_states = {"ATTACHED", "DETACHED", "UNKNOWN"}
+    allowed_occupant_states = {"VERIFIED", "UNVERIFIED", "REACHABLE", "UNREACHABLE", "UNKNOWN"}
+    allowed_generation_states = {"IDLE", "RUNNING", "GENERATED", "UNKNOWN"}
+    allowed_send_statuses = {"NONE", "INTENDED", "CONFIRMED_PRESENT", "AMBIGUOUS", "UNKNOWN"}
+    allowed_restart_kinds = {"graceful", "kill", "network", "unknown"}
+
+    if isinstance(post, dict):
+        if post.get("send_attempt_logged") is True and post.get("send_status") == "NONE":
+            snapshot_invalid = True
+            invalidity_reason = "SEND_ATTEMPT_LOGGED_WITH_NONE_STATUS"
+        
+        if not is_valid_timestamp(post.get("ts_utc")):
+            snapshot_invalid = True
+            invalidity_reason = "INVALID_TIMESTAMP_FORMAT_FOR_TS_UTC"
+        
+        post_extraction_path_val = post.get("extraction_path")
+        if post_extraction_path_val is not None and post_extraction_path_val not in allowed_extraction_paths:
+            snapshot_invalid = True
+            invalidity_reason = "EXTRACTION_PATH_OUTSIDE_CLOSED_LIST"
+        
+        post_session_state_val = post.get("session_state")
+        if post_session_state_val is not None and post_session_state_val not in allowed_session_states:
+            snapshot_invalid = True
+            invalidity_reason = "SESSION_STATE_OUTSIDE_CLOSED_LIST"
+        
+        post_transport_state_val = post.get("transport_state")
+        if post_transport_state_val is not None and post_transport_state_val not in allowed_transport_states:
+             snapshot_invalid = True
+             invalidity_reason = "TRANSPORT_STATE_OUTSIDE_CLOSED_LIST"
+
+        post_occupant_state_val = post.get("occupant_state")
+        if post_occupant_state_val is not None and post_occupant_state_val not in allowed_occupant_states:
+             snapshot_invalid = True
+             invalidity_reason = "OCCUPANT_STATE_OUTSIDE_CLOSED_LIST"
+
+        post_generation_state_val = post.get("generation_state")
+        if post_generation_state_val is not None and post_generation_state_val not in allowed_generation_states:
+            snapshot_invalid = True
+            invalidity_reason = "GENERATION_STATE_OUTSIDE_CLOSED_LIST"
+
+        post_send_status_val = post.get("send_status")
+        if post_send_status_val is not None and post_send_status_val not in allowed_send_statuses:
+             snapshot_invalid = True
+             invalidity_reason = "SEND_STATUS_OUTSIDE_CLOSED_LIST"
+
+        post_restart_kind_val = post.get("restart_kind")
+        if post_restart_kind_val is not None and post_restart_kind_val not in allowed_restart_kinds:
+             snapshot_invalid = True
+             invalidity_reason = "RESTART_KIND_OUTSIDE_CLOSED_LIST"
+
+    # Rule 1 Condition logic:
+    rule1_triggered = False
+    if is_pre_none or is_post_none or snapshot_invalid:
+        rule1_triggered = True
+
+    # SPEC: I-1 Exception: if post_conv_opened is False, specific nulls are permitted.
+    # If the only invalidity was a permitted null, Rule 1 should not trigger.
+    # This logic assumes `snapshot_invalid` flags concrete errors, not just permitted nulls.
+    # The Restart-Only Clarification implies these specific differences don't trigger Rule 1.
+    # For Rule 1, if snapshot_invalid is True, it triggers unless it was *only* due to permitted nulls.
+    # The current SPEC phrasing implies Rule 1 triggers if `pre is None or post is None OR snapshot_invalid` is true.
+    # The I-1 exception is about *not* flagging nulls as invalid. If other concrete invalidities exist, Rule 1 still triggers.
+    # Given the SPEC, the simplest path is if `rule1_triggered` is True, apply Rule 1.
+
+    if rule1_triggered:
+        return _result(pre, post, "AMBIGUOUS", "NO_EVIDENCE", None, "1", ["1"])
+
+    # --- Rule 2: NEEDS_HUMAN ---
+    rule2_reason = None
+    if post_session_state == "EXPIRED":
+        rule2_reason = "SESSION_EXPIRED"
+    elif post_session_state == "CHALLENGE":
+        rule2_reason = "SESSION_CHALLENGE"
+    elif "double_ownership" in post_flags:
+        rule2_reason = "DOUBLE_OWNERSHIP"
+    elif "automation_forbids_observation" in post_flags:
+        rule2_reason = "AUTOMATION_FORBIDS_OBSERVATION"
+
+    if rule2_reason:
+        return _result(pre, post, "NEEDS_HUMAN", rule2_reason, None, "2", ["2"])
+
+    # --- Rule 3: LOST ---
+    # SPEC: Rule 3 fires if post_conv_opened is False. Rule 2 has priority if session_state is EXPIRED.
+    # If Rule 2 didn't fire (e.g., session_state was not EXPIRED), and post_conv_opened is False, Rule 3 applies.
+    if post_conv_opened is False:
+        return _result(pre, post, "LOST", None, None, "3", ["3"])
+
+    # --- Rule 4: CONV_ID_DIFFERS ---
+    if pre_conv_id is not None and post_conv_id is not None and pre_conv_id != post_conv_id:
+        return _result(pre, post, "MISMATCH", "CONV_ID_DIFFERS", None, "4", ["4"])
+
+    # --- Rule 5: PATHS_NOT_COMPARABLE ---
+    paths_not_comparable = (pre_extraction_path != post_extraction_path) or \
+                           (pre_fp_version != post_fp_version)
+
+    # --- Rule 6: HISTORY_INCOMPLETE ---
+    history_incomplete = post_history_complete is False
+
+    if paths_not_comparable:
+        return _result(pre, post, "AMBIGUOUS", "PATHS_NOT_COMPARABLE", None, "5", ["5"])
+    elif history_incomplete:
+        return _result(pre, post, "AMBIGUOUS", "HISTORY_INCOMPLETE", None, "6", ["6"])
+
+    # --- Rule 7: PREFIX_CHANGED ---
     n_pre = len(pre_chain)
     n_post = len(post_chain)
 
+    prefix_changed = False
     if n_post < n_pre:
-        result["verdict"] = "MISMATCH"
-        result["reason"] = "PREFIX_CHANGED"
-        result["decisive_rule"] = "7"
-        result["rules_trace"].append("7: PREFIX_CHANGED")
-        return result
-
-    # Rule 7a: Applies only if n_post == n_pre (I-3)
-    if n_post == n_pre and n_post > 0:
-        # Check if post_chain[:n_pre] == pre_chain[:n_pre]
+        prefix_changed = True
+    elif n_post >= n_pre and n_pre > 0:
         if post_chain[:n_pre] != pre_chain[:n_pre]:
-            result["verdict"] = "MISMATCH"
-            result["reason"] = "CHAIN_PREFIX_MISMATCH_POST_EQ_PRE_LEN"
-            result["decisive_rule"] = "7a"
-            result["rules_trace"].append("7a: CHAIN_PREFIX_MISMATCH_POST_EQ_PRE_LEN")
-            return result
+            prefix_changed = True
     
-    # Rule 8: send_attempt_logged=true with send_status=NONE (I-7)
-    pre_send_attempt_logged = pre.get("send_attempt_logged") if isinstance(pre, dict) else False
-    pre_send_status = pre.get("send_status") if isinstance(pre, dict) else None
-    post_send_attempt_logged = post.get("send_attempt_logged") if isinstance(post, dict) else False
-    post_send_status = post.get("send_status") if isinstance(post, dict) else None
+    if prefix_changed:
+        return _result(pre, post, "MISMATCH", "PREFIX_CHANGED", None, "7", ["7"])
 
-    if pre_send_attempt_logged is True and pre_send_status == "NONE" and \
-       post_send_attempt_logged is True and post_send_status == "NONE":
-        result["verdict"] = "MISMATCH"
-        result["reason"] = "SEND_ATTEMPT_LOGGED_WITH_NONE_STATUS_PERSISTS"
-        result["decisive_rule"] = "8"
-        result["rules_trace"].append("8: SEND_ATTEMPT_LOGGED_WITH_NONE_STATUS_PERSISTS")
-        return result
+    # --- Rule 7a: SNAPSHOT_INCONSISTENT ---
+    if n_post == n_pre and n_post > 0:
+        pre_tail_fps = pre.get("tail_fps") if isinstance(pre, dict) else []
+        post_tail_fps = post.get("tail_fps") if isinstance(post, dict) else []
 
-    # Rule 9: Validity of timestamp format YYYY-MM-DDTHH:MM:SSZ (I-7)
-    def is_valid_timestamp(ts_str: Optional[str]) -> bool:
-        if not isinstance(ts_str, str):
-            return False
-        if not ts_str.endswith('Z'):
-            return False
-        try:
-            datetime.strptime(ts_str[:-1], '%Y-%m-%dT%H:%M:%S') # Check format excluding 'Z'
-            return True
-        except ValueError:
-            return False
+        if isinstance(pre_tail_fps, list) and isinstance(post_tail_fps, list):
+            if len(pre_tail_fps) == len(post_tail_fps):
+                differences_found = False
+                for i in range(len(pre_tail_fps)):
+                    pre_fps_item = pre_tail_fps[i]
+                    post_fps_item = post_tail_fps[i]
+                    
+                    if isinstance(pre_fps_item, dict) and isinstance(post_fps_item, dict):
+                        if pre_fps_item.get("role") != post_fps_item.get("role") or \
+                           pre_fps_item.get("len") != post_fps_item.get("len") or \
+                           pre_fps_item.get("msg_fp") != post_fps_item.get("msg_fp"):
+                            differences_found = True
+                            break
+                    else: # Non-dict items or type mismatch
+                        differences_found = True
+                        break
+                
+                if differences_found:
+                    return _result(pre, post, "AMBIGUOUS", "SNAPSHOT_INCONSISTENT", None, "7a", ["7a"])
+            # If lengths differ, it's not SNAPSHOT_INCONSISTENT based on this condition.
 
-    # Applying to relevant fields like 'timestamp', 'event_ts', 'created_at', etc.
-    # Need to identify all fields that should conform to this TS format from the contract.
-    # For now, assuming 'timestamp' and 'event_ts' if they exist in either pre or post.
-    timestamp_fields = ["timestamp", "event_ts", "created_at", "updated_at"]
-    
-    all_obj_keys = set()
-    if isinstance(pre, dict): all_obj_keys.update(pre.keys())
-    if isinstance(post, dict): all_obj_keys.update(post.keys())
+    # --- Rule 8: SEND_UNRESOLVED ---
+    if post_send_status in {"INTENDED", "AMBIGUOUS"}:
+        return _result(pre, post, "AMBIGUOUS", "SEND_UNRESOLVED", None, "8", ["8"])
 
-    for field in timestamp_fields:
-        if field in all_obj_keys:
-            ts_pre = pre.get(field) if isinstance(pre, dict) else None
-            ts_post = post.get(field) if isinstance(post, dict) else None
-            
-            if not is_valid_timestamp(ts_pre) and not is_valid_timestamp(ts_post):
-                # If neither pre nor post has a valid timestamp for this field, no violation.
-                pass
-            elif not is_valid_timestamp(ts_post):
-                # If post has an invalid timestamp, it's a violation.
-                result["verdict"] = "MISMATCH"
-                result["reason"] = f"INVALID_TIMESTAMP_FORMAT_FOR_{field.upper()}"
-                result["decisive_rule"] = "9"
-                result["rules_trace"].append(f"9: INVALID_TIMESTAMP_FORMAT_FOR_{field.upper()}")
-                return result
-
-    # Rule 10: Handling of closed lists (I-7)
-    # This rule implies checking against predefined closed lists.
-    # Example: SPEC mentions "closed lists §1.1". This would require knowing those lists.
-    # Without explicit lists, this rule is hard to implement. Assuming standard checks for now.
-    # If a field is expected to be in a closed list and isn't, it's a MISMATCH.
-
-    # --- Flags handling (I-6) ---
-    # Pass through specific flags if they exist and match conditions.
-    # These are not verdict-determining rules but part of the output.
-    
-    # Flag: double_ownership
-    if isinstance(post, dict) and post.get("double_ownership") is True:
-        result["flags"].append("double_ownership")
-
-    # Flag: automation_forbids_observation
-    if isinstance(post, dict) and post.get("automation_forbids_observation") is True:
-        result["flags"].append("automation_forbids_observation")
+    # --- Rule 9: DELTA ---
+    if n_post > n_pre and n_pre >= 0: # n_pre can be 0
+        all_attributable = True
+        operator_action_ids = {op_action.get("action_id") for op_action in post_operator_actions if isinstance(op_action, dict)}
         
-    # Flag: model_label_changed
-    pre_model_label = pre.get("model_label") if isinstance(pre, dict) else None
-    post_model_label = post.get("model_label") if isinstance(post, dict) else None
-    if pre_model_label != post_model_label and post_model_label is not None:
-        result["flags"].append("model_label_changed")
+        for i in range(n_pre, n_post):
+            found_attribution = False
+            current_tail_fps_item = None
+            if isinstance(post_tail_fps, list):
+                for fps_item in post_tail_fps:
+                    if isinstance(fps_item, dict) and fps_item.get("idx") == i:
+                        current_tail_fps_item = fps_item
+                        break
 
-    # Flag: ui_variant_changed
-    pre_ui_variant = pre.get("ui_variant") if isinstance(pre, dict) else None
-    post_ui_variant = post.get("ui_variant") if isinstance(post, dict) else None
-    if pre_ui_variant != post_ui_variant and post_ui_variant is not None:
-        result["flags"].append("ui_variant_changed")
+            if current_tail_fps_item:
+                # Check Attribution A: send_nonce
+                if post_send_status == "CONFIRMED_PRESENT" and post.get("attributions"):
+                    for attr in post.get("attributions", []):
+                        if isinstance(attr, dict) and attr.get("idx") == i and \
+                           attr.get("by") == "send_nonce" and attr.get("ref") == post.get("send_nonce"):
+                            found_attribution = True
+                            break
+                
+                # Check Attribution B: operator action
+                if not found_attribution and post.get("attributions"):
+                    for attr in post.get("attributions", []):
+                        if isinstance(attr, dict) and attr.get("idx") == i and \
+                           attr.get("by") == "operator_action":
+                            action_ref = attr.get("ref")
+                            if action_ref and action_ref in operator_action_ids:
+                                found_attribution = True
+                                break
 
-    # --- Delta attribution (I-5) ---
-    # Logic for attributing delta via 'attributions' field.
-    # This requires parsing 'attributions' which is likely a list of dicts.
-    # For now, assume delta is set if pre != post. Attribution details would go into rules_trace or specific fields if SPEC detailed them.
+            if not found_attribution:
+                all_attributable = False
+                break
 
-    # --- Final verdict if no rule matched ---
-    if result["verdict"] is None: # No specific rule triggered a verdict
-        if pre == post: # If objects are identical and no rule triggered, consider it RECOVERED with no delta.
-            result["verdict"] = "RECOVERED"
-            result["delta"] = False
-            result["reason"] = "STATE_UNCHANGED"
-            result["decisive_rule"] = "DEFAULT_UNCHANGED"
-            result["rules_trace"].append("DEFAULT_UNCHANGED: STATE_UNCHANGED")
-        else: # If objects differ but no rule applied, it falls to NEEDS_HUMAN or MISMATCH as per Rule 5 or a more detailed structural analysis.
-            # Given the SPEC's "first match wins" and the rules provided,
-            # if we reach here and objects differ, it implies an unhandled difference.
-            # Rule 5: NEEDS_HUMAN for unhandled differences.
-            result["verdict"] = "NEEDS_HUMAN"
-            result["reason"] = "UNHANDLED_DIFFERENCE_AFTER_ALL_RULES"
-            result["decisive_rule"] = "DEFAULT_UNHANDLED"
-            result["rules_trace"].append("DEFAULT_UNHANDLED: UNHANDLED_DIFFERENCE_AFTER_ALL_RULES")
-            result["delta"] = True # A difference implies delta occurred.
+        if all_attributable:
+            return _result(pre, post, "RECOVERED", None, True, "9", ["9"])
+        else:
+            return _result(pre, post, "AMBIGUOUS", "UNATTRIBUTED_DELTA", None, "9", ["9"])
+
+    # --- Rule 10: RECOVERED FALLBACK ---
+    # If no earlier rule fired.
+    # SPEC explicitly states delta: false for rule 10.
+    # If there's a difference but no rule caught it, it's still RECOVERED with delta: false.
+    result = _result(pre, post, "RECOVERED", None, False, "10", ["10"])
     
-    # Ensure 'send_status' is set if it's part of the output, even if not determining verdict.
-    # Example: if post has send_status, include it.
-    if isinstance(post, dict) and "send_status" in post:
-        result["send_status"] = post["send_status"]
-    elif isinstance(pre, dict) and "send_status" in pre: # Carry over if it exists in pre and not post
-        result["send_status"] = pre["send_status"]
-        
-    # Ensure 'pre_ref' and 'post_ref' are populated if available
-    if isinstance(pre, dict) and "snapshot_id" in pre:
-        result["pre_ref"] = pre["snapshot_id"]
-    if isinstance(post, dict) and "snapshot_id" in post:
-        result["post_ref"] = post["snapshot_id"]
-
+    # SPEC v2.3 rule map is respected for rule 5/6 and L0 path format.
+    
     return result

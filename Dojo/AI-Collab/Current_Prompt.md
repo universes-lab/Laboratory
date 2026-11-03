@@ -1,239 +1,379 @@
-# CURRENT PROMPT — AI-Collab
+# CURRENT OPERATIONAL FRAME
 
-DATE: 2026-10-28
+PROJECT:
+AI-Colab / BUILD 001
 
-PROJECT: AI-Collab
+WORKING ROOT:
+E:\Gemini\Dojo\AI-Collab
 
-ROOT:
+ACTIVE OPERATION:
+BUILD 001 / STEP 2 — VERDICT ENGINE — CORRECTIVE PASS
 
-`E:\Gemini\Dojo\AI-Collab`
+ACTIVE MODE:
+IMPLEMENTER
 
-ACTIVE_MODE: IMPLEMENTER
+ACTIVE SPEC:
+E:\Gemini\Dojo\AI-Collab\SPEC.md
 
-ACTIVE_OPERATION: BUILD_001_STEP_2_VERDICT_ENGINE_CORRECTIVE
+REQUIRED SPEC VERSION:
+2.3
 
-CURRENT_STEP:
+FINAL AUTHORITY:
+Author
 
-`BUILD 001 / STEP 2 — VERDICT_ENGINE_CORRECTIVE`
+TECHNICAL ROUTE:
+DeepSeek / Brigadier → Doctor operational frame → Samurai execution
 
-FINAL_AUTHORITY:
-
-Author / Shogun
-
-CURRENT_REPORT_TARGET:
-
-Grok
-
----
-
-## CURRENT EXTERNAL INSTRUCTION
-
-Perform the corrective implementation defined by:
-
-`SPEC.md — BUILD 001 / STEP 2 — VERDICT ENGINE v2.1 CORRECTIVE`
-
-No separate `STEP.md` is used or required.
-
-The current SPEC is the task-specific technical authority.
-
-This is a **corrective continuation of STEP 2**, not a new BUILD step.
+ACCEPTANCE:
+External only — Grok / Author.
+Samurai does not accept STEP 2 and does not authorize STEP 3.
 
 ---
 
-## AUTHORITY
+# CURRENT TASK
 
-Current control chain:
+Perform exactly one corrective full rewrite of:
 
-Global Coding Samurai doctrine  
-→ project `GEMINI.md`  
-→ this `Current_Prompt.md`  
-→ `SPEC.md v2.1`
+E:\Gemini\Dojo\AI-Collab\verdict_engine.py
 
-Follow the authority order declared inside SPEC.
+using SPEC v2.3.
 
-Do not silently reconcile a contradiction between:
+`FULL REWRITE` means:
+replace the entire content of `verdict_engine.py` with a complete implementation.
 
-- `WEB_SEAT_WS0_OBSERVATION_CONTRACT.md`;
-- `BUILD_001_STEP2_STEP3_SPEC.md`;
-- authoritative vector expectations;
-- corrective SPEC.
+It does NOT require deleting the file or recreating the path.
 
-If a real unresolved contradiction remains:
-
-`STOP → REPORT EXACT CONFLICT → WAIT_FOR_GROK_OR_SHOGUN`
-
-Doctor establishes the operational frame.
-
-Doctor does not define verdict semantics.
+After rewrite, pass all completeness gates defined in SPEC v2.3 before compile or tests.
 
 ---
 
-## CURRENT AUTHORIZATION
+# MANDATORY PRE-ACTION CONFIRMATION
 
-Samurai is authorized to:
+Before modifying anything:
 
-- inspect the authoritative inputs permitted by SPEC;
-- modify `verdict_engine.py` exactly as required by corrective v2.1;
-- leave `test_vectors.py` unchanged;
-- leave `BUILD_001_STEP2_VECTORS.json` unchanged;
-- run the stated py_compile;
-- perform one stated vector/L0 verification run;
-- collect mismatches and `rules_trace`;
-- produce `STEP2_CORRECTIVE_REPORT`.
+1. Re-read:
+   E:\Gemini\Dojo\AI-Collab\SPEC.md
 
-Samurai is not authorized to:
+2. Confirm physically from that file:
 
-- modify vectors;
-- modify `test_vectors.py`;
-- invent reasons;
-- implement rule 5 contrary to v2.1;
-- recompute fingerprints;
-- implement STEP 3;
-- install packages;
-- expand the corrective task;
-- begin another repair cycle after the authorized verification run.
+```text
+BUILD: 001
+STEP: 2
+NAME: VERDICT_ENGINE
+VERSION: 2.3
+STATUS: READY_FOR_SAMURAI
+```
 
----
+3. Confirm:
 
-## PREFLIGHT
+```text
+ROOT = E:\Gemini\Dojo\AI-Collab
+ACTIVE_MODE = IMPLEMENTER
+ACTIVE_OPERATION = BUILD 001 / STEP 2
+STEP 3 = NOT AUTHORIZED
+```
 
-Before modification verify:
+If SPEC version is not 2.3:
 
-`E:\Gemini\Dojo\AI-Collab\.venv\Scripts\python.exe`
+```text
+STOP
+REPORT SPEC_VERSION_MISMATCH
+WAIT
+```
 
-exists.
-
-If absent:
-
-`STOP → REPORT VENV_MISSING → WAIT`
-
-Do not install packages.
-
-Do not substitute another environment.
+Do not infer v2.3 from conversation memory.
 
 ---
 
-## METSUKE
+# AUTHORIZED NOW
 
-Before changing state confirm:
+You may:
 
-`PROJECT = AI-Collab`
+- inspect the current `verdict_engine.py`;
+- run the venv preflight;
+- compute `hash_before`;
+- run the required before-fix greps;
+- fully rewrite `verdict_engine.py`;
+- compute `hash_after`;
+- run completeness checks;
+- verify skeleton markers are absent;
+- verify Rules 2–9 are implemented as executable logic;
+- run obsolete-string grep after rewrite;
+- run `py_compile` only if all completeness gates pass;
+- run `test_vectors.py` exactly once only if compile passes;
+- capture full stdout and exit code;
+- return the exact factual report required by SPEC v2.3;
+- perform Samurai Execution Health closure required by the active constitution.
 
-`ROOT = E:\Gemini\Dojo\AI-Collab`
+Use ordinary engineering judgment inside the authorized rewrite.
 
-`ACTIVE_MODE = IMPLEMENTER`
-
-`ACTIVE_OPERATION = BUILD_001_STEP_2_VERDICT_ENGINE_CORRECTIVE`
-
-`ACTIVE_SPEC = v2.1 CORRECTIVE`
-
-`AUTHORIZED IMPLEMENTATION FILE = verdict_engine.py`
-
-If clear:
-
-continue.
-
----
-
-## CORRECTIVE EXECUTION DISCIPLINE
-
-This operation is intentionally bounded.
-
-Required route:
-
-`READ AUTHORITATIVE INPUTS`
-
-→ `MODIFY verdict_engine.py`
-
-→ `PY_COMPILE`
-
-→ `ONE test_vectors.py RUN`
-
-→ `VERIFY 32 VECTORS + L0_GUARD`
-
-→ `REPORT TO GROK`
-
-→ `STOP`
-
-→ `WAIT_FOR_GROK`
-
-Do not turn a failing corrective run into another autonomous repair cycle.
-
-If the run fails:
-
-preserve actual result;
-
-report mismatches and `rules_trace`;
-
-STOP.
-
-A FAIL report is preferable to an unauthorized second corrective iteration.
+Do not redefine the task.
 
 ---
 
-## REPORT IS PART OF COMPLETION
+# HARD EXECUTION SEQUENCE
 
-The STEP is not complete merely because code was modified.
+Execute only this sequence:
 
-The corrective cycle ends only after the required factual report is emitted.
+```text
+PREFLIGHT VENV
+→ READ / CONFIRM SPEC v2.3
+→ GATE 1: hash_before
+→ GATE 2: obsolete grep before
+→ GATE 3: skeleton grep before
+→ FULL REWRITE verdict_engine.py
+→ GATE 4: hash_after; REQUIRE hash_after != hash_before
+→ GATE 5: skeleton markers absent
+→ GATE 6: Rules 2–9 implemented as executable logic
+→ AFTER-FIX obsolete grep; REQUIRE zero matches
+→ PY_COMPILE
+→ ONE OFFICIAL test_vectors.py RUN
+→ REPORT
+→ STOP
+→ WAIT
+```
 
-Use:
+No branch may skip a gate.
 
-`STEP2_CORRECTIVE_REPORT`
+---
 
-from SPEC v2.1.
+# COMPLETENESS GATES
 
-After emitting it:
+After the rewrite, before `py_compile`:
 
-**STOP.**
+## Gate 4 — physical change
+
+Required:
+
+```text
+hash_after != hash_before
+```
+
+If equal:
+
+```text
+STOP
+REPORT
+WAIT
+```
+
+Do not compile.
+Do not test.
+Do not rewrite again.
+
+## Gate 5 — skeleton removed
+
+These markers must be absent:
+
+```text
+см. SPEC v2.1
+остальные rules 2
+$pre.
+$post.
+```
+
+If any remain:
+
+```text
+STOP
+REPORT
+WAIT
+```
+
+Do not compile.
+Do not test.
+Do not rewrite again.
+
+## Gate 6 — implementation completeness
+
+Rules 2–9 must exist as real executable logic.
+
+Required implemented behaviors:
+
+```text
+Rule 2  NEEDS_HUMAN
+Rule 3  LOST
+Rule 4  CONV_ID_DIFFERS
+Rule 5  PATHS_NOT_COMPARABLE
+Rule 6  HISTORY_INCOMPLETE
+Rule 7  PREFIX_CHANGED
+Rule 7a SNAPSHOT_INCONSISTENT
+Rule 8  SEND_UNRESOLVED
+Rule 9  DELTA
+```
+
+Comments, TODOs, placeholders, ellipses, or reason strings without executable logic do not satisfy this gate.
+
+If incomplete:
+
+```text
+STOP
+REPORT
+WAIT
+```
+
+Do not compile.
+Do not test.
+Do not rewrite again.
+
+---
+
+# AUTHORITATIVE CLARIFICATIONS
+
+Use SPEC v2.3 exactly.
+
+Key points:
+
+```text
+L0 path format = $.text
+L0 scan order = pre → post
+
+Rule 1:
+  pre is None OR post is None
+  → immediate NO_EVIDENCE
+  → no cross-snapshot comparisons
+
+Rule 2:
+  session_state from post
+  flags from post
+
+Rule 3:
+  session_state from post
+
+Rule 5:
+  PATHS_NOT_COMPARABLE
+
+Rule 6:
+  HISTORY_INCOMPLETE
+
+E10:
+  known vector/contract mismatch
+  implementation follows contract
+  decisive_rule must be "5"
+  do not bend code to force E10 PASS
+```
+
+---
+
+# EXPECTED TEST STATE — NOT A FACT UNTIL OBSERVED
+
+Expected only:
+
+```text
+31/32 vectors PASS
+failed_ids == ["E10"]
+L0_GUARD PASS
+runner exit code = 1
+```
+
+This expected exit code 1 is not by itself an implementation defect.
+
+Do not report expected values as observed values.
+
+---
+
+# STRICT ONE-PASS BOUNDARY
+
+This operation authorizes one implementation pass only.
+
+No second rewrite.
+
+No patch cycle after the rewrite.
+
+No retry after a failed completeness gate.
+
+No retry after compile failure.
+
+No retry after the official test run.
+
+If any unexpected failure occurs:
+
+```text
+STOP
+REPORT FACTUAL EVIDENCE
+WAIT FOR EXTERNAL REVIEW
+```
+
+The generic Samurai retry allowance does not override this narrower operational frame.
+
+---
+
+# NOT AUTHORIZED
 
 Do not:
 
-- rerun for reassurance;
-- patch another mismatch;
-- modify vectors;
-- improve unrelated code;
-- begin STEP 3;
-- create a new plan.
-
-Further corrective work requires a new instruction from Grok or Shogun.
-
----
-
-## HEALTH
-
-Technical failure does not itself mean Samurai health is degraded.
-
-If orientation remains intact:
-
-`HEALTH = OK`
-
-If Samurai loses ROOT, active operation, authorization boundary, one-pass limit, or STOP state:
-
-`HEALTH = DEGRADED`
-
-`STOP → REPORT STATE → WAIT_FOR_EXTERNAL_GUIDANCE`
+- modify `BUILD_001_STEP2_VECTORS.json`;
+- modify `test_vectors.py`;
+- modify `BUILD_001_STEP2_STEP3_SPEC.md`;
+- modify `WEB_SEAT_WS0_OBSERVATION_CONTRACT.md`;
+- modify `AI_COLAB_2_BUILD_CONTRACT_001.md`;
+- modify `SPEC.md` during execution;
+- implement STEP 3;
+- recompute fingerprints;
+- invent reasons;
+- add catch-all `pre != post`;
+- merge Rule 5 and Rule 6;
+- special-case E10 to force PASS;
+- skip E10;
+- create a replacement test runner;
+- delete `verdict_engine.py` merely to satisfy “full rewrite”;
+- perform unrelated refactor / cleanup / rename / migration;
+- infer authorization from conversation history or previous passes.
 
 ---
 
-## TERMINAL STATE
+# REPORTING
 
-Successful corrective completion requires:
+Return exactly one factual `STEP2_CORRECTIVE_REPORT` conforming to SPEC v2.3.
 
-`PY_COMPILE PASS`
+It must include at minimum:
 
-`32/32`
+```text
+hash_before
+hash_after
+file_changed
+skeleton_markers_after
+rules_2_to_9_implemented
+py_compile status
+full test stdout
+test exit code
+failed_ids
+L0_GUARD result
+step2_handoff_ready
+```
 
-`L0_GUARD PASS`
-
-`STEP2_CORRECTIVE_REPORT EMITTED`
-
-Then:
-
-`STOP → WAIT_FOR_GROK`
-
-STEP 3 remains unauthorized until external acceptance.
+If the operation stops before compile/test, report the exact gate where it stopped and the evidence.
 
 ---
 
-@./SPEC.md
+# ACCEPTANCE BOUNDARY
+
+If observed state is exactly:
+
+```text
+31/32
+failed_ids == ["E10"]
+L0_GUARD PASS
+```
+
+then:
+
+```text
+step2_handoff_ready: yes
+```
+
+But do NOT write:
+
+```text
+STEP 2 ACCEPTED
+STEP 3 AUTHORIZED
+```
+
+After report:
+
+```text
+STOP
+WAIT FOR EXTERNAL REVIEW
+```
+
+END OF CURRENT OPERATIONAL FRAME
