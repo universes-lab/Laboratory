@@ -338,7 +338,7 @@ TD-SPIN / OBSERVABLE FRAME — AUTHOR DEFINITION ACCEPTED
 HONC — физико-онтологическая триада
 ОТ: Chief Integrator / Methodologist
 КОМУ: Хранителю, Клоду
-КОПИЯ: Автор / Шёгун
+КОПИЯ: Автор / A`TUIN
 ТЕМА: Первичное линейное время и топологически обусловленные компоненты поля времени
 СТАТУС: AUTHOR CLARIFICATION — ONTOLOGICAL REVIEW REQUIRED
 ДАТА: 03.11.2026
