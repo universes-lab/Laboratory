@@ -1,0 +1,18 @@
+HONC / Qf / R1 / КТ-1 — опись упаковки А-5, rev3 (DeepSeek, 03.11.2026)
+Упаковщик: pack_from_text.py, sha256 d411a878e583d91e76e606d662952b43315b0f319b2cbd82e15ef5b22d9a6e3e (процедура ред. 3.2, § 7)
+Предпроверка архива check_zip в режиме a5: пройдена (7 файлов; файлов ядра и вложенных архивов нет).
+Повторная сборка из того же текста дала тот же архив побайтно.
+Строка запуска (DeepSeek): node a5/run.js
+Сумма исходного текста — по моей дословной копии сообщения; для сверки важны суммы файлов и архива.
+Изменения относительно rev2 (сравнение файлов): a5/lib/vec.js — добавлен V.neg(); a5/check1_root.js и a5/check2_penetration.js — удалены комментарии, сокращена строка notes, логика не менялась; остальные 4 файла побайтно те же.
+----
+Источник: DEEPSEEK_KT1_A5_SCRIPTS_2026-11-03_rev3.md; sha256 dd4c9641beeb43ed37ba8c6c2278cdd2bb3f1f11703e4f38fef30b717519a1bc
+Файлов: 7 (сверены с текстом побайтно)
+d5e1c52c6a5db45e41e5616515e3f6a9d18875cbc12b0ef986f2002692d696ee  a5/check1_root.js  (3858 байт)
+269e195333f83436e44cfd9cc18c22568b727cbf83e692109b1afceee13bbcce  a5/check2_penetration.js  (2952 байт)
+ac0bb4fc7c0154fde09a10f66981009c529c484e5b8d08985cda7c56f72d218c  a5/lib/frame.js  (982 байт)
+ee275399126b31d5bd59d3ff3cc18808a1bc08df5f7c0af6f294ff2b5068de15  a5/lib/geom.js  (1859 байт)
+5d4303366c30bfa129f4638e928512be074c9a54aea219bb3f46687db572fa9c  a5/lib/ia.js  (2637 байт)
+05eb499cf1f5590f06a9dbb716195a3df37a9505f073287b3e4b36d918887185  a5/lib/vec.js  (1031 байт)
+26eb89e7e2ca7ffc8de9c1951bf3fb43c944f87ecb8cf01e35d23f07dcf72c3f  a5/run.js  (1689 байт)
+Архив: HONC_Qf_KT1_A5_DeepSeek_2026-11-03_rev3.zip; sha256 c95e4b6b3a74f7d5fc3d5b518b3caf6a487f0941583e576de5891586d094e3e4
