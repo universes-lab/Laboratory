@@ -1,0 +1,18 @@
+HONC / Qf / R1 / КТ-1 — сырые протоколы пробных прогонов А-5 rev6 (без ядра), извлечены без изменений
+Архив скрипта: HONC_Qf_KT1_A5_DeepSeek_2026-11-03_rev6.zip, sha256 bac3c44143ba2a3f43bed1a4a75f8719d28d2855ef11bd1d3b5705d7c050b74a
+
+K4 CALIBRATION: --psi 54 --delta 10 --rho-lo 57.0 --rho-hi 57.5
+  выходной архив HONC_Qf_KT1_A5_rev6_k4cal_out.zip  sha256 e97fd5a83f0eef307261dceb7b8521816fdb1f29f81ef2cfd186292d96a93fb8
+  итог COMPLETED / EXIT_0, код скрипта 0, 2.161 с; src_unchanged True; work_rejected []; stderr 0 байт
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev6_k4cal__a5.check1.root.json  sha256 29b2724ee3b004fc0626d70934d0f9dfa81f1f64ec896fda08b13c95e683657d
+  log/stdout_000.txt → HONC_Qf_KT1_A5_rev6_k4cal__stdout_000.txt  sha256 e50f19c6f9f3399252149349c9af9f44c864faa39c45c9be03ed2495a038c401
+  знаки по 81 узлу: ??????????????????????????????????????????---------------------------------------
+
+A-5 PREFLIGHT: --psi 56 --delta 10 --rho-lo 45 --rho-hi 65
+  выходной архив HONC_Qf_KT1_A5_rev6_a5pre_out.zip  sha256 1c294051215ef2180d969e829692e3834db5b20729c93e627543cc9223835d13
+  итог COMPLETED / EXIT_0, код скрипта 0, 1.809 с; src_unchanged True; work_rejected []; stderr 0 байт
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev6_a5pre__a5.check1.root.json  sha256 954d64971b1feec7cdef015a9f1bdf57f4fcf4eec4b5745ab63d8bcdca37e77d
+  log/stdout_000.txt → HONC_Qf_KT1_A5_rev6_a5pre__stdout_000.txt  sha256 b73d5fd18f6db565ea73b3f9e61353cb609f448310e1bbc6deb7062fd08ccc71
+  знаки по 81 узлу: ++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++??????-----------
+
+Остальное (журнал summary.json, a5.check2.result.json) — внутри выходных архивов. Содержимое не менялось и не отбиралось.
