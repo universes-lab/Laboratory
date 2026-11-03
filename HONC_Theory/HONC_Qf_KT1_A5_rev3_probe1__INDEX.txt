@@ -1,0 +1,11 @@
+HONC / Qf / R1 / КТ-1 — сырые протоколы пробного прогона А-5 rev3 (probe1), извлечены без изменений
+Источник: HONC_Qf_KT1_A5_rev3_probe1_out.zip, sha256 43d3a5530358f4b51c0dd05c6ed24525ac819647292c5ed569e24511cf0883a1
+Архив скрипта: HONC_Qf_KT1_A5_DeepSeek_2026-11-03_rev3.zip, sha256 c95e4b6b3a74f7d5fc3d5b518b3caf6a487f0941583e576de5891586d094e3e4
+Итог оболочки: COMPLETED / EXIT_0, код скрипта 0, 0.706 с; protocol_complete True
+Файлы (имя в выходном архиве → имя при передаче; sha256 сверена с журналом прогона):
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev3_probe1__a5.check1.root.json  sha256 5edf0d44671d9ba35762f79106521682b198791baeba8e0732073133abed42db  (17054 байт)  — совпадает с журналом
+  work/a5.check2.result.json → HONC_Qf_KT1_A5_rev3_probe1__a5.check2.result.json  sha256 1d3c188123b75f5a2ddd45b1049b4c8b364c908f5b79d3e5273c8840484d4fda  (177 байт)  — совпадает с журналом
+  log/stdout_000.txt → HONC_Qf_KT1_A5_rev3_probe1__stdout_000.txt  sha256 616a4ea67b37243863737456973c945ef897c5b9419bb9032c2e10c66d8f348f  (205 байт)  — совпадает с журналом
+  log/stderr_000.txt → HONC_Qf_KT1_A5_rev3_probe1__stderr_000.txt  sha256 e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855  (0 байт)  — совпадает с журналом
+  log/summary.json → HONC_Qf_KT1_A5_rev3_probe1__summary.json  sha256 691935351cdd8318b2dfa1583cbc891f1aec593e2707e111e3dacbd5b07b143f  (журнал прогона; своей суммы в нём нет — сверяется по выходному архиву)
+Содержимое не менялось и не отбиралось. stderr пуст (0 байт).

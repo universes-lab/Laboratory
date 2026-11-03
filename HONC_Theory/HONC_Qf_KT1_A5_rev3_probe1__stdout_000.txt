@@ -1,0 +1,4 @@
+a5/run.js: starting check1_root...
+  existence=no uniqueness=no_change W_deg=null
+a5/run.js: no W from check1, check2 skipped.
+a5/run.js: done. Wrote a5.check1.root.json, a5.check2.result.json to KT1_OUT.

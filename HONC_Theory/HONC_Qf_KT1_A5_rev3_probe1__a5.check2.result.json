@@ -1,0 +1,7 @@
+{
+  "check": "check2_penetration",
+  "found": false,
+  "error": "no_W_from_check1",
+  "coverage": "NONE",
+  "notes": "check1 returned no single-interval W; check2 cannot run."
+}
