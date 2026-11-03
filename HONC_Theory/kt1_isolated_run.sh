@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 # Изолированный прогон чужого кода без изменений (Интегратор 03.11: А-5 и приёмочный прогон Д-3).
-#   kt1_isolated_run.sh <метка> <архив.zip> <sha256 архива> <node|python> <входной файл> [аргументы…]
+#   kt1_isolated_run.sh <метка> <архив.zip> <sha256 архива> <node|python|node-check> <входной файл> [аргументы…]
+# node-check — только проверка синтаксиса всех .js архива (пробный прогон Д-3 без ядра); входной файл тогда — «-».
 # Необязательно (только для Д-3): KERNEL_ZIP, KERNEL_SHA, KERNEL_DEST — замороженное ядро кладётся в src/$KERNEL_DEST.
 # Без KERNEL_ZIP скрипт, упоминающий ядро, не запускается. Node — с моделью разрешений (чтение и запись только в папке
 # прогона, без дочерних процессов); Python — через py_guard.py (то же правило через audit hook).
@@ -31,16 +32,27 @@ else
 fi
 { echo "date_utc: $TS"; echo "node: $(node --version)"; echo "python: $(python3 --version 2>&1)"; echo "uname: $(uname -srm)"; } > "$OUT/env.txt"
 log "Среда: $(tr '\n' ';' < "$OUT/env.txt")"
-export KT1_OUT="$OUT" KT1_RUN="$RUN"
+# Чистое окружение: без прокси, NODE_OPTIONS, NODE_PATH, PYTHONPATH и прочих переменных сессии; HOME — папка прогона.
+CLEAN=(env -i PATH=/usr/local/bin:/usr/bin:/bin LANG=C.UTF-8 HOME="$RUN" KT1_OUT="$OUT" KT1_RUN="$RUN")
+[ -n "${KT1_DIR:-}" ] && CLEAN+=(KT1_DIR="$KT1_DIR")
+cp "$HERE/py_guard.py" "$RUN/py_guard.py"
 cd "$RUN/src"
 T0=$(date +%s.%N)
-if [ "$LANGX" = node ]; then
-  node --permission --allow-fs-read="$RUN" --allow-fs-write="$RUN" "$ENTRY" "$@" > "$OUT/stdout.txt" 2> "$OUT/stderr.txt"; CODE=$?
+if [ "$LANGX" = node-check ]; then
+  # Только синтаксис: node --check по каждому .js архива (код не исполняется). ENTRY не используется.
+  CODE=0; : > "$OUT/stdout.txt"; : > "$OUT/stderr.txt"
+  while IFS= read -r f; do
+    log "Команда: ${CLEAN[*]} node --check $f"
+    if "${CLEAN[@]}" node --check "$f" >> "$OUT/stdout.txt" 2>> "$OUT/stderr.txt"; then echo "OK $f" >> "$OUT/stdout.txt"; else echo "FAIL $f" >> "$OUT/stdout.txt"; CODE=1; fi
+  done < <(find . -name '*.js' -type f | sort)
 else
-  python3 -I "$HERE/py_guard.py" "$ENTRY" "$@" > "$OUT/stdout.txt" 2> "$OUT/stderr.txt"; CODE=$?
+  if [ "$LANGX" = node ]; then CMD=(node --permission --allow-fs-read="$RUN" --allow-fs-write="$RUN" "$ENTRY" "$@")
+  else CMD=(python3 -I "$RUN/py_guard.py" "$ENTRY" "$@"); fi
+  log "Команда: ${CLEAN[*]} ${CMD[*]}"
+  "${CLEAN[@]}" "${CMD[@]}" > "$OUT/stdout.txt" 2> "$OUT/stderr.txt"; CODE=$?
 fi
 T1=$(date +%s.%N)
-log "Вход: $LANGX $ENTRY $*; код выхода $CODE; время $(echo "$T1 - $T0" | bc) с"
+log "Код выхода $CODE; время $(echo "$T1 - $T0" | bc) с"
 (cd "$RUN" && zip -qr "${RUN}-out.zip" out)
 sha256sum "${RUN}-out.zip" | cut -c1-64 > "${RUN}-out.zip.sha256"
 echo "Вывод: $(basename "$RUN")-out.zip; sha256 $(cat "${RUN}-out.zip.sha256")"
