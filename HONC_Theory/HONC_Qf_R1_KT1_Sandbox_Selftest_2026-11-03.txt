@@ -1,0 +1,36 @@
+HONC / Qf / R1 / КТ-1 — самопроверка изолированного запуска (процедура, редакция 3)
+Дата (UTC): 2026-11-03T15:11:02Z
+Команда: python3 -I harness_selftest.py HONC_Qf_KT1_Kernel_2026-11-02.zip
+Среда: Node.js v22.22.0, Python 3.13.16, bubblewrap 0.9.0, setpriv from util-linux 2.39.3, Linux 6.18.44-fc-v230 x86_64
+Суммы файлов:
+  61a0c7989de1ef72b8c7be6dc7b82fe3640a0f2cdacb4a7491a343c244777fed  kt1_sandbox_run.py
+  642ff2ccbc3fc0960a22ce0f7e6eca39b3e32c99d54eade8661778aee34b94bd  py_guard.py
+  d411a878e583d91e76e606d662952b43315b0f319b2cbd82e15ef5b22d9a6e3e  pack_from_text.py
+  edf853b11cfb1090723e41702ebf5ef29f7142d6c2f157741599d5207316e32a  harness_selftest.py
+  ecb35112d85911c810d70942f3655ddc25ed19c9047befff2cb7dfbf6ea268ea  HONC_Qf_KT1_Kernel_2026-11-02.zip (замороженное ядро)
+Значений ядра в журнале нет: проба d3-run печатает только версию ядра и тип поля verdict.
+----
+OK   а-5, оба слоя: {'kernel': 'blocked ERR_ACCESS_DENIED', 'srcWrite': 'blocked ERR_ACCESS_DENIED', 'child': 'blocked ERR_ACCESS_DENIED', 'work': 'ALLOWED', 'net': 'blocked ENETUNREACH'}
+OK   только bubblewrap: {'kernel': 'blocked ENOENT', 'srcWrite': 'blocked EROFS', 'child': 'ALLOWED', 'work': 'ALLOWED', 'net': 'blocked ENETUNREACH'}
+OK   пользователь хозяина для процесса в песочнице: uid 65534, gid 65534
+OK   предел процессов: fb.sh: 0: Cannot fork 
+OK   память и корень: /tmp/x 268435456 /dev/shm/x 268435456 /dev blocked / blocked /etc нет
+OK   доверенный журнал: 0700, владелец root, в песочницу не монтируется
+OK   отказ — обход пути: недопустимый путь в архиве: '../x.js'
+OK   отказ — абсолютный путь: недопустимый путь в архиве: '/etc/x.js'
+OK   отказ — символическая ссылка: не обычный файл (символическая ссылка или иное): l.js
+OK   отказ — дубликат: дубликат пути: A.js
+OK   отказ — файл ядра в режиме а-5: файл ядра или вложенный архив в режиме без ядра: x/kt1.js
+OK   отказ — вложенный архив: файл ядра или вложенный архив в режиме без ядра: k.zip
+OK   отказ — сумма архива: контрольная сумма архива 5c57cd102e0975d1168fc6b0d57024a0ba8e0a23985b8f22ad368725de75f858 не совпадает с зафиксированной 0000000000000000000000000000000000000000000000000000000000000000
+OK   отказ — ядро в режиме а-5: режим a5: подключение ядра запрещено
+OK   отказ — чужое ядро в d3-run: ядро 86bbbfd0f701ece112b779e73ad1375be14f5614fa95e8fda88271456674afdd — не замороженная сборка ecb35112d85911c810d70942f3655ddc25ed19c9047befff2cb7dfbf6ea268ea
+OK   d3-run, замороженное ядро: protocol kt1-2026-11-02-wp4 object
+OK   d3-run, запись в ядро: blocked ERR_ACCESS_DENIED
+OK   d3-check: коды [1, 0]
+OK   предел времени: код 124, 3.012 с
+OK   предел памяти: код 1, RangeError: Array buffer allocation failed
+OK   Python, оба слоя: {'kernel': 'blocked PermissionError', 'srcWrite': 'blocked PermissionError', 'child': 'blocked PermissionError', 'net': 'blocked PermissionError', 'work': 'ALLOWED'}
+OK   Python, только bubblewrap: {'kernel': 'blocked FileNotFoundError 2', 'srcWrite': 'blocked OSError 30', 'child': 'ALLOWED', 'net': 'blocked OSError 101', 'work': 'ALLOWED'}
+Самопроверка: 22 прошло, 0 не прошло
+код выхода самопроверки: 0
