@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
-# Самопроверка среды исполнения (процедура, редакция 3 с адресными поправками 03.11). Опровергающие пробы: что песочница
-# отвергает и что пропускает; коды выхода оболочки; пределы вывода и квоты work/.
+# Самопроверка среды исполнения (процедура, редакция 3.2). Опровергающие пробы: что песочница отвергает и что
+# пропускает; коды выхода оболочки; пределы вывода и квоты work/; упаковка недоверенного work/ без следования по ссылкам.
 #   python3 -I harness_selftest.py <замороженный архив ядра>
 # Пробы пишутся во временную папку; ядро подключается только в пробе d3-run.
 import hashlib, json, os, shutil, subprocess, sys, tempfile, zipfile
@@ -156,8 +156,9 @@ wb = mkzip('wb.zip', [('w.js', "const fs=require('fs'),path=require('path');for(
 r, code = run('--mode', 'a5', '--label', 'st-wbytes', '--archive', wb, '--sha', sha(wb), '--entry', 'w.js', '--work-quota', '8', '--timeout', '60')
 prev.append(r['runs'][0])
 se = open(os.path.join(r['run_dir'], 'log', 'stderr_000.txt')).read()
-ok(code == 3 and r['test_status'] == 'WORK_LIMIT' and not r['protocol_complete'] and r['work_bytes'] <= 8 << 20 and 'ENOSPC' in se,
-   f'квота work/ по байтам: занято {r["work_bytes"]} байт из {8 << 20}; скрипт получил ENOSPC; код оболочки {code}, {r["test_status"]}')
+how = 'скрипт получил ENOSPC' if 'ENOSPC' in se else ('снят сторожем раньше, чем получил ENOSPC' if r['runs'][0]['exit_code'] == -9 else '?')
+ok(code == 3 and r['test_status'] == 'WORK_LIMIT' and not r['protocol_complete'] and r['work_bytes'] <= 8 << 20 and how != '?',
+   f'квота work/ по байтам: занято {r["work_bytes"]} байт из {8 << 20}; {how}; код оболочки {code}, {r["test_status"]}')
 # 11а. Квота work/ по числу файлов (200): пустые файлы до отказа
 wf = mkzip('wf.zip', [('w.py', "import os\nfor i in range(10**6): open(os.path.join(os.environ['KT1_OUT'], f'f{i}'), 'w').close()\n")])
 r, code = run('--mode', 'a5', '--label', 'st-wfiles', '--archive', wf, '--sha', sha(wf), '--lang', 'python', '--entry', 'w.py', '--work-files', '200', '--timeout', '60')
@@ -188,6 +189,48 @@ r, code = run('--mode', 'a5', '--label', 'st-rerr', '--archive', fail, '--sha', 
 hold.kill(); hold.wait(); R.wait_nobody()
 ok(code == 4 and r['runner_status'] == 'RUNNER_ERROR' and r['test_status'] == 'NOT_RUN' and os.path.isfile(os.path.join(r['run_dir'], 'log', 'summary.json')),
    f'ошибка оболочки: код {code}, {r["runner_status"]} — {r.get("runner_error")}; журнал записан')
+# 15. Недоверенный work/ при упаковке (исправление безопасности 3.2): ссылки на внешний контрольный файл и каталог
+# хозяина, FIFO, файл без прав чтения, недопустимое имя. Оболочка не должна ни прочитать контрольный файл, ни зависнуть.
+import secrets
+marker = 'KT1-CONTROL-' + secrets.token_hex(16)
+cdir = tempfile.mkdtemp(prefix='kt1-control-', dir='/var/tmp'); ctl = os.path.join(cdir, 'secret.txt')
+open(ctl, 'w').write(marker + '\n'); os.chmod(ctl, 0o600); os.chmod(cdir, 0o700)             # читает только root хозяина
+hostile = f"""import os
+W = os.environ['KT1_OUT']; made = []
+def mk(name, f):
+    try: f(os.path.join(W, name)); made.append(name)
+    except Exception as e: made.append(name + ' ERR ' + type(e).__name__)
+mk('ok.txt', lambda p: open(p, 'w').write('обычный файл'))
+os.makedirs(os.path.join(W, 'sub')); mk('sub/inner.txt', lambda p: open(p, 'w').write('вложенный'))
+mk('leak', lambda p: os.symlink({ctl!r}, p))
+mk('dirlink', lambda p: os.symlink({cdir!r}, p))
+mk('sub/up', lambda p: os.symlink('../../..', p))
+mk('fifo', lambda p: os.mkfifo(p))
+mk('locked.txt', lambda p: (open(p, 'w').write('x'), os.chmod(p, 0)))
+mk('bad name.txt', lambda p: open(p, 'w').write('x'))
+print(' '.join(made))
+"""
+hz = mkzip('hostile.zip', [('h.py', hostile)])
+r, code = run('--mode', 'a5', '--label', 'st-hostile', '--archive', hz, '--sha', sha(hz), '--lang', 'python', '--entry', 'h.py', '--timeout', '60')
+made = out(r).split()
+rej = {x['path']: x['type'].split()[0] for x in r.get('work_rejected', [])}
+def scan_for_marker(root):
+    hits = []
+    for d, ds, fs in os.walk(root):                      # без следования по ссылкам
+        for f in ds + fs:
+            q = os.path.join(d, f)
+            if os.path.islink(q): hits.append('ССЫЛКА ' + q); continue
+            if os.path.isfile(q) and marker.encode() in open(q, 'rb').read(): hits.append(q)
+    return hits
+zbytes = open(r['out_zip'], 'rb').read(); zin = zipfile.ZipFile(r['out_zip'])
+leaked = marker.encode() in zbytes or any(marker.encode() in zin.read(n) for n in zin.namelist()) or scan_for_marker(r['run_dir'])
+ok('ERR' not in ' '.join(made) and code == 3 and r['runner_status'] == 'COMPLETED' and r['test_status'] == 'WORK_UNSAFE' and not r['protocol_complete']
+   and rej == {'leak': 'symlink', 'dirlink': 'symlink', 'sub/up': 'symlink', 'fifo': 'fifo', 'locked.txt': 'unreadable', 'bad name.txt': 'name'}
+   and sorted(r['work_files']) == ['ok.txt', 'sub/inner.txt'] and sorted(n for n in zin.namelist() if n.startswith('work/')) == ['work/ok.txt', 'work/sub/inner.txt']
+   and not leaked and r['work_packer']['seconds'] < 30,
+   f'недоверенный work/: созданы {made}; отвергнуто {rej}; упаковано {sorted(r["work_files"])}; '
+   f'контрольный файл в выходе и в папке прогона: {"НАЙДЕН" if leaked else "нет"}; упаковщик {r["work_packer"]["seconds"]} с; код оболочки {code}, {r["test_status"]}')
+shutil.rmtree(cdir)
 shutil.rmtree(T, ignore_errors=True)
 for m in res: print('OK  ', m)
 for m in fails: print('FAIL', m)

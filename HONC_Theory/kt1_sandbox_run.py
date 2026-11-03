@@ -18,6 +18,11 @@
 #  8. stdout + stderr пишутся в журнал потоком, общий предел объёма; work/ — отдельная tmpfs с квотой байт и файлов;
 #     при превышении прогон прерывается, статус OUTPUT_LIMIT / WORK_LIMIT, протокол помечен неполным, усечённый
 #     файл вывода получает в имени .TRUNCATED.
+# Исправление безопасности Интегратора 03.11 («SANDBOX REV3.1 — … ONE SECURITY FIX REQUIRED»), редакция 3.2:
+#  9. оболочка (root) не читает work/ сама: work/ упаковывается в отдельной песочнице от nobody (pack_work.py) —
+#     без следования по ссылкам, только обычные файлы и каталоги; результат проверяется check_zip как недоверенный
+#     архив. Ссылки, FIFO, сокеты, устройства, недоступные и недопустимо названные записи не упаковываются и
+#     перечисляются в журнале (work_rejected); статус WORK_UNSAFE, протокол неполный.
 #
 #   kt1_sandbox_run.py --mode {a5,d3-check,d3-selftest,d3-run} --label L --archive A.zip --sha SHA
 #                      [--lang node|python] [--entry путь] [--kernel K.zip] [--timeout с] [--mem ГиБ]
@@ -33,8 +38,8 @@ NOBODY = 65534
 TMPFS = 256 << 20                      # предел /tmp и /dev/shm внутри песочницы
 # Код выхода оболочки: 0 — испытание завершилось с кодом 0; 1 — испытуемый скрипт завершился с ненулевым кодом;
 # 2 — отказ до запуска; 3 — превышен предел (время, вывод, work/) — протокол неполный; 4 — ошибка самой оболочки.
-EXIT = {'EXIT_0': 0, 'EXIT_NONZERO': 1, 'REFUSED': 2, 'TIMEOUT': 3, 'OUTPUT_LIMIT': 3, 'WORK_LIMIT': 3, 'RUNNER_ERROR': 4}
-SEVERITY = ['EXIT_0', 'EXIT_NONZERO', 'TIMEOUT', 'WORK_LIMIT', 'OUTPUT_LIMIT']        # итог по нескольким запускам — худший
+EXIT = {'EXIT_0': 0, 'EXIT_NONZERO': 1, 'REFUSED': 2, 'TIMEOUT': 3, 'OUTPUT_LIMIT': 3, 'WORK_LIMIT': 3, 'WORK_UNSAFE': 3, 'RUNNER_ERROR': 4}
+SEVERITY = ['EXIT_0', 'EXIT_NONZERO', 'TIMEOUT', 'WORK_LIMIT', 'OUTPUT_LIMIT', 'WORK_UNSAFE']   # итог по нескольким запускам — худший
 FULL_BYTES, FULL_FILES = 1 << 20, 16   # work/ считается исчерпанной, если свободно меньше 1 МиБ или меньше 16 файлов
 NODE_ROOT = os.path.dirname(os.path.dirname(os.path.realpath(shutil.which('node'))))      # /opt/node22
 PYTHON = os.path.realpath('/usr/bin/python3')                                              # без /etc/alternatives
@@ -42,12 +47,16 @@ SAFE = re.compile(r'^[A-Za-z0-9._-]+$')
 
 def sha(b): return hashlib.sha256(b).hexdigest()
 def fsha(p):
-    with open(p, 'rb') as f: return sha(f.read())
+    fd = os.open(p, os.O_RDONLY | os.O_NOFOLLOW | os.O_NONBLOCK)       # без следования по ссылке в последнем звене
+    with os.fdopen(fd, 'rb') as f:
+        if not stat.S_ISREG(os.fstat(f.fileno()).st_mode): raise OSError(f'не обычный файл: {p}')
+        return sha(f.read())
 
 class Refuse(Exception): pass
 
-def check_zip(path, allow_kernel_names):
+def check_zip(path, allow_kernel_names, limits=LIMITS):
     """Проверка содержимого архива до распаковки. Возвращает список (имя, данные)."""
+    LIMITS = limits
     try: z = zipfile.ZipFile(path)
     except zipfile.BadZipFile as e: raise Refuse(f'не ZIP: {e}')
     infos, seen, total, out = z.infolist(), set(), 0, []
@@ -87,12 +96,13 @@ def extract(files, root):
         os.chmod(d, 0o555)
 
 def tree(root):
+    """Опись папки, созданной оболочкой (src/, kernel/): без следования по ссылкам; не обычный файл — помечается."""
     res = {}
     for d, ds, fs in os.walk(root):
-        for f in sorted(fs):
-            p = os.path.join(d, f)
-            if os.path.islink(p): res[os.path.relpath(p, root)] = 'SYMLINK'; continue
-            res[os.path.relpath(p, root)] = fsha(p)
+        for f in sorted(ds + fs):
+            p = os.path.join(d, f); m = os.lstat(p).st_mode
+            if stat.S_ISDIR(m): continue
+            res[os.path.relpath(p, root)] = fsha(p) if stat.S_ISREG(m) else f'NOT-REGULAR {stat.filemode(m)}'
     return dict(sorted(res.items()))
 
 def new_run_dir(label):
@@ -135,7 +145,7 @@ def wait_nobody(seconds=10):
         time.sleep(0.1)
     return nobody_procs()
 
-def execute(cmd, so, se, work, timeout, max_output):
+def execute(cmd, so, se, work, timeout, max_output, watch_work=True):
     """Запуск: stdout и stderr — потоком в файлы журнала, общий предел объёма; сторож квоты work/ и срока.
     Превышение — немедленное прерывание всей песочницы (SIGKILL группе bubblewrap; --die-with-parent добивает остальное)."""
     p = subprocess.Popen(cmd, stdin=subprocess.DEVNULL, stdout=subprocess.PIPE, stderr=subprocess.PIPE, start_new_session=True)
@@ -160,18 +170,18 @@ def execute(cmd, so, se, work, timeout, max_output):
     for t in th: t.start()
     t0 = time.time()
     while p.poll() is None:
-        if work_full(work): kill('WORK_LIMIT')
+        if watch_work and work_full(work): kill('WORK_LIMIT')
         if time.time() - t0 > timeout + 30: kill('TIMEOUT')     # запасной срок снаружи песочницы, сверх timeout внутри
         time.sleep(0.05)
     for t in th: t.join(60)
     dt = time.time() - t0
     st['leftover'] = wait_nobody()
-    if st['reason'] is None and work_full(work): st['reason'] = 'WORK_LIMIT'
+    if st['reason'] is None and watch_work and work_full(work): st['reason'] = 'WORK_LIMIT'
     if st['reason'] is None and p.returncode in (124, 137) and dt >= timeout: st['reason'] = 'TIMEOUT'
     status = st['reason'] or ('EXIT_0' if p.returncode == 0 else 'EXIT_NONZERO')
     return p.returncode, dt, status, st['dropped'], st['leftover']
 
-def bwrap(run, lang, extra_binds, env, inner, mem_gib, timeout):
+def bwrap(run, lang, extra_binds, env, inner, mem_gib, timeout, packer=False):
     cmd = ['setpriv', f'--reuid={NOBODY}', f'--regid={NOBODY}', '--clear-groups', '--no-new-privs', '--bounding-set=-all',
            'bwrap', '--unshare-all', '--die-with-parent', '--new-session', '--cap-drop', 'ALL', '--clearenv']
     for k, v in env.items(): cmd += ['--setenv', k, v]
@@ -179,13 +189,34 @@ def bwrap(run, lang, extra_binds, env, inner, mem_gib, timeout):
             '--proc', '/proc', '--dev', '/dev', '--size', str(TMPFS), '--tmpfs', '/dev/shm', '--remount-ro', '/dev',
             '--size', str(TMPFS), '--tmpfs', '/tmp']                     # /tmp и /dev/shm — в памяти, по 256 МиБ; /dev — только чтение
     if lang in ('node', 'node-check'): cmd += ['--ro-bind', NODE_ROOT, NODE_ROOT]
-    cmd += ['--ro-bind', os.path.join(run, 'src'), '/sandbox/src', '--bind', os.path.join(run, 'work'), '/sandbox/work']
+    if packer: cmd += ['--ro-bind', os.path.join(run, 'work'), '/sandbox/work']     # упаковщик: только work/, только чтение
+    else: cmd += ['--ro-bind', os.path.join(run, 'src'), '/sandbox/src', '--bind', os.path.join(run, 'work'), '/sandbox/work']
     for a, b in extra_binds: cmd += ['--ro-bind', a, b]
     cmd += ['--remount-ro', '/']                                          # корень песочницы (tmpfs bubblewrap) — только чтение
-    cmd += ['--chdir', '/sandbox/src', '--uid', '65534', '--gid', '65534']
+    cmd += ['--chdir', '/sandbox/work' if packer else '/sandbox/src', '--uid', '65534', '--gid', '65534']
     lim = ['prlimit', '--nproc=256', '--nofile=512', f'--fsize={256 << 20}', f'--cpu={timeout + 5}', f'--as={mem_gib << 30}', '--',
            'timeout', '--kill-after=5', str(timeout)]
     return cmd + lim + inner
+
+def pack_work_sandboxed(run, work, quota, max_files):
+    """work/ упаковывается от nobody в отдельной песочнице; оболочка получает недоверенный архив и проверяет его."""
+    tools, pk = os.path.join(run, 'tools'), os.path.join(run, 'pack')
+    os.makedirs(tools); shutil.copy(os.path.join(HERE, 'pack_work.py'), tools)
+    os.chmod(os.path.join(tools, 'pack_work.py'), 0o444); os.chmod(tools, 0o555)
+    os.makedirs(pk); os.chmod(pk, 0o700)
+    cmd = bwrap(run, 'python', [(tools, '/sandbox/tools')], {'PATH': '/usr/bin:/bin', 'LANG': 'C.UTF-8'},
+                [PYTHON, '-I', '/sandbox/tools/pack_work.py'], 4, 600, packer=True)
+    zp, rp = os.path.join(pk, 'work.zip'), os.path.join(pk, 'report.json')
+    rc, dt, status, dropped, left = execute(cmd, zp, rp, work, 600, quota + (64 << 20), watch_work=False)
+    info = {'command': cmd, 'packer_sha256': fsha(os.path.join(tools, 'pack_work.py')), 'exit_code': rc, 'seconds': round(dt, 3),
+            'status': status, 'leftover_processes': left}
+    if status != 'EXIT_0': raise RuntimeError(f'упаковщик work/ завершился со статусом {status}, код {rc}')
+    rejected = json.loads(open(rp, encoding='utf-8').read())['rejected']
+    try: entries = check_zip(zp, allow_kernel_names=True, limits=dict(max_files=max_files, max_file=256 << 20, max_total=quota, max_ratio=100))
+    except Refuse as e:                                   # архив упаковщика — недоверенные данные: при нарушении work/ не берётся
+        entries = []; rejected.append({'path': '*', 'type': f'архив упаковщика отвергнут: {e}'})
+    shutil.rmtree(pk)
+    return entries, rejected, info
 
 def main():
     ap = argparse.ArgumentParser()
@@ -208,6 +239,19 @@ def main():
                       'file_bytes': 256 << 20, 'tmp_bytes': TMPFS, 'dev_shm_bytes': TMPFS}}
     mounted = False
     def finish(runner_status, test_status, why=None):
+        entries = []
+        if mounted:                                     # work/ — недоверенные данные: упаковка от nobody, без ссылок
+            try:
+                entries, rejected, rec['work_packer'] = pack_work_sandboxed(run, work, a.work_quota << 20, a.work_files)
+                rec['work_files'] = {n: sha(d) for n, d in sorted(entries)}
+                rec['work_bytes'] = sum(len(d) for n, d in entries)
+                rec['work_rejected'] = rejected
+                if rejected and runner_status == 'COMPLETED': test_status = max(test_status, 'WORK_UNSAFE', key=SEVERITY.index)
+                extract(entries, os.path.join(run, 'work.saved'))      # копия на диске — только обычные файлы, 0444
+            except Exception as e:
+                runner_status, test_status, why = 'RUNNER_ERROR', 'NOT_RUN', f'упаковка work/: {type(e).__name__}: {e}'
+                entries = []
+            subprocess.run(['umount', work], check=False)
         rec['runner_status'] = runner_status; rec['test_status'] = test_status
         rec['protocol_complete'] = runner_status == 'COMPLETED' and test_status in ('EXIT_0', 'EXIT_NONZERO')
         if why: rec['refused' if runner_status == 'REFUSED' else 'runner_error'] = why
@@ -216,12 +260,11 @@ def main():
         with open(os.path.join(log, 'summary.json'), 'w') as f: json.dump(rec, f, ensure_ascii=False, indent=1)
         outzip = run + '-out.zip'
         with zipfile.ZipFile(outzip, 'w', zipfile.ZIP_DEFLATED) as z:
-            for base in ('log', 'work'):
-                for d, ds, fs in os.walk(os.path.join(run, base)):
-                    for fn in sorted(fs): p = os.path.join(d, fn); z.write(p, os.path.relpath(p, run))
-        if mounted:                                     # копия work/ на диск рядом, затем tmpfs снимается
-            shutil.copytree(work, os.path.join(run, 'work.saved'), symlinks=True)
-            subprocess.run(['umount', work], check=False)
+            for d, ds, fs in os.walk(log):                # log/ пишет только оболочка; читаем без следования по ссылкам
+                for fn in sorted(fs):
+                    p = os.path.join(d, fn); fd = os.open(p, os.O_RDONLY | os.O_NOFOLLOW)
+                    with os.fdopen(fd, 'rb') as f: z.writestr(os.path.relpath(p, run), f.read())
+            for n, data in sorted(entries): z.writestr('work/' + n, data)     # work/ — только из проверенного архива
         print(json.dumps({**rec, 'run_dir': run, 'out_zip': outzip, 'out_zip_sha256': fsha(outzip)}, ensure_ascii=False, indent=1))
         sys.exit(code)
     try:
@@ -281,8 +324,6 @@ def main():
         rec['src_after'] = tree(os.path.join(run, 'src'))
         rec['src_unchanged'] = rec['src_after'] == rec['src_before']
         if 'kernel_before' in rec: rec['kernel_unchanged'] = tree(os.path.join(run, 'kernel')) == rec['kernel_before']
-        rec['work_files'] = tree(work)
-        rec['work_bytes'] = sum(os.path.getsize(os.path.join(d, f)) for d, ds, fs in os.walk(work) for f in fs)
         worst = max((r['test_status'] for r in rec['runs']), key=SEVERITY.index, default='EXIT_0')
         finish('COMPLETED', worst)
     except Refuse as e:
