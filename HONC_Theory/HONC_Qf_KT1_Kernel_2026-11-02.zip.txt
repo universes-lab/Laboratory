@@ -1,4 +1,4 @@
-HONC / Qf / R1 / КТ-1 — текстовый срез архива HONC_Qf_KT1_Kernel_2026-11-02.zip (сборка 03.11.2026, sha256 архива b5db01180891f49d926d2f2075f5477ef168772b44b3774dce9c8f7b023e300b)
+HONC / Qf / R1 / КТ-1 — текстовый срез архива HONC_Qf_KT1_Kernel_2026-11-02.zip (сборка 03.11.2026, правило меток Δ3 / G-5в; sha256 архива ecb35112d85911c810d70942f3655ddc25ed19c9047befff2cb7dfbf6ea268ea)
 Содержимое файлов архива подряд, без изменений, для чтения по строкам.
 
 ===== kt1/README.md =====
@@ -45,7 +45,7 @@ Node.js 18 и новее, внешних зависимостей нет.
 | `dev/test_wp4.js` | Рабочие проверки WP-4 и `kt1.js`: K-6 против перебора раскрасок, базовые случаи через `K.run`, консоль |
 | `dev/chk_a5_sampled.py` | Независимая выборка (Python, вне ядра) к наблюдению по А-5 |
 
-Запуск: `node dev/test_wp0.js` (16 588 проверок), `node dev/test_wp1.js` (188 проверок, около 20 с), `node dev/test_wp2.js` (79 проверок, около 20 с) `node dev/test_wp3.js` (198 проверок, около 20 с) и `node dev/test_wp4.js` (4616 проверок, около 1 мин). `KT1_QUICK=1` пропускает долгий К4.
+Запуск: `node dev/test_wp0.js` (16 588 проверок), `node dev/test_wp1.js` (188 проверок, около 20 с), `node dev/test_wp2.js` (82 проверки, около 20 с), `node dev/test_wp3.js` (198 проверок, около 20 с) и `node dev/test_wp4.js` (4616 проверок, около 1 мин). `KT1_QUICK=1` пропускает долгий К4.
 
 ## Принято к следующей версии интерфейса
 
@@ -54,6 +54,8 @@ Node.js 18 и новее, внешних зависимостей нет.
 - Если вилка содержит 0, противоречие не доказано. Требования к основанию `IMPOSED` по K-1 и П-8 сохраняются.
 
 Ядро реализует это правило вместе с разбором синтетических входов (§ 4.3).
+
+**Метки полноты** — Интегратор, 03.11, `GR-9A / Δ3 — VARIANT 1 APPROVED`: `EXACT` — по методу доказательства (закрытая форма или алгебра с изоляцией корней на полной вилке), независимо от ширины корректных входных вилок; не доказано — `UNRESOLVED`. Касп G-5в приведён к этому правилу; G-5г — `CERTIFIED`.
 
 **Поля кольца `plane_class` и `plane_basis`** (§ 6.5) — Интегратор, 02.11, `APPROVED`: свидетельство тождества построения с указанием основания (`WP3_Rings_Notes.md`, § 3). Соплоскостность по численному допуску не определяется.
 
@@ -418,7 +420,7 @@ G-2 требует «ошибка ≤ 10⁻¹²». В двойной точно�
 
 **Файлы:**
 - `wp2_ringtorus.js`;
-- рабочие проверки: `dev/test_wp2.js` — 79 проверок, все прошли.
+- рабочие проверки: `dev/test_wp2.js` — 82 проверки, все прошли.
 
 ## 1. G-5а — кольцо и чужой тор
 
@@ -471,7 +473,12 @@ G-2 требует «ошибка ≤ 10⁻¹²». В двойной точно�
 - подвердикты `cusp` и `outside`;
 - `kappa_min`.
 
-Полнота каспа — `EXACT` у колец по тождеству и `CERTIFIED` у остальных; вне каспа — `CERTIFIED`. Это метки спецификации § 2.10.
+**Полнота** (Интегратор 03.11, «G-5в — ALIGN WITH EXACT RULE»; прежде касп колец общего вида был `CERTIFIED`):
+- решённый касп — `EXACT` у любых колец: сравнение κ_r с 2 и с κ_min — закрытая форма на полной вилке кольца;
+- нерешённый касп — `UNRESOLVED`, и в подзаписи `cusp`, и в записи проверки, если итог из-за каспа;
+- вне каспа (G-5г) — `CERTIFIED`; итог `PASSED` — `CERTIFIED`, по поиску вне каспа.
+
+Полнота кольца (§ 6.5) и полнота проверки — разные характеристики.
 
 **Оговорка о запасе вне окрестности.** Если минимум лежит у края окна (`outside_min_at_window_edge: true`), это свойство выбранного окна, а не отдельный запас кольца. У К1 расстояние от каспа растёт монотонно, и такой минимум всегда у края. Поэтому «запас вне каспа» прежнего ядра (Э-П для К4: 0,0057) этой величине не равен. Сравнение требует общего определения и делается при приёмке протоколом расхождения.
 
@@ -488,7 +495,8 @@ G-2 требует «ошибка ≤ 10⁻¹²». В двойной точно�
   - κ_r = 2 у большого эллипса — `UNRESOLVED` по каспу;
   - запас κ_min/2 — `UNRESOLVED` по κ_min, 2·κ_min — `PASSED`.
 - **Несовместимая посылка продевания** — отказ.
-- Счёт проверок: 79; при `KT1_QUICK=1`, без К4, — 76.
+- Метки полноты (03.11): касп К4 — `EXACT`, вне каспа и итог — `CERTIFIED`; нерешённый касп — `UNRESOLVED`; κ_r > 2 в каспе синтетического кольца — `EXACT`.
+- Счёт проверок: 82; при `KT1_QUICK=1`, без К4, — 78.
 - **60 случайных продетых эллипсов против плотной выборки** (20 000 точек): все `PASSED` подтверждены выборкой, все `FORBIDDEN` согласованы с ней. Вышло 33 `PASSED`, 27 `FORBIDDEN`.
 - **К1, К2 (i), К3** — все пары кольцо–тор `PASSED`; в К1 κ_r = 1 в каждом каспе, касп `EXACT`; запас R0–T2 = 1.
 - **К4** — все пары `PASSED`:
@@ -842,18 +850,25 @@ G-2 требует «ошибка ≤ 10⁻¹²». В двойной точно�
 
 ## 8. Метки полноты
 
-**Правило.** По спецификации (§ 1) `EXACT` — доказательство закрытой формой или алгеброй с изоляцией корней. Нулевой ширины входных вилок это не требует (Интегратор, 03.11). R-1, R-2, R-4 и G-6 решаются закрытыми формами на полных вилках колец. Поэтому у их `PASSED` стоит `EXACT` — и у колец общего вида. Так и в спецификации § 2.10: К4 R-1 `EXACT`, остальные R-2 `EXACT`.
-- A-15 — `EXACT` (целый счёт по построению).
-- У `UNRESOLVED` — `UNRESOLVED`; у Lk = 0 в G-6 — `EXACT`, решение закрытой формой.
+**Решение Интегратора 03.11** (`GR-9A / Δ3 — VARIANT 1 APPROVED`): `EXACT` определяется методом доказательства, а не точностью входных чисел.
+- Это спецификация § 1: `EXACT` — закрытая форма или алгебра с изоляцией корней.
+- Ненулевая ширина корректной входной вилки строгого доказательства не отменяет.
+- `EXACT` допустим, только когда аналитическое условие действительно доказано на полной вилке. Если вилка не позволяет установить результат — `UNRESOLVED`, а не формальный `EXACT`.
+- Полнота самого кольца (§ 6.5) и полнота геометрической проверки — разные характеристики.
 
-**G-5в — отдельное решение Интегратора (02.11):** касп кольца с интервальной геометрией — `CERTIFIED`, `EXACT` — только у колец по тождеству. WP-2 не менялся.
+**В WP-3 так:**
+- R-1, R-2, R-4 и G-6 у `PASSED` — `EXACT` у любых колец; так и в спецификации § 2.10, строка К4;
+- A-15 — `EXACT` (целый счёт по построению);
+- у Lk = 0 в G-6 — `EXACT`: условие |s*| < ½ доказано, а `UNRESOLVED` — оттого, что правила запрета нет;
+- у прочих `UNRESOLVED` — `UNRESOLVED`.
+
+**То же правило в G-5в** («G-5в — ALIGN WITH EXACT RULE»): решённый касп — `EXACT` у любых колец, нерешённый — `UNRESOLVED`; поиск вне каспа (G-5г) — `CERTIFIED` (`WP2_RingTorus_Notes.md`, § 2).
 
 **Ход правки (для журнала).**
-1. Первая редакция, проверенная в ГР-8, — `EXACT` у всех закрытых форм.
-2. После решения 02.11 по G-5в я распространил его довод на WP-3 и понизил пары с кольцом общего вида до `CERTIFIED`. Это было расширение решения сверх сказанного.
-3. Интегратор 03.11 уточнил: такое понижение не требовалось. Метки возвращены к первой редакции.
-
-Основания меток проверяет Грок (ГР-9). Моё прежнее замечание о том, что строка К4 § 2.10 требует уточнения, снято.
+1. ГР-8 — `EXACT` у закрытых форм.
+2. 02.11 — по решению о G-5в я понизил пары с кольцом общего вида до `CERTIFIED`; ГР-9 подтвердил это правило.
+3. 03.11 — метки возвращены к `EXACT` по уточнению Интегратора.
+4. 03.11 — Интегратор выбрал вариант 1 для всего ядра и снял прежнее понижение G-5в.
 
 ## 9. Правки вне WP-3
 
@@ -1576,6 +1591,8 @@ const T0 = { name: 'T0', A: vec.V(0, 0, 0), T: vec.V(0, 1, 0) };
   const k = kap => ringTorus(syn('Q', { C: [-(2 - kap) * 0.49, 0, 0], E1: [1, 0, 0], E2: [0, 1, 0], s1: (2 - kap) * 0.49, s2: 0.7 }), T0, true);
   const lo = k(KAPPA_MIN / 2), hi = k(KAPPA_MIN * 2);
   ok(lo.verdict === 'UNRESOLVED' && /κ_min/.test(lo.reason), `κ = κ_min/2: UNRESOLVED по κ_min: ${lo.reason}`);
+  ok(lo.completeness === 'UNRESOLVED' && lo.cusp.completeness === 'UNRESOLVED', 'нерешённый касп — полнота UNRESOLVED, а не формальный EXACT');
+  ok(a.completeness === 'EXACT', 'κ_r > 2 в каспе (синтетика из нецелых чисел) — FORBIDDEN, EXACT по методу');
   ok(hi.verdict === 'PASSED' && hi.r0 && hi.outside_margin[0] > 0, `κ = 2κ_min: PASSED, r₀ ${hi.r0 && hi.r0.arc_half_width_bound}`);
   let te = false; try { ringTorus(syn('Q', { C: [-0.9, 0, 0], E1: [1, 0, 0], E2: [0, 1, 0], s1: 1, s2: 1 }), T0, true); } catch (e) { te = /несовместима/.test(e.message); }
   ok(te, 'посылка «продевает» несовместима (кольцо не проходит через центр) — отказ');
@@ -1627,6 +1644,7 @@ if (!process.env.KT1_QUICK) {
   ok(P.every(x => x.ch.verdict === 'PASSED'), 'К4: все пары кольцо–тор PASSED');
   const hc = P.find(x => x.r.name === 'RH1' && x.t.name === 'T2').ch;
   ok(Math.abs(iv.mid(hc.kappa_r) - 1.366) < 0.001 && hc.kappa_margin[0] >= KAPPA_MIN, `К4: κ_r в каспе хозяина ${iv.mid(hc.kappa_r)} (Э-П 1,366)`);
+  ok(hc.cusp.completeness === 'EXACT' && hc.outside.completeness === 'CERTIFIED' && hc.completeness === 'CERTIFIED', 'К4: касп кольца общего вида — EXACT (по методу, 03.11); вне каспа и итог — CERTIFIED');
   const rb = P.find(x => x.r.name === 'R1' && x.t.name === 'H1').ch;
   ok(Math.abs(iv.mid(rb.value) - 0.078) < 0.0005 && rb.value[1] - rb.value[0] < 0.005, `К4: запас кольцо R1 — тело навеса ${iv.mid(rb.value)} (Э-П 0,078)`);
   console.log(`К4: κ_r(RH1, T2) = ${iv.mid(hc.kappa_r)}; запас R1–H1 = ${iv.mid(rb.value)}; вне r₀ у каспа T2 ${hc.outside_margin[0]} (у края окна: ${hc.outside_min_at_window_edge}); ${Date.now() - t0} мс`);
@@ -3676,8 +3694,10 @@ function ringThreaded(ring, torus, ids = {}, opts = {}) {
   const sp = iv.sqrt(vec.norm2(g.P1));
   const kr = iv.div(iv.sqrt(vec.norm2(vec.cross(g.P1, g.P2))), iv.mul(iv.sqr(sp), sp));
   const kap = iv.sub(TWO, kr);
-  const exact = ring.completeness === 'EXACT';
-  const cuspC = exact ? 'EXACT' : 'CERTIFIED';
+  // Полнота каспа (Интегратор 03.11, «G-5в — ALIGN WITH EXACT RULE»): EXACT — по методу. Сравнение κ_r с 2 и с κ_min —
+  // закрытая форма на полной вилке кольца, поэтому решённый касп — EXACT у любых колец. Не решённый — UNRESOLVED, а не
+  // формальный EXACT. Поиск вне каспа (G-5г) — CERTIFIED. Полнота кольца (§ 6.5) и полнота проверки — разные характеристики.
+  const cuspC = 'EXACT';
   const extra = { kappa_r: kr, kappa_margin: kap, where: { t: tA } };
   const wtxt = ringWidth(ring) ? `; ring-enclosure ${ring.name}, width_max ${ringWidth(ring)}` : '';
   if (kap[1] < 0) return mk(kap, cuspC, 'FORBIDDEN', `G-5в: κ_r > 2 в каспе ${torus.name} — кольцо ${ring.name} входит в тело у каспа`, extra);
@@ -3733,10 +3753,10 @@ function ringThreaded(ring, torus, ids = {}, opts = {}) {
   const om = o1.min[0] <= o2.min[0] ? o1 : o2;
   const edge = om.argmin.some(([l, r]) => l <= a + 1e-9 || r >= b - 1e-9);
   const ext = { ...extra, r0: Theta ? { t_window: Theta, arc_half_width_bound: r0arc } : null, outside_margin: mo, outside_min_at_window_edge: edge,
-    cusp: { verdict: cuspReason ? 'UNRESOLVED' : 'PASSED', completeness: cuspC }, outside: { verdict: vo, completeness: 'CERTIFIED', window: win, window_certified: !!Theta }, kappa_min: kmin,
+    cusp: { verdict: cuspReason ? 'UNRESOLVED' : 'PASSED', completeness: cuspReason ? 'UNRESOLVED' : cuspC }, outside: { verdict: vo, completeness: 'CERTIFIED', window: win, window_certified: !!Theta }, kappa_min: kmin,
     where: { t: tA, outside_t: vo === 'PASSED' ? null : om.argmin } };
   if (vo === 'FORBIDDEN') return mk(kap, 'CERTIFIED', 'FORBIDDEN', `G-5г: кольцо ${ring.name} входит в тело продетого тора ${torus.name} вне каспа; запас ${mo[1]} < 0`, ext);
-  if (cuspReason) return mk(kap, cuspC, 'UNRESOLVED', cuspReason, ext);
+  if (cuspReason) return mk(kap, 'UNRESOLVED', 'UNRESOLVED', cuspReason, ext);
   if (vo === 'PASSED') return mk(kap, 'CERTIFIED', 'PASSED', null, ext);
   return mk(kap, 'CERTIFIED', 'UNRESOLVED', `G-5г: вилка запаса вне r₀ содержит 0${wtxt}`, ext);
 }
@@ -3774,7 +3794,7 @@ const unitNormal = r => vec.normalize(vec.cross(r.E1, r.E2));
 const halfWidth = x => (x[1] - x[0]) / 2;
 // Метка полноты (спецификация § 1; Интегратор 03.11): EXACT — доказательство закрытой формой или алгеброй с изоляцией корней,
 // а не нулевая ширина входных вилок. Решения R-1, R-2, R-4 и G-6 — закрытые формы на полных вилках колец, поэтому EXACT
-// и у колец общего вида. (G-5в — отдельное решение Интегратора 02.11: касп кольца общего вида — CERTIFIED.)
+// и у колец общего вида. Правило для всего ядра — Интегратор 03.11, «GR-9A / Δ3 — VARIANT 1 APPROVED» (так же и G-5в).
 const closedForm = () => 'EXACT';
 
 // ---------------- общий касп: посылка и полуплоскость ----------------
