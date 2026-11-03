@@ -1,0 +1,21 @@
+HONC / Qf / R1 / КТ-1 — сырые протоколы пробных прогонов А-5 rev5 (без ядра), извлечены без изменений
+
+K4 CALIBRATION: --psi 54 --delta 10 --rho-lo 57.0 --rho-hi 57.5
+  выходной архив HONC_Qf_KT1_A5_rev5_k4cal_out.zip  sha256 27d1ac15f63cba7ed1af09ccaf93de94a16c8cce9c2b359e355a44ef6d5f2aa0
+  архив скрипта sha256 b0c8344a3a20ef6959bd68a2f84955cc9138bb51a6f7c1bcd3d2abf8c991f8e1; итог COMPLETED / EXIT_0, код скрипта 0, 1.813 с; src_unchanged True; work_rejected []
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev5_k4cal__a5.check1.root.json  sha256 4dcd9b3e8ddca40351a46c0b3c86376df5095ddb8989a6eac33ee4de64d9e0aa  — совпадает с журналом
+  work/a5.check2.result.json → HONC_Qf_KT1_A5_rev5_k4cal__a5.check2.result.json  sha256 1d3c188123b75f5a2ddd45b1049b4c8b364c908f5b79d3e5273c8840484d4fda  — совпадает с журналом
+  log/stdout_000.txt → HONC_Qf_KT1_A5_rev5_k4cal__stdout_000.txt  sha256 5e99637b642b212dd6ce0f5af3451864f41e7b856e10ac16e36a313fc1097ba3  — совпадает с журналом
+  log/summary.json → HONC_Qf_KT1_A5_rev5_k4cal__summary.json  sha256 2c13090fd9186ebf1013db97a19b5e6b5011e8c944567f948dcd1ff28dc00cd3
+  stderr: 0 байт
+
+A-5 PREFLIGHT: --psi 56 --delta 10 --rho-lo 45 --rho-hi 65
+  выходной архив HONC_Qf_KT1_A5_rev5_a5pre_out.zip  sha256 4159ebf768dc0e4ed854db621cef466939a41c091d9e7ec74aa4e274847076e1
+  архив скрипта sha256 b0c8344a3a20ef6959bd68a2f84955cc9138bb51a6f7c1bcd3d2abf8c991f8e1; итог COMPLETED / EXIT_0, код скрипта 0, 1.563 с; src_unchanged True; work_rejected []
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev5_a5pre__a5.check1.root.json  sha256 88d36ff9fec43218c9ebabd6f64ef2f961702d4043b9ecb6496c80d9e185aa5d  — совпадает с журналом
+  work/a5.check2.result.json → HONC_Qf_KT1_A5_rev5_a5pre__a5.check2.result.json  sha256 1d3c188123b75f5a2ddd45b1049b4c8b364c908f5b79d3e5273c8840484d4fda  — совпадает с журналом
+  log/stdout_000.txt → HONC_Qf_KT1_A5_rev5_a5pre__stdout_000.txt  sha256 b66ebf171b22adabce4dd9defa5e80b16761c4be665cd5d3af6c70b4125a67f5  — совпадает с журналом
+  log/summary.json → HONC_Qf_KT1_A5_rev5_a5pre__summary.json  sha256 16b25eb27c9613877b0250a97fe38e2c1b7208d93394c711d82084d51d6f196d
+  stderr: 0 байт
+
+Содержимое не менялось и не отбиралось.

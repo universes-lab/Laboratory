@@ -1,0 +1,6 @@
+a5/run.js: psi=56 delta=10 rho=[45, 65]
+a5/run.js: starting check1_root...
+  existence=no uniqueness=no_change W_deg=null
+  grid_summary: min_gap_lo=0.173824@rho=65.00deg max_gap_hi=0.260520@rho=45.00deg uncertain=0 widened=0 max_mult=1
+a5/run.js: no W from check1, check2 skipped.
+a5/run.js: done. Wrote a5.check1.root.json, a5.check2.result.json to KT1_OUT.
