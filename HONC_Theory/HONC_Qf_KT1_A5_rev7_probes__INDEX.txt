@@ -1,0 +1,36 @@
+HONC / Qf / R1 / КТ-1 — сырые протоколы пробных прогонов А-5 rev7 (без ядра), извлечены без изменений
+Архив скрипта: HONC_Qf_KT1_A5_DeepSeek_2026-11-03_rev7.zip, sha256 166a2d30d221d40b0b0bf29d0ec311f60791e77741cef3b34e8e6a673193237c
+
+K4 CALIBRATION: --psi 54 --delta 10 --rho-lo 57.0 --rho-hi 57.5
+  выходной архив HONC_Qf_KT1_A5_rev7_k4cal_out.zip  sha256 a4e522afa1f89a77c16c1eeb561b85f96a03ff1ad35dbf367f10c6a0a2d94fbd
+  итог COMPLETED / EXIT_0, код скрипта 0, 2.213 с; src_unchanged True; work_rejected []; stderr 0 байт
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev7_k4cal__a5.check1.root.json  sha256 93657906b362595eecf7abb7ade486865c4a032435d5e06e2947d90a0131cd88
+  work/a5.check2.result.json → HONC_Qf_KT1_A5_rev7_k4cal__a5.check2.result.json  sha256 1d3c188123b75f5a2ddd45b1049b4c8b364c908f5b79d3e5273c8840484d4fda
+  знаки по 81 узлу: ??????????????????????????????????????????---------------------------------------
+  stdout:
+    a5/run.js: psi=54 delta=10 rho=[57, 57.5]
+    a5/run.js: starting check1_root...
+      existence=undetermined uniqueness=undetermined_grid W_deg=null
+      grid_summary: min_gap_lo=-0.010777@rho=57.50deg max_gap_hi=0.002227@rho=57.00deg uncertain=42 widened=0 max_mult=1
+      sign_changes: 0
+    a5/run.js: no W from check1, check2 skipped.
+    a5/run.js: done. Wrote a5.check1.root.json, a5.check2.result.json to KT1_OUT.
+
+A-5 PREFLIGHT: --psi 56 --delta 10 --rho-lo 45 --rho-hi 65
+  выходной архив HONC_Qf_KT1_A5_rev7_a5pre_out.zip  sha256 d7f06d0aafa7dc0fae9a88d25f267aa421fc4e71806183f84c7688416d484ecf
+  итог COMPLETED / EXIT_0, код скрипта 0, 1.757 с; src_unchanged True; work_rejected []; stderr 0 байт
+  work/a5.check1.root.json → HONC_Qf_KT1_A5_rev7_a5pre__a5.check1.root.json  sha256 c24641bfdc41549a01eb6c513b9c1b0daf4c0c0b570dfc1e649de41920e89b29
+  work/a5.check2.result.json → HONC_Qf_KT1_A5_rev7_a5pre__a5.check2.result.json  sha256 7bb63ad2c663312586c3bef0dc0349763e2a5140c9f2f7a002e260e11f25259b
+  знаки по 81 узлу: +++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++????--------------
+  stdout:
+    a5/run.js: psi=56 delta=10 rho=[45, 65]
+    a5/run.js: starting check1_root...
+      existence=undetermined_with_W uniqueness=practical_with_uncertain_nodes W_deg=[60.5,61.75]
+      grid_summary: min_gap_lo=-0.030918@rho=65.00deg max_gap_hi=0.160383@rho=45.00deg uncertain=4 widened=0 max_mult=1
+      sign_changes: 1
+        +→- at rho∈[60.5, 61.75], through_uncertain=true, uncertain_count=4
+    a5/run.js: starting check2_penetration W_deg=[60.5,61.75] d∈[1.6131, 1.6230]...
+      found=true theta_deg=83 dist_hi=0.4973676951194014
+    a5/run.js: done. Wrote a5.check1.root.json, a5.check2.result.json to KT1_OUT.
+
+Журнал summary.json и stdout — внутри выходных архивов. Содержимое не менялось и не отбиралось.

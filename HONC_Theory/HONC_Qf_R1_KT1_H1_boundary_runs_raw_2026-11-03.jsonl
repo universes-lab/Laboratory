@@ -1,0 +1,62 @@
+{"endpoint": true, "psi": 52, "delta": 16, "geometry": "PASSED", "fails": [], "root_deg": [51.747340023645535, 51.74734002367177], "unresolved": [], "float_roots": null}
+{"endpoint": true, "psi": 56.5, "delta": 16, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1", "G5bg:RH1:T2"], "root_deg": [60.38001949054423, 60.38001949059664], "unresolved": [], "float_roots": null}
+{"psi": 54.25, "delta": 16, "geometry": "PASSED", "fails": [], "root_deg": [55.615109259592124, 55.61510925962708], "unresolved": [], "float_roots": null}
+{"psi": 55.375, "delta": 16, "geometry": "PASSED", "fails": [], "root_deg": [57.86586915077316, 57.86586915082557], "unresolved": [], "float_roots": null}
+{"psi": 55.9375, "delta": 16, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1"], "root_deg": [59.08693181632599, 59.08693181637842], "unresolved": [], "float_roots": null}
+{"psi": 55.6562, "delta": 16, "geometry": "PASSED", "fails": [], "root_deg": [58.46771305937506, 58.46771305942749], "unresolved": [], "float_roots": null}
+{"psi": 55.7968, "delta": 16, "geometry": "PASSED", "fails": [], "root_deg": [58.77501659140106, 58.77501659143601], "unresolved": [], "float_roots": null}
+{"psi": 55.8671, "delta": 16, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1"], "root_deg": [58.93030750756268, 58.9303075076151], "unresolved": [], "float_roots": null}
+{"delta": 16.0, "boundary": [55.7968, 55.8671]}
+{"endpoint": true, "psi": 52, "delta": 17, "geometry": "PASSED", "fails": [], "root_deg": [51.46662350935674, 51.466623509391695], "unresolved": [], "float_roots": null}
+{"endpoint": true, "psi": 56.5, "delta": 17, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1", "G5bg:RH1:T2"], "root_deg": [59.99929342165214, 59.99929342170457], "unresolved": [], "float_roots": null}
+{"psi": 54.25, "delta": 17, "geometry": "PASSED", "fails": [], "root_deg": [55.28949992416898, 55.2894999242083], "unresolved": [], "float_roots": null}
+{"psi": 55.375, "delta": 17, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [57.514110588678214, 57.514110588717536], "unresolved": [], "float_roots": null}
+{"psi": 54.8125, "delta": 17, "geometry": "PASSED", "fails": [], "root_deg": [56.37207767409696, 56.372077674136285], "unresolved": [], "float_roots": null}
+{"psi": 55.0938, "delta": 17, "geometry": "PASSED", "fails": [], "root_deg": [56.93544074978796, 56.93544074982292], "unresolved": [], "float_roots": null}
+{"psi": 55.2344, "delta": 17, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [57.222794738925984, 57.22279473897841], "unresolved": [], "float_roots": null}
+{"psi": 55.1641, "delta": 17, "geometry": "PASSED", "fails": [], "root_deg": [57.078627994198804, 57.07862799423376], "unresolved": [], "float_roots": null}
+{"delta": 17.0, "boundary": [55.1641, 55.2344]}
+{"endpoint": true, "psi": 52, "delta": 18, "geometry": "PASSED", "fails": [], "root_deg": [51.19165243542681, 51.19165243546177], "unresolved": [], "float_roots": null}
+{"endpoint": true, "psi": 56.5, "delta": 18, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1", "G5bg:RH1:T2"], "root_deg": [59.629651101516785, 59.62965110156921], "unresolved": [], "float_roots": null}
+{"psi": 54.25, "delta": 18, "geometry": "PASSED", "fails": [], "root_deg": [54.97187258248148, 54.9718725825339], "unresolved": [], "float_roots": null}
+{"psi": 55.375, "delta": 18, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [57.17174634038517, 57.1717463404245], "unresolved": [], "float_roots": null}
+{"psi": 54.8125, "delta": 18, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [56.042386223429794, 56.04238622348222], "unresolved": [], "float_roots": null}
+{"psi": 54.5312, "delta": 18, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [55.4999889457016, 55.49998894574093], "unresolved": [], "float_roots": null}
+{"psi": 54.3906, "delta": 18, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [55.23420659950677, 55.23420659954609], "unresolved": [], "float_roots": null}
+{"psi": 54.3203, "delta": 18, "geometry": "PASSED", "fails": [], "root_deg": [55.10261298506641, 55.1026129850959], "unresolved": [], "float_roots": null}
+{"delta": 18.0, "boundary": [54.3203, 54.3906]}
+{"endpoint": true, "psi": 52, "delta": 19, "geometry": "PASSED", "fails": [], "root_deg": [50.92207709695491, 50.92207709698987], "unresolved": [], "float_roots": null}
+{"endpoint": true, "psi": 56.5, "delta": 19, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1", "G5bg:RH1:T2"], "root_deg": [59.270378317601256, 59.27037831765367], "unresolved": [], "float_roots": null}
+{"psi": 54.25, "delta": 19, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [54.66173223203122, 54.66173223207055], "unresolved": [], "float_roots": null}
+{"psi": 53.125, "delta": 19, "geometry": "PASSED", "fails": [], "root_deg": [52.70016593502767, 52.70016593505718], "unresolved": [], "float_roots": null}
+{"psi": 53.6875, "delta": 19, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [53.656230165883464, 53.65623016591296], "unresolved": [], "float_roots": null}
+{"psi": 53.4062, "delta": 19, "geometry": "PASSED", "fails": [], "root_deg": [53.17217266854555, 53.17217266857505], "unresolved": [], "float_roots": null}
+{"psi": 53.5468, "delta": 19, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [53.41260094710693, 53.4126009471419], "unresolved": [], "float_roots": null}
+{"psi": 53.4765, "delta": 19, "geometry": "FORBIDDEN", "fails": ["G5bg:RH1:T2"], "root_deg": [53.29201213510985, 53.29201213514481], "unresolved": [], "float_roots": null}
+{"delta": 19.0, "boundary": [53.4062, 53.4765]}
+{"psi": 10, "delta": -5, "geometry": "PASSED", "fails": [], "root_deg": [30.619219465972623, 30.61921946597701], "unresolved": [], "float_roots": null}
+{"psi": 20, "delta": -5, "geometry": "PASSED", "fails": [], "root_deg": [32.496739718430646, 32.49673971843504], "unresolved": [], "float_roots": null}
+{"psi": 30, "delta": -5, "geometry": "PASSED", "fails": [], "root_deg": [36.0910463896551, 36.09104638966168], "unresolved": [], "float_roots": null}
+{"psi": 40, "delta": -5, "geometry": "PASSED", "fails": [], "root_deg": [42.64238563468459, 42.64238563469935], "unresolved": [], "float_roots": null}
+{"psi": 50, "delta": -5, "geometry": "PASSED", "fails": [], "root_deg": [55.80408347427355, 55.804083474308506], "unresolved": [], "float_roots": null}
+{"psi": 53, "delta": -5, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1"], "root_deg": [62.500563713872324, 62.500563713924755], "unresolved": [], "float_roots": null}
+{"psi": 55, "delta": -5, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1"], "root_deg": [68.27753526296883, 68.27753526303873], "unresolved": [], "float_roots": null}
+{"psi": 10, "delta": -10, "geometry": "PASSED", "fails": [], "root_deg": [30.644809335613097, 30.644809335617477], "unresolved": [], "float_roots": null}
+{"psi": 20, "delta": -10, "geometry": "PASSED", "fails": [], "root_deg": [32.6511072104831, 32.65110721048803], "unresolved": [], "float_roots": null}
+{"psi": 30, "delta": -10, "geometry": "PASSED", "fails": [], "root_deg": [36.46579411251841, 36.46579411252716], "unresolved": [], "float_roots": null}
+{"psi": 40, "delta": -10, "geometry": "PASSED", "fails": [], "root_deg": [43.52639881346746, 43.52639881348495], "unresolved": [], "float_roots": null}
+{"psi": 50, "delta": -10, "geometry": "PASSED", "fails": [], "root_deg": [58.42897304581628, 58.4289730458687], "unresolved": [], "float_roots": null}
+{"psi": 53, "delta": -10, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1"], "root_deg": [66.4625846300735, 66.46258463015212], "unresolved": [], "float_roots": null}
+{"psi": 55, "delta": -10, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1", "G5a:RH1:T1"], "root_deg": [73.88434892932159, 73.88434892942642], "unresolved": [], "float_roots": null}
+{"psi": 10, "delta": -20, "geometry": "PASSED", "fails": [], "root_deg": [30.527969574522587, 30.527969574527518], "unresolved": [], "float_roots": null}
+{"psi": 20, "delta": -20, "geometry": "PASSED", "fails": [], "root_deg": [32.78603723681874, 32.786037236825315], "unresolved": [], "float_roots": null}
+{"psi": 30, "delta": -20, "geometry": "PASSED", "fails": [], "root_deg": [37.075354101077025, 37.07535410108687], "unresolved": [], "float_roots": null}
+{"psi": 40, "delta": -20, "geometry": "PASSED", "fails": [], "root_deg": [45.47023784201839, 45.47023784203807], "unresolved": [], "float_roots": null}
+{"psi": 50, "delta": -20, "geometry": "FORBIDDEN", "fails": ["G5a:R1:H1"], "root_deg": [67.54123641227743, 67.54123641241718], "unresolved": [], "float_roots": null}
+{"psi": 53.0, "delta": -20.0, "geometry": null, "fails": [], "root_deg": null, "unresolved": null, "float_roots": []}
+{"psi": 55.0, "delta": -20.0, "geometry": null, "fails": [], "root_deg": null, "unresolved": null, "float_roots": []}
+{"psi": 5, "delta": 10, "geometry": "PASSED", "fails": [], "root_deg": [29.945318718408387, 29.945318718412768], "unresolved": [], "float_roots": null}
+{"psi": 10, "delta": 10, "geometry": "PASSED", "fails": [], "root_deg": [30.257312506887708, 30.257312506892088], "unresolved": [], "float_roots": null}
+{"psi": 15, "delta": 10, "geometry": "PASSED", "fails": [], "root_deg": [30.85594960960466, 30.855949609609596], "unresolved": [], "float_roots": null}
+{"psi": 20, "delta": 10, "geometry": "PASSED", "fails": [], "root_deg": [31.772991789384506, 31.772991789389433], "unresolved": [], "float_roots": null}
+{"psi": 25, "delta": 10, "geometry": "PASSED", "fails": [], "root_deg": [33.06121033840311, 33.06121033840968], "unresolved": [], "float_roots": null}

@@ -1,0 +1,13 @@
+HONC / Qf / R1 / КТ-1 — опись упаковки А-5, rev7 (DeepSeek, 03.11.2026)
+Предпроверка a5 пройдена. Изменены три файла относительно rev6: check1_root.js (логика: solveD, gapH1T1, сборка W через «?»), run.js (вывод sign_changes) и check2_penetration.js (удалён только комментарий перед buildH1). Остальные 4 — побайтно те же.
+----
+Источник: DEEPSEEK_KT1_A5_SCRIPTS_2026-11-03_rev7.md; sha256 08ed14a3a65946584d5b9aa497ab4749b71c65764bb9ed72effe1c722ef067bb
+Файлов: 7 (сверены с текстом побайтно)
+cf50f6583b849129d08ea4b71d728a6feff716858578980299e557d8b90f9f68  a5/check1_root.js  (7484 байт)
+aba1fd93a40b001e03d31f19314a17f0f2fb7198b973a5871f2226673415b169  a5/check2_penetration.js  (3318 байт)
+ec2d59ad449fad2d6737d40b3e7ff07fac325101ee896c7d7efa259b86565082  a5/lib/frame.js  (764 байт)
+2648d6987278ea488c632e22205015461d5538834ce63d19a18ae08bd3ab970b  a5/lib/geom.js  (1426 байт)
+5d4303366c30bfa129f4638e928512be074c9a54aea219bb3f46687db572fa9c  a5/lib/ia.js  (2637 байт)
+05eb499cf1f5590f06a9dbb716195a3df37a9505f073287b3e4b36d918887185  a5/lib/vec.js  (1031 байт)
+94e1bf05c39010643be1660c2f79910f565ae00d3c4dc2492d4844a980d5262e  a5/run.js  (3645 байт)
+Архив: HONC_Qf_KT1_A5_DeepSeek_2026-11-03_rev7.zip; sha256 166a2d30d221d40b0b0bf29d0ec311f60791e77741cef3b34e8e6a673193237c
