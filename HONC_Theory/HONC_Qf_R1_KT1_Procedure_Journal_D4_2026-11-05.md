@@ -27,4 +27,17 @@
 - замороженное ядро;
 - порядок Интегратора.
 
+### Запись 1а. Повторный прогон: сканер rev2
+
+На тех же условиях, что в записи 1.
+
+| Что | sha256 |
+|---|---|
+| Сканер rev2 (`d4/scan.js`) | `9f91ad07…ffc7c` |
+| Архив прогона | `d3733471…0e2e` |
+| `d3-check` | `COMPLETED` / `EXIT_0` |
+| `D4-scan-rev2` | `COMPLETED` / `EXIT_0`; выходной архив `9d65dd61…478d` |
+
+Данные `d4data/` не менялись.
+
 `PROCEDURE DEVIATION — RECORDED (D-4 scan data in archive)` · `KT-1 KERNEL — FROZEN`
