@@ -1,0 +1,43 @@
+HONC / Qf / R1 / КТ-1 — опись упаковки Д-3, rev3 (DeepSeek, 05.11.2026)
+rev3 сдана патчем: 4 файла текстом, 30 — из rev2. Наложение механическое (apply_patch_text.py: файлы патча заменяют одноимённые, остальные — дословно из текста rev2), затем обычная сборка pack_from_text.py.
+Текст патча rev3 (пришёл в сообщении, записан дословно, LF): sha256 26fb7535a64dfcac70d61f701bff5de14c48fe60f95a23c8b89d3467dd10cb8f
+Текст rev2: sha256 09f09e9afae8ba7a8b08c0b9539aceb3ca6946218c0e1aa14be4d47d0edb19e1
+Изменено относительно rev2: 4 файла — README.md, expected.json, run.js, selftest.js. Остальные 30 — побайтно как в rev2 (сверено по архивам).
+----
+Источник: DEEPSEEK_KT1_D3_rev3_merged_2026-11-05.md; sha256 a87924ca0fb13bb1b353fe10dbf20c85f3f52630b8030ea2ba240d3527928619
+Файлов: 34 (сверены с текстом побайтно)
+d5288b55c8ecbc8bf9d0680c23c9d2dd8ee80ab3990a3a715daab7f8b3a5c857  d3/README.md  (4616 байт)
+75d018963ab0ba1c3450d331c464fa535d083f65c170e5026bf368d5e0dfa0f5  d3/cases/A1.json  (200 байт)
+fc873f08691a04141ac14819e77d509f430fb7df8895771e5de39406b973d020  d3/cases/A2i.json  (265 байт)
+017e2760b3ae7fdb301022011ee281a672e53d60cbafcaeb85a9ebd7dd936a7f  d3/cases/A2ii.json  (341 байт)
+28e0b48a7d219f2d3babff0397134c6e771d6349c3d0a8be2285c2203ae0c7a3  d3/cases/A2iii.json  (344 байт)
+a7639f567edad720e627b9ad0131511b3c4e4042f16f826712836a583136ed52  d3/cases/A2iv.json  (267 байт)
+71fc45e4fe3347c5d109594a55c712b254eef3d9d418d3a021a161a20e437001  d3/cases/A3.json  (339 байт)
+7278e57cd4732606c9995f851ef40870d88611716a14712f0cfa776b9d894a5d  d3/cases/A4.json  (341 байт)
+6f4528fd9419b9dde29bc95ad5c65b4ad6da7e7f0cd8298f90e0a001183d72d6  d3/cases/A5.json  (341 байт)
+af3878a833222091a0aa4f5bf17a3508e0a1411159682e276ef38a96e8a4bc69  d3/cases/B1.json  (27 байт)
+a031fc999ee4ee646b06f81ec3d96ff89511c9eb73dbffeb1b875a3bc1e56534  d3/cases/B10.json  (287 байт)
+065ba09dcc30752c7bd80dc9fc073600481cd69cae211764db57d8928092db89  d3/cases/B2.json  (27 байт)
+a857bfc0c67b79acd64c8ba512ae0f83f3ac1fd36d633cbe454d3aae272ace4d  d3/cases/B3.json  (353 байт)
+50aeedec54cc2051d601c82c048c4d2aeb985cae777215d336881470d292936d  d3/cases/B8.json  (265 байт)
+9156ed2fb7a37b44d8cc51023a1e957e0fabe4c53cdc7b522b8f785eb71ad394  d3/cases/KL1.json  (60 байт)
+b5ffe79501fe03b484eb15760a7ea275a6d5c2e6e05e72d604ddf81ccff6bffa  d3/cases/KL3.json  (80 байт)
+f2861b2d9b431d5d9b0a122560b7081fe9d38332d686507b7b9890441ebbe761  d3/cases/m14tt.json  (107 байт)
+986f32a6741664fb23bf60b776a6548024fe8c119e1b8b188b656191326bb953  d3/cases/m1b.json  (113 байт)
+75680abfd877fd99b06bbe536da08fa05e8d8e3b3a057700c845bffa3ece584c  d3/cases/m3i-A.json  (104 байт)
+c237da37ba0fe433936e6f4c5103643a9851cf1403b56581f0a1d9e88a50930b  d3/cases/m3i-B.json  (112 байт)
+544409a0ed29dc77e377e0405e310b2328aeec51fa8cee95d152b238be121434  d3/cases/m3i-C.json  (110 байт)
+391db70b73d0d6ed94b44c259c3e489a4411af5d4c5dd04bd0e38e6fbdc632cc  d3/cases/m3i-D.json  (110 байт)
+2238fe294324cc1387eb850e5e508a01899c5d38bcc1b9933c2319538f62346d  d3/cases/m3i-E.json  (112 байт)
+8de97df975eb11658746963a3d896d61d99e0f6a026225bffc03cb80f25f2d4d  d3/cases/m5i.json  (287 байт)
+afb613ce55ec0690e3347f6cfa419b24a006907ae2a4dac5d85eebf2d8a08814  d3/cases/m5ii.json  (192 байт)
+b837aa146c9a8f9173f017a9d39c3b47a8edaf6704c331a54c5507611afd5514  d3/cases/own3.json  (296 байт)
+70129159987ab400f967b7deeb21ea5fb3f6c7ac9a0290f41e04bc3014a11354  d3/expected.json  (10250 байт)
+0ba0ef0e509fb90644730e2187837127589810969c839ca533abe12b1b9db803  d3/lib/agm.js  (1050 байт)
+16259a7b6b11b6e62863c72f8048581c57c70f0eca7420d8f00ef40cadaf97d6  d3/lib/compare.js  (1040 байт)
+4010a50b5ac38b46db9d1b6370bd5c0b55ee59f37813dda59e46449001e4e645  d3/lib/config-validator.js  (740 байт)
+d7276ff9245fa92cb52074c9915a9b9cf2ef868cdbdbe47db5af6e7e63c5366c  d3/lib/k6-enumerator.js  (4290 байт)
+1d781a74b11eb0fe3b7c156aceb2472e8c30996ce3e957861f5d2184c0366f9b  d3/lib/schema-validator.js  (3304 байт)
+1a0159feca0c4b1beeb5b57aa97e3dc9d744dada95726fd8cd8d7f06301b097d  d3/run.js  (19869 байт)
+a07697d88532ab4b0ba6718b0ff7ff3242c59c6f3ce86d4d097384aca3c56e79  d3/selftest.js  (5944 байт)
+Архив: HONC_Qf_KT1_D3_DeepSeek_2026-11-05_rev3.zip; sha256 4c689dbe7cf63d52876c054005ff8b30cbcad46b5690a39c0d21c26d8efdfa9c
