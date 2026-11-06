@@ -1,70 +1,67 @@
-# HONC_PHYSICIST — опись образцовой срочной преемственности
+# HONC_PHYSICIST — DYNASTY MIGRATION REGISTER
 
-**Подготовил:** Chief Integrator / Methodologist  
-**Дата документа:** 2026-11-06  
-**Статус:** ПРЕДВАРИТЕЛЬНАЯ ОПИСЬ / DOCTOR REVIEW REQUIRED / NOT BIRTH AUTHORIZATION  
-**Назначение:** `E:\Gemini\Post_TOE_Physics\Laboratory\Collaboration-House\Dynasty\HONC_PHYSICIST\`  
-**Источник исторического комплекта:** `universes-lab/Laboratory`, `HONC_Collaboration/Dynasty_HONC_PHYSICIST/`.  
-**Ограничение:** Указанная папка Windows недоступна из этой сессии. Настоящая опись не свидетельствует о копировании файлов на диск E:.
+**Date:** 2026-11-06  
+**Author of original manifest:** Chief Integrator / Methodologist  
+**Review:** Chief Integrator — PASS WITH TWO SAFEGUARDS on Doctor migration plan  
+**Scope:** GitHub relocation within `universes-lab/Laboratory`, before opening the future private corporate repository  
+**Status:** SOURCE PATHS RELOCATED IN GIT / SUCCESSION NOT ACTIVATED  
+**Final Authority:** Author
 
-## 1. Исторический комплект, 7 файлов
+## 1. Active dynasty
 
-В таблице **Git blob SHA** — идентификаторы файлов GitHub, **не** SHA-256 файлов. При фактическом переносе Доктор/Мастер Сборки должны сравнить содержимое с источником и составить собственный манифест контрольных сумм.
+`Collaboration-House/Dynasty/DeepSeek/HONC_PHYSICIST/`
 
-| Файл | Git blob SHA | Назначение |
-|---|---|---|
-| `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` | `474a2e3f0cab3c646d52f4ef0e5e7accf1b647c3` | Исторический научный корпус; FORMATION, не current authority |
-| `HONC_PHYSICIST_BIRTH_PROTOCOL_2026-10-29.md` | `398fc77054b4ae7fa5612e8f971422674a53b780` | Протокол предыдущего чистого рождения, действующая историческая база для сверки с Доктором |
-| `HONC_PHYSICIST_CURRENT_SCIENTIFIC_HANDOFF_2026-10-28.md` | `cfe9061c2f9550706de297f2027f54a2b5a24cec` | Принятый на ту дату научный handoff; **не** актуализация до 06.11 |
-| `HONC_PHYSICIST_PREDECESSOR_TESTAMENT_FINAL.md` | `6ecca660b3263c44c540ec0a27f922bc64bc5ab8` | Завещание предыдущего поколения; provenance, без передачи прав |
-| `HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-29.md` | `7d924de0e5a7e6c089a0b245853017abdd3f3c09` | Профессиональный контракт; не активирует кандидата |
-| `HONC_PHYSICIST_SUCCESSOR_GATE_V2_2026-10-29.md` | `bc5293b2ae25aa9d5f37ae7d2d82e931e82fa85b` | Gate предыдущего чистого рождения; переиспользовать только после проверки Доктора |
-| `HONC_PHYSICIST_SUCCESSOR_GATE_2026-10-29.md` | `ee94e12d1e9fae6e51abac6e25ec57882c84b3c1` | **RETIRED / ARCHIVE ONLY:** Gate V1 из неудачной репетиции; кандидату не предъявлять |
+- `00_CONSTITUTION/` — active professional contract, still dated 2026-10-29. The historic predecessor field is provenance, **not** a current personnel assignment. Neither contract nor header grants activation or work authorization.
+- `01_FORMATION/` — active historical formative corpus (THEORY FIRST). Historic scientific content is **not** automatically current scientific authority.
+- The dynasty root contains the **verbatim** 2026-11-06 source `DEEPSEEK_HONC_PHYSICIST-PREDECESSOR_TESTAMENT-CURRENT_SCIENTIFIC_HANDOFF.md` (Git blob `654203e4ca0455bb5b5055742a747e363838bc21`). It is evidence for Doctor, **not an accepted new Current Scientific Handoff**.
+- This register replaces the outdated destination and sorting guidance in the original 2026-11-06 draft; older versions remain recoverable in Git history.
 
-Оригиналы сохранять без изменения. Рекомендуется хранить их в подкаталоге `00_PRECEDENTS/` либо помечать в описи как прежнее поколение; не переименовывать так, будто они составлены 06.11.
+## 2. Relocation inventory and original blob identities
 
-## 2. Новый обязательный исходный материал — на сохранение Доктору
+The files below were relocated **without editing their contents**. Git blob identifiers allow byte-for-byte verification; these are Git SHA-1 object identifiers, not file SHA-256 checksums.
 
-**Источник:** существующий DeepSeek web-chat `HONC_PHYSICIST` (`https://chat.deepseek.com/a/chat/s/22684dda-cfa3-4dc8-bb30-5a83342b5a92`), ответ от 2026-11-06.
+| Previous path (within `HONC_Collaboration/Dynasty_HONC_PHYSICIST/`) | New repository path | Original Git blob SHA | Classification |
+|---|---|---|---|
+| `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` | `Collaboration-House/Dynasty/DeepSeek/HONC_PHYSICIST/01_FORMATION/07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` | `474a2e3f0cab3c646d52f4ef0e5e7accf1b647c3` | ACTIVE FORMATION FOUNDATION |
+| `HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-29.md` | `Collaboration-House/Dynasty/DeepSeek/HONC_PHYSICIST/00_CONSTITUTION/HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-29.md` | `7d924de0e5a7e6c089a0b245853017abdd3f3c09` | ACTIVE PROFESSIONAL CONTRACT / date-specific header |
+| `HONC_PHYSICIST_BIRTH_PROTOCOL_2026-10-29.md` | `Collaboration-House/Museum/Dynasty/DeepSeek/HONC_PHYSICIST/2026-11-01_SUCCESSFUL_BIRTH/HONC_PHYSICIST_BIRTH_PROTOCOL_2026-10-29.md` | `398fc77054b4ae7fa5612e8f971422674a53b780` | MUSEUM / PRECEDENT |
+| `HONC_PHYSICIST_CURRENT_SCIENTIFIC_HANDOFF_2026-10-28.md` | `Collaboration-House/Museum/Dynasty/DeepSeek/HONC_PHYSICIST/2026-11-01_SUCCESSFUL_BIRTH/HONC_PHYSICIST_CURRENT_SCIENTIFIC_HANDOFF_2026-10-28.md` | `cfe9061c2f9550706de297f2027f54a2b5a24cec` | MUSEUM / ACCEPTED HISTORICAL STATE |
+| `HONC_PHYSICIST_PREDECESSOR_TESTAMENT_FINAL.md` | `Collaboration-House/Museum/Dynasty/DeepSeek/HONC_PHYSICIST/2026-11-01_SUCCESSFUL_BIRTH/HONC_PHYSICIST_PREDECESSOR_TESTAMENT_FINAL.md` | `6ecca660b3263c44c540ec0a27f922bc64bc5ab8` | MUSEUM / PREVIOUS GENERATION |
+| `HONC_PHYSICIST_SUCCESSOR_GATE_V2_2026-10-29.md` | `Collaboration-House/Museum/Dynasty/DeepSeek/HONC_PHYSICIST/2026-11-01_SUCCESSFUL_BIRTH/HONC_PHYSICIST_SUCCESSOR_GATE_V2_2026-10-29.md` | `bc5293b2ae25aa9d5f37ae7d2d82e931e82fa85b` | MUSEUM / SUCCESSFUL GATE PRECEDENT |
+| `HONC_PHYSICIST_SUCCESSOR_GATE_2026-10-29.md` | `Collaboration-House/Museum/Dynasty/DeepSeek/HONC_PHYSICIST/2026-10-29_ABORTED_BIRTH/HONC_PHYSICIST_SUCCESSOR_GATE_2026-10-29.md` | `ee94e12d1e9fae6e51abac6e25ec57882c84b3c1` | RETIRED / ABORTED_BEFORE_ACTIVATION / DO NOT USE |
 
-**Авторское название документа:** `DEEPSEEK HONC PHYSICIST — PREDECESSOR TESTAMENT + CURRENT SCIENTIFIC HANDOFF`.
+No duplicates should remain at the old source paths after the relocation commit. Their history remains in Git.
 
-**Статус в источнике:** PREDECESSOR TESTAMENT + CURRENT HANDOFF SOURCE MATERIAL FOR DOCTOR; не current canon, не Work Permit, не activation.
+## 3. Doctor-only derivations and birth boundaries
 
-**Предлагаемое имя архивной копии после буквального сохранения:** `HONC_PHYSICIST_PREDECESSOR_TESTAMENT_AND_WORK_HANDOFF_2026-11-06.md`.
+**Not produced by the migration and not yet marked accepted:**
 
-Доктор должен получить и сохранить **полный текст**, проверить полноту копии и provenance. Не заменять им старый `PREDECESSOR_TESTAMENT_FINAL.md`, не считать его автоматически новым approved handoff. Доктор отдельно решает, какие разделы идут в теоретический imprinting, а какие — в операционный пакет после Gate/activation.
+1. `HONC_PHYSICIST_PREDECESSOR_TESTAMENT_2026-11-06.md` — derived from the immutable verbatim predecessor source;
+2. `HONC_PHYSICIST_CURRENT_SCIENTIFIC_HANDOFF_2026-11-06.md` — current state must be independently assembled and attributed;
+3. `HONC_PHYSICIST_OCCUPANCY_CLINICAL_RECORD_2026-11-01_to_2026-11-06.md` — open occupancy record, no invented exact hours;
+4. `HONC_PHYSICIST_BIRTH_PLAN_2026-11-06.md`;
+5. `HONC_PHYSICIST_SUCCESSOR_GATE_V3_2026-11-06.md`;
+6. post-birth Doctor Neonatal Check, Author Activation and **separate** Work Permit, only if these events actually occur;
+7. universal standard: `Collaboration-House/Dynasty/_COMMON/DYNASTIC_BIRTH_STANDARD_V1.md` — Doctor draft, subject to review and Author approval.
 
-## 3. Подтверждённое на дату описи текущее состояние КТ-1
+Only Doctor or explicitly delegated specialists may derive these materials, and their authoritative status requires separate validation. The old Gate V2 is a *precedent*, not a new candidate's active Gate.
 
-- Предшественник: D-3 rev5, последняя непосредственно видимая в его активном контексте версия Part 1b. Он честно отметил Part 1c как `NOT IN MY ACTIVE CONTEXT`.
-- Отдельный репозиторный источник: `HONC_Theory/DEEPSEEK_KT1_D3_REV5_PART1C_CHECK_2026-11-06.md` — Part 1c, промежуточная проверка Клода: блокеры закрыты, Part 2 допускается к **подготовке**, M-1/M-2/M-3 требуют уточнения, полная preflight и фиксация отсутствуют.
-- Набор Д-3 rev4 зафиксирован; прогон — 34 PASS / 2 FAIL, числовая приёмка OPEN.
-- A-5 independent coverage OPEN. `A5.json` удержан от DeepSeek; ядро КТ-1 FROZEN.
-- Старый Work Permit принадлежал предшественнику. Новый исполнитель его **не наследует**.
+## 4. Predecessor memory vs external evidence (DO NOT COLLAPSE)
 
-## 4. Образцовая структура каталога (предложение, не принято)
+**Predecessor remembered:** D-3 rev5 Part 1b, with open questions and trace limitations.
 
-```text
-Dynasty/HONC_PHYSICIST/
-  README.md                      # статус линии, индекс и текущая версия
-  MANIFEST.md                    # происхождение, классы, контроль целостности
-  00_PRECEDENTS/                 # семь исходных файлов 28–29.10, в том числе retired Gate V1
-  01_FORMATION/                  # проверенные Доктором документы новой процедуры; теория прежде роли
-  02_CURRENT_WORK/               # handoff 06.11 + точечные ссылки на КТ-1, без слепых данных A-5
-  03_GATE_AND_ACTIVATION/        # Gate, проверки Доктора и решение Автора (когда появятся)
-  04_SUCCESSION_RECORD/          # свидетельства фактической передачи и новая граница Work Permit
-```
+**External repository evidence:** `HONC_Theory/DEEPSEEK_KT1_D3_REV5_PART1C_CHECK_2026-11-06.md` says Part 1c interim check closed the Part 1b blockers and permits *preparation* of Part 2, with M-1, M-2, M-3 still needing clarification. It is **not** full preflight, final rev5 fixation or test acceptance.
 
-**Не дублировать всё `HONC_Theory/`.** В `02_CURRENT_WORK/` хранить лишь разрешённый пакет и точные ссылки на версионные научные документы. В общем репозитории с одним подключением GitHub не размещать закрытые до синтеза материалы.
+`D-3 rev4`: 34 PASS / 2 FAIL was only a verdict/label test result, not numerical acceptance. `A-5`: INDEPENDENT COVERAGE OPEN, `A5.json` HELD. KT-1 kernel FROZEN. Preserve lost blind conditions and all unfinished disputes, never convert received values into independent discoveries.
 
-## 5. Операционные замки
+## 5. Safeguards and authorization
 
-1. Прежний протокол требует: **THEORY FIRST → CURRENT STATE → PREDECESSOR EXPERIENCE → CONTRACT → GATE**, после этого **DOCTOR NEONATAL CHECK → AUTHOR ACTIVATION → отдельный FIRST WORK PERMIT**.
-2. Новый handoff 06.11 — источник для Доктора, а не готовый профессиональный контракт.
-3. Предыдущий `OCCUPANT STATUS: ACTIVE` относится ко времени написания завещания; завершение службы оформляется отдельным решением/записью.
-4. `Part 1c` необходимо прочитать по фактическому источнику; не выдумывать его из упоминания в передаче предшественника.
-5. Работа над `D-3 rev5 Part 2` разрешается преемнику только отдельно после состоявшейся активации и соответствующего Work Permit.
-6. Doctor PASS не равен activation; самопроверка кандидата не равна Doctor PASS.
+- **No activation by moving documents.** The preceding occupancy remains active until explicit Author transition; no exact end time can be inferred.
+- **No current scientific handoff accepted by implication.** A 2026-10-28 accepted historical handoff remains discoverable in Museum, while the current 2026-11-06 one requires Doctor verification.
+- **No transfer of Work Permit.** Candidate: NOT YET ACTIVE; CURRENT_TASK = WAIT; CURRENT_WORK_PERMIT = NONE.
+- **FORMATION → GATE → DOCTOR NEONATAL CHECK → AUTHOR ACTIVATION → SEPARATE WORK PERMIT.**
+- No automated birth, no rewriting current science, no modification of frozen kernel.
+- Old source URLs in historic texts may now be outdated: use the relocation table or Git history; do not silently revise verbatim documents.
+- Migration changes only GitHub. It does **not** copy or change the Author's local `E:\Gemini\Post_TOE_Physics\Laboratory` checkout. The Author will pull separately.
 
-**STATUS:** MIGRATION CONTENT LIST READY / COPY TO WINDOWS E: NOT PERFORMED / DOCTOR VALIDATION PENDING.
+**END — RELOCATION RECORD; NOT A BIRTH AUTHORIZATION**
