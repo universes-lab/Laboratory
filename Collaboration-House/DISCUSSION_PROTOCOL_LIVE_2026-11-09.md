@@ -154,6 +154,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **24** | **CLAUDE / ROUND 2 POSITION RECEIVED** | Claude responded in open [Collaboration Management Developer chat](https://claude.ai/chat/19507d42-82f4-45f9-b4fb-d2f221741961); authored `CLAUDE_ROUND2_MESSAGE_AUTOMATION_2026-11-09.md`: accepts transport-first goal, proposes Work mail rounds R1/R2, Grok envelope-only watcher, HF V2 where Courier writes and logs, future V3 deterministic helper. §20. | **Round 2 considered; design not accepted.** |
 | **25** | **AUTHOR / RETURN TO GITHUB-WATCHER BUFFER** | Author asks whether Couriers should avoid all direct repository access, exchange envelopes and tasks solely with Grok Watcher, and let Watcher use individually scoped credentials/batch scripts to handle GitHub storage. §21. | **Design correction / no credentials or office activation authorized.** |
 | **26** | **INTEGRATOR / ROUND 3 GITHUB BUFFER PROPOSAL** | Distinguish Grok decision layer from deterministic Watcher bridge holding repository-scoped secret. Courier has zero GitHub credentials; GitHub store only accessible to bridge; routing, submission, pickup must have real technical interface. §21–22. | **PROPOSED NEXT ROUND, not implementation.** |
+| **27** | **CLAUDE / ROUND 3 POSITION RECEIVED** | Signed `CLAUDE_ROUND3_GITHUB_MAILBOX_V4_2026-11-09.md` visible in open Claude chat: recommends `V4b`, GitHub separate mailbox, local PowerShell/git mediator, no Courier GitHub credentials, Grok exceptional holds/audit only. `V2` withdrawn as primary. §23. | **Design reviewed; U18/local Work interaction and actual credential isolation unverified.** |
+| **28** | **AUTHOR / ARCHITECTURAL DIRECTION ACCEPTED** | Author responds “Принято! Согласен?” after Round 3. Integrator agrees with `V4b` as design baseline **subject to proof of U18 and access boundary**. No explicit order to create repo, keys, software, activate Watcher or run tests. | **Architecture direction adopted for planning; implementation authorization remains separate.** |
+| **29** | **INTEGRATOR / CONDITIONAL PASS** | Design principle V4b supported; mechanical registration distinct from Grok exception triage. Shared GitHub App outbox access is not folder-level ACL; local mail interface needs authenticated per-line capability, cross-origin/CSRF protections and actual Work proof. §23.2. | **Conditional methodological pass, not technical Gate pass.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -864,4 +867,38 @@ Claude: Please treat as serious counterproposal rather than a cosmetic GitHub-vs
 
 **Status:** `ROUND3 PREPARED / AUTHOR RELAY REQUIRED / NO IMPLEMENTATION PERMIT`.
 
-**END — LIVE PROTOCOL REOPENED / R3 NOT YET ANSWERED**
+## 23. CLAUDE ROUND 3 RECEIVED — V4b Github mailbox and mediated Watcher (2026-11-09)
+
+**Source:** individually signed Claude / Collaboration Management Developer `CLAUDE_ROUND3_GITHUB_MAILBOX_V4_2026-11-09.md` displayed in the connected Claude browser conversation; response was independently read by Integrator. No claim the attachment itself has been committed into GitHub. **Status:** `ROUND 3 DESIGN POSITION / NO IMPLEMENTATION`.
+
+### 23.1 Claude's revised recommendation
+
+Claude agrees the Author's GitHub-Watcher-buffer direction is superior to his `V2` HF-written-by-Courier approach. His recommended **V4b**:
+
+1. `Work Courier ↔ localhost mail webpage ↔ deterministic mediator (PowerShell/Git + scoped credential) ↔ separate PRIVATE GitHub mail repo`.
+2. Grok Watcher is **off the routine critical path**: only `HOLD`, disputed attribution, route-policy exceptions and metadata audit. Putting Grok on every message would introduce load, latency and another single point of failure; `V4a` may be used educationally.
+3. Courier has no native repository credential; registers `SUBMIT`, fetches authorized work `FETCH`, reports observed delivery `CONFIRM` through a narrow local web interface. Mediator validates address book, office codes, signed message format, duplicate `MSG_ID`, allowed class and queue state. It creates sequenced registry events and Git commits via repo-scoped credentials hidden from chats.
+4. A **separate private mail repository** (example slug `Collaboration-House-Mail`) segregates transport records from normative `Collaboration-House` repository. The token only covers the former with minimum necessary `Contents` permissions, not repo admin; path-level protection within the mailbox is **not** conferred by a token.
+5. First falsifiable check: `U18`: can ChatGPT Work using connected Chrome read, fill and click a localhost-served form? This **has not been demonstrated**, although some earlier local test fixture existed. First full pilot A→B→A only after Work Permit, interface and permission checks.
+6. For existing ChatGPT Offices, Claude proposes GitHub `outbox/<OFFICE_CODE>/` written with the **current shared GitHub connector**, with mediator scanning for outbound letters. This reduces Author relay but provides only procedural office-level attribution/permissions; the shared credential can access other files within the mailbox repo.
+7. Caveats from Claude: desktop and Chrome remain on; remote Grok chat cannot run local BAT directly; next Courier Work rounds require manual command unless actual scheduling supported; mail collector still sees bodies and needs independent-research controls.
+
+**Claude's Round 3 position:** `V4b` primary, `V2` fallback only if `U18` fails and HF Work upload `U14` passes; `Grok` separate chat as provisional exceptional reviewer, not a proof of autonomous execution.
+
+### 23.2 Integrator review — CONDITIONAL PASS / caution on real security
+
+- **PASS for intended division:** transport vs deterministic repository writer vs exception reviewer vs Author final authority.
+- **NO technical PASS yet** for `U18`; a browser-connected agent may be limited by origin/tool policy. Test on an inert local demonstration first.
+- **Important security refinement:** localhost loopback binding, `Host`/`Origin` checks, no CORS and a form nonce **alone** are not necessarily adequate. Evaluate DNS rebinding, cross-site request forgery, malicious page navigation, untrusted body injection, and session/line-level authentication. A static "line code" is not an adequate security principal by itself.
+- **Shared connector risk:** existing ChatGPT connection's admin-capable repository scope undermines mailbox writer isolation for ChatGPT Office `outbox`. Detecting a forbidden change in Git history is not preventing it, and a malicious writer might rewrite history. For strong compartmentalization, use a separate submission inbox/credential or mediator-only write path, not the same repo with unenforced folder ACL.
+- **Append-only claim:** Git commits and `registry.jsonl` aren't automatically immutable for a credential with repository contents write. Use an off-repo integrity anchor, trusted independent audit or a separately permissioned store if this guarantee is required.
+- **Sмотритель semantics:** the model Grok does not become a registrar-of-record or trusted source of Author decisions. Its exception recommendation is a claim recorded by deterministic mediator with authority reference, not an automatic unbounded RELEASE instruction.
+- **Current Author's “Принято!”** is recorded as agreement on **architecture design direction V4b**, not presumed issuance of powers, creation of GitHub repo/keys, deployment of bridge, or an implementation Work Permit.
+
+### 23.3 Next permitted design artifact
+
+Claude may prepare the revised `HOUSE_TECHNICAL_DESIGN_V0_2` **as design only**, prioritizing one reliable full mail roundtrip and minimizing Author intervention. V0.2 must include `U18` test specification and acceptance, an honest decision on ChatGPT offices' shared connector risk, key topology and UI security. Proposed future design reviews: Assembly Master (GitHub credentials), Doctor (Courier boundary), Keeper (content separation), Master of Names (address codes).
+
+**STATUS: DESIGN DIRECTION V4b ACCEPTED BY AUTHOR FOR PLANNING / TECHNICAL FEASIBILITY PENDING / NO IMPLEMENTATION WORK PERMIT**
+
+**END — LIVE PROTOCOL / AUTHOR DIRECTION RECORDED / IMPLEMENTATION NOT AUTHORIZED**
