@@ -16,6 +16,7 @@ The Author opens an institutional discussion about: (1) GitHub repository access
 - **Doctor Emeritus / predecessor:** medical perspective on context health and continuity; invited as expert, not restored as active Doctor.
 - **Assembly Master / Publication & Artifact Steward:** actual GitHub settings, assembly, archive and migration; not the Corporate Repository Registrar.
 - **Ontology Keeper / Qwen:** terminology, provenance, canonical status boundaries and custody of knowledge; not the sole governance authority.
+- **Master of Names:** received independent naming/identity consultation; not the Assembly Master and not the technical owner of repository access.
 - **Claude / Collaboration Management Developer:** *invited technical reviewer*; previous written architecture is a SOURCE, not a new live opinion.
 - **Grok:** *invited technical critic and possible future Registrar/Watcher occupant*; no appointment or ZOR yet.
 
@@ -133,6 +134,8 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **04** | **ASSEMBLY MASTER / INVITED** | Pending reply on repository permissions and safe bootstrap. | None. |
 | **05** | **KEEPER / INVITED** | Pending reply on provenance, access scope and registrar overlap. | None. |
 | **06** | **GROK / POSSIBLE INVITEE** | No current opinion/nomination established. | None. |
+| **07** | **MASTER OF NAMES / POSITION_RECEIVED** | First independent naming position relayed verbatim by Author in this conversation (09.11). House ≠ Repository; Provider must not parent Dynasty; canonical identity grammar; simple A/B/C/D chat purpose classes; Courier Line; English name and decomposition of Watcher/Registrar/Auditor remain OPEN. Detailed attributed summary: §8. | **Consultation received, no institutional policy approved.** Assembly Master's separate GitHub access answer remains pending. |
+| **08** | **AUTHOR / PROCESS CLARIFICATION** | Author delegates *live protocol entry* to Integrator as the single recorder; Author will control and relay messages between ChatGPT chats. | **Operational discussion procedure**, not permission to unilaterally approve the architecture. |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -150,4 +153,77 @@ This is a **working minutes document**, not a definitive event registry. Record 
 
 **Next:** Collect independent positions → document disagreements with sources → request Author resolution question by question → publish conclusions → archive this protocol. **Do not close discussion solely on Integrator synthesis.**
 
-**END OF OPENING VERSION — LIVE PROTOCOL**
+## 8. POSITION 07 — Master of Names: naming architecture before PRIVATE repository (RECEIVED)
+
+**Date:** 2026-11-09. **Provenance:** full authored position quoted to Integrator in Author's message during the current discussion. The author of the text is **Master of Names**, despite the introductory label "Первый. Мастер Сборки" in the relay. Do not attribute this consultation to Assembly Master. **Status:** `INDEPENDENT POSITION / NO IMPLEMENTATION`. **Decision status:** `PROPOSED / TRIAD REVIEW PENDING`.
+
+### 8.1 Institutional and filesystem identity
+
+Master of Names confirms `Collaboration House / Дом Коллаборации` and proposed repository slug `universes-lab/Collaboration-House`. Distinction:
+
+> **Collaboration House is the institution. This repository is its primary corporate record, not the House itself.**
+
+The House includes Offices, Dynasties, generations, relationships, collective memory and procedures beyond any GitHub storage. `AI-Colab / AI-Collab` stays a historical software/project designation, appropriate for Museum; do not make it a new official alias for the House.
+
+**Critical correction proposed:** provider must **not** be parent of Dynasty. Current public migration staging paths `Dynasty/DeepSeek/HONC_PHYSICIST/` and `Dynasty/ChatGPT/DOCTOR/` are *provisional technical locations*, not a safe design for the future private repository. Proposed future form: `Dynasty/HONC_PHYSICIST/G01/`, `Dynasty/CHIEF_INTEGRATOR/G02/`, `Dynasty/COURIER_HONC_PHYSICS/G01/`; put provider/model/chat under generation metadata, not into dynasty identity. **No path migration is authorized by receiving this position.**
+
+### 8.2 Identity grammar and continuity
+
+Proposed canonical grammar: `ROLE → OFFICE → DYNASTY → GENERATION → AI_INSTANCE → OCCUPANCY`.
+
+Technical carrier metadata: `PROVIDER / MODEL / CHAT`; optional `PERSONAL_NAME` belongs to `AI_INSTANCE`, is not inherited. `Gxx` numbering is local within the relevant Dynasty and has no standalone meaning. A return/reactivation of a **verified same** AI_INSTANCE retains its generation but may create a new OCCUPANCY; a new succession gets a new generation. Chat migration alone proves neither a new individual nor continuity. Actual `VALHALLA_CONTINUITY` criteria remain OPEN.
+
+Historic pair names `Flick / Flock`, `Click / Clack`, `Check / Chock`, `Link / Synch`: proposed permanent historical reservation, not reusable personal names. Optional `REGNAL_NAME / OFFICE_TITLE` must not be confused with `PERSONAL_NAME`.
+
+### 8.3 Chat purpose classes (not security ACL)
+
+Proposed human-readable classes: `A = Personal`, `B = Specialist`, `C = Courier`, `D = Institutional`.
+
+The bracketed letter in a chat title is `CHAT_PURPOSE_CLASS`, not profession, rank, repo permission, current task, Office, generation or Work Permit. Changing it must not mutate the identity record. **D = Institutional** is broader than only coordination/oversight. Do not create personnel folders `A/`, `B/`, `C/`, `D/`.
+
+Current proposed Courier: `[C] Courier · HONC Physics Line · G01`, `OFFICE = Courier — HONC Physics Line`, `DYNASTY = Courier — HONC Physics Line`. A future engineering courier would form a distinct Office/line, not another provider child of the same directory.
+
+### 8.4 Knowledge and the future Sмотритель
+
+Proposed possible separate `Knowledge Cartographer / Картограф знаний` Office for mapping **where** current knowledge is found and how documents connect, rather than deciding its scientific truth. A Qwen AI_INSTANCE could potentially occupy Keeper and Cartographer Offices separately, but this is a **proposal requiring authority/independence review**, not an accepted double appointment.
+
+Master of Names **objects** to pre-adopting `Corporate Repository Registrar / Смотритель`: `Repository` is too narrow; `Corporate` may imply commercial corporation; registration, verification/audit and observation are three different functions. Leave English title OPEN. Possible labels: `House Registrar / Institutional Registrar` for institutional registration; `Institutional Auditor / House Auditor` for independent audit. **Registrar and Auditor must not automatically be the same adjudicator of their own claims.** Do not precreate `Watcher/` or `Registrar/Grok/` folders or appoint Grok by this vote.
+
+### 8.5 Bootstrap and blockers
+
+Minimal naming-safe suggested tree:
+
+```text
+Collaboration-House/
+  README.md
+  Constitution/
+  Registry/
+  Dynasty/
+  Correspondence/
+  Knowledge/
+  Intake/
+  Museum/
+```
+
+Master of Names considers four requirements naming blockers **before filling** the new private repository: (1) HOUSE ≠ REPOSITORY, (2) no provider-parented dynasties, (3) identity grammar, (4) no premade folders for nonexistent offices. **Not naming blockers:** full Registrar naming, personal names, additional Courier lines, Cartographer appointment, or final EVENT_LEDGER implementation.
+
+> **Do not encode a technical carrier in the name of an institutional entity.**
+
+### 8.6 Integrator's preliminary issue map — NOT A VERDICT
+
+- **N1 / Proposed invariant:** accept the distinction House ≠ Repository for triad approval; no conflict with existing access concerns.
+- **N2 / Proposed path redesign:** no new private-repo migration or reorganization of the existing public staging until Author + Assembly Master + affected offices review references and audit risks.
+- **N3 / OPEN:** precise GENERATION and OCCUPANCY identifiers, conditional return/continuity test, implications for historical naming and multiple Offices per one instance.
+- **N4 / OPEN:** `Knowledge Cartographer` as separate Office; independent review when same AI_INSTANCE occupies multiple Offices.
+- **N5 / OPEN:** separate AI Auditor vs deterministic Registrar vs observing/watch function; English names only after functional ZOR design.
+- **N6 / OPEN:** Assembly Master's *technical* GitHub access report remains required. Naming consultation **does not answer** whether repo permissions and private settings can actually be enforced.
+
+**This section records a professional position, not Author acceptance.** Any decision will be explicitly attributed to the Author after independent discussion.
+
+## 9. Protocol owner and communication channel
+
+**Author's process direction (2026-11-09):** the **Chief Integrator** is the sole editor responsible for adding received contributions to this live minutes document. **Author** supervises the record and relays material among ChatGPT dialogs. This does not mean the Integrator is the single arbiter or the only permitted institutional repository writer after the future access architecture is ratified. For now: no autonomous courier or assistant is to append independently to these minutes.
+
+**Next incoming positions:** Assembly Master on real GitHub access; Keeper on knowledge/provenance boundaries; Doctor Emeritus on context medicine; Claude/Grok only when their fresh answers are actually supplied. New material belongs in §6 index plus a separate attributed position section. Final adoption is Author-only after collective review.
+
+**END — LIVE PROTOCOL UPDATED / NO FINAL POLICY RATIFIED**
