@@ -148,6 +148,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **18** | **CLAUDE / SIGNED POSITION_RECEIVED** | New individually signed technical review; recommends Courier G1 without GitHub connector, per-recipient prepared body, explicit enforcement classification, source-attribution checks, delivery evidence E0–E4 and delaying Registrar implementation. §16. | **Expert recommendation, no code or privilege changes authorized.** |
 | **19** | **AUTHOR / NEXT-PHASE DIRECTION** | Author instructs Integrator to conclude discussion, allocate design directions rather than personally develop; expressly allows considering Claude as responsible for technical design. | **Scope: discussion synthesis/design delegation; no repository creation, activation, or implementation blanket permit.** |
 | **20** | **INTEGRATOR / CONSOLIDATED SYNTHESIS** | Common architecture, disputed and conditional points, corrections to technical guarantees and proposed follow-on design responsibilities. §17; separate proposed conclusions document. | **Synthesis for Author approval; no invented ratification.** |
+| **21** | **CLAUDE / DESIGN V0.1 RECEIVED** | Author uploaded `HOUSE_TECHNICAL_DESIGN_V0_1.md` into `Laboratory/Collaboration-House`; Integrator read full GitHub artifact and open Claude chat. Core: staged P1+G1 courier, AUTHOR_RELAY for sensitive and ChatGPT core, future registrar; receipt is not adoption. | **DESIGN RECEIVED / REQUIRES REWORK OF TRANSPORT GOAL.** |
+| **22** | **AUTHOR / ARCHITECTURAL CORRECTION** | Author rejects bureaucracy-first design: main purpose is automated worker-to-worker messaging and reduced manual Author relay; all Couriers intended to run in Work; proposed Grok as temporary Watcher to receive courier mail/files, with HF as alternative storage layer. Asks two discussion rounds with Claude. §18. | **DESIGN PRIORITY GIVEN; NO CODE, HF CREDENTIAL OR GROK OFFICE ACTIVATION HERE.** |
+| **23** | **INTEGRATOR / R2 CHALLENGE TO CLAUDE** | End-to-end message delivery, return path, Grok Watcher without repo, HF persistence via actual credentials, trust and proof, safe pilot; §19. | **ROUND 2 INVITATION READY FOR AUTHOR RELAY; CLAUDE RESPONSE PENDING.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -725,4 +728,57 @@ The **first independent-position round** is complete as far as received contribu
 
 After explicit Author ratification: publish approved conclusions (with the exactly approved scope), move this LIVE minutes file to `Museum/Discussions` retaining Git history, and remove the live path in one controlled reviewed operation. No implied acceptance just because the record is in GitHub.
 
-**END — LIVE PROTOCOL UPDATED / AUTHOR RATIFICATION PENDING**
+## 18. AUTHOR FEEDBACK — Architecture v0.1 must prioritize automation of messages (2026-11-09)
+
+**Author's design correction, recorded by Integrator:** The House exists primarily to **automate the motion of messages as the basic units of multi-participant work**, not to create bureaucracy. Repeated **manual relay by the Author is the bottleneck** and has already caused role/address confusion (Master of Names vs Assembly Master). The Author disputes Claude's baseline v0.1 because it sequences human relay and large administrative preliminaries ahead of usable transport.
+
+**Design targets the Author specifically requests for the next discussion:**
+- Every Courier should operate in **ChatGPT Work by default**, within actual provider policy and authorized routes. This is an intended architecture, **not evidence that every Courier/recipient/site feature already works**.
+- Couriers should **directly send correspondence and, when supported, files** into a common Grok Watcher/Registrar chat, **without the Author doing routine transfer**.
+- **Watcher should isolate Couriers from the corporate GitHub repository** and provide a controlled durable record/routing layer.
+- Evaluate **Hugging Face (HF)** as Watcher-side message store / archive, not only GitHub, leveraging existing HF experience.
+- The Author suggests Grok, already an invited contributor, as a **possible temporary pilot Watcher**; this expression of design preference is **not recorded as formal Office activation or Work Permit**. Clarify appointment and actual technical abilities separately if the pilot is chosen.
+- At least **two substantive design discussion rounds with Claude** are requested before accepting or rejecting the architectural revision.
+
+**Integrator reading:** Claude v0.1 is competent on assurance, but **fails to make automatic transport the first acceptance metric**. It must be revised around an observable end-to-end operational loop, with identity checks and safety constraints built into that loop rather than used as a reason to retain the Author as permanent Courier.
+
+**Document source:** [HOUSE_TECHNICAL_DESIGN_V0_1.md](https://github.com/universes-lab/Laboratory/blob/main/Collaboration-House/HOUSE_TECHNICAL_DESIGN_V0_1.md) (GitHub verified by Integrator). Open Claude chat was also inspected: [Collaboration Management Developer](https://claude.ai/chat/19507d42-82f4-45f9-b4fb-d2f221741961). No new Claude response to Author's correction has yet been received.
+
+### 18.1 New evidence about HF capabilities (technical context, not a solution verdict)
+
+- HF Hub supports **private repositories**, fine-grained access tokens, commit uploads and webhooks on repository changes. Sources: [HF private repo settings](https://huggingface.co/docs/hub/repositories-settings), [HF access tokens](https://huggingface.co/docs/hub/security-tokens), [HF file upload](https://huggingface.co/docs/huggingface_hub/main/guides/upload), [HF webhooks](https://huggingface.co/docs/hub/webhooks).
+- The presently connected HF account is `lhc-lab`. The available OAuth connection reports read-only scopes `read-mcp` and `read-repos` (plus profile/jobs); **do not treat this connection as an HF write credential**.
+- Candidate storage designs: dedicated **private HF dataset/repository for message envelopes/archive**, narrow write token held by a separate trusted mediation component; or Grok given a verified independent capability to operate HF with bounded scopes. The actual Grok web-chat **has not been shown to possess an HF write API/connector**. A chat saying “stored” is not a persisted file.
+- HF-only storage does not automatically **route notifications or responses** into destination provider chats: a Courier/dispatch agent with permitted Work browser route or API transport still has to deliver, and verify, messages. A webhook can notify a service endpoint but not itself type a message into a provider chat.
+- HF is a possible **transport storage substrate**, not a replacement for the science/authoritative corporate record unless separately approved; shared credentials and sensitive metadata remain risks.
+
+### 18.2 Integrator's minimal acceptance target
+
+**The demonstration must prove:**
+
+`Employee A (signed message) → Work Courier (correct source and route) → Grok Watcher (receipt/acknowledgment) → durable accepted storage with verifiable reference → automatic authorized onward delivery to Employee B → reply returns to A, with status/provenance reported`.
+
+In pilot, independently verify **at least one actual message round trip without the Author copying any message body between chats**. The Author may issue the original route/permit and adjudicate exceptions; this does not mean routine message relay is manual.
+
+**Strict distinctions:** an observed message in Grok chat is not automatically an HF commit; HF commit is not automatically delivery to B; written source attribution is not authenticated role identity; a Work interface capable of sending text is not automatically capable of attaching local files. Test each transition.
+
+## 19. ROUND 2 REQUEST — Claude to design a functional transport-first alternative
+
+**Recipient:** Claude / Collaboration Management Developer, current design coordinator.  
+**Status:** `INVITATION PREPARED / NOT YET TRANSMITTED`. **No implementation permission.**
+
+Please answer in a **new independent message** with the required individual opening signature. The Author contests your v0.1's priorities. **Do not rewrite the past agreement or assume P1/G1 was ratified.**
+
+1. Reframe purpose: **message delivery, no Author intermediary**, with audit as a supporting mechanism. What is the minimal useful automatic route **A → Courier Work → Grok Watcher → B → reply to A**? Specify the *physical actor* performing each send/receive and what real permission it uses.
+2. Explain whether Grok can perform actual **storage** using HF via currently available interfaces. Who physically writes an HF file? Who holds narrow token? How is it verified, and who collects notifications? Compare: (a) Grok chat only; (b) HF plus a small trusted bridge; (c) courier directly uses HF with limited write only. Avoid hallucinated Grok/HF tool capabilities.
+3. Reassess the Author's proposed **temporary Grok Watcher pilot**. Can Grok serve as a dispatcher/receipt and metadata checker without also acting as independent science auditor of its own group? Define provisional ZOV/ZOR and negative tests; no assumption of established Office.
+4. The Author wants every Courier **in Work** and expects them to send **messages and files** to Grok. Specify provider UI handling and what to do when attachment cannot be sent, provider policy blocks `chatgpt.com`, long content becomes TXT card, or a tab switches target. Preserve original sender signature and Courier transport signature.
+5. Claude v0.1 relies on E-3 “5–7 letters through Author without Courier.” Replace with a **transport-first pilot** in which Author does not carry letters: measure successful round trip, delivery loss/duplicates, seconds or interventions per message, and whether a human intervention was required only for exceptional decisions.
+6. State a **minimal implementation path after design approval**, if needed (e.g. one small HF write bridge rather than comprehensive registry); identify clear non-implementation alternatives. Do not produce code or create anything yet.
+7. Highlight what cannot be done with the actual current tools, and ask only the minimum essential decisions of Author. What must be resolved before Round 3?
+
+The architecture must preserve the **Author's final institutional authority**, technical least privilege, role-based disclosure and medical restrictions on chat continuation, but none of these should make manual Author relay the system's default operating mode.
+
+**Next:** Review Claude's substantive Round 2 answer; conduct Round 3 targeted at disputed physical routes, HF persistence and temporary Grok/ZOR; only then revise design v0.2 and seek Author approval.
+
+**END — DISCUSSION REOPENED FOR TWO DESIGN ROUNDS / NOT RATIFIED**
