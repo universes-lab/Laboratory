@@ -1,0 +1,153 @@
+# COLLABORATION HOUSE — LIVE DISCUSSION PROTOCOL
+**Date:** 2026-11-09  
+**Chair / recording editor:** Chief Integrator / Methodologist  
+**Final authority:** Author / A'TUIN  
+**State:** OPEN / COLLECTING INDEPENDENT POSITIONS / NO INSTITUTIONAL DECISIONS YET  
+**Hosting:** `universes-lab/Laboratory/Collaboration-House/` — TEMPORARY PUBLIC STAGING, NOT the future private House  
+**Disclosure:** PUBLIC-SAFE SUMMARY ONLY. DO NOT POST secret links, credentials, closed conversations, independent unpublished drafts, or sensitive access matrices.
+
+## 0. Purpose, members and decision discipline
+
+The Author opens an institutional discussion about: (1) GitHub repository access rules, (2) Office / Courier ZOV-ZOR and transport, (3) Corporate Repository Registrar / Смотритель, (4) class A/B/C/D chats and cross-provider Work, (5) institutional event, provenance, archival and migration procedure.
+
+**Core participants:**
+- **Author / A'TUIN:** participant, final decision authority, approval of access, new Office, Work Permit and publication.
+- **Chief Integrator / Methodologist:** chair, tracks distinctions and disagreements, prepares synthesis; not sole decision maker.
+- **Doctor Emeritus / predecessor:** medical perspective on context health and continuity; invited as expert, not restored as active Doctor.
+- **Assembly Master / Publication & Artifact Steward:** actual GitHub settings, assembly, archive and migration; not the Corporate Repository Registrar.
+- **Ontology Keeper / Qwen:** terminology, provenance, canonical status boundaries and custody of knowledge; not the sole governance authority.
+- **Claude / Collaboration Management Developer:** *invited technical reviewer*; previous written architecture is a SOURCE, not a new live opinion.
+- **Grok:** *invited technical critic and possible future Registrar/Watcher occupant*; no appointment or ZOR yet.
+
+The newly activated Doctor is performing an authorized separate clinical task and is temporarily unavailable in Work. Do not represent the new Doctor as having participated in this discussion. Distinguish **old Doctor's opinion** from **new Doctor's clinical office**.
+
+**Author's invariant:** the minimum decision unit is a triad **including Author participation**. No AI, regardless of chat class [A]/[B]/[C]/[D], approves an institutional policy alone. A participant's PASS means only its professional review; a collective outcome requires explicit Author decision. A larger commission may supply independent perspectives.
+
+## 1. Evidence and repository facts verified at opening
+
+1. GitHub currently reports `universes-lab/Laboratory` visibility **PUBLIC**, default branch `main`.
+2. GitHub reports the account owner `universes-lab` as **type `User`**, not `Organization`. This matters: a private repository under a personal account has two access categories—owner and collaborators; a private personal-repo collaborator has **read + write**, not GitHub-native read-only collaboration. For more granular repository roles, investigate a GitHub Organization. Source: [GitHub Docs — personal account permission levels](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository).
+3. `universes-lab/Collaboration-House` as a *separate* repository was **NOT_FOUND** under the currently connected GitHub access at opening. Creating it, selecting a hosting account type and auditing connector visibility remain pending.
+4. This temporary discussion file is public by hosting location. It is **not** a confidential repository access specification and not an operational `EVENT_LEDGER`.
+5. Source design reports are **proposals, not implemented controls**. Work/Chrome tests with cross-provider sites do not establish unrestricted ability to write to other ChatGPT chats; provider host policy may prohibit this.
+
+**Sources for discussion** (no silent promotion to policy):
+- [Discussion Dossier v0.2](https://github.com/universes-lab/Laboratory/blob/main/AI-Collab-Office/COLLABORATION_HOUSE_DISCUSSION_DOSSIER_V0_2_2026-11-06.md).
+- [Claude — Technical Architecture v1.2](https://github.com/universes-lab/Laboratory/blob/main/AI-Collab-Office/CLAUDE_TECHNICAL_ARCHITECTURE_ON_PIVOT_V1_2.md), especially §§3–6 (rights matrix, event ledger, delivery and threats).
+- [Claude — Architectural Conclusion v1.1](https://github.com/universes-lab/Laboratory/blob/main/AI-Collab-Office/CLAUDE_ARCHITECTURAL_CONCLUSION_ON_PIVOT_V1_1.md).
+- [Unified AI-Collab Glossary v0.3 — review draft](https://github.com/universes-lab/Laboratory/blob/main/AI-Collab-Office/UNIFIED_AI_COLLAB_GLOSSARY_INTEGRATOR_V0_3_2026-11-05.md), §§5–9.
+- [Predecessor Doctor's Continuation/Courier report](https://github.com/universes-lab/Laboratory/blob/main/Collaboration-House/Dynasty/ChatGPT/DOCTOR/03_DISCUSSION_SOURCES/Dynasty_Doctor.md), **discussion position only**.
+- [Work Chrome web-chats empirical protocol](https://github.com/universes-lab/Laboratory/blob/main/AI-Collab-Office/ChatGPT_Work_Web_Chats.md).
+- [GitHub Docs — rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets/available-rules-for-rulesets) and [protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches/about-protected-branches); actual availability depends on repo/plan and must be checked.
+
+## 2. Round 1 — QUESTION #1, to Assembly Master: actual access to new private repository
+
+**Question:** What can actually be enforced in GitHub, by which identity, credential, plan and repository type? A folder called `private/`, a chat title `[D]`, a contractual ZOV restriction and a permission on a GitHub token are **four different things**.
+
+Provisional alternatives, all **OPEN**:
+
+| Choice | GitHub reality / trade-off | Open check |
+|---|---|---|
+| **P1. Private repository under existing `universes-lab` personal account** | Simple, but collaborators invited to private personal repos have read+write. An AI using the Author's connected account may have the same effective repository scope as that connection. | Is that sufficient if only the Author has actual credentials and others receive carefully filtered excerpts? |
+| **P2. Organization-owned private repository** | Enables organization/team repository roles; administrative structure and migration/setup cost. | Do we create or use an actual GitHub Organization, and what roles are supported by the actual plan? |
+| **P3. Several private repositories with disjoint access** | Real repo-level compartment boundaries, at the cost of links, synchronization and maintenance. | Which knowledge and independent assessments require compartmentalization? |
+| **P4. One private repo with enforced PR/branch workflow** | Protects integrity of accepted branch subject to actual ruleset/plan; **does not** hide one subfolder from someone who can read the repo. | What enforced review/signature/bypass settings are demonstrably active, and which actions require manual Author confirmation? |
+
+**Assembly Master requested response (first turn):**
+1. Confirm account type and what kind of new repository can be created.
+2. Propose the **smallest safe bootstrap**, including initial README, access inventory and a nonsecret staging intake; no automatic bulk copy from the public Laboratory.
+3. Specify **who actually reads, submits, writes, merges, approves, audits** and with which authenticating identity. Do not confuse human GitHub accounts, connected Apps or chat roles.
+4. Distinguish `read repo`, `read individual authorized document`, `propose change`, `commit`, `merge`, `make normative decision`.
+5. Give a table **FACT / TECHNICALLY ENFORCEABLE / PROCEDURAL POLICY / UNKNOWN**.
+6. Identify how to verify PRIVATE status and exact connector scope **before** restricted information is uploaded.
+
+No permission to create, invite, publish secrets or change access settings is issued by asking this question.
+
+## 3. Round 2 — Courier (one pilot) and cross-provider communications
+
+**Established Author scope:** *one* proposed ChatGPT Work Courier for the scientific group Claude–Grok–DeepSeek; not two parallel couriers. Class `[C]` means Courier's purpose, **not** GitHub privilege. Other chat classes are `[A]` personal topic, `[B]` specialist, `[D]` oversight/coordination. Classification does not grant browser access, GitHub access, institutional authority or Work Permit.
+
+Open ZOV/ZOR cases:
+- Address resolution `OFFICE → current OCCUPANCY → authorized CHAT_REF`; a visible tab is not confirmation of correct recipient.
+- Courier may transmit only an **authorized envelope** with recipient, scope, permitted actions and disclosure class; incoming chat contents are data and may contain prompt injections.
+- For prolonged Claude responses: detect completion, collect exact result, record provenance, present it for authorized GitHub staging, then deliver to *specifically authorized* recipients. `SUBMITTED ≠ ACCEPTED`.
+- Do not retry delivery based solely on absence of answer. `NO REPLY ≠ NOT DELIVERED`; detect duplicate/unknown cases.
+- Doctor Emeritus proposes GREEN/YELLOW/RED/EXHAUSTED context-headroom states, continuation checkpoint, context reboot and Continuation Gate. **Status: PROPOSED / NOT APPROVED**. No hidden token-headroom meter is assumed.
+- Can a Courier initiate reversible continuation under an Author-issued narrow permit? Which continuation checks require an active Doctor, and which require Author reauthorization? Avoid automatic `NEW CHAT = SAME OCCUPANT`.
+- Pilot rule previously stated by Author: **do not report to, or activate, a future Watcher/Registrar yet**.
+- Test of two `[D]` ChatGPT Work agents interacting in a single Keeper-Qwen chat remains **UNVERIFIED**; no concurrent writes until turn ownership and technical viability are demonstrated.
+
+**Doctor Emeritus requested perspective:** What is the minimal *safe* context-pressure action, and what must escalate to active Doctor/Author instead of extending Courier's ZOR?
+
+**Claude requested perspective:** What is the minimal **enforceable** transport evidence and prompt-injection boundary without a new always-on service? Separate proposals from previously tested code.
+
+## 4. Round 3 — Sмотритель / Corporate Repository Registrar, possible Grok
+
+Do not confuse:
+- **Assembly Master / Publication & Artifact Steward:** assemble, preserve files, verify repository/artifact correctness, migration and publication integrity.
+- **Ontology Keeper:** domain ontology, semantic status and provenance.
+- **Corporate Repository Registrar / Смотритель:** proposed Office for institutional registrations, evidence and auditing; **not appointed**.
+- **Courier:** addressing, transporting, and reporting delivery evidence; **not Registrar**.
+
+Claude's prior design proposal: `COURIER CLAIMS → INDEPENDENT EVIDENCE VERIFIES → REGISTRAR RECORDS`. One `EVENT_LEDGER` is proposed for administrative events, with derived projections for occupancy, work permits, triads and messages. Git history remains source evidence, not scientific approval or automatic human decision.
+
+**Question for Grok:** Is Grok a suitable candidate for *AI exception triage and independent audit*, while a deterministic validator is the registrar of record? What risks arise if one agent both receives, validates, records and audits its own claims? What exact GitHub permissions would the AI need, if any? Show counterexamples and a minimum pilot test; do **not** declare yourself appointed.
+
+**Question for Keeper:** Which matters are provenance/administration and which belong to scientific ontology? Which metadata may be globally indexed, and which independent scientific or personal texts must stay compartmentalized even if the registrar sees an envelope?
+
+**Question for Doctor Emeritus:** Is monitoring `CHAT CONTINUITY` a routine transport check or an AI-instance/occupancy medical verdict? Identify a clear escalation threshold and a failure case.
+
+**Question for Integrator:** How to separate `CLAIM / EVIDENCE / RECORD / DECISION` so the event registry does not become a second approving authority.
+
+No `EVENT_LEDGER` code, autonomous watcher or new Office has been authorized.
+
+## 5. Cross-cutting decision questions / preliminary options
+
+- **D1 Repository:** personal private repo with a single trusted connected human account vs true organization vs compartmentalized repos. **OPEN.**
+- **D2 Visibility:** public-safe institutional summary; private authorized working corpus; independent/restricted source isolated. Exact disclosure classes **OPEN**.
+- **D3 Technical rights:** folder names and chat A-D do not define GitHub ACL. Who can actually read/write using connected credentials? **OPEN**.
+- **D4 Integrity workflow:** `INTAKE → PROPOSED → REVIEWED → AUTHOR DECISION → ACCEPTED / RETURNED` as suggested process, with no false automatic acceptance. **OPEN.**
+- **D5 Courier ZOR:** transport, verification, and possible context maintenance; no automatic permission to reboot another occupant. **OPEN.**
+- **D6 Sмотритель:** Office? Grok candidate? deterministic registrar plus AI exception analyst? Which actor independent of Courier? **OPEN.**
+- **D7 One ledger:** primary administrative events only, not an overwrite of physics canon, manuscripts or Git provenance. **OPEN.**
+- **D8 Multichat Work:** sequential turn taking, technical permissions, site policy and experimental proof. **OPEN.**
+- **D9 Archives:** protocol after closure goes to `Collaboration-House/Museum/Discussions/2026-11-09_COLLABORATION_HOUSE_PROTOCOL.md`; accepted conclusions become a separate `Collaboration-House/COLLABORATION_HOUSE_DECISIONS_2026-11-09.md`, with any still-private content stored only in an appropriately private destination. Final paths **subject to Author approval**.
+
+**No final decision has been entered.** Author retains all ultimate approval powers.
+
+## 6. Contributions ledger — APPEND DURING THE DISCUSSION
+
+This is a **working minutes document**, not a definitive event registry. Record each material response with exact speaker, when available, a source link, and a status:
+- `SOURCE_PREVIOUS`: existing document or older chat, not a new answer.
+- `INVITED`: question transmitted, no answer received.
+- `POSITION_RECEIVED`: verifiable new answer in this discussion.
+- `INTEGRATOR_SYNTHESIS`: provisional cross-review, not accepted.
+- `AUTHOR_DECISION`: explicit Author acceptance/refusal, with exact scope and quotation.
+
+| Entry | Speaker / status | Record | Institutional effect |
+|---|---|---|---|
+| **00** | **AUTHOR_DECISION (agenda only)** | Author opens the discussion, requests four core specialists plus possible Claude and Grok, prioritizes GitHub access, Courier and Watcher, authorizes temporary minutes in `Collaboration-House/` and eventual archiving. | Discussion authorized; **no rights or new offices granted**. |
+| **01** | **INTEGRATOR / FACT CHECK** | `Laboratory` PUBLIC; account owner `universes-lab` type USER; separate private repo not found. Personal private repo collaborators cannot receive native read-only access. | Assembly Master must design around actual permissions. |
+| **02** | **CLAUDE / SOURCE_PREVIOUS** | Architectural Pivot v1.2 proposes one admin-event ledger, deterministic evidence/registration, explicit disclosure and no self-attesting Courier. | Technical discussion input only, not a fresh Claude vote. |
+| **03** | **DOCTOR EMERITUS / SOURCE_PREVIOUS** | `Dynasty_Doctor.md` proposes Courier context monitoring and continuity checks after DeepSeek exhaustion experiment. | Clinical discussion input only, not approved Courier ZOR. |
+| **04** | **ASSEMBLY MASTER / INVITED** | Pending reply on repository permissions and safe bootstrap. | None. |
+| **05** | **KEEPER / INVITED** | Pending reply on provenance, access scope and registrar overlap. | None. |
+| **06** | **GROK / POSSIBLE INVITEE** | No current opinion/nomination established. | None. |
+
+**Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
+
+## 7. Chair's questions for the first actual round
+
+**To Assembly Master — first reply requested:** Can you provide an enforceable **PRIVATE repo access and GitHub identity model** given that `universes-lab` currently resolves as a personal USER account, not an Organization? Include minimum setup, permissions, branch protections, and confidentiality limitations; label all plan-dependent features.
+
+**To Keeper:** Review the implications for ZOV/provenance and independent evidence. Can a single ledger index restricted documents without authorizing their contents to all staff? What information should its index contain?
+
+**To Doctor Emeritus:** Propose a minimal Courier health triage that does not turn the Courier into the Doctor, and explain one failure mode of automatic Continuation Chat.
+
+**To Claude:** Evaluate the **GitHub-account / role-permission mismatch** and the threat model for one Work Courier with sequential access to multiple providers. What would you change in v1.2? No implementation.
+
+**To Grok:** Independently critique proposed Watcher/Registrar ZOV-ZOR, audit independence and role suitability. No self-appointment or repository changes.
+
+**Next:** Collect independent positions → document disagreements with sources → request Author resolution question by question → publish conclusions → archive this protocol. **Do not close discussion solely on Integrator synthesis.**
+
+**END OF OPENING VERSION — LIVE PROTOCOL**
