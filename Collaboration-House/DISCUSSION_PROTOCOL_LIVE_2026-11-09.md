@@ -157,6 +157,8 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **27** | **CLAUDE / ROUND 3 POSITION RECEIVED** | Signed `CLAUDE_ROUND3_GITHUB_MAILBOX_V4_2026-11-09.md` visible in open Claude chat: recommends `V4b`, GitHub separate mailbox, local PowerShell/git mediator, no Courier GitHub credentials, Grok exceptional holds/audit only. `V2` withdrawn as primary. §23. | **Design reviewed; U18/local Work interaction and actual credential isolation unverified.** |
 | **28** | **AUTHOR / ARCHITECTURAL DIRECTION ACCEPTED** | Author responds “Принято! Согласен?” after Round 3. Integrator agrees with `V4b` as design baseline **subject to proof of U18 and access boundary**. No explicit order to create repo, keys, software, activate Watcher or run tests. | **Architecture direction adopted for planning; implementation authorization remains separate.** |
 | **29** | **INTEGRATOR / CONDITIONAL PASS** | Design principle V4b supported; mechanical registration distinct from Grok exception triage. Shared GitHub App outbox access is not folder-level ACL; local mail interface needs authenticated per-line capability, cross-origin/CSRF protections and actual Work proof. §23.2. | **Conditional methodological pass, not technical Gate pass.** |
+| **30** | **ASSEMBLY MASTER / TECHNICAL REVIEW REQUESTED** | Author directed Integrator to request Assembly Master's independent professional accept/accept-with-conditions/reject verdict on V4b, actual repository/credential isolation and BAT/PowerShell feasibility. §24. | **INVITATION PREPARED / REPLY PENDING; no technical approval inferred.** |
+| **31** | **CHROME CONNECTION / U18 CHECK REQUESTED** | Author directed an independent technical Work/localhost feasibility task; selected existing experimental Chrome connection chat rather than occupied active Doctor. §25. | **TEST INSTRUCTIONS PREPARED / NO EXECUTION OBSERVED.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -901,4 +903,34 @@ Claude may prepare the revised `HOUSE_TECHNICAL_DESIGN_V0_2` **as design only**,
 
 **STATUS: DESIGN DIRECTION V4b ACCEPTED BY AUTHOR FOR PLANNING / TECHNICAL FEASIBILITY PENDING / NO IMPLEMENTATION WORK PERMIT**
 
-**END — LIVE PROTOCOL / AUTHOR DIRECTION RECORDED / IMPLEMENTATION NOT AUTHORIZED**
+## 24. Assembly Master — requested technical decision on V4b (INVITATION PREPARED)
+
+**Author's task (2026-11-09):** Ask whether Assembly Master professionally accepts the V4b architecture and what technical objections/constraints remain. Explicitly distinguish professional `TECHNICAL ACCEPT` from Author's normative decision.
+
+**Sources to examine:** protocol §23, Claude Round 3 visible in his separate chat, and current v0.1 plus Author direction. **Questions:**
+1. `V4b = Work Courier → limited local mailbox UI → trusted Windows BAT/PowerShell/Git mediator → separate private GitHub mail repository`; Grok reviews exceptions without routine delivery blocking. `ACCEPT / CONDITIONAL ACCEPT / REJECT` and concrete reasons?
+2. Can a **fine-grained dedicated credential** be scoped to only the mailbox repo with Contents R/W, no administrative operations nor contents access to the normative House repo? What are actual credential storage and revocation risks?
+3. Technical conflict: existing shared ChatGPT GitHub App can also write to `outbox/` and potentially other paths in mailbox repo; GitHub personal-repo permissions do not enforce folder-level ACL. Propose a viable minimal isolation/observation scheme **without pretending to enforce what GitHub cannot**.
+4. Can the Author's existing local BAT/Git tooling underpin a one-writer queue with PowerShell web endpoint? Name minimum security checks, avoid untrusted input treated as shell commands, prevent accidental path traversal/unsafe file writes.
+5. What should be proved **before** any repository/key creation or implementation authorization? Define bootstrap and negative acceptance checks.
+6. Separate `FACT / VERIFIED / ASSUMPTION / OPEN`; no actual configuration or writes authorized by the review.
+
+**Status:** `REQUEST DRAFTED / TRANSMISSION BY AUTHOR PENDING`.
+
+## 25. Chrome connection — U18 technical feasibility test (INVITATION PREPARED)
+
+**Selected test owner:** the existing experimental `Chrome connection` chat, not the new active Doctor. Browser tab list shows it is open at `https://chatgpt.com/c/6aeb2d77-c024-83eb-900f-d416cbd6573d` but the Integrator **cannot read it via Browser extension** because ChatGPT host restrictions deny observation. A separate Author-supplied share URL was misspelled `chatюgpt.com` (Cyrillic letter); its normalized URL was not independently fetched successfully. Do not claim these are the same chat from the link alone.
+
+**Task U18:** Verify, using **only allowed native Work/Chrome browser capabilities**, whether the agent can observe and interact with an already available harmless local UI at `http://127.0.0.1:<port>` in connected Chrome:
+- verify actual Work mode and connected browser;
+- use an already-running, safe, non-secret local fixture only; if absent report `BLOCKED: NO APPROVED LOCAL FIXTURE` and request Author to supply it; **do not write/start a server or create a program**;
+- observe visible marker; enter supplied nonsensitive test string; click inert echo button; read response;
+- record each step's `PASS / FAIL / BLOCKED`, exact browser policy errors, URL, screenshot or text evidence, and separately the feasibility of file attachment/upload if exposed by fixture;
+- **do not bypass policy or test native extension security restrictions via alternate surfaces**; no GitHub/HF login, PAT, real messages, email, outside network requests or destructive actions;
+- report `U18: PASS` only if actual Work agent directly interacts with the localhost form and sees the echo result. Viewing a local tab without clicking = `PARTIAL`; blocked origin = `BLOCKED`.
+- Include the individual opening signature and link/source when reporting to Integrator via Author.
+
+**Status:** `REQUEST DRAFTED / TEST NOT RUN BY INTEGRATOR / AUTHOR TO RELAY`.
+
+**END — LIVE PROTOCOL / TWO FOLLOW-UP REQUESTS PREPARED / NO IMPLEMENTATION AUTHORIZED**
+
