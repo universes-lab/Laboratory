@@ -144,6 +144,10 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **14** | **DOCTOR EMERITUS / REQUESTED NEW STATEMENT** | Doctor's existing `Dynasty_Doctor.md` is preserved as earlier `SOURCE_PREVIOUS` (entry 03). New standalone, individually signed position on Courier health/continuation and human escalation is requested before predecessor chat exhausts. | **No fresh Doctor position received yet.** |
 | **15** | **DOCTOR EMERITUS / POSITION_RECEIVED** | Full independent signed clinical-architectural report relayed by Author: **withdraws the prior general Courier AUTO-REBOOT and automatic Work Permit resumption proposal**; distinguishes transport, professional check and Author decision; proposes restricted four-state triage and separation of Registrar/Auditor/Doctor. §14. | **Professional correction recorded; no new Courier authorization, continuation protocol or clinical Work Permit adopted.** |
 | **16** | **INTEGRATOR / REVIEW OF DOCTOR POSITION** | Supports removing automatic reboot and the clinical/operational test split; notes risk of overloading Courier with contextual intellectual work and of equating functional continuation with identity. §14.8. | **Independent methodological support only; all institutional choices remain with Author.** |
+| **17** | **GROK / AUTHOR-RELAYED POSITION; SIGNATURE MISSING** | Independent architectural critique relayed by Author; supports deterministic registrar, Grok/LLM as metadata-only exception reviewer, no write authority, limited Courier ZOR and narrow audit pilot. §15. No opening `[INDIVIDUAL SIGNATURE]` included in the relayed text. | **Content registered as Author-attributed evidence; individual signature needs retrospective confirmation, not silently supplied.** |
+| **18** | **CLAUDE / SIGNED POSITION_RECEIVED** | New individually signed technical review; recommends Courier G1 without GitHub connector, per-recipient prepared body, explicit enforcement classification, source-attribution checks, delivery evidence E0–E4 and delaying Registrar implementation. §16. | **Expert recommendation, no code or privilege changes authorized.** |
+| **19** | **AUTHOR / NEXT-PHASE DIRECTION** | Author instructs Integrator to conclude discussion, allocate design directions rather than personally develop; expressly allows considering Claude as responsible for technical design. | **Scope: discussion synthesis/design delegation; no repository creation, activation, or implementation blanket permit.** |
+| **20** | **INTEGRATOR / CONSOLIDATED SYNTHESIS** | Common architecture, disputed and conditional points, corrections to technical guarantees and proposed follow-on design responsibilities. §17; separate proposed conclusions document. | **Synthesis for Author approval; no invented ratification.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -593,4 +597,132 @@ Suggested limited pilot for one Courier in the existing Claude–Grok–DeepSeek
 
 **Status after reception:** `DOCTOR EMERITUS POSITION — RECEIVED`; `PREVIOUS GENERAL AUTO-REBOOT PROPOSAL — WITHDRAWN BY ITS AUTHOR`; `REVISED COURIER ZOR — PROPOSED ONLY`; `AUTHOR REVIEW — PENDING`.
 
-**END — LIVE PROTOCOL UPDATED / NO FINAL POLICY RATIFIED**
+## 15. POSITION 17 — Grok: independent Registrar/Courier critique (AUTHOR RELAY; OPENING SIGNATURE MISSING)
+
+**Received:** 2026-11-09, in Author relay, preceding delivery of Claude's new position. **Status stated in source:** consultative independent position, no appointment or normative decision. **Attribution warning:** the delivered Grok text is labelled “Независимая позиция Grok” by the Author but **does not start with the individually identifying `[INDIVIDUAL SIGNATURE]` required by the Author's rule (§9)**. Preserve this provenance accurately, request a short individually signed confirmation, and do not forge a signature retroactively. The substance may be considered as **Author-relayed, attribution pending signature confirmation**, not misrepresented as formally signed.
+
+### 15.1 Independent critique and recommendations
+
+- Agrees on `COURIER CLAIMS → INDEPENDENT EVIDENCE VERIFIES → REGISTRAR RECORDS`; a proposed append-only administrative `EVENT_LEDGER` needs deterministic validation, hash-chain and enforced effective permissions, not a model's self-certification.
+- Objection to a single LLM receiving, parsing, recording and auditing its own claims. Suggested **Grok as exception triage / independent auditor**, not a sole recorder of institutional events; **no direct authority to modify factual records or access controls**.
+- A **local deterministic registrar program** is a *proposed future pilot*, not an implemented system; proposed comparison of 5–7 Courier letters with Author's manual inspection and deliberate anomalies.
+- Courier Work is not atomic transport: recipient resolution can stale, response may still be generating, content can be reformatted, visible URL/tab ID is not enough, a transported instruction can cause prompt injection; **absence of reply does not establish nondelivery**. No self-directed continuity reboot.
+- Advocates metadata-only audit and minimized access. Proposes no `main` write, and possible read + restricted Intake issue/PR submission.
+
+### 15.2 Integrator qualifications
+
+1. **A textual opening signature is absent in the relayed Grok contribution.** The Author's relay gives a clear claimed source, but this does not itself satisfy the new author-signature protocol. Request individually signed acknowledgement before marking `SIGNED`.
+2. **Audit vs research conflict:** Grok simultaneously being a scientific group member and an auditor of that group's independent intellectual bodies would threaten independence. Restrict audit to genuinely safe metadata or select a separate auditor; even the metadata itself must be classified.
+3. **“No write” vs “may create Issue/PR”** is not a single immutable zero-write rule: Issues/PR submissions are writes to GitHub resources. Decide between no GitHub write **at all** and an explicitly narrow, technically enforceable submission path.
+4. **“Read + Intake-only write”** cannot be conferred as a per-chat title/contract in the present personal-account/shared-App configuration; the future credential and repository access topology must establish it.
+5. A proposed validator recording `EVENT_LEDGER` facts must validate **authorized claims and supporting evidence**, not decide the factual truth or semantic legitimacy of all assertions on its own.
+
+**Status:** `GROK POSITION CONTENT RECEIVED / SIGNATURE CONFIRMATION OPEN / NO REGISTRAR APPOINTMENT`.
+
+## 16. POSITION 18 — Claude / Collaboration Management Developer: signed independent technical revision (RECEIVED)
+
+**Individual signature as supplied:** `[INDIVIDUAL SIGNATURE] Claude / Collaboration Management Developer · приглашённый технический рецензент Дома Коллаборации`; unverified generation and AI_INSTANCE identifiers explicitly **not invented**.  
+**Source:** complete position pasted by Author, titled `CLAUDE_POSITION_COLLABORATION_HOUSE_COURIER_REGISTRAR_2026-11-09.md`. The title is **not proof of a GitHub file or executed software**. Claude supplied his position **after Grok's response was already relayed to Integrator**, and requested non-disclosure to Grok until its independent reply had arrived. Neither response is asserted to have been seen by the other before composition.  
+**Status:** `INDEPENDENT POSITION / NO IMPLEMENTATION / NO NORMATIVE DECISION`.
+
+### 16.1 Technical enforcement, risk and proposed G1 Courier
+
+Claude proposes **three separate assurance classes** for every rights-matrix entry:
+
+`ENFORCEMENT = TECHNICAL | DETECTIVE | PROCEDURAL`.
+
+Calls out mismatch between individual AI identity and shared GitHub App credential. Proposes **G1** as minimal pilot: a Courier without an effective GitHub connector/credential; save via Author or Assembly Master. **G2** is a separate ChatGPT identity + separate GitHub credential scoped only to a dedicated Intake repository; **G3** narrows the app's selected repositories for the entire account; **G4** is an Organization for multiple distinct credentials.
+
+**Important qualification:** GitHub `get_repo` indicated `admin=true` and app selection `all`, but this **does not prove the currently exposed ChatGPT connector can execute repository deletion, visibility changes, force updates or every GitHub admin API**. The available current connector surface includes content file writes and some branch/PR actions; the administrative destruction/visibility-change claims are **threat-model possibilities requiring effective-scope/API verification**, not demonstrated current capabilities. Thus avoid falsely stating that any current chat can necessarily delete the whole repository. Still, a Courier with broad actual file-write access and exposure to untrusted pages is an avoidable risk.
+
+**Also:** using an isolated *Chrome browser profile* and setting a Courier's role charter **does not by itself prove GitHub connector access has been technically revoked in the ChatGPT account**. Demonstrate connector/account-level isolation before labelling G1 `TECHNICAL`.
+
+### 16.2 Long-lived Courier Office vs message transport
+
+Claude corrects an internal contradiction of v1.2: “one task, one memoryless chat” conflicts with a persistent Courier Office and a long-lived ChatGPT conversation. He proposes:
+- persistent Courier Office holds **only routes, identifiers, technical statuses**, with its journal externally stored;
+- sender **prepares a distinct complete authorized package for each recipient**, with content fixed/hash-referenced *before* transport;
+- Courier carries the package verbatim and **does not decide what portions to censor**;
+- `INDEPENDENT_DRAFT` moves via `AUTHOR_RELAY` only;
+- ChatGPT Office-to-Office Work transmission via `chatgpt.com` is currently **blocked by observed host/browser policy**, so the institutional ChatGPT core retains `AUTHOR_RELAY` until independently retested.
+
+**Integrator's additional limit:** a long-lived model chat that handles message bodies **may still retain their content in its context**, even if they are not recorded to external memory. A written rule “do not store bodies” does not technically deliver no cross-contamination. For real blind independent assessments, route sensitive bodies through a human/isolated carrier or use a separately demonstrated effective transport-session isolation. This is not solved by naming a long-lived Courier “stateless”.
+
+### 16.3 Delivery evidence E0–E4 (proposal, unimplemented)
+
+| Step | Claude's proposed proof | Evidence ceiling |
+|---|---|---|
+| E0 | Recipient-specific source package committed into a permitted reference store; Git blob identifier | Canonical reference body, **not proof of delivery** |
+| E1 | Opening individual signature + `MSG_ID`, closing `END <MSG_ID> <length>` | Sender-authored framing only, **not integrity by itself** |
+| E2 | Courier reports recipient chat displays message markers, duplicate/partial cases | `AGENT_ATTESTED`, not verified exact content |
+| E3 | Author opens target chat and manually sees markers/content | `AUTHOR_OBSERVED`; depth of inspection must be reported (spot-check ≠ full body match) |
+| E4 | One-off local deterministic `fp_version` normalizer/hasher compares captured target content to reference | `DETERMINISTIC` **only if source capture itself is trustworthy, complete and covered by comparison** |
+
+**Integrative technical note:** Git blob hash and a separate normalized SHA-256/fingerprint are **not interchangeable**. The record must specify hash algorithm, normalization version, bytes/characters definition and exactly which artifact is hashed. `END` marker does not prove that all interior bytes/characters survived. A high-impact scientific Gate or legal effect cannot rely on an E3 glance at start/end as automatic proof of full delivery; the Author must actually review what matters or demand stronger content comparison.
+
+Claude says **none of E0–E4 delivery pipeline is newly implemented or run**. Legacy STEP 2 and fingerprint protocol have their own source statuses; do not promote unverified runs or plans into executed evidence.
+
+### 16.4 Source attribution, prompt injection and delayed registrar
+
+Courier only accepts actual Author command issued in the authenticated/direct authorized interaction, not a copied `ОТ: Автор` in a remote page. Signature must agree with trusted source/CHAT_REF; mismatch → `ATTRIBUTION_CONFLICT`. Trusted instructions from the Author still must be distinguished from untrusted copied snippets. Negative pilot cases: forged sender, historical “send this” command inside GitHub material, extra Grok recipient, missing END marker, wrong recipient package, Grok load/retry uncertainty.
+
+Claude wants: **no active Registrar/Watcher Office or executable event-ledger program on the first Courier pilot**; keep logs in a compatible schema and transition to deterministic recording only after separate authorization. Proposed Grok auditor receives **minimum metadata** with no GitHub connector, no fact-writing authority; its scientific peer-review independence and self-auditing conflict must be addressed.
+
+### 16.5 Explicit Claude questions for Author (all still OPEN)
+
+1. G1 Courier with **no effective GitHub connection** vs G2 separately credentialed Intake-only Courier?
+2. Narrow account-wide GitHub App install from `all` to permitted repositories, subject to an access-impact test for existing work?
+3. Sender-generated recipient-specific sealed packages, Courier may neither redact nor recompose?
+4. Dedicated browser/identity profile limited to the relevant Claude/Grok/DeepSeek services: what separation is actually enforceable?
+5. Author delivery confirmation E3 or stronger when consequential decisions rely on delivery, with honest distinction spot check vs full read?
+6. Proposed future Auditor metadata-only/no GitHub connector; if Grok, resolve conflict with scientific peer role.
+
+**Status:** `CLAUDE TECHNICAL POSITION — RECEIVED`; `V1.2 AMENDMENT SUGGESTED`; `NO IMPLEMENTATION AUTHORIZED`.
+
+## 17. Integrator synthesis of completed first discussion round (PROPOSED / NOT RATIFIED)
+
+**Contributors received:** Master of Names, Assembly Master, Ontology Keeper/Qwen, Doctor Emeritus, Grok (Author relay; **individual signature missing in pasted copy**), Claude (signed). Author is the decision-making participant and controller of inter-chat communication; Integrator only coordinates, edits and cross-checks. All prior positions are preserved in §§8,11,12,14–16, with entry index in §6.
+
+### 17.1 Strong cross-expert convergence
+
+1. **Institutional identity:** `HOUSE ≠ REPOSITORY`, `OFFICE ≠ OCCUPANT ≠ CHAT`, `PROVIDER ≠ DYNASTY`; class A/B/C/D as purpose, not clearance.
+2. **Repository minimum:** P1 personal-owned private README bootstrap is plausible **as a conditional initial carrier**, no bulk migration and no preinstalled new Offices; not adequate for read isolation among staff sharing a broad GitHub credential.
+3. **Knowledge classes:** scientific claim with semantic status, administrative event with evidence/provenance, independent/private body with technical access isolation; a shared index must be safe even at the **metadata level**.
+4. **Separation of powers:** `CLAIM / EVIDENCE / RECORD / AUTHOR DECISION`; Courier does not attest its own delivery; Registrar must not become scientific authority; Auditor cannot reliably audit its own claims or own science group's confidential bodies.
+5. **Courier scope:** authorized route/delivery evidence/technical-risk symptoms only, no unauthorized continuation, identity diagnosis, Work Permit renewal or scientific editorial decisions; the Author's opening individual-signature requirement applies to every message.
+6. **Operational humility:** Work ChatGPT domain block, long-body transformations, duplicate/resend hazards, and hidden context limits mean Courier service is a constrained pilot, not guaranteed universal transport.
+7. **Development separation:** deterministic event ledger and automatic registrar are a **later design/implementation stage**, not a service declared operational by writing a Markdown specification.
+
+### 17.2 Significant design conflicts and qualification
+
+- **Grok signature:** the received Grok contribution lacks its own individual opening signature. Keep contents as **Author-attributed contribution**, request signed confirmation; do not rewrite a historic text as if correctly signed.
+- **G1 isolation:** Claude's “Courier without GitHub connector” may require separate identity/connection setup; simply starting a chat in a dedicated browser profile is **not sufficient proof**. Cannot certify as technically enforceable until tested.
+- **Grok audit conflict:** Grok is within the Claude–Grok–DeepSeek scientific group. Auditing bodies or evidence about itself conflicts with independent peer research. Metadata-only triage under independent oversight is still a *candidate*, not appointment.
+- **Technical write privilege:** GitHub App `admin` flag is not proof that every admin action (delete repo, make private repo public) is currently supported by connected tools; verify effective app permission scopes and callable actions. The existing connected surface can edit repository files; this suffices to justify caution without exaggerated claims.
+- **Message integrity:** Git blob hash != normalized delivered-content SHA-256; `END` != proof of entire body; E3 spot check != deterministic byte match. Specify exact evidence requirements per consequence.
+- **Private main protection:** plan-dependent branch rules still unknown; procedural reviews are not a substitute for enforceable technical limitations.
+- **Courier state retention:** a long-lived conversation seeing all bodies cannot honestly claim “memoryless transport” just because no external body log is written.
+- **Grok no-write contradiction:** proposing limited GitHub Issues/PR while also declaring zero writing must be resolved by specific operations and credential boundaries.
+- **Identity continuity:** passing professional checks is not proof of personal-instance sameness, and no Continuation Gate pass automatically permits institutional resumption.
+
+### 17.3 Integrator's recommended project direction (not automatically issued Work Permits)
+
+**Proposed technical design coordinator:** **Claude / Collaboration Management Developer**, for a bounded **DESIGN ONLY** follow-up phase. This is a *project coordination assignment at Author's invitation*, **not** a new Office, successor activation or permission to write code/change Github settings.
+
+**Specific design workstreams:**
+- Claude: produce `HOUSE_TECHNICAL_DESIGN_V0_1` with access-threat matrix `TECHNICAL/DETECTIVE/PROCEDURAL`, viable G1 courier isolation architecture, staged event-envelope/delivery evidence format, and a precise deferred path for deterministic Registrar; mark unresolved questions.
+- Assembly Master: factual repo/credential capability grid and minimal private README bootstrap option, **no repo creation until Author approval**.
+- Master of Names: proposed identity grammar and provider-independent Dynasty naming; review only, no migration yet.
+- Keeper: disclosure/index schema minimization and scientific vs institutional provenance boundary; prevent premature Canon promotion.
+- Doctor Emeritus (advisor only) / active Doctor when separately available: proposed Courier medical escalation checklist and continuation denial cases, not unauthorized clinical action.
+- Grok (prospective exception analyst, no appointment): independent metadata-only audit critique, limited to disclosed examples, no access to blind scientific bodies.
+
+**Author confirmation still needed for**: selection of initial P1/G1 and effective technical isolation, level/limits of public registry metadata, protection of new private repo, assignment of actual implementation executor/Work Permit, possible auditor Office, and adoption of full design.
+
+### 17.4 Closing discipline
+
+The **first independent-position round** is complete as far as received contributions. The **discussion minutes remain temporarily LIVE** until the Author has reviewed the proposed conclusions. A separate `COLLABORATION_HOUSE_CONCLUSIONS_PROPOSED_2026-11-09.md` must distinguish consensus/recommendations/OPEN from `AUTHOR_DECISION`.
+
+After explicit Author ratification: publish approved conclusions (with the exactly approved scope), move this LIVE minutes file to `Museum/Discussions` retaining Git history, and remove the live path in one controlled reviewed operation. No implied acceptance just because the record is in GitHub.
+
+**END — LIVE PROTOCOL UPDATED / AUTHOR RATIFICATION PENDING**
