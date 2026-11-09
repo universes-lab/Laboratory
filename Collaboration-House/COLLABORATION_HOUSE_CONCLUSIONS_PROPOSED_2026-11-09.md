@@ -126,4 +126,12 @@ This amendment **supersedes the earlier preferred Courier storage topology and p
 
 **Status:** `AUTHOR DESIGN DIRECTION — V4b`; `TECHNICAL GATE — PENDING`; `IMPLEMENTATION WORK PERMIT — NONE`.
 
+## G. V4b review results — Assembly Master CONDITIONAL ACCEPT; U18 PARTIAL (2026-11-09)
+
+The first independent technical reviewer, Assembly Master, **conditionally accepts** V4b, subject to (i) removing the shared ChatGPT GitHub App mailbox write bypass, (ii) completing the actual Work localhost submit/readback operation U18, and (iii) a durable single-writer queue with authenticated local session and safe Git recovery. No authorization to create a mailbox repo, issue credentials or implement was given.
+
+The experimental Chrome connection report observes Work/Chrome on `http://localhost:5999/templates/`, including reading the page, typing `U18-5999-CHECK-904`, and clicking an unrelated dropdown. **Echo/submit readback, numeric `127.0.0.1`, file operations remain unverified**: `U18 PARTIAL`, not PASS.
+
+**Action:** authorize/locate a harmless echo fixture to finish U18; parallel design revision V0.2 may specify conditional paths but must not claim full physical interface success or start the production bridge. See live protocol §§26–28.
+
 **END — PROPOSED CONCLUSIONS; AUTHOR REVIEW REQUIRED**
