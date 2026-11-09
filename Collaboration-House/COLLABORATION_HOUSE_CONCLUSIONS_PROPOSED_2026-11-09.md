@@ -116,4 +116,14 @@ IMPLEMENTATION_WORK_PERMIT: NONE_ISSUED_HERE
 
 The live discussion file stays in `Laboratory/Collaboration-House/` until the Author confirms the decision set. Then adopt a separate approved conclusions document with exactly ratified scope, move the full minutes to `Collaboration-House/Museum/Discussions/` and remove its live path through a reviewed Git operation. All materials currently in Laboratory are **public** and must not contain restricted content.
 
+## F. POST-ROUND-3 AMENDMENT — 2026-11-09 (V4b baseline for design)
+
+**Author:** “Принято! Согласен?” after Claude Round 3; **Integrator:** agrees with V4b conditionally. See [live protocol §23](https://github.com/universes-lab/Laboratory/blob/main/Collaboration-House/DISCUSSION_PROTOCOL_LIVE_2026-11-09.md).
+
+This amendment **supersedes the earlier preferred Courier storage topology and pilot ordering in B2/D where inconsistent**: the proposed primary architecture is now `V4b: Work Courier → narrow localhost submission/pickup interface → deterministic bridge with repo-scoped private GitHub-mailbox credential; Grok as exception-only watcher`. The Courier **does not read/write GitHub directly**. The ledger/queue is mechanical; Grok is not a self-attesting registrar. Claude's HF V2 is fallback, not primary. The Author remains controller of normative decisions.
+
+**No implementation decision follows:** U18 (Work↔localhost) is untested; local mail UI must resist cross-origin/CSRF/DNS-rebinding and use real per-line identity; existing ChatGPT shared GitHub connection for any `outbox/` is NOT folder-level technically isolated; rigorous append-only/audit protections are not yet implemented. A separate explicit Work Permit is needed before writing software, creating repos or issuing keys. Claude may revise `HOUSE_TECHNICAL_DESIGN_V0_2` on design authority alone.
+
+**Status:** `AUTHOR DESIGN DIRECTION — V4b`; `TECHNICAL GATE — PENDING`; `IMPLEMENTATION WORK PERMIT — NONE`.
+
 **END — PROPOSED CONCLUSIONS; AUTHOR REVIEW REQUIRED**
