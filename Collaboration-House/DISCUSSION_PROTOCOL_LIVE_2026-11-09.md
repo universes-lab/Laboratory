@@ -707,7 +707,7 @@ Claude wants: **no active Registrar/Watcher Office or executable event-ledger pr
 
 ### 17.3 Integrator's recommended project direction (not automatically issued Work Permits)
 
-**Proposed technical design coordinator:** **Claude / Collaboration Management Developer**, for a bounded **DESIGN ONLY** follow-up phase. This is a *project coordination assignment at Author's invitation*, **not** a new Office, successor activation or permission to write code/change Github settings.
+**Design-only coordinator designated:** **Claude / Collaboration Management Developer**. The Author expressly allowed the Integrator to assign post-discussion work directions and a responsible technical expert. Under that narrowly delegated coordination authority the Integrator assigns Claude to **prepare an architectural proposal v0.1 and coordinate professional technical inputs**, **not** to implement, create a repo, change permissions, appoint an Office or issue an independent Work Permit. The assignment becomes an actionable request to Claude when relayed by the Author, not by its mere appearance in a public document.
 
 **Specific design workstreams:**
 - Claude: produce `HOUSE_TECHNICAL_DESIGN_V0_1` with access-threat matrix `TECHNICAL/DETECTIVE/PROCEDURAL`, viable G1 courier isolation architecture, staged event-envelope/delivery evidence format, and a precise deferred path for deterministic Registrar; mark unresolved questions.
@@ -717,7 +717,7 @@ Claude wants: **no active Registrar/Watcher Office or executable event-ledger pr
 - Doctor Emeritus (advisor only) / active Doctor when separately available: proposed Courier medical escalation checklist and continuation denial cases, not unauthorized clinical action.
 - Grok (prospective exception analyst, no appointment): independent metadata-only audit critique, limited to disclosed examples, no access to blind scientific bodies.
 
-**Author confirmation still needed for**: selection of initial P1/G1 and effective technical isolation, level/limits of public registry metadata, protection of new private repo, assignment of actual implementation executor/Work Permit, possible auditor Office, and adoption of full design.
+**Author confirmation still needed for**: adoption of P1/G1 and isolation controls, public registry metadata limits, protection of new private repo, any actual implementation executor/Work Permit, possible Auditor Office, and acceptance of the finished design. **Claude's limited preparatory design coordination is assigned, not a delegation of institutional or implementation authority.**
 
 ### 17.4 Closing discipline
 
