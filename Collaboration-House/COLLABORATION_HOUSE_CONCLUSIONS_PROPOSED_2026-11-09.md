@@ -81,13 +81,13 @@
 | A7 | What evidence suffices for consequential delivery-dependent decisions, E3 partial vs E4? | **REQUIRE explicit case-based evidence and accurate grade**, no blanket shortcut |
 | A8 | How to enforce real per-agent GitHub connection and confidential metadata restrictions? | **OPEN technical architecture**, separate credential/repositories or mediated disclosure |
 | A9 | Should Grok provide a signed attestation for its relayed consultation? | **REQUEST**, not a veto of discussion |
-| A10 | Who is responsible for *design phase only* and who reviews? | **CLAUDE as coordinating designer**, Author confirms scope |
+| A10 | Who leads the *preparatory design phase*, not implementation? | **CLAUDE designated by Integrator under Author's permission to assign work directions**; no extra Office or implementation permit |
 
 **Existing explicit Author decisions from earlier discussion:** Chief Integrator maintains the live protocol as sole editor; Author relays between ChatGPT chats; signature at the beginning of every collective message. These were already authorized. All other rows above remain recommendations.
 
 ## D. Work directions after this discussion — **DESIGN ONLY**, not implementation
 
-**Chief Integrator's proposed responsible design coordinator:** **Claude / Collaboration Management Developer**. The Author expressly allows the Integrator to organize design directions rather than personally develop; this is not an appointment to a new institution-wide Office and does not issue a code-writing permit.
+**Chief Integrator's assigned preparatory design coordinator:** **Claude / Collaboration Management Developer**. This follows the Author's express permission to distribute post-discussion design directions and appoint a responsible expert. Assignment scope: prepare one architecture proposal and coordinate consultations after Author relay. **Not** a new Office, an implementation Work Permit, repository-write authorization or permission to initiate coding.
 
 | Contributor | Recommended bounded next deliverable | Prohibited by this design request |
 |---|---|---|
@@ -110,7 +110,7 @@ PRIVATE_REPO_CREATION: NOT_AUTHORIZED_BY_THIS_DOCUMENT
 COURIER_BIRTH: NOT_AUTHORIZED_BY_THIS_DOCUMENT
 WATCHER_REGISTRAR_ACTIVATION: NONE
 LEDGER_IMPLEMENTATION: NOT_AUTHORIZED
-TECHNICAL_DESIGN_RESPONSIBILITY: CLAUDE_PROPOSED_BY_INTEGRATOR
+TECHNICAL_DESIGN_RESPONSIBILITY: CLAUDE_DESIGN_COORDINATOR_ASSIGNED_SCOPE_PROPOSAL_ONLY
 IMPLEMENTATION_WORK_PERMIT: NONE_ISSUED_HERE
 ```
 
