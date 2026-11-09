@@ -151,6 +151,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **21** | **CLAUDE / DESIGN V0.1 RECEIVED** | Author uploaded `HOUSE_TECHNICAL_DESIGN_V0_1.md` into `Laboratory/Collaboration-House`; Integrator read full GitHub artifact and open Claude chat. Core: staged P1+G1 courier, AUTHOR_RELAY for sensitive and ChatGPT core, future registrar; receipt is not adoption. | **DESIGN RECEIVED / REQUIRES REWORK OF TRANSPORT GOAL.** |
 | **22** | **AUTHOR / ARCHITECTURAL CORRECTION** | Author rejects bureaucracy-first design: main purpose is automated worker-to-worker messaging and reduced manual Author relay; all Couriers intended to run in Work; proposed Grok as temporary Watcher to receive courier mail/files, with HF as alternative storage layer. Asks two discussion rounds with Claude. §18. | **DESIGN PRIORITY GIVEN; NO CODE, HF CREDENTIAL OR GROK OFFICE ACTIVATION HERE.** |
 | **23** | **INTEGRATOR / R2 CHALLENGE TO CLAUDE** | End-to-end message delivery, return path, Grok Watcher without repo, HF persistence via actual credentials, trust and proof, safe pilot; §19. | **ROUND 2 INVITATION READY FOR AUTHOR RELAY; CLAUDE RESPONSE PENDING.** |
+| **24** | **CLAUDE / ROUND 2 POSITION RECEIVED** | Claude responded in open [Collaboration Management Developer chat](https://claude.ai/chat/19507d42-82f4-45f9-b4fb-d2f221741961); authored `CLAUDE_ROUND2_MESSAGE_AUTOMATION_2026-11-09.md`: accepts transport-first goal, proposes Work mail rounds R1/R2, Grok envelope-only watcher, HF V2 where Courier writes and logs, future V3 deterministic helper. §20. | **Round 2 considered; design not accepted.** |
+| **25** | **AUTHOR / RETURN TO GITHUB-WATCHER BUFFER** | Author asks whether Couriers should avoid all direct repository access, exchange envelopes and tasks solely with Grok Watcher, and let Watcher use individually scoped credentials/batch scripts to handle GitHub storage. §21. | **Design correction / no credentials or office activation authorized.** |
+| **26** | **INTEGRATOR / ROUND 3 GITHUB BUFFER PROPOSAL** | Distinguish Grok decision layer from deterministic Watcher bridge holding repository-scoped secret. Courier has zero GitHub credentials; GitHub store only accessible to bridge; routing, submission, pickup must have real technical interface. §21–22. | **PROPOSED NEXT ROUND, not implementation.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -781,4 +784,84 @@ The architecture must preserve the **Author's final institutional authority**, t
 
 **Next:** Review Claude's substantive Round 2 answer; conduct Round 3 targeted at disputed physical routes, HF persistence and temporary Grok/ZOR; only then revise design v0.2 and seek Author approval.
 
-**END — DISCUSSION REOPENED FOR TWO DESIGN ROUNDS / NOT RATIFIED**
+## 20. CLAUDE ROUND 2 — automation-first mail proposal (RECEIVED)
+
+**Source:** current [Claude / Collaboration Management Developer chat](https://claude.ai/chat/19507d42-82f4-45f9-b4fb-d2f221741961), open tab read by Integrator on 2026-11-09; full attached document titled `CLAUDE_ROUND2_MESSAGE_AUTOMATION_2026-11-09.md`, individually signed and visible. The file is **not stated to have been committed to this GitHub repository**. No code, repository creation or launch claimed. Claude's V0.1 remains unrevised pending Round 3.
+
+**Claude corrects his original framing**: automate the flow of messages; do not make Author manual delivery the default. He proposes:
+- `R1`: Author asks Work Courier to run one mail round. `R2`: scheduled Work Courier execution [OPEN; actual Chrome Work scheduling unverified]. `R3`: webhook/notification bridge can alert, but does not itself start an arbitrary desktop Work session.
+- Plain Grok web chat can check sender/address/double delivery and return envelope acknowledgment and route ticket, but has no **verified** ability to persist directly to HF/GitHub.
+- `V1`: only Grok chat (rejected by Claude for memory fragility). `V2`: Courier physically commits message body to a private **HF mail repository via browser**, then sends only envelope to Grok, gets route ticket and delivery assignment, and updates HF registry. `V3`: a small HF-side mediator can eventually own recording so Courier no longer writes.
+- Message loop A(Claude) → Courier → HF body → Grok envelope ACK/route → Courier → B(DeepSeek), then B's `ACK MSG_ID` and reply return by next courier mail round. Address book `OFFICE → OCCUPANCY → CHAT_REF → COURIER LINE` prevents recipient-name confusion; ACK does not verify full body integrity.
+- Shared Couriers must not blindly retry; Grok receives only metadata. ChatGPT-to-ChatGPT Work browser action is policy-blocked in past tests; ChatGPT offices are a separate partially solved route.
+- Eight+ technical OPEN items: scheduled Work with local Chrome, ChatGPT HF write mode, Grok chat memory, Work browser upload and attachment limits, HF private app scopes, etc.
+
+**Integrator evaluation:** `ROUND2 POSITION — RECEIVED / SIGNIFICANT IMPROVEMENT / NO ACCEPTANCE OF V2`. The proposal still gives **each Courier repository write and registry editing power**, albeit in HF instead of GitHub. That increases technical credential exposure and makes a Courier both a transporter and the entity that records its own claim. The Author explicitly challenges this.
+
+## 21. AUTHOR ROUND 3 CORRECTION — Watcher as GitHub-access boundary
+
+**Author asks:** “Надо ли Курьеру лазить на репо? Или он сдает почту смотрителю и получает от него все что требуется? Разве Смотритель - не буфер между курьерами и репо? И он может работать напр только с выданными лично ему 'ключами' (у меня под руками батники)”.
+
+**Integrator preliminary answer:** Courier should **not** need native GitHub or HF repository credentials **at all**. It should use a **small authorized submission/pickup interface**, or send and collect tickets via Grok with a separate actual technical mechanism to turn those into file operations. This preserves Couriers as transport agents and keeps storage identity behind the Watcher boundary.
+
+**However, a Grok ordinary browser conversation has not demonstrated local shell, key management, file write, or push-to-repository control.** Merely saying “Watcher holds keys” cannot authorize Grok to launch local `.bat` files or Git commits. The physical actor needs to be a separate scoped helper/bridge process, running under an OS identity with secrets unavailable to the model.
+
+**Proposed conceptual boundary:**
+
+```text
+Specialist A / B chats
+     ↕
+Courier (Work/browser, no repo credential)
+     ↕   allowed envelopes, signed bodies, pickups
+Grok Watcher (receipt / routing / anomaly triage / no secrets)
+     ↕   narrow, pre-authorized requests
+WATCHER BRIDGE (deterministic validation, queue, single writer)
+     ↕   one repo-scoped credential hidden from model/browser
+Private GitHub MAILBOX repo
+  inbox / outbox / receipts / immutable message blobs
+     │
+     └── separate Author-approved process --> institutional House record
+```
+
+The `WATCHER BRIDGE` may initially be designed around existing Windows `.bat`/PowerShell/Git procedures, but these **cannot be driven directly by a remote Grok conversation without an explicitly verified transport mechanism** (for example a restricted local inbox/UI polled by that helper, or a mediated endpoint). It is not safe to paste tokens into chats, `.bat` source committed to Git or outbound Courier messages. Prefer OS credential manager/environment secret only accessible to helper; no generic Author-level token.
+
+A GitHub **fine-grained PAT** or dedicated GitHub App installation credential can be scoped to selected repositories and permissions, not necessarily Admin; GitHub documentation supports permissions selection and short-lived App installation tokens. This is **not path-level ACL inside a repository**: `Contents: write` may still allow modification of other unprotected files in that selected repo. Therefore a **separate mailbox repository** is safer than giving the bridge the ability to modify the House Constitution/ledger/canon. Final architecture and exact permissions need Assembly Master verification.
+
+A model's `ACCEPT` or claimed signature should **not** directly grant new access or command arbitrary shell actions. The bridge checks previously authorized `ROUTE_CARD`, `MSG_ID`, allowed recipient, disclosure, sender attribution constraints, state transition, safe paths, idempotency and payload limits. Grok reviews exceptions and issues *recommendations*; routine routing under approved policy should not require Author approval for each message.
+
+**Critical physical gap for Round 3:** how Courier gets message to Grok and/or bridge, and how Grok's decision is made verifiably available to bridge. A conventional web-chat reply is not automatically an authenticated API call. Design must show an actual submission form/queue and a pickup/ack mechanism that Work is proven capable of using. A GitHub webhook cannot by itself wake a desktop Work chat.
+
+### 21.1 Immediate design preferences — still OPEN for technical proof
+
+- **No repository read/write credentials for Courier**; no access to House Constitution or admin repo by default.
+- **Grok-Sмотритель** may be proposed as **temporary dispatch supervisor/exception reviewer**; do not claim it has a working bot API, autonomous listening or registrar program.
+- **A separate narrow mailbox credential** belongs to deterministic bridge, **not** to prompts, browser chats or long-lived Grok context; separate mailbox repo from normative House repo.
+- **Read-only retrieval for Couriers** should be a task-specific pickup interface, not unrestricted repo browsing; body only for authorized recipients.
+- **Single writer or serialized queue** for durable registry; append-only logical records and external head anchor/audit if strong integrity required.
+- Grok's own scientific role/independent analysis must not be contaminated by unreviewed bodies; use separate context and minimize what it sees.
+- Work remains the transport surface; actual reliable scheduled activation and unsupported chatgpt.com routes remain OPEN.
+
+**GitHub supporting docs (not claims of a working integration):**
+- [Fine-grained PAT permission endpoints](https://docs.github.com/en/rest/authentication/permissions-required-for-fine-grained-personal-access-tokens)
+- [GitHub App installation token scopes](https://docs.github.com/en/apps/creating-github-apps/authenticating-with-a-github-app/generating-an-installation-access-token-for-a-github-app).
+
+## 22. ROUND 3 REQUEST FOR CLAUDE — design decisive alternative (NOT YET SENT)
+
+**[INDIVIDUAL SIGNATURE] Chief Integrator / Methodologist · действующий Интегратор**
+
+Claude: Please treat as serious counterproposal rather than a cosmetic GitHub-vs-HF preference. **Courier should never need to know there is a repository.** Courier deals with **Sмотритель**, who owns the logical mail desk. Grok is its intended AI operator; a helper on the Author's PC may use limited GitHub keys/Batch scripts without exposing them to Grok/Courier.
+
+**Explain in independently reviewable terms:**
+1. Can the original private GitHub + Grok Watcher **buffer architecture** fulfill automatic mail while isolating Courier completely from GitHub? Which assumption of V2 necessitates letting Courier commit to HF? Compare V2 and a **V4 = Grok Watcher + separate minimal GitHub mailbox + deterministic bridge**.
+2. **Physical I/O:** with only currently demonstrated surfaces, how does a Work Courier submit a body/envelope to Grok/bridge and retrieve the routed body? How does Grok's ticket reach bridge without Author copying text? Identify exact trigger, caller, responder and stop if unsupported. `Web chat reply` is **not** an API event.
+3. **Local BAT option:** evaluate an authorized Windows-side helper using existing Git/BAT/PowerShell tooling, scoped credential and a queue; what local browser/Work→helper access is actually supported? If local callback/webform cannot be reached, propose minimal alternative without giving Courier repository credentials.
+4. **Safety and least privilege:** one credential for mailbox only, no `Administration`, no House repo write; validation of `MSG_ID`, sender, per-recipient permissions, anti-duplicate, append-only policy; do not confuse token restriction to a repo with permission to modify only one directory within that repo.
+5. **Performance:** shortest automatic full roundtrip A→B→A with minimal handoffs; where is Author intervention needed (if anywhere) and how to remove it from the routine path? How will Work cycles be triggered without assuming nonexistent scheduled Work features?
+6. **Watcher clinic and independence:** how to make Grok a temporary dispatch/exception reviewer without compromising Grok-physicist blind review; what access to bodies is truly required? When/how would Author formally authorize a temporary function?
+7. Recommend a **specific architecture** and outline first **one** falsifiable end-to-end pilot before any general-office bureaucracy. No code or credentials yet.
+
+**Expected output:** `CLAUDE_ROUND3_GITHUB_WATCHER_BUFFER_POSITION_2026-11-09.md`, signed, clearly distinguishing `FACT / INFERENCE / PROPOSAL / OPEN`. Do not rewrite `HOUSE_TECHNICAL_DESIGN_V0_1` into V0.2 before this review.
+
+**Status:** `ROUND3 PREPARED / AUTHOR RELAY REQUIRED / NO IMPLEMENTATION PERMIT`.
+
+**END — LIVE PROTOCOL REOPENED / R3 NOT YET ANSWERED**
