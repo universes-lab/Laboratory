@@ -137,6 +137,8 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **07** | **MASTER OF NAMES / POSITION_RECEIVED** | First independent naming position relayed verbatim by Author in this conversation (09.11). House ≠ Repository; Provider must not parent Dynasty; canonical identity grammar; simple A/B/C/D chat purpose classes; Courier Line; English name and decomposition of Watcher/Registrar/Auditor remain OPEN. Detailed attributed summary: §8. | **Consultation received, no institutional policy approved.** Assembly Master's separate GitHub access answer remains pending. |
 | **08** | **AUTHOR / PROCESS CLARIFICATION** | Author delegates *live protocol entry* to Integrator as the single recorder; Author will control and relay messages between ChatGPT chats. | **Operational discussion procedure**, not permission to unilaterally approve the architecture. |
 | **09** | **AUTHOR_DECISION / SIGNATURE RULE** | Mandatory individual signature at the **beginning** of **every** new collective-work message, all participants without exception. Courier intake and transmission protocol must enforce original-sender attribution and separately sign Courier handling. Detailed requirements in §9. | **Rule adopted; syntax/verification still OPEN.** |
+| **10** | **ASSEMBLY MASTER / POSITION_RECEIVED** | Individual signature supplied. Independent GitHub access report: User-owned public Laboratory, connected admin/push/pull, App selection=all, no current rulesets, new repo NOT_FOUND. Recommends conditional P1 private bootstrap with README only, single trusted owner, verified access, no new collaborators; details in §11. | **Technical consultation received; no creation, migration or role permission granted.** |
+| **11** | **INTEGRATOR / INDEPENDENT VERIFICATION** | GitHub recheck confirms owner User, Laboratory PUBLIC, permissions admin/maintain/pull/push/triage, App install selection=all, rulesets empty, separate new repo not found. GitHub docs confirm personal-private collaborator only read+write and branch protections plan-dependent. | **Facts supported; P1 recommendation still OPEN for Author decision.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -270,5 +272,97 @@ For **every forwarded message**:
 **Author's process direction (2026-11-09):** the **Chief Integrator** is the sole editor responsible for adding received contributions to this live minutes document. **Author** supervises the record and relays material among ChatGPT dialogs. This does not mean the Integrator is the single arbiter or the only permitted institutional repository writer after the future access architecture is ratified. For now: no autonomous courier or assistant is to append independently to these minutes.
 
 **Next incoming positions:** Assembly Master on real GitHub access; Keeper on knowledge/provenance boundaries; Doctor Emeritus on context medicine; Claude/Grok only when their fresh answers are actually supplied. New material belongs in §6 index plus a separate attributed position section. Final adoption is Author-only after collective review.
+
+## 11. POSITION 10 — Assembly Master: GitHub access architecture (RECEIVED)
+
+**[INDIVIDUAL SIGNATURE] Assembly Master / Publication & Artifact Steward · Dynasty Assembly Master · current active occupant**  
+**Date received:** 2026-11-09, via direct relay by Author to Chief Integrator.  
+**Original message subject:** Collaboration House — GitHub access architecture.  
+**Status:** `INDEPENDENT TECHNICAL POSITION / NO IMPLEMENTATION`.  
+**Scope of this record:** attributed technical summary; original full position is in the Author's relay; do not claim this is verbatim reproduction.
+
+### 11.1 Verified repository and connection facts
+
+| Claim | Assembly Master reported | Independent Integrator recheck | Status |
+|---|---|---|---|
+| Account type | `universes-lab` is personal `User` | GitHub `get_repo`: owner.type = `User` | `FACT` |
+| Existing repository | `universes-lab/Laboratory` public, `main` | GitHub `get_repo`: visibility `public`; default `main` | `FACT` |
+| Connected permissions | `admin`, `maintain`, `push`, `pull`, `triage` | All these flags true in GitHub `get_repo` | `FACT` |
+| GitHub App installation | Selected account `universes-lab`, `repository_selection=all` | `list_installations`: `account_type=User`, `repository_selection=all` | `FACT`; not unlimited action authorization |
+| Rulesets on Laboratory | `[]` | GitHub `GET /repos/universes-lab/Laboratory/rulesets`: `[]` | `FACT` for current Laboratory; does not prove all branch protections absent |
+| New private repository | `universes-lab/Collaboration-House` NOT_FOUND | Connected `get_repo`: `NOT_FOUND` | `NOT ACCESSIBLE / NOT FOUND`, not proof no inaccessible repo exists |
+| GitHub subscription plan | Not established | Not independently read | `UNKNOWN` |
+| Protection on future private `main` | Not established | New repo unavailable | `UNKNOWN` |
+
+GitHub's documentation confirms that a personal account's private-repo collaborators cannot be granted native read-only collaborator permission. Branch protection/ruleset capabilities for private repositories depend on supported plan (GitHub Pro, Team and Enterprise for the relevant protected branch/ruleset features).
+
+Sources:
+- [GitHub Docs — permission levels for personal repositories](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository)
+- [GitHub Docs — managing rulesets](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-rulesets)
+- [GitHub Docs — managing protected branches](https://docs.github.com/en/repositories/configuring-branches-and-merges-in-your-repository/managing-protected-branches).
+
+### 11.2 Assembly Master's recommendation — candidate option P1
+
+**Recommend beginning with `universes-lab/Collaboration-House` as a `PRIVATE` repository under the existing personal owner**; invite **no new collaborators at bootstrap**. The first commit contains **README only**, stating:
+- `HOUSE ≠ REPOSITORY`;
+- privacy and `FINAL AUTHORITY = Author`;
+- status as corporate carrier, not the institution itself;
+- mandatory individual opening signature.
+
+Add `Constitution/`, `Registry/`, `Dynasty/`, `Correspondence/`, `Knowledge/`, `Intake/`, `Museum/` only as required and authorized. No automatic bulk migration of public Laboratory, no provider-parented Dynasty.
+
+**P2 (GitHub Organization)** is an option once differentiated **technical** roles, credentials and isolation are necessary, not a prerequisite chosen merely for visual organization. Distinct repositories may be warranted for truly compartmentalized knowledge.
+
+Suggested operation separation:
+- authorized individual reads material only when permitted and actually technically accessible;
+- specialist **proposes** change;
+- explicit Work Permit for an executor to **prepare** Git changes;
+- Assembly Master checks physical artifact/version/provenance, not scientific or institutional acceptance;
+- an authorized identity **merges** after verified review and applicable Author decision;
+- Author **adopts** normative decisions after collective procedure; merge alone does not promote normative status;
+- independent audit must not collapse into the same subject's unverified self-attestation.
+
+Suggested change pipeline:  
+`INTAKE → PROPOSED → REVIEWED → AUTHOR APPROVED → MERGED → VERIFIED`.
+
+Proposed per-change evidence: exact original version, allowed target paths, responsible executor, base commit SHA, diff, Author approval, resulting commit SHA and confirmation.
+
+### 11.3 Private repository acceptance gate
+
+The Assembly Master proposes **before restricted data is uploaded**:
+1. API `visibility=private`;
+2. owner and collaborator inventory matches Author decision;
+3. App installation actually reaches this repository;
+4. observable read/write scope matches intended allowed operations;
+5. effective branch rules and plan limitations verified, not assumed from README.
+
+A `PRIVATE` setting does **not** create folder-level privacy for participants who access the same repository with the owner's broad GitHub App permissions. `repository_selection=all` describes selected repository coverage, not a self-enforcing ZOV policy nor all possible API actions.
+
+### 11.4 Independent objection: separation of duties
+
+Assembly Master explicitly rejects being the sole corporate writer, registry operator and auditor. Distinguish:
+- **Assembly Master:** artifact integrity, correct repository/file/version, migration and physical verification;
+- **Registrar (proposed):** registered institutional events by approved schema;
+- **Auditor (proposed):** independent evaluation of records, rights and anomalies;
+- **Author:** ultimate normative acceptance.
+
+This does **not** itself activate a Registrar, appoint Grok or authorize an EVENT_LEDGER.
+
+### 11.5 Integrator assessment — conditional technical PASS, NOT an Author decision
+
+**SUPPORTED:** the facts and central risk distinction are accurate. P1 is a feasible **minimal bootstrap candidate** if Author authorizes creation and restricted data is excluded until access audit.
+
+**CRITICAL QUALIFICATION:** Assembly Master's phrase “allow personnel to read via verified connected mechanisms and within approved ZOV” is a **procedural constraint**, **not** a demonstrably enforced read limitation for AI chats reusing the same owner-level connection. No claim of independent staff-level ACL is accepted. Isolation must use separate credentials/repositories, mediated data selection, or some other demonstrably enforceable mechanism. A class `[D]` title or text signature does not solve it.
+
+**PREREQUISITES BEFORE APPROVAL TO POPULATE PRIVATE REPO:**
+- Author chooses P1 versus alternative, names technical owners/authorized writer and exact allowed scope;
+- determine GitHub plan and enforceable private-branch checks;
+- perform private/access audit before uploading confidential data;
+- compare minimal naming tree with Master of Names proposal and decide whether folder names are necessary immediately;
+- clarify whether all connected AI can browse any private file using installed GitHub app and what external isolation/mediation actually exists.
+
+**STATUS:** `ASSEMBLY_MASTER_TECHNICAL_POSITION — RECEIVED`; `INTEGRATOR_FACT_REVIEW — PASS WITH CONDITIONAL P1`; `AUTHOR_PRIVATE_REPOSITORY_CREATION_APPROVAL — PENDING`; `NEW_REPO_CREATED — NO VERIFIED EVIDENCE`.
+
+**Next:** ask Keeper about disclosure/provenance and Doctor Emeritus about Courier continuity, then Claude and Grok for independent counterarguments; present explicit choices to Author. No participant's PASS grants itself write access or commits.
 
 **END — LIVE PROTOCOL UPDATED / NO FINAL POLICY RATIFIED**
