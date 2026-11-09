@@ -159,6 +159,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **29** | **INTEGRATOR / CONDITIONAL PASS** | Design principle V4b supported; mechanical registration distinct from Grok exception triage. Shared GitHub App outbox access is not folder-level ACL; local mail interface needs authenticated per-line capability, cross-origin/CSRF protections and actual Work proof. §23.2. | **Conditional methodological pass, not technical Gate pass.** |
 | **30** | **ASSEMBLY MASTER / TECHNICAL REVIEW REQUESTED** | Author directed Integrator to request Assembly Master's independent professional accept/accept-with-conditions/reject verdict on V4b, actual repository/credential isolation and BAT/PowerShell feasibility. §24. | **INVITATION PREPARED / REPLY PENDING; no technical approval inferred.** |
 | **31** | **CHROME CONNECTION / U18 CHECK REQUESTED** | Author directed an independent technical Work/localhost feasibility task; selected existing experimental Chrome connection chat rather than occupied active Doctor. §25. | **TEST INSTRUCTIONS PREPARED / NO EXECUTION OBSERVED.** |
+| **32** | **ASSEMBLY MASTER / V4b TECHNICAL VERDICT RECEIVED** | Individually signed response relayed by Author, `VERDICT: CONDITIONAL ACCEPT`: mailbox-only fine-grained key, block ChatGPT shared-App bypass, PowerShell local single-writer queue, no shell interpolation, safe persistence/recovery, U18 before build. §26. | **Professional conditional acceptance, NOT implementation authority.** |
+| **33** | **EXPERIMENTAL CHROME CONNECTION / U18 REPORT RECEIVED** | Author relays result `U18: PARTIAL`: Work mode and Chrome control verified; `http://localhost:5999/templates/` visible; input `U18-5999-CHECK-904` entered; unrelated Projects dropdown clicked; echo result not demonstrated, file operations untested, numeric `127.0.0.1` untested. §27. | **Localhost interaction promising; end-to-end submit/echo not PASS.** |
+| **34** | **INTEGRATOR / NEXT GATE RECOMMENDATION** | Finish narrowly scoped inert local form echo and numeric loopback check; retain no-repo/no-key/no-code permit state, then send consolidated verified constraints to Claude for V0.2. §28. | **Design-stage action only; no infrastructure created.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -932,5 +935,55 @@ Claude may prepare the revised `HOUSE_TECHNICAL_DESIGN_V0_2` **as design only**,
 
 **Status:** `REQUEST DRAFTED / TEST NOT RUN BY INTEGRATOR / AUTHOR TO RELAY`.
 
-**END — LIVE PROTOCOL / TWO FOLLOW-UP REQUESTS PREPARED / NO IMPLEMENTATION AUTHORIZED**
+## 26. Assembly Master responds to V4b — CONDITIONAL ACCEPT (RECEIVED)
+
+**Source:** Full **individually signed** Assembly Master / Publication & Artifact Steward report relayed by Author on 2026-11-09. **Status:** `INDEPENDENT TECHNICAL REVIEW / NO IMPLEMENTATION`.
+
+**Professional verdict:** `V4b — CONDITIONAL ACCEPT`. Assembly Master validates conceptual separation: Courier transports, local mediator commits to GitHub, Watcher deals with exceptions; Author is not a regular message carrier.
+
+**Explicit conditions:**
+1. **One dedicated PRIVATE mailbox repo**, and a fine-grained credential limited to that repo, `Contents: read/write`, **no Administration** and no access to institutional House or other repositories. Credential is local and revocable by Author; no token in BAT source, logs, git remote URLs, chats or repository. An installation-scoped GitHub App alternative exists but is considered overkill for first pilot.
+2. **Shared ChatGPT GitHub connection bypass must be eliminated**, or a Mailbox single-writer claim is false: existing GitHub App selection `all repositories` could also write to the new Mailbox. A `outbox/<OFFICE_CODE>` directory is **not** an ACL; if changing the installation would disrupt other work, do not let ChatGPT Offices directly write to Mailbox. Check all other privileged credentials.
+3. `BAT` only starts/stops local component; `PowerShell` (or similar) receives and validates requests; `Git CLI` writes through **one sequential writer** with durable queue (atomic local file persistence), replay/deduplication, commit/push error recovery. No external database is required in first pilot.
+4. Defend against unauthorized loopback requests (session authentication, Host/Origin, CSRF and DNS rebinding), signature forgery (trusted session/source, not `ОТ` text), duplicate MSG_ID, multiple writers, path traversal, shell injection, dangerous file bodies, overlarge attachments and interrupted Git operations.
+5. **Phase A before secrets/GitHub**: complete U18 including the full form submission and returned response. If Work is cloud-hosted then its `127.0.0.1` could be cloud loopback; distinguish the connected local browser extension from generic cloud Work.
+6. **Phase B no real mail**: test correct accept-once, invalid sender/recipient rejection, duplicate ID idempotency after restart, persistent queue after restart, path and command injection negative cases.
+7. **Phase C only by new Author decision**: create/accept PRIVATE Mailbox, verify exact token permissions, no House write, successful authorized commit/push and separate token revocation; then actual A→B→A pilot.
+
+**No false guarantees:** Git log is not unconditionally immutable; textual individual signature is no cryptographic sender proof; CONFIRM ≠ reading/comprehension; PRIVATE repo is not content encryption from users with access; full unattended Work transport remains OPEN until scheduling/activation is demonstrated.
+
+**Outcome:** `ASSEMBLY_MASTER_CONDITIONAL_ACCEPT`; `IMPLEMENTATION: NONE`; `REPOSITORY/KEY CHANGES: NONE`; `AUTHOR FINAL AUTHORITY`.
+
+## 27. Experimental Chrome connection — U18 partial observation (RECEIVED)
+
+**Source:** Author relays a U18 result with a link labelled **signed report** in the user's Library, plus mention of `U18_localhost.jpg`. The supplied visible excerpt itself **does not contain an individual opening signature or image bytes**; the claimed signed report was **not independently opened** by Integrator. Preserve this attribution limit; do not silently create a new sign-off.
+
+**Actual agent-reported result:** `U18 = PARTIAL`.
+
+| Check | Reported grade | Observation / scope |
+|---|---|---|
+| Work mode | `VERIFIED` | Work session through connected Chrome extension |
+| Chrome browser control | `PASS` | Controlled tab “AI-Colab Laboratory” |
+| Localhost access | `PASS` | Read `http://localhost:5999/templates/`, title `AI-Colab Information Panel` |
+| Input field | `PASS` | Entered `U18-5999-CHECK-904` and saw it in an input |
+| Button click | `PASS` | Clicked `Проекты ▼` and observed `Открыть/Сохранить/Закрыть проект` dropdown; **not the echo/submit operation** |
+| Echo/readback | `BLOCKED` | No known inert button returning entered string; two existing `Отправить` buttons have unknown effects and were correctly not pressed |
+| Attachment/file action | `NOT TESTED` | No evidence of upload/download through Work |
+
+**Important qualification:** `localhost` was tested. Numeric `127.0.0.1` was **not tested** and is a distinct web origin string, although often mapped to loopback at the OS level. Reading/type/dropdown success establishes a promising local browser control path but does **not** establish an authenticated HTTP POST → local handler → response roundtrip for the proposed Courier `SUBMIT/FETCH/CONFIRM` API.
+
+**Useful confidence:** the reported Chrome extension Work interaction makes a local mail UI practical enough to merit a **narrow finishing test**. No implication that generic Cloud Work accesses the same machine.
+
+**Gate remaining to obtain U18 PASS:** use an existing or expressly authorized harmless local echo fixture, with no data outside the machine; Work enters non-secret text, presses a clearly identified inert button, sees the exact server/UI returned string. Separately navigate numeric `127.0.0.1` origin if permitted and meaningful. No pressure to use ambiguous production `Отправить` buttons. Report exact observed result and failures, with individual signature.
+
+## 28. Integrator checkpoint after two reports (2026-11-09)
+
+**Decision:** `ASSEMBLY_MASTER = CONDITIONAL ACCEPT`; `U18 = PARTIAL`; `V4b = ACCEPTED DESIGN DIRECTION, NOT YET A TECHNICALLY VERIFIED MAIL SERVICE`.
+
+**Recommended next:**
+1. Finish U18 using an inert, explicitly authorized echo UI; avoid building a mailbox until the local send/readback channel is proven. It is acceptable to write *one tiny non-deployed test page* **only after separate Author authorization**, not a production service.
+2. On U18 `PASS`, give Claude these exact conditions as hard review constraints and request `HOUSE_TECHNICAL_DESIGN_V0_2` (design only); clarify ChatGPT Office outbound path if shared GitHub App is excluded from Mailbox.
+3. Only after V0.2 review and Author's scope-specific implementation approval may an executor prepare the scoped mailbox bridge, with negative tests and secure credential design. `ASSEMBLY MASTER PASS` itself grants none of these actions.
+
+**END — LIVE PROTOCOL / CONDITIONAL TECHNICAL REVIEW + U18 PARTIAL / NO IMPLEMENTATION AUTHORIZED**
 
