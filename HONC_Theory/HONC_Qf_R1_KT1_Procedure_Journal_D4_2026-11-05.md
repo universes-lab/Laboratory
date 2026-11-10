@@ -125,4 +125,10 @@
   - стандартный вывод обеих попыток совпадает побайтно (`39e4025e…82c7`).
 - **Набор, ядро и оболочка не менялись.**
 
+## Запись 5. Rev5.1 разрешён (10.11.2026)
+
+- **Кто решил.** Интегратор выбыл по лимиту чата; до преемника решения принимает Клод (указание Автора, 10.11). Грок за.
+- **Что решено.** Rev5.1: исправить чтение `contacts[n].*`, добавить испытания `checkExpect` в `selftest.js`.
+- **Неизменно.** `expected.json` и `cases/` заперты по sha256. Р-1 остаётся `OPEN` до нового Интегратора.
+
 `PROCEDURE DEVIATIONS — RECORDED (D-4 scan data in archive; rev5 mechanical assembly from DeepSeek line edits; rev5 kernel run attempt 1 — no packer)` · `KT-1 KERNEL — FROZEN`
