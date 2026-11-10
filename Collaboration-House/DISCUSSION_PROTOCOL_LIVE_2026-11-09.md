@@ -162,6 +162,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **32** | **ASSEMBLY MASTER / V4b TECHNICAL VERDICT RECEIVED** | Individually signed response relayed by Author, `VERDICT: CONDITIONAL ACCEPT`: mailbox-only fine-grained key, block ChatGPT shared-App bypass, PowerShell local single-writer queue, no shell interpolation, safe persistence/recovery, U18 before build. §26. | **Professional conditional acceptance, NOT implementation authority.** |
 | **33** | **EXPERIMENTAL CHROME CONNECTION / U18 REPORT RECEIVED** | Author relays result `U18: PARTIAL`: Work mode and Chrome control verified; `http://localhost:5999/templates/` visible; input `U18-5999-CHECK-904` entered; unrelated Projects dropdown clicked; echo result not demonstrated, file operations untested, numeric `127.0.0.1` untested. §27. | **Localhost interaction promising; end-to-end submit/echo not PASS.** |
 | **34** | **INTEGRATOR / NEXT GATE RECOMMENDATION** | Finish narrowly scoped inert local form echo and numeric loopback check; retain no-repo/no-key/no-code permit state, then send consolidated verified constraints to Claude for V0.2. §28. | **Design-stage action only; no infrastructure created.** |
+| **35** | **AUTHOR / RESET TO WATCHER-DISPATCH ARCHITECTURE** | Author corrects proposed V4b: Courier ZOV should end at Grok Watcher; Work Couriers transport within triads and hand cross-team reports to Watcher, who persists/routes via GitHub, class-D staff read/respond and update own materials. Localhost not an authorized prerequisite. Author delegates specialist tasking and integrative approval; keeps formal final authority. §29. | **Architectural priority corrected; not a claim of Grok GitHub write capability.** |
+| **36** | **INTEGRATOR / RESPONSIBILITY FOR LOCALHOST PIVOT** | Integrator admits introducing scoped bridge as security design; Claude later concretized localhost UI (Round 3). U18 is supplementary evidence, removed from critical path pending need. §29. | **CORRECTION / no loss of retained test evidence.** |
+| **37** | **DESIGN TEAMS / ASSIGNMENTS RELEASED** | Small technical pair Claude + Assembly Master; institutional index/papers Master of Names + Keeper; Grok as candidate Watcher designs dispatcher/bulletin and proves available GitHub tools without writing. Active Doctor's next DeepSeek succession report is awaited. §30. | **DESIGN/REVIEW ONLY; no repo/key creation, code or Office activation.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -985,5 +988,85 @@ Claude may prepare the revised `HOUSE_TECHNICAL_DESIGN_V0_2` **as design only**,
 2. On U18 `PASS`, give Claude these exact conditions as hard review constraints and request `HOUSE_TECHNICAL_DESIGN_V0_2` (design only); clarify ChatGPT Office outbound path if shared GitHub App is excluded from Mailbox.
 3. Only after V0.2 review and Author's scope-specific implementation approval may an executor prepare the scoped mailbox bridge, with negative tests and secure credential design. `ASSEMBLY MASTER PASS` itself grants none of these actions.
 
-**END — LIVE PROTOCOL / CONDITIONAL TECHNICAL REVIEW + U18 PARTIAL / NO IMPLEMENTATION AUTHORIZED**
+## 29. Author's architecture correction — Courier ZOV ends at Watcher (2026-11-10)
+
+**[INDIVIDUAL SIGNATURE] Chief Integrator / Methodologist · действующий Интегратор**
+
+**Source:** Author's direct instruction, 2026-11-10. The preceding design stage overemphasized a Windows localhost browser/PowerShell bridge, despite the original institutional mail-flow design.
+
+**Origin of localhost idea:** Integrator first proposed a *technical mediator / scoped credential* to isolate Courier from GitHub; Claude supplied the concrete `http://127.0.0.1` form/PowerShell bridge in Round 3. Assembly Master only reviewed its conditional feasibility. Therefore **`U18` is no longer a prerequisite for the primary planned route**; keep its `PARTIAL` report as exploratory evidence and reopen it only if a mediator is actually necessary.
+
+**Restored business logic:**
+
+```text
+Physics line (Claude physicist ↔ DeepSeek physicist ↔ Grok physicist)
+       ↕ direct authorized Work-Courier visits
+Physics Courier [C]  -- cross-office letters, submissions, reports --> 
+Grok Watcher (candidate dispatcher/recorder, distinct from Grok physicist)
+       ↕ actual authorized GitHub publishing mechanism [NOT VERIFIED]
+Collaboration House / approved mail + bulletin paths
+       ↕ periodic or explicitly triggered read of relevant records
+Class-D staff (Integrator, Keeper, Doctor, Assembly Master, others)
+       ↕ reply / status note -> Watcher mailbox or allowed own documents
+```
+
+**Courier ZOV** is limited to allowed chat endpoints, original signature/address/role, exact body transport, delivery observation and Watcher handoff. **No repository path, token, GitHub access or file storage decision is an inherent Courier ZOV requirement.** Courier still must have actual ability to deliver to Grok chat in Work; actual file attachment/upload and autonomous running remain separate practical checks.
+
+**Watcher / Grok intended role:** dispatch cross-triad messages, register copies/metadata to GitHub, maintain corporate bulletin, issue route notifications, catch missing/ambiguous sender, dedupe letters, and acknowledge submissions. **Grok's ability to perform GitHub create/update operations through its own available tools is currently UNVERIFIED.** Design team must assess it first. A conditional helper/local script is an alternative **only if this primary physical write is not possible**, not an assumed default. The user mentions BAT scripts as possible means, not proof Grok can execute them.
+
+**Class-D alternative:** eligible ChatGPT agents can read and, subject to real permission, edit project documents in connected GitHub (as the Integrator currently edits the Laboratory live protocol). They **cannot be presumed to wake automatically when GitHub is updated**. Addressing the trigger (manual session prompt, routed notification, supported scheduled check) belongs to dispatch design. Text signature/ZOV still does not impose a technical per-chat access limitation.
+
+**Key status distinction:** `REPORT_SUBMITTED` means file/message received; `REVIEWED` means examined; `STEP_ACCEPTED` means competent authority accepted it. A Watcher does not transform a scientific claimant report into an accepted result.
+
+**Role appointment:** the previous Grok consultation remains a **candidate for provisional Watcher function**, not a proven working GitHub writer nor standing authority to issue Work Permits. Author expresses interest; ask Grok to design dispatcher scope, then explicit role-activation decision if desired.
+
+**No longer accepted as architecture dogma:** `U18 must PASS before Claude can design/implement any route`. Keep independent hardening and scoped credentials as fallback capability, not a gate to basic Work Courier ↔ Grok messaging.
+
+## 30. Integrator launches small specialist design groups (AUTHORISED TO DEVELOP CONCLUSIONS)
+
+**Instruction frame:** Author explicitly directs Integrator to organize narrowly scoped design reviews and later synthesize/approve a unified operational plan. These are **current design assignments**, not implementation permits; no unapproved repository, credential, upload or role appointment.
+
+### Team A — transport/GitHub physical route
+
+**Lead:** Claude / Collaboration Management Developer. **Counterpart:** Assembly Master / Publication & Artifact Steward.
+
+**Joint deliverable:** short `MAIL_FLOW_GITHUB_FEASIBILITY_REVIEW` (report within current discussion, not a new provisional file), answering:
+1. Can a **Grok web chat** actually read/write the permitted GitHub paths with real accessible tools, and under whose exact identity? The presence of general GitHub web UI or a plaintext claim is not a tool capability.
+2. Exact transfer `Courier Work → Grok chat → GitHub saved body → D worker pull/read → D reply → Watcher → Courier`, with **who clicks/types/writes at every boundary** and how messages are acknowledged.
+3. Can class-D ChatGPT agents use connected GitHub to update their own project materials without bypassing institutional provenance/author decision? Which paths are safe, whether GitHub app scope needs changes, and how to handle privileged credentials?
+4. Minimum addressbook/line/route/deduplication and one-page `REPORT_SUBMITTED/REVIEWED/STEP_ACCEPTED` state record.
+5. Minimal fallback if Grok cannot write itself; compare Work Courier delivering Grok's approved instructions to a restricted executor vs local BAT mediation (no mandatory U18 until selected).
+
+**Division:** Claude supplies end-to-end workflow; Assembly Master independently verifies repository permissions, topology, provenance, real GitHub operations, archive readiness. Separate review; no code or new repo.
+
+### Team B — correspondence/archives/registry information structure
+
+**Responsible curator of naming and directory model:** Master of Names (existing Office, no new Office inferred). **Semantic reviewer:** Ontology Keeper / Qwen. **Physical repository review:** Assembly Master.
+
+**Deliverable:** minimalist **proposed repository tree and lifecycle** for `Correspondence/`, `Bulletin/` (if needed), `Registry/`, `Museum/` or `Archive/`, and already-existing Dynasty materials; distinguish working mail, accepted records and archived history. Avoid creating empty premature Office folders or provider-parented Dynasty. Consider owner/visibility, migration source and whether inbox/outbox bodies should be openly readable to every member with broad connector. Appoint no separate Cartographer Office without Author decision.
+
+**Master of Names curates logic, Assembly Master checks GitHub mechanics, Keeper checks semantic metadata and independent-draft confidentiality.** Watcher will operate according to the accepted tree, not be sole architect of it.
+
+### Team C — Grok Watcher/dispatched status bulletin (design work)
+
+**Candidate:** independent Grok from architecture discussion, to propose operational Watcher scope and bulletin format as a **temporary specialist reviewer**, not yet an activated permanent Office.
+
+**Deliverable:** 
+- minimal `CORPORATE_BULLETIN` fields: case/step reference, triad/Office, responsible occupant, `CURRENT_TASK`, `WORK_PERMIT` ref, status `PENDING/IN_PROGRESS/REPORT_SUBMITTED/REVIEWED/STEP_ACCEPTED/HOLD`, latest message reference and required next recipient/action;
+- `CROSSROADS` rule: triad internal Courier moves freely within approved line; on milestone handoff/exception, report to Watcher for durable registration and destination indexing;
+- prove or clearly state lack of current **Grok→GitHub** write capability; no credentials disclosed and no files written just to make the test seem passed;
+- identify independent science Grok vs Watcher Grok knowledge-contamination risk and a bounded separation/compartmentalization strategy.
+
+**Doctor successor DeepSeek physicist status:** `BIRTH / SUCCESSION REVIEW IN PROGRESS — AUTHOR REPORT PENDING`. Do not invent stage, Gate pass or Work Permit. Active Doctor's imminent report is not to be preempted by Team C; the bulletin template must handle real pending state faithfully.
+
+### Aggregation / release controls
+
+- Teams return **individually signed** concise technical/semantic positions to Integrator; Author may relay the initial link or text, since **automatic ChatGPT→ChatGPT transport is not yet operative**. Recording a task on public GitHub **does not mean an AI chat was notified or ran it**.
+- Integrator synthesizes one unified plan, adjudicates design coherence and approves **design-level** choices within Author-delegated scope. **Final institutional authority remains Author**, as do new Office appointments, repo creation/transfer and scope-specific implementation Work Permit.
+- No additional temporary project documents in `Laboratory/Collaboration-House` are authorized at this stage. Keep one live discussion, use existing working files, then compile one approved destination plan.
+- At transition to the new private House, Inventory existing `Laboratory/Collaboration-House/` documents, classify `PERMANENT / MOVE / ARCHIVE / OBSOLETE`, migrate with provenance and reviewed SHAs, and **only after successful copy/verification** remove temporary materials from Laboratory. Avoid archiving everything to the new root by default.
+
+**STATUS: ARCHITECTURAL CORRECTION RECORDED; DESIGN GROUPS TASKED; NO CONFIRMATION OF DELIVERY TO OTHER CHATS; DOCTOR REPORT AWAITED.**
+
+**END — DISCUSSION OPEN / GROUP REVIEWS UNDER AUTHOR'S COORDINATION DELEGATION**
 
