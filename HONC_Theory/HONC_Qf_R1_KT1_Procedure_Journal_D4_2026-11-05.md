@@ -112,4 +112,17 @@
   - архив `HONC_Qf_KT1_D3_DeepSeek_2026-11-10_rev5.zip`, sha256 `dc200a00a149f9c00973e96eb683aec3400e43f9dcef0904083f4498094e0d29`;
   - 33 файла.
 
-`PROCEDURE DEVIATIONS — RECORDED (D-4 scan data in archive; rev5 mechanical assembly from DeepSeek line edits)` · `KT-1 KERNEL — FROZEN`
+## Запись 4. Прогон rev5 на замороженном ядре: первая попытка без упаковщика (10.11.2026)
+
+- **Попытка 1** — метка `d3rev5-ACCEPTANCE`, 20:56 UTC:
+  - в папке оболочки нового контейнера не было `pack_work.py` (ошибка подготовки исполнителем);
+  - задание набора отработало (`EXIT_0`, 103,96 с), но упаковка `work/` не состоялась: `RUNNER_ERROR`, `work/` не взят;
+  - выходной архив `5d2d28981dc49da9d76bb220b10a35cd0563ed932ff3989605555ccb0ebce20d` сохранён как свидетельство и в разбор не идёт.
+- **Попытка 2** — та же метка, 20:58 UTC:
+  - `pack_work.py` (`8428c5fa…b97e`, совпадает с приёмкой rev4) и `py_guard.py` положены рядом с оболочкой;
+  - результат — `COMPLETED` / `EXIT_0`, протокол полный;
+  - выходной архив `46582c8b4a673f2e0de2cd680db5a39252edd6de189282a389e9b0cefc576c37`;
+  - стандартный вывод обеих попыток совпадает побайтно (`39e4025e…82c7`).
+- **Набор, ядро и оболочка не менялись.**
+
+`PROCEDURE DEVIATIONS — RECORDED (D-4 scan data in archive; rev5 mechanical assembly from DeepSeek line edits; rev5 kernel run attempt 1 — no packer)` · `KT-1 KERNEL — FROZEN`
