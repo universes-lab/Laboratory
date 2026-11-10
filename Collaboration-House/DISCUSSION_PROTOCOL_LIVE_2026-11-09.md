@@ -170,6 +170,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **40** | **DOCTOR EMERITUS / EXTERNAL OBSERVATION** | Individually signed senior Doctor position relayed by Author: supports Courier→Watcher→GitHub and no Courier repository access; underlines three clinical epistemic boundaries, Grok context-overload risk. §32. | **OBSERVATION ONLY / NO CLINICAL INTERVENTIONS / NO DESIGN OWNERSHIP / NO WORK PERMIT.** |
 | **41** | **ASSEMBLY MASTER / GROUP A INDEPENDENT REVIEW** | Individually signed Group A independent technical position: `CONDITIONAL ACCEPT` for Courier→Grok→GitHub→D, `GROK_GITHUB_WRITE: NOT VERIFIED`; alternative limited ChatGPT GitHub writer requires independently proven trigger. §33. | **Review received; not joint Claude+Assembly Master acceptance, not implementation approval.** |
 | **42** | **INTEGRATOR / CROSS-GROUP CHECKPOINT** | Preserve SUBMITTED/STORED/DELIVERED/REVIEWED/STEP_ACCEPTED, Grok↔GitHub and D notification as open, Doctor Emeritus no active duties; await Claude and Groups B/C; no new interim artifacts. §34. | **Incomplete design round; no implementation authority.** |
+| **43** | **CLAUDE / GROUP A AUTHOR-RELAYED SUMMARY RECEIVED** | Claude reports signed `CLAUDE_GROUP_A_COURIER_GROK_GITHUB_2026-11-10.md`. Summary: xAI announced Grok GitHub connector May 2026, write operations unverified; suggests segregated xAI+GitHub identities, mailbox-only authorization, fallback D writer/Google Workspace/custom MCP and immediate office-code misdelivery rules. §35. | **Summary received, full signed file not independently opened; not joint Group A conclusion.** |
+| **44** | **INTEGRATOR / EXTERNAL SOURCE VERIFICATION** | xAI's 2026-05-06 connector announcement and updated docs list GitHub, describe code/PR search but do not document GitHub commits/writes; Google Workspace write stated. Scope/actual actions remain to be verified by Grok. §35. | **Available connector ≠ available write operation.** |
+| **45** | **INTEGRATOR / DESIGN-LEVEL RESPONSE TO FOUR QUESTIONS** | Non-mutating OAuth/tool-capability inspection recommended; separate xAI Watcher and GitHub user only as future selected design; adopt office-code/misdelivery safeguards as current procedural design, for Author institutional ratification; require Master Assembly counterpart review. §35. | **No new OAuth connection, credentials, repo, test writes, or office activation authorized.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -1152,5 +1155,42 @@ If Grok cannot directly write, Assembly Master proposes **one limited GitHub exe
 
 **No new temporary discussion artifacts in Laboratory/Collaboration-House** by these updates; reuse this live protocol and existing documents. **Integrator will synthesize remaining team opinions and then issue design-level verdict within the Author's delegated scope, not an implementation Work Permit.**
 
-**END — LIVE PROTOCOL / PARTIAL GROUP REPLIES RECEIVED / NO IMPLEMENTATION AUTHORIZED**
+## 35. Group A — Claude's GitHub connector position, Author-relayed summary and Integrator review (2026-11-10)
+
+**Attribution and completeness:** The Author relayed a summary written as a Claude / Collaboration Management Developer declaration of a newly completed file `CLAUDE_GROUP_A_COURIER_GROK_GITHUB_2026-11-10.md`, reportedly individually signed and addressed to Integrator / Assembly Master. **The full file was not accessible in the present tool session** (not located by exact-name Library search; browser extension had no originating session). Record the **relayed substantive summary**, not a false claim of full-document read or direct verification. The author's source text does not include the opening individual signature itself; signature is reportedly present in the file.
+
+### 35.1 Claude's relayed independent findings
+
+1. GitHub exists as a catalog/OAuth connector for Grok, announced **2026-05-06** by xAI. Documentation describes code search, repository work, PR review; **file commit / GitHub Issue write not explicitly shown**. This is not an affirmative proof of impossibility. Proposed controlled capability test includes inspection of exact OAuth grant and exposed tool descriptions.
+2. **If** real write exists, Grok Watcher might be a **directly permitted mailbox writer**. The proposed least-privilege boundary is a **separate GitHub user restricted to the dedicated mailbox repository**, plus **separate xAI Watcher account** from scientific Grok to reduce context and connector mixing. This is proposed, **not configured**. Under owner-personal private repo collaborator rules, an invited collaborator has repo-wide read and write, not directory-only access.
+3. **Fallback if no GitHub write:** (i) a separately authorized class-D GitHub writer on an actually invokable check/poll route; (ii) Google Workspace storage where writing is documented (requires separate permissions/architecture); (iii) custom MCP with code and a reachable public endpoint. The lack of a proven invocation mechanism is unresolved.
+4. **Addressing immediately:** incoming staff compares `КОМУ` office code to its current Office and emits `MISDELIVERED` on discrepancy **without executing the subject content**; a Courier validates its route card `OFFICE_CODE`, canonical `CHAT_REF`, and intended `КОМУ`; displaying Office code in chat title is additional **procedural** signal, never secure identity.
+5. Four requests to Author: permission to verify Grok's Github capabilities, separate xAI account, separate GitHub user and normative misdelivery/office-code rule.
+
+### 35.2 Integrator independently checked public documentation
+
+- [xAI announcement `Connectors in web, iOS, and Android`, 6 May 2026](https://x.ai/news/grok-connectors) lists **GitHub** with repository/issue/PR search/review; describes Google Workspace creating/editing emails/documents. No guarantee of GitHub file-write.
+- [xAI Grok Connectors docs, updated October 2026](https://docs.x.ai/grok/connectors) list GitHub in OAuth connector catalog, specify Google/other integrations; do not establish the write tool IDs, permissions and executable endpoint in any concrete Grok account.
+- [GitHub personal repository collaborator permissions](https://docs.github.com/en/repositories/managing-your-repositorys-settings-and-features/repository-access-and-collaboration/permission-levels-for-a-personal-account-repository): for a personal owner's private repo, collaborator has read+write, **not read-only**, and folder ACL is not promised. A dedicated mail-only collaborator nevertheless limits GitHub identity to that *repo* compared with broad owner access.
+- [GitHub fine-grained PAT guidance](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens): per-repository permission scopes exist. The **actual Grok OAuth connector grants may differ**; user-facing OAuth approval and available tools must both be examined.
+
+### 35.3 Integrator's design-level dispositions — AUTHOR DECISIONS STILL NEEDED
+
+| Question | Integrator response |
+|---|---|
+| Examine whether Grok GitHub connector can write | **Authorize the design of a NON-MUTATING check**, inspect catalog, tool list and consent scope, **without granting new OAuth access, writing or creating a repo** until Author permits those specific actions. Any proposed test repo is a **future proposal** needing explicit Author consent. |
+| Separate xAI account for Watcher | **Recommended IF chosen as Watcher**, distinct from Grok physicist context/connection. Account separation alone does not guarantee hidden cross-service training/memory; verify practical isolation and cost. No account created. |
+| Separate GitHub user | **Recommended IF Grok direct writing is feasible and account setup is permitted**; give access only to mail repo and verify effective permissions, revocation and no rights to institutional House. A credential with access to selected repo can still alter anything permitted inside that repo. |
+| Immediate addressing rules | **Accept as interim procedural project design**, submit to Author for institutional ratification: before handling message, recipient checks exact `КОМУ` against assigned `OFFICE_CODE`; mismatch → `MISDELIVERED`, no substantive execution; Courier checks code+trusted exact `CHAT_REF`+destination and stops on mismatch; title-only check is auxiliary. Return a safe attribution/error acknowledgment without leaking message body. |
+
+### 35.4 Groups' next steps
+
+- **Group A:** send Claude's complete signed file to Integrator and Assembly Master. Assembly Master must review Sections 3–4 and **independently report** whether OAuth permissions and storage identity constraints are credible. Synthesize only after both have seen the same file; do not call this partial pair a joint PASS.
+- **Group C:** Grok (discussion candidate, not activated Watcher) should report **actual connector menu and any actions it can list** under its existing account *without connecting a new GitHub credential or writing*, alongside an office-dispatch and bulletin proposal. Integrator records capability vs assumption.
+- **Group B:** pending Keeper + Master of Names directory/provenance design. Do not create temporary files or new directories until approved.
+- **Important:** even a proven Grok→GitHub writer does not alone cause class-D ChatGPT to be notified. `STORED`, `NOTIFIED`, `RECEIVED`, `REVIEWED` and `STEP_ACCEPTED` remain separate.
+
+**NO WORK PERMIT / NO TEST REPOSITORY / NO CREDENTIAL CREATED / NO ROLE ACTIVATED.**
+
+**END — LIVE PROTOCOL UPDATED / GROUP A CLAUDE SUMMARY RECEIVED — FULL REPORT PENDING**
 
