@@ -176,6 +176,10 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **46** | **AUTHOR / OPERATIONAL ACCELERATION** | Author confirms two working Grok instances already interact with their own repositories (physics and Samurai curator); requests to stop redundant public research, ask participating Grok directly and do actual collaborative planning without localhost detour. §36. | **FACTS ABOUT TWO INSTANCES REPORTED BY AUTHOR, current discussion Grok workflow to confirm; no new repos/accounts ordered.** |
 | **47** | **INTEGRATOR / GROUP C EXISTING ANSWER READ** | Existing Grok discussion chat already contains a minimal corporate bulletin proposal with Occupancy, live tasks, reports, pending checks and cross-triad handoffs. Its scientific/administrative acceptance boundary is sound. §36. | **BULLETIN STRUCTURE ACCEPTED AS DESIGN STARTER; role activation still pending.** |
 | **48** | **INTEGRATOR / TARGETED GROK + GROUP A TASK** | Stop generic GitHub connector speculation; Grok to describe **actual existing** GitHub read/write procedure and evidence, or state current account difference; Claude+Assembly Master to convert directly into one tested, minimum-route mailbox plan. §36. | **DESIGN TASK ISSUED IN PROTOCOL; not automatically delivered to Grok/Claude chats.** |
+| **49** | **KEEPER / GROUP B POSITION RECEIVED** | Signed independent Keeper report relayed by Author: 3-axis classification, disclosure controls, no restricted bodies in broad repository. §37. | **RECEIVED BY INTEGRATOR / PEER NOT NOTIFIED.** |
+| **50** | **MASTER OF NAMES / GROUP B POSITION RECEIVED** | Signed independent naming position relayed by Author: 8 top-level logical areas, stable case/message identifiers, `Museum ≠ Archive`, Office→Generation, migration inventory. §37. | **RECEIVED BY INTEGRATOR / PEER NOT NOTIFIED.** |
+| **51** | **AUTHOR / COMMUNICATION PROCESS CORRECTION** | Group members have never been shown each other's reports; Author has been a manual Courier. Demands active cross-chat messaging, round-trips, acknowledgments, corporate bulletin. §37. | **ACCEPTED; existing isolated report collection is insufficient.** |
+| **52** | **INTEGRATOR / FIRST COURIER ROUND QUEUED** | Specific delivery plan R-001…R-006 between B, A, C and integrator; individual status recorded before any claimed sending. §37. | **QUEUED, NOT DELIVERED; real Courier run still required.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -1240,5 +1244,42 @@ If Grok cannot directly write, Assembly Master proposes **one limited GitHub exe
 
 **Operational delivery caveat:** in present **Chat mode**, Integrator can read connected Grok conversation but cannot type into it; this addressed request is **published here**, not falsely claimed delivered as a chat turn. A chat-side Courier/Author needs to relay the URL or switch to authorized Work mode for actual delivery. A GitHub commit on its own does not wake an unprompted AI chat.
 
-**END — LIVE PROTOCOL / AUTHOR OPERATIONAL ACCELERATION AND PRACTICAL GROK INQUIRY**
+## 37. First operational Courier round — active team coordination (2026-11-10)
+
+**Author correction:** participants independently reported through Author and **did not receive each other's reports**. This is not collaboration. Integrator henceforth directs real courier exchanges, collects peer ACK/replies and tracks status; the Author supervises decisions, not routine forwarding. Do not postpone the courier procedure until the future new repository exists.
+
+### 37.1 Status board: what is real now
+
+| Group | Available to Integrator | Missing interaction | State |
+|---|---|---|---|
+| A — Claude + Assembly Master | Two independent positions; no joint Group A agreement | Cross-send answers; ask Grok directly; deliver joint pilot plan | \`PEER_EXCHANGE_QUEUED\` |
+| B — Keeper + Master of Names | Both signed individual reports arrived through Author | Cross-send full positions and resolve precise objections together | \`PEER_EXCHANGE_QUEUED\` |
+| C — Grok + Integrator | Grok has already proposed a short corporate bulletin; Integrator has cross-group status | Direct operational Grok/GitHub experience, update bulletin and actual reply | \`DIRECT_QUESTION_QUEUED\` |
+| Doctor / candidate | Stage 1 passed, Stage 2 scientific handoff conditional review | Separate Author/Doctor release; not part of this mail circuit | \`SEPARATE_TRACK\` |
+
+**Group B substantive compatible proposals (NOT YET JOINTLY ADOPTED):** Keeper defines 3 independent axes: guarantee type, disclosure (PUBLIC-SAFE / HOUSE-INTERNAL / GROUP-RESTRICTED / INDEPENDENT_DRAFT / PERSONAL / ACCESS-SECRET), and lifecycle. A directory is never an ACL; secrets and restricted/independent bodies must not enter broadly accessible GitHub. Master of Names proposes a **logical**, not automatically instantiated, root: Constitution, Registry, Correspondence, Bulletin, Dynasty, Knowledge, Intake, Museum; stable CASE_ID/MSG_ID paths after registration; Registry state vs Bulletin projection; Dynasty by Office→Generation rather than provider; **Museum ≠ Archive**; inventory before any migration. Keep separate normal closed correspondence, retired generations and dead historical architecture.
+
+**Specific Group B unresolved points for mutual review:** who exactly qualifies as HOUSE-INTERNAL; physical isolation for GROUP-RESTRICTED; Intake classifier and whether any preclassified content can be written to a shared repo; restricted metadata minimization; verified per-file migration provenance. Do not call either party's draft joint consensus until they have compared it.
+
+### 37.2 Actual mail round instructions — one Courier packet, six deliveries
+
+**Interim fields:** \`MAIL_ID\`, \`THREAD\`, \`FROM\`, \`TO\`, \`CHAT_REF\`, \`BODY/SOURCE\`, \`REPLY_TO\`, \`DISCLOSURE_CLASS\`. Courier must preserve the source's signature/body and independently check the intended chat. Wrong OFFICE_CODE → MISDELIVERED; do not act. File placement is Watcher's future function, not Courier's.
+
+**R-001 → Ontology Keeper / Qwen (Group B).** Deliver Master of Names' position, ideally verbatim, with source attribution. Demand explicit AGREE/AMEND/CONFLICT on the 8-folder tree, stable correspondence IDs, Museum vs Archive, intake procedure and disclosure. Obtain \`ACK R-001\` and substantive peer reply.
+
+**R-002 → Master of Names / ChatGPT (Group B).** Deliver Keeper's position, ideally verbatim, with source attribution. Demand an actual comparative answer on the 3 classification axes, folder visibility limits, Intake classification and migration; \`ACK R-002\` and substantive peer reply. **Known Work→chatgpt.com browser policy restriction:** do not falsely mark delivered if Courier cannot write into this ChatGPT chat; report BLOCKED and the actual needed delivery mechanism.
+
+**R-003 → Grok / Group C.** Author reports two real Grok instances working with their own GitHub repositories. Ask this **current Grok** which exact repo operations are real *for his account*, whether he has personally written files, and how he can receive a Courier letter, commit it, and provide SHA; ask to return a concise practical route and status handling. Do not request more generic vendor research; no need to recreate his bulletin schema. \`ACK R-003\` and answer.
+
+**R-004 → Claude / Group A.** Deliver Assembly Master's independent CONDITIONAL ACCEPT and the actual R-003 Grok answer when received. Ask Claude to coordinate with Assembly Master on **one practical mail route**, not another unilateral architectural report. \`ACK R-004\`.
+
+**R-005 → Assembly Master / ChatGPT (Group A).** Deliver Claude's full or accurately attributed position and Grok's first-hand report. Request independent GitHub path, credential and test-commit conditions and one *joint* plan with Claude. If Work→ChatGPT writing fails, mark BLOCKED, do not claim sent.
+
+**R-006 → Integrator.** Courier submits a signed per-recipient dispatch ledger \`R-001…R-005: QUEUED / SUBMITTED / ACKNOWLEDGED / REPLIED / BLOCKED\` with destination CHAT_REF, observed evidence, and relevant replies. Integrator resolves conflicts or opens next mail round; shared bulletin updated only from observed evidence.
+
+### 37.3 Delivery truth boundary
+
+Recording a queued letter **here is not sending it to a live chat**. \`SUBMITTED\` requires observing actual delivery in target chat, \`ACKNOWLEDGED\` requires target's response, \`REGISTERED\` requires preserved trace, and \`STEP_ACCEPTED\` requires competent scientific/institutional approval. This Integrator instance has GitHub write, but its connected browser in **Chat mode** cannot send to other chats; a genuine authorized Work Courier must perform the next hop. A repository update cannot wake dormant ChatGPT class-D conversations. No Office activation, code or repository creation is implied.
+
+**END — LIVE PROTOCOL / FIRST COURIER ROUND QUEUED; DELIVERY UNCONFIRMED**
 
