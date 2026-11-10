@@ -164,7 +164,9 @@ This is a **working minutes document**, not a definitive event registry. Record 
 | **34** | **INTEGRATOR / NEXT GATE RECOMMENDATION** | Finish narrowly scoped inert local form echo and numeric loopback check; retain no-repo/no-key/no-code permit state, then send consolidated verified constraints to Claude for V0.2. §28. | **Design-stage action only; no infrastructure created.** |
 | **35** | **AUTHOR / RESET TO WATCHER-DISPATCH ARCHITECTURE** | Author corrects proposed V4b: Courier ZOV should end at Grok Watcher; Work Couriers transport within triads and hand cross-team reports to Watcher, who persists/routes via GitHub, class-D staff read/respond and update own materials. Localhost not an authorized prerequisite. Author delegates specialist tasking and integrative approval; keeps formal final authority. §29. | **Architectural priority corrected; not a claim of Grok GitHub write capability.** |
 | **36** | **INTEGRATOR / RESPONSIBILITY FOR LOCALHOST PIVOT** | Integrator admits introducing scoped bridge as security design; Claude later concretized localhost UI (Round 3). U18 is supplementary evidence, removed from critical path pending need. §29. | **CORRECTION / no loss of retained test evidence.** |
-| **37** | **DESIGN TEAMS / ASSIGNMENTS RELEASED** | Small technical pair Claude + Assembly Master; institutional index/papers Master of Names + Keeper; Grok as candidate Watcher designs dispatcher/bulletin and proves available GitHub tools without writing. Active Doctor's next DeepSeek succession report is awaited. §30. | **DESIGN/REVIEW ONLY; no repo/key creation, code or Office activation.** |
+| **37** | **AUTHOR / GROUP B AND C CORRECTION** | A=Claude + Assembly Master; B=**Keeper + Master of Names only**; C=**Grok + Integrator**. Group A may advise B on GitHub engineering, but Assembly Master is not a B member. §30. | **Author-corrected design team assignments; no new Office or code permit.** |
+| **38** | **ACTIVE DOCTOR / STAGE 2 SCIENTIFIC HANDOFF RECEIVED** | Full Doctor handoff `HONC_Physicist_Current_Scientific_Handoff_2026-11-09.md` was supplied by Author through Library, not delivered to candidate. Stage 1 PASS, Work Permit none. §31. | **Stage 2 draft under joint review.** |
+| **39** | **INTEGRATOR / DOCTOR HANDOFF SCIENTIFIC REVIEW** | GitHub historic E0–E4 and contemporary N-3/N-4, KT-1 Part 2 interim check verified. Conditional PASS with focused Q_u vs Q1 caveat and Keeper check. §31. | **Stage 2 release not yet approved by Author.** |
 
 **Posting rule:** The discussion editor must not fabricate a participant's reply. Absent or inaccessible response stays `NO RESPONSE / NOT AVAILABLE`. New entry is appended, not rewritten as if it had been foreknown.
 
@@ -1041,15 +1043,15 @@ Class-D staff (Integrator, Keeper, Doctor, Assembly Master, others)
 
 ### Team B — correspondence/archives/registry information structure
 
-**Responsible curator of naming and directory model:** Master of Names (existing Office, no new Office inferred). **Semantic reviewer:** Ontology Keeper / Qwen. **Physical repository review:** Assembly Master.
+**Group B members, as corrected by Author: Ontology Keeper / Qwen and Master of Names.** Keeper handles scientific/status provenance and disclosure; Master of Names handles institutional identity and naming. Assembly Master is **not** in Group B; ask Group A separately about implementation feasibility.
 
 **Deliverable:** minimalist **proposed repository tree and lifecycle** for `Correspondence/`, `Bulletin/` (if needed), `Registry/`, `Museum/` or `Archive/`, and already-existing Dynasty materials; distinguish working mail, accepted records and archived history. Avoid creating empty premature Office folders or provider-parented Dynasty. Consider owner/visibility, migration source and whether inbox/outbox bodies should be openly readable to every member with broad connector. Appoint no separate Cartographer Office without Author decision.
 
-**Master of Names curates logic, Assembly Master checks GitHub mechanics, Keeper checks semantic metadata and independent-draft confidentiality.** Watcher will operate according to the accepted tree, not be sole architect of it.
+**Keeper and Master of Names co-review the structure and access classifications.** Engineering questions are referred to Group A. Watcher will operate according to the accepted tree, not be its sole architect.
 
-### Team C — Grok Watcher/dispatched status bulletin (design work)
+### Team C — Grok + Integrator: dispatch and corporate bulletin (design work)
 
-**Candidate:** independent Grok from architecture discussion, to propose operational Watcher scope and bulletin format as a **temporary specialist reviewer**, not yet an activated permanent Office.
+**Group C members, as corrected by Author: Grok and Chief Integrator / Methodologist.** Grok drafts dispatcher practice; Integrator provides cross-institutional synthesis and review. Grok remains a candidate for a temporary Watcher function; no activated Office by this task.
 
 **Deliverable:** 
 - minimal `CORPORATE_BULLETIN` fields: case/step reference, triad/Office, responsible occupant, `CURRENT_TASK`, `WORK_PERMIT` ref, status `PENDING/IN_PROGRESS/REPORT_SUBMITTED/REVIEWED/STEP_ACCEPTED/HOLD`, latest message reference and required next recipient/action;
@@ -1068,5 +1070,29 @@ Class-D staff (Integrator, Keeper, Doctor, Assembly Master, others)
 
 **STATUS: ARCHITECTURAL CORRECTION RECORDED; DESIGN GROUPS TASKED; NO CONFIRMATION OF DELIVERY TO OTHER CHATS; DOCTOR REPORT AWAITED.**
 
-**END — DISCUSSION OPEN / GROUP REVIEWS UNDER AUTHOR'S COORDINATION DELEGATION**
+## 31. Doctor's Stage 2 Current Scientific Handoff for DeepSeek Physicist (REVIEWED, 2026-11-10)
+
+**Received via Author:** active Doctor's Library document `HONC_Physicist_Current_Scientific_Handoff_2026-11-09.md`. Read in full by Integrator; **not copied to this PUBLIC GitHub repo**. Candidate Stage 1 PASS; Stage 2 handoff not yet presented; Work Permit none.
+
+**Source verification at GitHub commit `ba2a6cbfb56e91a208893e3e4f8e91f8676e47a8`:** historical `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` E0–E4, `HONC_Theory/TRIAD_BRIEF_2026-10-29.md` (rev5), `HONC_Theory/HONC_Lepton_Spin_Criterion_2026-11-02.md` N-1…N-5, D-4 `HONC_Qf_R1_KT1_D4_FIXATION_2026-11-05.md`, `DEEPSEEK_KT1_D3_REV5_PART1C_CHECK_2026-11-06.md`, `DEEPSEEK_KT1_D3_REV5_PART2_CHECK_2026-11-09.md`, and the predecessor's `DEEPSEEK_HONC_PHYSICIST-PREDECESSOR_TESTAMENT-CURRENT_SCIENTIFIC_HANDOFF.md` as **provenance only, not candidate material**.
+
+### 31.1 Integrator scientific-fidelity verdict
+
+**`STAGE 2 SCIENTIFIC HANDOFF — CONDITIONAL PASS`**. The Doctor's distinctions are scientifically honest within their source-defined statuses, with one small but necessary explicit caveat before candidate exposure.
+
+- **Object of period:** `P=2` in E3/N-3 belongs to Qf **latcher** period, whereas the conjectural lepton assembly spin-lock `P=1` is `[Г]` and its **measured object and allowable operation are OPEN**. Comparing them as the same object is unwarranted. `s=P/2` is an external bridge, not a native proof of physical spin ½.
+- **N-4 operation distinction:** Q1 — no independent turning operation required/defined; Qν — operation exists but is forbidden; Qf — operation exists and is permissible, P=2. Do not equate “no operation” and “not forbidden.” Candidate remains unclassified.
+- **Specific Q_u discrepancy:** historical E1 states `Q_u` (a Q1 flavor) “доворот возвращает положение”; later N-4 states generally for `Q1` that an **independent** turning operation is absent/not required. Source comparison does not demonstrate these are equivalent or that the later wording retroactively cancels the older. **Required candidate-facing note:** `Исторический E1 для Q_u описывает возврат положения после доворота; поздняя Н-4 для Q1 — отсутствие самостоятельной операции. Эквивалентность и область применимости двух описаний не установлены [О]; их нельзя объединять без отдельного уточнения Хранителя.` This is not a new physical-law finding.
+- **Carrier/state:** A9 [К] / M-1 [К] vs G12 [Г] do not settle orientation separability and state transformation when the carrier does not move, which remain [О]. Probe-resolution reading of point-likeness is a *working interpretation*.
+- **KT-1 provenance:** D-4 rev4 shows **34 PASS / 2 FAIL of verdicts and labels**, not numeric/scientific validation. The predecessor personally recalled Part 1b but not later Part 1c. Claude's Part 1c interim has its own M-1…M-3; Part 2 interim dated Nov 9 is `NOT READY`, with **B-5…B-11 (7 blockers)**, **C-1…C-4 (4 consistency remarks)**. Requires Part 2b and final `expected.json`; **no Part 2 run on kernel or protocols**, A5.json held, KT-1 kernel frozen.
+
+### 31.2 Stage 2 release boundary
+
+Doctor's proposed candidate assignment — compare its original preserved Stage 1 response with contemporary sources, mark retained/revised/obsolete claims with evidence and OPEN — is appropriate as a formation exercise, **not** a scientific computation or resumed KT-1 Work Permit. No Testament, Contract or later Gate is presented prematurely.
+
+**Integrator recommends:** Doctor add the explicit Q_u/Q1 note above (or equivalent), Keeper provide **narrow** ontological check, Author and Integrator jointly authorize handing the scientific part to the same DeepSeek candidate session. **Before Author release:** `STAGE 1 PASS / STAGE 2 MATERIAL PENDING / WORK PERMIT NONE`. Archive the candidate's independent answer verbatim when received.
+
+**Author corrects Group B = Keeper + Master of Names; Group C = Grok + Integrator.** Corrections applied in §30 and ledger.
+
+**END — LIVE PROTOCOL / AUTHOR GROUP CORRECTIONS & DOCTOR HANDOFF REVIEW RECORDED**
 
