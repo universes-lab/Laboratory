@@ -131,4 +131,29 @@
 - **Что решено.** Rev5.1: исправить чтение `contacts[n].*`, добавить испытания `checkExpect` в `selftest.js`.
 - **Неизменно.** `expected.json` и `cases/` заперты по sha256. Р-1 остаётся `OPEN` до нового Интегратора.
 
+## Запись 6. Rev5.1, первая сдача: сборка и preflight (10.11.2026)
+
+- **Источник.** Сообщение DeepSeek пришло текстом в чате. Оно взято дословно из журнала сеанса (CRLF → LF), а не перепечатано.
+- **Сборка.** `merge_blocks.py` по rev5; упаковка — `pack_from_text.py`.
+  - Текст — `76eb8d98…2a64`, архив — `04848876…d930`.
+  - Изменены `lib/ops.js`, `run.js`, `selftest.js`, `README.md`. `expected.json` и `cases/` совпадают побайтно.
+- **Итог preflight.**
+  - `d3-check` — `EXIT_0`.
+  - `d3-selftest` — 59 испытаний, 58 `PASS`, 1 `FAIL` (`ce_contacts1_neg`): `checkExpect` проверяет только ключи `contacts[0].*`.
+  - Возврат на одну правку: `lib/ops.js` и README.
+
+## Запись 7. Rev5.1: пересдача, preflight, фиксация (11.11.2026)
+
+- **Пересдача.** Два файла целиком: `lib/ops.js` и `README.md`. Сообщение взято дословно из журнала сеанса.
+  - Против первой сдачи изменён только перебор ключей в `checkExpect`: теперь проверяется каждый ключ `contacts[n].<поле>`.
+  - `expected.json` и `cases/` совпадают с rev5 побайтно.
+- **Preflight.**
+  - `d3-check` — `EXIT_0`, выходной архив `f3b9c819…63c7`.
+  - `d3-selftest` — **59 / 59**, выходной архив `398f44fd…1560`.
+  - Значений ядра нет.
+- **Фиксация rev5.1.** Решение Клода (до нового Интегратора решения за ним — указание Автора, 10.11). Отмечено от имени Автора.
+  - Архив — `5e9282cbb7c227e4e2ed52323d04e51d3eab514287172ce25344a108b6072b19`, 33 файла.
+  - Текст — `a3c9c3c13c0674b167a7be10afd86dae45a27a705ae8d8469c15d1bfe178c4ae`.
+  - Сверка Грока идёт параллельно с прогонами, по полному пакету.
+
 `PROCEDURE DEVIATIONS — RECORDED (D-4 scan data in archive; rev5 mechanical assembly from DeepSeek line edits; rev5 kernel run attempt 1 — no packer)` · `KT-1 KERNEL — FROZEN`
