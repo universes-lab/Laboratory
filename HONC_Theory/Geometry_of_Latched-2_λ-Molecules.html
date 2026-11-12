@@ -1,0 +1,649 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Латчеры КТ-1</title>
+<meta name="description" content="HONC / Qf / R1 / КТ-1: наглядное представление протоколов замороженного ядра — нить латчеров, навес H1, касания, J5, прокол А-5 и семейство навеса.">
+<style>
+:root{
+  --bg:#f5f4ef; --panel:#ffffff; --panel2:#faf9f5; --ink:#1c2127; --muted:#5d6670; --line:#dcd8cf; --grid:#ebe8e1;
+  --accent:#2f6fb0; --thread:#4f78a8; --hang:#cf8326; --ring:#14907f; --ringH:#ad3f8a;
+  --ok:#2c8a55; --bad:#c23b2e; --warn:#b97a12; --ext:#7354c2;
+  --neg:#3b6fd4; --pos:#d47a1f; --shade:rgba(194,59,46,.09); --band:rgba(47,111,176,.16); --src:rgba(44,138,85,.13);
+  --mono:ui-monospace,SFMono-Regular,"JetBrains Mono",Menlo,Consolas,monospace;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+  --viewer-bg:#eef0f2;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#11151a; --panel:#181e25; --panel2:#151a20; --ink:#e5e8eb; --muted:#9aa3ad; --line:#2b333c; --grid:#222a32;
+    --accent:#6aa3e0; --thread:#7fa3cf; --hang:#e9a24a; --ring:#35c2ae; --ringH:#dc6fb7;
+    --ok:#4fbf7f; --bad:#ef6a5c; --warn:#e3a53c; --ext:#a58cf0;
+    --neg:#6f9bf0; --pos:#f0a050; --shade:rgba(239,106,92,.12); --band:rgba(106,163,224,.22); --src:rgba(79,191,127,.16);
+    --viewer-bg:#0d1116;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#11151a; --panel:#181e25; --panel2:#151a20; --ink:#e5e8eb; --muted:#9aa3ad; --line:#2b333c; --grid:#222a32;
+  --accent:#6aa3e0; --thread:#7fa3cf; --hang:#e9a24a; --ring:#35c2ae; --ringH:#dc6fb7;
+  --ok:#4fbf7f; --bad:#ef6a5c; --warn:#e3a53c; --ext:#a58cf0;
+  --neg:#6f9bf0; --pos:#f0a050; --shade:rgba(239,106,92,.12); --band:rgba(106,163,224,.22); --src:rgba(79,191,127,.16);
+  --viewer-bg:#0d1116;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font:15px/1.5 var(--sans);-webkit-font-smoothing:antialiased}
+.wrap{max-width:1280px;margin:0 auto;padding:0 16px 48px}
+header{padding:28px 0 14px;border-bottom:1px solid var(--line)}
+.kicker{font:600 12px/1.4 var(--mono);letter-spacing:.06em;text-transform:uppercase;color:var(--muted)}
+h1{font-size:30px;line-height:1.15;margin:6px 0 8px;font-weight:700;letter-spacing:-.01em}
+h2{font-size:20px;margin:0 0 6px;font-weight:650}
+h3{font-size:15px;margin:0 0 6px;font-weight:650}
+p{margin:0 0 10px}
+.lead{color:var(--muted);max-width:900px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:10px}
+.chip{font:12px/1.3 var(--mono);padding:4px 8px;border:1px solid var(--line);border-radius:999px;background:var(--panel);color:var(--muted)}
+.chip b{color:var(--ink);font-weight:600}
+.chip.warnchip{border-color:var(--bad);color:var(--bad)}
+section{margin-top:26px}
+.tabs{display:flex;flex-wrap:wrap;gap:6px;margin:18px 0 12px}
+.tab{appearance:none;border:1px solid var(--line);background:var(--panel);color:var(--ink);font:600 14px/1 var(--sans);padding:10px 14px;border-radius:10px;cursor:pointer}
+.tab small{display:block;font:500 11px/1.2 var(--sans);color:var(--muted);margin-top:4px}
+.tab[aria-pressed="true"]{border-color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent);background:var(--panel2)}
+.main{display:grid;grid-template-columns:minmax(0,1fr) 380px;gap:14px;align-items:start}
+.main>*{min-width:0}
+@media (max-width:980px){.main{grid-template-columns:minmax(0,1fr)}}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:14px}
+.viewer{position:relative;height:580px;border-radius:14px;overflow:hidden;border:1px solid var(--line);background:var(--viewer-bg);touch-action:none}
+@media (max-width:700px){.viewer{height:430px}}
+.viewer canvas{display:block;width:100%;height:100%;cursor:grab}
+.viewer canvas.drag{cursor:grabbing}
+.labels{position:absolute;inset:0;pointer-events:none;overflow:hidden}
+.lbl{position:absolute;transform:translate(-50%,-50%);font:600 12px/1 var(--mono);color:var(--ink);background:color-mix(in srgb,var(--panel) 78%,transparent);padding:2px 5px;border-radius:5px;white-space:nowrap}
+.lbl.h{color:var(--hang)} .lbl.r{color:var(--ring);font-weight:500} .lbl.rh{color:var(--ringH);font-weight:500}
+.lbl.bad{color:#fff;background:var(--bad)} .lbl.note{color:var(--ink);font-weight:500}
+.toolbar{position:absolute;left:10px;top:10px;right:10px;display:flex;flex-wrap:wrap;gap:6px;pointer-events:none}
+.toolbar .grp{display:flex;flex-wrap:wrap;gap:4px;background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);border-radius:10px;padding:4px;pointer-events:auto}
+.tbtn{appearance:none;border:0;background:transparent;color:var(--ink);font:600 12px/1 var(--sans);padding:7px 9px;border-radius:7px;cursor:pointer;white-space:nowrap}
+.tbtn:hover{background:var(--grid)}
+.tbtn[aria-pressed="true"]{background:var(--accent);color:#fff}
+.hint{position:absolute;left:10px;bottom:10px;font:12px/1.3 var(--sans);color:var(--muted);background:color-mix(in srgb,var(--panel) 85%,transparent);padding:5px 8px;border-radius:8px;pointer-events:none}
+.legend3d{position:absolute;right:10px;bottom:10px;display:flex;flex-direction:column;gap:3px;font:12px/1.2 var(--sans);background:color-mix(in srgb,var(--panel) 88%,transparent);border:1px solid var(--line);padding:7px 9px;border-radius:9px;pointer-events:none}
+.sw{display:inline-block;width:12px;height:12px;border-radius:3px;vertical-align:-2px;margin-right:6px}
+.sw.line{height:4px;border-radius:2px;vertical-align:2px}
+.sw.dot{border-radius:50%}
+.tip{position:absolute;pointer-events:none;max-width:310px;font:12px/1.45 var(--sans);background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:9px;padding:8px 10px;box-shadow:0 6px 24px rgba(0,0,0,.18);display:none;z-index:5}
+.tip b{font-family:var(--mono)}
+.nogl{position:absolute;inset:0;display:none;align-items:center;justify-content:center;text-align:center;padding:30px;color:var(--muted)}
+.side h2{margin-bottom:4px}
+.badges{display:flex;flex-wrap:wrap;gap:6px;margin:8px 0 10px}
+.badge{font:600 12px/1 var(--mono);padding:6px 8px;border-radius:7px;border:1px solid currentColor}
+.badge span{font-weight:500;opacity:.8;margin-right:4px}
+.v-ok{color:var(--ok)} .v-bad{color:var(--bad)} .v-warn{color:var(--warn)} .v-ext{color:var(--ext)}
+table{border-collapse:collapse;width:100%;font-size:13px}
+td,th{padding:5px 4px;border-bottom:1px solid var(--grid);vertical-align:top;text-align:left}
+th{font-weight:600;color:var(--muted);font-size:12px}
+td.num{font-family:var(--mono);font-size:12px;white-space:nowrap}
+.mono{font-family:var(--mono)}
+.muted{color:var(--muted)}
+.small{font-size:12.5px}
+.desc{font-size:14px}
+.np{border-left:3px solid var(--bad);background:var(--shade);padding:8px 10px;border-radius:6px;margin:8px 0;font-size:13px}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}
+@media (max-width:1100px){.grid3{grid-template-columns:1fr 1fr}}
+@media (max-width:760px){.grid3{grid-template-columns:1fr}}
+.grid2{display:grid;grid-template-columns:minmax(0,1.25fr) minmax(0,1fr);gap:14px}
+@media (max-width:900px){.grid2{grid-template-columns:1fr}}
+svg{display:block;width:100%;height:auto;overflow:visible}
+svg text{font-family:var(--sans);fill:var(--ink)}
+svg .ax{stroke:var(--muted);stroke-width:1}
+svg .gr{stroke:var(--grid);stroke-width:1}
+svg .tick{font-size:11px;fill:var(--muted)}
+.seg{display:flex;flex-wrap:wrap;gap:4px;margin:6px 0 8px}
+.seg button{appearance:none;border:1px solid var(--line);background:var(--panel2);color:var(--ink);font:600 12px/1 var(--mono);padding:6px 8px;border-radius:7px;cursor:pointer}
+.seg button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);box-shadow:inset 0 0 0 1px var(--accent)}
+.caption{font-size:12.5px;color:var(--muted);margin-top:8px}
+.gloss{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px 22px}
+@media (max-width:760px){.gloss{grid-template-columns:1fr}}
+.gloss div{font-size:14px}
+.gloss b{display:block;font-size:13px;color:var(--accent);margin-bottom:2px}
+footer{margin-top:30px;padding-top:14px;border-top:1px solid var(--line);font-size:12.5px;color:var(--muted)}
+footer code,.chip code{font-family:var(--mono)}
+footer code{word-break:break-all}
+@media (max-width:700px){td.num{white-space:normal;word-break:break-word}.hint{display:none}.legend3d{display:none}.tbtn{padding:6px 7px;font-size:11.5px}h1{font-size:25px}}
+.themebtn{float:right;margin-top:4px}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <button class="tbtn themebtn" id="themeBtn" title="Сменить тему">Светлая / тёмная</button>
+  <div class="kicker">Geometry of Latched λ-Molecules · HONC · Qf · R1 · КТ-1 — подписан 12.11.2026</div>
+  <h1>Геометрия латчеров КТ-1: нить, навес, касания</h1>
+  <p class="lead">Латчеры и их соединения, проверенные в КТ-1: открытая нить латчеров и навес на ней — касания тел, прокол кольцом, чтение J5. Самих λ-молекул (замкнутых цепей латчеров) в случаях К1–К4 и А-5 нет. Цикл T1–T2–H1 — цикл графа касаний для J5, а не цепь латчеров. Всё на странице — значения из протоколов замороженного ядра. Кривые и 3D-форма строятся прямо здесь, по тем же формулам построения. Сертифицированные вилки ядра показаны отдельно.</p>
+  <div class="chips">
+    <span class="chip">ядро <b><code>ecb35112…268ea</code></b> · заморожено</span>
+    <span class="chip">протоколы <b>К1–К4, А-5</b></span>
+    <span class="chip">А-5 rev8.8 DeepSeek <b><code>b44bfbce…c972</code></b> · без ядра</span>
+    <span class="chip warnchip">значения ядра — DeepSeek не открывать</span>
+  </div>
+</header>
+
+<nav class="tabs" id="tabs" aria-label="Случай"></nav>
+
+<div class="main">
+  <div>
+    <div class="viewer" id="viewer">
+      <canvas id="cv" aria-label="Трёхмерная сцена"></canvas>
+      <div class="labels" id="labels"></div>
+      <div class="toolbar">
+        <div class="grp" id="views">
+          <button class="tbtn" data-view="iso">Общий вид</button>
+          <button class="tbtn" data-view="top">Вдоль осей торов</button>
+          <button class="tbtn" data-view="side">Плоскость нити</button>
+          <button class="tbtn" data-view="node">Узел T1–T2–H1</button>
+        </div>
+        <div class="grp" id="toggles">
+          <button class="tbtn" data-t="bodies" aria-pressed="true">Тела</button>
+          <button class="tbtn" data-t="guides" aria-pressed="true">Оси</button>
+          <button class="tbtn" data-t="rings" aria-pressed="true">Кольца</button>
+          <button class="tbtn" data-t="contacts" aria-pressed="true">Касания</button>
+          <button class="tbtn" data-t="labels" aria-pressed="true">Подписи</button>
+        </div>
+      </div>
+      <div class="legend3d">
+        <div><span class="sw" style="background:var(--thread)"></span>тор нити T0…T4</div>
+        <div><span class="sw" style="background:var(--hang)"></span>тор-навес H1</div>
+        <div><span class="sw line" style="background:var(--ring)"></span>кольцо нити Rk</div>
+        <div><span class="sw line" style="background:var(--ringH)"></span>кольцо навеса RH1</div>
+        <div><span class="sw dot" style="background:var(--neg)"></span>касание, знак J5 −1</div>
+        <div><span class="sw dot" style="background:var(--pos)"></span>касание, знак J5 +1</div>
+        <div><span class="sw line" style="background:var(--bad)"></span>кольцо внутри тела</div>
+      </div>
+      <div class="hint">Тяните — вращение · колесо / щипок — масштаб · Shift или правая кнопка — сдвиг</div>
+      <div class="tip" id="tip"></div>
+      <div class="nogl" id="nogl">Трёхмерная сцена не загрузилась: нужен доступ к cdnjs.cloudflare.com (three.js) и WebGL. Остальные схемы страницы работают без неё.</div>
+    </div>
+  </div>
+  <aside class="card side" id="side"></aside>
+</div>
+
+<section class="grid3">
+  <div class="card">
+    <h3>Граф касаний и J5</h3>
+    <div id="j5"></div>
+    <div class="caption" id="j5cap"></div>
+  </div>
+  <div class="card">
+    <h3>Касп: кольцо в продетом торе</h3>
+    <div class="seg" id="cuspSeg"></div>
+    <div id="cusp"></div>
+    <div class="caption" id="cuspCap"></div>
+  </div>
+  <div class="card">
+    <h3>Кольцо R1 рядом с телом навеса</h3>
+    <div id="prof"></div>
+    <div class="caption" id="profNote" style="color:var(--ink)"></div>
+    <div class="caption">Расстояние точки кольца R1 до средней окружности H1 минус 0,5 (G-5а) вдоль параметра кольца. Ниже нуля — кольцо внутри тела H1. При переходе ψ от 54° к 56° минимум проходит через ноль: это граница прокола. Кривые посчитаны здесь в двойной точности; точки и подписи — сертифицированные вилки ядра.</div>
+  </div>
+</section>
+
+<section class="card">
+  <h2>Семейство навеса H1: где он допустим</h2>
+  <p class="small muted">Навес на T2, ρ — корень касания с T1, сторона +1. Каждая точка — прогон ядра в точке (ψ, δ). Граница проведена между соседними точками (класс В) и не доказана на интервалах. Потолок ψ<sub>max</sub>(δ) задают две ветви: R1 входит в тело H1 (G-5а) и касп RH1 в T2 (G-5б–г).</p>
+  <div class="grid2">
+    <div id="famFull"></div>
+    <div id="famZoom"></div>
+  </div>
+  <div class="caption" id="famLegend"></div>
+</section>
+
+<section class="card">
+  <h2>А-5: независимая проверка без ядра</h2>
+  <p class="small muted">Код DeepSeek (А-5 rev8.8) не видел ядра. Он строит интервал W, в котором доказанно лежат все корни ρ, и сертифицированную вилку расстояния звена d. Синяя полоса — W DeepSeek, вертикальная черта — корень ядра, зелёная полоса — окно источника.</p>
+  <div id="strip"></div>
+  <div class="caption" id="stripCap"></div>
+</section>
+
+<section class="card">
+  <h2>Как читать</h2>
+  <div class="gloss">
+    <div><b>Латчер (Qf)</b>Рогатый тор — средняя окружность и трубка радиуса 0,5 — со своим кольцом. Кольцо тора k продевает тор k и следующий тор нити.</div>
+    <div><b>λ-молекула</b>Замкнутая цепь латчеров — цикл «тор, кольцо, тор, …» (Терминология, § 3). На этой странице λ-молекул нет: нить открыта, навес — ветвь. Цикл T1–T2–H1 — цикл графа касаний для J5: его ребро T1–H1 — касание без кольца, а такое касание даёт только условие J5 — не латчер и не канал хода (Раунд 3а, Б5). Замкнутые цепи латчеров (W, N = 4; глюон, N = 8) — случай Кλ5 в КТ-2.</div>
+    <div><b>Кольцо</b>Плоский эллипс длины 2π через центры двух торов. В каждом центре он касается оси тора — это касп. Длина и полуоси сертифицированы (G-2).</div>
+    <div><b>Навес H1 (ρ, ψ, δ)</b>Тор, подвешенный на хозяина T2 по правилу звена. ρ — отклонение от поперечного направления; ψ = 0 — назад к T1, 90° — вдоль оси хозяина; δ — закрутка оси навеса.</div>
+    <div><b>Касания тел</b>IMPOSED — касание задано построением (зазор 0 сертифицирован). LINK — касание двух торов, сцепленных кольцом (звено латчеров). CONTACT-ONLY — касание без общего кольца: условие J5, но не сцепление.</div>
+    <div><b>J5</b>Знак ребра — sign(v<sub>A</sub>·v<sub>B</sub>) в точке касания. Цикл согласован, если оси вращения торов можно разметить знаками без противоречия. J5-CANON — канонически установленное чтение; J5-EXT — рабочее расширение для непараллельных осей, условное [Г, мост].</div>
+    <div><b>Касп и κ<sub>r</sub></b>Сечение продетого тора плоскостью кольца — два круга радиуса 0,5, касающихся оси в каспе. Кольцо снаружи, если его кривизна в каспе κ<sub>r</sub> &lt; 2. Запас — 2 − κ<sub>r</sub>.</div>
+    <div><b>Статусы</b>EXACT — тождество или закрытая форма; CERTIFIED — гарантированный интервальный поиск. PASSED только при одной из них. Пути (достижимость) в КТ-1 не проверялись — это КТ-3.</div>
+  </div>
+</section>
+
+<footer>
+  <p><b>Источники.</b> Протоколы <code>HONC_Qf_R1_KT1_BaseCase_Protocols_2026-11-05.zip</code> — ядро <code>ecb35112d85911c810d70942f3655ddc25ed19c9047befff2cb7dfbf6ea268ea</code>, версия kt1-2026-11-02-wp4. Семейство H1 — <code>HONC_Qf_R1_KT1_H1_family_kernel_runs</code>, <code>…_corner_runs_raw</code>, <code>…_boundary_runs_raw</code> (03.11). А-5 rev8.8 DeepSeek — архив <code>b44bfbce7a0ddcfcd35a53c8ba3de6082f78eaba8e046b74400aba492bd3c972</code>.</p>
+  <p><b>Статус страницы.</b> Наглядное представление протоколов для Автора. Это не HTML-слой инструмента (WP-6) и не новый расчёт: формы и кривые воспроизводят построение ядра в двойной точности, решающие числа взяты из сертифицированных вилок. Содержит значения ядра — исполнителю роли DeepSeek не открывать. Составил Клод, 12.11.2026; вечером того же дня уточнена терминология цикла J5 по вопросу Интегратора — результаты не менялись.</p>
+</footer>
+</div>
+
+<script id="viz-data" type="application/json">{"cases":{"K1":{"title":"К1 — прямая нить","hang":null,"tori":[{"name":"T0","A":[0.0,0.0,0.0],"T":[0.0,1.0,0.0]},{"name":"T1","A":[0.0,0.0,2.0],"T":[0.0,1.0,0.0]},{"name":"T2","A":[0.0,0.0,4.0],"T":[0.0,1.0,0.0]},{"name":"T3","A":[0.0,0.0,6.0],"T":[0.0,1.0,0.0]},{"name":"T4","A":[0.0,0.0,8.0],"T":[0.0,1.0,0.0]}],"rings":[{"name":"R0","owner":"T0","threads":["T0","T1"],"C":[0.0,0.0,1.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":3.33066907387547e-16},{"name":"R1","owner":"T1","threads":["T1","T2"],"C":[0.0,0.0,3.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":2.2204460492503135e-15},{"name":"R2","owner":"T2","threads":["T2","T3"],"C":[0.0,0.0,5.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":6.2172489379008774e-15},{"name":"R3","owner":"T3","threads":["T3","T4"],"C":[0.0,0.0,7.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":8.881784197001254e-15},{"name":"R4","owner":"T4","threads":["T4"],"C":[0.0,0.0,9.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":1.4210854715202007e-14}],"contacts":[{"pair":["T0","T1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.9079850466805517e-14,4.218847493575596e-15],"points":[{"c":[0.0,0.0,1.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999995086],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","T2"],"cls":"LINK","existence":"IMPOSED","gap":[-4.085620730620577e-14,6.883382752675971e-15],"points":[{"c":[0.0,0.0,3.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999981023],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T2","T3"],"cls":"LINK","existence":"IMPOSED","gap":[-4.440892098500627e-14,1.0436096431476473e-14],"points":[{"c":[0.0,0.0,5.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980672],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T3","T4"],"cls":"LINK","existence":"IMPOSED","gap":[-4.696243394164413e-14,1.3988810110276974e-14],"points":[{"c":[0.0,0.0,7.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980286],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]}],"separated":[{"pair":["T0","T2"],"gap":[1.9999999999999634,2.0000000000000075]},{"pair":["T0","T3"],"gap":[3.9999999999999605,4.000000000000012]},{"pair":["T0","T4"],"gap":[5.999999999999875,6.000000000000016]},{"pair":["T1","T3"],"gap":[1.9999999999999611,2.0000000000000107]},{"pair":["T1","T4"],"gap":[3.9999999999998725,4.000000000000016]},{"pair":["T2","T4"],"gap":[1.9999999999999576,2.0000000000000147]}],"checks":[{"id":"G5bg:R0:T0","req":"G-5б–г","q":"kappa_margin","obj":["R0","T0"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R0:T1","req":"G-5б–г","q":"kappa_margin","obj":["R0","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.09e-321,1.09e-321],"outside_t":null}},{"id":"G5a:R0:T2","req":"G-5а","q":"margin","obj":["R0","T2"],"v":[0.999999999999503,1.0000000000001246],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R1:T0","req":"G-5а","q":"margin","obj":["R1","T0"],"v":[0.9999999999995034,1.0000000000000062],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R1:T1","req":"G-5б–г","q":"kappa_margin","obj":["R1","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R1:T2","req":"G-5б–г","q":"kappa_margin","obj":["R1","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.11e-321,1.11e-321],"outside_t":null}},{"id":"G5a:R1:T3","req":"G-5а","q":"margin","obj":["R1","T3"],"v":[0.9999999999995003,1.0000000000001272],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R2:T1","req":"G-5а","q":"margin","obj":["R2","T1"],"v":[0.9999999999995007,1.0000000000000089],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R2:T2","req":"G-5б–г","q":"kappa_margin","obj":["R2","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R2:T3","req":"G-5б–г","q":"kappa_margin","obj":["R2","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.13e-321,1.13e-321],"outside_t":null}},{"id":"G5a:R2:T4","req":"G-5а","q":"margin","obj":["R2","T4"],"v":[0.9999999999994963,1.0000000000001317],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R3:T2","req":"G-5а","q":"margin","obj":["R3","T2"],"v":[0.9999999999994972,1.0000000000000115],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R3:T3","req":"G-5б–г","q":"kappa_margin","obj":["R3","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R3:T4","req":"G-5б–г","q":"kappa_margin","obj":["R3","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.15e-321,1.15e-321],"outside_t":null}},{"id":"G5a:R4:T3","req":"G-5а","q":"margin","obj":["R4","T3"],"v":[0.9999999999994927,1.0000000000000173],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R4:T4","req":"G-5б–г","q":"kappa_margin","obj":["R4","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"RR:R0:R1","req":"R-1","q":"halfplane_angle","obj":["R0","R1"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:R2","req":"R-1","q":"halfplane_angle","obj":["R1","R2"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:R3","req":"R-1","q":"halfplane_angle","obj":["R2","R3"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R3:R4","req":"R-1","q":"halfplane_angle","obj":["R3","R4"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null}],"not_passed":[],"j5":{"edges":[{"pair":["T0","T1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T1","T2"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T2","T3"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T3","T4"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true}],"canon":{"verdict":"PASSED","level":"L3","reason":null,"inconsistent_canon_cycle":null,"non_canon_edges":[],"uncovered_bridges":[]},"ext":{"verdict":"PASSED-EXT","reason":"согласовано при рабочем расширении [Г, мост] — не согласованность по J5","label":"[Г, мост]"},"ysigns":[{"torus":"T0","sign":1,"label":"CANON","seed":"T0"},{"torus":"T1","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T2","sign":1,"label":"CANON","seed":"T0"},{"torus":"T3","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T4","sign":1,"label":"CANON","seed":"T0"}]},"verdict":"PASSED","n_checks":68,"triples":[]},"K2":{"title":"К2 — поперечный навес","hang":{"host":2,"side":1,"coords":"rho-psi","rho":0,"psi":0,"delta":0},"tori":[{"name":"T0","A":[0.0,0.0,0.0],"T":[0.0,1.0,0.0]},{"name":"T1","A":[0.0,0.0,2.0],"T":[0.0,1.0,0.0]},{"name":"T2","A":[0.0,0.0,4.0],"T":[0.0,1.0,0.0]},{"name":"T3","A":[0.0,0.0,6.0],"T":[0.0,1.0,0.0]},{"name":"T4","A":[0.0,0.0,8.0],"T":[0.0,1.0,0.0]},{"name":"H1","A":[2.0,0.0,4.0],"T":[0.0,1.0,0.0],"host":"T2"}],"rings":[{"name":"R0","owner":"T0","threads":["T0","T1"],"C":[0.0,0.0,1.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":3.33066907387547e-16},{"name":"R1","owner":"T1","threads":["T1","T2"],"C":[0.0,0.0,3.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":2.2204460492503135e-15},{"name":"R2","owner":"T2","threads":["T2","T3"],"C":[0.0,0.0,5.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":6.2172489379008774e-15},{"name":"R3","owner":"T3","threads":["T3","T4"],"C":[0.0,0.0,7.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":8.881784197001254e-15},{"name":"R4","owner":"T4","threads":["T4"],"C":[0.0,0.0,9.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":1.4210854715202007e-14},{"name":"RH1","owner":"H1","threads":["H1","T2"],"C":[1.0,0.0,4.0],"E1":[1.0,0.0,0.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":5.329070518200752e-15}],"contacts":[{"pair":["T0","T1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.9079850466805517e-14,4.218847493575596e-15],"points":[{"c":[0.0,0.0,1.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999995086],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","T2"],"cls":"LINK","existence":"IMPOSED","gap":[-4.085620730620577e-14,6.883382752675971e-15],"points":[{"c":[0.0,0.0,3.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999981023],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T2","T3"],"cls":"LINK","existence":"IMPOSED","gap":[-4.440892098500627e-14,1.0436096431476473e-14],"points":[{"c":[0.0,0.0,5.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980672],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T2","H1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.996802888650564e-14,5.773159728050815e-15],"points":[{"c":[1.0,0.0,4.0],"n":[1.0,0.0,0.0],"cos":[-1,-0.9999999999994972],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T3","T4"],"cls":"LINK","existence":"IMPOSED","gap":[-4.696243394164413e-14,1.3988810110276974e-14],"points":[{"c":[0.0,0.0,7.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980286],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]}],"separated":[{"pair":["T0","T2"],"gap":[1.9999999999999634,2.0000000000000075]},{"pair":["T0","T3"],"gap":[3.9999999999999605,4.000000000000012]},{"pair":["T0","T4"],"gap":[5.999999999999875,6.000000000000016]},{"pair":["T0","H1"],"gap":[2.472135954999483,2.47213595499959]},{"pair":["T1","T3"],"gap":[1.9999999999999611,2.0000000000000107]},{"pair":["T1","T4"],"gap":[3.9999999999998725,4.000000000000016]},{"pair":["T1","H1"],"gap":[0.8284271247461356,0.8284271247462004]},{"pair":["T2","T4"],"gap":[1.9999999999999576,2.0000000000000147]},{"pair":["T3","H1"],"gap":[0.8284271247461333,0.8284271247462026]},{"pair":["T4","H1"],"gap":[2.472135954999459,2.472135954999596]}],"checks":[{"id":"G4:T0:H1","req":"G-4","q":"gap","obj":["T0","H1"],"v":[2.472135954999483,2.47213595499959],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.605239095742285,3.6052409682774265]]}},{"id":"G4:T1:H1","req":"G-4","q":"gap","obj":["T1","H1"],"v":[0.8284271247461356,0.8284271247462004],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.926987820931016,3.9269938130434685]]}},{"id":"G4:T2:H1","req":"G-4","q":"gap","obj":["T2","H1"],"v":[-3.996802888650564e-14,5.773159728050815e-15],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[4.712388605877662,4.7123893548917195]]}},{"id":"G4:T3:H1","req":"G-4","q":"gap","obj":["T3","H1"],"v":[0.8284271247461333,0.8284271247462026],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.497784147725913,5.497790139838365]]}},{"id":"G4:T4:H1","req":"G-4","q":"gap","obj":["T4","H1"],"v":[2.472135954999459,2.472135954999596],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.819536617984927,5.819538865027097]]}},{"id":"G5bg:R0:T0","req":"G-5б–г","q":"kappa_margin","obj":["R0","T0"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R0:T1","req":"G-5б–г","q":"kappa_margin","obj":["R0","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.09e-321,1.09e-321],"outside_t":null}},{"id":"G5a:R0:T2","req":"G-5а","q":"margin","obj":["R0","T2"],"v":[0.999999999999503,1.0000000000001246],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R0:H1","req":"G-5а","q":"margin","obj":["R0","H1"],"v":[1.8284271247458441,1.8284271247462798],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R1:T0","req":"G-5а","q":"margin","obj":["R1","T0"],"v":[0.9999999999995034,1.0000000000000062],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R1:T1","req":"G-5б–г","q":"kappa_margin","obj":["R1","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R1:T2","req":"G-5б–г","q":"kappa_margin","obj":["R1","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.11e-321,1.11e-321],"outside_t":null}},{"id":"G5a:R1:T3","req":"G-5а","q":"margin","obj":["R1","T3"],"v":[0.9999999999995003,1.0000000000001272],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R1:H1","req":"G-5а","q":"margin","obj":["R1","H1"],"v":[0.9999999999996227,1.0000000000000517],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,2.9960562263391433e-06],[6.28318231112336,6.283185307179587]]}},{"id":"G5a:R2:T1","req":"G-5а","q":"margin","obj":["R2","T1"],"v":[0.9999999999995007,1.0000000000000089],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R2:T2","req":"G-5б–г","q":"kappa_margin","obj":["R2","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R2:T3","req":"G-5б–г","q":"kappa_margin","obj":["R2","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.13e-321,1.13e-321],"outside_t":null}},{"id":"G5a:R2:T4","req":"G-5а","q":"margin","obj":["R2","T4"],"v":[0.9999999999994963,1.0000000000001317],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R2:H1","req":"G-5а","q":"margin","obj":["R2","H1"],"v":[0.9999999999996227,1.0000000000000049],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.141589657533567,3.1415956496460202]]}},{"id":"G5a:R3:T2","req":"G-5а","q":"margin","obj":["R3","T2"],"v":[0.9999999999994972,1.0000000000000115],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R3:T3","req":"G-5б–г","q":"kappa_margin","obj":["R3","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R3:T4","req":"G-5б–г","q":"kappa_margin","obj":["R3","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.15e-321,1.15e-321],"outside_t":null}},{"id":"G5a:R3:H1","req":"G-5а","q":"margin","obj":["R3","H1"],"v":[1.8284271247458401,1.828427124746202],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5a:R4:T3","req":"G-5а","q":"margin","obj":["R4","T3"],"v":[0.9999999999994927,1.0000000000000173],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R4:T4","req":"G-5б–г","q":"kappa_margin","obj":["R4","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5a:R4:H1","req":"G-5а","q":"margin","obj":["R4","H1"],"v":[3.472135954999258,3.4721359549995974],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.14159115556168,3.141594151617907]]}},{"id":"G5a:RH1:T1","req":"G-5а","q":"margin","obj":["RH1","T1"],"v":[0.999999999999621,1.000000000000007],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.141589657533567,3.1415956496460202]]}},{"id":"G5bg:RH1:T2","req":"G-5б–г","q":"kappa_margin","obj":["RH1","T2"],"v":[0.9999999999999892,1.0000000000000093],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5a:RH1:T3","req":"G-5а","q":"margin","obj":["RH1","T3"],"v":[0.999999999999617,1.0000000000000089],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.141589657533567,3.1415956496460202]]}},{"id":"G5bg:RH1:H1","req":"G-5б–г","q":"kappa_margin","obj":["RH1","H1"],"v":[0.9999999999999892,1.0000000000000093],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.19e-321,1.19e-321],"outside_t":null}},{"id":"RR:R0:R1","req":"R-1","q":"halfplane_angle","obj":["R0","R1"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:R2","req":"R-1","q":"halfplane_angle","obj":["R1","R2"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:RH1","req":"R-1","q":"halfplane_angle","obj":["R1","RH1"],"v":[89.9999999999997,90.00000000000033],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:R3","req":"R-1","q":"halfplane_angle","obj":["R2","R3"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:RH1","req":"R-1","q":"halfplane_angle","obj":["R2","RH1"],"v":[89.99999999999967,90.0000000000003],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R3:R4","req":"R-1","q":"halfplane_angle","obj":["R3","R4"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null}],"not_passed":[],"j5":{"edges":[{"pair":["T0","T1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T1","T2"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T2","T3"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T2","H1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T3","T4"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true}],"canon":{"verdict":"PASSED","level":"L3","reason":null,"inconsistent_canon_cycle":null,"non_canon_edges":[],"uncovered_bridges":[]},"ext":{"verdict":"PASSED-EXT","reason":"согласовано при рабочем расширении [Г, мост] — не согласованность по J5","label":"[Г, мост]"},"ysigns":[{"torus":"T0","sign":1,"label":"CANON","seed":"T0"},{"torus":"T1","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T2","sign":1,"label":"CANON","seed":"T0"},{"torus":"T3","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T4","sign":1,"label":"CANON","seed":"T0"},{"torus":"H1","sign":-1,"label":"CANON","seed":"T0"}]},"verdict":"PASSED","n_checks":94,"triples":[{"req":"G-8","torus":"T2","rings":["R1","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.9999999999999958,1.0000000000000049],"optional":true},{"req":"G-8","torus":"T2","rings":["R2","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.9999999999999958,1.0000000000000049],"optional":true}]},"K3":{"title":"К3 — плоский треугольник","hang":{"host":2,"side":1,"coords":"rho-psi","rho":null,"psi":0,"delta":0,"fix":{"kind":"contact","free":"rho","with":"T1","bracket":[29.5,30.5]}},"tori":[{"name":"T0","A":[0.0,0.0,0.0],"T":[0.0,1.0,0.0]},{"name":"T1","A":[0.0,0.0,2.0],"T":[0.0,1.0,0.0]},{"name":"T2","A":[0.0,0.0,4.0],"T":[0.0,1.0,0.0]},{"name":"T3","A":[0.0,0.0,6.0],"T":[0.0,1.0,0.0]},{"name":"T4","A":[0.0,0.0,8.0],"T":[0.0,1.0,0.0]},{"name":"H1","A":[1.732050807569,0.0,3.0],"T":[0.0,1.0,0.0],"host":"T2","root_deg":[29.999999999998174,30.00000000000183],"bracket":[29.5,30.5]}],"rings":[{"name":"R0","owner":"T0","threads":["T0","T1"],"C":[0.0,0.0,1.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":3.33066907387547e-16},{"name":"R1","owner":"T1","threads":["T1","T2"],"C":[0.0,0.0,3.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":2.2204460492503135e-15},{"name":"R2","owner":"T2","threads":["T2","T3"],"C":[0.0,0.0,5.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":6.2172489379008774e-15},{"name":"R3","owner":"T3","threads":["T3","T4"],"C":[0.0,0.0,7.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":8.881784197001254e-15},{"name":"R4","owner":"T4","threads":["T4"],"C":[0.0,0.0,9.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":1.4210854715202007e-14},{"name":"RH1","owner":"H1","threads":["H1","T2"],"C":[0.866025403784,0.0,3.5],"E1":[0.866025403784,0.0,-0.5],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":6.350475700855897e-14}],"contacts":[{"pair":["T0","T1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.9079850466805517e-14,4.218847493575596e-15],"points":[{"c":[0.0,0.0,1.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999995086],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","T2"],"cls":"LINK","existence":"IMPOSED","gap":[-4.085620730620577e-14,6.883382752675971e-15],"points":[{"c":[0.0,0.0,3.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999981023],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","H1"],"cls":"CONTACT-ONLY","existence":"IMPOSED","gap":[-2.58570942435199e-13,7.283063041541028e-14],"points":[{"c":[0.866025362173,0.0,2.500000072074],"n":[0.866025445398,0.0,0.499999927928],"cos":[-1,-0.9999930809269787],"abs_nT":[[0,0.0],[0,0.0]]}],"d":null},{"pair":["T2","T3"],"cls":"LINK","existence":"IMPOSED","gap":[-4.440892098500627e-14,1.0436096431476473e-14],"points":[{"c":[0.0,0.0,5.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980672],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T2","H1"],"cls":"LINK","existence":"IMPOSED","gap":[-2.5879298704012404e-13,7.416289804496047e-14],"points":[{"c":[0.866025362173,0.0,3.499999927926],"n":[0.866025445398,0.0,-0.499999927928],"cos":[-1,-0.9999930809269707],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T3","T4"],"cls":"LINK","existence":"IMPOSED","gap":[-4.696243394164413e-14,1.3988810110276974e-14],"points":[{"c":[0.0,0.0,7.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980286],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]}],"separated":[{"pair":["T0","T2"],"gap":[1.9999999999999634,2.0000000000000075]},{"pair":["T0","T3"],"gap":[3.9999999999999605,4.000000000000012]},{"pair":["T0","T4"],"gap":[5.999999999999875,6.000000000000016]},{"pair":["T0","H1"],"gap":[1.464101615137355,1.4641016151378363]},{"pair":["T1","T3"],"gap":[1.9999999999999611,2.0000000000000107]},{"pair":["T1","T4"],"gap":[3.9999999999998725,4.000000000000016]},{"pair":["T2","T4"],"gap":[1.9999999999999576,2.0000000000000147]},{"pair":["T3","H1"],"gap":[1.4641016151373514,1.464101615137842]},{"pair":["T4","H1"],"gap":[3.2915026221289767,3.2915026221292716]}],"checks":[{"id":"G4:T0:H1","req":"G-4","q":"gap","obj":["T0","H1"],"v":[1.464101615137355,1.4641016151378363],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.6651901808313316,3.6651939259016144]]}},{"id":"G4:T1:H1","req":"G-4","q":"gap","obj":["T1","H1"],"v":[-2.58570942435199e-13,7.283063041541028e-14],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[4.188788457086927,4.188791453143153]]}},{"id":"G4:T2:H1","req":"G-4","q":"gap","obj":["T2","H1"],"v":[-2.5879298704012404e-13,7.416289804496047e-14],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.235986507626228,5.235989503682454]]}},{"id":"G4:T3:H1","req":"G-4","q":"gap","obj":["T3","H1"],"v":[1.4641016151373514,1.464101615137842],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.759584034867767,5.75958777993805]]}},{"id":"G4:T4:H1","req":"G-4","q":"gap","obj":["T4","H1"],"v":[3.2915026221289767,3.2915026221292716],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.949709268906908,5.949713762991248]]}},{"id":"G5bg:R0:T0","req":"G-5б–г","q":"kappa_margin","obj":["R0","T0"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R0:T1","req":"G-5б–г","q":"kappa_margin","obj":["R0","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.09e-321,1.09e-321],"outside_t":null}},{"id":"G5a:R0:T2","req":"G-5а","q":"margin","obj":["R0","T2"],"v":[0.999999999999503,1.0000000000001246],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R0:H1","req":"G-5а","q":"margin","obj":["R0","H1"],"v":[0.9999999999995477,1.000000000000148],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,2.9960562263391433e-06],[6.28318231112336,6.283185307179587]]}},{"id":"G5a:R1:T0","req":"G-5а","q":"margin","obj":["R1","T0"],"v":[0.9999999999995034,1.0000000000000062],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R1:T1","req":"G-5б–г","q":"kappa_margin","obj":["R1","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R1:T2","req":"G-5б–г","q":"kappa_margin","obj":["R1","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.11e-321,1.11e-321],"outside_t":null}},{"id":"G5a:R1:T3","req":"G-5а","q":"margin","obj":["R1","T3"],"v":[0.9999999999995003,1.0000000000001272],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R1:H1","req":"G-5а","q":"margin","obj":["R1","H1"],"v":[0.9999999999994184,1.0000000000000662],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,4.494084339508715e-06],[3.141588159505454,3.1415971476741333],[6.283180813095247,6.283185307179587]]}},{"id":"G5a:R2:T1","req":"G-5а","q":"margin","obj":["R2","T1"],"v":[0.9999999999995007,1.0000000000000089],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R2:T2","req":"G-5б–г","q":"kappa_margin","obj":["R2","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R2:T3","req":"G-5б–г","q":"kappa_margin","obj":["R2","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.13e-321,1.13e-321],"outside_t":null}},{"id":"G5a:R2:T4","req":"G-5а","q":"margin","obj":["R2","T4"],"v":[0.9999999999994963,1.0000000000001317],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R2:H1","req":"G-5а","q":"margin","obj":["R2","H1"],"v":[0.9999999999995464,1.0000000000000684],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.141589657533567,3.1415956496460202]]}},{"id":"G5a:R3:T2","req":"G-5а","q":"margin","obj":["R3","T2"],"v":[0.9999999999994972,1.0000000000000115],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R3:T3","req":"G-5б–г","q":"kappa_margin","obj":["R3","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R3:T4","req":"G-5б–г","q":"kappa_margin","obj":["R3","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.15e-321,1.15e-321],"outside_t":null}},{"id":"G5a:R3:H1","req":"G-5а","q":"margin","obj":["R3","H1"],"v":[2.4641016151373387,2.4641016151378374],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5a:R4:T3","req":"G-5а","q":"margin","obj":["R4","T3"],"v":[0.9999999999994927,1.0000000000000173],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R4:T4","req":"G-5б–г","q":"kappa_margin","obj":["R4","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5a:R4:H1","req":"G-5а","q":"margin","obj":["R4","H1"],"v":[4.2915026221287995,4.29150262212927],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.141589657533567,3.1415956496460202]]}},{"id":"G5a:RH1:T1","req":"G-5а","q":"margin","obj":["RH1","T1"],"v":[0.9999999999988602,1.0000000000000657],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,4.494084339508715e-06],[3.141588159505454,3.1415971476741333],[6.283180813095247,6.283185307179587]]}},{"id":"G5bg:RH1:T2","req":"G-5б–г","q":"kappa_margin","obj":["RH1","T2"],"v":[0.9999999999999595,1.0000000000000397],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5a:RH1:T3","req":"G-5а","q":"margin","obj":["RH1","T3"],"v":[0.9999999999989965,1.0000000000000688],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:RH1:H1","req":"G-5б–г","q":"kappa_margin","obj":["RH1","H1"],"v":[0.9999999999999595,1.0000000000000397],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.25e-321,1.25e-321],"outside_t":null}},{"id":"RR:R0:R1","req":"R-1","q":"halfplane_angle","obj":["R0","R1"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:R2","req":"R-1","q":"halfplane_angle","obj":["R1","R2"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:RH1","req":"R-1","q":"halfplane_angle","obj":["R1","RH1"],"v":[59.99999999999543,60.00000000000451],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:R3","req":"R-1","q":"halfplane_angle","obj":["R2","R3"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:RH1","req":"R-1","q":"halfplane_angle","obj":["R2","RH1"],"v":[119.99999999999527,120.0000000000048],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R3:R4","req":"R-1","q":"halfplane_angle","obj":["R3","R4"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null}],"not_passed":[],"j5":{"edges":[{"pair":["T0","T1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T1","T2"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T1","H1"],"cls":"CONTACT-ONLY","reading":"J5-CANON","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T2","T3"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T2","H1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T3","T4"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true}],"canon":{"verdict":"FORBIDDEN","reason":"K-6: несогласован цикл только из канонических рёбер","inconsistent_canon_cycle":["T2","T1","H1"],"non_canon_edges":[],"uncovered_bridges":[]},"ext":{"verdict":"FORBIDDEN-EXT","reason":"K-6: несогласованный цикл при знаках расширения","inconsistent_cycle":["T2","T1","H1"],"label":"[Г, мост]"},"ysigns":[{"torus":"T0","sign":1,"label":"CANON","seed":"T0"},{"torus":"T1","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T2","sign":1,"label":"CANON","seed":"T0"},{"torus":"T3","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T4","sign":1,"label":"CANON","seed":"T0"},{"torus":"H1","sign":1,"label":"CANON","seed":"T0"}]},"verdict":"PASSED","n_checks":94,"triples":[{"req":"G-8","torus":"T2","rings":["R1","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.8660254037843906,0.8660254037844861],"optional":true},{"req":"G-8","torus":"T2","rings":["R2","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.8660254037843906,0.8660254037844861],"optional":true}]},"K4":{"title":"К4 — окно расчёта 1","hang":{"host":2,"side":1,"coords":"rho-psi","rho":null,"psi":54,"delta":10,"fix":{"kind":"contact","free":"rho","with":"T1","bracket":[57,57.5]}},"tori":[{"name":"T0","A":[0.0,0.0,0.0],"T":[0.0,1.0,0.0]},{"name":"T1","A":[0.0,0.0,2.0],"T":[0.0,1.0,0.0]},{"name":"T2","A":[0.0,0.0,4.0],"T":[0.0,1.0,0.0]},{"name":"T3","A":[0.0,0.0,6.0],"T":[0.0,1.0,0.0]},{"name":"T4","A":[0.0,0.0,8.0],"T":[0.0,1.0,0.0]},{"name":"H1","A":[0.901208307665,1.133975451772,3.176118608574],"T":[-0.734328521526,-0.1004510832,0.671320491537],"host":"T2","root_deg":[57.26089065386257,57.260890653895345],"bracket":[57,57.5]}],"rings":[{"name":"R0","owner":"T0","threads":["T0","T1"],"C":[0.0,0.0,1.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":3.33066907387547e-16},{"name":"R1","owner":"T1","threads":["T1","T2"],"C":[0.0,0.0,3.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":2.2204460492503135e-15},{"name":"R2","owner":"T2","threads":["T2","T3"],"C":[0.0,0.0,5.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":6.2172489379008774e-15},{"name":"R3","owner":"T3","threads":["T3","T4"],"C":[0.0,0.0,7.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":8.881784197001254e-15},{"name":"R4","owner":"T4","threads":["T4"],"C":[0.0,0.0,9.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":1.4210854715202007e-14},{"name":"RH1","owner":"H1","threads":["H1","T2"],"C":[0.801043809052,0.221910787228,3.267688632714],"E1":[0.342177780073,-0.886035809936,-0.312817695048],"E2":[0.653949041726,0.463616806761,-0.597837860389],"s1":0.8471471852378507,"s2":1.1419168800858936,"completeness":"CERTIFIED","width":1.3365464290870935e-10}],"contacts":[{"pair":["T0","T1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.9079850466805517e-14,4.218847493575596e-15],"points":[{"c":[0.0,0.0,1.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999995086],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","T2"],"cls":"LINK","existence":"IMPOSED","gap":[-4.085620730620577e-14,6.883382752675971e-15],"points":[{"c":[0.0,0.0,3.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999981023],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","H1"],"cls":"CONTACT-ONLY","existence":"IMPOSED","gap":[-3.2883695766372516e-12,6.765699112065705e-13],"points":[{"c":[0.508410358311,0.378372317615,2.652080209893],"n":[0.401950566015,0.75674463523,0.515532054956],"cos":[0.12464037181562025,0.12467549192661657],"abs_nT":[[0.756738,0.756751],[0.025079,0.025106]]}],"d":null},{"pair":["T2","T3"],"cls":"LINK","existence":"IMPOSED","gap":[-4.440892098500627e-14,1.0436096431476473e-14],"points":[{"c":[0.0,0.0,5.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980672],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T2","H1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.1602498395955085e-12,2.5173196860350803e-12],"points":[{"c":[0.653654405552,0.318252226327,3.402431634101],"n":[0.569246984409,0.636504452655,-0.520403643864],"cos":[-1,-0.9999802975685714],"abs_nT":[[0.636501,0.636507],[0.831301,0.831318]]}],"d":[1.6663904963010716,1.6663904963014764]},{"pair":["T3","T4"],"cls":"LINK","existence":"IMPOSED","gap":[-4.696243394164413e-14,1.3988810110276974e-14],"points":[{"c":[0.0,0.0,7.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980286],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]}],"separated":[{"pair":["T0","T2"],"gap":[1.9999999999999634,2.0000000000000075]},{"pair":["T0","T3"],"gap":[3.9999999999999605,4.000000000000012]},{"pair":["T0","T4"],"gap":[5.999999999999875,6.000000000000016]},{"pair":["T0","H1"],"gap":[1.5645907723299042,1.5645907723352723]},{"pair":["T1","T3"],"gap":[1.9999999999999611,2.0000000000000107]},{"pair":["T1","T4"],"gap":[3.9999999999998725,4.000000000000016]},{"pair":["T2","T4"],"gap":[1.9999999999999576,2.0000000000000147]},{"pair":["T3","H1"],"gap":[1.4605904559867275,1.4605904559951768]},{"pair":["T4","H1"],"gap":[3.2640037118698166,3.2640037118801044]}],"checks":[{"id":"G4:T0:H1","req":"G-4","q":"gap","obj":["T0","H1"],"v":[1.5645907723299042,1.5645907723352723],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.3557185450440827,3.3557275332127614]]}},{"id":"G4:T1:H1","req":"G-4","q":"gap","obj":["T1","H1"],"v":[-3.2883695766372516e-12,6.765699112065705e-13],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.8038049691850815,3.8038229455224393]]}},{"id":"G4:T2:H1","req":"G-4","q":"gap","obj":["T2","H1"],"v":[-3.1602498395955085e-12,2.5173196860350803e-12],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.452987115029689,5.452996852212426]]}},{"id":"G4:T3:H1","req":"G-4","q":"gap","obj":["T3","H1"],"v":[1.4605904559867275,1.4605904559951768],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.843099102176971,5.84311033738782]]}},{"id":"G4:T4:H1","req":"G-4","q":"gap","obj":["T4","H1"],"v":[3.2640037118698166,3.2640037118801044],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[6.013999392425751,6.014011751157684]]}},{"id":"G5bg:R0:T0","req":"G-5б–г","q":"kappa_margin","obj":["R0","T0"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R0:T1","req":"G-5б–г","q":"kappa_margin","obj":["R0","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.09e-321,1.09e-321],"outside_t":null}},{"id":"G5a:R0:T2","req":"G-5а","q":"margin","obj":["R0","T2"],"v":[0.999999999999503,1.0000000000001246],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R0:H1","req":"G-5а","q":"margin","obj":["R0","H1"],"v":[0.7127007171108324,0.7127007171128755],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0.47153187488670223,0.47153515182319977]]}},{"id":"G5a:R1:T0","req":"G-5а","q":"margin","obj":["R1","T0"],"v":[0.9999999999995034,1.0000000000000062],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R1:T1","req":"G-5б–г","q":"kappa_margin","obj":["R1","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R1:T2","req":"G-5б–г","q":"kappa_margin","obj":["R1","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.11e-321,1.11e-321],"outside_t":null}},{"id":"G5a:R1:T3","req":"G-5а","q":"margin","obj":["R1","T3"],"v":[0.9999999999995003,1.0000000000001272],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R1:H1","req":"G-5а","q":"margin","obj":["R1","H1"],"v":[0.07804863186083551,0.07804863186462908],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[1.7498403660006527,1.7498443919512066]]}},{"id":"G5a:R2:T1","req":"G-5а","q":"margin","obj":["R2","T1"],"v":[0.9999999999995007,1.0000000000000089],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R2:T2","req":"G-5б–г","q":"kappa_margin","obj":["R2","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R2:T3","req":"G-5б–г","q":"kappa_margin","obj":["R2","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.13e-321,1.13e-321],"outside_t":null}},{"id":"G5a:R2:T4","req":"G-5а","q":"margin","obj":["R2","T4"],"v":[0.9999999999994963,1.0000000000001317],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R2:H1","req":"G-5а","q":"margin","obj":["R2","H1"],"v":[0.8446357607528431,0.844635760757748],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[2.8073389514728655,2.807344288198019]]}},{"id":"G5a:R3:T2","req":"G-5а","q":"margin","obj":["R3","T2"],"v":[0.9999999999994972,1.0000000000000115],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R3:T3","req":"G-5б–г","q":"kappa_margin","obj":["R3","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R3:T4","req":"G-5б–г","q":"kappa_margin","obj":["R3","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.15e-321,1.15e-321],"outside_t":null}},{"id":"G5a:R3:H1","req":"G-5а","q":"margin","obj":["R3","H1"],"v":[2.39402979777479,2.394029797783294],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[2.8768165590940997,2.87682423648818]]}},{"id":"G5a:R4:T3","req":"G-5а","q":"margin","obj":["R4","T3"],"v":[0.9999999999994927,1.0000000000000173],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R4:T4","req":"G-5б–г","q":"kappa_margin","obj":["R4","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5a:R4:H1","req":"G-5а","q":"margin","obj":["R4","H1"],"v":[4.231165890357107,4.231165890367533],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[2.9529383895310266,2.95294690956592]]}},{"id":"G5a:RH1:T1","req":"G-5а","q":"margin","obj":["RH1","T1"],"v":[0.586096680522767,0.586096680980097],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0.31715052789535636,0.3172464016945992],[0.31736624394365276,0.3173902123934635],[0.3174021966183689,0.3174980704176117],[0.317510054642517,0.31753402309232776]]}},{"id":"G5bg:RH1:T2","req":"G-5б–г","q":"kappa_margin","obj":["RH1","T2"],"v":[0.6338317874760672,0.6338317908137768],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.9410710210282325,-1.9410710206459347],"outside_t":null}},{"id":"G5a:RH1:T3","req":"G-5а","q":"margin","obj":["RH1","T3"],"v":[0.9999999995761908,1.0000000001042466],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[4.342076430809174,4.342148336158606]]}},{"id":"G5bg:RH1:H1","req":"G-5б–г","q":"kappa_margin","obj":["RH1","H1"],"v":[1.2369343293564719,1.2369343312804915],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[2.645947319637308,2.6459473200065022],"outside_t":null}},{"id":"RR:R0:R1","req":"R-1","q":"halfplane_angle","obj":["R0","R1"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:R2","req":"R-1","q":"halfplane_angle","obj":["R1","R2"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:RH1","req":"R-1","q":"halfplane_angle","obj":["R1","RH1"],"v":[47.56655763876646,47.566557652344066],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:R3","req":"R-1","q":"halfplane_angle","obj":["R2","R3"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:RH1","req":"R-1","q":"halfplane_angle","obj":["R2","RH1"],"v":[132.43344234765567,132.4334423612338],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R3:R4","req":"R-1","q":"halfplane_angle","obj":["R3","R4"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null}],"not_passed":[],"j5":{"edges":[{"pair":["T0","T1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T1","T2"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T1","H1"],"cls":"CONTACT-ONLY","reading":"J5-EXT","sign":1,"on_cycle":true,"bridge":false},{"pair":["T2","T3"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T2","H1"],"cls":"LINK","reading":"J5-EXT","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T3","T4"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true}],"canon":{"verdict":"UNRESOLVED","reason":"K-6: не все существенные рёбра канонические (T1–H1, T2–H1)","inconsistent_canon_cycle":null,"non_canon_edges":["T1–H1","T2–H1"],"uncovered_bridges":[]},"ext":{"verdict":"PASSED-EXT","reason":"согласовано при рабочем расширении [Г, мост] — не согласованность по J5","label":"[Г, мост]"},"ysigns":[{"torus":"T0","sign":1,"label":"CANON","seed":"T0"},{"torus":"T1","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T2","sign":1,"label":"CANON","seed":"T0"},{"torus":"T3","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T4","sign":1,"label":"CANON","seed":"T0"},{"torus":"H1","sign":-1,"label":"[Г, мост]","seed":"T0"}]},"verdict":"PASSED","n_checks":94,"triples":[{"req":"G-8","torus":"T2","rings":["R1","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.7380616385111928,0.7380616386581648],"optional":true},{"req":"G-8","torus":"T2","rings":["R2","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.7380616385111928,0.7380616386581648],"optional":true}]},"A5":{"title":"А-5 — граница прокола","hang":{"host":2,"side":1,"coords":"rho-psi","rho":null,"psi":56,"delta":10,"fix":{"kind":"contact","free":"rho","with":"T1","bracket":[45,65]}},"tori":[{"name":"T0","A":[0.0,0.0,0.0],"T":[0.0,1.0,0.0]},{"name":"T1","A":[0.0,0.0,2.0],"T":[0.0,1.0,0.0]},{"name":"T2","A":[0.0,0.0,4.0],"T":[0.0,1.0,0.0]},{"name":"T3","A":[0.0,0.0,6.0],"T":[0.0,1.0,0.0]},{"name":"T4","A":[0.0,0.0,8.0],"T":[0.0,1.0,0.0]},{"name":"H1","A":[0.76513576079,1.17772315482,3.205615701591],"T":[-0.673824994979,-0.237788680627,0.699583032603],"host":"T2","root_deg":[61.69292092654359,61.692920926580015],"bracket":[45,65]}],"rings":[{"name":"R0","owner":"T0","threads":["T0","T1"],"C":[0.0,0.0,1.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":3.33066907387547e-16},{"name":"R1","owner":"T1","threads":["T1","T2"],"C":[0.0,0.0,3.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":2.2204460492503135e-15},{"name":"R2","owner":"T2","threads":["T2","T3"],"C":[0.0,0.0,5.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":6.2172489379008774e-15},{"name":"R3","owner":"T3","threads":["T3","T4"],"C":[0.0,0.0,7.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":8.881784197001254e-15},{"name":"R4","owner":"T4","threads":["T4"],"C":[0.0,0.0,9.0],"E1":[0.0,0.0,1.0],"E2":[0.0,1.0,0.0],"s1":1.0,"s2":1.0,"completeness":"EXACT","width":1.4210854715202007e-14},{"name":"RH1","owner":"H1","threads":["H1","T2"],"C":[0.747736063362,0.284513404444,3.223680530269],"E1":[0.369470881605,-0.846372571477,-0.383594496698],"E2":[0.587148217778,0.532591278797,-0.60959289703],"s1":0.8212434052066356,"s2":1.1639392172775649,"completeness":"CERTIFIED","width":1.5744872072787078e-10}],"contacts":[{"pair":["T0","T1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.9079850466805517e-14,4.218847493575596e-15],"points":[{"c":[0.0,0.0,1.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999995086],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","T2"],"cls":"LINK","existence":"IMPOSED","gap":[-4.085620730620577e-14,6.883382752675971e-15],"points":[{"c":[0.0,0.0,3.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999981023],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T1","H1"],"cls":"CONTACT-ONLY","existence":"IMPOSED","gap":[-3.825495475950903e-12,7.858158568296859e-13],"points":[{"c":[0.445457989021,0.394651607652,2.672918341289],"n":[0.338930636343,0.789303215303,0.511982868927],"cos":[0.3133809932626846,0.3133964813438339],"abs_nT":[[0.789301,0.789306],[0.057888,0.057897]]},{"c":[0.445460360085,0.394651447809,2.672917018156],"n":[0.33892663455,0.789302895617,0.511986010938],"cos":[0.3133745463256814,0.31339777846612443],"abs_nT":[[0.789299,0.789306],[0.057881,0.057895]]}],"d":null},{"pair":["T2","T3"],"cls":"LINK","existence":"IMPOSED","gap":[-4.440892098500627e-14,1.0436096431476473e-14],"points":[{"c":[0.0,0.0,5.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980672],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]},{"pair":["T2","H1"],"cls":"LINK","existence":"IMPOSED","gap":[-3.3671954113856377e-12,2.657873920952625e-12],"points":[{"c":[0.597238520378,0.346032349438,3.37993105197],"n":[0.500753965116,0.692064698877,-0.51989606563],"cos":[-1,-0.9999754527489333],"abs_nT":[[0.692061,0.692069],[0.865687,0.865705]]}],"d":[1.6135398896208688,1.6135398896213002]},{"pair":["T3","T4"],"cls":"LINK","existence":"IMPOSED","gap":[-4.696243394164413e-14,1.3988810110276974e-14],"points":[{"c":[0.0,0.0,7.0],"n":[-0.0,0.0,1.0],"cos":[-1,-0.9999999999980286],"abs_nT":[[0,0.0],[0,0.0]]}],"d":[2,2]}],"separated":[{"pair":["T0","T2"],"gap":[1.9999999999999634,2.0000000000000075]},{"pair":["T0","T3"],"gap":[3.9999999999999605,4.000000000000012]},{"pair":["T0","T4"],"gap":[5.999999999999875,6.000000000000016]},{"pair":["T0","H1"],"gap":[1.5797205767626818,1.5797205767684537]},{"pair":["T1","T3"],"gap":[1.9999999999999611,2.0000000000000107]},{"pair":["T1","T4"],"gap":[3.9999999999998725,4.000000000000016]},{"pair":["T2","T4"],"gap":[1.9999999999999576,2.0000000000000147]},{"pair":["T3","H1"],"gap":[1.457001750161991,1.4570017501707413]},{"pair":["T4","H1"],"gap":[3.25185816690431,3.251858166915253]}],"checks":[{"id":"G4:T0:H1","req":"G-4","q":"gap","obj":["T0","H1"],"v":[1.5797205767626818,1.5797205767684537],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.3158462797699038,3.3158560169526394]]}},{"id":"G4:T1:H1","req":"G-4","q":"gap","obj":["T1","H1"],"v":[-3.825495475950903e-12,7.858158568296859e-13],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[3.726332947284404,3.726338939396857],[3.7263419354530836,3.7263509236217622]]}},{"id":"G4:T2:H1","req":"G-4","q":"gap","obj":["T2","H1"],"v":[-3.3671954113856377e-12,2.657873920952625e-12],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.5165349656184555,5.516544702801192]]}},{"id":"G4:T3:H1","req":"G-4","q":"gap","obj":["T3","H1"],"v":[1.457001750161991,1.4570017501707413],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[5.865750785276207,5.865762020487056]]}},{"id":"G4:T4:H1","req":"G-4","q":"gap","obj":["T4","H1"],"v":[3.25185816690431,3.251858166915253],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"phi_argmin":[[6.034519381519948,6.0345321147589095]]}},{"id":"G5bg:R0:T0","req":"G-5б–г","q":"kappa_margin","obj":["R0","T0"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R0:T1","req":"G-5б–г","q":"kappa_margin","obj":["R0","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.09e-321,1.09e-321],"outside_t":null}},{"id":"G5a:R0:T2","req":"G-5а","q":"margin","obj":["R0","T2"],"v":[0.999999999999503,1.0000000000001246],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R0:H1","req":"G-5а","q":"margin","obj":["R0","H1"],"v":[0.6912198744432031,0.691219874445823],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0.4695403401370003,0.4695439915805262]]}},{"id":"G5a:R1:T0","req":"G-5а","q":"margin","obj":["R1","T0"],"v":[0.9999999999995034,1.0000000000000062],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R1:T1","req":"G-5б–г","q":"kappa_margin","obj":["R1","T1"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R1:T2","req":"G-5б–г","q":"kappa_margin","obj":["R1","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.11e-321,1.11e-321],"outside_t":null}},{"id":"G5a:R1:T3","req":"G-5а","q":"margin","obj":["R1","T3"],"v":[0.9999999999995003,1.0000000000001272],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R1:H1","req":"G-5а","q":"margin","obj":["R1","H1"],"v":[-0.06314730937895681,-0.06314730937527323],"verdict":"FORBIDDEN","cmp":"CERTIFIED","reason":"G-5а: кольцо R1 входит в тело тора H1; запас -0.06314730937527323 < 0","where":{"t":[[1.705221598649897,1.7052250628399084]]}},{"id":"G5a:R2:T1","req":"G-5а","q":"margin","obj":["R2","T1"],"v":[0.9999999999995007,1.0000000000000089],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R2:T2","req":"G-5б–г","q":"kappa_margin","obj":["R2","T2"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R2:T3","req":"G-5б–г","q":"kappa_margin","obj":["R2","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.13e-321,1.13e-321],"outside_t":null}},{"id":"G5a:R2:T4","req":"G-5а","q":"margin","obj":["R2","T4"],"v":[0.9999999999994963,1.0000000000001317],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0,5.992112452678287e-06],[6.283179315067134,6.283185307179587]]}},{"id":"G5a:R2:H1","req":"G-5а","q":"margin","obj":["R2","H1"],"v":[0.8127837824135894,0.8127837824176872],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[2.7829902834016798,2.782995151993047]]}},{"id":"G5a:R3:T2","req":"G-5а","q":"margin","obj":["R3","T2"],"v":[0.9999999999994972,1.0000000000000115],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R3:T3","req":"G-5б–г","q":"kappa_margin","obj":["R3","T3"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5bg:R3:T4","req":"G-5б–г","q":"kappa_margin","obj":["R3","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.15e-321,1.15e-321],"outside_t":null}},{"id":"G5a:R3:H1","req":"G-5а","q":"margin","obj":["R3","H1"],"v":[2.3695684675081745,2.3695684675166895],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[2.8349844049141106,2.834992175934949]]}},{"id":"G5a:R4:T3","req":"G-5а","q":"margin","obj":["R4","T3"],"v":[0.9999999999994927,1.0000000000000173],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[3.1415866614773407,3.1415986457022465]]}},{"id":"G5bg:R4:T4","req":"G-5б–г","q":"kappa_margin","obj":["R4","T4"],"v":[0.9999999999999899,1.000000000000009],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[3.1415926535897927,3.141592653589794],"outside_t":null}},{"id":"G5a:R4:H1","req":"G-5а","q":"margin","obj":["R4","H1"],"v":[4.2097722476911965,4.209772247702175],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[2.928262121436841,2.928270828725249]]}},{"id":"G5a:RH1:T1","req":"G-5а","q":"margin","obj":["RH1","T1"],"v":[0.4500782518582461,0.45007825246316796],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[0.26799123733358376,0.26801520578339444],[0.2680271900082998,0.26813504803244803],[0.26815901648225876,0.26820695338188016]]}},{"id":"G5bg:RH1:T2","req":"G-5б–г","q":"kappa_margin","obj":["RH1","T2"],"v":[0.6294903732045617,0.6294903773795489],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[-1.9886418553154124,-1.9886418548684928],"outside_t":null}},{"id":"G5a:RH1:T3","req":"G-5а","q":"margin","obj":["RH1","T3"],"v":[0.9999999997592195,1.000000000122819],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[[4.294499057934908,4.29459493173415]]}},{"id":"G5bg:RH1:H1","req":"G-5б–г","q":"kappa_margin","obj":["RH1","H1"],"v":[1.2999139766811667,1.2999139786712497],"verdict":"PASSED","cmp":"CERTIFIED","reason":null,"where":{"t":[2.7004751860487413,2.7004751864388],"outside_t":null}},{"id":"RR:R0:R1","req":"R-1","q":"halfplane_angle","obj":["R0","R1"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:R2","req":"R-1","q":"halfplane_angle","obj":["R1","R2"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R1:RH1","req":"R-1","q":"halfplane_angle","obj":["R1","RH1"],"v":[43.92555320493399,43.92555321989162],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:R3","req":"R-1","q":"halfplane_angle","obj":["R2","R3"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R2:RH1","req":"R-1","q":"halfplane_angle","obj":["R2","RH1"],"v":[136.07444678010805,136.07444679506634],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null},{"id":"RR:R3:R4","req":"R-1","q":"halfplane_angle","obj":["R3","R4"],"v":[179.99999999999991,180.0000000000001],"verdict":"PASSED","cmp":"EXACT","reason":null,"where":null}],"not_passed":[{"id":"G5a:R1:H1","v":[-0.06314730937895681,-0.06314730937527323],"reason":"G-5а: кольцо R1 входит в тело тора H1; запас -0.06314730937527323 < 0","where":{"t":[[1.705221598649897,1.7052250628399084]]}}],"j5":{"edges":[{"pair":["T0","T1"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T1","T2"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T1","H1"],"cls":"CONTACT-ONLY","reading":"J5-EXT","sign":1,"on_cycle":true,"bridge":false},{"pair":["T2","T3"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true},{"pair":["T2","H1"],"cls":"LINK","reading":"J5-EXT","sign":-1,"on_cycle":true,"bridge":false},{"pair":["T3","T4"],"cls":"LINK","reading":"J5-CANON","sign":-1,"on_cycle":false,"bridge":true}],"canon":{"verdict":"UNRESOLVED","reason":"K-6: не все существенные рёбра канонические (T1–H1, T2–H1)","inconsistent_canon_cycle":null,"non_canon_edges":["T1–H1","T2–H1"],"uncovered_bridges":[]},"ext":{"verdict":"PASSED-EXT","reason":"согласовано при рабочем расширении [Г, мост] — не согласованность по J5","label":"[Г, мост]"},"ysigns":[{"torus":"T0","sign":1,"label":"CANON","seed":"T0"},{"torus":"T1","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T2","sign":1,"label":"CANON","seed":"T0"},{"torus":"T3","sign":-1,"label":"CANON","seed":"T0"},{"torus":"T4","sign":1,"label":"CANON","seed":"T0"},{"torus":"H1","sign":-1,"label":"[Г, мост]","seed":"T0"}]},"verdict":"FORBIDDEN","n_checks":94,"triples":[{"req":"G-8","torus":"T2","rings":["R1","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.693723116162266,0.6937231163001363],"optional":true},{"req":"G-8","torus":"T2","rings":["R2","RH1"],"quantity":"abs_det_T_n1_n2","value":[0.693723116162266,0.6937231163001363],"optional":true}]}},"family":[{"d":-20.0,"p":10.0,"v":"PASSED","b":[]},{"d":-20.0,"p":20.0,"v":"PASSED","b":[]},{"d":-20.0,"p":30.0,"v":"PASSED","b":[]},{"d":-20.0,"p":40.0,"v":"PASSED","b":[]},{"d":-20.0,"p":45.0,"v":"PASSED","b":[]},{"d":-20.0,"p":47.5,"v":"PASSED","b":[]},{"d":-20.0,"p":47.8125,"v":"PASSED","b":[]},{"d":-20.0,"p":48.125,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-20.0,"p":48.75,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-20.0,"p":50.0,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-10.0,"p":0.0,"v":"PASSED","b":[]},{"d":-10.0,"p":1.0,"v":"PASSED","b":[]},{"d":-10.0,"p":2.5,"v":"PASSED","b":[]},{"d":-10.0,"p":10.0,"v":"PASSED","b":[]},{"d":-10.0,"p":20.0,"v":"PASSED","b":[]},{"d":-10.0,"p":30.0,"v":"PASSED","b":[]},{"d":-10.0,"p":40.0,"v":"PASSED","b":[]},{"d":-10.0,"p":50.0,"v":"PASSED","b":[]},{"d":-10.0,"p":50.75,"v":"PASSED","b":[]},{"d":-10.0,"p":50.9375,"v":"PASSED","b":[]},{"d":-10.0,"p":51.03125,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-10.0,"p":51.125,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-10.0,"p":51.5,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-10.0,"p":53.0,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-10.0,"p":55.0,"v":"FORBIDDEN","b":["R1:H1","RH1:T1"]},{"d":-5.0,"p":10.0,"v":"PASSED","b":[]},{"d":-5.0,"p":20.0,"v":"PASSED","b":[]},{"d":-5.0,"p":30.0,"v":"PASSED","b":[]},{"d":-5.0,"p":40.0,"v":"PASSED","b":[]},{"d":-5.0,"p":50.0,"v":"PASSED","b":[]},{"d":-5.0,"p":51.5,"v":"PASSED","b":[]},{"d":-5.0,"p":52.25,"v":"PASSED","b":[]},{"d":-5.0,"p":52.34375,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-5.0,"p":52.4375,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-5.0,"p":52.625,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-5.0,"p":53.0,"v":"FORBIDDEN","b":["R1:H1"]},{"d":-5.0,"p":55.0,"v":"FORBIDDEN","b":["R1:H1"]},{"d":0.0,"p":0.0,"v":"PASSED","b":[]},{"d":0.0,"p":1.0,"v":"PASSED","b":[]},{"d":0.0,"p":2.5,"v":"PASSED","b":[]},{"d":0.0,"p":40.0,"v":"PASSED","b":[]},{"d":0.0,"p":53.35,"v":"PASSED","b":[]},{"d":0.0,"p":53.45,"v":"FORBIDDEN","b":["R1:H1"]},{"d":10.0,"p":0.0,"v":"PASSED","b":[]},{"d":10.0,"p":1.0,"v":"PASSED","b":[]},{"d":10.0,"p":2.5,"v":"PASSED","b":[]},{"d":10.0,"p":5.0,"v":"PASSED","b":[]},{"d":10.0,"p":10.0,"v":"PASSED","b":[]},{"d":10.0,"p":15.0,"v":"PASSED","b":[]},{"d":10.0,"p":20.0,"v":"PASSED","b":[]},{"d":10.0,"p":25.0,"v":"PASSED","b":[]},{"d":10.0,"p":30.0,"v":"PASSED","b":[]},{"d":10.0,"p":40.0,"v":"PASSED","b":[]},{"d":10.0,"p":50.0,"v":"PASSED","b":[]},{"d":10.0,"p":55.0,"v":"PASSED","b":[]},{"d":10.0,"p":55.1,"v":"PASSED","b":[]},{"d":10.0,"p":55.2,"v":"FORBIDDEN","b":["R1:H1"]},{"d":10.0,"p":55.5,"v":"FORBIDDEN","b":["R1:H1"]},{"d":15.0,"p":45.0,"v":"PASSED","b":[]},{"d":15.0,"p":55.6,"v":"PASSED","b":[]},{"d":15.0,"p":55.8,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":52.0,"v":"PASSED","b":[]},{"d":16.0,"p":54.25,"v":"PASSED","b":[]},{"d":16.0,"p":54.5,"v":"PASSED","b":[]},{"d":16.0,"p":55.375,"v":"PASSED","b":[]},{"d":16.0,"p":55.5,"v":"PASSED","b":[]},{"d":16.0,"p":55.6562,"v":"PASSED","b":[]},{"d":16.0,"p":55.75,"v":"PASSED","b":[]},{"d":16.0,"p":55.7968,"v":"PASSED","b":[]},{"d":16.0,"p":55.8125,"v":"PASSED","b":[]},{"d":16.0,"p":55.84375,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":55.8671,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":55.875,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":55.9375,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":56.0,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":56.03125,"v":"FORBIDDEN","b":["R1:H1"]},{"d":16.0,"p":56.0625,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.0,"p":56.125,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.0,"p":56.25,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.0,"p":56.5,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.2,"p":55.75,"v":"PASSED","b":[]},{"d":16.2,"p":55.8,"v":"PASSED","b":[]},{"d":16.2,"p":55.85,"v":"PASSED","b":[]},{"d":16.3,"p":55.75,"v":"PASSED","b":[]},{"d":16.3,"p":55.8,"v":"PASSED","b":[]},{"d":16.3,"p":55.85,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.4,"p":55.75,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.4,"p":55.8,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.4,"p":55.85,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.5,"p":54.5,"v":"PASSED","b":[]},{"d":16.5,"p":55.5,"v":"PASSED","b":[]},{"d":16.5,"p":55.625,"v":"PASSED","b":[]},{"d":16.5,"p":55.65625,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.5,"p":55.6875,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.5,"p":55.75,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.5,"p":55.875,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":16.5,"p":55.90625,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.5,"p":55.9375,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.5,"p":56.0,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":16.5,"p":56.5,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":17.0,"p":52.0,"v":"PASSED","b":[]},{"d":17.0,"p":54.25,"v":"PASSED","b":[]},{"d":17.0,"p":54.5,"v":"PASSED","b":[]},{"d":17.0,"p":54.8125,"v":"PASSED","b":[]},{"d":17.0,"p":55.0,"v":"PASSED","b":[]},{"d":17.0,"p":55.0938,"v":"PASSED","b":[]},{"d":17.0,"p":55.125,"v":"PASSED","b":[]},{"d":17.0,"p":55.1641,"v":"PASSED","b":[]},{"d":17.0,"p":55.1875,"v":"PASSED","b":[]},{"d":17.0,"p":55.21875,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.2344,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.25,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.375,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.5,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.75,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.875,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.90625,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":17.0,"p":55.9375,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":17.0,"p":56.0,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":17.0,"p":56.5,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":18.0,"p":52.0,"v":"PASSED","b":[]},{"d":18.0,"p":54.25,"v":"PASSED","b":[]},{"d":18.0,"p":54.3203,"v":"PASSED","b":[]},{"d":18.0,"p":54.3906,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":18.0,"p":54.5312,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":18.0,"p":54.8125,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":18.0,"p":55.375,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":18.0,"p":56.5,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":19.0,"p":52.0,"v":"PASSED","b":[]},{"d":19.0,"p":53.125,"v":"PASSED","b":[]},{"d":19.0,"p":53.4062,"v":"PASSED","b":[]},{"d":19.0,"p":53.4765,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":19.0,"p":53.5468,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":19.0,"p":53.6875,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":19.0,"p":54.25,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":19.0,"p":56.5,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]},{"d":20.0,"p":30.0,"v":"PASSED","b":[]},{"d":20.0,"p":45.0,"v":"PASSED","b":[]},{"d":20.0,"p":50.0,"v":"PASSED","b":[]},{"d":20.0,"p":52.0,"v":"PASSED","b":[]},{"d":20.0,"p":53.0,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":20.0,"p":54.0,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":20.0,"p":55.0,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":20.0,"p":56.15,"v":"FORBIDDEN","b":["RH1:T2"]},{"d":20.0,"p":56.25,"v":"FORBIDDEN","b":["R1:H1","RH1:T2"]}],"ceiling":[{"d":-20.0,"pass":47.8125,"forb":48.125},{"d":-10.0,"pass":50.9375,"forb":51.03125},{"d":-5.0,"pass":52.25,"forb":52.34375},{"d":0.0,"pass":53.35,"forb":53.45},{"d":10.0,"pass":55.1,"forb":55.2},{"d":15.0,"pass":55.6,"forb":55.8},{"d":16.0,"pass":55.8125,"forb":55.84375},{"d":16.3,"pass":55.8,"forb":55.85},{"d":16.5,"pass":55.625,"forb":55.65625},{"d":17.0,"pass":55.1875,"forb":55.21875},{"d":18.0,"pass":54.3203,"forb":54.3906},{"d":19.0,"pass":53.4062,"forb":53.4765},{"d":20.0,"pass":52.0,"forb":53.0}],"ds":{"K3":{"W":[29.999969482421875,30.00000762939453],"src":[30,30],"srcLabel":"А-2: 30,0000°","d":[1.9999999999999996,2.0000000000000004]},"K4":{"W":[57.260711669921875,57.261009216308594],"src":[57.26,57.262],"srcLabel":"А-4: 57,261° ± 0,001°","d":[1.6663889234550988,1.6663925866161906]},"A5":{"W":[61.69266700744629,61.693105697631836],"src":null,"srcLabel":"А-5: только вердикт FORBIDDEN","d":[1.6135371311618942,1.6135424601132613]}}}</script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+'use strict';
+const DATA = JSON.parse(document.getElementById('viz-data').textContent);
+const ORDER = ['K1','K2','K3','K4','A5'];
+const SHORT = {K1:'прямая нить',K2:'поперечный навес',K3:'плоский треугольник',K4:'окно расчёта 1',A5:'граница прокола'};
+const LABEL = {K1:'К1',K2:'К2',K3:'К3',K4:'К4',A5:'А-5'};
+let current = 'K4';
+
+/* ---------- helpers ---------- */
+const $ = s => document.querySelector(s);
+const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const NS = 'http://www.w3.org/2000/svg';
+function fmt(x, n){ if (n===undefined) n=4; if (x===null||x===undefined||!isFinite(x)) return '—';
+  const s = Math.abs(x).toFixed(n).replace('.', ','); return (x < 0 && Number(s.replace(',', '.')) !== 0 ? '−' : '') + s; }
+function fmtIv(iv, n){ return '[' + fmt(iv[0], n) + '; ' + fmt(iv[1], n) + ']'; }
+function midIv(iv){ return (iv[0] + iv[1]) / 2; }
+const add=(a,b)=>[a[0]+b[0],a[1]+b[1],a[2]+b[2]], sub=(a,b)=>[a[0]-b[0],a[1]-b[1],a[2]-b[2]];
+const mul=(a,s)=>[a[0]*s,a[1]*s,a[2]*s], dot=(a,b)=>a[0]*b[0]+a[1]*b[1]+a[2]*b[2];
+const cross=(a,b)=>[a[1]*b[2]-a[2]*b[1],a[2]*b[0]-a[0]*b[2],a[0]*b[1]-a[1]*b[0]];
+const len=a=>Math.sqrt(dot(a,a)), unit=a=>mul(a,1/len(a));
+function perp(T){ const h = Math.abs(T[0]) < 0.9 ? [1,0,0] : [0,1,0]; const u = unit(cross(T,h)); return [u, cross(T,u)]; }
+function ringPt(r,t){ return add(r.C, add(mul(r.E1, r.s1*Math.cos(t)), mul(r.E2, r.s2*Math.sin(t)))); }
+function distMid(P,tor){ const v=sub(P,tor.A), h=dot(v,tor.T), rr=Math.sqrt(Math.max(0,dot(v,v)-h*h)); return Math.sqrt(h*h+(rr-0.5)*(rr-0.5)); }
+function torMap(cs){ const m={}; cs.tori.forEach(t=>m[t.name]=t); return m; }
+function check(cs,id){ return cs.checks.find(c=>c.id===id); }
+function el(tag, attrs, parent, text){ const e=document.createElementNS(NS, tag); for (const k in attrs) e.setAttribute(k, attrs[k]); if (text!==undefined) e.textContent=text; if (parent) parent.appendChild(e); return e; }
+function verdictClass(v){ if (!v) return 'v-warn'; if (v==='PASSED') return 'v-ok'; if (v.startsWith('FORBIDDEN')) return 'v-bad'; if (v==='PASSED-EXT') return 'v-ext'; return 'v-warn'; }
+function edgeOf(cs,a,b){ return cs.j5.edges.find(e=>(e.pair[0]===a&&e.pair[1]===b)||(e.pair[0]===b&&e.pair[1]===a)); }
+function profile(cs, ringName, N){
+  const tm=torMap(cs), H=tm.H1, r=cs.rings.find(x=>x.name===ringName); if (!H||!r) return null;
+  const out=[]; for (let i=0;i<=N;i++){ const t=2*Math.PI*i/N; out.push([t, distMid(ringPt(r,t),H)-0.5]); } return out;
+}
+
+/* ---------- tabs ---------- */
+const tabs=$('#tabs');
+ORDER.forEach(k=>{ const b=document.createElement('button'); b.className='tab'; b.dataset.k=k;
+  b.innerHTML=LABEL[k]+'<small>'+SHORT[k]+'</small>'; b.onclick=()=>selectCase(k); tabs.appendChild(b); });
+
+/* ---------- side panel ---------- */
+const DESC={
+  K1:'Пять латчеров T0…T4 вдоль оси Z. Все звенья зеркальные (δ = 0), расстояние звена d = 2, каждое кольцо Rk — окружность радиуса 1 через центры Tk и Tk+1, касается их осей в каспах. Соседние торы касаются (IMPOSED). Граф касаний — путь без циклов, все рёбра канонические.',
+  K2:'На T2 навешен H1 строго поперёк нити (ρ = 0). Его кольцо RH1 продевает H1 и хозяина T2. Ось H1 параллельна оси T2, касание боковое. Полуплоскости колец R1 и RH1 вокруг оси T2 разнесены на 90° (R-1). Циклов нет.',
+  K3:'Навес отклонён назад на ρ = 30° (ψ = 0, δ = 0) — до касания с предыдущим тором T1; корень точно sin ρ = ½. Появляется цикл графа касаний T1–T2–H1. Два его ребра — звенья с кольцами (R1, RH1), третье, T1–H1, — касание без кольца. Все три — канонические боковые касания с cos = −1. Нечётный цикл знаков не согласуется: геометрия допустима, J5 запрещает. Это цикл J5, а не замкнутая цепь латчеров.',
+  K4:'Окно расчёта 1. Навес повёрнут из плоскости нити (ψ = 54°) и закручен (δ = 10°); ρ — корень касания H1 с T1. Ось H1 уже не параллельна нити, поэтому рёбра T1–H1 и T2–H1 читаются только по рабочему расширению J5. Геометрия допустима с малыми запасами: кольцо R1 проходит рядом с телом H1, касп RH1 в T2 — с кривизной κr < 2.',
+  A5:'Та же конструкция при ψ = 56°. Корень касания уходит к ρ ≈ 61,69°, и кольцо R1 (звено T1→T2) входит в тело тора-навеса H1 — прокол (G-5а). Геометрия FORBIDDEN. Тот же вердикт независимо получен кодом DeepSeek без ядра (А-5 rev8.8).'
+};
+function renderSide(k){
+  const cs=DATA.cases[k], tm=torMap(cs), H=tm.H1, s=$('#side');
+  let h='<div class="kicker">'+LABEL[k]+'</div><h2>'+cs.title.replace(/^[^—]+— /,'')+'</h2>';
+  h+='<div class="badges">'+
+     '<span class="badge '+verdictClass(cs.verdict)+'"><span>геометрия</span>'+cs.verdict+'</span>'+
+     '<span class="badge '+verdictClass(cs.j5.canon.verdict)+'"><span>J5-CANON</span>'+cs.j5.canon.verdict+'</span>'+
+     '<span class="badge '+verdictClass(cs.j5.ext.verdict)+'"><span>J5-EXT</span>'+cs.j5.ext.verdict+'</span></div>';
+  h+='<p class="desc">'+DESC[k]+'</p>';
+  // params
+  h+='<table><tbody>';
+  if (cs.hang){ const hg=cs.hang;
+    h+='<tr><th>Навес</th><td class="num">на T2, сторона +1; ψ = '+fmt(hg.psi,0)+'°, δ = '+fmt(hg.delta,0)+'°</td></tr>';
+    if (H && H.root_deg) h+='<tr><th>ρ (корень касания H1–T1)</th><td class="num">'+fmtIv(H.root_deg,9)+'°</td></tr>';
+    else if (hg.rho!==null && hg.rho!==undefined) h+='<tr><th>ρ</th><td class="num">'+fmt(hg.rho,0)+'° (задан)</td></tr>';
+    const dct=cs.contacts.find(c=>c.pair[0]==='T2'&&c.pair[1]==='H1');
+    if (dct&&dct.d) h+='<tr><th>Звено T2→H1, d</th><td class="num">'+(dct.d[0]===dct.d[1]?fmt(dct.d[0],0):fmtIv(dct.d,10))+'</td></tr>';
+  } else h+='<tr><th>Навесов</th><td class="num">нет</td></tr>';
+  h+='<tr><th>Проверок в протоколе</th><td class="num">'+cs.n_checks+'</td></tr>';
+  h+='</tbody></table>';
+  // contacts
+  h+='<h3 style="margin-top:12px">Касания тел</h3><table><thead><tr><th>Пара</th><th>Класс</th><th>cos</th><th>J5</th></tr></thead><tbody>';
+  cs.contacts.forEach(c=>{ const e=edgeOf(cs,c.pair[0],c.pair[1]); const p=c.points[0];
+    const cosTxt = p&&p.cos ? (Math.abs(p.cos[0]+1)<1e-9&&p.cos[1]<-0.99999 ? '−1' : fmtIv(p.cos,6)) : '—';
+    h+='<tr><td class="num">'+c.pair.join('–')+'</td><td class="small">'+(c.cls||'')+'</td><td class="num">'+cosTxt+'</td><td class="num '+(e&&e.reading==='J5-EXT'?'v-ext':'')+'">'+(e?(e.sign>0?'+1':'−1')+(e.reading==='J5-EXT'?' ext':''):'—')+'</td></tr>'; });
+  h+='</tbody></table>';
+  // key margins
+  const rows=[];
+  const g5a=check(cs,'G5a:R1:H1'); if (g5a) rows.push(['Запас R1–тело H1 (G-5а)', fmtIv(g5a.v,6), g5a.verdict]);
+  ['RH1:T2','RH1:H1'].forEach(p=>{ const c=check(cs,'G5bg:'+p); if (c) rows.push(['Касп '+p.replace(':',' в ')+': 2 − κr', fmtIv(c.v,6)+' → κr ≈ '+fmt(2-midIv(c.v),4), c.verdict]); });
+  ['R1:RH1','R2:RH1'].forEach(p=>{ const c=check(cs,'RR:'+p); if (c) rows.push(['Угол полуплоскостей '+p.replace(':',' / '), fmt(midIv(c.v),5)+'°', c.verdict]); });
+  if (!rows.length){ const c=check(cs,'G5bg:R1:T1'); if (c) rows.push(['Касп R1 в T1: 2 − κr', fmtIv(c.v,6), c.verdict]); }
+  if (rows.length){ h+='<h3 style="margin-top:12px">Ключевые запасы</h3><table><tbody>';
+    rows.forEach(r=>{ h+='<tr><th>'+r[0]+'</th><td class="num '+verdictClass(r[2])+'">'+r[1]+'</td></tr>'; }); h+='</tbody></table>'; }
+  cs.not_passed.forEach(n=>{ h+='<div class="np"><b class="mono">'+n.id+'</b><br>'+(n.reason||'')+(n.where&&n.where.t?'<br><span class="muted">где: t ∈ '+fmtIv(n.where.t[0],5)+' рад</span>':'')+'</div>'; });
+  s.innerHTML=h;
+}
+
+/* ---------- J5 graph ---------- */
+function renderJ5(k){
+  const cs=DATA.cases[k], box=$('#j5'); box.innerHTML='';
+  const W=380, Hh=200, svg=el('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':'Граф касаний'},box);
+  const pos={}; ['T0','T1','T2','T3','T4'].forEach((n,i)=>pos[n]=[40+i*75,150]);
+  const hasT1H1 = cs.contacts.some(c=>c.pair.join()==='T1,H1');
+  if (torMap(cs).H1) pos.H1=[hasT1H1? 152 : 190, 48];
+  const bad = new Set(); const cyc=cs.j5.canon.inconsistent_canon_cycle || cs.j5.ext.inconsistent_cycle;
+  if (cyc) for (let i=0;i<cyc.length;i++){ const a=cyc[i], b=cyc[(i+1)%cyc.length]; bad.add([a,b].sort().join()); }
+  cs.j5.edges.forEach(e=>{ const [a,b]=e.pair, A=pos[a], B=pos[b]; if (!A||!B) return;
+    const col = e.sign<0 ? 'var(--neg)' : 'var(--pos)'; const isBad=bad.has([a,b].sort().join());
+    if (isBad) el('line',{x1:A[0],y1:A[1],x2:B[0],y2:B[1],style:'stroke:var(--bad);stroke-width:9;stroke-opacity:.22;stroke-linecap:round'},svg);
+    el('line',{x1:A[0],y1:A[1],x2:B[0],y2:B[1],style:'stroke:'+col+';stroke-width:'+(e.cls==='LINK'?3:2)+';'+(e.reading==='J5-EXT'?'stroke-dasharray:6 4':'')},svg);
+    const mx=(A[0]+B[0])/2, my=(A[1]+B[1])/2;
+    el('rect',{x:mx-13,y:my-9,width:26,height:16,rx:4,style:'fill:var(--panel);stroke:'+col},svg);
+    el('text',{x:mx,y:my+3.5,'text-anchor':'middle','font-size':11,style:'fill:'+col+';font-weight:700'},svg,e.sign<0?'−1':'+1');
+  });
+  for (const n in pos){ const [x,y]=pos[n]; const ys=cs.j5.ysigns.find(q=>q.torus===n);
+    el('circle',{cx:x,cy:y,r:17,style:'fill:var(--panel);stroke:'+(n==='H1'?'var(--hang)':'var(--thread)')+';stroke-width:2.5'},svg);
+    el('text',{x:x,y:y+4.5,'text-anchor':'middle','font-size':13,style:'font-weight:700'},svg,n);
+    if (ys){ const ty = n==='H1' ? y-25 : y+33; el('text',{x:x,y:ty,'text-anchor':'middle','font-size':11,style:'fill:var(--muted)'},svg,'Y '+(ys.sign>0?'+':'−')+(ys.label!=='CANON'?' *':'')); }
+  }
+  const c=cs.j5.canon, x=cs.j5.ext;
+  $('#j5cap').innerHTML='Линия: сплошная — канон, пунктир — расширение, толстая — LINK (касание и кольцо), тонкая — CONTACT-ONLY (касание без кольца). Y — знак вращения тора. Цикл этого графа — условие J5; цепью латчеров он становится, только если все его рёбра — LINK.<br><b class="'+verdictClass(c.verdict)+'">J5-CANON: '+c.verdict+'</b>'+(c.reason?' — '+c.reason:' — все рёбра канонические, разметка согласована')+(cyc?' (цикл '+cyc.join('–')+')':'')+'<br><b class="'+verdictClass(x.verdict)+'">J5-EXT: '+x.verdict+'</b>'+(x.reason?' — '+x.reason:'')+(cs.j5.ysigns.some(q=>q.label!=='CANON')?'<br>* знак выведен через ребро расширения, метка [Г, мост].':'');
+}
+
+/* ---------- cusp (plane reduction) ---------- */
+let cuspPair=null;
+function renderCusp(k){
+  const cs=DATA.cases[k], tm=torMap(cs);
+  const pairs=cs.checks.filter(c=>c.req==='G-5б–г').map(c=>c.obj);
+  const prefer=['RH1:T2','RH1:H1','R1:T2','R1:T1'];
+  const keys=pairs.map(p=>p.join(':'));
+  const shown=prefer.filter(p=>keys.includes(p)); if (!shown.length && keys.length) shown.push(keys[0]);
+  if (!cuspPair || !shown.includes(cuspPair)) cuspPair=shown[0];
+  const seg=$('#cuspSeg'); seg.innerHTML='';
+  shown.forEach(p=>{ const b=document.createElement('button'); b.textContent=p.replace(':',' в '); b.setAttribute('aria-pressed',p===cuspPair); b.onclick=()=>{cuspPair=p; renderCusp(k);}; seg.appendChild(b); });
+  const [rn,tn]=cuspPair.split(':'); const r=cs.rings.find(x=>x.name===rn), T=tm[tn];
+  const n=unit(cross(r.E1,r.E2)); const a=T.T; const b=unit(cross(n,a));
+  const to2=P=>{ const v=sub(P,T.A); return [dot(v,b), dot(v,a)]; };
+  // ring polyline and cusp parameter
+  let best=[1e9,0]; const pts=[];
+  for (let i=0;i<=720;i++){ const t=2*Math.PI*i/720; const P=ringPt(r,t); pts.push(to2(P)); const dd=len(sub(P,T.A)); if (dd<best[0]) best=[dd,t]; }
+  // refine
+  let t0=best[1]; for (let it=0;it<60;it++){ const h=1e-5; const f=t=>{ const q=sub(ringPt(r,t),T.A); return dot(q,q); }; const g=(f(t0+h)-f(t0-h))/(2*h), g2=(f(t0+h)-2*f(t0)+f(t0-h))/(h*h); if (!(Math.abs(g2)>1e-14)) break; const st=g/g2; t0-=st; if (Math.abs(st)<1e-13) break; }
+  const s1=r.s1, s2=r.s2, st=Math.sin(t0), ct=Math.cos(t0);
+  const kap = s1*s2/Math.pow(s1*s1*st*st + s2*s2*ct*ct, 1.5);
+  const xl=s1*ct, yl=s2*st; const nIn=unit(add(mul(r.E1,-xl/(s1*s1)), mul(r.E2,-yl/(s2*s2))));
+  const cc=to2(add(ringPt(r,t0), mul(nIn,1/kap)));
+  const box=$('#cusp'); box.innerHTML='';
+  const W=340,Hh=300, sc=110, ox=W/2, oy=Hh/2; const X=p=>ox+p[0]*sc, Y=p=>oy-p[1]*sc;
+  const svg=el('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':'Плоское сведение в каспе'},box);
+  const clip=el('clipPath',{id:'cc'},el('defs',{},svg)); el('rect',{x:0,y:0,width:W,height:Hh},clip);
+  const g=el('g',{'clip-path':'url(#cc)'},svg);
+  el('line',{x1:0,y1:oy,x2:W,y2:oy,class:'gr'},g);
+  el('line',{x1:ox,y1:0,x2:ox,y2:Hh,style:'stroke:'+(tn==='H1'?'var(--hang)':'var(--thread)')+';stroke-width:1.5;stroke-dasharray:5 4'},g);
+  [-1,1].forEach(sg=>el('circle',{cx:X([sg*0.5,0]),cy:Y([0,0]),r:0.5*sc,style:'fill:'+(tn==='H1'?'var(--hang)':'var(--thread)')+';fill-opacity:.16;stroke:'+(tn==='H1'?'var(--hang)':'var(--thread)')+';stroke-width:1.5'},g));
+  el('circle',{cx:X(cc),cy:Y(cc),r:sc/kap,style:'fill:none;stroke:var(--muted);stroke-width:1;stroke-dasharray:3 3'},g);
+  el('path',{d:'M'+pts.map(p=>X(p).toFixed(2)+','+Y(p).toFixed(2)).join('L'),style:'fill:none;stroke:'+(rn.startsWith('RH')?'var(--ringH)':'var(--ring)')+';stroke-width:2.6'},g);
+  el('circle',{cx:ox,cy:oy,r:3.5,style:'fill:var(--ink)'},g);
+  el('text',{x:ox+6,y:14,'font-size':11,style:'fill:var(--muted)'},svg,'ось '+tn);
+  el('text',{x:ox+7,y:oy-7,'font-size':11,style:'fill:var(--ink);font-weight:600'},svg,'касп');
+  const ch=check(cs,'G5bg:'+cuspPair);
+  $('#cuspCap').innerHTML='Плоскость кольца '+rn+' содержит ось '+tn+'; сечение тела '+tn+' — два круга радиуса 0,5. Кривизна кольца в каспе: ядро — 2 − запас = <b class="mono">'+(ch?fmt(2-midIv(ch.v),6):'—')+'</b>'+(ch?' (запас '+fmtIv(ch.v,6)+', '+ch.cmp+')':'')+'; эта страница — <span class="mono">'+fmt(kap,6)+'</span>. Пунктирный круг — соприкасающийся, радиус 1/κ<sub>r</sub> = '+fmt(1/kap,4)+' &gt; 0,5: кольцо выходит наружу.';
+}
+
+/* ---------- G-5а profile ---------- */
+function renderProfile(k){
+  const box=$('#prof'); box.innerHTML='';
+  const W=360,Hh=250, m={l:42,r:10,t:12,b:30}; const y0=-0.12, y1=0.6;
+  const X=t=>m.l+(t/(2*Math.PI))*(W-m.l-m.r), Y=v=>m.t+(y1-v)/(y1-y0)*(Hh-m.t-m.b);
+  const svg=el('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':'Профиль G-5а'},box);
+  const cp=el('clipPath',{id:'pc'},el('defs',{},svg)); el('rect',{x:m.l,y:m.t,width:W-m.l-m.r,height:Hh-m.t-m.b},cp);
+  el('rect',{x:m.l,y:Y(0),width:W-m.l-m.r,height:Y(y0)-Y(0),style:'fill:var(--shade)'},svg);
+  [0,0.2,0.4,0.6].forEach(v=>{ el('line',{x1:m.l,y1:Y(v),x2:W-m.r,y2:Y(v),class:v===0?'ax':'gr'},svg); el('text',{x:m.l-5,y:Y(v)+4,'text-anchor':'end',class:'tick'},svg,fmt(v,1)); });
+  [0,90,180,270,360].forEach(d=>{ const x=X(d*Math.PI/180); el('line',{x1:x,y1:Hh-m.b,x2:x,y2:Hh-m.b+4,class:'ax'},svg); el('text',{x:x,y:Hh-m.b+16,'text-anchor':'middle',class:'tick'},svg,d+'°'); });
+  el('text',{x:W-m.r-4,y:Y(y0)-5,'text-anchor':'end','font-size':10.5,style:'fill:var(--bad)'},svg,'внутри тела H1');
+  const g=el('g',{'clip-path':'url(#pc)'},svg);
+  const cols={K4:'var(--ring)',A5:'var(--bad)'};
+  ['K4','A5'].forEach(c=>{ const pr=profile(DATA.cases[c],'R1',900); const on=c===k;
+    el('path',{d:'M'+pr.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join('L'),style:'fill:none;stroke:'+cols[c]+';stroke-width:'+(on?3.2:1.8)+';stroke-opacity:'+(on||(k!=='K4'&&k!=='A5')?1:.6)},g);
+    const mn=pr.reduce((a,b)=>b[1]<a[1]?b:a); const ch=check(DATA.cases[c],'G5a:R1:H1');
+    el('circle',{cx:X(mn[0]),cy:Y(midIv(ch.v)),r:on?4.5:3.5,style:'fill:'+cols[c]+';stroke:var(--panel);stroke-width:1.5'},svg);
+    el('text',{x:X(mn[0])+(c==='A5'?9:-9),y:Y(midIv(ch.v))+(c==='A5'?4:-8),'text-anchor':c==='A5'?'start':'end','font-size':11.5,style:'fill:'+cols[c]+';font-weight:'+(on?700:600)},svg,LABEL[c]+' (ψ = '+(c==='K4'?54:56)+'°): '+fmt(midIv(ch.v),4));
+  });
+  el('text',{x:m.l,y:Hh-4,'font-size':10.5,style:'fill:var(--muted)'},svg,'параметр t кольца R1');
+  const cs=DATA.cases[k]; let note='';
+  if (k==='K1') note='В К1 навеса нет. Показаны К4 и А-5.';
+  else if (k==='K2'||k==='K3') note='В '+LABEL[k]+' кольцо R1 далеко от H1: запас '+fmt(midIv(check(cs,'G5a:R1:H1').v),4)+'. Показаны К4 и А-5.';
+  $('#profNote').textContent=note;
+}
+
+/* ---------- family ---------- */
+function renderFamily(){
+  const F=DATA.family, C=DATA.ceiling;
+  function panel(box, dx0,dx1, py0,py1, W,Hh, title, zoom){
+    box.innerHTML=''; const m={l:44,r:12,t:24,b:34};
+    const X=d=>m.l+(d-dx0)/(dx1-dx0)*(W-m.l-m.r), Y=p=>m.t+(py1-p)/(py1-py0)*(Hh-m.t-m.b);
+    const svg=el('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':title},box);
+    el('text',{x:m.l,y:14,'font-size':12,style:'font-weight:650'},svg,title);
+    const xt = zoom ? [15,16,17,18,19] : [-20,-10,0,10,20];
+    const yt = zoom ? [54,54.5,55,55.5,56] : [0,10,20,30,40,50];
+    xt.forEach(v=>{ el('line',{x1:X(v),y1:m.t,x2:X(v),y2:Hh-m.b,class:'gr'},svg); el('text',{x:X(v),y:Hh-m.b+15,'text-anchor':'middle',class:'tick'},svg,fmt(v,0)+'°'); });
+    yt.forEach(v=>{ el('line',{x1:m.l,y1:Y(v),x2:W-m.r,y2:Y(v),class:'gr'},svg); el('text',{x:m.l-5,y:Y(v)+4,'text-anchor':'end',class:'tick'},svg,(zoom?fmt(v,1):fmt(v,0))+'°'); });
+    el('text',{x:W-m.r,y:Hh-4,'text-anchor':'end','font-size':11,style:'fill:var(--muted)'},svg,'δ — закрутка навеса');
+    el('text',{x:4,y:m.t+4,'font-size':12,style:'fill:var(--muted);font-weight:600'},svg,'ψ');
+    const clipId='fc'+(zoom?'z':'f'); const cp=el('clipPath',{id:clipId},el('defs',{},svg)); el('rect',{x:m.l,y:m.t,width:W-m.l-m.r,height:Hh-m.t-m.b},cp);
+    const g=el('g',{'clip-path':'url(#'+clipId+')'},svg);
+    // allowed region fill under ceiling
+    const cl=C.map(c=>[c.d,(c.pass+c.forb)/2]);
+    const poly=[[cl[0][0],py0]].concat(cl).concat([[cl[cl.length-1][0],py0]]);
+    el('path',{d:'M'+poly.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join('L')+'Z',style:'fill:var(--src)'},g);
+    el('path',{d:'M'+cl.map(p=>X(p[0]).toFixed(1)+','+Y(p[1]).toFixed(1)).join('L'),style:'fill:none;stroke:var(--ink);stroke-width:1.3;stroke-dasharray:5 3'},g);
+    F.forEach(p=>{ if (p.d<dx0-0.01||p.d>dx1+0.01||p.p<py0-0.01||p.p>py1+0.01) return; const x=X(p.d), y=Y(p.p);
+      if (p.v==='PASSED') el('circle',{cx:x,cy:y,r:zoom?4:3.2,style:'fill:var(--ok);stroke:var(--panel);stroke-width:1'},g);
+      else { const r1=p.b.includes('R1:H1'), rh=p.b.includes('RH1:T2'); const s=zoom?4.6:3.8;
+        if (r1&&!rh) el('rect',{x:x-s,y:y-s,width:2*s,height:2*s,style:'fill:var(--bad);stroke:var(--panel);stroke-width:1'},g);
+        else if (rh&&!r1) el('path',{d:'M'+x+','+(y-s-1)+'L'+(x+s+1)+','+(y+s)+'L'+(x-s-1)+','+(y+s)+'Z',style:'fill:var(--warn);stroke:var(--panel);stroke-width:1'},g);
+        else el('path',{d:'M'+(x-s)+','+(y-s)+'L'+(x+s)+','+(y-s)+'L'+(x-s)+','+(y+s)+'Z',style:'fill:var(--bad)'},g),
+             el('path',{d:'M'+(x+s)+','+(y-s)+'L'+(x+s)+','+(y+s)+'L'+(x-s)+','+(y+s)+'Z',style:'fill:var(--warn)'},g);
+      } });
+    const marks=[['K4',10,54,'К4'],['A5',10,56,'А-5'],['K3',0,0,'К3']];
+    marks.forEach(mk=>{ const [kk,d,p,lab]=mk; if (d<dx0||d>dx1||p<py0||p>py1) return; const x=X(d),y=Y(p);
+      el('path',{d:star(x,y,zoom?9:8),style:'fill:'+(kk==='A5'?'var(--bad)':'var(--accent)')+';stroke:var(--panel);stroke-width:1.5'},svg);
+      el('text',{x:x+11,y:y+4,'font-size':12,style:'font-weight:700;fill:'+(kk==='A5'?'var(--bad)':'var(--accent)')},svg,lab); });
+    if (zoom){ el('line',{x1:X(15.35),y1:Y(56.12),x2:X(16.15),y2:Y(55.9),style:'stroke:var(--ink);stroke-width:1'},svg); el('text',{x:X(15.3),y:Y(56.12)+4,'text-anchor':'end','font-size':11,style:'fill:var(--ink)'},svg,'угол потолка'); }
+    return svg;
+  }
+  function star(x,y,r){ let d=''; for (let i=0;i<10;i++){ const a=-Math.PI/2+i*Math.PI/5, rr=i%2?r*0.45:r; d+=(i?'L':'M')+(x+rr*Math.cos(a)).toFixed(1)+','+(y+rr*Math.sin(a)).toFixed(1);} return d+'Z'; }
+  panel($('#famFull'),-21.5,21.5,0,58,520,330,'Вся область: ψ от 0 до 58°',false);
+  panel($('#famZoom'),14.5,19.5,53.8,56.3,420,330,'Угол потолка: δ 14,5…19,5°',true);
+  $('#famLegend').innerHTML='<span class="sw dot" style="background:var(--ok)"></span>PASSED &nbsp; <span class="sw" style="background:var(--bad)"></span>FORBIDDEN: R1 входит в тело H1 (G-5а) &nbsp; <span class="sw" style="background:var(--warn)"></span>FORBIDDEN: касп RH1 в T2 (G-5б–г) &nbsp; пунктир — граница между точками (середины), зелёная заливка — допустимо. Угол потолка — δ ∈ (16,2°; 16,3°), ψ<sub>max</sub> ∈ [55,85°; 55,86°). К4 внутри с запасом по ψ ≈ 1,1°; А-5 над потолком. К3 — точка ψ = 0, δ = 0 (ρ = 30° точно).';
+}
+
+/* ---------- A-5 strip ---------- */
+function renderStrip(){
+  const box=$('#strip'); box.innerHTML='';
+  const rows=[['K3','К3'],['K4','К4'],['A5','А-5']];
+  const W=900, rowH=84, Hh=rows.length*rowH+10, m={l:70,r:20};
+  const svg=el('svg',{viewBox:'0 0 '+W+' '+Hh,role:'img','aria-label':'Сверка корней'},box);
+  rows.forEach((rw,i)=>{ const [k,lab]=rw; const ds=DATA.ds[k]; const H=torMap(DATA.cases[k]).H1; const kr=H.root_deg;
+    const lo=Math.min(ds.W[0], ds.src?ds.src[0]:ds.W[0], kr[0]), hi=Math.max(ds.W[1], ds.src?ds.src[1]:ds.W[1], kr[1]);
+    const pad=(hi-lo)*0.18 || 2e-5; const a=lo-pad, b=hi+pad; const y=10+i*rowH+30;
+    const X=v=>m.l+(v-a)/(b-a)*(W-m.l-m.r);
+    el('text',{x:8,y:y+5,'font-size':14,style:'font-weight:700'},svg,lab);
+    el('line',{x1:m.l,y1:y+16,x2:W-m.r,y2:y+16,class:'ax'},svg);
+    const nt=5, step=(b-a)/nt; const dec=Math.max(3,Math.min(8,Math.ceil(-Math.log10(step))+1));
+    for (let j=0;j<=nt;j++){ const v=a+j*step; el('line',{x1:X(v),y1:y+16,x2:X(v),y2:y+20,class:'ax'},svg); el('text',{x:X(v),y:y+33,'text-anchor':'middle',class:'tick'},svg,fmt(v,dec)+'°'); }
+    if (ds.src && ds.src[1]>ds.src[0]) el('rect',{x:X(ds.src[0]),y:y-14,width:X(ds.src[1])-X(ds.src[0]),height:28,style:'fill:var(--src);stroke:var(--ok);stroke-dasharray:3 2'},svg);
+    el('rect',{x:X(ds.W[0]),y:y-9,width:Math.max(2,X(ds.W[1])-X(ds.W[0])),height:18,rx:3,style:'fill:var(--band);stroke:var(--accent);stroke-width:1.5'},svg);
+    const xk=X(midIv(kr)); el('line',{x1:xk,y1:y-17,x2:xk,y2:y+17,style:'stroke:var(--ink);stroke-width:2.2'},svg);
+    el('circle',{cx:xk,cy:y-19,r:3,style:'fill:var(--ink)'},svg);
+    const tx=el('text',{x:W-m.r,y:y-20,'font-size':11.5,'text-anchor':'end'},svg);
+    el('tspan',{style:'fill:var(--accent);font-weight:600'},tx,'W DeepSeek '+fmtIv(ds.W,7)+'°');
+    el('tspan',{style:'fill:var(--muted)'},tx,'  ·  ');
+    el('tspan',{style:'fill:var(--ink);font-weight:600'},tx,'корень ядра '+fmt(midIv(kr),9)+'°');
+    el('text',{x:m.l,y:y-20,'font-size':11,style:'fill:var(--muted)'},svg,ds.srcLabel);
+  });
+  const c4=DATA.cases.K4.contacts.find(c=>c.pair.join()==='T2,H1'), c5=DATA.cases.A5.contacts.find(c=>c.pair.join()==='T2,H1');
+  $('#stripCap').innerHTML='Расстояние звена d (T2→H1): К4 — DeepSeek '+fmtIv(DATA.ds.K4.d,7)+' ∋ ядро '+fmt(midIv(c4.d),8)+'; А-5 — DeepSeek '+fmtIv(DATA.ds.A5.d,7)+' ∋ ядро '+fmt(midIv(c5.d),8)+'. Вердикт А-5 у DeepSeek — FORBIDDEN: проверка 2 нашла точку кольца R1 на расстоянии ≤ 0,4982 от средней окружности H1 при любых ρ из W и d из вилки. Сверка с ядром — анализ разработчика ядра, а не независимый сертификат.';
+}
+
+/* ---------- 3D ---------- */
+const viewer=$('#viewer'), canvas=$('#cv'), labelsBox=$('#labels'), tip=$('#tip');
+let THREEok = typeof THREE!=='undefined';
+let renderer, scene, camera, root, groups={}, labels=[], pickables=[], dirty=true;
+const show={bodies:true,guides:true,rings:true,contacts:true,labels:true};
+const orbit={target:[0,0,4], radius:13, theta:0.9, phi:1.0};
+function initGL(){
+  try{
+    renderer=new THREE.WebGLRenderer({canvas:canvas,antialias:true,alpha:true});
+    renderer.setPixelRatio(Math.min(2,window.devicePixelRatio||1));
+  }catch(e){ THREEok=false; }
+  if (!THREEok){ $('#nogl').style.display='flex'; return; }
+  scene=new THREE.Scene();
+  camera=new THREE.PerspectiveCamera(38,1,0.05,300);
+  scene.add(new THREE.AmbientLight(0xffffff,0.55));
+  const d1=new THREE.DirectionalLight(0xffffff,0.75); d1.position.set(6,9,7); scene.add(d1);
+  const d2=new THREE.DirectionalLight(0xffffff,0.3); d2.position.set(-7,-4,-5); scene.add(d2);
+  resize(); new ResizeObserver(resize).observe(viewer);
+  bindControls(); loop();
+}
+function resize(){ if (!renderer) return; const w=viewer.clientWidth, h=viewer.clientHeight; renderer.setSize(w,h,false); camera.aspect=w/h; camera.updateProjectionMatrix(); dirty=true; }
+function col(n){ return new THREE.Color(css(n)); }
+const torusGeoCache={};
+function buildScene(k){
+  if (!THREEok) return;
+  if (root) scene.remove(root);
+  root=new THREE.Group(); scene.add(root); labels=[]; pickables=[]; labelsBox.innerHTML='';
+  groups={bodies:new THREE.Group(),guides:new THREE.Group(),rings:new THREE.Group(),contacts:new THREE.Group()};
+  for (const g in groups) root.add(groups[g]);
+  const cs=DATA.cases[k], tm=torMap(cs);
+  const tg = torusGeoCache.t || (torusGeoCache.t=new THREE.TorusGeometry(0.5,0.5,48,120));
+  cs.tori.forEach(t=>{
+    const isH=t.name[0]==='H';
+    const mat=new THREE.MeshPhongMaterial({color:col(isH?'--hang':'--thread'),transparent:true,opacity:isH?0.34:0.24,depthWrite:false,side:THREE.DoubleSide,shininess:50});
+    const m=new THREE.Mesh(tg,mat); m.position.set(t.A[0],t.A[1],t.A[2]);
+    m.quaternion.setFromUnitVectors(new THREE.Vector3(0,0,1),new THREE.Vector3(t.T[0],t.T[1],t.T[2]));
+    m.userData={kind:'torus',name:t.name}; groups.bodies.add(m); pickables.push(m);
+    const [u,v]=perp(t.T); const cp=[]; for (let i=0;i<=128;i++){ const f=2*Math.PI*i/128; const P=add(t.A,add(mul(u,0.5*Math.cos(f)),mul(v,0.5*Math.sin(f)))); cp.push(new THREE.Vector3(P[0],P[1],P[2])); }
+    const lc=col(isH?'--hang':'--thread');
+    groups.guides.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(cp),new THREE.LineBasicMaterial({color:lc})));
+    const a1=add(t.A,mul(t.T,-1.0)), a2=add(t.A,mul(t.T,1.0));
+    groups.guides.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints([new THREE.Vector3(...a1),new THREE.Vector3(...a2)]),new THREE.LineDashedMaterial({color:lc,dashSize:0.08,gapSize:0.06})).computeLineDistances());
+    const lpos = isH && tm.T2 ? add(t.A, mul(unit(sub(t.A,tm.T2.A)),1.05)) : add(t.A,mul(t.T,1.12));
+    labels.push({p:lpos,txt:t.name,cls:isH?'h':''});
+  });
+  cs.rings.forEach(r=>{
+    const isH=r.name.startsWith('RH'); const pts=[];
+    for (let i=0;i<256;i++){ const P=ringPt(r,2*Math.PI*i/256); pts.push(new THREE.Vector3(P[0],P[1],P[2])); }
+    const curve=new THREE.CatmullRomCurve3(pts,true);
+    const mesh=new THREE.Mesh(new THREE.TubeGeometry(curve,320,0.03,10,true),new THREE.MeshPhongMaterial({color:col(isH?'--ringH':'--ring'),shininess:60}));
+    mesh.userData={kind:'ring',name:r.name}; groups.rings.add(mesh); pickables.push(mesh);
+    const lp=ringPt(r, isH?Math.PI*0.5:Math.PI*0.5);
+    labels.push({p:add(lp,[0,0.12,0]),txt:r.name,cls:isH?'rh':'r'});
+  });
+  // penetration and closest approach to H1
+  if (tm.H1){ const H=tm.H1;
+    cs.rings.filter(r=>!r.threads.includes('H1')).forEach(r=>{
+      const N=1440; let run=[], mn=[1e9,0];
+      const flush=()=>{ if (run.length>1){ const c=new THREE.CatmullRomCurve3(run.map(P=>new THREE.Vector3(P[0],P[1],P[2])),false); groups.rings.add(new THREE.Mesh(new THREE.TubeGeometry(c,Math.max(8,run.length),0.075,12,false),new THREE.MeshPhongMaterial({color:col('--bad')}))); } run=[]; };
+      for (let i=0;i<=N;i++){ const t=2*Math.PI*i/N, P=ringPt(r,t), f=distMid(P,H)-0.5; if (f<mn[0]) mn=[f,t]; if (f<0) run.push(P); else flush(); }
+      flush();
+      const ch=check(cs,'G5a:'+r.name+':H1');
+      if (mn[0]<0.3 && ch){ const P=ringPt(r,mn[1]); const sp=new THREE.Mesh(new THREE.SphereGeometry(0.06,16,12),new THREE.MeshPhongMaterial({color:col(mn[0]<0?'--bad':'--ring')}));
+        sp.position.set(P[0],P[1],P[2]); groups.rings.add(sp);
+        labels.push({p:add(P,[0.0,-0.22,0]),txt:r.name+'–H1: '+fmt(midIv(ch.v),4),cls:mn[0]<0?'bad':'note'}); }
+    });
+  }
+  cs.contacts.forEach(c=>{ const e=edgeOf(cs,c.pair[0],c.pair[1]);
+    c.points.forEach(p=>{ const sp=new THREE.Mesh(new THREE.SphereGeometry(0.07,18,14),new THREE.MeshPhongMaterial({color:col(e&&e.sign>0?'--pos':'--neg'),emissive:col(e&&e.sign>0?'--pos':'--neg'),emissiveIntensity:0.25}));
+      sp.position.set(p.c[0],p.c[1],p.c[2]); sp.userData={kind:'contact',c:c,p:p,e:e}; groups.contacts.add(sp); pickables.push(sp); }); });
+  labels.forEach(L=>{ const d=document.createElement('div'); d.className='lbl '+(L.cls||''); d.textContent=L.txt; labelsBox.appendChild(d); L.el=d; });
+  applyToggles(); dirty=true;
+}
+function applyToggles(){ if (!groups.bodies) return; for (const g in groups) groups[g].visible=show[g]; labelsBox.style.display=show.labels?'block':'none'; dirty=true; }
+function setView(v){
+  const cs=DATA.cases[current], tm=torMap(cs);
+  if (v==='node' && tm.H1){ const c=mul(add(add(tm.T1.A,tm.T2.A),tm.H1.A),1/3); orbit.target=c; orbit.radius=6.2; orbit.theta=0.55; orbit.phi=0.85; }
+  else { orbit.target=[tm.H1?0.35:0,0,4]; orbit.radius=tm.H1?12.5:12.5;
+    if (v==='top'){ orbit.theta=0; orbit.phi=0.06; }
+    else if (v==='side'){ orbit.theta=Math.PI/2; orbit.phi=Math.PI/2; }
+    else { orbit.theta=0.9; orbit.phi=1.0; } }
+  document.querySelectorAll('#views .tbtn').forEach(b=>b.setAttribute('aria-pressed',b.dataset.view===v));
+  dirty=true;
+}
+function placeCamera(){ const {target:t,radius:r,theta:th,phi:ph}=orbit;
+  camera.position.set(t[0]+r*Math.sin(ph)*Math.sin(th), t[1]+r*Math.cos(ph), t[2]+r*Math.sin(ph)*Math.cos(th));
+  camera.up.set(0,1,0); camera.lookAt(t[0],t[1],t[2]); }
+function bindControls(){
+  const ptrs=new Map(); let mode=null, last=null, pinch0=0, rad0=0;
+  canvas.addEventListener('contextmenu',e=>e.preventDefault());
+  canvas.addEventListener('pointerdown',e=>{ canvas.setPointerCapture(e.pointerId); ptrs.set(e.pointerId,[e.clientX,e.clientY]);
+    if (ptrs.size===2){ const [a,b]=[...ptrs.values()]; pinch0=Math.hypot(a[0]-b[0],a[1]-b[1]); rad0=orbit.radius; mode='pinch'; }
+    else { mode=(e.button===2||e.shiftKey)?'pan':'rot'; last=[e.clientX,e.clientY]; }
+    canvas.classList.add('drag'); tip.style.display='none'; });
+  canvas.addEventListener('pointermove',e=>{
+    if (!ptrs.has(e.pointerId)){ hover(e); return; }
+    ptrs.set(e.pointerId,[e.clientX,e.clientY]);
+    if (mode==='pinch' && ptrs.size===2){ const [a,b]=[...ptrs.values()]; const d=Math.hypot(a[0]-b[0],a[1]-b[1]); orbit.radius=Math.max(1.5,Math.min(60,rad0*pinch0/Math.max(10,d))); dirty=true; return; }
+    if (!last) return; const dx=e.clientX-last[0], dy=e.clientY-last[1]; last=[e.clientX,e.clientY];
+    if (mode==='rot'){ orbit.theta-=dx*0.008; orbit.phi=Math.max(0.05,Math.min(Math.PI-0.05,orbit.phi-dy*0.008)); }
+    else if (mode==='pan'){ const s=orbit.radius*0.0016; const right=new THREE.Vector3(), up=new THREE.Vector3(); camera.matrix.extractBasis(right,up,new THREE.Vector3());
+      orbit.target=add(orbit.target,add(mul([right.x,right.y,right.z],-dx*s),mul([up.x,up.y,up.z],dy*s))); }
+    document.querySelectorAll('#views .tbtn').forEach(b=>b.setAttribute('aria-pressed','false'));
+    dirty=true; });
+  const end=e=>{ ptrs.delete(e.pointerId); if (ptrs.size<2 && mode==='pinch') mode=null; if (!ptrs.size){ mode=null; last=null; canvas.classList.remove('drag'); } };
+  canvas.addEventListener('pointerup',end); canvas.addEventListener('pointercancel',end);
+  canvas.addEventListener('pointerleave',()=>{ tip.style.display='none'; });
+  canvas.addEventListener('wheel',e=>{ e.preventDefault(); orbit.radius=Math.max(1.5,Math.min(60,orbit.radius*Math.exp(e.deltaY*0.0012))); dirty=true; },{passive:false});
+}
+let raycaster=null;
+function hover(e){
+  if (!THREEok) return; raycaster = raycaster || new THREE.Raycaster();
+  const rc=canvas.getBoundingClientRect(); const mx=((e.clientX-rc.left)/rc.width)*2-1, my=-((e.clientY-rc.top)/rc.height)*2+1;
+  raycaster.setFromCamera({x:mx,y:my},camera);
+  const vis=pickables.filter(o=>o.parent&&o.parent.visible);
+  const hits=raycaster.intersectObjects(vis,false);
+  if (!hits.length){ tip.style.display='none'; return; }
+  const rank={contact:0,ring:1,torus:2}; hits.sort((a,b)=>(rank[a.object.userData.kind]-rank[b.object.userData.kind])||(a.distance-b.distance));
+  const u=hits[0].object.userData; tip.innerHTML=tipHTML(u); tip.style.display='block';
+  const vx=e.clientX-viewer.getBoundingClientRect().left, vy=e.clientY-viewer.getBoundingClientRect().top;
+  const tw=tip.offsetWidth, th=tip.offsetHeight; tip.style.left=Math.min(viewer.clientWidth-tw-8,vx+14)+'px'; tip.style.top=Math.min(viewer.clientHeight-th-8,vy+14)+'px';
+}
+function v3(a,n){ return '('+a.map(x=>fmt(x,n||3)).join('; ')+')'; }
+function tipHTML(u){
+  const cs=DATA.cases[current], tm=torMap(cs);
+  if (u.kind==='torus'){ const t=tm[u.name]; let h='<b>'+t.name+'</b> — '+(t.name[0]==='H'?'тор-навес на T2':'тор нити, латчер '+t.name.slice(1))+'<br>центр '+v3(t.A)+'<br>ось '+v3(t.T,4);
+    if (t.root_deg) h+='<br>ρ = '+fmtIv(t.root_deg,9)+'°';
+    const cc=cs.contacts.filter(c=>c.pair.includes(t.name)).map(c=>c.pair.join('–')); if (cc.length) h+='<br>касания: '+cc.join(', ');
+    return h; }
+  if (u.kind==='ring'){ const r=cs.rings.find(x=>x.name===u.name); return '<b>'+r.name+'</b> — кольцо латчера '+r.owner+'<br>продевает '+r.threads.join(' и ')+'<br>полуоси '+fmt(r.s1,6)+' и '+fmt(r.s2,6)+'<br>длина 2π · '+r.completeness; }
+  if (u.kind==='contact'){ const c=u.c,p=u.p,e=u.e; let h='<b>'+c.pair.join('–')+'</b> — '+(c.cls||'')+', '+c.existence+'<br>точка '+v3(p.c);
+    if (p.cos) h+='<br>cos = '+fmtIv(p.cos,5); if (p.abs_nT&&p.abs_nT.length) h+='<br>|n·T|: '+p.abs_nT.map(x=>fmt(midIv(x),3)).join(' / ');
+    if (e) h+='<br>J5: '+e.reading+', знак '+(e.sign>0?'+1':'−1')+(e.on_cycle?', на цикле':'')+(e.bridge?', мост':''); return h; }
+  return '';
+}
+function loop(){
+  requestAnimationFrame(loop);
+  if (!dirty) return; dirty=false; placeCamera(); renderer.render(scene,camera);
+  if (show.labels){ const w=viewer.clientWidth,h=viewer.clientHeight; const v=new THREE.Vector3();
+    labels.forEach(L=>{ v.set(L.p[0],L.p[1],L.p[2]).project(camera); if (v.z>1||v.z<-1){ L.el.style.display='none'; return; }
+      L.el.style.display='block'; L.el.style.left=((v.x+1)/2*w).toFixed(1)+'px'; L.el.style.top=((1-v.y)/2*h).toFixed(1)+'px'; }); }
+}
+document.querySelectorAll('#views .tbtn').forEach(b=>b.onclick=()=>setView(b.dataset.view));
+document.querySelectorAll('#toggles .tbtn').forEach(b=>b.onclick=()=>{ const t=b.dataset.t; show[t]=!show[t]; b.setAttribute('aria-pressed',show[t]); applyToggles(); });
+
+/* ---------- case switching ---------- */
+function selectCase(k){
+  current=k; try{ localStorage.setItem('latched-case',k); }catch(e){}
+  document.querySelectorAll('.tab').forEach(b=>b.setAttribute('aria-pressed',b.dataset.k===k));
+  renderSide(k); renderJ5(k); renderCusp(k); renderProfile(k);
+  buildScene(k);
+  const nodeBtn=document.querySelector('#views [data-view="node"]'); nodeBtn.style.display=torMap(DATA.cases[k]).H1?'':'none';
+  setView(torMap(DATA.cases[k]).H1?'node':'iso');
+}
+
+/* ---------- theme ---------- */
+$('#themeBtn').onclick=()=>{ const r=document.documentElement; const cur=r.getAttribute('data-theme');
+  const dark = cur ? cur==='dark' : window.matchMedia('(prefers-color-scheme: dark)').matches;
+  r.setAttribute('data-theme', dark?'light':'dark'); try{ localStorage.setItem('latched-theme', r.getAttribute('data-theme')); }catch(e){} rerender(); };
+function rerender(){ renderFamily(); renderStrip(); selectCaseKeepView(); }
+function selectCaseKeepView(){ const o=JSON.parse(JSON.stringify(orbit)); renderSide(current); renderJ5(current); renderCusp(current); renderProfile(current); buildScene(current); Object.assign(orbit,o); dirty=true; }
+try{ const t=localStorage.getItem('latched-theme'); if (t) document.documentElement.setAttribute('data-theme',t); }catch(e){}
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change',()=>{ if (!document.documentElement.getAttribute('data-theme')) rerender(); });
+
+/* ---------- start ---------- */
+if (THREEok) initGL(); else $('#nogl').style.display='flex';
+renderFamily(); renderStrip();
+let start='K4'; try{ const s=localStorage.getItem('latched-case'); if (s && DATA.cases[s]) start=s; }catch(e){}
+selectCase(start);
+})();
+</script>
+</body>
+</html>
