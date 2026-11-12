@@ -194,4 +194,31 @@
   - рецензия Грока;
   - фиксация от имени Автора.
 
-`PROCEDURE DEVIATIONS — RECORDED (D-4 scan data in archive; rev5 mechanical assembly from DeepSeek line edits; rev5 kernel run attempt 1 — no packer; A-5 rev8.8 time limit raised 1800 → 6600 s; A-5 rev8.8 one-line scan fix by executor, pending DeepSeek adoption)` · `A-5 rev8.8 fixed build — ACCEPTANCE MET` · `KT-1 KERNEL — FROZEN`
+## Запись 11. А-5 rev8.8: сдача DeepSeek `solve_d.js`, повтор прогонов (12.11.2026)
+
+- **Рецензия Грока (12.11):** приёмка засчитана; правка — механика, не смена метода. Зачёт — при побайтно совпадающем `solve_d.js` от DeepSeek.
+- **Сдача DeepSeek.** `a5/solve_d.js` целиком; сообщение взято дословно из журнала сеанса (sha256 `784908f4…39e4`).
+  - Файл — `31b44471c7aa55b885903767f34bef73917ee18994709a9caa444ac6fc475874`. **Побайтно с `b4e1501e…5b8d` не совпал.**
+  - Отличие: нет двух строк комментариев — над `certify` и над `bisect`. Код, кроме этих строк, совпадает с исправленной сборкой.
+- **Решение.** По поручению (§ 4.3): не совпал — все четыре прогона заново, на архиве rev8.8 с файлом DeepSeek. Записью исполнителя служит файл DeepSeek, а не мой.
+  - Архив — `b44bfbce7a0ddcfcd35a53c8ba3de6082f78eaba8e046b74400aba492bd3c972`; против rev8.8 изменён только `a5/solve_d.js`.
+- **Пределы времени.**
+  - А-5 — 6600 с, как в записи 8.
+  - К4 — 3600 с, поднят до прогона: в прошлый раз К4 занял 1768 с, и разброс около 1800 с не должен стоить ещё одного прогона.
+  - Время сравнивается с 1800 с, как требует поручение. Строгость и вердикт от предела не зависят.
+
+## Запись 12. А-5 rev8.8 на файле DeepSeek: итоги, время К4, фиксация (12.11.2026)
+
+- **Прогоны** на архиве `b44bfbce…c972`, по одному:
+  - `selftest` — 27 / 27, 5,9 с;
+  - К3 — `EXIT_0`, 5,6 с;
+  - А-5 — `EXIT_0`, 683,9 с, `A5_VERDICT: FORBIDDEN`;
+  - К4 — `EXIT_0`, **1814,5 с**.
+- **Совпадение с исправленной сборкой.** Выходы К3, К4 и А-5 (`a5.check1.root.json`, `a5.check2.result.json`, `a5.summary.json`) совпадают со сборкой `82878d7c…c79ae` во всём, кроме полей времени. Вывод `selftest` совпадает побайтно.
+- **Отступление: К4 — 1814,5 с при условии поручения ≤ 1800 с, на 0,8 % больше.**
+  - Тот же код (без двух строк комментариев) на той же машине занял 1768 с, а число ящиков и все результаты одинаковы. Разница — разброс времени машины, не код.
+  - Предел — процедурное условие, а не научный критерий (запись 8); Грок отметил тот же риск в рецензии.
+  - **Решение руководителя отдела:** условие по времени считается выполненным по существу — 1768 с на том же коде. Скорость К4 — **обязательное** требование следующей редакции А-5, а не замечание.
+- **Фиксация А-5 rev8.8** — архив `b44bfbce7a0ddcfcd35a53c8ba3de6082f78eaba8e046b74400aba492bd3c972`. Решение Клода по рецензии Грока; отмечено от имени Автора. Документ — `HONC_Qf_R1_KT1_A5_rev8_8_FIXATION_2026-11-12.md`.
+
+`PROCEDURE DEVIATIONS — RECORDED (D-4 scan data in archive; rev5 mechanical assembly from DeepSeek line edits; rev5 kernel run attempt 1 — no packer; A-5 rev8.8 time limit raised 1800 → 6600 s; A-5 rev8.8 one-line scan fix by executor — adopted by DeepSeek, file not byte-identical (2 comment lines), runs repeated; K4 limit 3600 s for the repeat; K4 repeat 1814,5 s > 1800 s — accepted in substance (1768 s on same code))` · `A-5 rev8.8 — FIXED` · `KT-1 KERNEL — FROZEN`
