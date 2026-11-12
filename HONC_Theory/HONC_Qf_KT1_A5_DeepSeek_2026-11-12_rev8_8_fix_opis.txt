@@ -1,0 +1,22 @@
+HONC / Qf / R1 / КТ-1 — опись сборки А-5 rev8.8 с исправленной строкой скана (12.11.2026)
+Основа: архив rev8.8 DeepSeek как сдан, sha256 7c5bd882052528837e4d1f733c2e80e13180bd34f219da0b567263c89b6e7381 (сообщение DeepSeek, sha256 cbbdc642e11658ec1059ad171d4f56a08f998a63193efc0dc24492e024274211).
+Изменение исполнителя — одна строка в a5/solve_d.js, полный скан, строки 97–98 rev8.8:
+  было:  if (s !== '?') prev_sign = s;  /  prev_d = d;
+  стало: if (s !== '?') { prev_sign = s; prev_d = d; }
+Основание: правило Автора о механических дефектах; журнал КТ-1, запись 9. Метод, параметры, геометрия не тронуты.
+Статус: ждёт, что DeepSeek сдаст a5/solve_d.js целиком и он совпадёт побайтно с суммой ниже.
+----
+Архив: HONC_Qf_KT1_A5_DeepSeek_2026-11-12_rev8_8_fix.zip; sha256 82878d7c29163969931b14902b8eafd477cbb9e0e96b9ac77fff285c684c79ae
+Файлов: 12
+bfccdd57098d861defbc822c578b24b649ee529c58611c0574b529aee65cb51c  a5/README.md  (11116 байт) — как rev8.8
+c6a3d5d5aae701265f8edb2ba172432b6142a11902ec8d1b827ff1f1cabeecbe  a5/check1_root.js  (3696 байт) — как rev8.8
+88757a74c3b6c925b6487aba5a42279fb84ab0fe155c75a0554b4810ab289c5b  a5/check2_penetration.js  (2653 байт) — как rev8.8
+65695da77a1559abc393789cad7b023c958f0c7f769a8cd720b98443eb2169f6  a5/lib/build.js  (848 байт) — как rev8.8
+e12de335f9122ee2ed261a0c42ad1456a2ffd09a43bab806404829d6517cfd4d  a5/lib/frame.js  (780 байт) — как rev8.8
+82c756699e489e085e7d43d6a824d1b20c4837a3c50e3c8042baf77486114502  a5/lib/geom.js  (3433 байт) — как rev8.8
+69606bfeba080287b333683401ec390d64639879d23fe5622bd1dfc557231ed4  a5/lib/ia.js  (5589 байт) — как rev8.8
+254916fc37491a0013ad52443cbf6f0827ace913f3f59b8bc0d816f2cde9a09e  a5/lib/opts.js  (225 байт) — как rev8.8
+1985704c8d8c2f03378b0a8e56ad2e5addfba7d10f6a13946fbdd719c31fd391  a5/lib/vec.js  (1032 байт) — как rev8.8
+d4d774329b83d1eb167fd3ee65109f2f0266a1b96e83a34e495605a653738a16  a5/run.js  (3062 байт) — как rev8.8
+7be4b31edc32c95bcb5dbca2ec7ff393e890f69afef8db322622fa59577163d3  a5/selftest.js  (8034 байт) — как rev8.8
+b4e1501e3c4a9e644f4adf9f1a1ceb1b89c64999b08d58285f2ab0e1333e5b8d  a5/solve_d.js  (5098 байт) — ИЗМЕНЁН исполнителем (rev8.8: cf73765fb983a2eb65bc72036046e6710d8f4924fb93f10c581da0d9745df6c5)
