@@ -1,5 +1,5 @@
 # TRIAD B — Doctor's dual-formation control
-> **INTEGRATOR CORRECTION 01 · 13.11.2026 — SUPERSEDES OLD FORMATION ORDER.** Before charter/common summary the candidate receives the ACTUAL SCIENTIFIC FILE `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` (Dynasty/DeepSeek/HONC_PHYSICIST/01_FORMATION; blob `474a2e3f0cab3c646d52f4ef0e5e7accf1b647c3`) **as an Author-uploaded attachment**. Do NOT tell DeepSeek to browse GitHub. Seven archived scientific sources must be read sequentially and tracked for omissions/truncation. Then corrected common science from a physics supervisor, then individual charter, then independent **physics** literacy Gate, then Doctor's professional/clinical Gate. Original stages 0–5 below are historical preparation only where inconsistent. Full decision: [Integrator correction](06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md). `FORMATION = HOLD FOR REWORK`.
+> **INTEGRATOR CORRECTION 01 · 13.11.2026 — SUPERSEDES OLD FORMATION ORDER.** Before charter/common summary the candidate receives the ACTUAL SCIENTIFIC FILE `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` (Dynasty/DeepSeek/HONC_PHYSICIST/01_FORMATION; blob `474a2e3f0cab3c646d52f4ef0e5e7accf1b647c3`) **as an Author-uploaded attachment**. Do NOT tell DeepSeek to browse GitHub. Seven archived scientific sources must be read sequentially and tracked for omissions/truncation. Then corrected common science from a physics supervisor, then individual charter, then independent **physics** literacy Gate, then Doctor's professional/clinical Gate. Corrected stages in this file and in 07_DOCTOR_SCIENCE_FIRST_EXECUTION_PROTOCOL.md are now operative. Full decision: [Integrator correction](06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md). `FORMATION = CORRECTED_PRE_BIRTH / AWAITING_AUTHOR_ATTACHMENTS`.
 
 **[INDIVIDUAL SIGNATURE] Doctor Emeritus / Collaboration Medicine · independent examiner**
 **Date:** 2026-11-13
@@ -65,7 +65,7 @@ ONE signed consolidated document per B→Grok→Claude A handoff; <=10 supportin
 
 ## Status
 ```
-TRIAD_B_FORMATION_PACKAGES = PREPARED
+TRIAD_B_FORMATION_PACKAGES = CORRECTED_SCIENCE_FIRST
 B1_CANDIDATE = NOT_STARTED_UNTIL_AUTHOR_STARTS_CHAT
 B2_CANDIDATE = NOT_STARTED_UNTIL_AUTHOR_STARTS_CHAT
 OCCUPANTS = NONE
