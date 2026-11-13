@@ -1,4 +1,6 @@
 # TRIAD B — Doctor's dual-formation control
+> **INTEGRATOR CORRECTION 01 · 13.11.2026 — SUPERSEDES OLD FORMATION ORDER.** Before charter/common summary the candidate receives the ACTUAL SCIENTIFIC FILE `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` (Dynasty/DeepSeek/HONC_PHYSICIST/01_FORMATION; blob `474a2e3f0cab3c646d52f4ef0e5e7accf1b647c3`) **as an Author-uploaded attachment**. Do NOT tell DeepSeek to browse GitHub. Seven archived scientific sources must be read sequentially and tracked for omissions/truncation. Then corrected common science from a physics supervisor, then individual charter, then independent **physics** literacy Gate, then Doctor's professional/clinical Gate. Original stages 0–5 below are historical preparation only where inconsistent. Full decision: [Integrator correction](06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md). `FORMATION = HOLD FOR REWORK`.
+
 **[INDIVIDUAL SIGNATURE] Doctor Emeritus / Collaboration Medicine · independent examiner**
 **Date:** 2026-11-13
 **Status:** TWO CANDIDATE PACKAGES PREPARED / NO BIRTHS COMPLETED / NO ACTIVATION / NO WORK PERMITS
