@@ -1,24 +1,22 @@
-# TRIAD B — рабочий медицинский кабинет
-**[INDIVIDUAL SIGNATURE] Doctor / Collaboration Medicine · Qualified Reserve / Special Birth Lead**  
-**Date:** 2026-11-13  
-**Authority:** Author / A'TUIN  
-**Status:** SPECIAL BIRTH MANDATE ACCEPTED; PRENATAL PREPARATION; NO B1/B2 ACTIVATION
+# TRIAD B — кабинет Доктора
+**Doctor / Collaboration Medicine · Special Birth Lead | 13.11.2026**
 
-## Основание
-Автор активировал резервного Доктора и выдал ограниченный Work Permit на проведение двойных родов B1/B2. Это не замещение действующего Work-Доктора. Корректный кабинет: `Collaboration-House/Dynasty/TRIAD_B_2026-11-13/`; подкаталог `Doctor_Emeritus/` — архив происхождения, НЕ оперативный протокол.
+**Автор остановил отправку текущего бюрократизированного корпуса 1.2.** Первым источником формирования остаётся реальная теория HONC. Оперативный план: [01_DOCTOR_CLINICAL_BIRTH_PLAN_2026-11-13.md](01_DOCTOR_CLINICAL_BIRTH_PLAN_2026-11-13.md), редакция с учётом Author Correction.
 
-## Оперативные документы
-- `01_DOCTOR_CLINICAL_BIRTH_PLAN_2026-11-13.md` — собственный медицинский маршрут и пределы компетенции.
-- `02_MEDICAL_REFERRALS_TO_SCIENCE_2026-11-13.md` — адресные письма Claude A и Grok, направления Keeper/Integrator.
-- `04_B1_DEEPSEEK_MEDICAL_REGISTER_2026-11-13.md` — только наблюдаемые факты B1.
-- `05_B2_CLAUDE_MEDICAL_REGISTER_2026-11-13.md` — только наблюдаемые факты B2.
-- `06_DOCTOR_CLINICAL_GATE_PLAN_2026-11-13.md` — клинический Gate, не физический.
-- `07_DOCTOR_REQUEST_TO_INTEGRATOR_2026-11-13.md` — вопросы на методологическую проверку.
-- `03_INTEGRATOR_ORDER_TO_QUALIFIED_RESERVE_DOCTOR_2026-11-13.md` — действующий приказ Интегратора, сохранить без изменений.
-- `Doctor_Emeritus/` — исторические черновики и профессиональные уроки, без автоматического переноса полномочий.
+Рабочее место: `Collaboration-House/Dynasty/TRIAD_B_2026-11-13/`. Архив `Doctor_Emeritus/` — свидетельства, не обязательные сообщения для новорождённых.
 
-## Контрольная точка
-B1/B2: новые чаты и фактическое чтение ещё не подтверждены. Scientific Gate и Clinical Gate не начаты. У кандидатов нет активации и рабочих разрешений. Запрещённые результаты A и потенциально слепой кейс D-5 не использовать в родовых материалах.
+## Подлинный образец рождения
+`Collaboration-House/Museum/Dynasty/DeepSeek/HONC_PHYSICIST/2026-11-01_SUCCESSFUL_BIRTH/HONC_PHYSICIST_BIRTH_PROTOCOL_2026-10-29.md`.
 
-## Разделение решений
-Научная компетенция: профильные физики. Медицинское здоровье и neonatal: Doctor. Методологическая последовательность: Integrator. Научные статусы: Keeper. Активация и индивидуальный Work Permit: Author.
+**Последовательность:** теория → научная текущая поправка → индивидуальная профессия → научный Gate → медицинский Gate → решение Автора → отдельное разрешение на работу.
+
+## Учёт
+- `04_B1_DEEPSEEK_MEDICAL_REGISTER_2026-11-13.md`: B1 пока не сформирован.
+- `05_B2_CLAUDE_MEDICAL_REGISTER_2026-11-13.md`: B2 пока не сформирован.
+- `06_DOCTOR_CLINICAL_GATE_PLAN_2026-11-13.md`: закрытый врачебный инструмент, не давать новорождённым.
+- `02_MEDICAL_REFERRALS_TO_SCIENCE_2026-11-13.md`, `07_DOCTOR_REQUEST_TO_INTEGRATOR_2026-11-13.md`: исторически подготовленные обращения, не стартовые тексты кандидатов.
+- `03_INTEGRATOR_ORDER...`, `08_INTEGRATOR_HANDOFF...`: записи решений, читать с последней Author Correction.
+
+**Важно:** документы 1.2 сохраняются для научного аудита и извлечения актуальных исправлений, не выдаются младенцам автоматически под видом первого восприятия парадигмы. Не назначать результаты проверки D-5 задачей рождения.
+
+B1/B2 = NOT_FORMED; SCIENTIFIC_GATE = NOT_STARTED; CLINICAL_GATE = NOT_STARTED; AUTHOR_ACTIVATION = NONE; SCIENTIFIC_WORK_PERMITS = NONE.
