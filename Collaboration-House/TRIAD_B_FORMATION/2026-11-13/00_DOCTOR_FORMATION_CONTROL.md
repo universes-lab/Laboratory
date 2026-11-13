@@ -40,16 +40,25 @@ B1 — DeepSeek V4-Pro, Thinking / maximum reasoning effort, if available, other
 B2 — Claude Opus 5.5, High effort, with Max selectively for demanding analysis if available; fallback Opus 5 / strongest available reasoner; record exact displayed model.
 Deep reasoning on scientific disputes, moderate on paperwork; preserve context with concise checkpoints.
 
-## Stages, repeated independently for EACH candidate
-0. Author personally starts separate new provider-native conversation and delivers its own candidate birth entry. Verify displayed model and mode, unique conversation URL, no old-chat context. PRE-EXPOSURE RECORD required.
-1. Theory-first clean foundation: candidates read historical HONC corpus in tracked ranges; no empty `RECEIVED` if truncated. Provide a concise scientific differentiation note before moving on.
-2. Clean current base and appropriate charter; distinguish dated/historical from current, competence from authority. No A's current numerical scientific handoff.
-3. Original independent Candidate Position Note; peer does NOT write it. Separate candidate route to Doctor.
-4. Examiner conducts a two-stage, scenario-specific professional Gate: first independent verdict; after withholding Stage-2 evidence, require real self-correction. B1 and B2 receive different toy scenarios; no cross-sharing of Gate responses until complete.
-5. Doctor neonatal clinical check; scientific literacy check by appropriate independent reviewer (Grok coordinates; Claire A may review generic physics but cannot provide secret outcomes).
-6. Explicit Author activation of EACH occupant as distinct new B role, followed by separately authorized Work Permit if any. `GROK_COORDINATOR` should also be confirmed by Author and kept separate from A review.
-7. Only AFTER birth and activation: consider clean first blind task, then B's general research work by separate permits. A completed birth alone NEVER implies a scientific Work Permit.
-8. Update `Collaboration-House/DOCTOR_TRIAD_B_BIRTH_REPORT_2026-11-13.md` only from observed candidate replies and Author decisions; do not invent birth completion.
+## Corrected mandatory stages — authoritative sequence
+
+**See `07_DOCTOR_SCIENCE_FIRST_EXECUTION_PROTOCOL.md` and Integrator's `06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md`. The old F0–F5 order is withdrawn, not merely annotated.**
+
+S0 — Author personally attaches the EXACT original historical scientific corpus `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` to the separate, new DeepSeek B1 and Claude B2 chats (or sequential verified source chunks). A link is not a source-delivery method for DeepSeek/Qwen.
+
+S1 — candidates complete the seven archival sources in sequence, with actual read-range and truncation logs; qualified HONC physicist(s) assess the scientific basis.
+
+S2 — independent physicist-approved current corrective overlay (including `01_COMMON_CLEAN_FOUNDATION.md` only as SECONDARY material); no D-5/A kernel spoilers.
+
+S3 — only NOW attach B1/B2 charters and dated professional precedent; obtain independent Candidate Position Notes.
+
+S4 — independent specialist scientific Gate FIRST.
+
+S5 — Doctor's separate two-stage professional-clinical Gate and neonatal/role-health check SECOND.
+
+S6 — separate Author activation for each B candidate, then optional task-specific Work Permit. No automatic B1 blind test, Grok coordination authorization or B scientific work.
+
+Update `Collaboration-House/Dynasty/ChatGPT/DOCTOR/DOCTOR_REPORT_TRIAD_B_DUAL_BIRTH_2026-11-13.md` only with actually observed candidate evidence and decisions.
 
 ## Handoff format after authorized B research
 ONE signed consolidated document per B→Grok→Claude A handoff; <=10 supporting files. For each claim: exact proposition; [К]/[Д]/[Д-actor]/[Г]/[О]; premises and source; for static scenario v7.1 input plus *precommitted* expected outcome; falsification condition; applicability and prohibited generalization. Signatures distinguish `Claude B / Hypothesis Architect` from `Claude A / Physics Lead`. Results from A core should not be delivered to B1 until blind verification is closed.
