@@ -36,8 +36,8 @@ KT-2 only verifies stated *static* conditions; do not use it to verify W/gluon d
 No new science or model modification is a birth prerequisite.
 
 ## Model choice (recommendations, subject to actual Author UI)
-B1 — DeepSeek V4-Pro, Thinking / maximum reasoning effort, if available, otherwise the strongest available thinking model; record exact model displayed.
-B2 — Claude Opus 5.5, High effort, with Max selectively for demanding analysis if available; fallback Opus 5 / strongest available reasoner; record exact displayed model.
+B1 — Author chooses the actually available DeepSeek model and reasoning mode shown in the provider UI; record exact displayed option and conversation reference. Do not infer product availability.
+B2 — Author chooses the actually available Claude model and reasoning effort shown in the provider UI; record exact displayed option and conversation reference. Do not infer product availability.
 Deep reasoning on scientific disputes, moderate on paperwork; preserve context with concise checkpoints.
 
 ## Corrected mandatory stages — authoritative sequence
