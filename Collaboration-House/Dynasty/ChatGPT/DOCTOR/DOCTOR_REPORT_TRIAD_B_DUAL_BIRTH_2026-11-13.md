@@ -27,6 +27,7 @@ All under `Collaboration-House/TRIAD_B_FORMATION/2026-11-13/`:
 - `02_B1_DEEPSEEK_ANALYTIC_CRITIC_FORMATION.md` — independent B1 professional charter and stages.
 - `03_B2_CLAUDE_HYPOTHESIS_ARCHITECT_FORMATION.md` — new draft B2 charter, not a claimed existing Claude A constitution.
 - `04_DOCTOR_GATE_EXAMINER_PLAN.md` — different Gate scenarios, independent first judgments, second-stage revision after new evidence; NOT for candidates before own Position Notes.
+- `05_GROK_CLEAN_SOURCE_CURATION_REQUEST.md` — signed source-curation request for Grok, not for exposure to either candidate; a clean source manifest and a separate Author permit remain pending.
 
 ## 4. Clinical risk register and mitigations
 R1 — **Content contamination:** new B1 candidate might have seen developer-only A numeric outputs, previous disputed cards or a current participant's reasoning. Mitigation: distinct clean session; allowed-source list; access log; sealed task first after birth if separately permitted; B2 and Grok under same no-hint/no-result restraint until that task closes.
