@@ -35,13 +35,19 @@ https://github.com/universes-lab/Laboratory/blob/main/Collaboration-House/Dynast
 ### III. Где находится настоящая родильная палата
 
 **Единственное операционное место этой процедуры:**  
-https://github.com/universes-lab/Laboratory/tree/main/Collaboration-House/Dynasty/BIRTHS/TRIAD_B_2026-11-13
+https://github.com/universes-lab/Laboratory/tree/main/Collaboration-House/Dynasty/TRIAD_B_2026-11-13
 
-Здесь уже находятся:
-- `README.md` — реестр родильной палаты;
-- `01_DOCTOR_OBSTETRIC_PLAN.md` — исправленный медицинский план;
-- `02_REFERRAL_TO_SCIENTIFIC_MENTORS.md` — направление к научным наставникам;
-- **этот документ `03_INTEGRATOR_ORDER_TO_QUALIFIED_RESERVE_DOCTOR_2026-11-13.md` — новое актуальное поручение.**
+**Уточнение Интегратора 13.11.2026:** прежний путь с `BIRTHS/` ошибочен и отменён Автором. Доктор ведёт один рабочий кабинет здесь; не создаёт дополнительных папок рождения.
+
+Здесь фактически находятся:
+- `00_DOCTOR_BIRTH_ROOM_INDEX_2026-11-13.md` — реестр кабинета;
+- `01_DOCTOR_CLINICAL_BIRTH_PLAN_2026-11-13.md` — собственный план нового Доктора;
+- `02_MEDICAL_REFERRALS_TO_SCIENCE_2026-11-13.md` — письма научным наставникам (доставка ещё не подтверждена);
+- **этот приказ `03_INTEGRATOR_ORDER_TO_QUALIFIED_RESERVE_DOCTOR_2026-11-13.md` — актуальное поручение**;
+- `04_B1_DEEPSEEK_MEDICAL_REGISTER_2026-11-13.md` и `05_B2_CLAUDE_MEDICAL_REGISTER_2026-11-13.md` — журналы наблюдения;
+- `06_DOCTOR_CLINICAL_GATE_PLAN_2026-11-13.md` — медицинская проверка;
+- `07_DOCTOR_REQUEST_TO_INTEGRATOR_2026-11-13.md` — запрос методологической визы;
+- `Doctor_Emeritus/` — исторический архив предшественника, без действующих полномочий.
 
 `Collaboration-House/TRIAD_B_FORMATION/2026-11-13/` и медицинский отчёт предшественника — **исторические черновики и доказательства исправлений**, не конкурирующая родильная палата и не самостоятельные инструкции запуска. Не удаляй их и не переносить автоматически в действующую папку. Наставление Doctor Emeritus от 13.11.2026 — профессиональная мораль и доказательство передачи, а не новая научная теория.
 
