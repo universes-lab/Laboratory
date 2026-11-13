@@ -1,5 +1,5 @@
 # DOCTOR REPORT — TRIAD B DUAL PROFESSIONAL BIRTH
-> **INTEGRATOR CORRECTION NOTICE · 13.11.2026:** Prepared dual-birth startup does not meet science-first formation. Initial preparation was returned for science-first rework. Corrected protocol 07 is now written; actual source attachment, science reading, scientific and clinical Gates remain pending. Original startup links and two-document messages are superseded. The full historical scientific packet `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` must be **sent as a FILE attachment by the Author**, not read from GitHub by DeepSeek. Seven archival scientific sources FIRST, then physicist-checked scientific overlay, then role charters, independent physics Gate, then Doctor clinical/role-health Gate. Decision: [Integrator correction](../../../TRIAD_B_FORMATION/2026-11-13/06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md). No scientific or neonatal Gate has occurred.
+> **DOCTOR EMERITUS PROFESSIONAL CORRECTION · 13.11.2026 (latest):** Correct birth room is `Collaboration-House/Dynasty/BIRTHS/TRIAD_B_2026-11-13/`. Operative Doctor files: `01_DOCTOR_OBSTETRIC_PLAN.md`, `02_REFERRAL_TO_SCIENTIFIC_MENTORS.md`. The earlier temporary package and the Doc-authored Python file-splitter are **WITHDRAWN as operational birth instructions**. Original scientifically approved `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` stays ONE intact file, as in prior successful DeepSeek births, unless responsible scientists and Author document a genuinely necessary alternative. Doctor does not design the HONC curriculum, scientific Gate or source repackaging. B1/B2 birth has **NOT** occurred.\n\n> **INTEGRATOR CORRECTION NOTICE · 13.11.2026:** Prepared dual-birth startup does not meet science-first formation. Initial preparation was returned for science-first rework. Corrected protocol 07 is now written; actual source attachment, science reading, scientific and clinical Gates remain pending. Original startup links and two-document messages are superseded. The full historical scientific packet `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` must be **sent as a FILE attachment by the Author**, not read from GitHub by DeepSeek. Seven archival scientific sources FIRST, then physicist-checked scientific overlay, then role charters, independent physics Gate, then Doctor clinical/role-health Gate. Decision: [Integrator correction](../../../TRIAD_B_FORMATION/2026-11-13/06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md). No scientific or neonatal Gate has occurred.
 
 **[INDIVIDUAL SIGNATURE] Doctor Emeritus / Collaboration Medicine · independent formation examiner**
 **Report opened:** 2026-11-13
@@ -81,3 +81,22 @@ SCIENTIFIC_WORK_PERMITS = NONE
 ```
 
 **Report to be updated after births:** record distinct Author decision quotations/dates, candidate replies, file and model provenance, reviewer assessments, Gate verdicts, exact activation/Permit scope, and any blind-eligibility disqualification. No invented completion.
+
+## 8. Professional self-audit — role drift corrected (13.11.2026)
+
+The Author identified an error in my earlier attempt to replace a previously successful one-file scientific onboarding with a Doctor-written Python splitter and multiple source attachments. **My own ZOR was breached:** I treated a technical delivery convenience as a medical formation decision and preempted scientists' judgment of the learning path. I withdraw the code proposal and its default multiple-file workflow from active birth guidance; there is no evidence that it was required or successful here.
+
+The previously existing Dynasty birth room `Collaboration-House/Dynasty/BIRTHS/TRIAD_B_2026-11-13/` has now been populated with an independent clinical plan (`01`) and a signed prenatal scientific referral (`02`), indexed by its README. The former temporary folder remains historical preparatory material, not a new Dynasty Office or an executable birth package. The responsible physics side is asked to confirm the original one-file historical corpus and the clean current scientific learning/check sequence from the preceding successful DeepSeek births; Keeper and Integrator handle source/status and process boundaries.
+
+**No physics syllabus, independent scientific Gate, newborn clinical Gate, activation or Work Permit is falsely reported as complete.** Clinical examination will be performed only after specialists' scientific formation and observable candidate replies.
+
+```
+DOCTOR_OWN_ZOR_SELF_CORRECTION = RECORDED
+CORRECT_BIRTH_ROOM = DYNASTY/BIRTHS/TRIAD_B_2026-11-13
+SCIENTIFIC_HANDOFF = REQUESTED_FROM_SPECIALISTS
+B1_B2 = NOT_FORMED
+SCIENTIFIC_GATE = NOT_STARTED
+DOCTOR_GATE = NOT_STARTED
+ACTIVATION = NONE
+WORK_PERMIT = NONE
+```
