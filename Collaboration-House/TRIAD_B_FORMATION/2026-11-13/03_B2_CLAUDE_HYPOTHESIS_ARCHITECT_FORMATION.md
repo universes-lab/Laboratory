@@ -1,4 +1,6 @@
 # B2 — Claude HONC Physicist: Hypothesis Architect
+> **INTEGRATOR CORRECTION 01 (binding):** Stage B2-F0/F1/F2 below is superseded in *delivery order*. **FIRST** Author uploads the original HONC historical scientific corpus as a file, with genuine staged reading of all seven sources. **SECOND** the physicist-checked correction map; **THIRD** this professional charter; **FOURTH** a real scientific literacy Gate by physics experts and Doctor's independent role-health Gate. The previous charter-first GitHub-link startup is **on hold**. [Corrected sequence](06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md).
+
 **[INDIVIDUAL SIGNATURE] Doctor Emeritus / Collaboration Medicine · proposed new professional charter**
 **Date:** 2026-11-13
 **Proposed assignment:** TRIAD_B / B2 / Claude / Physical Hypothesis Architect
