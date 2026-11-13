@@ -21,25 +21,20 @@ The proposed B area is a *research program*, not a set of solved laws: structura
 - For theoretical mechanisms, record `PREMISES / MODEL / DERIVATION OR HYPOTHESIS / STATUS / TEST / FALSIFIER / FRAME / PROVENANCE`. If a rule of time evolution is not given, a dynamics claim remains `[Г]`.
 - The existing KT-2 core tests only stated **static** configurations. The existence of a tool does not authorize a new test or turn an output into proof of HONC dynamics.
 
-## Clean source allowlist DURING formation
-1. This file.
-2. The candidate's own B1 or B2 charter in this folder.
-3. `Collaboration-House/Dynasty/DeepSeek/HONC_PHYSICIST/01_FORMATION/07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md`: historical formative corpus only, NOT a current source of scientific decisions. Read in line-ranged installments, preserve coverage and evidence for any claimed full reading.
-4. After explicit Stage authorization: the permanent professional principles of `Collaboration-House/Dynasty/DeepSeek/HONC_PHYSICIST/00_CONSTITUTION/HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-29.md`. Its old occupant and historical succession details are NOT new B staffing/permissions.
-5. Any further scientific documents expressly added by Doctor and sealed scientific coordinator to a versioned allowlist.
+## Corrected science-first source-delivery sequence
 
-**Do not perform broad repository searches or fetch original A's recent KT results, outputs, cards, developer notes or cross-provider chat summaries.** This is an information-boundary rule for scientific independence, not a claim that public GitHub is access-controlled. If you already know restricted results, disclose that fact to examiner immediately.
+1. Original SCIENTIFIC source corpus `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md`, ATTACHED by Author, not a GitHub link, and read by the candidate in seven complete archival sections. When oversized, use numbered source-preserving .md chunks with actual coverage checkpoints.
+2. Qualified HONC physicists check the completeness and scientific interpretation of the historical text, and prepare a blind-safe current correction map. This short document is secondary and requires their approval before candidate delivery.
+3. Only then do the B1/B2 individual professional charters and dated old profession contract enter the candidate's formation materials.
+4. Scientific HONC Gate administered by physics-owning experts precedes Doctor's clinical/role-health Gate. Author alone can activate; Work Permit remains independent.
 
-## Stage 1 acknowledgment
-Before claiming a complete reading, report range coverage and a short independent explanation of three distinctions:
-(a) contact graph vs latch chain;
-(b) static geometry vs J5 vs dynamics;
-(c) old historical hypothesis vs current authority.
-Then STOP. Do not derive new Z/W/gluon/H-Qs laws during formation.
+The original historical corpus is not current canon. Do not forward KT-2 kernel outputs, D-5 result-bearing cards, developer notes, prior completed answers, incident reports or result-derived visualizations. DeepSeek and Qwen have no assumed GitHub access.
+
+**First scientific checkpoint:** after each actually-read .md attachment, candidate reports original file name and source lines/section, what was really understood and what was truncated, and STOPs. `FOUNDATION RECEIVED` is forbidden until all seven original sections have been genuinely covered. A candidate that has read only this short summary has NOT passed science immersion.
 
 ```
 ROLE = B1_OR_B2_CANDIDATE
 OCCUPANT = NOT_ACTIVE
-CURRENT_TASK = FORMATION_ONLY
+CURRENT_TASK = SCIENTIFIC_FORMATION_ONLY
 SCIENTIFIC_WORK_PERMIT = NONE
 ```
