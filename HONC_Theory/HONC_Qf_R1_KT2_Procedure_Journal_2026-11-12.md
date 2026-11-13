@@ -134,4 +134,11 @@
 - **Д-6 поручен DeepSeek** — `DEEPSEEK_KT2_D6_ORDER_2026-11-13.md`, допуск — Автор, отметка Клода. 20 испытаний и мутант м7, по образцу Д-3 rev5.1. Классов происхождения и сведений об инциденте в задании нет.
 - **Хранителю** переданы тексты для сверки инцидента и уточнение: GUIDED ≠ CONTAMINATED.
 
-`KT-2 JOURNAL — OPEN` · `INTERFACE v7.1 — FIXED` · `D-5 RED.3 — FIXED (dept spec); INDEPENDENT 4 provisional` · `D-6 — ORDERED` · `KT-1 KERNEL, RUNNER — UNCHANGED`
+## Запись 14. Д-6 rev1 — промежуточная сверка по форме; запись строк правил (13.11.2026)
+
+- **Получено:** `README.md` и `expected.json` (пять частей) набора d6 rev1.
+- **Промежуточная сверка по форме:** `DEEPSEEK_KT2_D6_FORMCHECK_1_2026-11-13.md`, 9 пунктов. Ожиданий не касается.
+- **Найдено расхождение в самом контракте:** v7, § 3 пишет `"П-8(г)"`, а v7, § 4 и v7.1, § 3 — `"П-9а"` без скобок. Ядро КТ-1 и КТ-2 печатает без скобок.
+- **Предложена поправка 1 к v7.1** — только запись: `HONC_Qf_R1_KT2_NOTE_RuleNotation_Erratum_2026-11-13.md`. Ждёт решения Интегратора и согласия Грока.
+
+`KT-2 JOURNAL — OPEN` · `INTERFACE v7.1 — FIXED; AMENDMENT 1 (notation) — PROPOSED` · `D-5 RED.3 — FIXED (dept spec)` · `D-6 rev1 — IN DELIVERY` · `KT-1 KERNEL, RUNNER — UNCHANGED`
