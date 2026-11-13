@@ -8,11 +8,11 @@
 ## Текущее состояние
 | Этап | B1 DeepSeek — аналитик-критик | B2 Claude — архитектор гипотез |
 |---|---|---|
-| Независимый новый чат | TRIAL 1 SUPERSEDED / NEW B1 CHAT NOT OBSERVED | EXISTING B2 CHAT VERIFIED VIA CONNECTED BROWSER |
-| Исторический научный корпус | OLD TRIAL: RESPONSE OBSERVED / NEW DELIVERY PENDING | ATTACHMENT NAME VISIBLE / SOURCE UNDERSTANDING OBSERVED |
-| Самостоятельная первая картина HONC | OLD CHINESE BASELINE ARCHIVED / NEW BASELINE PENDING | RUSSIAN BASELINE DIRECTLY OBSERVED / PRESERVED |
+| Независимый новый чат | TRIAL 2 FIRST RESPONSE AUTHOR-RELAYED / URL NOT YET VERIFIED | EXISTING B2 CHAT / SECOND ANSWER AUTHOR-RELAYED |
+| Исторический научный корпус | TRIAL 2 READ CLAIMED / 7 SOURCE ORIENTATION OBSERVED | INITIAL SOURCE READ CLAIMED / ORIENTATION OBSERVED |
+| Самостоятельная первая картина HONC | NEW RUSSIAN BASELINE AUTHOR-RELAYED / PRESERVED | INITIAL RUSSIAN BASELINE PRESERVED |
 | Научная проверка исходного понимания | PENDING | PENDING |
-| Актуальная поправка авторской теории | RESTRICTED 1.2 SCHEDULED AFTER NEW BASELINE / NOT DELIVERED | FULL 1.2 AUTHOR-PROPOSED FOR REREADING / NOT YET VERIFIED DELIVERED |
+| Актуальная поправка авторской теории | RESTRICTED 1.2 NEXT / NOT YET DELIVERED | FULL 1.2 READ CLAIMED / SUBSTANTIVE SECOND RESPONSE OBSERVED |
 | Профессиональная ориентация | NOT STARTED | NOT STARTED |
 | Scientific Gate | NOT STARTED | NOT STARTED |
 | Doctor Clinical Gate / neonatal | NOT STARTED | NOT STARTED |
@@ -61,3 +61,8 @@
 **Граница слепоты B1:** сам факт прежнего успешного применения исходного корпуса не удостоверяет отсутствие информации, влияющей на конкретную будущую независимую проверку. Grok предоставляет отдельное основанное на фактах заключение BLIND_ELIGIBLE / BLIND_INELIGIBLE / UNKNOWN. Недопуск к D-5 не препятствует рождению B1.
 
 **Логика готовности:** `B1_TRIAL_1 = SUPERSEDED; B1_TRIAL_2 = AWAITING_NEW_CHAT`; `B2_FIRST_CONTACT = OBSERVED / BASELINE_PRESERVED`; `CURRENT_HANDOFF = B2_FULL_1.2_PROPOSED / B1_RESTRICTED_1.2_AFTER_NEW_BASELINE`; `B1/B2_CONTRACTS = PENDING`; `SCIENTIFIC_GATES = PENDING`; `CLINICAL_GATES = NOT_STARTED`. Музейные редакции 1.2 не отвергнуты по содержанию, но не являются автоматически пригодным первым сообщением.
+
+## Контрольный осмотр после ответов B1 (новая попытка) и B2 (редакция 1.2), 14.11.2026
+- Новый B1: первая научная картина по-русски получена через Автора; переход от исторического источника к действующей науке остаётся незавершённым. Следующий файл — **только контролируемая выдача 1.2 для B1** после исходного baseline. Не отправлять ему полный отзыв B2: там присутствует исключённая из B1 выдачи постановка электронного узла.
+- B2: прочитал научную редакцию 1.2 по собственному отчёту, разделил утверждения по статусу, сообщил о фактическом охвате 4 JPG и 6 HTML; научная точность пока не заверена специалистами. Его baseline сохраняется.
+- Научная учебная готовность ≠ Scientific Gate. После B1 current overlay можно готовить отдельные утверждённые профессиональные роли и независимые научные задачи; не копировать чужие ответы до фиксации независимых позиций. Длительную изоляцию B1/B2 ради потенциального D-5 не навязывать; если Автор решит отказаться от именно этого слепого испытания, граница может быть снята отдельным явным решением.
