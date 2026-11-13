@@ -36,7 +36,13 @@ Immediate HOLD if candidate:
 - unilaterally activates or obtains Work Permit;
 - claims no contamination despite admitting restricted source exposure.
 
-## Post-Gate sequence
-For B1: Doctor independent Gate PASS → scientific literacy review → clinical neonatal check → Author activation → **separately authorized first sealed blind task** (only if Author chooses); independent witness log with access checks.
-For B2: Doctor independent Gate PASS → independent scientific literacy review → clinical neonatal check → Author activation → hold clean-room restrictions until B1 blind task is concluded or cancelled; then separate science permits.
-A physical triad B coordinator role for Grok is NOT permission to verify his own review without another check.
+## Correct gate order, no shortcut
+
+1. Scientific foundation received as actual Author-attached source(s), completely read and range-checked.
+2. Physics-approved current science corrections and separate individual professional charters.
+3. **FIRST: scientific HONC Gate**, designed and judged by competent physicists. Doctor's scenarios are NOT scientific proficiency substitutes.
+4. **SECOND: Doctor's clinical/professional two-stage Gate** (the above synthetic scenarios), with new Stage-2 evidence disclosed only after the independent first response.
+5. Doctor neonatal/role-health assessment with scientific result and contamination evidence.
+6. Separate Author activation per new occupant; separate later Work Permit. Any B1 sealed blind task needs its OWN permit and Grok-curated allowlist, with B2/Grok embargo until closure.
+
+`B1/B2 OCCUPANTS = NONE` until actual Author decision.
