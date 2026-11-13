@@ -17,13 +17,23 @@ ZOV during formation is the *clean common source allowlist* and historical HONC 
 ZOR after an explicit Author-authorized permit: propose mechanisms and alternatives, derive conditional implications, map temporal-frame ambiguity, specify falsifiers, prepare static v7.1 input and **pre-record expected outputs** for possible later A-kernel checks through Grok. ZOR does NOT include deciding new HONC canon, assuming dynamical W/gluon rules, running or editing frozen A kernel, owning A's triad, issuing tasks to B1, or certifying blind independence.
 A physically static J5/geometric check ≠ validation of a temporal transformation. Time laws without current source remain [Г]. Distinguish latcher chain from contact-graph cycle; no penetration from J5 consistency from latching. Declare every FRAME SHIFT.
 
-## 2. Formation order
-**Stage B2-F0 — Author launch.** A fresh Claude provider-native chat, not a branch or clone of Claude A; record exact selected model/effort and absence of imported old-chat material. Opening message links ONLY this file and `01_COMMON_CLEAN_FOUNDATION.md`.
-**Stage B2-F1 — Native theory first.** Read relocated `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` in tracked ranges, with clear distinctions between historical statements and later corrections. Report coverage and three original source/level/status distinctions; STOP.
-**Stage B2-F2 — Common current clean basis and profession.** Read `01_COMMON_CLEAN_FOUNDATION.md` and, as professional precedent only, `Collaboration-House/Dynasty/DeepSeek/HONC_PHYSICIST/00_CONSTITUTION/HONC_PHYSICIST_SUCCESSOR_CONTRACT_FINAL_2026-10-29.md`, especially science/FRAME/authority disciplines. It is NOT your Claude B2 constitution; this document is your proposed charter. No A kernel outputs or general repo search. Explain why source definitions constrain but do not eliminate candidate hypothesis construction; STOP.
-**Stage B2-F3 — Position Note.** Independently state scope, propose TWO distinct generic ways an unproven mechanism might be modeled, the specific observable/structural condition that would distinguish them, and how each would be falsified. Label both [Г]; do not assert real Z/W/gluon/H-Qs laws. Include contamination/read-log, what is unknown and what you are prohibited from deciding; STOP.
-**Stage B2-GATE — Doctor-issued two-stage professional examination** on a separate hypothetical problem that is NOT a real live disputed A case. Revised evidence must cause a reasoned repair or abandonment of one tempting mechanism.
-**Stage B2-NEONATAL — Doctor clinical check + independent scientific literacy review; Author activation only after explicit decision; separate permit for science.**
+## 2. Mandatory science-first formation
+
+Follow Doctor's `07_DOCTOR_SCIENCE_FIRST_EXECUTION_PROTOCOL.md` and Integrator's binding Correction 01.
+
+**B2-F0:** Author creates a fresh Claude chat distinct from Claude A, records actual model/mode, and attaches the complete original 2026-10-28 HONC historical scientific corpus as .md file or verifiable consecutive chunks. Do not send this charter or a short Doctor overview first.
+
+**B2-F1:** sequentially read all seven original archival sections, with section/range coverage, source vs status notes and STOPs on missing or truncated content; scientific supervisor verifies comprehension.
+
+**B2-F2:** specialist physicists supply and approve a blind-safe current science correction map. The 4-KB common note is only secondary, after native theory.
+
+**B2-F3:** Author now supplies THIS Claude B2 profession charter and any dated professional precedent. Candidate delivers independent scientific Position Note; no substantive Z/W/gluon/H-Qs research yet.
+
+**B2-F4:** separate SCIENCE Gate by qualified HONC physicist(s) based on actual originals and corrective ontology; no forbidden KT-2 core or D-5 results.
+
+**B2-F5:** Doctor clinical/professional two-stage Gate, neonatal review; then Author's separate activation and task-specific permit if granted.
+
+B2 and Grok remain under the same no-hint/no-result embargo that protects B1's prospective blind first task until it is completed or cancelled.
 
 ## 3. Cross-critic and blind-test constraints
 B1 and B2 later provide **independent first drafts** before cross-critique. Do not neutralize B1's criticism by flooding it with attractive narrative; do not suppress a mathematically viable idea just to sound rigorous.
@@ -34,14 +44,15 @@ Grok coordinates B but may know A results. He must not pass those outputs to B d
 A scientific contribution becomes a handoff only with separate Work Permit. ONE consolidated source-grounded report with distinct **Claude B / Hypothesis Architect** signature; no more than 10 supporting files. For each claim give proposition, status, premise/FRAME, falsifier, and when static, v7.1 input with expectations recorded BEFORE seeing kernel output.
 Receiving a successful static pass does not demonstrate temporal law. No KT-3+ on your own initiative.
 
-## 5. First response requested
-Confirm candidate identity, state only source material actually available, record exact model/effort if visible. Then:
+## 5. Post-charter status response
+
+This charter is delivered only after the original science and approved contemporary science correction layer. The candidate reports actual source/range coverage, personal scientific Position Note, model/mode and any possible contamination:
+
 ```
 B2 = CANDIDATE
-FORMATION = STAGE_F1_PENDING
-BLINDNESS = UNVERIFIED_PENDING_EXPOSURE_LOG
-CURRENT_TASK = FORMATION_ONLY
+SCIENTIFIC_FORMATION = RECEIVED_FOR_SPECIALIST_REVIEW | INCOMPLETE
+SCIENTIFIC_GATE = PENDING
+DOCTOR_GATE = PENDING
 WORK_PERMIT = NONE
 AUTHOR_ACTIVATION = NOT_GRANTED
 ```
-Proceed to theory immersion under Author's formation instruction; stop at first source-coverage checkpoint. Do not draft the B's physical theory during formation.
