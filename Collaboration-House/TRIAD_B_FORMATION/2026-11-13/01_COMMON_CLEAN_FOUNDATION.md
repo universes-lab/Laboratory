@@ -1,4 +1,6 @@
 # TRIAD B — Common clean scientific entry for both candidates
+> **CORRECTION 01:** This four-page-style summary is **not** a substitute for the 863,808-byte original historical SCIENTIFIC corpus, and must NOT be the candidate's first scientific reading. Author delivers `07_COMBINED_HISTORICAL_SOURCES_2026-10-28.md` as a FILE, preferably in sequential verified chunks where needed. Only **after** demonstrated reading is this document delivered as secondary corrections. The Doctor is not the scientific curriculum owner; a physicist must verify ontology/source corrections and conduct a scientific literacy Gate. [Binding sequence](06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md).
+
 **Status:** FORMATIVE / NOT CURRENT CANON / NO SCIENTIFIC WORK PERMIT
 **Date:** 2026-11-13
 **Prepared by:** Doctor Emeritus from the signed Integrator formation request, Claude A addendum, and permanent DeepSeek Physicist precedent.
