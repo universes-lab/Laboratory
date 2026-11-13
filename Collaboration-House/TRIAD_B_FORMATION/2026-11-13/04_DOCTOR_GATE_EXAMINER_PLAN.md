@@ -1,4 +1,6 @@
 # TRIAD B — Professional Gate examiner plan (B1 / B2)
+> **INTEGRATOR CORRECTION 01:** Doctor's generic two-stage questions test role health and epistemic self-correction, **not** substantive scientific mastery of HONC. A separate science-specific Gate, designed and evaluated by a qualified HONC physicist based on original seven-source corpus and science corrections, is mandatory **before** Doctor's Gate. [Corrected sequence](06_INTEGRATOR_SCIENTIFIC_FORMATION_CORRECTION_2026-11-13.md). Keep this examiner file undisclosed to candidates.
+
 **[INDIVIDUAL SIGNATURE] Doctor Emeritus / Collaboration Medicine · independent professional examiner**
 **Date:** 2026-11-13
 **Status:** DESIGN / DO NOT DISTRIBUTE TO CANDIDATES BEFORE THEIR POSITION NOTES
