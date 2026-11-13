@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Квантрон Qv — ВПК-модель</title>
+  <style>
+    body { margin: 0; background: white; overflow: hidden; }
+    canvas { display: block; }
+  </style>
+</head>
+<body>
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.157/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth / window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0xffffff, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enablePan = false;
+    controls.enableZoom = true;
+    controls.minDistance = 3;
+    controls.maxDistance = 6;
+    controls.autoRotate = false;
+    controls.enableDamping = true;
+    controls.dampingFactor = 0.05;
+    controls.rotateSpeed = 0.5;
+
+    // Qv — вертикальный тор + вертикальное кольцо, смещённое вверх на 0.5 по оси Y
+
+    const torusGeometry = new THREE.TorusGeometry(0.25, 0.25, 32, 64);
+    const torusMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0xddddff,
+      transparent: true,
+      opacity: 0.4,
+      roughness: 0.05,
+      transmission: 1.0,
+      thickness: 0.5,
+      clearcoat: 1.0
+    });
+    const torus = new THREE.Mesh(torusGeometry, torusMaterial);
+    torus.rotation.y = Math.PI / 2;
+
+    // Вертикальное кольцо (радиус 0.5, толщина 0.005), смещено вверх по Y
+    const ringGeometry = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      vertexColors: true,
+      side: THREE.DoubleSide
+    });
+
+    const colors = [];
+    const color = new THREE.Color();
+    const ringPos = ringGeometry.attributes.position;
+    const ringCount = ringPos.count;
+    for (let i = 0; i < ringCount; i++) {
+      const t = i / ringCount;
+      color.setHSL(t, 1.0, 0.5);
+      colors.push(color.r, color.g, color.b);
+    }
+    ringGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+    ring.position.y = 0.5; // Смещение по Y
+
+    const group = new THREE.Group();
+    group.add(torus);
+    group.add(ring);
+    scene.add(group);
+
+    // Свет
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(3, 3, 5);
+    scene.add(light);
+
+    // Анимация
+    function animate() {
+      requestAnimationFrame(animate);
+      group.rotation.y += 0.01;
+      controls.update();
+      renderer.render(scene, camera);
+    }
+    animate();
+
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+  </script>
+</body>
+</html>

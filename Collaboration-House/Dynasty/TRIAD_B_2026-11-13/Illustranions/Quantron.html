@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Q1-класс квантов: квантроны</title>
+  <style>
+    body { 
+      margin: 0; 
+      background: white; 
+      font-family: Arial, sans-serif;
+    }
+    .container {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      grid-template-rows: 1fr 1fr;
+      height: 100vh;
+      width: 100vw;
+    }
+    .cell {
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+    }
+    canvas {
+      display: block;
+      width: 100%;
+      height: 80%;
+    }
+    .label {
+      text-align: center;
+      font-size: 1.2em;
+      margin-top: 10px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <!-- Верхний ряд -->
+    <div class="cell" id="qu-cell">
+      <canvas id="qu-canvas"></canvas>
+      <div class="label">Quantron Qu</div>
+    </div>
+    <div class="cell" id="qc-cell">
+      <canvas id="qc-canvas"></canvas>
+      <div class="label">Quantron Qc</div>
+    </div>
+    <div class="cell" id="qt-cell">
+      <canvas id="qt-canvas"></canvas>
+      <div class="label">Quantron Qt</div>
+    </div>
+    
+    <!-- Нижний ряд -->
+    <div class="cell" id="qd-cell">
+      <canvas id="qd-canvas"></canvas>
+      <div class="label">Quantron Qd</div>
+    </div>
+    <div class="cell" id="qs-cell">
+      <canvas id="qs-canvas"></canvas>
+      <div class="label">Quantron Qs</div>
+    </div>
+    <div class="cell" id="qb-cell">
+      <canvas id="qb-canvas"></canvas>
+      <div class="label">Quantron Qb</div>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.157/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    // Функция для создания сцены с Quantronом
+    function createProtoquarkScene(canvasId, type) {
+      const canvas = document.getElementById(canvasId);
+      
+      const scene = new THREE.Scene();
+      const camera = new THREE.PerspectiveCamera(50, canvas.clientWidth / canvas.clientHeight, 0.1, 100);
+      camera.position.set(0, 0, 2); // Уменьшил расстояние камеры с 4 до 2 (в 2 раза ближе)
+
+      const renderer = new THREE.WebGLRenderer({ 
+        antialias: true, 
+        alpha: true,
+        canvas: canvas
+      });
+      renderer.setClearColor(0xffffff, 0);
+      renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+
+      const controls = new OrbitControls(camera, renderer.domElement);
+      controls.enablePan = false;
+      controls.enableZoom = false;
+      controls.minDistance = 1.5; // Уменьшил с 3 до 1.5 (в 2 раза ближе)
+      controls.maxDistance = 3;   // Уменьшил с 6 до 3 (в 2 раза ближе)
+      controls.autoRotate = false;
+      controls.enableDamping = true;
+      controls.dampingFactor = 0.05;
+      controls.rotateSpeed = 0.5;
+
+      // Создаем группу для всех объектов
+      const group = new THREE.Group();
+      scene.add(group);
+
+      // Общие материалы
+      const glassMaterial = new THREE.MeshPhysicalMaterial({
+        color: 0xddddff,
+        transparent: true,
+        opacity: 0.4,
+        roughness: 0.05,
+        transmission: 1.0,
+        thickness: 0.5,
+        clearcoat: 1.0
+      });
+
+      const rainbowRingMaterial = (geometry) => {
+        const colors = [];
+        const color = new THREE.Color();
+        const positions = geometry.attributes.position;
+        const count = positions.count;
+        for (let i = 0; i < count; i++) {
+          const t = i / count;
+          color.setHSL(t, 1.0, 0.5);
+          colors.push(color.r, color.g, color.b);
+        }
+        geometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+        return new THREE.MeshBasicMaterial({ vertexColors: true, side: THREE.DoubleSide });
+      };
+
+      // Создаем конкретный Quantron в зависимости от типа
+      switch(type) {
+        case 'qu':
+          // Qu — стеклянная сфера + вертикальное кольцо
+          const sphereGeometryQu = new THREE.SphereGeometry(0.5, 32, 32);
+          const sphereQu = new THREE.Mesh(sphereGeometryQu, glassMaterial);
+          group.add(sphereQu);
+
+          const ringGeometryQu = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+          const ringQu = new THREE.Mesh(ringGeometryQu, rainbowRingMaterial(ringGeometryQu));
+          ringQu.rotation.y = Math.PI / 2;
+          group.add(ringQu);
+          break;
+
+        case 'qc':
+          // Qc — горизонтальный тор + вертикальное кольцо
+          const torusGeometryQc = new THREE.TorusGeometry(0.25, 0.25, 32, 64);
+          const torusQc = new THREE.Mesh(torusGeometryQc, glassMaterial);
+          torusQc.rotation.x = Math.PI / 2;
+          group.add(torusQc);
+
+          const ringGeometryQc = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+          const ringQc = new THREE.Mesh(ringGeometryQc, rainbowRingMaterial(ringGeometryQc));
+          ringQc.rotation.y = Math.PI / 2;
+          group.add(ringQc);
+          break;
+
+        case 'qt':
+          // Qt — вертикальный тор + горизонтальное кольцо
+          const torusGeometryQt = new THREE.TorusGeometry(0.25, 0.25, 32, 64);
+          const torusQt = new THREE.Mesh(torusGeometryQt, glassMaterial);
+          torusQt.rotation.y = Math.PI / 2;
+          group.add(torusQt);
+
+          const ringGeometryQt = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+          const ringQt = new THREE.Mesh(ringGeometryQt, rainbowRingMaterial(ringGeometryQt));
+          ringQt.rotation.x = Math.PI / 2;
+          group.add(ringQt);
+          break;
+
+        case 'qd':
+          // Qd — стеклянная сфера + горизонтальное кольцо
+          const sphereGeometryQd = new THREE.SphereGeometry(0.5, 64, 64);
+          const sphereQd = new THREE.Mesh(sphereGeometryQd, glassMaterial);
+          group.add(sphereQd);
+
+          const ringGeometryQd = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+          const ringQd = new THREE.Mesh(ringGeometryQd, rainbowRingMaterial(ringGeometryQd));
+          ringQd.rotation.x = Math.PI / 2;
+          group.add(ringQd);
+          break;
+
+        case 'qs':
+          // Qs — горизонтальный тор + горизонтальное кольцо
+          const torusGeometryQs = new THREE.TorusGeometry(0.25, 0.25, 32, 64);
+          const torusQs = new THREE.Mesh(torusGeometryQs, glassMaterial);
+          torusQs.rotation.x = Math.PI / 2;
+          group.add(torusQs);
+
+          const ringGeometryQs = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+          const ringQs = new THREE.Mesh(ringGeometryQs, rainbowRingMaterial(ringGeometryQs));
+          ringQs.rotation.x = Math.PI / 2;
+          group.add(ringQs);
+          break;
+
+        case 'qb':
+          // Qb — вертикальный тор + вертикальное кольцо
+          const torusGeometryQb = new THREE.TorusGeometry(0.25, 0.25, 32, 64);
+          const torusQb = new THREE.Mesh(torusGeometryQb, glassMaterial);
+          torusQb.rotation.y = Math.PI / 2;
+          group.add(torusQb);
+
+          const ringGeometryQb = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+          const ringQb = new THREE.Mesh(ringGeometryQb, rainbowRingMaterial(ringGeometryQb));
+          ringQb.rotation.y = Math.PI / 2;
+          group.add(ringQb);
+          break;
+      }
+
+      // Свет
+      scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+      const light = new THREE.PointLight(0xffffff, 1);
+      light.position.set(3, 3, 5);
+      scene.add(light);
+
+      // Анимация
+      function animate() {
+        requestAnimationFrame(animate);
+        group.rotation.y += 0.01;
+        controls.update();
+        renderer.render(scene, camera);
+      }
+      animate();
+
+      // Обработчик изменения размера
+      function handleResize() {
+        camera.aspect = canvas.clientWidth / canvas.clientHeight;
+        camera.updateProjectionMatrix();
+        renderer.setSize(canvas.clientWidth, canvas.clientHeight);
+      }
+
+      // Создаем ResizeObserver для отслеживания изменений размера ячейки
+      const resizeObserver = new ResizeObserver(handleResize);
+      resizeObserver.observe(canvas);
+
+      return {
+        scene,
+        camera,
+        renderer,
+        controls
+      };
+    }
+
+    // Создаем все сцены
+    createProtoquarkScene('qu-canvas', 'qu');
+    createProtoquarkScene('qc-canvas', 'qc');
+    createProtoquarkScene('qt-canvas', 'qt');
+    createProtoquarkScene('qd-canvas', 'qd');
+    createProtoquarkScene('qs-canvas', 'qs');
+    createProtoquarkScene('qb-canvas', 'qb');
+  </script>
+</body>
+</html>

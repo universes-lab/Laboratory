@@ -1,0 +1,922 @@
+<title>Супер-Z Qf-нити</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=PT+Mono&family=PT+Sans:wght@400;700&family=PT+Serif:wght@700&display=swap">
+<style>
+/* Layout: сцена слева — главное в ней стрелки супер-Z и их сведённая цепочка, носители бледные; справа короткая панель.
+   Цвет: супер-Z — один насыщенный цвет, всё остальное приглушено; «замочки» — тонкие тройки осей. */
+:root {
+  --bg: #eef1ee;
+  --panel: #f8faf8;
+  --fg: #1d2420;
+  --muted: #607066;
+  --rule: #cfd8d1;
+  --chip: #edf1ed;
+  --carrier: #9aaba2;
+  --hcarrier: #c8ae74;
+  --sz: #c2410c;
+  --szh: #7c3aed;
+  --xy: #2563a8;
+  --path: #b4235a;
+  --lock: #1d2420;
+  --ok: #2f7a4b;
+  --warn: #c0392b;
+  --font-display: "PT Serif", Georgia, "Times New Roman", serif;
+  --font-body: "PT Sans", "Segoe UI", Arial, sans-serif;
+  --font-data: "PT Mono", ui-monospace, Menlo, Consolas, monospace;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --bg: #121714; --panel: #19201c; --fg: #e3eae5; --muted: #95a59b; --rule: #2c3830; --chip: #202a24;
+    --carrier: #5c6e64; --hcarrier: #9c8656; --sz: #fb8c4a; --szh: #b394f5; --xy: #6aa3e6; --path: #f06b9a; --lock: #e3eae5;
+    --ok: #5fbf85; --warn: #ef6f5f;
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --bg: #121714; --panel: #19201c; --fg: #e3eae5; --muted: #95a59b; --rule: #2c3830; --chip: #202a24;
+  --carrier: #5c6e64; --hcarrier: #9c8656; --sz: #fb8c4a; --szh: #b394f5; --xy: #6aa3e6; --path: #f06b9a; --lock: #e3eae5;
+  --ok: #5fbf85; --warn: #ef6f5f;
+  color-scheme: dark;
+}
+[hidden] { display: none !important; }
+html, body { height: 100%; }
+body { background: var(--bg); color: var(--fg); font-family: var(--font-body); font-size: 15px; line-height: 1.45; }
+.app { display: grid; grid-template-columns: minmax(0, 1fr) 370px; height: 100%; }
+.stage { position: relative; min-width: 0; min-height: 0; overflow: hidden; }
+.stage canvas { display: block; width: 100%; height: 100%; touch-action: none; }
+.labels { position: absolute; inset: 0; pointer-events: none; }
+.lbl { position: absolute; transform: translate(-50%, -50%); font-family: var(--font-data); font-size: 12px; padding: 0 4px; border-radius: 3px; background: var(--panel); color: var(--fg); border: 1px solid var(--rule); white-space: nowrap; }
+.lbl.path { color: var(--path); border-color: var(--path); }
+.lbl.sel { color: var(--sz); border-color: var(--sz); font-weight: 700; }
+.tag { position: absolute; left: max(16px, env(safe-area-inset-left, 0px)); top: 14px; font-size: 12.5px; color: var(--muted); background: var(--panel); border: 1px solid var(--rule); border-radius: 6px; padding: 4px 8px; pointer-events: none; max-width: calc(100% - 32px); }
+.hint { position: absolute; left: max(16px, env(safe-area-inset-left, 0px)); bottom: 12px; font-size: 12px; color: var(--muted); pointer-events: none; }
+.panel { background: var(--panel); border-left: 1px solid var(--rule); overflow-y: auto; padding-left: 20px; padding-right: max(20px, env(safe-area-inset-right, 0px)); padding-block: 20px 28px; display: flex; flex-direction: column; gap: 18px; min-width: 0; }
+h1 { font-family: var(--font-display); font-size: 22px; line-height: 1.2; margin: 0; text-wrap: balance; }
+h2 { font-size: 11px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin: 0; font-weight: 400; }
+.lede { margin: 0; color: var(--muted); font-size: 14px; }
+.badge { align-self: flex-start; font-size: 12.5px; padding: 3px 8px; border: 1px solid var(--rule); border-radius: 999px; background: var(--chip); }
+.group { display: flex; flex-direction: column; gap: 8px; }
+.seg { display: grid; grid-auto-flow: column; grid-auto-columns: 1fr; border: 1px solid var(--rule); border-radius: 6px; overflow: hidden; }
+.seg button { font: inherit; font-size: 13px; line-height: 1.2; padding: 7px 4px; background: transparent; color: var(--fg); border: 0; border-left: 1px solid var(--rule); cursor: pointer; }
+.seg button:first-child { border-left: 0; }
+.seg button[aria-pressed="true"] { background: var(--fg); color: var(--panel); }
+.seg button b { display: block; font-family: var(--font-data); font-size: 12px; }
+button:focus-visible, input:focus-visible { outline: 2px solid var(--sz); outline-offset: 2px; }
+.slider { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 2px 10px; align-items: center; }
+.slider label { font-size: 13.5px; }
+.slider input[type=range] { grid-column: 1 / -1; width: 100%; accent-color: var(--sz); }
+.val { font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; font-size: 13px; }
+.sub { font-size: 12.5px; color: var(--muted); margin: 0; }
+.toggles { display: grid; grid-template-columns: 1fr 1fr; gap: 6px 12px; }
+.toggles label { display: flex; gap: 7px; align-items: center; cursor: pointer; font-size: 13.5px; }
+.toggles input { accent-color: var(--sz); }
+.sw { width: 16px; height: 4px; border-radius: 2px; flex: none; display: inline-block; }
+dl.read { display: grid; grid-template-columns: minmax(0, 1fr) auto; gap: 5px 12px; margin: 0; }
+dl.read dt { color: var(--muted); font-size: 13px; }
+dl.read dd { margin: 0; font-family: var(--font-data); font-variant-numeric: tabular-nums; text-align: right; font-size: 13px; }
+.shape { font-size: 14px; margin: 0; padding: 8px 10px; border-radius: 6px; border: 1px solid var(--rule); background: var(--bg); }
+.shape b { font-family: var(--font-display); font-size: 16px; }
+#strip { width: 100%; height: 150px; }
+.card { font-size: 13px; margin: 0; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); display: flex; flex-direction: column; gap: 4px; }
+.card .mono { font-family: var(--font-data); font-variant-numeric: tabular-nums; font-size: 12.5px; }
+.note { font-size: 13.5px; margin: 0; padding: 10px 12px; border: 1px solid var(--rule); border-radius: 6px; background: var(--bg); }
+.note p { margin: 0 0 6px; } .note p:last-child { margin: 0; }
+.note ul { margin: 0; padding-left: 1.2em; display: flex; flex-direction: column; gap: 3px; }
+@media (max-width: 780px) {
+  .app { grid-template-columns: minmax(0, 1fr); grid-template-rows: clamp(320px, 58vh, 560px) auto; height: auto; }
+  html, body { height: auto; }
+  .panel { border-left: 0; border-top: 1px solid var(--rule); padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); }
+  .toggles { grid-template-columns: 1fr; }
+}
+@media (prefers-reduced-motion: reduce) { * { scroll-behavior: auto !important; } }
+</style>
+
+<div class="app">
+  <div class="stage" id="stage">
+    <div class="labels" id="labels"></div>
+    <div class="tag" id="sceneTag">—</div>
+    <div class="hint">Тяните — поворот · колесо или щипок — масштаб · щелчок по тору — раскрыть узел</div>
+  </div>
+  <aside class="panel">
+    <div class="group">
+      <h1>Супер-Z Qf-нити</h1>
+      <p class="lede">У каждой пары тор–кольцо — своя стрелка супер-Z: от центра тора к центру его кольца. Рядом — те же стрелки, поставленные одна за другой, и их проекции на ось хода.</p>
+      <span class="badge">Инструмент [Г] · законов баланса и перехода нет · правила помечены</span>
+    </div>
+
+    <div class="group">
+      <h2>Режим наблюдения</h2>
+      <div class="seg" role="group" aria-label="Режим наблюдения">
+        <button type="button" data-mode="thread" aria-pressed="true">форма нити</button>
+        <button type="button" data-mode="multi" aria-pressed="false">кадры одного латчера</button>
+        <button type="button" data-mode="snap" aria-pressed="false">снимок цепочки</button>
+      </div>
+    </div>
+
+    <div id="threadMode" class="group" style="gap:18px">
+    <div class="group">
+      <h2>Сцена</h2>
+      <div class="seg" role="group" aria-label="Сцена">
+        <button type="button" data-scene="1" aria-pressed="true"><b>1</b>свободная нить</button>
+        <button type="button" data-scene="2" aria-pressed="false"><b>2</b>иные условия</button>
+        <button type="button" data-scene="3" aria-pressed="false"><b>3</b>с навесами</button>
+      </div>
+      <p class="sub" id="sceneNote"></p>
+    </div>
+
+    <div class="group" id="betaGroup">
+      <div class="slider"><label for="sBeta">Наклон осей торов к оси нити β</label><span class="val" id="vBeta"></span><input id="sBeta" type="range" min="0" max="75" step="0.1" value="0"></div>
+      <p class="sub">β — ручной образ изменённых условий прохождения, а не параметр среды. Каждая следующая ось — зеркало предыдущей (конвенция ЛМ1).</p>
+    </div>
+
+    <div class="group" id="hangGroup">
+      <div class="seg" role="group" aria-label="Расположение навесов">
+        <button type="button" data-hang="comb" aria-pressed="true">гребёнка</button>
+        <button type="button" data-hang="alt" aria-pressed="false">чередование</button>
+      </div>
+      <div class="seg" role="group" aria-label="Правило звена">
+        <button type="button" data-rule="none" aria-pressed="true">без правила</button>
+        <button type="button" data-rule="pair" aria-pressed="false">пара тор + навес</button>
+        <button type="button" data-rule="B" aria-pressed="false">+ входящий</button>
+      </div>
+      <p class="sub" id="ruleNote"></p>
+    </div>
+
+    <div class="group">
+      <div class="slider"><label for="sN">Латчеров в нити</label><span class="val" id="vN"></span><input id="sN" type="range" min="4" max="24" step="1" value="10"></div>
+    </div>
+
+    <p class="shape" id="shape">—</p>
+
+    <dl class="read" aria-live="polite">
+      <dt>Шаг звена d / 2R</dt><dd id="rD">—</dd>
+      <dt>X × Y на ось хода, среднее по нити</dt><dd id="rXY">—</dd>
+      <dt>Супер-Z на ось хода, среднее по нити</dt><dd id="rSZ">—</dd>
+      <dt>Угол между супер-Z и X × Y</dt><dd id="rAng">—</dd>
+      <dt>Сведённая цепочка: продвижение / длина</dt><dd id="rPath">—</dd>
+      <dt>Узлов с полной тройкой осей</dt><dd id="rLock">—</dd>
+      <dt>Проверки ЛМ1, A-5, A-15</dt><dd id="rChk">—</dd>
+    </dl>
+
+    <div class="group">
+      <h2>Проекции супер-Z на ось хода</h2>
+      <canvas id="strip" aria-label="Проекции супер-Z каждого латчера на ось хода"></canvas>
+      <p class="sub">Столбец вверх — вдоль оси хода нити, вниз — поперечная часть. Оранжевые — латчеры нити, фиолетовые — навесы.</p>
+    </div>
+
+    <div class="group">
+      <h2>Показывать</h2>
+      <div class="toggles">
+        <label><input type="checkbox" id="tCar" checked>носители</label>
+        <label><input type="checkbox" id="tPath" checked><span class="sw" style="background:var(--path)"></span>сведённую цепочку</label>
+        <label><input type="checkbox" id="tXY"><span class="sw" style="background:var(--xy)"></span>X × Y рядом</label>
+        <label><input type="checkbox" id="tLock" checked><span class="sw" style="background:var(--lock)"></span>тройки осей в узлах</label>
+      </div>
+    </div>
+
+    <div class="group">
+      <h2>Узел</h2>
+      <div class="card" id="nodeCard">Щёлкните по тору нити, чтобы раскрыть узел.</div>
+    </div>
+    </div>
+
+    <div id="frameMode" class="group" style="gap:16px" hidden>
+      <p class="sub" id="frameNote"></p>
+      <div class="slider" id="gK"><label for="sK">Кадров</label><span class="val" id="vK"></span><input id="sK" type="range" min="2" max="36" step="1" value="12"></div>
+      <div class="slider" id="gN5"><label for="sN5">Латчеров в цепочке</label><span class="val" id="vN5"></span><input id="sN5" type="range" min="2" max="24" step="1" value="12"></div>
+      <div class="slider" id="gAlpha"><label for="sAlpha">Поворот за кадр α</label><span class="val" id="vAlpha"></span><input id="sAlpha" type="range" min="-180" max="180" step="1" value="30"></div>
+      <div class="slider" id="gDphi"><label for="sDphi">Сдвиг фазы между соседями Δφ — условный</label><span class="val" id="vDphi"></span><input id="sDphi" type="range" min="-180" max="180" step="1" value="30"></div>
+      <div class="slider"><label for="sAxT">Ось поворота: наклон от Z</label><span class="val" id="vAxT"></span><input id="sAxT" type="range" min="0" max="90" step="1" value="0"></div>
+      <div class="slider"><label for="sAxP">Ось поворота: направление наклона, 0° — к X, 90° — к Y</label><span class="val" id="vAxP"></span><input id="sAxP" type="range" min="0" max="359" step="1" value="0"></div>
+      <div class="slider" id="gStep"><label for="sStep">Сдвиг за кадр вдоль своей Z, R</label><span class="val" id="vStep"></span><input id="sStep" type="range" min="0" max="2" step="0.05" value="1"></div>
+      <div class="row" id="gLink" style="display:flex;gap:8px;flex-wrap:wrap;align-items:center"><button type="button" class="btn" id="linkBtn" style="font:inherit;font-size:13px;padding:5px 10px;border-radius:6px;border:1px solid var(--rule);background:var(--chip);color:var(--fg);cursor:pointer">Связать: Δφ = α, шаг кадров 2R</button><span class="sub">ручная настройка обоих параметров; проверка формы правила Sᵢ₊₁(t) = T[Sᵢ(t − τ)] [Г], не найденное соответствие</span></div>
+      <p class="shape" id="fshape">—</p>
+      <dl class="read" aria-live="polite">
+        <dt>След центра</dt><dd id="fC">—</dd>
+        <dt>След конца X</dt><dd id="fX">—</dd>
+        <dt>След конца Y</dt><dd id="fY">—</dd>
+      </dl>
+      <div class="toggles">
+        <label><input type="checkbox" id="fTr" checked>следы концов осей</label>
+        <label><input type="checkbox" id="fCar" checked>носитель</label>
+      </div>
+    </div>
+
+    <div class="note">
+      <p><strong>Что здесь и чего нет.</strong></p>
+      <ul>
+        <li>Супер-Z — вектор от центра тора к центру его кольца (R-2). X × Y — ось кольца на ось тора. При наклонных осях они расходятся: центр кольца смещён и вдоль оси тора.</li>
+        <li>Сведённая цепочка — те же супер-Z, поставленные одна за другой от начала нити; её отношение продвижения к длине — доля хода вдоль оси.</li>
+        <li>«Тройка осей» в узле — ось тора и нормали двух колец его отверстия, взаимно перпендикулярные. Это проверочный образ для «ключа и замка» [Г], не закон.</li>
+        <li>Правила звена — кандидаты [Г]: «пара тор + навес» — исходящее звено идёт по сумме супер-Z латчера и навеса (Автор); «+ входящий» — ещё и супер-Z входящего латчера (гипотеза Г-Б1, равные веса). Веса не выведены.</li>
+        <li>Кольца — эллипсы ЛМ1. Форма кольца — выбор модели; закон, который её выбирает, открыт.</li>
+        <li>«Кадры одного латчера» — последовательные ориентации одного латчера на одном изображении (мультиэкспозиция). Правило кадра выбрано условно; это не установленное движение. Прямые оси кадров и кривые следы их концов — разные вещи.</li>
+        <li>«Снимок цепочки» — латчеры в один момент; фазы назначены условно, φᵢ = i·Δφ. Серые оси — оси носителей по J5, цветные — назначенная ориентация. Где они расходятся, цветные — ориентация состояния; её отделимость от носителя открыта [О]. Совпадение снимка с кадрами получается только ручной настройкой угла и шага.</li>
+      </ul>
+    </div>
+  </aside>
+</div>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/build/three.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/three@0.132.2/examples/js/controls/OrbitControls.js"></script>
+<script>
+// ===== Узел Qf-нити: геометрия ЛМ1 без обязательного зеркального правила, собственные оси латчеров, проверки.
+// Единица длины R = 1. Рогатый тор a = b = 1/2: средняя окружность радиуса 1/2, трубка 1/2.
+// Кольцо — плоский эллипс длины 2π через центры двух торов, касательный к их осям в каспах (ЛМ1).
+// Оси торов звена и хорда лежат в плоскости кольца (касание в каспе). Зеркальное правило — частный случай δ = 0.
+const QN = (function () {
+  const TWO_PI = 2 * Math.PI;
+  const add = (a, b) => [a[0] + b[0], a[1] + b[1], a[2] + b[2]];
+  const sub = (a, b) => [a[0] - b[0], a[1] - b[1], a[2] - b[2]];
+  const mul = (a, s) => [a[0] * s, a[1] * s, a[2] * s];
+  const dot = (a, b) => a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
+  const cross = (a, b) => [a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0]];
+  const len = a => Math.hypot(a[0], a[1], a[2]);
+  const nrm = a => { const l = len(a); return l > 1e-15 ? mul(a, 1 / l) : [0, 0, 0]; };
+  const rot = (x, k, ang) => { const c = Math.cos(ang), s = Math.sin(ang); return add(add(mul(x, c), mul(cross(k, x), s)), mul(k, dot(k, x) * (1 - c))); };
+  const reflect = (T, n) => sub(T, mul(n, 2 * dot(T, n)));
+  const rad = d => d * Math.PI / 180, deg = r => r * 180 / Math.PI;
+  const angle = (a, b) => deg(Math.acos(Math.max(-1, Math.min(1, dot(nrm(a), nrm(b))))));
+
+  function perim(p, q) { const a = Math.max(p, q), b = Math.min(p, q), h = ((a - b) / (a + b)) ** 2; return Math.PI * (a + b) * (1 + 3 * h / (10 + Math.sqrt(4 - 3 * h))); }
+
+  // ---------- эллипс длины 2π через A и B, касательный к осям TA (в A) и TB (в B) ----------
+  // Пучок коник L_A·L_B − μ·y² = 0 касается обеих прямых в A и B при любом μ; μ подбирается по длине.
+  function ringGeneral(A, TA, u, d, TB) {
+    const X = nrm(u);
+    let Yv = sub(TA, mul(X, dot(TA, X)));
+    if (len(Yv) < 1e-9) return null;                       // ось тора вдоль хорды — вырождение
+    Yv = nrm(Yv);
+    const a = Math.atan2(dot(TA, Yv), dot(TA, X));        // ∈ (0, π)
+    let tbx = dot(TB, X), tby = dot(TB, Yv);
+    if (tby < 0) { tbx = -tbx; tby = -tby; }
+    const outOfPlane = Math.abs(dot(TB, nrm(cross(X, Yv))));
+    const b = Math.atan2(tby, tbx);
+    const p1 = -Math.sin(a), q1 = Math.cos(a), p2 = -Math.sin(b), q2 = Math.cos(b), r2 = d * Math.sin(b);
+    const cA = p1 * p2, cB = p1 * q2 + q1 * p2, cD = p1 * r2, cE = q1 * r2;
+    if (cA < 1e-9) return null;
+    const muStar = q1 * q2 - cB * cB / (4 * cA);
+    function ell(mu) {
+      const cC = q1 * q2 - mu;
+      const det = 4 * cA * cC - cB * cB;
+      if (det <= 0) return null;
+      const xc = (cB * cE - 2 * cC * cD) / det, yc = (cB * cD - 2 * cA * cE) / det;
+      const Fc = 0.5 * (cD * xc + cE * yc);
+      const tr = cA + cC, dd = Math.sqrt(Math.max(0, (cA - cC) ** 2 + cB * cB));
+      const l1 = (tr + dd) / 2, l2 = (tr - dd) / 2;
+      if (l2 <= 0 || Fc >= 0) return null;
+      const s1 = Math.sqrt(-Fc / l1), s2 = Math.sqrt(-Fc / l2);
+      // собственный вектор для l1
+      let e1 = Math.abs(cB) > 1e-14 ? [cB / 2, l1 - cA] : (cA >= cC ? [1, 0] : [0, 1]);
+      const n1 = Math.hypot(e1[0], e1[1]); e1 = [e1[0] / n1, e1[1] / n1];
+      const e2 = [-e1[1], e1[0]];
+      return { xc, yc, s1, s2, e1, e2, P: perim(s1, s2) };
+    }
+    // длина растёт от 2d (μ → −∞) до ∞ (μ → μ*)
+    let lo = 0, hi = 30; // t = ln(μ* − μ): μ = μ* − e^t
+    const P = t => { const e = ell(muStar - Math.exp(t)); return e ? e.P : Infinity; };
+    lo = -40; if (P(hi) > TWO_PI) return null;
+    for (let k = 0; k < 100; k++) { const m = (lo + hi) / 2; (P(m) > TWO_PI ? lo = m : hi = m); }
+    const e = ell(muStar - Math.exp((lo + hi) / 2));
+    if (!e) return null;
+    const to3 = (x, y) => add(A, add(mul(X, x), mul(Yv, y)));
+    const E1 = add(mul(X, e.e1[0]), mul(Yv, e.e1[1])), E2 = add(mul(X, e.e2[0]), mul(Yv, e.e2[1]));
+    const C = to3(e.xc, e.yc);
+    const N = nrm(cross(E1, E2));                          // нормаль ориентации параметризации
+    const ring = { A, B: add(A, mul(X, d)), u: X, W: Yv, C, E1, E2, s1: e.s1, s2: e.s2, N, d, a, b, outOfPlane,
+      rmax: Math.max(e.s1, e.s2) };
+    return ring;
+  }
+  function ringAt(r, t) { return add(r.C, add(mul(r.E1, r.s1 * Math.cos(t)), mul(r.E2, r.s2 * Math.sin(t)))); }
+  function ringTan(r, t) { return add(mul(r.E1, -r.s1 * Math.sin(t)), mul(r.E2, r.s2 * Math.cos(t))); }
+  function ringPoints(r, n) { const out = []; for (let k = 0; k < n; k++) out.push(ringAt(r, k / n * TWO_PI)); return out; }
+  function ringParamOf(r, P) { const v = sub(P, r.C); return Math.atan2(dot(v, r.E2) / r.s2, dot(v, r.E1) / r.s1); }
+
+  // ---------- торы ----------
+  function circlePts(A, T, n) {
+    const a = Math.abs(T[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0];
+    const e1 = nrm(cross(T, a)), e2 = cross(T, e1), out = [];
+    for (let k = 0; k < n; k++) { const t = k / n * TWO_PI; out.push(add(A, add(mul(e1, 0.5 * Math.cos(t)), mul(e2, 0.5 * Math.sin(t))))); }
+    return out;
+  }
+  function distToMid(X, A, T) { const r = sub(X, A), z = dot(r, T), rho = len(sub(r, mul(T, z))); return Math.hypot(rho - 0.5, z); }
+  function nearestOnMid(X, A, T) { const r = sub(X, A), z = dot(r, T); let p = sub(r, mul(T, z)); const l = len(p); p = l > 1e-12 ? mul(p, 0.5 / l) : mul(nrm(cross(T, [T[1], T[2], T[0]])), 0.5); return add(A, p); }
+  function midGap(A1, T1, A2, T2, n = 96) {
+    let best = Infinity, bt = 0; const pts = circlePts(A1, T1, n);
+    pts.forEach((X, i) => { const g = distToMid(X, A2, T2); if (g < best) { best = g; bt = i; } });
+    // уточнение по параметру
+    const a = Math.abs(T1[0]) < 0.9 ? [1, 0, 0] : [0, 1, 0], e1 = nrm(cross(T1, a)), e2 = cross(T1, e1);
+    let lo = (bt - 1) / n * TWO_PI, hi = (bt + 1) / n * TWO_PI;
+    const f = t => distToMid(add(A1, add(mul(e1, 0.5 * Math.cos(t)), mul(e2, 0.5 * Math.sin(t)))), A2, T2);
+    for (let k = 0; k < 40; k++) { const m1 = lo + (hi - lo) / 3, m2 = hi - (hi - lo) / 3; (f(m1) < f(m2) ? hi = m2 : lo = m1); }
+    const t = (lo + hi) / 2, q1 = add(A1, add(mul(e1, 0.5 * Math.cos(t)), mul(e2, 0.5 * Math.sin(t))));
+    return { gap: Math.min(best, f(t)), q1, q2: nearestOnMid(q1, A2, T2) };
+  }
+  const support = u => 0.5 * Math.sqrt(Math.max(0, 1 - u * u)) + 0.5;
+  // расстояние касания двух торов вдоль направления u (тела трубок соприкасаются)
+  function contactDistance(TA, TB, u, mirror) {
+    if (mirror) return 2 * support(Math.min(Math.abs(dot(TA, u)), 1));
+    let lo = 0.3, hi = 2.05;
+    for (let k = 0; k < 36; k++) { const m = (lo + hi) / 2; (midGap([0, 0, 0], TA, mul(u, m), TB, 72).gap < 1 ? lo = m : hi = m); }
+    return hi;
+  }
+
+  // ---------- сборка ----------
+  // cfg = { N, links: [{theta, phi, delta}] (N штук; последнее кольцо свободное), hangs: [{host, side, rho, psi, delta}] }
+  function nodeFrame(ez, T) {
+    let ey = sub(T, mul(ez, dot(T, ez)));
+    if (len(ey) < 1e-6) ey = nrm(cross(ez, [1, 0, 0])); else ey = nrm(ey);
+    const ex = cross(ey, ez);
+    return { ex, ey, ez };
+  }
+  function makeLink(A, T, u, delta) {
+    const mirror = Math.abs(delta) < 1e-9;
+    let n = cross(u, T); if (len(n) < 1e-9) return null; n = nrm(n);
+    const Tm = nrm(reflect(T, u));
+    const T2 = mirror ? Tm : nrm(rot(Tm, n, delta));
+    const d = contactDistance(T, T2, u, mirror);
+    const ring = ringGeneral(A, T, u, d, T2);
+    if (!ring) return null;
+    return { A2: add(A, mul(u, d)), T2, d, ring, mirror, cosg: Math.abs(dot(T, u)) };
+  }
+  function build(cfg) {
+    const tori = [], rings = [], frames = [];
+    const T0 = [0, 1, 0];
+    let A = [0, 0, 0], T = T0, ez = [0, 0, 1];
+    tori.push({ A, T, kind: 'chain', idx: 0, label: '0', owner: -1 });
+    const fail = [];
+    for (let k = 0; k < cfg.N; k++) {
+      const f = nodeFrame(ez, T); frames.push(f);
+      const L = cfg.links[k] || { theta: 0, phi: 0, delta: 0 };
+      const th = rad(L.theta), ph = rad(L.phi);
+      const u = nrm(add(mul(f.ez, Math.cos(th)), mul(add(mul(f.ex, Math.cos(ph)), mul(f.ey, Math.sin(ph))), Math.sin(th))));
+      const last = k === cfg.N - 1;
+      const lk = makeLink(A, T, u, last ? 0 : rad(L.delta || 0));
+      if (!lk) { fail.push('звено ' + k); break; }
+      rings.push({ ...lk.ring, owner: k, target: last ? -1 : k + 1, kind: last ? 'free' : 'chain', idx: k, label: String(k), cosg: lk.cosg, mirror: lk.mirror });
+      if (!last) { A = lk.A2; T = lk.T2; tori.push({ A, T, kind: 'chain', idx: k + 1, label: String(k + 1) }); }
+      ez = u;
+    }
+    const nChain = tori.length;
+    (cfg.hangs || []).forEach((h, j) => {
+      if (h.host >= nChain) { fail.push('навес ' + (j + 1) + ': нет тора-хозяина'); return; }
+      const host = tori[h.host];
+      const f = frames[h.host];
+      const e0 = mul(f.ex, h.side), r = rad(h.rho || 0), p = rad(h.psi || 0);
+      const e = nrm(add(mul(e0, Math.cos(r)), mul(add(mul(f.ez, -Math.cos(p)), mul(f.ey, Math.sin(p))), Math.sin(r))));
+      const lk = makeLink(host.A, host.T, e, rad(h.delta || 0));
+      if (!lk) { fail.push('навес ' + (j + 1)); return; }
+      const ti = tori.length;
+      tori.push({ A: lk.A2, T: lk.T2, kind: 'hang', idx: ti, host: h.host, side: h.side, label: 'Н' + (j + 1), hang: j });
+      rings.push({ ...lk.ring, owner: ti, target: h.host, kind: 'hang', idx: rings.length, label: 'Н' + (j + 1), hang: j, cosg: lk.cosg, mirror: lk.mirror });
+    });
+    // кольца по торам: собственное и входящие
+    tori.forEach((t, i) => { t.own = rings.findIndex(r => r.owner === i); t.inRings = rings.map((r, ri) => r.target === i ? ri : -1).filter(x => x >= 0); });
+    return { cfg, tori, rings, frames, fail };
+  }
+
+  // ---------- ориентации: Y по J5 (соседние торы вращаются встречно), обход колец по закону узла ----------
+  // Знаки условные: затравка — тор 0 (Y = +ось) и кольцо 0 (обход такой, что X×Y смотрит к центру кольца).
+  function orient(g) {
+    const { tori, rings } = g;
+    const Y = tori.map(() => null), sig = rings.map(() => 0), pass = tori.map(() => 0), conflicts = [];
+    Y[0] = tori[0].T.slice();
+    // J5: Y соседа — со знаком, противоположным зеркальному образу
+    let changed = true;
+    while (changed) {
+      changed = false;
+      rings.forEach(r => {
+        if (r.target < 0) return;
+        const i = r.owner, j = r.target, u = nrm(sub(tori[j].A, tori[i].A));
+        if (Y[i] && !Y[j]) { const ref = mul(reflect(Y[i], u), -1); Y[j] = dot(tori[j].T, ref) >= 0 ? tori[j].T.slice() : mul(tori[j].T, -1); changed = true; }
+        else if (Y[j] && !Y[i]) { const ref = mul(reflect(Y[j], u), -1); Y[i] = dot(tori[i].T, ref) >= 0 ? tori[i].T.slice() : mul(tori[i].T, -1); changed = true; }
+      });
+    }
+    tori.forEach((t, i) => { if (!Y[i]) Y[i] = t.T.slice(); });
+    const passSign = (ri, ti, s) => { const r = rings[ri]; const t = ringParamOf(r, tori[ti].A); return Math.sign(dot(mul(ringTan(r, t), s), Y[ti])) || 1; };
+    // затравка: кольцо 0
+    if (rings.length) {
+      const r0 = rings[0], disp = sub(r0.C, tori[0].A);
+      sig[0] = dot(cross(r0.N, Y[0]), disp) >= 0 ? 1 : -1;
+      pass[0] = passSign(0, 0, sig[0]);
+      if (r0.target >= 0) pass[r0.target] = passSign(0, r0.target, sig[0]);
+    }
+    changed = true;
+    while (changed) {
+      changed = false;
+      rings.forEach((r, ri) => {
+        if (sig[ri]) return;
+        const ends = [r.owner, r.target].filter(x => x >= 0);
+        const known = ends.find(t => pass[t]);
+        if (known === undefined) return;
+        sig[ri] = passSign(ri, known, 1) === pass[known] ? 1 : -1;
+        ends.forEach(t => { const p = passSign(ri, t, sig[ri]); if (!pass[t]) pass[t] = p; else if (pass[t] !== p) conflicts.push([ri, t]); });
+        changed = true;
+      });
+    }
+    rings.forEach((r, ri) => { if (!sig[ri]) sig[ri] = 1; });
+    // проверка закона узла по всем отверстиям
+    tori.forEach((t, ti) => {
+      const rs = rings.map((r, ri) => (r.owner === ti || r.target === ti) ? ri : -1).filter(x => x >= 0);
+      const signs = rs.map(ri => passSign(ri, ti, sig[ri]));
+      if (signs.some(s => s !== signs[0])) conflicts.push([-1, ti]);
+    });
+    const lat = tori.map((t, i) => {
+      const ri = t.own; if (ri < 0) return null;
+      const r = rings[ri], Xv = mul(r.N, sig[ri]), Yv = Y[i], Zv = nrm(cross(Xv, Yv));
+      const disp = sub(r.C, t.A), dispU = nrm(disp);
+      const dispPerp = nrm(sub(disp, mul(t.T, dot(disp, t.T))));
+      return { torus: i, ring: ri, X: Xv, Y: Yv, Z: Zv, disp, dispU, dispPerp, cls: dot(Zv, disp) >= 0 ? 'XYZ' : 'YXZ', ZdotDisp: dot(Zv, dispPerp) };
+    });
+    return { Y, sig, lat, conflicts };
+  }
+
+  // ---------- проверки ЛМ1, A-5, A-15 ----------
+  function check(g, fast) {
+    const { tori, rings } = g;
+    const SEC = fast ? 32 : 64, RS = fast ? 120 : 240, RC = fast ? 48 : 72;
+    const res = { torus: { min: Infinity, bad: [] }, ringBody: { min: Infinity, bad: [] }, cusp: { min: Infinity, bad: [] }, ringRing: { min: Infinity, bad: [] }, a15: [], a15bad: [], tangent: 0, fail: g.fail.slice() };
+    for (let i = 0; i < tori.length; i++) for (let j = i + 1; j < tori.length; j++) {
+      if (len(sub(tori[i].A, tori[j].A)) > 2.05) continue;
+      const mids = circlePts(tori[i].A, tori[i].T, SEC);
+      let m = Infinity; for (const X of mids) m = Math.min(m, distToMid(X, tori[j].A, tori[j].T));
+      const gap = m - 1;
+      res.torus.min = Math.min(res.torus.min, gap);
+      if (gap < -2e-3) res.torus.bad.push([i, j, gap]);
+    }
+    const pts = rings.map(r => ringPoints(r, RS));
+    rings.forEach((r, ri) => {
+      const own = [r.owner, r.target].filter(e => e >= 0);
+      tori.forEach((t, ti) => {
+        if (len(sub(t.A, r.C)) > r.rmax + 1.1) return;
+        const isOwn = own.includes(ti);
+        let m = Infinity;
+        for (const X of pts[ri]) { if (isOwn && len(sub(X, t.A)) < 0.12) continue; m = Math.min(m, distToMid(X, t.A, t.T) - 0.5); }
+        if (isOwn) { res.cusp.min = Math.min(res.cusp.min, m); if (m < -2e-3) res.cusp.bad.push([ri, ti, m]); }
+        else { res.ringBody.min = Math.min(res.ringBody.min, m); if (m < -2e-3) res.ringBody.bad.push([ri, ti, m]); }
+      });
+      // касание оси в каспе: касательная кольца в центре тора параллельна оси
+      own.forEach(ti => { const t = ringParamOf(r, tori[ti].A); res.tangent = Math.max(res.tangent, len(cross(nrm(ringTan(r, t)), tori[ti].T))); });
+    });
+    const coarse = rings.map(r => ringPoints(r, RC));
+    for (let i = 0; i < rings.length; i++) for (let j = i + 1; j < rings.length; j++) {
+      const ri = rings[i], rj = rings[j];
+      if (len(sub(ri.C, rj.C)) > ri.rmax + rj.rmax + 0.2) continue;
+      const shared = [ri.owner, ri.target].filter(e => e >= 0 && (e === rj.owner || e === rj.target)).map(e => tori[e].A);
+      const far = X => !shared.some(S => len(sub(X, S)) < 0.25);
+      let m = Infinity;
+      for (const X of coarse[i]) { if (!far(X)) continue; for (const Y of coarse[j]) { const dd = len(sub(X, Y)); if (dd < m) m = dd; } }
+      if (m < 0.15) { m = Infinity; for (const X of pts[i]) { if (!far(X)) continue; for (const Y of pts[j]) { const dd = len(sub(X, Y)); if (dd < m) m = dd; } } }
+      res.ringRing.min = Math.min(res.ringRing.min, m);
+      if (m < 0.01) res.ringRing.bad.push([i, j, m]);
+    }
+    tori.forEach((t, ti) => { const n = rings.filter(r => r.owner === ti || r.target === ti).length; res.a15.push(n); if (n > 3) res.a15bad.push(ti); });
+    res.ok = !res.torus.bad.length && !res.ringBody.bad.length && !res.cusp.bad.length && !res.ringRing.bad.length && !res.a15bad.length && !res.fail.length;
+    return res;
+  }
+
+  // точка касания двух торов (середина между ближайшими точками средних окружностей)
+  function contactPoint(t1, t2) { const m = midGap(t1.A, t1.T, t2.A, t2.T, 96); return { P: mul(add(m.q1, m.q2), 0.5), gap: m.gap - 1 }; }
+
+  return { build, orient, check, contactPoint, ringPoints, ringAt, ringTan, ringParamOf, ringGeneral, contactDistance, makeLink, nodeFrame, circlePts,
+    add, sub, mul, dot, cross, len, nrm, rot, reflect, rad, deg, angle, perim };
+})();
+if (typeof module !== 'undefined') module.exports = QN;
+
+(function () {
+  const $ = id => document.getElementById(id);
+  const fmt = (x, d = 3) => Number.isFinite(x) ? x.toLocaleString('ru-RU', { minimumFractionDigits: d, maximumFractionDigits: d }) : '—';
+  const fdeg = (x, d = 1) => fmt(x, d) + '°';
+  const V3 = a => new THREE.Vector3(a[0], a[1], a[2]);
+  const { add, sub, mul, dot, cross, len, nrm, angle, rad, deg } = QN;
+
+  const state = { mode: 'thread', scene: 1, beta: 0, N: 10, hang: 'comb', rule: 'none', sel: -1, K: 12, N5: 12, alpha: 30, dphi: 30, axT: 0, axP: 0, step: 1 };
+
+  // ---------- построение нити ----------
+  // Навесы — на внутренних торах 1 … N−2. Правило звена применяется только в узлах с навесом.
+  function buildScene(p) {
+    const tori = [], rings = [], lat = [], frames = [];
+    let A = [0, 0, 0], T = [0, Math.cos(rad(p.beta)), Math.sin(rad(p.beta))], e = [0, 0, 1], Sprev = null;
+    const withHang = p.hang !== 'none';
+    const hangs = [];
+    for (let k = 0; k < p.N; k++) {
+      const f = QN.nodeFrame(e, T); frames.push(f);
+      tori.push({ A, T, kind: 'chain', idx: k, label: String(k) });
+      const hasHang = withHang && k >= 1 && k <= p.N - 2;
+      let Sh = null, hangLink = null, side = 0;
+      if (hasHang) {
+        side = p.hang === 'comb' ? 1 : (k % 2 ? 1 : -1);
+        hangLink = QN.makeLink(A, T, mul(f.ex, side), 0);
+        if (hangLink) Sh = sub(hangLink.ring.C, hangLink.A2);
+      }
+      let u = e;
+      if (hasHang && Sh && p.rule !== 'none') {
+        const Sc0 = sub(QN.makeLink(A, T, e, 0).ring.C, A);
+        let R = add(Sc0, Sh); if (p.rule === 'B' && Sprev) R = add(R, Sprev);
+        u = nrm(R);
+      }
+      const last = k === p.N - 1;
+      const L = QN.makeLink(A, T, u, 0);
+      if (!L) break;
+      rings.push({ ...L.ring, owner: k, target: last ? -1 : k + 1, kind: last ? 'free' : 'chain', label: String(k) });
+      if (hasHang && hangLink) hangs.push({ host: k, side, link: hangLink, Sh });
+      Sprev = sub(L.ring.C, A);
+      if (!last) { A = L.A2; T = L.T2; }
+      e = u;
+    }
+    const nChain = tori.length;
+    hangs.forEach((h, j) => {
+      const ti = tori.length;
+      tori.push({ A: h.link.A2, T: h.link.T2, kind: 'hang', idx: ti, host: h.host, side: h.side, label: 'Н' + (j + 1) });
+      rings.push({ ...h.link.ring, owner: ti, target: h.host, kind: 'hang', label: 'Н' + (j + 1) });
+    });
+    tori.forEach((t, i) => { t.own = rings.findIndex(r => r.owner === i); t.inRings = rings.map((r, ri) => r.target === i ? ri : -1).filter(x => x >= 0); });
+    const g = { tori, rings, frames, fail: [], nChain };
+    tori.forEach((t, i) => {
+      const r = rings[t.own]; if (!r) return;
+      const S = sub(r.C, t.A);
+      let Zxy = nrm(cross(r.N, t.T)); if (dot(Zxy, S) < 0) Zxy = mul(Zxy, -1);
+      lat.push({ torus: i, ring: t.own, S, Zxy, kind: t.kind });
+    });
+    g.lat = lat;
+    return g;
+  }
+  // винт за два узла: поворот кадра и продвижение вдоль оси поворота (длинная невидимая нить, хвост переходного процесса отброшен)
+  function shapeOf(p) {
+    if (p.hang === 'none' || p.rule === 'none') return null;
+    const q = { ...p, N: 200 }, g = buildScene(q), F = g.frames, n = F.length;
+    if (n < 120) return { fail: true };
+    const k = n - 8, a = [F[k].ex, F[k].ey, F[k].ez], b = [F[k + 2].ex, F[k + 2].ey, F[k + 2].ez];
+    const R = [[0, 0, 0], [0, 0, 0], [0, 0, 0]];
+    for (let i = 0; i < 3; i++) for (let r = 0; r < 3; r++) for (let c = 0; c < 3; c++) R[r][c] += b[i][r] * a[i][c];
+    const tr = R[0][0] + R[1][1] + R[2][2], phi = Math.acos(Math.max(-1, Math.min(1, (tr - 1) / 2)));
+    let ax = [R[2][1] - R[1][2], R[0][2] - R[2][0], R[1][0] - R[0][1]];
+    const step = sub(g.tori[k + 2].A, g.tori[k].A);
+    if (len(ax) < 1e-9 || phi < 1e-4) return { kind: 'line', phi: 0, pitch: len(step) };
+    ax = nrm(ax);
+    return { kind: 'screw', phi: deg(phi), pitch: dot(step, ax) };
+  }
+
+  // ---------- сцена ----------
+  const stage = $('stage'), labelsEl = $('labels');
+  const renderer = new THREE.WebGLRenderer({ antialias: true });
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio || 1, 2));
+  stage.prepend(renderer.domElement);
+  const scene = new THREE.Scene();
+  const camera = new THREE.PerspectiveCamera(36, 1, 0.05, 800);
+  const controls = new THREE.OrbitControls(camera, renderer.domElement);
+  controls.addEventListener('change', render);
+  scene.add(new THREE.HemisphereLight(0xffffff, 0x445055, 0.9));
+  const sun = new THREE.DirectionalLight(0xffffff, 0.6); sun.position.set(5, 8, 6); scene.add(sun);
+  let group = new THREE.Group(); scene.add(group);
+  const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim() || '#888';
+  const col = n => new THREE.Color(css(n));
+  const M = {};
+  function makeMats() {
+    Object.assign(M, {
+      torus: new THREE.MeshStandardMaterial({ color: col('--carrier'), transparent: true, opacity: 0.16, depthWrite: false, side: THREE.DoubleSide }),
+      htorus: new THREE.MeshStandardMaterial({ color: col('--hcarrier'), transparent: true, opacity: 0.2, depthWrite: false, side: THREE.DoubleSide }),
+      selT: new THREE.MeshStandardMaterial({ color: col('--sz'), transparent: true, opacity: 0.28, depthWrite: false, side: THREE.DoubleSide }),
+      ring: new THREE.LineBasicMaterial({ color: col('--carrier') }), hring: new THREE.LineBasicMaterial({ color: col('--hcarrier') }),
+      selR: new THREE.LineBasicMaterial({ color: col('--sz') }),
+      sz: new THREE.MeshBasicMaterial({ color: col('--sz') }), szh: new THREE.MeshBasicMaterial({ color: col('--szh') }),
+      xy: new THREE.MeshBasicMaterial({ color: col('--xy') }), path: new THREE.MeshBasicMaterial({ color: col('--path') }),
+      lock: new THREE.MeshBasicMaterial({ color: col('--lock') }),
+      xyM: new THREE.MeshBasicMaterial({ color: col('--xy') }), szhM: new THREE.MeshBasicMaterial({ color: col('--szh') }),
+      axis: new THREE.LineDashedMaterial({ color: col('--muted'), dashSize: 0.25, gapSize: 0.18 })
+    });
+    renderer.setClearColor(col('--bg'), 1);
+  }
+  const torusGeo = new THREE.TorusGeometry(0.5, 0.5, 32, 96);
+  const sphereGeo = new THREE.SphereGeometry(1, 14, 10);
+  const qFromZ = d => new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 0, 1), d.clone().normalize());
+  const qFromY = d => new THREE.Quaternion().setFromUnitVectors(new THREE.Vector3(0, 1, 0), d.clone().normalize());
+  function arrow(from, vec, mat, r = 0.03, head = 0.16) {
+    const d = V3(vec), L = d.length(); if (L < 1e-6) return; d.normalize();
+    const h = Math.min(head, L * 0.45), shaft = L - h, o = V3(from);
+    const cyl = new THREE.Mesh(new THREE.CylinderGeometry(r, r, Math.max(shaft, 0.005), 10), mat);
+    cyl.position.copy(o.clone().addScaledVector(d, shaft / 2)); cyl.quaternion.copy(qFromY(d)); group.add(cyl);
+    const cone = new THREE.Mesh(new THREE.ConeGeometry(r * 2.8, h, 14), mat);
+    cone.position.copy(o.clone().addScaledVector(d, shaft + h / 2)); cone.quaternion.copy(qFromY(d)); group.add(cone);
+  }
+  function segment(a, b, mat, r = 0.012) { const d = V3(sub(b, a)), L = d.length(); if (L < 1e-6) return; const m = new THREE.Mesh(new THREE.CylinderGeometry(r, r, L, 8), mat); m.position.copy(V3(add(a, mul(sub(b, a), 0.5)))); m.quaternion.copy(qFromY(d)); group.add(m); }
+  let labelItems = [], picks = [];
+  const label = (p, text, cls) => labelItems.push({ p: V3(p), text, cls });
+
+  let G = null, SH = null;
+  function draw(fit) {
+    scene.remove(group); group.traverse(o => { if (o.geometry && o.geometry !== torusGeo && o.geometry !== sphereGeo) o.geometry.dispose(); });
+    group = new THREE.Group(); scene.add(group); labelItems = []; picks = [];
+    const g = G, sel = state.sel, selRings = sel >= 0 ? g.rings.map((r, i) => (r.owner === sel || r.target === sel) ? i : -1).filter(i => i >= 0) : [];
+    // носители
+    if ($('tCar').checked) {
+      g.tori.forEach((t, i) => {
+        const m = new THREE.Mesh(torusGeo, i === sel ? M.selT : t.kind === 'hang' ? M.htorus : M.torus);
+        m.position.copy(V3(t.A)); m.quaternion.copy(qFromZ(V3(t.T))); m.userData = { i }; group.add(m); picks.push(m);
+      });
+      g.rings.forEach((r, ri) => {
+        const pts = QN.ringPoints(r, 120).map(V3); pts.push(pts[0].clone());
+        group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), selRings.includes(ri) ? M.selR : r.kind === 'hang' ? M.hring : M.ring));
+      });
+    } else {
+      g.tori.forEach((t, i) => { const m = new THREE.Mesh(sphereGeo, t.kind === 'hang' ? M.htorus : M.torus); m.scale.setScalar(0.5); m.position.copy(V3(t.A)); m.userData = { i }; group.add(m); picks.push(m); });
+    }
+    // супер-Z у каждой пары тор–кольцо
+    g.lat.forEach(l => {
+      const t = g.tori[l.torus];
+      arrow(t.A, l.S, l.kind === 'hang' ? M.szh : M.sz, l.torus === sel ? 0.042 : 0.03);
+      if ($('tXY').checked) arrow(t.A, mul(l.Zxy, len(l.S)), M.xy, 0.016, 0.12);
+    });
+    // тройки осей в узлах («замочки»)
+    if ($('tLock').checked) g.locks.forEach(L => {
+      if (L.det < 0.98) return;
+      const t = g.tori[L.torus];
+      [t.T, L.n1, L.n2].forEach(v => { segment(sub(t.A, mul(v, 0.55)), add(t.A, mul(v, 0.55)), M.lock, 0.01); });
+    });
+    // сведённая цепочка и ось хода
+    const f0 = g.frames[0], off = mul(f0.ey, -2.6);
+    if ($('tPath').checked) {
+      let P = add(g.tori[0].A, off); const start = P;
+      g.lat.filter(l => l.kind === 'chain').forEach(l => {
+        const Q = add(P, l.S); segment(P, Q, M.path, 0.022); const m = new THREE.Mesh(sphereGeo, M.path); m.scale.setScalar(0.045); m.position.copy(V3(Q)); group.add(m); P = Q;
+      });
+      label(add(P, mul(f0.ey, -0.45)), 'сведённая цепочка', 'path');
+      const axEnd = add(start, mul(f0.ez, Math.max(4, len(sub(P, start)) * 1.15)));
+      const line = new THREE.Line(new THREE.BufferGeometry().setFromPoints([V3(start), V3(axEnd)]), M.axis); line.computeLineDistances(); group.add(line);
+    }
+    if (sel >= 0) label(add(g.tori[sel].A, mul(g.tori[sel].T, 1.1)), g.tori[sel].label, 'sel');
+    if (fit) fitCamera(off);
+    render();
+  }
+  function fitCamera(off) {
+    const box = new THREE.Box3(); G.tori.forEach(t => box.expandByPoint(V3(t.A))); box.expandByPoint(V3(add(G.tori[0].A, off)));
+    const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3()).length() / 2 + 2.2;
+    controls.target.copy(c);
+    camera.position.copy(c.clone().add(new THREE.Vector3(-0.95, 0.55, 0.35).normalize().multiplyScalar(s / Math.tan(THREE.MathUtils.degToRad(17)) * 0.9)));
+    camera.near = 0.05; camera.far = s * 50; camera.updateProjectionMatrix(); controls.update();
+  }
+  function render() {
+    renderer.render(scene, camera);
+    const w = stage.clientWidth, h = stage.clientHeight; labelsEl.textContent = '';
+    labelItems.forEach(it => { const v = it.p.clone().project(camera); if (v.z > 1 || v.z < -1) return; const el = document.createElement('span'); el.className = 'lbl ' + (it.cls || ''); el.textContent = it.text; el.style.left = ((v.x + 1) / 2 * w) + 'px'; el.style.top = ((1 - v.y) / 2 * h) + 'px'; labelsEl.appendChild(el); });
+  }
+  function resize() { const w = stage.clientWidth, h = stage.clientHeight || 400; renderer.setSize(w, h, false); camera.aspect = w / h; camera.updateProjectionMatrix(); render(); }
+  window.addEventListener('resize', resize);
+  const ray = new THREE.Raycaster(); let down = null;
+  renderer.domElement.addEventListener('pointerdown', e => { down = [e.clientX, e.clientY]; });
+  renderer.domElement.addEventListener('pointerup', e => {
+    if (!down || Math.hypot(e.clientX - down[0], e.clientY - down[1]) > 5) return;
+    const r = renderer.domElement.getBoundingClientRect();
+    ray.setFromCamera(new THREE.Vector2((e.clientX - r.left) / r.width * 2 - 1, -((e.clientY - r.top) / r.height) * 2 + 1), camera);
+    const hit = ray.intersectObjects(picks, false)[0];
+    state.sel = hit ? hit.object.userData.i : -1; nodeCard(); draw(false);
+  });
+
+  // ---------- узлы: тройки осей ----------
+  function locks(g) {
+    const out = [];
+    g.tori.forEach((t, i) => {
+      if (t.kind !== 'chain') return;
+      const ns = g.rings.filter(r => r.owner === i || r.target === i).map(r => r.N);
+      let best = { det: 0 };
+      for (let a = 0; a < ns.length; a++) for (let b = a + 1; b < ns.length; b++) { const d = Math.abs(dot(t.T, cross(ns[a], ns[b]))); if (d > best.det) best = { det: d, n1: ns[a], n2: ns[b] }; }
+      out.push({ torus: i, ...best });
+    });
+    return out;
+  }
+
+  // ---------- показания ----------
+  function readouts() {
+    const g = G, chain = g.lat.filter(l => l.kind === 'chain');
+    const ez = [0, 0, 1];
+    const ds = g.rings.filter(r => r.kind === 'chain').map(r => r.d);
+    $('rD').textContent = ds.length ? fmt(ds.reduce((s, x) => s + x, 0) / ds.length / 2) : '—';
+    // ось хода — направление входящего звена у каждого латчера
+    const pr = (v, k) => dot(nrm(v), g.frames[k] ? g.frames[k].ez : ez);
+    $('rXY').textContent = fmt(chain.reduce((s, l) => s + pr(l.Zxy, l.torus), 0) / chain.length);
+    $('rSZ').textContent = fmt(chain.reduce((s, l) => s + pr(l.S, l.torus), 0) / chain.length);
+    $('rAng').textContent = fdeg(chain.reduce((s, l) => s + angle(l.S, l.Zxy), 0) / chain.length);
+    let P = [0, 0, 0], L = 0; chain.forEach(l => { P = add(P, l.S); L += len(l.S); });
+    $('rPath').textContent = fmt(dot(P, ez) / L);
+    const lk = g.locks.filter(x => x.det > 0.98).length;
+    $('rLock').textContent = lk + ' из ' + g.locks.length;
+    const c = QN.check(g, true);
+    $('rChk').textContent = c.ok ? 'допустимо' : 'нарушено';
+    $('rChk').style.color = c.ok ? css('--ok') : css('--warn');
+    // форма
+    const sh = SH; let html;
+    if (state.scene < 3 || state.rule === 'none') html = '<b>Прямая.</b> Закона перестройки нет, нить не гнётся сама.';
+    else if (!sh || sh.fail) html = '<b>Не строится:</b> звено выходит из допустимой геометрии.';
+    else if (sh.kind === 'line') html = `<b>${state.hang === 'alt' ? 'Зигзаг' : 'Прямая'}.</b> Поворот за два узла 0°, продвижение ${fmt(sh.pitch / 4, 3)} шага прямой нити.`;
+    else if (Math.abs(sh.pitch) < 1e-4) html = `<b>Кольцо.</b> Поворот ${fdeg(sh.phi / 2, 2)} на узел, оборот за ${fmt(720 / sh.phi, 1)} узла; винтового шага нет. Если латчеров больше, чем узлов в обороте, нить налегает на себя.`;
+    else html = `<b>Винт.</b> Поворот ${fdeg(sh.phi / 2, 2)} на узел, шаг ${fmt(sh.pitch, 4)} R за два узла.`;
+    $('shape').innerHTML = html;
+    strip();
+  }
+  function strip() {
+    const cv = $('strip'), dpr = Math.min(window.devicePixelRatio || 1, 2), W = cv.clientWidth || 320, H = 150;
+    cv.width = W * dpr; cv.height = H * dpr; const c = cv.getContext('2d'); c.setTransform(dpr, 0, 0, dpr, 0, 0); c.clearRect(0, 0, W, H);
+    const g = G, mid = 86, sc = 60;
+    const items = [];
+    g.tori.forEach((t, i) => { if (t.kind !== 'chain') return; const l = g.lat.find(x => x.torus === i); if (l) items.push({ l, hang: false, k: i }); const hj = g.tori.findIndex(x => x.kind === 'hang' && x.host === i); if (hj >= 0) items.push({ l: g.lat.find(x => x.torus === hj), hang: true, k: i }); });
+    const bw = Math.max(3, Math.min(16, (W - 30) / items.length - 3));
+    c.strokeStyle = css('--rule'); c.beginPath(); c.moveTo(20, mid); c.lineTo(W, mid); c.stroke();
+    c.fillStyle = css('--muted'); c.font = '11px ' + css('--font-data'); c.textAlign = 'right';
+    c.fillText('1', 16, mid - sc + 4); c.fillText('0', 16, mid + 4);
+    c.strokeStyle = css('--rule'); c.setLineDash([3, 3]); c.beginPath(); c.moveTo(20, mid - sc); c.lineTo(W, mid - sc); c.stroke(); c.setLineDash([]);
+    items.forEach((it, i) => {
+      const ez = g.frames[it.k].ez, S = it.l.S, along = dot(S, ez), across = len(sub(S, mul(ez, along)));
+      const x = 24 + i * (bw + 3);
+      c.fillStyle = css(it.hang ? '--szh' : '--sz');
+      const h1 = along * sc; c.fillRect(x, h1 >= 0 ? mid - h1 : mid, bw, Math.abs(h1));
+      c.globalAlpha = 0.45; c.fillRect(x, mid + 2, bw, across * sc * 0.5); c.globalAlpha = 1;
+    });
+  }
+  function nodeCard() {
+    const g = G, i = state.sel;
+    if (i < 0) { $('nodeCard').textContent = 'Щёлкните по тору нити, чтобы раскрыть узел.'; return; }
+    const t = g.tori[i], l = g.lat.find(x => x.torus === i), lk = g.locks.find(x => x.torus === i);
+    const inside = g.rings.map((r, ri) => (r.owner === i || r.target === i) ? (ri === t.own ? 'своё ' + r.label : 'кольцо ' + r.label) : null).filter(Boolean);
+    const f = g.frames[t.kind === 'hang' ? t.host : i];
+    const comp = v => `${fmt(dot(v, f.ez), 2)} / ${fmt(dot(v, f.ex), 2)} / ${fmt(dot(v, f.ey), 2)}`;
+    $('nodeCard').innerHTML = [
+      `<div><strong>${t.kind === 'hang' ? 'Навес ' + t.label + ' на торе ' + t.host : 'Тор ' + t.label + ' нити'}</strong> · в отверстии: ${inside.join(', ')} (${inside.length} из 3, A-15)</div>`,
+      l ? `<div class="mono">супер-Z: вдоль / поперёк / из плоскости = ${comp(l.S)}, |S| = ${fmt(len(l.S), 3)}</div>` : '',
+      l ? `<div class="mono">X × Y: ${comp(l.Zxy)} · угол к супер-Z ${fdeg(angle(l.S, l.Zxy))}</div>` : '',
+      `<div class="mono">X ⊥ Y у этого латчера: ${l ? fdeg(angle(g.rings[l.ring].N, t.T)) : '—'} (по ЛМ1 ось тора лежит в плоскости кольца)</div>`,
+      lk ? `<div class="mono">тройка «ось тора + нормали двух колец»: |det| = ${fmt(lk.det, 3)}${lk.det > 0.98 ? ' — полная' : ''}</div>` : ''
+    ].join('');
+  }
+
+
+  // ---------- режимы «кадры одного латчера» и «снимок цепочки» ----------
+  // Базовый латчер: тор в начале координат с осью Y, кольцо — окружность радиуса 1 в плоскости (Y, Z) с центром в +Z.
+  // Знаки условные: X = +x, Y = +y, Z = X × Y = +z.
+  const rotAbout = (v, w, ang) => QN.rot(v, w, ang);
+  function axisWorld() { const t = rad(state.axT), f = rad(state.axP); return nrm([Math.sin(t) * Math.cos(f), Math.sin(t) * Math.sin(f), Math.cos(t)]); }
+  function frameSeries() {
+    const w = axisWorld(), out = [];
+    if (state.mode === 'multi') {
+      let X = [1, 0, 0], Y = [0, 1, 0], Z = [0, 0, 1], p = [0, 0, 0];
+      for (let j = 0; j < state.K; j++) {
+        out.push({ p, X, Y, Z });
+        p = add(p, mul(Z, state.step));
+        const a = rad(state.alpha); X = rotAbout(X, w, a); Y = rotAbout(Y, w, a); Z = rotAbout(Z, w, a);
+      }
+    } else {
+      for (let i = 0; i < state.N5; i++) {
+        const a = rad(state.dphi * i);
+        out.push({ p: [0, 0, 2 * i], X: rotAbout([1, 0, 0], w, a), Y: rotAbout([0, 1, 0], w, a), Z: rotAbout([0, 0, 1], w, a) });
+      }
+    }
+    return { w, frames: out };
+  }
+  // окружность через три точки проекций на плоскость ⊥ w: радиус; шаг вдоль w за кадр
+  function traceShape(pts, w) {
+    if (pts.length < 3) return '—';
+    const d1 = sub(pts[1], pts[0]), along = dot(d1, w);
+    const proj = q => sub(q, mul(w, dot(q, w)));
+    const a = proj(pts[0]), b = proj(pts[1]), c = proj(pts[2]);
+    const ab = len(sub(b, a)), bc = len(sub(c, b)), ca = len(sub(a, c));
+    const area2 = len(cross(sub(b, a), sub(c, a)));
+    const straight = len(sub(pts[2], pts[0])) > 1e-9 && len(cross(sub(pts[1], pts[0]), sub(pts[2], pts[0]))) < 1e-9 * Math.max(1, len(sub(pts[2], pts[0])) ** 2);
+    if (straight) return 'прямая';
+    if (area2 < 1e-12) return ab < 1e-9 ? 'точка' : 'прямая';
+    const r = ab * bc * ca / (2 * area2);
+    if (Math.abs(along) < 1e-9) return 'окружность, r = ' + fmt(r, 2);
+    const turn = Math.abs(state.mode === 'multi' ? state.alpha : state.dphi);
+    return 'винт, r = ' + fmt(r, 2) + ', шаг за оборот ' + fmt(Math.abs(along) * 360 / Math.max(turn, 1e-9), 2);
+  }
+  function drawFrames(fit) {
+    scene.remove(group); group.traverse(o => { if (o.geometry && o.geometry !== torusGeo && o.geometry !== sphereGeo) o.geometry.dispose(); });
+    group = new THREE.Group(); scene.add(group); labelItems = []; picks = [];
+    const { w, frames } = frameSeries(), n = frames.length;
+    const fade = j => state.mode === 'multi' ? 0.22 + 0.78 * (j + 1) / n : 1;
+    const matOf = (c, o) => new THREE.MeshBasicMaterial({ color: col(c), transparent: o < 1, opacity: o });
+    // носители
+    if ($('fCar').checked) {
+      const car = state.mode === 'multi' ? [frames[n - 1]] : frames.map(f => ({ p: f.p, X: [1, 0, 0], Y: [0, 1, 0], Z: [0, 0, 1] }));
+      car.forEach(f => {
+        const m = new THREE.Mesh(torusGeo, M.torus); m.position.copy(V3(f.p)); m.quaternion.copy(qFromZ(V3(f.Y))); group.add(m);
+        const pts = []; for (let k = 0; k <= 96; k++) { const t = k / 96 * 2 * Math.PI; pts.push(V3(add(add(f.p, f.Z), add(mul(f.Z, -Math.cos(t)), mul(f.Y, Math.sin(t)))))); }
+        group.add(new THREE.Line(new THREE.BufferGeometry().setFromPoints(pts), M.ring));
+      });
+    }
+    // в снимке — оси носителей по J5 (серые): X_i = (−1)^i x̂, Y_i = (−1)^i ŷ, Z = ẑ; носители стоят
+    let agree = false;
+    if (state.mode === 'snap') {
+      const grey = matOf('--muted', 0.9); let worst = 0;
+      frames.forEach((f, i) => {
+        const sg = i % 2 ? -1 : 1, Xc = [sg, 0, 0], Yc = [0, sg, 0];
+        arrow(add(f.p, [0, 0, 0.04]), mul(Xc, 0.8), grey, 0.012, 0.1); arrow(add(f.p, [0, 0, 0.04]), mul(Yc, 0.8), grey, 0.012, 0.1);
+        worst = Math.max(worst, angle(f.X, Xc), angle(f.Y, Yc), angle(f.Z, [0, 0, 1]));
+      });
+      agree = worst < 0.5;
+    }
+    // оси кадров
+    frames.forEach((f, j) => {
+      const o = fade(j);
+      arrow(f.p, f.X, matOf('--xy', o), 0.022, 0.14);
+      arrow(f.p, f.Y, matOf('--szh', o), 0.022, 0.14);
+      arrow(f.p, mul(f.Z, 1.25), matOf('--sz', o), 0.026, 0.16);
+    });
+    const last = frames[n - 1];
+    label(add(last.p, mul(last.X, 1.25)), 'X'); label(add(last.p, mul(last.Y, 1.25)), 'Y'); label(add(last.p, mul(last.Z, 1.5)), 'Z');
+    // следы концов осей и центра
+    if ($('fTr').checked && n > 1) {
+      const tr = (pts, c) => { for (let k = 0; k + 1 < pts.length; k++) segment(pts[k], pts[k + 1], M[c], 0.012); };
+      tr(frames.map(f => add(f.p, f.X)), 'xyM'); tr(frames.map(f => add(f.p, f.Y)), 'szhM');
+      if (state.mode === 'multi') tr(frames.map(f => f.p), 'path');
+    }
+    // ось поворота
+    const ax0 = frames[0].p, axLine = new THREE.Line(new THREE.BufferGeometry().setFromPoints([V3(sub(ax0, mul(w, 1.6))), V3(add(ax0, mul(w, 2.2)))]), M.axis);
+    axLine.computeLineDistances(); group.add(axLine); label(add(ax0, mul(w, 2.4)), 'направление оси поворота');
+    // показания
+    const C = frames.map(f => f.p), XT = frames.map(f => add(f.p, f.X)), YT = frames.map(f => add(f.p, f.Y));
+    if (state.mode === 'multi') {
+      $('fC').textContent = state.alpha === 0 ? (state.step ? 'прямая' : 'точка') : state.step === 0 ? 'точка' : traceShape(C, w);
+      $('fX').textContent = state.alpha === 0 ? (state.step ? 'прямая' : 'точка') : traceShape(XT, w);
+      $('fY').textContent = state.alpha === 0 ? (state.step ? 'прямая' : 'точка') : traceShape(YT, w);
+      $('fshape').innerHTML = state.alpha === 0 ? '<b>Без поворота.</b> Латчер просто идёт вдоль своей Z; оси кадров параллельны.'
+        : state.axT === 0 ? '<b>Поворот вокруг своей Z.</b> Центр идёт по прямой, концы X и Y описывают винт вокруг неё. Прямые оси кадров, винтовые следы концов.'
+        : state.axT === 90 ? '<b>Поворот вокруг оси поперёк Z.</b> Центр уходит с прямой и описывает окружность.'
+        : '<b>Наклонная ось поворота.</b> Центр и концы осей описывают винты вокруг одной оси с одним шагом.';
+    } else {
+      $('fC').textContent = 'прямая: носители стоят';
+      const tip = state.dphi === 0 ? 'прямая' : state.axT === 0 ? 'винт вокруг нити, r = 1,00, шаг за оборот ' + fmt(2 * 360 / Math.abs(state.dphi), 2) : state.axT === 90 ? 'трохоида в одной плоскости' : 'наклонный винт';
+      $('fX').textContent = tip; $('fY').textContent = tip;
+      const linked = state.dphi === state.alpha && state.step === 2;
+      $('fshape').innerHTML = (agree
+          ? '<b>Цветные оси совпадают с осями носителей.</b> Поворот на 180° вокруг Z переводит прямой латчер в себя, и ориентации по J5 чередуются ровно так. Здесь показаны оси носителей, без нового свойства. '
+          : '<b>Цветные оси — ориентация состояния [О].</b> Серые — оси неподвижных носителей по J5. Отделима ли ориентация состояния от носителя, не установлено; это изображение, а не свойство латчера. ') +
+        'Фазы назначены условно, i·Δφ; закона согласования соседей нет. ' +
+        (linked ? (state.axT === 0 ? 'Кнопкой заданы Δφ = α и шаг кадров 2R, ось — Z: снимок повторяет кадры одного латчера. Это совпадение задано вручную, а не найдено.' : 'Кнопкой заданы Δφ = α и шаг кадров 2R, но ось наклонена: в кадрах центр уходит с прямой, в снимке центры стоят на нити — картины не совпадают.') : '');
+    }
+    if (fit) { const box = new THREE.Box3(); frames.forEach(f => { box.expandByPoint(V3(f.p)); box.expandByPoint(V3(add(f.p, f.X))); box.expandByPoint(V3(add(f.p, f.Y))); });
+      const c = box.getCenter(new THREE.Vector3()), s = box.getSize(new THREE.Vector3()).length() / 2 + 2.2; controls.target.copy(c);
+      camera.position.copy(c.clone().add(new THREE.Vector3(-0.95, 0.55, 0.35).normalize().multiplyScalar(s / Math.tan(THREE.MathUtils.degToRad(17)) * 0.9))); camera.near = 0.05; camera.far = s * 50; camera.updateProjectionMatrix(); controls.update(); }
+    render();
+  }
+  function frameSync() {
+    const multi = state.mode === 'multi';
+    $('gK').hidden = !multi; $('gAlpha').hidden = !multi; $('gStep').hidden = !multi;
+    $('gN5').hidden = multi; $('gDphi').hidden = multi; $('gLink').style.display = multi ? 'none' : 'flex';
+    [['sK', 'K', v => v], ['sN5', 'N5', v => v], ['sAlpha', 'alpha', v => fdeg(v, 0)], ['sDphi', 'dphi', v => fdeg(v, 0)], ['sAxT', 'axT', v => fdeg(v, 0)], ['sAxP', 'axP', v => fdeg(v, 0)], ['sStep', 'step', v => fmt(v, 2)]]
+      .forEach(([id, k, f]) => { $(id).value = state[k]; $('v' + id.slice(1)).textContent = f(state[k]); });
+    $('frameNote').textContent = multi
+      ? 'Мультиэкспозиция: последовательные ориентации одного латчера на одном изображении. Правило кадра — сдвиг вдоль своей Z и поворот на α вокруг выбранной оси — выбрано условно; это не установленное движение. Ранние кадры бледнее.'
+      : 'Снимок цепочки в один момент: латчеры стоят на прямой нити с шагом 2R, каждому назначен свой поворот i·Δφ. Серые оси — оси носителей по J5; цветные — назначенная ориентация. Если они расходятся, цветные изображают ориентацию состояния, отделимость которой от носителя открыта [О]. Закона согласования фаз нет.';
+    $('sceneTag').textContent = multi ? `Кадры одного латчера · ${state.K} кадров · α ${fdeg(state.alpha, 0)}` : `Снимок цепочки · ${state.N5} латчеров · Δφ ${fdeg(state.dphi, 0)} (условно)`;
+  }
+  function setMode(m, fit) {
+    state.mode = m;
+    document.querySelectorAll('[data-mode]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.mode === m)));
+    $('threadMode').hidden = m !== 'thread'; $('frameMode').hidden = m === 'thread';
+    if (m === 'thread') { rebuild(fit); return; }
+    frameSync(); drawFrames(fit);
+  }
+  document.querySelectorAll('[data-mode]').forEach(b => b.addEventListener('click', () => setMode(b.dataset.mode, true)));
+  [['sK', 'K', true], ['sN5', 'N5', true], ['sAlpha', 'alpha', false], ['sDphi', 'dphi', false], ['sAxT', 'axT', false], ['sAxP', 'axP', false], ['sStep', 'step', false]]
+    .forEach(([id, k, refit]) => $(id).addEventListener('input', e => { state[k] = +e.target.value; frameSync(); drawFrames(refit); }));
+  ['fTr', 'fCar'].forEach(id => $(id).addEventListener('change', () => drawFrames(false)));
+  $('linkBtn').addEventListener('click', () => { state.dphi = state.alpha; state.step = 2; frameSync(); drawFrames(false); });
+
+  // ---------- управление ----------
+  const NOTES = {
+    1: 'Прямая фотонная нить: оси торов перпендикулярны нити, кольца в одной плоскости. Супер-Z смотрит вдоль нити; в узлах два кольца лежат в одной плоскости, полной тройки осей нет.',
+    2: 'Та же нить, оси торов наклонены к нити на β. Шаг укорачивается, супер-Z и X × Y расходятся: центр кольца смещён ещё и вдоль оси тора.',
+    3: 'Нить с навесами на всех внутренних торах. Без правила форма прямая. С правилом исходящее звено каждого узла с навесом идёт по выбранной сумме супер-Z.'
+  };
+  function sync() {
+    document.querySelectorAll('[data-scene]').forEach(b => b.setAttribute('aria-pressed', String(+b.dataset.scene === state.scene)));
+    document.querySelectorAll('[data-hang]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.hang === state.hang)));
+    document.querySelectorAll('[data-rule]').forEach(b => b.setAttribute('aria-pressed', String(b.dataset.rule === state.rule)));
+    $('betaGroup').hidden = state.scene === 1; $('hangGroup').hidden = state.scene !== 3;
+    $('sBeta').value = state.beta; $('vBeta').textContent = fdeg(state.beta); $('sN').value = state.N; $('vN').textContent = state.N;
+    $('sceneNote').textContent = NOTES[state.scene];
+    $('ruleNote').textContent = state.rule === 'none' ? 'Без правила навесы на форму не влияют: закона нет.'
+      : state.rule === 'pair' ? 'Кандидат Автора [Г]: звено — по сумме супер-Z латчера и его навеса. Веса равны по выбору, не по выводу.'
+      : 'Кандидат Г-Б1 [Г]: супер-Z входящего латчера + своего + навеса, веса равны по выбору.';
+  }
+  function rebuild(fit) {
+    const p = { beta: state.scene === 1 ? 0 : state.beta, N: state.N, hang: state.scene === 3 ? state.hang : 'none', rule: state.scene === 3 ? state.rule : 'none' };
+    G = buildScene(p); G.locks = locks(G); SH = shapeOf(p);
+    if (state.sel >= G.tori.length) state.sel = -1;
+    sync(); readouts(); nodeCard(); draw(fit);
+    $('sceneTag').textContent = `Сцена ${state.scene} · ${state.N} Qf${p.hang !== 'none' ? ' · навесов ' + (G.tori.length - G.nChain) + (p.hang === 'comb' ? ', гребёнка' : ', чередование') : ''}${p.beta ? ' · β ' + fdeg(p.beta, 1) : ''}`;
+  }
+  document.querySelectorAll('[data-scene]').forEach(b => b.addEventListener('click', () => { state.scene = +b.dataset.scene; if (state.scene === 2 && !state.beta) state.beta = 55.3; state.sel = -1; rebuild(true); }));
+  document.querySelectorAll('[data-hang]').forEach(b => b.addEventListener('click', () => { state.hang = b.dataset.hang; rebuild(true); }));
+  document.querySelectorAll('[data-rule]').forEach(b => b.addEventListener('click', () => { state.rule = b.dataset.rule; rebuild(true); }));
+  $('sBeta').addEventListener('input', e => { state.beta = +e.target.value; rebuild(false); });
+  $('sN').addEventListener('input', e => { state.N = +e.target.value; rebuild(true); });
+  ['tCar', 'tPath', 'tXY', 'tLock'].forEach(id => $(id).addEventListener('change', () => draw(false)));
+  function onTheme() { makeMats(); if (state.mode === 'thread') { draw(false); strip(); } else drawFrames(false); }
+  if (window.matchMedia) window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', onTheme);
+  new MutationObserver(onTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+  makeMats(); resize(); rebuild(true);
+  new ResizeObserver(() => { resize(); if (state.mode === 'thread') strip(); }).observe(stage);
+  window.__SZ = { state, rebuild, setMode, get G() { return G; }, get SH() { return SH; } };
+})();
+</script>

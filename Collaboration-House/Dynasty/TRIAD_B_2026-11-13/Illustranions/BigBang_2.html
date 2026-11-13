@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Протокварк Qu → Qt — ВПК-модель</title>
+  <style>
+    body { 
+      margin: 0; 
+      background: white; 
+      overflow: hidden;
+      font-family: Arial, sans-serif;
+    }
+    canvas { display: block; }
+    .controls {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    }
+    .info-panel {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      min-width: 200px;
+    }
+    .timeline {
+      position: absolute;
+      bottom: 10px;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 100;
+      background: rgba(255,255,255,0.9);
+      padding: 10px;
+      border-radius: 5px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.2);
+      width: 80%;
+    }
+    button {
+      padding: 8px 12px;
+      margin: 2px;
+      background: #f0f0f0;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+      cursor: pointer;
+      font-size: 14px;
+    }
+    .phase-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    input[type="range"] {
+      width: 100%;
+      margin-top: 5px;
+    }
+    .info-item {
+      margin: 5px 0;
+    }
+    .dark-matter-point {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: #8B0000;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+    .star-point {
+      position: absolute;
+      width: 2px;
+      height: 2px;
+      background-color: white;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 3px 1px white;
+    }
+    .flash {
+      position: absolute;
+      width: 0;
+      height: 0;
+      background-color: white;
+      border-radius: 50%;
+      pointer-events: none;
+      box-shadow: 0 0 20px 10px white;
+      opacity: 0;
+    }
+  </style>
+</head>
+<body>
+  <div class="controls">
+    <button id="playBtn">▶</button>
+    <button id="pauseBtn">⏸</button>
+    <button id="resetBtn">⟳</button>
+    <div class="phase-buttons">
+      <button id="phase1Btn">Фаза 1: Начальное состояние</button>
+      <button id="phase2Btn">Фаза 2: Синхронизация</button>
+      <button id="phase3Btn">Фаза 3: Тёмная материя</button>
+      <button id="phase4Btn">Фаза 4: Гравитационный коллапс</button>
+      <button id="phase5Btn">Фаза 5: Большой взрыв</button>
+      <button id="phase6Btn">Фаза 6: Финальное кольцо</button>
+    </div>
+  </div>
+
+  <div class="info-panel">
+    <h3>ПАРАМЕТРЫ МОДЕЛИ</h3>
+    <div class="info-item" id="speedInfo1">Скорость сферы: 0.82</div>
+    <div class="info-item" id="speedInfo2">Скорость кольца: 0.58</div>
+    <div class="info-item" id="phaseInfo">Состояние: Начальное</div>
+  </div>
+
+  <div class="timeline">
+    <input type="range" id="timelineSlider" min="0" max="100" value="0">
+    <div style="display: flex; justify-content: space-between;">
+      <span>0%</span>
+      <span>25%</span>
+      <span>50%</span>
+      <span>75%</span>
+      <span>100%</span>
+    </div>
+  </div>
+
+  <script type="importmap">
+    {
+      "imports": {
+        "three": "https://cdn.jsdelivr.net/npm/three@0.157/build/three.module.js",
+        "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.157/examples/jsm/"
+      }
+    }
+  </script>
+  <script type="module">
+    import * as THREE from 'three';
+    import { OrbitControls } from 'three/addons/controls/OrbitControls.js';
+
+    // Инициализация сцены
+    const scene = new THREE.Scene();
+    const camera = new THREE.PerspectiveCamera(50, window.innerWidth/window.innerHeight, 0.1, 100);
+    camera.position.set(0, 0, 4);
+
+    const renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true });
+    renderer.setClearColor(0xffffff, 0);
+    renderer.setSize(window.innerWidth, window.innerHeight);
+    document.body.appendChild(renderer.domElement);
+
+    // Управление камерой
+    const controls = new OrbitControls(camera, renderer.domElement);
+    controls.enablePan = false;
+    controls.enableZoom = true;
+    controls.minDistance = 3;
+    controls.maxDistance = 6;
+
+    // Группа для всех объектов
+    const universeGroup = new THREE.Group();
+    scene.add(universeGroup);
+
+    // Добавление тора (из первого файла)
+    const glassMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0xddddff,
+      transparent: true,
+      opacity: 0,
+      roughness: 0.05,
+      transmission: 1.0,
+      thickness: 0.5,
+      clearcoat: 1.0
+    });
+
+    let torusRadius = 0.25;
+    let torusTube = 0.25;
+    const torus = new THREE.Mesh(
+      new THREE.TorusGeometry(torusRadius, torusTube, 32, 64),
+      glassMaterial
+    );
+    torus.rotation.y = Math.PI / 2;
+    universeGroup.add(torus);
+
+    function updateTorusGeometry() {
+      torus.geometry.dispose();
+      torus.geometry = new THREE.TorusGeometry(torusRadius, torusTube, 32, 64);
+    }
+
+    // 1. Сфера (Qu-протокварк)
+    const sphereGeometry = new THREE.SphereGeometry(0.5, 64, 64);
+    const sphereMaterial = new THREE.MeshPhysicalMaterial({
+      color: 0xddddff,
+      transparent: true,
+      opacity: 0.4,
+      roughness: 0.05,
+      transmission: 1.0,
+      thickness: 0.5,
+      clearcoat: 1.0
+    });
+    const sphere = new THREE.Mesh(sphereGeometry, sphereMaterial);
+    universeGroup.add(sphere);
+
+    // Два вертикальных меридиана для демонстрации вращения
+    const lineMaterial = new THREE.LineBasicMaterial({ color: 0x8888aa, transparent: true, opacity: 0.7 });
+    
+    // Первый меридиан (основной)
+    const meridianGeometry1 = new THREE.BufferGeometry();
+    const points1 = [];
+    for (let i = 0; i <= 64; i++) {
+      const theta = (i / 64) * Math.PI * 2;
+      points1.push(new THREE.Vector3(0, Math.sin(theta) * 0.5, Math.cos(theta) * 0.5));
+    }
+    meridianGeometry1.setFromPoints(points1);
+    const meridianLine1 = new THREE.Line(meridianGeometry1, lineMaterial);
+    sphere.add(meridianLine1);
+    
+    // Второй меридиан (перпендикулярный первому)
+    const meridianGeometry2 = new THREE.BufferGeometry();
+    const points2 = [];
+    for (let i = 0; i <= 64; i++) {
+      const theta = (i / 64) * Math.PI * 2;
+      points2.push(new THREE.Vector3(Math.cos(theta) * 0.5, Math.sin(theta) * 0.5, 0));
+    }
+    meridianGeometry2.setFromPoints(points2);
+    const meridianLine2 = new THREE.Line(meridianGeometry2, lineMaterial);
+    sphere.add(meridianLine2);
+
+    // 2. Кольцо (вертикальное)
+    const ringGeometry = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+    const ringMaterial = new THREE.MeshBasicMaterial({
+      color: 0xff0000,
+      transparent: true,
+      opacity: 1.0,
+      side: THREE.DoubleSide
+    });
+    const ring = new THREE.Mesh(ringGeometry, ringMaterial);
+    ring.rotation.y = Math.PI / 2;
+    universeGroup.add(ring);
+
+    // 3. Финальное кольцо (горизонтальное)
+    const finalRingGeometry = new THREE.TorusGeometry(0.5, 0.005, 8, 128);
+    const finalRingMaterial = new THREE.MeshBasicMaterial({
+      vertexColors: true,
+      side: THREE.DoubleSide,
+      transparent: true,
+      opacity: 0
+    });
+    
+    // Радужная раскраска финального кольца
+    const colors = [];
+    const color = new THREE.Color();
+    const ringPos = finalRingGeometry.attributes.position;
+    const ringCount = ringPos.count;
+    for (let i = 0; i < ringCount; i++) {
+      const t = i / ringCount;
+      color.setHSL(t, 1.0, 0.5);
+      colors.push(color.r, color.g, color.b);
+    }
+    finalRingGeometry.setAttribute('color', new THREE.Float32BufferAttribute(colors, 3));
+
+    const finalRing = new THREE.Mesh(finalRingGeometry, finalRingMaterial);
+    finalRing.rotation.x = Math.PI / 2; // горизонтальная ориентация
+    universeGroup.add(finalRing);
+
+    // Контейнеры для элементов
+    const darkMatterContainer = document.createElement('div');
+    darkMatterContainer.style.position = 'absolute';
+    darkMatterContainer.style.top = '0';
+    darkMatterContainer.style.left = '0';
+    darkMatterContainer.style.width = '100%';
+    darkMatterContainer.style.height = '100%';
+    darkMatterContainer.style.pointerEvents = 'none';
+    document.body.appendChild(darkMatterContainer);
+
+    const starsContainer = document.createElement('div');
+    starsContainer.style.position = 'absolute';
+    starsContainer.style.top = '0';
+    starsContainer.style.left = '0';
+    starsContainer.style.width = '100%';
+    starsContainer.style.height = '100%';
+    starsContainer.style.pointerEvents = 'none';
+    document.body.appendChild(starsContainer);
+
+    const flashElement = document.createElement('div');
+    flashElement.className = 'flash';
+    document.body.appendChild(flashElement);
+
+    // Освещение
+    scene.add(new THREE.AmbientLight(0xffffff, 0.7));
+    const light = new THREE.PointLight(0xffffff, 1);
+    light.position.set(3, 3, 5);
+    scene.add(light);
+
+    // Состояние анимации
+    const animationState = {
+      isPlaying: true,
+      currentPhase: 1,
+      progress: 0,
+      sphereSpeed: 0.82,
+      ringSpeed: 0.58,
+      sphereRotation: 0,
+      ringRotation: 0,
+      darkMatterPoints: [],
+      starPoints: [],
+      speedsSynced: false,
+      syncRotation: 0,
+      syncComplete: false,
+      collapseStarted: false,
+      explosionStarted: false,
+      flashAnimation: 0,
+      darkMatterCreationProgress: 0,
+      darkMatterCreated: 0,
+      ringDisappearProgress: 0,
+      pointsCreationProgress: 0,
+      finalRingAppearProgress: 0,
+      torusAppearProgress: 0
+    };
+
+    // Функции обновления UI
+    const updateInfoPanel = () => {
+      document.getElementById('speedInfo1').style.display = 'none';
+      document.getElementById('speedInfo2').style.display = 'none';
+
+      if (animationState.currentPhase <= 2) {
+        document.getElementById('speedInfo1').textContent = `Скорость сферы: ${animationState.sphereSpeed.toFixed(2)}`;
+        document.getElementById('speedInfo2').textContent = `Скорость кольца: ${animationState.ringSpeed.toFixed(2)}`;
+        document.getElementById('speedInfo1').style.display = 'block';
+        document.getElementById('speedInfo2').style.display = 'block';
+      } else if (animationState.currentPhase === 3) {
+        document.getElementById('speedInfo1').textContent = `Скорость шара: ${animationState.sphereSpeed.toFixed(2)}`;
+        document.getElementById('speedInfo1').style.display = 'block';
+      } else if (animationState.currentPhase === 4) {
+        const allPointsCollapsed = animationState.darkMatterPoints.length > 0 && 
+                                 animationState.darkMatterPoints.every(p => p.r < 0.1);
+        const speed = allPointsCollapsed ? 1.0 : animationState.sphereSpeed;
+        document.getElementById('speedInfo1').textContent = `Скорость шара: ${speed.toFixed(2)}`;
+        document.getElementById('speedInfo1').style.display = 'block';
+      } else if (animationState.currentPhase === 5) {
+        document.getElementById('speedInfo1').textContent = `Скорость вращения: 1.00`;
+        document.getElementById('speedInfo1').style.display = 'block';
+      } else {
+        document.getElementById('speedInfo1').textContent = `Скорость вращения: 0.00`;
+        document.getElementById('speedInfo1').style.display = 'block';
+      }
+
+      let phaseText = '';
+      switch(animationState.currentPhase) {
+        case 1: phaseText = 'Начальное'; break;
+        case 2: phaseText = 'Синхронизация'; break;
+        case 3: phaseText = 'Тёмная материя'; break;
+        case 4: phaseText = 'Гравитационный коллапс'; break;
+        case 5: phaseText = 'Большой взрыв'; break;
+        case 6: phaseText = 'Финальное кольцо'; break;
+      }
+      document.getElementById('phaseInfo').textContent = `Состояние: ${phaseText}`;
+    };
+
+    // Функции управления анимацией
+    const setPhase = (phase) => {
+      animationState.currentPhase = phase;
+      animationState.progress = (phase - 1) * 16.66;
+      updateAnimation();
+    };
+
+    // Создание точек тёмной материи из кольца
+    const createDarkMatterPoints = (count) => {
+      darkMatterContainer.innerHTML = '';
+      animationState.darkMatterPoints = [];
+      animationState.darkMatterCreationProgress = 0;
+      animationState.darkMatterCreated = 0;
+      animationState.pointsCreationProgress = 0;
+    };
+
+    // Постепенное создание точек в течение одного оборота
+    const createDarkMatterPointsGradually = (totalCount) => {
+      if (animationState.darkMatterCreated >= totalCount) return;
+      
+      const pointsToCreate = Math.max(1, Math.floor(totalCount * animationState.ringDisappearProgress) - animationState.darkMatterCreated);
+      
+      for (let i = 0; i < pointsToCreate; i++) {
+        const point = document.createElement('div');
+        point.className = 'dark-matter-point';
+        
+        let phi, rnd = Math.random();
+        if (rnd < 0.7) {
+          phi = Math.PI/2 + (Math.random() - 0.5) * Math.PI/3;
+        } else {
+          phi = Math.acos(2 * Math.random() - 1);
+        }
+        
+        const theta = 2 * Math.PI * Math.random();
+        const r = 0.49;
+        
+        animationState.darkMatterPoints.push({
+          element: point,
+          phi, theta, r,
+          velocity: 0,
+          x: r * Math.sin(phi) * Math.cos(theta),
+          y: r * Math.sin(phi) * Math.sin(theta),
+          z: r * Math.cos(phi)
+        });
+        
+        darkMatterContainer.appendChild(point);
+        animationState.darkMatterCreated++;
+      }
+    };
+
+    // Создание звездных точек после взрыва
+    const createStarPoints = (count) => {
+      starsContainer.innerHTML = '';
+      animationState.starPoints = [];
+
+      for (let i = 0; i < count; i++) {
+        const point = document.createElement('div');
+        point.className = 'star-point';
+        
+        const phi = Math.acos(2 * Math.random() - 1);
+        const theta = 2 * Math.PI * Math.random();
+        
+        animationState.starPoints.push({
+          element: point,
+          phi, theta,
+          r: 0.01,
+          velocity: Math.random() * 0.001 + 0.0005,
+          x: 0, y: 0, z: 0
+        });
+        
+        starsContainer.appendChild(point);
+      }
+    };
+
+    // Вспышка в центре
+    const createFlash = () => {
+      flashElement.style.opacity = '1';
+      flashElement.style.width = '0';
+      flashElement.style.height = '0';
+      flashElement.style.transform = 'translate(50%, 50%)';
+      flashElement.style.opacity = '1';
+      animationState.flashAnimation = 0;
+    };
+
+    // Обновление позиций точек
+    const updatePointsPositions = () => {
+      const vector = new THREE.Vector3();
+      
+      // Темная материя (фаза 3 и 4)
+      if (animationState.currentPhase >= 3 && animationState.currentPhase <= 5) {
+        if (animationState.currentPhase === 3 && animationState.darkMatterPoints.length < 300) {
+          animationState.pointsCreationProgress += 0.003;
+          createDarkMatterPointsGradually(300);
+        }
+        
+        animationState.darkMatterPoints.forEach(point => {
+          const rotatedTheta = point.theta + animationState.sphereRotation;
+          
+          if (animationState.currentPhase === 4) {
+            point.velocity += 0.0005 * (0.5 - point.r);
+            point.r = Math.max(0, point.r - point.velocity);
+          }
+          
+          point.x = point.r * Math.sin(point.phi) * Math.cos(rotatedTheta);
+          point.y = point.r * Math.cos(point.phi);
+          point.z = point.r * Math.sin(point.phi) * Math.sin(rotatedTheta);
+          
+          vector.set(point.x, point.y, point.z);
+          vector.project(camera);
+          
+          const screenX = (vector.x * 0.5 + 0.5) * window.innerWidth;
+          const screenY = (-(vector.y * 0.5) + 0.5) * window.innerHeight;
+          
+          point.element.style.transform = `translate(${screenX}px, ${screenY}px)`;
+        });
+
+        if (animationState.currentPhase === 4 && 
+            animationState.darkMatterPoints.length > 0 && 
+            animationState.darkMatterPoints.every(p => p.r < 0.1)) {
+          darkMatterContainer.innerHTML = '';
+          animationState.darkMatterPoints = [];
+          createFlash();
+          animationState.currentPhase = 5;
+          createStarPoints(100);
+          animationState.sphereSpeed = 1.0;
+        }
+      }
+      
+      // Звездные точки (фаза 5 и 6)
+      if (animationState.currentPhase >= 5) {
+        animationState.starPoints.forEach(point => {
+          if (animationState.currentPhase === 5) {
+            point.r += point.velocity;
+          }
+          
+          const rotatedTheta = point.theta + animationState.sphereRotation;
+          
+          point.x = point.r * Math.sin(point.phi) * Math.cos(rotatedTheta);
+          point.y = point.r * Math.sin(point.phi) * Math.sin(rotatedTheta);
+          point.z = point.r * Math.cos(point.phi);
+          
+          vector.set(point.x, point.y, point.z);
+          vector.project(camera);
+          
+          const screenX = (vector.x * 0.5 + 0.5) * window.innerWidth;
+          const screenY = (-(vector.y * 0.5) + 0.5) * window.innerHeight;
+          
+          point.element.style.transform = `translate(${screenX}px, ${screenY}px)`;
+          
+          // В фазе 6 точки постепенно исчезают
+          let opacity = Math.min(1, 1.5 - point.r);
+          if (animationState.currentPhase === 6) {
+            opacity *= (1 - animationState.finalRingAppearProgress);
+          }
+          point.element.style.opacity = opacity.toString();
+        });
+
+        if (animationState.currentPhase === 5 && 
+            animationState.starPoints.length > 0 && 
+            animationState.starPoints[0].r >= 0.49) {
+          sphereMaterial.color.setHex(0xffffdd);
+          sphereMaterial.opacity = 0.6;
+          animationState.currentPhase = 6;
+        }
+      }
+
+      // Анимация вспышки
+      if (animationState.flashAnimation < 1) {
+        animationState.flashAnimation += 0.05;
+        const scale = animationState.flashAnimation * 50;
+        const opacity = 1 - animationState.flashAnimation;
+        flashElement.style.width = `${scale}px`;
+        flashElement.style.height = `${scale}px`;
+        flashElement.style.opacity = opacity.toString();
+        flashElement.style.transform = `translate(calc(50% - ${scale/2}px), calc(50% - ${scale/2}px)`;
+      }
+    };
+
+    // Основное обновление анимации
+    const updateAnimation = () => {
+      const normalizedProgress = animationState.progress / 100;
+      
+      // Фаза 1: Начальное состояние (0-16.66%)
+      if (normalizedProgress <= 0.1666) {
+        animationState.currentPhase = 1;
+        animationState.sphereSpeed = 0.82;
+        animationState.ringSpeed = 0.58;
+        sphereMaterial.opacity = 0.4;
+        ringMaterial.color.setHex(0xff0000);
+        ringMaterial.opacity = 1.0;
+        meridianLine1.visible = true;
+        meridianLine2.visible = true;
+        animationState.speedsSynced = false;
+        animationState.syncComplete = false;
+        animationState.ringDisappearProgress = 0;
+        finalRingMaterial.opacity = 0;
+        
+        // Тор пока невидим
+        glassMaterial.opacity = 0;
+      }
+      // Фаза 2: Синхронизация (16.66-33.33%)
+      else if (normalizedProgress <= 0.3333) {
+        animationState.currentPhase = 2;
+        const phaseProgress = (normalizedProgress - 0.1666) / 0.1666;
+        
+        animationState.sphereSpeed = 0.82 - (0.82 - 0.58) * phaseProgress * 0.5;
+        animationState.ringSpeed = 0.58;
+        
+        if (Math.abs(animationState.sphereSpeed - animationState.ringSpeed) < 0.01 && !animationState.speedsSynced) {
+          animationState.speedsSynced = true;
+          animationState.syncRotation = animationState.sphereRotation % (Math.PI * 2);
+        }
+        
+        if (animationState.speedsSynced && !animationState.syncComplete) {
+          const rotationProgress = (animationState.sphereRotation - animationState.syncRotation) / (Math.PI * 2);
+          
+          if (rotationProgress >= 1) {
+            animationState.syncComplete = true;
+            meridianLine1.visible = false;
+            meridianLine2.visible = false;
+            createDarkMatterPoints(150);
+          } else {
+            sphereMaterial.opacity = 0.4 - (0.4 - 0.2) * rotationProgress;
+            animationState.ringDisappearProgress = rotationProgress;
+            ringMaterial.opacity = 1.0 - animationState.ringDisappearProgress;
+          }
+        }
+      }
+      // Фаза 3: Тёмная материя (33.33-50%)
+      else if (normalizedProgress <= 0.5) {
+        animationState.currentPhase = 3;
+        const phaseProgress = (normalizedProgress - 0.3333) / 0.1666;
+        
+        animationState.sphereSpeed = 0.58 + (1.0 - 0.58) * phaseProgress * 0.5;
+        ringMaterial.opacity = 0;
+      }
+      // Фаза 4: Гравитационный коллапс (50-66.66%)
+      else if (normalizedProgress <= 0.6666) {
+        animationState.currentPhase = 4;
+      }
+      // Фаза 5: Большой взрыв (66.66-83.33%)
+      else if (normalizedProgress <= 0.8333) {
+        animationState.currentPhase = 5;
+      }
+      // Фаза 6: Финальное кольцо (83.33-100%)
+      else {
+        animationState.currentPhase = 6;
+        const phaseProgress = (normalizedProgress - 0.8333) / 0.1666;
+        
+        // Полностью скрываем сферу и линии перед появлением кольца
+        if (phaseProgress > 0) {
+          sphere.visible = false;
+          meridianLine1.visible = false;
+          meridianLine2.visible = false;
+        }
+        
+        // Плавное появление финального кольца
+        animationState.finalRingAppearProgress = phaseProgress;
+        finalRingMaterial.opacity = phaseProgress;
+        
+        // Вращение финального кольца
+        finalRing.rotation.z += 0.01;
+        
+        // Анимация появления тора (после исчезновения белых точек)
+        if (phaseProgress > 0.5) {
+          const torusProgress = (phaseProgress - 0.5) / 0.5;
+          glassMaterial.opacity = torusProgress;
+          torusTube = 0.005 * (1 - torusProgress) + 0.25 * torusProgress;
+          torusRadius = 0.5 - torusTube;
+          updateTorusGeometry();
+        }
+      }
+      
+      document.getElementById('timelineSlider').value = animationState.progress;
+      updateInfoPanel();
+    };
+
+    // Анимационный цикл
+    const animate = () => {
+      requestAnimationFrame(animate);
+      
+      if (animationState.isPlaying && animationState.progress < 100) {
+        animationState.progress += 0.05;
+        updateAnimation();
+      }
+      
+      // Вращение объектов
+      if (sphere.visible) {
+        sphere.rotation.y += animationState.sphereSpeed * 0.01;
+        animationState.sphereRotation = sphere.rotation.y;
+      }
+      if (ring.visible) {
+        ring.rotation.y += animationState.ringSpeed * 0.01;
+        animationState.ringRotation = ring.rotation.y;
+      }
+      if (torus.visible) {
+        torus.rotation.y += animationState.sphereSpeed * 0.01;
+      }
+      
+      updatePointsPositions();
+      
+      controls.update();
+      renderer.render(scene, camera);
+    };
+    animate();
+
+    // Управление анимацией
+    document.getElementById('playBtn').addEventListener('click', () => {
+      animationState.isPlaying = true;
+    });
+    
+    document.getElementById('pauseBtn').addEventListener('click', () => {
+      animationState.isPlaying = false;
+    });
+    
+    document.getElementById('resetBtn').addEventListener('click', () => {
+      animationState.isPlaying = false;
+      animationState.progress = 0;
+      animationState.currentPhase = 1;
+      animationState.sphereSpeed = 0.82;
+      animationState.ringSpeed = 0.58;
+      animationState.sphereRotation = 0;
+      animationState.ringRotation = 0;
+      animationState.speedsSynced = false;
+      animationState.syncComplete = false;
+      animationState.collapseStarted = false;
+      animationState.explosionStarted = false;
+      darkMatterContainer.innerHTML = '';
+      starsContainer.innerHTML = '';
+      flashElement.style.opacity = '0';
+      animationState.darkMatterPoints = [];
+      animationState.starPoints = [];
+      sphereMaterial.color.setHex(0xddddff);
+      sphereMaterial.opacity = 0.4;
+      ringMaterial.opacity = 1.0;
+      meridianLine1.visible = true;
+      meridianLine2.visible = true;
+      animationState.ringDisappearProgress = 0;
+      animationState.pointsCreationProgress = 0;
+      finalRingMaterial.opacity = 0;
+      animationState.finalRingAppearProgress = 0;
+      finalRing.rotation.z = 0;
+      
+      // Восстанавливаем видимость объектов
+      sphere.visible = true;
+      ring.visible = true;
+      torus.visible = true;
+      
+      // Сброс состояния тора
+      glassMaterial.opacity = 0;
+      torusTube = 0.25;
+      torusRadius = 0.25;
+      updateTorusGeometry();
+      
+      updateAnimation();
+    });
+    
+    // Кнопки фаз
+    document.getElementById('phase1Btn').addEventListener('click', () => setPhase(1));
+    document.getElementById('phase2Btn').addEventListener('click', () => setPhase(2));
+    document.getElementById('phase3Btn').addEventListener('click', () => setPhase(3));
+    document.getElementById('phase4Btn').addEventListener('click', () => setPhase(4));
+    document.getElementById('phase5Btn').addEventListener('click', () => setPhase(5));
+    document.getElementById('phase6Btn').addEventListener('click', () => setPhase(6));
+    
+    // Управление временной шкалой
+    document.getElementById('timelineSlider').addEventListener('input', (e) => {
+      animationState.isPlaying = false;
+      animationState.progress = parseFloat(e.target.value);
+      updateAnimation();
+    });
+
+    // Обработка изменения размера
+    window.addEventListener('resize', () => {
+      camera.aspect = window.innerWidth / window.innerHeight;
+      camera.updateProjectionMatrix();
+      renderer.setSize(window.innerWidth, window.innerHeight);
+    });
+
+    // Инициализация
+    updateInfoPanel();
+  </script>
+</body>
+</html>
