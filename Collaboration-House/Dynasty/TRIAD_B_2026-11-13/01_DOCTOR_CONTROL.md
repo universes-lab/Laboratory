@@ -15,7 +15,7 @@
 | Актуальная поправка авторской теории | B1 RESTRICTED 1.2 READ CLAIMED / SUBSTANTIVE COMPARISON OBSERVED | B2 FULL 1.2 READ CLAIMED / SUBSTANTIVE COMPARISON OBSERVED |
 | Профессиональная ориентация | PASS / POSITION NOTE AUTHOR-RELAYED + GITHUB PRESERVED | PASS / POSITION NOTE GITHUB VERIFIED |
 | Scientific Gate | PASS / УДОВЛЕТВОРИТЕЛЬНО / AUTHOR OVERRIDE READER SPLIT | PASS / ОТЛИЧНО / TWO READERS |
-| Doctor Clinical Gate / neonatal | STAGE 1 PREPARED / NEONATAL NOT STARTED | STAGE 1 PREPARED / NEONATAL NOT STARTED |
+| Doctor Clinical Gate / neonatal | STAGE 1 PASS / STAGE 2 READY / NEONATAL NOT STARTED | STAGE 1 PASS / STAGE 2 READY / NEONATAL NOT STARTED |
 | Авторская активация | NOT GRANTED | NOT GRANTED |
 | Work Permit кандидата | NONE | NONE |
 
@@ -160,3 +160,12 @@
 `B1_CLINICAL_STAGE_2 = NOT STARTED`; `B2_CLINICAL_STAGE_2 = NOT STARTED`
 `B1_B2_NEONATAL = NOT STARTED`
 `AUTHOR_ACTIVATION = NONE`; `WORK_PERMIT = NONE`.
+
+## 14.11.2026 — Два Clinical Stage 1 пройдены; Stage 2 разрешены
+**B1 / DeepSeek:** Ответ получен через Автора. `STAGE_1 = PASS`. Корректное разделение сводки, отсутствующих первичных свидетельств и голословного P-13; отвергнуто преждевременное заключение о невозможности, запрошены первоисточники и узкая проверка; решение о закрытии не присвоено. Малое замечание: шагов проверки больше минимально необходимых.
+**B2 / Claude:** Ответ получен через Автора. `STAGE_1 = PASS`. Интерфейсный статус не принят как доказательство сквозной доставки, названы различимые альтернативы и минимальная проверка, нет самовольного запуска. Малое замечание: оценка трудозатрат «на часы, не недели» без проверки кода чрезмерно уверенная.
+**Stage 2:** оба получили допуск к независимым вторым клиническим испытаниям с новым фактическим материалом, который намеренно НЕ помещён в публичный меджурнал до выдачи кандидатам. Каждый получает только своё Stage 2 сообщение через Автора. Их ответы и авторские полномочия сохраняются раздельно; оценивать реальный пересмотр позиции, а не соответствие заранее предположенному результату.
+`B1_CLINICAL_STAGE_1 = PASS` · `B2_CLINICAL_STAGE_1 = PASS`
+`B1_B2_STAGE_2 = PREPARED / NOT YET DELIVERED`
+`CLINICAL_FINAL = PENDING`; `NEONATAL = NOT STARTED`
+`ACTIVATION = NONE`; `WORK_PERMIT = NONE`.
