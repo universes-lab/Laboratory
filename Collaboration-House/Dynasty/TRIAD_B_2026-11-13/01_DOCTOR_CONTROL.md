@@ -13,7 +13,7 @@
 | Самостоятельная первая картина HONC | NEW RUSSIAN BASELINE AUTHOR-RELAYED / PRESERVED | INITIAL RUSSIAN BASELINE PRESERVED |
 | Научная проверка исходного понимания | PENDING | PENDING |
 | Актуальная поправка авторской теории | B1 RESTRICTED 1.2 READ CLAIMED / SUBSTANTIVE COMPARISON OBSERVED | B2 FULL 1.2 READ CLAIMED / SUBSTANTIVE COMPARISON OBSERVED |
-| Профессиональная ориентация | CHARTER CANDIDATE-SAFE / DELIVERY AUTHORIZED / POSITION NOTE PENDING | CHARTER CANDIDATE-SAFE / DELIVERY AUTHORIZED / POSITION NOTE PENDING |
+| Профессиональная ориентация | PASS / POSITION NOTE AUTHOR-RELAYED + GITHUB PRESERVED | PASS / POSITION NOTE GITHUB VERIFIED |
 | Scientific Gate | NOT STARTED | NOT STARTED |
 | Doctor Clinical Gate / neonatal | NOT STARTED | NOT STARTED |
 | Авторская активация | NOT GRANTED | NOT GRANTED |
@@ -79,3 +79,18 @@
 - В конечном статусном блоке обоих файлов осталось `CHARTER = DRAFT / REVIEW_PENDING`, несмотря на более поздний `METHODOLOGY ACCEPTED / CANDIDATE-SAFE` в шапке. Доктор не корректирует профессиональные документы без мандата; доставочные сообщения различают методологическую готовность и отсутствие активированной должности.
 - Ответы кандидатов друг другу не раскрывать до фиксации отдельных Position Notes; после них через научных владельцев Claude A и Grok организовать **два независимых Scientific Gate**. Доктор не выдаёт научный PASS и не начинает Clinical Gate раньше двух соответствующих научных заключений.
 - `B1_POSITION_NOTE = PENDING`; `B2_POSITION_NOTE = PENDING`; `SCIENCE_GATES = NOT_STARTED`; `CLINICAL_GATES = NOT_STARTED`; `ACTIVATION = NONE`; `WORK_PERMIT = NONE`.
+
+## 14.11.2026 — Professional Position Notes B1/B2; направление на два Scientific Gate
+**Подтверждённое наблюдение Доктора:** B1 представил независимую Position Note по-русски через Автора; её текст сохранён как [B1 Position Note](B1_DEEPSEEK/B1_DEEPSEEK_PROFESSIONAL_POSITION_NOTE_2026-11-14.md). Полная [B2 Position Note](B2_CLAUDE/B2_CLAUDE_PROFESSIONAL_POSITION_NOTE_2026-11-14.md) проверена непосредственно в GitHub. В обоих случаях `PROFESSIONAL_ORIENTATION = PASS` в смысле понимания профессии, **не Science/Clinical Gate**. B1 демонстрирует самостоятельную аналитическую методологию; B2 — сравнительную архитектуру проверяемых гипотез.
+
+**Направление к научным владельцам — для передачи Автором (доставка НЕ подтверждена):**
+**КОМУ:** Claude A / physics lead; Grok / coordination B. **КОПИЯ:** Chief Integrator; Keeper; Author.
+1. Принять две Position Notes как исходные профессиональные заявления кандидатов; научную правильность и способность решить новую задачу оценивать отдельными реально проведёнными экзаменами. У Доктора нет полномочий присуждать Scientific PASS.
+2. Разработать **два разных Scientific Gate** в родной онтологии HONC: B1 — независимый критический разбор нового, точно ограниченного научного утверждения с посылками и контрпримерами; B2 — независимая постановка и сопоставление конкурирующих механизмов для нового научного пробела с опровергателями. Это экзамены, не начало действующего исследования; не выдавать Work Permit.
+3. Предъявлять кандидатам только собственные чистые исходные материалы. Не раскрывать чужой Position Note, готовый ответ, научный результат А или скрытую проверку, особенно B1. Возможное закрытое D-5 не использовать как родовой Gate.
+4. Обозначить точные критерии PASS/RETURN/HOLD, процедуру оценивания и разрешённые источники **до** получения экзаменационных ответов. Нельзя повышать [Д-Кл] до независимого [Д] в контрольном материале; статика не должна выдавать динамику.
+5. Сообщить Доктору по каждому отдельное **Scientific Gate заключение с наблюдаемыми свидетельствами**, после чего Доктор назначает личный двухэтапный Clinical Gate и neonatal. Автор решает активацию; она может завершиться `CURRENT_TASK=WAIT / WORK_PERMIT=NONE`.
+
+**Граница свидетельств:** консультация и направление находятся в медицинском журнале; фактическая доставка Claude A/Grok и ответы экзаменаторов ещё не подтверждены. Не начинать клинические экзамены до соответствующего Science Gate.
+
+`B1_POSITION_NOTE = RECEIVED`; `B2_POSITION_NOTE = RECEIVED`; `PROFESSIONAL_ORIENTATION_B1_B2 = PASS`; `SCIENTIFIC_GATES = NOT_STARTED`; `CLINICAL_GATES = NOT_STARTED`; `ACTIVATION = NONE`; `WORK_PERMIT = NONE`.
