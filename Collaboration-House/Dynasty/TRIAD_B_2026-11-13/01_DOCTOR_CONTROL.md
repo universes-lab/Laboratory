@@ -13,7 +13,7 @@
 | Самостоятельная первая картина HONC | NEW RUSSIAN BASELINE AUTHOR-RELAYED / PRESERVED | INITIAL RUSSIAN BASELINE PRESERVED |
 | Научная проверка исходного понимания | PENDING | PENDING |
 | Актуальная поправка авторской теории | B1 RESTRICTED 1.2 READ CLAIMED / SUBSTANTIVE COMPARISON OBSERVED | B2 FULL 1.2 READ CLAIMED / SUBSTANTIVE COMPARISON OBSERVED |
-| Профессиональная ориентация | NOT STARTED | NOT STARTED |
+| Профессиональная ориентация | CHARTER CANDIDATE-SAFE / DELIVERY AUTHORIZED / POSITION NOTE PENDING | CHARTER CANDIDATE-SAFE / DELIVERY AUTHORIZED / POSITION NOTE PENDING |
 | Scientific Gate | NOT STARTED | NOT STARTED |
 | Doctor Clinical Gate / neonatal | NOT STARTED | NOT STARTED |
 | Авторская активация | NOT GRANTED | NOT GRANTED |
@@ -72,3 +72,10 @@
 - B2 ранее представил сопоставление по полной 1.2; оба завершили учебное чтение актуальных научных материалов **по своим свидетельствам**. Научные владельцы должны подтвердить содержательную корректность и готовность к отдельным Scientific Gates.
 - Следующий образовательный слой — **индивидуальные профессиональные конституции**, пока два черновика. Внимание: B1 charter draft §6 называет потенциальное закрытое D-5/K4. До явного решения о слепоте не пересылать черновик B1 целиком кандидату; исключить закрытые сведения только с проверкой профессиональных владельцев.
 - Выпуск индивидуальной Position Note и дальнейший Gate проводится после профессионального инструктажа. Не затягивать формирование ради необязательной будущей слепой проверки; отдельно получить решение о границе её применимости.
+
+## 14.11.2026 — Два профессиональных Charter: исправление принято Интегратором
+- Распоряжение Chief Integrator / Methodologist поступило через Автора: обе конституции методологически приняты и объявлены CANDIDATE-SAFE. Доктор повторно прочитал текущие GitHub-файлы B1/B2 и подтвердил, что конкретное закрытое задание/его обозначение удалены. Отправка кандидатам разрешена **только для подготовки независимых Position Notes**.
+- Научный учебный baseline B1 (restricted 1.2) и B2 (full 1.2) уже наблюдался по отчётам. Следующее действие — два отдельных профессиональных сообщения; сам факт получения каждого пока не подтверждён.
+- В конечном статусном блоке обоих файлов осталось `CHARTER = DRAFT / REVIEW_PENDING`, несмотря на более поздний `METHODOLOGY ACCEPTED / CANDIDATE-SAFE` в шапке. Доктор не корректирует профессиональные документы без мандата; доставочные сообщения различают методологическую готовность и отсутствие активированной должности.
+- Ответы кандидатов друг другу не раскрывать до фиксации отдельных Position Notes; после них через научных владельцев Claude A и Grok организовать **два независимых Scientific Gate**. Доктор не выдаёт научный PASS и не начинает Clinical Gate раньше двух соответствующих научных заключений.
+- `B1_POSITION_NOTE = PENDING`; `B2_POSITION_NOTE = PENDING`; `SCIENCE_GATES = NOT_STARTED`; `CLINICAL_GATES = NOT_STARTED`; `ACTIVATION = NONE`; `WORK_PERMIT = NONE`.
