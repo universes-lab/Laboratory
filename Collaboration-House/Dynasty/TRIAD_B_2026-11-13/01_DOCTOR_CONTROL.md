@@ -16,8 +16,8 @@
 | Профессиональная ориентация | PASS / POSITION NOTE AUTHOR-RELAYED + GITHUB PRESERVED | PASS / POSITION NOTE GITHUB VERIFIED |
 | Scientific Gate | PASS / УДОВЛЕТВОРИТЕЛЬНО / AUTHOR OVERRIDE READER SPLIT | PASS / ОТЛИЧНО / TWO READERS |
 | Doctor Clinical Gate / neonatal | STAGE 1 PASS / STAGE 2 PASS / CLINICAL PASS / NEONATAL PASS | STAGE 1 PASS / STAGE 2 PASS / CLINICAL PASS / NEONATAL PASS |
-| Авторская активация | NOT GRANTED | NOT GRANTED |
-| Work Permit кандидата | NONE | NONE |
+| Авторская активация | ACTIVE / ACK | ACTIVE / ACK |
+| Work Permit кандидата | YES / WAIT | YES / WAIT |
 
 ## Медицинские инварианты
 1. Первое восприятие — физический мир HONC, не чужая биография, внутренние титулы и история проверок.
@@ -223,3 +223,13 @@
 
 **Doctor / Collaboration Medicine**
 
+
+## 14.11.2026 — Author permission / final status
+
+Автор выдал разрешения на работу обоим специалистам; B1 и B2 подтвердили принятие статуса ACTIVE. Оба правильно сохраняют `CURRENT_TASK = WAIT`. Конкретная научная задача, границы источников и разрешённые инструменты ещё не назначены. Исследования не начинались.
+
+`B1 = ACTIVE / WORK_PERMIT YES / TASK WAIT`
+`B2 = ACTIVE / WORK_PERMIT YES / TASK WAIT`
+`SCIENTIFIC/CLINICAL/NEONATAL GATES = CLOSED / PASS BOTH`
+`MEDICAL BIRTH MISSION = COMPLETED`
+`FINAL AUTHORITY = AUTHOR`
