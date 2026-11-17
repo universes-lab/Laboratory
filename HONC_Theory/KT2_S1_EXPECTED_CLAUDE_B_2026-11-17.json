@@ -1,0 +1,1013 @@
+{
+ "meta": {
+  "package": "HONC_Qf_KT2_S1_ClaudeB",
+  "stage1_file": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167)",
+  "exec_input_sha256": "0b8f2db22979bbbd209f8a3266980bf7a6e3fe7ce426b8fe6ac6d273ab41801e",
+  "translation": "Клод_А, 17.11.2026; содержание сдачи Клода_Б не меняется; каждая ref — дословная подстрока сдачи",
+  "counting": "в независимое покрытие — только mark=DERIVED; R-3 — mark=SOURCE, не засчитывается"
+ },
+ "tests": {
+  "S1-node-blind": {
+   "kind": "K.run",
+   "case": "S1-node",
+   "expect": [
+    {
+     "path": "verdict.geometry",
+     "in": [
+      "PASSED"
+     ],
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 2",
+     "ref": "| **вердикт** | **PASSED** |",
+     "mark": "DERIVED"
+    },
+    {
+     "path": "j5.canon.verdict",
+     "in": [
+      "UNRESOLVED"
+     ],
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 3",
+     "ref": "| **J5-CANON** | **UNRESOLVED** |",
+     "mark": "DERIVED"
+    },
+    {
+     "path": "j5.ext.verdict",
+     "in": [
+      "PASSED-EXT"
+     ],
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 3",
+     "ref": "| **J5-EXT** | **PASSED-EXT** [Г, мост] |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ],
+      [
+       "T3",
+       "T4"
+      ],
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ],
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "existence",
+     "value": "IMPOSED",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), итог, п. 4",
+     "ref": "10 пар, все `IMPOSED`",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "T2"
+      ],
+      [
+       "T0",
+       "T3"
+      ],
+      [
+       "T0",
+       "T4"
+      ],
+      [
+       "T0",
+       "H2"
+      ],
+      [
+       "T0",
+       "H3"
+      ],
+      [
+       "T1",
+       "T3"
+      ],
+      [
+       "T1",
+       "T4"
+      ],
+      [
+       "T1",
+       "H3"
+      ],
+      [
+       "T2",
+       "T4"
+      ],
+      [
+       "T2",
+       "H1"
+      ],
+      [
+       "T3",
+       "H1"
+      ],
+      [
+       "T3",
+       "H2"
+      ],
+      [
+       "T4",
+       "H1"
+      ],
+      [
+       "T4",
+       "H2"
+      ],
+      [
+       "T4",
+       "H3"
+      ],
+      [
+       "H1",
+       "H2"
+      ],
+      [
+       "H1",
+       "H3"
+      ],
+      [
+       "H2",
+       "H3"
+      ]
+     ],
+     "field": "existence",
+     "value": "SEPARATED",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), итог, п. 4",
+     "ref": "остальные 18 пар торов `SEPARATED`",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ],
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "contact_class",
+     "value": "STRUCTURAL",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "| T0–T1, T1–T2, T2–T3, T3–T4 | `IMPOSED` (П-8а) · `STRUCTURAL` |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ],
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "basis.rule",
+     "value": "П-8а",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "| T0–T1, T1–T2, T2–T3, T3–T4 | `IMPOSED` (П-8а) · `STRUCTURAL` |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "contact_class",
+     "value": "STRUCTURAL",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "| T1–H1, T2–H2, T3–H3 | `IMPOSED` (П-8а) · `STRUCTURAL` |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "basis.rule",
+     "value": "П-8а",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "| T1–H1, T2–H2, T3–H3 | `IMPOSED` (П-8а) · `STRUCTURAL` |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "contact_class",
+     "value": "ALLOWED CONTACT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "| T0–H1, T1–H2, T2–H3 | `IMPOSED` (П-8б, строка `\"П-8б\"`) · `ALLOWED CONTACT` |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "basis.rule",
+     "value": "П-8б",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "| T0–H1, T1–H2, T2–H3 | `IMPOSED` (П-8б, строка `\"П-8б\"`) · `ALLOWED CONTACT` |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ],
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-CANON",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "`J5-CANON`, sign −1",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ],
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "sign",
+     "value": -1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "`J5-CANON`, sign −1",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-EXT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "`MIXED`; `J5-EXT`, sign −1",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "sign",
+     "value": -1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "`MIXED`; `J5-EXT`, sign −1",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-EXT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "`J5-EXT`, cos = +0,124657, sign +1",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "contacts",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "sign",
+     "value": 1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 4",
+     "ref": "`J5-EXT`, cos = +0,124657, sign +1",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ]
+     ],
+     "field": "cls",
+     "value": "LINK",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–T1, T1–T2, T2–T3 | `LINK` · `J5-CANON` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-CANON",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–T1, T1–T2, T2–T3 | `LINK` · `J5-CANON` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ]
+     ],
+     "field": "sign",
+     "value": -1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–T1, T1–T2, T2–T3 | `LINK` · `J5-CANON` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "T1"
+      ],
+      [
+       "T1",
+       "T2"
+      ],
+      [
+       "T2",
+       "T3"
+      ]
+     ],
+     "field": "on_cycle",
+     "value": true,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–T1, T1–T2, T2–T3 | `LINK` · `J5-CANON` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "cls",
+     "value": "LINK",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T3–T4 | `LINK` · `J5-CANON` · −1 · мост |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-CANON",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T3–T4 | `LINK` · `J5-CANON` · −1 · мост |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "sign",
+     "value": -1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T3–T4 | `LINK` · `J5-CANON` · −1 · мост |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T3",
+       "T4"
+      ]
+     ],
+     "field": "bridge",
+     "value": true,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T3–T4 | `LINK` · `J5-CANON` · −1 · мост |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "cls",
+     "value": "LINK",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T1–H1, T2–H2, T3–H3 | `LINK` · `J5-EXT` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-EXT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T1–H1, T2–H2, T3–H3 | `LINK` · `J5-EXT` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "sign",
+     "value": -1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T1–H1, T2–H2, T3–H3 | `LINK` · `J5-EXT` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T1",
+       "H1"
+      ],
+      [
+       "T2",
+       "H2"
+      ],
+      [
+       "T3",
+       "H3"
+      ]
+     ],
+     "field": "on_cycle",
+     "value": true,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T1–H1, T2–H2, T3–H3 | `LINK` · `J5-EXT` · −1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "cls",
+     "value": "CONTACT-ONLY",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–H1, T1–H2, T2–H3 | `CONTACT-ONLY` · `J5-EXT` · +1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "reading",
+     "value": "J5-EXT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–H1, T1–H2, T2–H3 | `CONTACT-ONLY` · `J5-EXT` · +1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "sign",
+     "value": 1,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–H1, T1–H2, T2–H3 | `CONTACT-ONLY` · `J5-EXT` · +1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "j5_edges",
+     "pairs": [
+      [
+       "T0",
+       "H1"
+      ],
+      [
+       "T1",
+       "H2"
+      ],
+      [
+       "T2",
+       "H3"
+      ]
+     ],
+     "field": "on_cycle",
+     "value": true,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 5",
+     "ref": "| T0–H1, T1–H2, T2–H3 | `CONTACT-ONLY` · `J5-EXT` · +1 · на цикле |",
+     "mark": "DERIVED"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH2"
+      ]
+     ],
+     "field": "case",
+     "value": "parallel-distinct",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH2) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH2"
+      ]
+     ],
+     "field": "completeness",
+     "value": "EXACT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH2) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH2"
+      ]
+     ],
+     "field": "verdict",
+     "value": "PASSED",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH2) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH2"
+      ]
+     ],
+     "field": "plane_relation_basis.rule",
+     "value": "П-9в",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH2) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH2",
+       "RH3"
+      ]
+     ],
+     "field": "case",
+     "value": "parallel-distinct",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH2, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH2",
+       "RH3"
+      ]
+     ],
+     "field": "completeness",
+     "value": "EXACT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH2, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH2",
+       "RH3"
+      ]
+     ],
+     "field": "verdict",
+     "value": "PASSED",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH2, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH2",
+       "RH3"
+      ]
+     ],
+     "field": "plane_relation_basis.rule",
+     "value": "П-9в",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH2, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9в\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH3"
+      ]
+     ],
+     "field": "case",
+     "value": "parallel-distinct",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9а\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH3"
+      ]
+     ],
+     "field": "completeness",
+     "value": "EXACT",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9а\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH3"
+      ]
+     ],
+     "field": "verdict",
+     "value": "PASSED",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9а\"` |",
+     "mark": "SOURCE"
+    },
+    {
+     "kind": "checks",
+     "req": "R-3",
+     "objects_list": [
+      [
+       "RH1",
+       "RH3"
+      ]
+     ],
+     "field": "plane_relation_basis.rule",
+     "value": "П-9а",
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 6",
+     "ref": "| (RH1, RH3) | R-3, `parallel-distinct`, `EXACT`, `PASSED`, правило `\"П-9а\"` |",
+     "mark": "SOURCE"
+    }
+   ],
+   "num": [
+    {
+     "id": "rho_star_H1",
+     "extract": {
+      "k": "contact",
+      "pair": [
+       "T0",
+       "H1"
+      ],
+      "f": "basis.root_deg"
+     },
+     "op": "contains",
+     "v": 57.260890654,
+     "tol": 0.005,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 1",
+     "ref": "| ρ*(H1) | 57,26° (57,260890654°) |",
+     "mark": "DERIVED",
+     "note": "точность ответа — 0,01° (задание, § 2, п. 1): вилка корня ядра должна лежать в [ρ* − 0,005°; ρ* + 0,005°]"
+    },
+    {
+     "id": "rho_star_H2",
+     "extract": {
+      "k": "contact",
+      "pair": [
+       "T1",
+       "H2"
+      ],
+      "f": "basis.root_deg"
+     },
+     "op": "contains",
+     "v": 57.260890654,
+     "tol": 0.005,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 1",
+     "ref": "| ρ*(H1) | 57,26° (57,260890654°) |",
+     "mark": "DERIVED",
+     "note": "точность ответа — 0,01° (задание, § 2, п. 1): вилка корня ядра должна лежать в [ρ* − 0,005°; ρ* + 0,005°]"
+    },
+    {
+     "id": "rho_star_H3",
+     "extract": {
+      "k": "contact",
+      "pair": [
+       "T2",
+       "H3"
+      ],
+      "f": "basis.root_deg"
+     },
+     "op": "contains",
+     "v": 57.260890654,
+     "tol": 0.005,
+     "src": "CLAUDE_B_KT2_BLIND_K4_RESULT_2026-11-17.md (sha256 e44b8389…5167), § 1",
+     "ref": "| ρ*(H1) | 57,26° (57,260890654°) |",
+     "mark": "DERIVED",
+     "note": "точность ответа — 0,01° (задание, § 2, п. 1): вилка корня ядра должна лежать в [ρ* − 0,005°; ρ* + 0,005°]"
+    }
+   ]
+  }
+ },
+ "mutants": []
+}
