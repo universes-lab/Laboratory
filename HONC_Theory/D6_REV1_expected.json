@@ -1,0 +1,1903 @@
+{
+  "meta": {
+    "rev": 1,
+    "part": "d6",
+    "status": "preparation",
+    "source": "D-5 ред. 3 (фикс. 13.11); интерфейс v6 + v7 + v7.1 + v7.1 поправка 1",
+    "interface": "v7.1",
+    "kappa_min": 0.05,
+    "theta_min_deg": 1,
+    "op_definitions": {
+      "contains": "fork ⊆ [v−tol, v+tol]",
+      "contains_half_open": "fork ⊆ [v−tol, v+tol)",
+      "value_contains": "fork.lo − tol ≤ v ≤ fork.hi + tol",
+      "le": "fork.hi ≤ v",
+      "le_with_margin": "fork.hi ≤ v + tol"
+    }
+  },
+  "tests": {
+    "K5-POS-transverse": {
+      "kind": "K.run",
+      "case": "K5-POS-transverse",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-POS-transverse § 4, «Итоги. Геометрия»",
+          "ref": "**Геометрия:** `PASSED`."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-POS-transverse § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "K5-POS-transverse § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ],
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K5-POS-transverse § 4, «Итоги. Касания»",
+          "ref": "**Касания:** все IMPOSED (П-8(а)/П-8(г))."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "K5-POS-transverse § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1} (R_k); LINK T_k–H_k (RH_k); H_k–H_{k+1} — CONTACT-ONLY."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "K5-POS-transverse § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1} (R_k); LINK T_k–H_k (RH_k); H_k–H_{k+1} — CONTACT-ONLY."
+        }
+      ],
+      "num": [
+        {
+          "id": "gap_H1_H2",
+          "extract": {
+            "k": "contact",
+            "pair": [
+              "H1",
+              "H2"
+            ],
+            "f": "gap"
+          },
+          "op": "contains",
+          "v": 0,
+          "tol": 1e-09,
+          "src": "K5-POS-transverse § 3, «d_H–H = 2»; G-4: d=2 → g=0",
+          "ref": "Касания навес–навес на расстоянии 2",
+          "tol_src": "§ 2.11 А-6, столбец допуска 10⁻⁹"
+        },
+        {
+          "id": "gap_H2_H3",
+          "extract": {
+            "k": "contact",
+            "pair": [
+              "H2",
+              "H3"
+            ],
+            "f": "gap"
+          },
+          "op": "contains",
+          "v": 0,
+          "tol": 1e-09,
+          "src": "K5-POS-transverse § 3, «d_H–H = 2»; G-4: d=2 → g=0",
+          "ref": "Касания навес–навес на расстоянии 2",
+          "tol_src": "§ 2.11 А-6, столбец допуска 10⁻⁹"
+        }
+      ]
+    },
+    "K5-POS-uniform-shift": {
+      "kind": "K.run",
+      "case": "K5-POS-uniform-shift",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-POS-uniform-shift § 4",
+          "ref": "Геометрия PASSED; J5 PASSED/PASSED-EXT; топология и касания — как transverse."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-POS-uniform-shift § 4",
+          "ref": "Геометрия PASSED; J5 PASSED/PASSED-EXT; топология и касания — как transverse."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "K5-POS-uniform-shift § 4",
+          "ref": "Геометрия PASSED; J5 PASSED/PASSED-EXT; топология и касания — как transverse."
+        }
+      ],
+      "num": [
+        {
+          "id": "gap_H1_H2",
+          "extract": {
+            "k": "contact",
+            "pair": [
+              "H1",
+              "H2"
+            ],
+            "f": "gap"
+          },
+          "op": "contains",
+          "v": 0,
+          "tol": 1e-09,
+          "src": "K5-POS-uniform-shift § 3, «d_H–H = 2»; G-4: d=2 → g=0",
+          "ref": "касания сохраняются",
+          "tol_src": "§ 2.11 А-6, столбец допуска 10⁻⁹"
+        },
+        {
+          "id": "gap_H2_H3",
+          "extract": {
+            "k": "contact",
+            "pair": [
+              "H2",
+              "H3"
+            ],
+            "f": "gap"
+          },
+          "op": "contains",
+          "v": 0,
+          "tol": 1e-09,
+          "src": "K5-POS-uniform-shift § 3, «d_H–H = 2»; G-4: d=2 → g=0",
+          "ref": "касания сохраняются",
+          "tol_src": "§ 2.11 А-6, столбец допуска 10⁻⁹"
+        }
+      ]
+    },
+    "K5-POS-K4-node": {
+      "kind": "K.run",
+      "case": "K5-POS-K4-node",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-POS-K4-node § 4, «Итоги. Геометрия»",
+          "ref": "**Геометрия:** `PASSED`."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "K5-POS-K4-node § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: UNRESOLVED`; `J5-EXT: PASSED-EXT`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "K5-POS-K4-node § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: UNRESOLVED`; `J5-EXT: PASSED-EXT`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ],
+            [
+              "T0",
+              "H1"
+            ],
+            [
+              "T1",
+              "H2"
+            ],
+            [
+              "T2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K5-POS-K4-node § 4, «Итоги. Касания»",
+          "ref": "**Касания:** T_k–T_{k+1} IMPOSED (П-8(а)); T_k–H_k — LINK, IMPOSED (П-8(а)); T_{k−1}–H_k — CONTACT-ONLY, IMPOSED через `fix` (П-8(б)); H–H SEPARATED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ],
+            [
+              "H1",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "SEPARATED",
+          "src": "K5-POS-K4-node § 4, «Итоги. Касания»",
+          "ref": "**Касания:** T_k–T_{k+1} IMPOSED (П-8(а)); T_k–H_k — LINK, IMPOSED (П-8(а)); T_{k−1}–H_k — CONTACT-ONLY, IMPOSED через `fix` (П-8(б)); H–H SEPARATED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "K5-POS-K4-node § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1} (R_k); LINK T_k–H_k (RH_k, IMPOSED через `fix`, П-8(б)); T_{k−1}–H_k — CONTACT-ONLY; H–H рёбер нет."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "H1"
+            ],
+            [
+              "T1",
+              "H2"
+            ],
+            [
+              "T2",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "K5-POS-K4-node § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1} (R_k); LINK T_k–H_k (RH_k, IMPOSED через `fix`, П-8(б)); T_{k−1}–H_k — CONTACT-ONLY; H–H рёбер нет."
+        },
+        {
+          "kind": "checks",
+          "req": "R-3",
+          "objects_list": [
+            [
+              "RH1",
+              "RH2"
+            ],
+            [
+              "RH2",
+              "RH3"
+            ]
+          ],
+          "field": "completeness",
+          "value": "EXACT",
+          "src": "K5-POS-K4-node § 3, «RH1–RH2»",
+          "ref": "**Применимо.** ρ ≈ 57,26° ≠ 90° → `parallel-distinct`, R-3 EXACT."
+        },
+        {
+          "kind": "checks",
+          "req": "R-3",
+          "objects_list": [
+            [
+              "RH1",
+              "RH2"
+            ],
+            [
+              "RH2",
+              "RH3"
+            ]
+          ],
+          "field": "plane_relation_basis.rule",
+          "value": "П-9в",
+          "src": "K5-POS-K4-node § 3, «RH1–RH2»; интерфейс v7.1, поправка 1",
+          "ref": "**Применимо.** ρ ≈ 57,26° ≠ 90° → `parallel-distinct`, R-3 EXACT."
+        },
+        {
+          "kind": "checks",
+          "req": "R-3",
+          "objects_list": [
+            [
+              "RH1",
+              "RH3"
+            ]
+          ],
+          "field": "completeness",
+          "value": "EXACT",
+          "src": "K5-POS-K4-node § 3, «RH1–RH3»",
+          "ref": "**Применимо.** R-3, EXACT, PASSED."
+        },
+        {
+          "kind": "checks",
+          "req": "R-3",
+          "objects_list": [
+            [
+              "RH1",
+              "RH3"
+            ]
+          ],
+          "field": "plane_relation_basis.rule",
+          "value": "П-9а",
+          "src": "K5-POS-K4-node § 3, «RH1–RH3»; интерфейс v7.1, поправка 1",
+          "ref": "**Применимо.** R-3, EXACT, PASSED."
+        }
+      ]
+    },
+    "K5-NEG-single-deviation": {
+      "kind": "K.run",
+      "case": "K5-NEG-single-deviation",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "FORBIDDEN"
+          ],
+          "src": "K5-NEG-single-deviation § 4, «Итоги. Геометрия»",
+          "ref": "**Геометрия:** `FORBIDDEN` (PENETRATION H1–H2)."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-NEG-single-deviation § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT`. Запрет геометрический, не J5: H1–H2 не касание (проникновение) — ребра в графе нет; граф — дерево."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "K5-NEG-single-deviation § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT`. Запрет геометрический, не J5: H1–H2 не касание (проникновение) — ребра в графе нет; граф — дерево."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ]
+          ],
+          "field": "existence",
+          "value": "PENETRATION",
+          "src": "K5-NEG-single-deviation § 4, «Итоги. Касания»",
+          "ref": "**Касания:** H1–H2 PENETRATION; H2–H3 SEPARATED; остальные IMPOSED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "SEPARATED",
+          "src": "K5-NEG-single-deviation § 4, «Итоги. Касания»",
+          "ref": "**Касания:** H1–H2 PENETRATION; H2–H3 SEPARATED; остальные IMPOSED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "K5-NEG-single-deviation § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1}, T_1–H_1, T_2–H_2, T_3–H_3; H1–H2, H2–H3 рёбер нет."
+        }
+      ]
+    },
+    "K5-NEG-band-30": {
+      "kind": "K.run",
+      "case": "K5-NEG-band-30",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K5-NEG-band-30 § 3, строка «геометрия `PASSED`»",
+          "ref": "геометрия `PASSED`"
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "FORBIDDEN"
+          ],
+          "src": "K5-NEG-band-30 § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: FORBIDDEN`; `J5-EXT: FORBIDDEN-EXT`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "FORBIDDEN-EXT"
+          ],
+          "src": "K5-NEG-band-30 § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: FORBIDDEN`; `J5-EXT: FORBIDDEN-EXT`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "H1"
+            ],
+            [
+              "T1",
+              "H2"
+            ],
+            [
+              "T2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K5-NEG-band-30 § 4, «Итоги. Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k IMPOSED (П-8(б)); H_k–H_{k+1} IMPOSED (П-8(г))."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K5-NEG-band-30 § 4, «Итоги. Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k IMPOSED (П-8(б)); H_k–H_{k+1} IMPOSED (П-8(г))."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "K5-NEG-band-30 § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1} (R_k); LINK T_k–H_k (RH_k); T_{k−1}–H_k — CONTACT-ONLY; H_k–H_{k+1} — CONTACT-ONLY."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "H1"
+            ],
+            [
+              "T1",
+              "H2"
+            ],
+            [
+              "T2",
+              "H3"
+            ],
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "K5-NEG-band-30 § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1} (R_k); LINK T_k–H_k (RH_k); T_{k−1}–H_k — CONTACT-ONLY; H_k–H_{k+1} — CONTACT-ONLY."
+        }
+      ]
+    },
+    "K5-UNRESOLVED-B8": {
+      "kind": "K.run",
+      "case": "K5-UNRESOLVED-B8",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "спецификация § 2.2, K-1",
+          "ref": "Ветви совпали — вердикт выдаётся с пометкой; разошлись — `UNRESOLVED`."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "K5-UNRESOLVED-B8 § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: UNRESOLVED`; `J5-EXT: UNRESOLVED`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "K5-UNRESOLVED-B8 § 4, «Итоги. J5»",
+          "ref": "**J5:** `J5-CANON: UNRESOLVED`; `J5-EXT: UNRESOLVED`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "H1"
+            ],
+            [
+              "T1",
+              "H2"
+            ],
+            [
+              "T2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "CANDIDATE",
+          "src": "K5-UNRESOLVED-B8 § 4, «Итоги. Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k CANDIDATE; остальные IMPOSED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K5-UNRESOLVED-B8 § 4, «Итоги. Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k CANDIDATE; остальные IMPOSED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "K5-UNRESOLVED-B8 § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1}, T_k–H_k; H_k–H_{k+1} — CONTACT-ONLY, IMPOSED (П-8(г)); T_{k−1}–H_k CANDIDATE (k=1..3)."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "K5-UNRESOLVED-B8 § 4, «Итоги. Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1}, T_k–H_k; H_k–H_{k+1} — CONTACT-ONLY, IMPOSED (П-8(г)); T_{k−1}–H_k CANDIDATE (k=1..3)."
+        }
+      ]
+    },
+    "K6-POS-alternating": {
+      "kind": "K.run",
+      "case": "K6-POS-alternating",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K6-POS-alternating § 4, «Геометрия»",
+          "ref": "**Геометрия:** `PASSED`"
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K6-POS-alternating § 4, «J5»",
+          "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "K6-POS-alternating § 4, «J5»",
+          "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K6-POS-alternating § 4, «Касания»",
+          "ref": "**Касания:** T_k–T_{k+1}, T_k–H_k IMPOSED; H–H SEPARATED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "SEPARATED",
+          "src": "K6-POS-alternating § 4, «Касания»",
+          "ref": "**Касания:** T_k–T_{k+1}, T_k–H_k IMPOSED; H–H SEPARATED."
+        },
+        {
+          "kind": "checks",
+          "req": "R-3",
+          "objects_list": [
+            [
+              "RH1",
+              "RH2"
+            ],
+            [
+              "RH2",
+              "RH3"
+            ],
+            [
+              "RH1",
+              "RH3"
+            ]
+          ],
+          "field": "completeness",
+          "value": "EXACT",
+          "src": "K6-POS-alternating § 4, «Геометрия»",
+          "ref": "**Геометрия:** `PASSED`; пары колец навесов — R-3 EXACT по П-9(б)"
+        },
+        {
+          "kind": "checks",
+          "req": "R-3",
+          "objects_list": [
+            [
+              "RH1",
+              "RH2"
+            ],
+            [
+              "RH2",
+              "RH3"
+            ],
+            [
+              "RH1",
+              "RH3"
+            ]
+          ],
+          "field": "plane_relation_basis.rule",
+          "value": "П-9б",
+          "src": "K6-POS-alternating § 4, «Геометрия»; интерфейс v7.1, поправка 1",
+          "ref": "**Геометрия:** `PASSED`; пары колец навесов — R-3 EXACT по П-9(б)"
+        }
+      ],
+      "num": [
+        {
+          "id": "gap_H1_H2",
+          "extract": {
+            "k": "contact",
+            "pair": [
+              "H1",
+              "H2"
+            ],
+            "f": "gap"
+          },
+          "op": "value_contains",
+          "v": 2.4721359549995796,
+          "tol": 1e-09,
+          "src": "K6-POS-alternating § 3, «d(H1,H2) = √20 ≈ 4.472136»; G-4: d=√20 → g=√20 − 2",
+          "ref": "Касаний навес–навес нет (≈ 4,47)",
+          "tol_src": "§ 2.11 А-7, столбец допуска 10⁻⁹"
+        },
+        {
+          "id": "gap_H2_H3",
+          "extract": {
+            "k": "contact",
+            "pair": [
+              "H2",
+              "H3"
+            ],
+            "f": "gap"
+          },
+          "op": "value_contains",
+          "v": 2.4721359549995796,
+          "tol": 1e-09,
+          "src": "K6-POS-alternating § 3, «d(H2,H3) = √20»; G-4",
+          "ref": "Касаний навес–навес нет (≈ 4,47)",
+          "tol_src": "§ 2.11 А-7, столбец допуска 10⁻⁹"
+        }
+      ]
+    },
+    "K6-NEG-synthetic-odd": {
+      "kind": "K.run",
+      "case": "K6-NEG-synthetic-odd",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "K6-NEG-synthetic-odd § 4, «Геометрия»",
+          "ref": "**Геометрия:** `PASSED`."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "FORBIDDEN"
+          ],
+          "src": "K6-NEG-synthetic-odd § 4, «J5»",
+          "ref": "**J5:** `J5-CANON: FORBIDDEN`; `J5-EXT: FORBIDDEN-EXT`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "FORBIDDEN-EXT"
+          ],
+          "src": "K6-NEG-synthetic-odd § 4, «J5»",
+          "ref": "**J5:** `J5-CANON: FORBIDDEN`; `J5-EXT: FORBIDDEN-EXT`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "Ta",
+              "Tb"
+            ],
+            [
+              "Tb",
+              "Tc"
+            ],
+            [
+              "Tc",
+              "Ta"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K6-NEG-synthetic-odd § 4, «Касания»",
+          "ref": "**Касания:** 3 IMPOSED (declare)."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "Ta",
+              "Tb"
+            ],
+            [
+              "Tb",
+              "Tc"
+            ],
+            [
+              "Tc",
+              "Ta"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "K6-NEG-synthetic-odd § 4, «Топология»",
+          "ref": "**Топология:** 3 CONTACT-ONLY ребра в 3-цикле."
+        }
+      ]
+    },
+    "K6-UNRESOLVED": {
+      "kind": "K.run",
+      "case": "K6-UNRESOLVED",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "K6-UNRESOLVED § 4, «Геометрия»",
+          "ref": "**Геометрия:** `UNRESOLVED`."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "K6-UNRESOLVED § 4, «J5»",
+          "ref": "**J5:** `J5-CANON: UNRESOLVED`; `J5-EXT: UNRESOLVED`."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "K6-UNRESOLVED § 4, «J5»",
+          "ref": "**J5:** `J5-CANON: UNRESOLVED`; `J5-EXT: UNRESOLVED`."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "H1"
+            ],
+            [
+              "T1",
+              "H2"
+            ],
+            [
+              "T2",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "CANDIDATE",
+          "src": "K6-UNRESOLVED § 4, «Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k CANDIDATE (k=1..3); T_k–T_{k+1}, T_k–H_k IMPOSED (П-8(а)); H–H SEPARATED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "K6-UNRESOLVED § 4, «Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k CANDIDATE (k=1..3); T_k–T_{k+1}, T_k–H_k IMPOSED (П-8(а)); H–H SEPARATED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "H1",
+              "H2"
+            ],
+            [
+              "H2",
+              "H3"
+            ],
+            [
+              "H1",
+              "H3"
+            ]
+          ],
+          "field": "existence",
+          "value": "SEPARATED",
+          "src": "K6-UNRESOLVED § 4, «Касания»",
+          "ref": "**Касания:** T_{k−1}–H_k CANDIDATE (k=1..3); T_k–T_{k+1}, T_k–H_k IMPOSED (П-8(а)); H–H SEPARATED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T1",
+              "H1"
+            ],
+            [
+              "T2",
+              "H2"
+            ],
+            [
+              "T3",
+              "H3"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "K6-UNRESOLVED § 4, «Топология»",
+          "ref": "**Топология:** LINK T_k–T_{k+1}, T_k–H_k; T_{k−1}–H_k CANDIDATE; H–H рёбер нет."
+        }
+      ]
+    },
+    "Kλ5-W-even": {
+      "kind": "K.run",
+      "case": "Kλ5-W-even",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-W-even § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 4 CONTACT-ONLY; касания 4 IMPOSED."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-W-even § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 4 CONTACT-ONLY; касания 4 IMPOSED."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "Kλ5-W-even § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 4 CONTACT-ONLY; касания 4 IMPOSED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T4",
+              "T1"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "Kλ5-W-even § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 4 CONTACT-ONLY; касания 4 IMPOSED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T4",
+              "T1"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "Kλ5-W-even § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 4 CONTACT-ONLY; касания 4 IMPOSED."
+        }
+      ]
+    },
+    "Kλ5-Gluon-even": {
+      "kind": "K.run",
+      "case": "Kλ5-Gluon-even",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-Gluon-even § 3, «Ожидаемое»",
+          "ref": "геометрия `PASSED`; топология 8 CONTACT-ONLY; касания 8 IMPOSED."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-Gluon-even § 3, «Ожидаемое»",
+          "ref": "∏g = (+1)^8 = +1 → J5-CANON: PASSED"
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T4",
+              "T5"
+            ],
+            [
+              "T5",
+              "T6"
+            ],
+            [
+              "T6",
+              "T7"
+            ],
+            [
+              "T7",
+              "T0"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "Kλ5-Gluon-even § 3, «Ожидаемое»",
+          "ref": "геометрия `PASSED`; топология 8 CONTACT-ONLY; касания 8 IMPOSED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "T0",
+              "T1"
+            ],
+            [
+              "T1",
+              "T2"
+            ],
+            [
+              "T2",
+              "T3"
+            ],
+            [
+              "T3",
+              "T4"
+            ],
+            [
+              "T4",
+              "T5"
+            ],
+            [
+              "T5",
+              "T6"
+            ],
+            [
+              "T6",
+              "T7"
+            ],
+            [
+              "T7",
+              "T0"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "Kλ5-Gluon-even § 3, «Ожидаемое»",
+          "ref": "геометрия `PASSED`; топология 8 CONTACT-ONLY; касания 8 IMPOSED."
+        }
+      ]
+    },
+    "Kλ5-Synthetic-odd": {
+      "kind": "K.run",
+      "case": "Kλ5-Synthetic-odd",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-Synthetic-odd § 4",
+          "ref": "Геометрия `PASSED`; J5 `FORBIDDEN`/`FORBIDDEN-EXT`; топология 3 CONTACT-ONLY; касания 3 IMPOSED."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "FORBIDDEN"
+          ],
+          "src": "Kλ5-Synthetic-odd § 4",
+          "ref": "Геометрия `PASSED`; J5 `FORBIDDEN`/`FORBIDDEN-EXT`; топология 3 CONTACT-ONLY; касания 3 IMPOSED."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "FORBIDDEN-EXT"
+          ],
+          "src": "Kλ5-Synthetic-odd § 4",
+          "ref": "Геометрия `PASSED`; J5 `FORBIDDEN`/`FORBIDDEN-EXT`; топология 3 CONTACT-ONLY; касания 3 IMPOSED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "Ta",
+              "Tb"
+            ],
+            [
+              "Tb",
+              "Tc"
+            ],
+            [
+              "Tc",
+              "Ta"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "Kλ5-Synthetic-odd § 4",
+          "ref": "Геометрия `PASSED`; J5 `FORBIDDEN`/`FORBIDDEN-EXT`; топология 3 CONTACT-ONLY; касания 3 IMPOSED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "Ta",
+              "Tb"
+            ],
+            [
+              "Tb",
+              "Tc"
+            ],
+            [
+              "Tc",
+              "Ta"
+            ]
+          ],
+          "field": "cls",
+          "value": "CONTACT-ONLY",
+          "src": "Kλ5-Synthetic-odd § 4",
+          "ref": "Геометрия `PASSED`; J5 `FORBIDDEN`/`FORBIDDEN-EXT`; топология 3 CONTACT-ONLY; касания 3 IMPOSED."
+        }
+      ]
+    },
+    "Kλ5-Z-notapplicable": {
+      "kind": "K.run",
+      "case": "Kλ5-Z-notapplicable",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-Z-notapplicable § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 1 LINK; касания IMPOSED."
+        },
+        {
+          "path": "j5.canon.verdict",
+          "in": [
+            "PASSED"
+          ],
+          "src": "Kλ5-Z-notapplicable § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 1 LINK; касания IMPOSED."
+        },
+        {
+          "path": "j5.ext.verdict",
+          "in": [
+            "PASSED-EXT"
+          ],
+          "src": "Kλ5-Z-notapplicable § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 1 LINK; касания IMPOSED."
+        },
+        {
+          "kind": "contacts",
+          "pairs": [
+            [
+              "Za",
+              "Zb"
+            ]
+          ],
+          "field": "existence",
+          "value": "IMPOSED",
+          "src": "Kλ5-Z-notapplicable § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 1 LINK; касания IMPOSED."
+        },
+        {
+          "kind": "j5_edges",
+          "pairs": [
+            [
+              "Za",
+              "Zb"
+            ]
+          ],
+          "field": "cls",
+          "value": "LINK",
+          "src": "Kλ5-Z-notapplicable § 4, «Итоги»",
+          "ref": "Геометрия `PASSED`; J5 `PASSED`/`PASSED-EXT`; топология 1 LINK; касания IMPOSED."
+        }
+      ]
+    },
+    "A6-K5": {
+      "kind": "K.composite",
+      "cases": [
+        "K5-POS-transverse",
+        "K5-NEG-single-deviation"
+      ],
+      "expect": {
+        "K5-POS-transverse": [
+          {
+            "path": "verdict.geometry",
+            "in": [
+              "PASSED"
+            ],
+            "src": "A6-K5 § 4, «Итоги. Геометрия»",
+            "ref": "**Геометрия:** положительная — `PASSED`; одиночное — `FORBIDDEN`."
+          },
+          {
+            "path": "j5.canon.verdict",
+            "in": [
+              "PASSED"
+            ],
+            "src": "A6-K5 § 4, «Итоги. J5»",
+            "ref": "**J5:** положительная — `J5-CANON: PASSED`; одиночное — `J5-CANON: PASSED` (проникновение не ребро; граф — дерево)."
+          },
+          {
+            "kind": "contacts",
+            "pairs": [
+              [
+                "H1",
+                "H2"
+              ],
+              [
+                "H2",
+                "H3"
+              ]
+            ],
+            "field": "existence",
+            "value": "IMPOSED",
+            "src": "A6-K5 § 4, «Итоги. Касания»",
+            "ref": "**Касания:** положительная — H–H IMPOSED (П-8(г)); одиночное — H1–H2 PENETRATION, H2–H3 SEPARATED."
+          }
+        ],
+        "K5-NEG-single-deviation": [
+          {
+            "path": "verdict.geometry",
+            "in": [
+              "FORBIDDEN"
+            ],
+            "src": "A6-K5 § 4, «Итоги. Геометрия»",
+            "ref": "**Геометрия:** положительная — `PASSED`; одиночное — `FORBIDDEN`."
+          },
+          {
+            "path": "j5.canon.verdict",
+            "in": [
+              "PASSED"
+            ],
+            "src": "A6-K5 § 4, «Итоги. J5»",
+            "ref": "**J5:** положительная — `J5-CANON: PASSED`; одиночное — `J5-CANON: PASSED` (проникновение не ребро; граф — дерево)."
+          },
+          {
+            "kind": "contacts",
+            "pairs": [
+              [
+                "H1",
+                "H2"
+              ]
+            ],
+            "field": "existence",
+            "value": "PENETRATION",
+            "src": "A6-K5 § 4, «Итоги. Касания»",
+            "ref": "**Касания:** положительная — H–H IMPOSED (П-8(г)); одиночное — H1–H2 PENETRATION, H2–H3 SEPARATED."
+          },
+          {
+            "kind": "contacts",
+            "pairs": [
+              [
+                "H2",
+                "H3"
+              ]
+            ],
+            "field": "existence",
+            "value": "SEPARATED",
+            "src": "A6-K5 § 4, «Итоги. Касания»",
+            "ref": "**Касания:** положительная — H–H IMPOSED (П-8(г)); одиночное — H1–H2 PENETRATION, H2–H3 SEPARATED."
+          }
+        ]
+      },
+      "num": {
+        "K5-POS-transverse": [
+          {
+            "id": "gap_H1_H2",
+            "extract": {
+              "k": "contact",
+              "pair": [
+                "H1",
+                "H2"
+              ],
+              "f": "gap"
+            },
+            "op": "contains",
+            "v": 0,
+            "tol": 1e-09,
+            "src": "A6-K5 § 3, строка «d_H–H = 2»; G-4: d=2 → g=0",
+            "ref": "Расстояние навес–навес = 2",
+            "tol_src": "§ 2.11 А-6, столбец допуска 10⁻⁹"
+          },
+          {
+            "id": "gap_H2_H3",
+            "extract": {
+              "k": "contact",
+              "pair": [
+                "H2",
+                "H3"
+              ],
+              "f": "gap"
+            },
+            "op": "contains",
+            "v": 0,
+            "tol": 1e-09,
+            "src": "A6-K5 § 3, строка «d_H–H = 2»; G-4: d=2 → g=0",
+            "ref": "Расстояние навес–навес = 2",
+            "tol_src": "§ 2.11 А-6, столбец допуска 10⁻⁹"
+          }
+        ]
+      }
+    },
+    "A7-K6": {
+      "kind": "K.composite",
+      "cases": [
+        "K6-POS-alternating"
+      ],
+      "expect": {
+        "K6-POS-alternating": [
+          {
+            "path": "verdict.geometry",
+            "in": [
+              "PASSED"
+            ],
+            "src": "A7-K6 § 4, «Итоги. Геометрия»",
+            "ref": "**Геометрия:** `PASSED`."
+          },
+          {
+            "path": "j5.canon.verdict",
+            "in": [
+              "PASSED"
+            ],
+            "src": "A7-K6 § 4, «Итоги. J5»",
+            "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT` (спец. K-6, М-2)."
+          },
+          {
+            "path": "j5.ext.verdict",
+            "in": [
+              "PASSED-EXT"
+            ],
+            "src": "A7-K6 § 4, «Итоги. J5»",
+            "ref": "**J5:** `J5-CANON: PASSED`; `J5-EXT: PASSED-EXT` (спец. K-6, М-2)."
+          },
+          {
+            "kind": "contacts",
+            "pairs": [
+              [
+                "H1",
+                "H2"
+              ],
+              [
+                "H2",
+                "H3"
+              ]
+            ],
+            "field": "existence",
+            "value": "SEPARATED",
+            "src": "A7-K6 § 4, «Итоги. Касания»",
+            "ref": "**Касания:** H–H SEPARATED."
+          }
+        ]
+      },
+      "num": {
+        "K6-POS-alternating": [
+          {
+            "id": "gap_H1_H2",
+            "extract": {
+              "k": "contact",
+              "pair": [
+                "H1",
+                "H2"
+              ],
+              "f": "gap"
+            },
+            "op": "value_contains",
+            "v": 2.4721359549995796,
+            "tol": 1e-09,
+            "src": "A7-K6 § 3, «d(H1,H2) = √20 ≈ 4.472136»; G-4: d=√20 → g=√20 − 2",
+            "ref": "Касаний навес–навес нет (≈ 4,47)",
+            "tol_src": "§ 2.11 А-7, столбец допуска 10⁻⁹"
+          },
+          {
+            "id": "gap_H2_H3",
+            "extract": {
+              "k": "contact",
+              "pair": [
+                "H2",
+                "H3"
+              ],
+              "f": "gap"
+            },
+            "op": "value_contains",
+            "v": 2.4721359549995796,
+            "tol": 1e-09,
+            "src": "A7-K6 § 3, «d(H2,H3) = √20»; G-4",
+            "ref": "Касаний навес–навес нет (≈ 4,47)",
+            "tol_src": "§ 2.11 А-7, столбец допуска 10⁻⁹"
+          }
+        ]
+      }
+    },
+    "B4-Kλ5": {
+      "kind": "K.composite",
+      "cases": [
+        "Kλ5-W-even",
+        "Kλ5-Gluon-even",
+        "Kλ5-Synthetic-odd"
+      ],
+      "expect": {
+        "Kλ5-W-even": [
+          {
+            "path": "verdict.geometry",
+            "in": [
+              "PASSED"
+            ],
+            "src": "B4-Kλ5 § 4, «Итоги. Геометрия»",
+            "ref": "**Геометрия:** во всех трёх — `PASSED`."
+          },
+          {
+            "path": "j5.canon.verdict",
+            "in": [
+              "PASSED"
+            ],
+            "src": "B4-Kλ5 § 3, «чётные циклы»",
+            "ref": "**J5:** W, глюон — `PASSED`/`PASSED-EXT`; синтетический нечётный — `FORBIDDEN`/`FORBIDDEN-EXT`."
+          }
+        ],
+        "Kλ5-Gluon-even": [
+          {
+            "path": "verdict.geometry",
+            "in": [
+              "PASSED"
+            ],
+            "src": "B4-Kλ5 § 4, «Итоги. Геометрия»",
+            "ref": "**Геометрия:** во всех трёх — `PASSED`."
+          },
+          {
+            "path": "j5.canon.verdict",
+            "in": [
+              "PASSED"
+            ],
+            "src": "B4-Kλ5 § 3, «чётные циклы»",
+            "ref": "**J5:** W, глюон — `PASSED`/`PASSED-EXT`; синтетический нечётный — `FORBIDDEN`/`FORBIDDEN-EXT`."
+          }
+        ],
+        "Kλ5-Synthetic-odd": [
+          {
+            "path": "verdict.geometry",
+            "in": [
+              "PASSED"
+            ],
+            "src": "B4-Kλ5 § 4, «Итоги. Геометрия»",
+            "ref": "**Геометрия:** во всех трёх — `PASSED`."
+          },
+          {
+            "path": "j5.canon.verdict",
+            "in": [
+              "FORBIDDEN"
+            ],
+            "src": "B4-Kλ5 § 3, «нечётный цикл»",
+            "ref": "**J5:** W, глюон — `PASSED`/`PASSED-EXT`; синтетический нечётный — `FORBIDDEN`/`FORBIDDEN-EXT`."
+          }
+        ]
+      }
+    },
+    "B6a-R2-static-meeting": {
+      "kind": "K.run",
+      "case": "B6a-R2-static-meeting",
+      "expect": [
+        {
+          "kind": "checks",
+          "req": "R-2",
+          "objects_list": [
+            [
+              "Q1",
+              "Q2"
+            ]
+          ],
+          "field": "contact_class",
+          "value": "UNRESOLVED CONTACT",
+          "src": "B6a-R2-static-meeting § 4, «Итоги»",
+          "ref": "**Геометрия:** R-2, `UNRESOLVED CONTACT`."
+        }
+      ]
+    },
+    "B6b-R5-near-parallel": {
+      "kind": "K.run",
+      "case": "B6b-R5-near-parallel",
+      "expect": [
+        {
+          "path": "verdict.geometry",
+          "in": [
+            "UNRESOLVED"
+          ],
+          "src": "B6b-R5-near-parallel § 4, «Итоги»",
+          "ref": "Геометрия — R-5 `UNRESOLVED`; остальное вне графа."
+        }
+      ]
+    },
+    "B6c-R6-three-rings": {
+      "kind": "K.run",
+      "case": "B6c-R6-three-rings",
+      "expect": [
+        {
+          "kind": "checks",
+          "req": "R-6",
+          "objects_list": [
+            [
+              "Q1",
+              "Q2",
+              "Q3"
+            ]
+          ],
+          "field": "contact_class",
+          "value": "DEGENERATE MEETING",
+          "src": "B6c-R6-three-rings § 4, «Итоги»",
+          "ref": "Геометрия — R-6 `DEGENERATE MEETING`; J5 вне графа."
+        }
+      ]
+    },
+    "B7-B1-property": {
+      "kind": "K.run",
+      "case": "B7-B1-property",
+      "expect": [
+        {
+          "path": "output.family.first_stop.value",
+          "in": [
+            5
+          ],
+          "src": "B7-B1-property § 3, «output.family.first_stop — ρ = 5°»",
+          "ref": "`output.family.first_stop` — ρ = 5°"
+        },
+        {
+          "path": "output.family.last_admissible.value",
+          "in": [
+            0
+          ],
+          "src": "B7-B1-property § 3, «output.family.last_admissible — ρ = 0°»",
+          "ref": "`output.family.last_admissible` — ρ = 0° (PASSED)"
+        }
+      ]
+    }
+  },
+  "mutants": {
+    "m7": {
+      "caught_by": [
+        "B6a-R2-static-meeting"
+      ],
+      "expected_on_kernel": "PASS",
+      "expected_on_mutant": "FAIL",
+      "src": "D-5 ред. 3, m7-mutant § 3",
+      "ref": "м7 ловится B6a"
+    }
+  }
+}
