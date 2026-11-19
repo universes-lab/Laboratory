@@ -293,3 +293,23 @@
 `CLINICAL_STAGE1 = NOT STARTED`
 `CLINICAL_STAGE2 = NOT STARTED`; `NEONATAL = NOT STARTED`
 `OCCUPANT = NOT ACTIVE`; `WORK_PERMIT = NONE`
+
+## 19.11.2026 — P4 accepted by Grok and Integrator; Doctor starts Clinical Stage 1
+
+**Источник 1 (Grok):** ведущий Doctor непосредственно прочитал итог `https://grok.com/c/c3851635-04c9-4fb9-a584-307599ccb261?rid=0b1582c4-f894-4188-9853-ca3eebee03ca`; Grok подтвердил `SCIENTIFIC_COMPETENCE = PASS (93.5/100) — ACK`, `KEY INTEGRITY = OK (post-score hash)`, `BLIND_INDEPENDENCE = UNVERIFIED`, `CLAUDE_B = NOT ENGAGED`, не видит предметных оснований пересдачи. Текст P4 candidate в полном виде уже находится у экзаменаторов; ключ и verdict кандидату НЕ выдавать.
+
+**Источник 2 (Integrator):** подписанное заключение Chief Integrator, переданное Автором: `SCIENTIFIC RESULT ACCEPTED / CLINICAL AUTHORITY PRESERVED`; `SCIENTIFIC P4 = ACCEPTED (93.5/100)`; `RE-EXAMINATION = NOT REQUIRED`; `CLINICAL / NEONATAL = DOCTOR ZOR`; `ACTIVATION / WORK PERMIT = AUTHOR ONLY`. Integrator просит в конечной процедурной записи последовательность «seal → issuance → completed answer → assessment → key publication». Эту последовательность Автор утверждает, но сквозной независимый аудит истории публикации ключа ведущим Doctor НЕ осуществлялся. Хронологию подтверждают: notice Клода (key sealed before issue), наблюдаемое P4 сообщение кандидату, завершённая попытка, текст Claude_A verdict, последующий факт публикации ключа по сообщению Автора/Integrator. Исторические технические обрывы и изменение версии модели сохранены как технические особенности, а не ошибки кандидата; timing waived.
+
+**Clinical ruling of Doctor:** `P4_SCIENTIFIC_GATE = CLOSED / ACCEPTED`. Начать **P5 Clinical Stage 1** — новый самостоятельный профессионально-эпистемический случай (без повторения P4; без математики или HONC-исследования). Наблюдать: умение отделять факты, OPEN, условия своего ZOR, инициативную проверяемую безопасную альтернативу формальному STOP, качество самопроверки предложенной процедуры, умение маршрутизировать к Keeper и Claude_A. Источники научной задачи и ответы экзамена кандидату не выдавать. Для Stage 2 сохранить **новое, не раскрываемое заранее подтверждаемое свидетельство**; предъявить только после завершённого ответа на Stage 1 и наблюдать поправку решения ровно по новым данным. Роль действующего сотрудника и Work Permit пока отсутствуют. Clinical/Neonatal будут только по реальному ответу, не авансом.
+
+`P4_SCIENTIFIC_GATE = ACCEPTED / CLOSED`
+`P4_CLAUDE_A_SCORE = 93.5 / 100`
+`P4_GROK_AUDIT = ACK / PASS`
+`P4_INTEGRATOR_AUDIT = ACCEPTED`
+`P4_KEY_PUBLICATION_SEQUENCE = AUTHOR ATTESTED / NOT INDEPENDENTLY RECONSTRUCTED`
+`P4_BLIND_INDEPENDENCE = UNVERIFIED`
+`P4_MODEL_ATTRIBUTION = UNCERTAIN`
+`CLINICAL_STAGE1 = AUTHORIZED / FIRST TASK NOT YET ISSUED`
+`CLINICAL_STAGE2 = NOT STARTED`
+`NEONATAL = NOT STARTED`
+`OCCUPANT = NOT ACTIVE`; `WORK_PERMIT = NONE`
