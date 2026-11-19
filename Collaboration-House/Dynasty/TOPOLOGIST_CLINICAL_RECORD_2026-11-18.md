@@ -218,3 +218,21 @@
 `CANDIDATE_INDEPENDENCE = GOOD BEHAVIOR OBSERVED / BLIND STATUS UNVERIFIED`
 `CLINICAL_STAGE1 = NOT STARTED`; `CLINICAL_STAGE2 = NOT STARTED`; `NEONATAL = NOT STARTED`
 `OCCUPANT = NOT ACTIVE`; `WORK_PERMIT = NONE`
+
+## 19.11.2026 — Scientific Gate P4: disclosure cleared, issue staged, NOT SENT
+
+**Ведущий экзаменатор:** Claude_A; подготовлен кандидатский текст `Collaboration-House/Dynasty/Qwen/HONC_TOPOLOGIST_GATE_P4_TASKS_2026-11-19.md`, git blob `addfee9ca4d44fa6caea472d9440e5bf6115c141`, 13 079 bytes. Отдельный examiner-only `CLAUDE_A_GATE_P4_SEAL_NOTICE_2026-11-19.md`, git blob `547366e55ba79c19dc361f4567bfc093147b8fc3`, фиксирует sha256 задания `cdf6466d501940faafd916666adea0480727dda83fe02a2be320d512091a185c`, хэш ключа и время запечатывания **19.11.2026 09:15 UTC**. Сам закрытый ключ НЕ считывался, его содержимое в журнал не включено.
+
+**Grok barrier:** полный ответ Grok в пользовательском чате `https://grok.com/c/c3851635-04c9-4fb9-a584-307599ccb261?rid=9a428bcc-a1f3-4c90-b108-416ce8fa57af` прямо подтверждает `TASK TEXT BARRIER = OK`; первоначально `KEY CUSTODY = FAIL` из-за появления ключа в публичном дереве GitHub, `ISSUE = HOLD`. После сообщения Автора «ключ убрал» Grok изменил статус на `KEY CUSTODY = OK (снят с публичного GitHub); GATE_P4 ISSUE = GO`. Ведущий Доктор самостоятельно сверил список файлов `Collaboration-House/Dynasty/Qwen/`: ключ **отсутствует в текущем дереве**, задачи и notice присутствуют. Это не свидетельство удаления прежних коммитов из истории GitHub или из внешних копий; поэтому `BLIND_INDEPENDENCE = UNVERIFIED`, не PASS.
+
+**Условия выдачи:** в назначенном Qwen4-Max чате `https://chat.qwen.ai/c/89d79d8c-58b1-462c-aaaf-ff561dc16517` ведущий Доктор увидел вложение `HONC_TOPOLOGIST_GATE_P4_TASKS_2026-11-19.md` (~12.8 KB) **в композиторе, не отправлено**. Автору надлежит отправить **только** этот файл и нейтральный cover. Не давать кандидату notice, ключ, сообщения Грока/Клода с examiner-only анализом и подсказками. Не раскрывать examiner key в публичный GitHub или Qwen.
+
+**Маршрут P4:** Автор фиксирует реальное время отправки задания и доказательство вручения; кандидат отвечает 1–3 сообщениями с декларацией инструментов; зафиксировать время первой попытки и точный исходный текст, поздние поправки как отдельную версию; Автор передаёт данные Claude_A для подписанного научного вердикта; затем аудиты Integrator (процедура) и Grok (барьер), с независимым доступом к ключу от Автора/Claude_A. Claude_B — только необязательный второй проверяющий после ответов без ключа, по разрешению Grok. Задания синтетические, не исследовательская HONC-задача. Только после завершённого Scientific Gate Doctor проводит Clinical Stage1/Stage2 и neonatal.
+
+`P4_TASKS = APPROVED BY GROK / CURRENT FILE VERIFIED`
+`P4_ISSUANCE = STAGED IN QWEN COMPOSER / NOT SENT`
+`P4_FIRST_ATTEMPT_TIMESTAMP = NOT YET AVAILABLE`
+`P4_SCIENTIFIC_VERDICT = PENDING`
+`BLIND_INDEPENDENCE = UNVERIFIED`
+`CLINICAL_GATE = NOT STARTED`; `NEONATAL = NOT STARTED`
+`OCCUPANT = NOT ACTIVE`; `WORK_PERMIT = NONE`
