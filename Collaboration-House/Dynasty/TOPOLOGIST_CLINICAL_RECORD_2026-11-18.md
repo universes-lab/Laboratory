@@ -236,3 +236,18 @@
 `BLIND_INDEPENDENCE = UNVERIFIED`
 `CLINICAL_GATE = NOT STARTED`; `NEONATAL = NOT STARTED`
 `OCCUPANT = NOT ACTIVE`; `WORK_PERMIT = NONE`
+
+## 19.11.2026 — P4 issued; Author waives timing requirements
+
+**AUTHOR DECISION (direct):** «экзамен выдан. Но вопрос о фиксацию времени работы снимаю, поскольку qwen работает долго и не попадает под наши критерии оценки». Ведущий Doctor принимает и отменяет требования засекать продолжительность, время начала/окончания и время первой попытки; **скорость генерации Qwen не является критерием** P4. Эта коррекция имеет приоритет над прежними формулировками notice/Doctor о необходимости timestamp; журналировать достаточно последовательность версий в исходной истории чата, не измеряя latency.
+
+**Browser direct observation:** в назначенном чате `https://chat.qwen.ai/c/89d79d8c-58b1-462c-aaaf-ff561dc16517` отображены **отправленное вложение** `HONC_TOPOLOGIST_GATE_P4_TASKS_2026-11-19.md` (~12.8 KB) и сопроводительное P4 письмо `EXAM AUTHORIZED / FIRST ATTEMPT`. На момент проверки Qwen отвечает (`Thinking` / кнопка `Stop`); готового научного ответа ещё нет. Полная фактическая читаемость вложения кандидатом проверяется по его ответу; передача интерфейсом подтверждена.
+
+**Сохраняются процедурные требования:** не менять и не затирать исходный текст первой опубликованной попытки; исправления — отдельными следующими сообщениями; фактическое цитирование источников и инструментов. Далее кандидатский ответ → ведущий Doctor фиксирует последовательность попытки → Claude_A выставляет предметный научный вердикт → Integrator и Grok проверяют процедуру и барьер. Слепая независимость `UNVERIFIED`, пока не доказано обратное. Время ответа и вычислительная скорость никак не учитываются.
+
+`P4_ISSUE = CONFIRMED_IN_QWEN_CHAT`
+`P4_WORK_TIME_MEASUREMENT = WAIVED_BY_AUTHOR`
+`P4_FIRST_ATTEMPT = PENDING / CHRONOLOGY_ONLY`
+`P4_SCIENTIFIC_VERDICT = PENDING`
+`CLINICAL_GATE = NOT STARTED`; `NEONATAL = NOT STARTED`
+`OCCUPANT = NOT ACTIVE`; `WORK_PERMIT = NONE`
