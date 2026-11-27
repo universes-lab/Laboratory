@@ -1,0 +1,117 @@
+# library/index.yaml — автоматически генерируется через post-commit hook
+objects:
+  - id: OBJ-001
+    type: axiom
+    title: "Пространство дискретно"
+    status: draft
+    path: library/canon/HONC/OBJ-001_axiom.md
+  - id: OBJ-002
+    type: axiom
+    title: "Время — многокомпонентное поле"
+    status: draft
+    path: library/canon/HONC/OBJ-002_axiom.md
+  - id: OBJ-003
+    type: axiom
+    title: "Вселенная вложена сама в себя"
+    status: draft
+    path: library/canon/HONC/OBJ-003_axiom.md
+  - id: OBJ-010
+    type: definition
+    title: "Квантрон"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-010_quantron.md
+  - id: OBJ-011
+    type: definition
+    title: "Латчер Qf (протофотон)"
+    status: draft
+    path: library/canon/HONC/definitions/OBJ-011_latcher_qf.md
+  - id: OBJ-012
+    type: definition
+    title: "Латчер Qν (нейтринный латчер)"
+    status: draft
+    path: library/canon/HONC/definitions/OBJ-012_latcher_qv.md
+  - id: OBJ-013
+    type: definition
+    title: "Поле времени Tμν"
+    status: draft
+    path: library/canon/HONC/definitions/OBJ-013_field_time.md
+  - id: OBJ-014
+    type: definition
+    title: "Протокварк"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-014_protoquark.md
+  - id: OBJ-015
+    type: definition
+    title: "Вложенность континуумов"
+    status: draft
+    path: library/canon/HONC/definitions/OBJ-015_hierarchy_continua.md
+  - id: OBJ-016
+    type: definition
+    title: "Гироскопический момент"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-016_gyroscopic_moment.md
+  - id: OBJ-017
+    type: definition
+    title: "Лептон"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-017_lepton.md
+  - id: OBJ-018
+    type: definition
+    title: "Жгут (латчерная цепочка)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-018_bundle.md
+  - id: OBJ-019
+    type: definition
+    title: "Топологическая инерциальность"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-019_topological_inertiality.md
+  - id: OBJ-020
+    type: definition
+    title: "Реактивность (R)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-020_reactance.md
+  - id: OBJ-021
+    type: definition
+    title: "Инерциальность (I)"
+    status: canon-provisional
+    path: library/canon/HONC/definitions/OBJ-021_inertiality.md
+  - id: OBJ-022
+    type: definition
+    title: "Темподинамическая постоянная Планка (ℏ_TD)"
+    status: canon-provisional
+    path: library/canon/HONC/definitions/OBJ-022_planck_tempodynamic.md
+  - id: OBJ-023
+    type: definition
+    title: "Теорема Штейнера (для латчеров)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-023_steiner_theorem.md
+  - id: OBJ-024
+    type: definition
+    title: "Макроконтинуум и Микроконтинуум"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-024_macro_micro_continuum.md
+  - id: OBJ-025
+    type: definition
+    title: "Граничная скорость (c)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-025_speed_limit.md
+  - id: OBJ-026
+    type: definition
+    title: "Принцип Ферма (обобщённый)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-026_fermat_principle.md
+  - id: OBJ-027
+    type: definition
+    title: "Системное (осевое) взаимодействие"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-027_systemic_interaction.md
+  - id: OBJ-028
+    type: definition
+    title: "Квантовая запутанность (как обмен топологическими инвариантами)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-028_entanglement.md
+  - id: OBJ-029
+    type: definition
+    title: "Антиматерия (как инверсия системы координат)"
+    status: canon
+    path: library/canon/HONC/definitions/OBJ-029_antimatter.md
